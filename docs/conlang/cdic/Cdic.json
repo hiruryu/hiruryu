@@ -7,7 +7,7 @@
     "stem2": "ava",
     "tag": ["屈折接辞", "動詞屈折"],
     "parts": "動名接尾",
-    "meaning": ["～すること", "（ 動詞の質別形を作る ）", "（ 具象詞を表す代理形 ）", ],
+    "meaning": ["～すること", "（ 動詞の質別形を作る ）", "（ 具象詞を表す代理形 ）"],
     "pronunciation": ["/ava/<br>[ävə]<br>《ava-》"],
     "etymology": {
         "intro": ["語素。", "音象徴「 固い 」から。"],
@@ -654,6 +654,40 @@
       },
     "variants2": ["させる"]
   },
+  "-ha": {
+    "id": 136,
+    "safe": true,
+    "word": "ha",
+    "stem": "ha",
+    "stem2": "ha",
+    "tag": ["派生接尾時"],
+    "parts": "派生接辞",
+    "meaning": ["～さ", "〜性"],
+    "pronunciation": ["/ha/<br>[xə]<br>《ha-》"],
+    "etymology": {
+        "intro": ["語素。", "「 99 」が訛ったもの。"],
+        "changes": []
+      },
+    "variants2": ["せい"]
+  },
+  "luityífka": {
+    "id": 137,
+    "safe": true,
+    "word": "luityifka",
+    "stem": "luityífk",
+    "stem2": "luityifk",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "k 基本型",
+      "ruletype": "k",
+    "meaning": ["甘味料"],
+    "pronunciation": ["/lɯtʲifka/<br>[lɤ̟tʲifkə]<br>《lutyifka-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 182 」+「 135 」+「 99 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["かんみりょう"]
+  },
   "myéna": {
     "id": 179,
     "safe": true,
@@ -727,3 +761,4 @@
     "variants2": ["あまい", "スウィートな", "スイートな", "sweet"]
     }
 }
+
