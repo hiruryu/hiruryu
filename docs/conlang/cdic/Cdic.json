@@ -560,7 +560,7 @@
     "tag": ["陸生"],
     "parts": "名象",
       "type": "c 基本型",
-      "ruletype": "c",
+      "ruletype": "a",
     "meaning": ["うさぎ"],
     "pronunciation": ["/pʲottsa/<br>[pʲʊttsə]<br>《pyotca-》"],
     "etymology": {
@@ -628,8 +628,8 @@
     "word": "syifava",
     "stem": "syif",
     "stem2": "syáf",
-    "tag": ["屈折接辞", "動詞屈折"],
-    "parts": "動飾接尾",
+    "tag": "ー",
+    "parts": "動詞",
     "meaning": ["与える［ 能が ］［ 基を ］［ 与に ］", "送る［ 能が ］［ 基を ］［ 与に ］", "あげる［ 能が ］［ 基を ］［ 与に ］", "渡す［ 能が ］［ 基を ］［ 与に ］", "譲る［ 能が ］［ 基を ］［ 与に ］", "差し出す［ 能が ］［ 基を ］［ 与に ］",  "分ける［ 能が ］［ 基を ］［ 与に ］", "〜してあげる［ 能が ］［ 基を ］［ 与に ］"],
     "pronunciation": ["/sʲifava/<br>[sʲɪfävə]<br>《syif-》"],
     "etymology": {
@@ -687,6 +687,24 @@
         "changes": []
       },
     "variants2": ["かんみりょう"]
+  },
+    "luitiǻha": {
+    "id": 138,
+    "safe": true,
+    "word": "lutiåha",
+    "stem": "luitiǻha",
+    "stem2": "luitiåha",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "h 基本型",
+      "ruletype": "a",
+    "meaning": ["甘さ"],
+    "pronunciation": ["/lɯtʲoha/<br>[lɤ̟tʲɔxə]<br>《lutyaoha-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 182 」+「 136 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["あまさ"]
   },
   "myéna": {
     "id": 179,
@@ -761,4 +779,5 @@
     "variants2": ["あまい", "スウィートな", "スイートな", "sweet"]
     }
 }
+
 
