@@ -1,0 +1,70 @@
+{
+  "dér": {
+    "id": 1,
+    "safe": true,
+    "word": "dér",
+    "stem": "dér",
+    "stem2": "der",
+    "tag": "–",
+    "parts": "動詞",
+      "type": "完全不規則型",
+      "ruletype": "der",
+    "meaning": ["である［ 補 ］"],
+    "pronunciation": ["/deːr/<br>[dɛːr]<br>《deer-》"],
+    "etymology": {
+        "intro": ["単純語。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["der","be", "である", "だ", "コピュラ動詞"]
+  },
+  "fe mimíś": {
+    "id": 2,
+    "safe": true,
+    "word": "mimíś",
+    "stem": "mimíś",
+    "stem2": "mimiś",
+    "tag": "–",
+    "parts": "名詞",
+      "type": "ś 基本型",
+      "ruletype": "der",
+    "meaning": ["知的生命体", "ミミーシュ"],
+    "pronunciation": ["/mʲimʲiːʃ/<br>[mʲɪmʲiːʃ]<br>《myimyiš-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 入れる 」から。"],
+        "changes": []
+      },
+    "variants2": ["mimíś","mimiś","mimish","erma","ちてきせいめいたい", "エルマ", "人間", "ひと", "にんげん"]
+  },
+   "fhér": {
+    "id": 3,
+    "safe": true,
+    "word": "fhér",
+    "stem": "fhér",
+    "stem2": "fher",
+    "tag": "–",
+    "parts": "潒非離尾",
+    "meaning": ["〜なのか", "〜ですか", "〜は", "〜ならば"],
+    "pronunciation": ["/feːr/<br>[fɛːr]<br>《feer-》"],
+    "etymology": {
+        "intro": ["単純語。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["fher","?", "か", "ですか", "疑問形","浮遊形", "なのか"]
+  },
+   "té": {
+    "id": 5,
+    "safe": true,
+    "word": "té",
+    "stem": "té",
+    "stem2": "te",
+    "tag": "人称代名詞",
+    "parts": "名詞",
+    "meaning": ["あなた"],
+    "pronunciation": ["/teː/<br>[tɛː]<br>《tee-》"],
+    "etymology": {
+        "intro": ["単純語。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["té","te","?", "か", "ですか", "疑問形","浮遊形", "なのか"]
+  }
+}

@@ -1,0 +1,132 @@
+/* Reset & ベース */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 15px;
+  color: #4a3f3a;
+  background: linear-gradient(120deg, #fafaf8 0%, #fffceb 50%, #ffe45f 100%);
+  background-size: 300% 300%;
+  font-family: "Nunito Sans", "Roboto", sans-serif;
+  line-height: 1.8;
+  text-align: center;
+  animation: bgShift 30s ease infinite;
+}
+
+/* ヘッダー */
+.site-header {
+  padding: 40px 20px 20px;
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.titlemain {
+  font-size: 48px;
+  letter-spacing: 6px;
+  color: #ffe45f;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+  display: inline-block;
+}
+.titleB {
+    font-size: 25px;
+    color: #806060;
+}
+
+.indexA {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #806060;
+}
+
+/* メインコンテナ */
+.ground {
+  padding: 60px 20px;
+}
+
+/* リンクセクション */
+.link-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+.card {
+  position: relative;
+  width: 320px;
+  cursor: pointer;
+}
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+.card-figure {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.card-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card-figure hr {
+  border: none;
+  border-top: 1px solid #B5AFA5;
+  margin: 0 20px;
+}
+.imgt {
+  font-size: 28px;
+  margin: 16px 0 8px;
+  position: relative;
+}
+.imgt::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: #ffe45f;
+  margin: 0 auto 8px;
+  border-radius: 2px;
+}
+.gray {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* フッター */
+.site-footer {
+  padding: 20px 0;
+  background: ffe45f;
+  backdrop-filter: blur(8px);
+  font-size: 14px;
+  color: #806060;
+}
+
+/* ツールチップ */
+.tooltip {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffe45f;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 5;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>🎶 スケール検索機</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <label for="baseFreqInput">主音 (Hz):</label>
+        <input type="number" id="baseFreqInput" value="440" min="20" max="2000" step="1">
+        <br>
+        <label for="sortSelect">並べ替え：</label>
+        <select id="sortSelect">
+            <option value="dimension">次元順</option>
+            <option value="name">名前順</option>
+            <option value="length">音数順</option>
+            <option value="related">関連数順</option>
+        </select>
+        <br>
+        <div class="array-display">
+          <span class="bracket">[</span>
+          <span class="count">1</span>
+          <span class="comma">,</span>
+          <input
+            type="text"
+            id="searchBox"
+            placeholder="3, 5"
+            autocomplete="off"
+          >
+          <span class="bracket">]</span>
+        </div>
+        <p id="placeholder" class="placeholder">
+
+            （ 現在の収録スケール数：<span id="word-count">--</span> ）<br><br>
+            ⚠️ このサイトの内容は，<br>
+          智式音楽理論に基づくため，<br>
+            一般的な定義とは異なる可能性があります。
+          </p>
+              <div id="pagination" class="pagination">
+                <button id="prevPage">＜ 前のページ</button>
+                <span class="bottonspan" id="pageInfo">1 / 1</span>
+                <button id="nextPage">次のページ ＞</button>
+              </div>
+    </div>
+    
+    <div class="content">
+        <div id="details">
+          <p class="placeholder">
+            左側にコードを入力すると、ここにマッチしたスケールが表示されます。
+          </p>
+        </div>
+      </div>
+  <script src="script.js"></script>
+</body>
+</html>

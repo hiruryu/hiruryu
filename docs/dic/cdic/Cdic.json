@@ -1,0 +1,664 @@
+{
+  "-ka": {
+    "id": 99,
+    "safe": true,
+    "word": "ka",
+    "stem": "ka",
+    "stem2": "ka",
+    "tag": "派生接辞",
+    "parts": "派生接辞",
+    "meaning": ["～もの", "～するもの"],
+    "pronunciation": ["/ka/<br>[kə]<br>《ka-》"],
+    "etymology": {
+        "intro": ["語素。", "音象徴「 固い 」から。"],
+        "changes": []
+      },
+    "variants2": ["もの", "物"]
+  },
+      "-lo": {
+    "id": 100,
+    "safe": true,
+    "word": "lo",
+    "stem": "lo",
+    "stem2": "lo",
+    "tag": "派生接辞",
+    "parts": "派生接辞",
+    "meaning": ["～水", "～もの", "～するもの", "～こと", "～すること"],
+    "pronunciation": ["/lo/<br>[lo]<br>《lo-》"],
+    "etymology": {
+        "intro": ["語素。", "「」から。"],
+        "changes": []
+      },
+    "variants2": ["もの"]
+  },
+    "-fa": {
+    "id": 101,
+    "safe": true,
+    "word": "fa",
+    "stem": "fa",
+    "stem2": "fa",
+    "tag": "派生接辞",
+    "parts": "派生接辞",
+    "meaning": ["～こと", "～すること"],
+    "pronunciation": ["/fa/<br>[fə]<br>《fa-》"],
+    "etymology": {
+        "intro": ["語素。", "「」から。"],
+        "changes": []
+      },
+    "variants2": ["こと"]
+  },
+  "-n": {
+    "id": 102,
+    "safe": true,
+    "word": "n",
+    "stem": "n",
+    "stem2": "n",
+    "tag": "派生接辞",
+    "parts": "質為着尾",
+    "meaning": ["～する"],
+    "pronunciation": ["/n/<br>[n]<br>《n-》"],
+    "etymology": {
+        "intro": ["語素。", "音象徴「 ～ 」から。"],
+        "changes": []
+      },
+    "variants2": ["する"]
+  },
+  "nufáva": {
+    "id": 103,
+    "safe": true,
+    "word": "nup",
+    "stem": "nup",
+    "stem2": "núp",
+    "tag": "ー",
+    "parts": "動詞",
+      "type": "p 基本型",
+      "ruletype": "p",
+    "meaning": ["入れる［ 基を ］［ 副に ］", "入る［ 副に ］",  "入場する［ 副に ］","ログインする［ 副に ］"],
+    "vulgarMeaning": ["性交する［ 基を ］", "セックスする［ 基を ］", "犯す［ 基を ］"],
+    "pronunciation": ["/nufava/<br>[nʊfävə]<br>《nup-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 入れる 」から。"],
+        "changes": []
+      },
+    "variants2": ["nup","sexする", "ぬぷる"]
+  },
+  "nyáfa": {
+    "id": 105,
+    "safe": true,
+    "word": "nyafa",
+    "stem": "nyáfa",
+    "stem2": "nyaf",
+    "tag": "陸生",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["ネコ"],
+    "pronunciation": ["/nʲafa/<br>[nʲɑfə]<br>《nyafa-》"],
+    "etymology": {
+        "intro": ["単純語。", "擬声語「 猫の鳴き声 」から。"],
+        "changes": []
+      },
+    "variants2": ["ねこ", "猫", "cat", "キャット", "にゃんにゃん"]
+  },
+  "lozháva": {
+    "id": 106,
+    "safe": true,
+    "word": "lozháva",
+    "stem": "lozh",
+    "stem2": "lózh",
+    "tag": "-",
+    "parts": "動詞",
+      "type": "zh 基本型",
+      "ruletype": "t",
+    "meaning": ["流れる","流す［ 基を ］"],
+    "pronunciation": ["/loʐava/<br>[lʊʐävə]<br>《lož-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 流れる 」から。"],
+        "changes": [{"form": "《laž-》", "note": "古形 → lazh-"}, {"form": "《lož-》クオリア同期"},{"form": "《lož-》現代 → lozh-"}]
+  },
+    "variants2": ["ながす", "ながれる"]
+  },
+  "fvisháva": {
+    "id": 107,
+    "safe": true,
+    "word": "fvisháva",
+    "stem": "fvish",
+    "tag": "音楽",
+    "parts": "動詞",
+      "type": "sh 基本型",
+      "ruletype": "t",
+    "meaning": ["歌う［ 基を ］", "歌唱する［ 基を ］"],
+    "pronunciation": ["/fviʂava/<br>[fʋəʂävə]<br>《fviš-》"],
+    "etymology": {
+        "intro": ["単純語。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["うたう", "かしょうする", "sing"]
+  },
+  "bóna": {
+    "id": 108,
+    "safe": true,
+    "word": "bona",
+    "stem": "bóna",
+    "stem2": "bon",
+    "tag": "身体部位",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["腹", "おなか"],
+    "pronunciation": ["/bona/<br>[bɔnə]<br>《bona-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 まんまるの 」から。"],
+        "changes": []
+      },
+    "variants2": ["お腹", "はら"]
+  },
+  "puápua": {
+    "id": 109,
+    "safe": true,
+    "word": "puapua",
+    "stem": "puápua",
+    "stem2": "puápu",
+    "tag": "魚介類",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["クラゲ"],
+    "pronunciation": ["/papa/<br>[pɑpə]<br>《puapua-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 浮かぶ 」から。"],
+        "changes": []
+      },
+    "variants2": ["くらげ", "海月"]
+  },
+  "kuífa": {
+    "id": 110,
+    "safe": true,
+    "word": "kuifa",
+    "stem": "kuífa",
+    "stem2": "kuif",
+    "tag": "身体部位",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["尻尾","しっぽ","（ 音符の ）符尾"],
+    "pronunciation": ["/kifa/<br>[kɨfə]<br>《kifa-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 曲がる 」から。"],
+        "changes": []
+      },
+    "variants2": ["テール", "尾"]
+  },
+  "páta": {
+    "id": 111,
+    "safe": true,
+    "word": "pata",
+    "stem": "páta",
+    "stem2": "pat",
+    "tag": "鳥類",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["鳥"],
+    "pronunciation": ["/pata/<br>[pɑtə]<br>《pata-》"],
+    "etymology": {
+        "intro": ["単純語。", "擬声語「 羽ばたく 」から。"],
+        "changes": []
+      },
+    "variants2": ["とり", "トリ", "bird"]
+  },
+  "skóta": {
+    "id": 112,
+    "safe": true,
+    "word": "skota",
+    "stem": "skóta",
+    "stem2": "skot",
+    "tag": "-",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["（ 木の実の ）殻"],
+    "explanation": "ナッツなどの木の実の殻のみを指し、貝殻などの動物の殻は指さない。",
+    "pronunciation": ["/skota/<br>[skɔtə]<br>《skota-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 小さくて硬い 」から。"],
+        "changes": []
+      },
+    "variants2": ["から", "nutshell"]
+  },
+  "dtífa": {
+    "id": 113,
+    "safe": true,
+    "word": "dtifa",
+    "stem": "dtífa",
+    "stem2": "dtif",
+    "tag": "恋愛",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["恋", "恋愛"],
+    "pronunciation": ["/difa/<br>[dɨfə]<br>《difa-》<br>（ ⚠️発音に注意 ）"],
+    "etymology": {
+        "intro": ["合成語。", "「 1 」+「 101 」が溶け合った単語。"],
+        "changes": [{"form": "《dotifa》原型 → dotifa"}, {"form": "《dutifa》狭化"},{"form": "《difa》母音脱落 → difa"},{"form": "《difa》綴り字の変更 → dtifa"}]
+      },
+    "variants2": ["こい", "れんあい", "difa"],
+    "note3": "t の音は黙字。古くは dífa であったが、一部の知識人が語源を反映させた綴りで書くようになり、そこから多くの書物で dtífa と書かれるようになったため、それが正式な綴りとして採用された。"
+  },
+  "kuinégt": {
+    "id": 114,
+    "safe": true,
+    "word": "kuinégt",
+    "stem": "kuin",
+    "stem2": "kuín",
+    "tag": "-",
+    "parts": "動詞",
+      "type": "n 基本型",
+      "ruletype": "t",
+    "meaning": ["尻尾を振る","喜ぶ","後にくっつく［ 与の ］","ついてくる［ 与に ］","喜ばせる［ 基を ］"],
+    "pronunciation": ["/kinava/<br>[kənävə]<br>《kin-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 110 」+「 102 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["よろこぶ", "しっぽをふる", "しっぽを振る", "付いてくる", "よろこばせる"]
+  },
+  "dtifnáva": {
+    "id": 115,
+    "safe": true,
+    "word": "dtifn",
+    "stem": "dtifn",
+    "stem2": "dtífn",
+    "tag": "恋愛",
+    "parts": "動詞",
+      "type": "n 基本型",
+      "ruletype": "t",
+    "meaning": ["恋する［ 基が ］［ 与に ］"],
+    "pronunciation": ["/difnava/<br>[dɪfnävə]<br>《difn-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 113 」+「 102 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["こいする", "恋愛する", "愛する"]
+  },
+  "lómya": {
+    "id": 116,
+    "safe": true,
+    "word": "lómya",
+    "stem": "lómya",
+    "stem2": "lomy",
+    "tag": "恋愛",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["愛", "愛情"],
+    "pronunciation": ["/lomʲa/<br>[lɔmʲə]<br>《lomya-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 甘い 」から。"],
+        "changes": []
+      },
+    "variants2": ["あい", "ラブ", "love"]
+  },
+  "lomnyáva": {
+    "id": 117,
+    "safe": true,
+    "word": "lomnyáva",
+    "stem": "lomny",
+    "stem2": "lómny",
+    "tag": "恋愛",
+    "parts": "動詞",
+      "type": "n 基本型",
+      "ruletype": "t",
+    "meaning": ["愛する［ 能が ］［ 基を ］"],
+    "pronunciation": ["/lomnʲava/<br>[lomnʲävə]<br>《lomny-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 116 」+「 102 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["あいする", "恋愛する", "愛する"]
+  },
+  "myólo": {
+    "id": 118,
+    "safe": true,
+    "word": "myólo",
+    "stem": "myólo",
+    "stem2": "myol",
+    "tag": "陸生",
+    "parts": "名象",
+      "type": "lo 変則型",
+      "ruletype": "lo",
+    "meaning": ["竜", "ドラゴン"],
+    "pronunciation": ["/mʲolo/<br>[mʲɔlo]<br>《myolo-》"],
+    "etymology": {
+        "intro": ["化成語。", "古語「 mul（ 下 ）」が訛ったもの。"],
+        "changes": []
+      },
+    "variants2": ["りゅう", "龍", "たつ"]
+  },
+  "klokáva": {
+    "id": 119,
+    "safe": true,
+    "word": "klokyáva",
+    "stem": "klok",
+    "stem2": "klók",
+    "tag": "創作",
+    "parts": "動詞",
+      "type": "k 基本型",
+      "ruletype": "k",
+    "meaning": ["作る［ 基を ］", "制作する［ 基を ］"],
+    "pronunciation": ["/klokava/<br>[klokävə]<br>《klok-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 組み立てる 」から。"],
+        "changes": [{"form": "《kolok-》原音 → kolók（ 古智語 ）"}, {"form": "《kulok-》狭化 → kulok-"},{"form": "母音脱落 → klok-"}]
+      },
+    "variants2": ["つくる", "創作する", "せいさくする", "make"]
+  },
+  "sválo": {
+    "id": 120,
+    "safe": true,
+    "word": "sválo",
+    "stem": "sválo",
+    "stem2": "sval",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "lo 変則型",
+      "ruletype": "lo",
+    "meaning": ["水"],
+    "pronunciation": ["/svalo/<br>[sʋɑlo]<br>《svalo-》"],
+    "etymology": {
+        "intro": ["単純語。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["みず", "water"]
+  },
+  "páno": {
+    "id": 121,
+    "safe": true,
+    "word": "páno",
+    "stem": "páno",
+    "stem2": "pan",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "o 基本型",
+      "ruletype": "o",
+    "meaning": ["木", "樹木"],
+    "pronunciation": ["/pano/<br>[pɑlo]<br>《pano-》"],
+    "etymology": {
+        "intro": ["単純語。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["き", "樹"]
+  },
+  "fyálo": {
+    "id": 122,
+    "safe": true,
+    "word": "fyálo",
+    "stem": "fyálo",
+    "stem2": "fyal",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "lo 変則型",
+      "ruletype": "lo",
+    "meaning": ["世界", "界隈"],
+    "pronunciation": ["/fʲalo/<br>[fʲɑlo]<br>《fyalo-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 広い 」から。"],
+        "changes": []
+      },
+    "variants2": ["せかい", "かいわい", "ワールド", "world"]
+  },
+  "pvólo": {
+    "id": 123,
+    "safe": true,
+    "word": "pvólo",
+    "stem": "pvólo",
+    "stem2": "pvol",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "lo 変則型",
+      "ruletype": "lo",
+    "meaning": ["血", "血液"],
+    "pronunciation": ["/pʋolo/<br>[pʋɔlo]<br>《pvolo-》"],
+    "etymology": {
+        "intro": ["単純語。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["き", "樹"]
+  },
+  "skruikáva": {
+    "id": 124,
+    "safe": true,
+    "word": "skruikáva",
+    "stem": "skruik",
+    "stem2": "skruík",
+    "tag": "ー",
+    "parts": "動詞",
+      "type": "k 基本型",
+      "ruletype": "k",
+    "meaning": ["引っ掻く［ 基を ］", "記録する［ 基を ］［ 与に ］", "メモする［ 基を ］［ 与に ］", "残す［ 基を ］［ 与に ］"],
+    "pronunciation": ["/skrikava/<br>[skɾəkävə]<br>《skrik-》"],
+    "etymology": {
+        "intro": ["単純語。", "擬声語「 引っ掻く 」から。"],
+        "changes": []
+      },
+    "variants2": ["かく", "掻く", "ひっかく", "きろくする", "残す", "書く", "かきのこす", "のこす"]
+  },
+  "konyáva": {
+    "id": 125,
+    "safe": true,
+    "word": "konyáva",
+    "stem": "kon",
+    "stem2": "kón",
+    "tag": "ー",
+    "parts": "動詞",
+      "type": "n 基本型",
+      "ruletype": "n",
+    "meaning": ["呼ぶ［ 能が ］［ 与を ］"],
+    "pronunciation": ["/konʲava/<br>[konʲävə]<br>《kon-》"],
+    "etymology": {
+        "intro": ["単純語。", "擬声語「 仲間を呼ぶ声 」から。"],
+        "changes": []
+      },
+    "variants2": ["よぶ"]
+  },
+   "pratáva": {
+    "id": 126,
+    "safe": true,
+    "word": "pratáva",
+    "stem": "prat",
+    "stem2": "prát",
+    "tag": "ー",
+    "parts": "動詞",
+      "type": "t 基本型",
+      "ruletype": "t",
+    "meaning": ["話す［ 基を ］", "喋る［ 基を ］", "言う［ 基を ］［ 補と ］"],
+    "pronunciation": ["/pratava/<br>[prətävə]<br>《prat-》"],
+    "etymology": {
+        "intro": ["単純語。", "擬声語「 話す 」から。"],
+        "changes": []
+      },
+    "variants1": ["132"],
+    "variants2": ["はなす", "しゃべる", "いう", "ゆう", "会話する", "かいわする"]
+  },
+  "lúfa": {
+    "id": 127,
+    "safe": true,
+    "word": "lúfa",
+    "stem": "lúfa",
+    "stem2": "luf",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["言語", "言葉"],
+    "pronunciation": ["/lufa/<br>[lufə]<br>《lufa-》"],
+    "etymology": {
+        "intro": ["化成語。", "「 126 」が訛ったもの？"],
+        "changes": []
+      },
+    "variants2": ["げんご", "ことば", "ラング", "lang", "language"]
+  },
+    "kótos": {
+    "id": 128,
+    "safe": true,
+    "word": "kótos",
+    "stem": "kót",
+    "stem2": "kot",
+    "tag": "ー",
+    "parts": "名飾",
+      "type": "t 基本型",
+      "ruletype": "t",
+    "meaning": ["硬い", "固い"],
+    "pronunciation": ["/kotos/<br>[kotos]<br>《kot-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 固い 」から。"],
+        "changes": []
+      },
+    "variants2": ["かたい"]
+  },
+    "xuíka": {
+    "id": 129,
+    "safe": true,
+    "word": "xuíka",
+    "stem": "xuík",
+    "stem2": "xuik",
+    "tag": ["魚介類"],
+    "parts": "名象",
+      "type": "k 基本型",
+      "ruletype": "k",
+    "meaning": ["魚"],
+    "pronunciation": ["/zika/<br>[zɨkə]<br>《zika-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ？ 」から。"],
+        "changes": []
+      },
+    "variants2": ["さかな", "うお", "fish"]
+  },
+    "pyóttsa": {
+    "id": 130,
+    "safe": true,
+    "word": "pyóttsa",
+    "stem": "pyótts",
+    "stem2": "pyotts",
+    "tag": ["陸生"],
+    "parts": "名象",
+      "type": "c 基本型",
+      "ruletype": "c",
+    "meaning": ["（やや古）うさぎ"],
+    "pronunciation": ["/pʲottsa/<br>[pʲʊttsə]<br>《pyotca-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 固い 」から。"],
+        "changes": []
+      },
+    "variants2": ["兎", "ウサギ", "rabbit"]
+  },
+    "xuika": {
+    "id": 131,
+    "safe": true,
+    "word": "xuíka",
+    "stem": "xuík",
+    "stem2": "xuik",
+    "tag": "水生",
+    "parts": "名象",
+      "type": "k 基本型",
+      "ruletype": "k",
+    "meaning": ["魚"],
+    "pronunciation": ["/zika/<br>[zikə]<br>《zik-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["さかな", "うお", "fish"]
+  },
+  "duifáva": {
+    "id": 132,
+    "safe": true,
+    "word": "duifáva",
+    "stem": "duif",
+    "stem2": "dóf",
+    "tag": "ー",
+    "parts": "動詞",
+      "type": "t 基本型",
+      "ruletype": "t",
+    "meaning": ["言う［ 基を ］［ 補と ］"],
+    "pronunciation": ["/pratava/<br>[prətävə]<br>《prat-》"],
+    "etymology": {
+        "intro": ["単純語。", "擬声語「 話す 」から。"],
+        "changes": []
+      },
+    "variants1": ["126"],
+    "variants2": ["はなす", "しゃべる", "いう", "ゆう", "会話する", "かいわする"]
+  },
+  "ména": {
+    "id": 179,
+    "safe": true,
+    "word": "ména",
+    "stem": "ména",
+    "stem2": "men",
+    "tag": "陸生",
+    "parts": "名象",
+      "type": "na 基本型",
+      "ruletype": "na",
+    "meaning": ["羊"],
+    "pronunciation": ["/mena/<br>[mɛnə]<br>《mena-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 弾ける 」から。"],
+        "changes": []
+      },
+    "variants2": ["ひつじ"]
+  },
+  "pacá": {
+    "id": 180,
+    "safe": true,
+    "word": "pacá",
+    "stem": "pacá",
+    "stem2": "fcá",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "a 尾高型",
+      "ruletype": "á",
+    "meaning": ["電気"],
+    "pronunciation": ["/pat͡sa/<br>[pət͡sɑ]<br>《paca-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 弾ける 」から。"],
+        "changes": []
+      },
+    "variants2": ["でんき", "181"]
+  },
+  "fcálo": {
+    "id": 181,
+    "safe": true,
+    "word": "páclo",
+    "stem": "páclo",
+    "stem2": "pacl",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "lo 変則型",
+      "ruletype": "lo",
+    "meaning": ["電流"],
+    "pronunciation": ["/ft͡salo/<br>[ft͡sɑlo]<br>《fcalo-》"],
+    "etymology": {
+        "intro": ["合成語", "「 180 」+「 -lo（ 〜水 ）」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["でんりゅう", "181"]
+  },
+    "lútos": {
+    "id": 182,
+    "safe": true,
+    "word": "lútos",
+    "stem": "lút",
+    "stem2": "lut",
+    "tag": ["味"],
+    "parts": "名飾",
+      "type": "t 基本型",
+      "ruletype": "t",
+    "meaning": ["甘い"],
+    "pronunciation": ["/lutos/<br>[lufʊs]<br>《lut-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 甘い 」から。"],
+        "changes": []
+      },
+    "variants2": ["あまい", "スウィートな", "スイートな", "sweet"]
+  }
+}

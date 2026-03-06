@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「竜の巣」 - Articles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main-style.css">
+</head>
+<body>
+  <div class="ground" style="min-height:97%;">
+    <div style="min-height:95%;"></div>
+    <div class="titlemain">📃 Articles</div>
+    <nav class="menu">
+      <a href="?set=articles" class="marker" style="font-size:16px;"><span>記事一覧</span></a>　
+      <a href="?set=智語教科書" style="font-size:20px;"><span class="titleA">智語教科書</span></a>
+    </nav>
+    <br>
+    <ul class="item-list" id="item-list">
+      <li class="loading">読み込み中…</li>
+    </ul>
+
+    <script>
+      async function loadList() {
+        const ul = document.getElementById('item-list');
+        const params = new URLSearchParams(location.search);
+        const setName = params.get('set') || 'articles';
+
+        const folderMap = {
+          'articles': ['articles/', 'articles/ctext'],
+          '智語教科書': 'articles/ctext/'
+        };
+        const folderValue = folderMap[setName] || folderMap['articles'];
+        const folders = Array.isArray(folderValue) ? folderValue : [folderValue];
+
+        let anchors = [];
+        // 各フォルダから記事一覧（リンクのみ）を取得
+        for (const folder of folders) {
+          try {
+            const res = await fetch(folder);
+            if (!res.ok) throw new Error(`${folder} の取得に失敗しました: ${res.status}`);
+            const text = await res.text();
+            const doc = new DOMParser().parseFromString(text, 'text/html');
+            const fetchedAnchors = Array.from(doc.querySelectorAll('a')).filter(a => {
+              const href = a.getAttribute('href');
+              return href && href.endsWith('.html');
+            });
+            anchors.push(...fetchedAnchors);
+          } catch (err) {
+            console.error(`フォルダ ${folder} 処理中のエラー:`, err);
+          }
+        }
+
+        if (anchors.length === 0) {
+          ul.innerHTML = `<li class="empty">${setName} が見つかりませんでした。</li>`;
+          return;
+        }
+
+        // 各記事の詳細（タイトル、公開日時）を取得
+        const articles = await Promise.all(anchors.map(async a => {
+          const href = a.getAttribute('href');
+          let title = decodeURIComponent(href).replace(/\.html$/, '');
+          let publishedTime = null;
+          try {
+            const r2 = await fetch(href);
+            if (r2.ok) {
+              const t2 = await r2.text();
+              const d2 = new DOMParser().parseFromString(t2, 'text/html');
+              const tTag = d2.querySelector('title');
+              if (tTag && tTag.textContent.trim()) {
+                title = tTag.textContent.trim();
+              }
+              // 公開日時は meta タグから取得
+              const metaDate = d2.querySelector('meta[name="date"]');
+              if (metaDate && metaDate.getAttribute('content')) {
+                publishedTime = metaDate.getAttribute('content');
+              }
+            }
+          } catch (e) {
+            console.warn(`タイトルまたは日時取得失敗: ${href}`, e);
+          }
+          return { href, title, publishedTime };
+        }));
+
+        if (setName === '智語教科書') {
+          // 教科書は昇順（古い順）
+          articles.sort((a, b) => {
+            if (a.publishedTime && b.publishedTime) {
+              return new Date(a.publishedTime) - new Date(b.publishedTime);
+            }
+            if (a.publishedTime) return -1;
+            if (b.publishedTime) return 1;
+            return 0;
+          });
+        } else {
+          // その他は降順（新しい順）
+          articles.sort((a, b) => {
+            if (a.publishedTime && b.publishedTime) {
+              return new Date(b.publishedTime) - new Date(a.publishedTime);
+            }
+            if (a.publishedTime) return -1;
+            if (b.publishedTime) return 1;
+            return 0;
+          });
+        }
+
+        ul.innerHTML = '';
+        articles.forEach(article => {
+          let formattedTime = "";
+          if (article.publishedTime) {
+            const dateObj = new Date(article.publishedTime);
+            formattedTime = dateObj.toLocaleString('ja-JP', { dateStyle: 'medium', timeStyle: 'short' });
+          }
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${article.href}" style="font-size:20px; line-height:2;">${article.title}</a>` +
+                         (formattedTime ? `<span style="font-size:14px; color:gray;"> (${formattedTime})</span>` : '');
+          ul.appendChild(li);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', loadList);
+    </script>
+    <br>
+    <a href="index.html" class="marker" style="font-size:20px;">メインページに戻る</a>
+  </div>
+  <br>
+</body>
+</html>

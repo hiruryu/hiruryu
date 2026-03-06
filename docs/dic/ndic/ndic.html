@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📕 漢縫辞典</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  <div class="sidebar">
+    <label for="searchMode">検索モード:</label>
+    <select id="searchMode" title="検索モード">
+      <option value="prefix">前方一致</option>
+      <option value="partial">部分一致</option>
+      <option value="exact">完全一致</option>
+    </select>
+
+    <input type="text" id="searchBox" placeholder="検索...">
+    <ul id="wordList" class="searchResults"></ul>
+
+    <p id="placeholder" class="placeholder">
+      入力欄に漢字一文字を入力して<br>
+      Enter/Return キーを押してください｡<br><br>
+      （ 現在の収録語数： <span id="word-count"></span> 語 ）<br><br>
+    </p>
+  </div>
+
+  <div class="content">
+    <div id="details">
+      <p class="placeholder">左側のリストから単語をクリックしてください｡</p>
+    </div>
+  </div>
+
+  <script>
+    let dictionary = {};
+    let cdic = {};
+    
+  Promise.all([
+    fetch('data.json').then(r => r.json()),
+    fetch('../cdic/data/Cdic_n.json').then(r => r.json()),
+    fetch('../cdic/data/Cdic_n2.json').then(r => r.json()),
+    fetch('../cdic/data/Cdic_a.json').then(r => r.json()),
+    fetch('../cdic/data/Cdic_v.json').then(r => r.json())
+  ])
+  .then(([ndata, n, n2, a, v]) => {
+    dictionary = ndata;
+    document.getElementById('word-count').textContent = Object.keys(dictionary).length;
+    cdic = Object.assign({}, n, n2, a, v);
+    console.log('cdic entries:', Object.keys(cdic).length);
+    setupEventHandlers();
+  })
+  .catch(e => console.error('JSON 読み込みエラー:', e));
+
+  function setupEventHandlers() {
+    const searchBox  = document.getElementById('searchBox');
+    const searchMode = document.getElementById('searchMode');
+    searchBox.addEventListener('keydown', e => { if (e.key === 'Enter') performSearch(); });
+    searchMode.addEventListener('change', performSearch);
+  }
+
+    const searchBox = document.getElementById('searchBox');
+    const searchModeSelect = document.getElementById('searchMode');
+    const wordList = document.getElementById('wordList');
+    const details = document.getElementById('details');
+    const placeholder = document.getElementById('placeholder');
+
+    function removeAnnotations(text) {
+      return text.replace(/\[[^\]]*\]/g, '').replace(/（[^）]*）/g, '').trim();
+    }
+
+    function performSearch() {
+      const term = searchBox.value.trim();
+      const mode = searchModeSelect.value;
+      wordList.innerHTML = '';
+      details.innerHTML = '<p class="placeholder">左側のリストから単語をクリックしてください｡</p>';
+      if (!term) {
+        placeholder.style.display = 'block';
+        return;
+      }
+      placeholder.style.display = 'none';
+
+      const results = Object.keys(dictionary).filter(key => {
+        const keyLower = key.toLowerCase();
+        const termLower = term.toLowerCase();
+        let keyMatch = false;
+        if (mode === 'exact') keyMatch = (keyLower === termLower);
+        else if (mode === 'prefix') keyMatch = keyLower.startsWith(termLower);
+        else keyMatch = keyLower.includes(termLower);
+        const meanings = Array.isArray(dictionary[key].meaning)
+          ? dictionary[key].meaning
+          : [dictionary[key].meaning];
+        const meaningMatch = meanings.some(m => {
+          const mClean = removeAnnotations(m).toLowerCase();
+          if (mode === 'exact') return mClean === termLower;
+          if (mode === 'prefix') return mClean.startsWith(termLower);
+          return mClean.includes(termLower);
+        });
+        return keyMatch || meaningMatch;
+      });
+
+      if (results.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = '該当する単語はありません｡';
+        li.style.color = 'gray';
+        wordList.appendChild(li);
+        return;
+      }
+
+      results.sort((a, b) => a.localeCompare(b));
+      results.forEach(key => {
+        const item = dictionary[key];
+        const li = document.createElement('li');
+        const displayMean = Array.isArray(item.meaning) ? item.meaning.join(', ') : item.meaning;
+        li.innerHTML = `<strong>${key}</strong><br><span>${displayMean}</span>`;
+        li.addEventListener('click', () => showDetails(key));
+        wordList.appendChild(li);
+      });
+    }
+
+function showDetails(key) {
+  const data = dictionary[key];
+  if (!data) return;
+
+  const original = Array.isArray(data.pronunciation1) ? data.pronunciation1.join('、') : data.pronunciation1 || '';
+  const onReading = Array.isArray(data.pronunciation2) ? data.pronunciation2.join('、') : data.pronunciation2 || '';
+  const kunReading = Array.isArray(data.pronunciation3) ? data.pronunciation3.join('、') : data.pronunciation3 || '';
+  const meanings = Array.isArray(data.meaning) ? data.meaning : [data.meaning];
+
+  const meaningsHTML = `
+    <ul>
+      ${meanings.map(m => `<li class="detailList">${removeAnnotations(m)}</li>`).join('')}
+    </ul>
+  `;
+
+function makeLinkedList(items) {
+    if (!items) return '';
+    return (Array.isArray(items) ? items : [items])
+      .map(item => {
+        const entry = cdic[item];
+        if (!entry) {
+          console.warn(`cdic.json にキー "${item}" がありません`);
+          return item;
+        }
+        const id = entry.id;
+        return `<a href="../cdic/cdic.html?id=${encodeURIComponent(id)}" target="_blank">${item}</a>`;
+      })
+      .join('、');
+  }
+
+
+      let extraRows = '';
+      if (data.idioms) {
+        extraRows += `
+          <tr>
+            <th>縫性熟語</th>
+            <td colspan="3">${makeLinkedList(data.idioms)}</td>
+          </tr>`;
+      }
+      if (data.smartIdioms) {
+        extraRows += `
+          <tr>
+            <th>智製縫語</th>
+            <td colspan="3">${makeLinkedList(data.smartIdioms)}</td>
+          </tr>`;
+      }
+      if (data.synonyms) {
+        extraRows += `
+          <tr>
+            <th>類義語</th>
+            <td colspan="3">${makeLinkedList(data.synonyms)}</td>
+          </tr>`;
+      }
+
+      details.innerHTML = `
+        <table>
+          <thead>
+            <tr><th colspan="4" class="heading-cell">${key}</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>原音</th><td>${original}</td>
+              <th rowspan="3">意味</th><td rowspan="3">${meaningsHTML}</td>
+            </tr>
+            <tr><th>音読</th><td>${onReading}</td></tr>
+            <tr><th>訓読</th><td>${kunReading}</td></tr>
+            ${extraRows}
+          </tbody>
+        </table>`;
+    }
+    searchBox.addEventListener('keydown', e => { if (e.key === 'Enter') performSearch(); });
+    searchModeSelect.addEventListener('change', performSearch);
+  </script>
+</body>
+</html>
