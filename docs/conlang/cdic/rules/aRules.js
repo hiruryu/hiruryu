@@ -6,7 +6,7 @@ function getConjA(word, stem, type, ruletype) {
       suffixes: {
         s: "e", s2: "onna", s3: "uiska",
         fs: "afie", fs2: "afna", fs3: "afuiska",
-        on: "ashie", fs2: "afna", fs3: "afuiska",
+        on: "ashie", on2: "ashna", on3: "ashuika",
         es: "ol", es2: "onna", es3: "oluiska",
         ds: "ies", ds2: "ienna", ds3: "iesska",
         ads: "iup", ads2: "iupnui", ads3: "iupuiska",
@@ -17,7 +17,7 @@ function getConjA(word, stem, type, ruletype) {
       suffixes: {
         s: "e", s2: "onna", s3: "uiska",
         fs: "afie", fs2: "afna", fs3: "afuiska",
-        on: "ashie", fs2: "afna", fs3: "afuiska",
+        on: "ashie", on2: "ashna", on3: "ashuika",
         es: "ol", es2: "onna", es3: "oluiska",
         ds: "ies", ds2: "ienna", ds3: "iesska",
         ads: "iup", ads2: "iupnui", ads3: "iupuiska",
@@ -37,4 +37,5 @@ function getConjA(word, stem, type, ruletype) {
 
   return forms;
 }
+
 
