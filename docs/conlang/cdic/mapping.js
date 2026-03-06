@@ -445,7 +445,7 @@ function getSimilarWords(data) {
         { label: "与格", prefix: "d_" },
         { label: "具格", prefix: "i_" },
         { label: "処格", prefix: "l_" },
-        { label: "属格", prefix: "g_" },
+        { label: "奪格", prefix: "g_" },
         { label: "呼称形", prefix: "v_" },
         { label: "包括形", prefix: "in_" }
       ];
@@ -512,7 +512,8 @@ function getSimilarWords(data) {
     const rows = [
       { label: "素格一致", keys: ["s", "s2", "s3"] },
       { label: "獣格一致", keys: ["fs", "fs2","fs3"] },
-      { label: "生/奪格一致", keys: ["es", "es2", "es3"] },
+      { label: "能格一致", keys: ["on", "on2", "on3"] },
+      { label: "奪格一致", keys: ["es", "es2", "es3"] },
       { label: "与/呼格一致", keys: ["ds", "ds2", "ds3"] },
       { label: "副飾格一致", keys: ["ads", "ads2", "ads3"] }
     ];
@@ -1513,3 +1514,4 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
