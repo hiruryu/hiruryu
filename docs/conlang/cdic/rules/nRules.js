@@ -249,7 +249,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           v_adpC: adpC.slice(0, -1) + "arh",
           in_adpC: adpC.slice(0, -1) + "oita",
         }
-      // io 基本形
+      // yo 基本形
 
       // p 基本形
       } else if (ruletype === "p") {      
@@ -296,4 +296,5 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           v_adpC: adpC.slice(0, -1) + "arh",
           in_adpC: adpC.slice(0, -1) + "iax",
         }}
+
 }
