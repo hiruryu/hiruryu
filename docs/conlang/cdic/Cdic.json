@@ -617,7 +617,7 @@
     "meaning": ["～して", "（ 飾形を表す代理形 ）"],
     "pronunciation": ["/ej/<br>[əj]<br>《ey-》"],
     "etymology": {
-        "intro": ["語素。", "音象徴「 固い 」から。"],
+        "intro": ["語素。", "音象徴「 ? 」から。"],
         "changes": []
       },
     "variants2": ["飾形"]
@@ -649,7 +649,7 @@
     "meaning": ["～させる"],
     "pronunciation": ["/jif/<br>[jif]<br>《yif-》"],
     "etymology": {
-        "intro": ["語素。", "「 134 」が訛ったもの。"],
+        "intro": ["変成体。", "「 134 」が訛ったもの。"],
         "changes": []
       },
     "variants2": ["させる"]
@@ -665,7 +665,7 @@
     "meaning": ["～さ", "〜性"],
     "pronunciation": ["/ha/<br>[xə]<br>《ha-》"],
     "etymology": {
-        "intro": ["語素。", "「 99 」が訛ったもの。"],
+        "intro": ["変成体。", "「 99 」が訛ったもの。"],
         "changes": []
       },
     "variants2": ["せい"]
@@ -779,5 +779,6 @@
     "variants2": ["あまい", "スウィートな", "スイートな", "sweet"]
     }
 }
+
 
 
