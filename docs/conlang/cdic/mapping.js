@@ -65,30 +65,7 @@ function isMorphemeOrVariant(entry) {
 function resolveEtymologyText(text) {
   if (!text) return "";
 
-  const pages = {
-    c: "cdic.html",
-    n: "../ndic/ndic.html",
-    t: "../tdic/tdic.html"
-  };
-
-  const placeholders = [];
-
-  // ① 他辞書を一旦退避
-  text = text.replace(/\b([cnt]):(\d+)\b/gi, (match, dict, id) => {
-
-    const page = pages[dict];
-    if (!page) return match;
-
-    const placeholder = `__LINK${placeholders.length}__`;
-
-    placeholders.push(
-      `<a href="${page}?id=${id}" class="etymology-link">${dict}:${id}</a>`
-    );
-
-    return placeholder;
-  });
-
-  // ② cdic ID
+  // ① cdic 内リンク
   text = text.replace(/\b(\d+)\b/g, (match, id) => {
 
     const word = idToWord[id];
@@ -103,9 +80,19 @@ function resolveEtymologyText(text) {
     return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
   });
 
-  // ③ 他辞書リンクを戻す
-  placeholders.forEach((link, i) => {
-    text = text.replace(`__LINK${i}__`, link);
+  // ② 他辞書
+  text = text.replace(/\b([cnt]):(\d+)\b/gi, (match, dict, id) => {
+
+    const pages = {
+      c: "cdic.html",
+      n: "../ndic/ndic.html",
+      t: "../tdic/tdic.html"
+    };
+
+    const page = pages[dict];
+    if (!page) return match;
+
+    return `<a href="${page}?id=${id}" class="etymology-link">${dict}:${id}</a>`;
   });
 
   return text;
@@ -1553,5 +1540,6 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
