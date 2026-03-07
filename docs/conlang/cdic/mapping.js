@@ -63,11 +63,11 @@ function isMorphemeOrVariant(entry) {
 }
 
 
-// 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
   if (!text) return "";
 
   const pages = {
+    c: "cdic.html",
     n: "../ndic/ndic.html",
     t: "../tdic/tdic.html"
   };
@@ -82,8 +82,8 @@ function resolveEtymologyText(text) {
 
   let extDict = null;
 
-if (dict === "t" && tdicDictionary) extDict = tdicDictionary;
-if (dict === "n" && ndicDictionary) extDict = ndicDictionary;
+  if (dict === "t") extDict = tdicDictionary;
+  if (dict === "n") extDict = ndicDictionary;
 
   let word = id;
   let meaning = "";
@@ -105,7 +105,7 @@ if (dict === "n" && ndicDictionary) extDict = ndicDictionary;
   );
 
   return placeholder;
-  });
+});
 
   // ② cdic ID
   text = text.replace(/\b(\d+)\b/g, (match, id) => {
@@ -1572,6 +1572,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
