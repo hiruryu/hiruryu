@@ -64,38 +64,19 @@ function isMorphemeOrVariant(entry) {
 // 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
   if (!text) return "";
-
-  // ① cdic 内リンク
-  text = text.replace(/\b(\d+)\b/g, (match, id) => {
-
+  return text.replace(/(\d+)/g, (match, id) => {
+    // 単語
     const word = idToWord[id];
     if (!word) return match;
-
-    const entry = dictionary[word] || etymDictionary[word];
+    // entry
+   const entry = dictionary[word] || etymDictionary[word];
     if (!entry) return word;
-
+    // 意味
     let meaning = entry.meaning?.[0] ?? "";
-    meaning = removeAnnotations(meaning);
-
+    meaning = removeAnnotations(meaning); // 注釈を除去
+    // return
     return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
   });
-
-  // ② 他辞書
-  text = text.replace(/\b([cnt]):(\d+)\b/gi, (match, dict, id) => {
-
-    const pages = {
-      c: "cdic.html",
-      n: "../ndic/ndic.html",
-      t: "../tdic/tdic.html"
-    };
-
-    const page = pages[dict];
-    if (!page) return match;
-
-    return `<a href="${page}?id=${id}" class="etymology-link">${dict}:${id}</a>`;
-  });
-
-  return text;
 }
 
   // Markdown を HTML に変換して表示する関数
@@ -171,16 +152,12 @@ function normalizeForSearch(input) {
 // JSON辞書を読み込んで……
   Promise.all([
   fetch('Cdic.json').then(r => r.json()),
-  fetch('Etym.json').then(r => r.json()),
-  fetch('../tdic/Tdic.json').then(r => r.json()),
-  fetch('../ndic/Ndic.json').then(r => r.json())
-]).then(([dicData, oldData, tdicData, ndicData]) => {
-// 検索対象
+  fetch('Etym.json').then(r => r.json())
+]).then(([dicData, oldData]) => {
+
+  // 検索対象
   dictionary = { ...dicData };
   etymDictionary = { ...oldData };
-
-  tdicDictionary = tdicData;
-  ndicDictionary = ndicData;
   // 語源リンク用
   const linkDictionary = { ...dicData, ...oldData };
 
@@ -1540,6 +1517,3 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
-
-
-
