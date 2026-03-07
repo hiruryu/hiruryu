@@ -76,35 +76,17 @@ function resolveEtymologyText(text) {
   // ① 他辞書を一旦退避
   text = text.replace(/\b([cnt]):(\d+)\b/gi, (match, dict, id) => {
 
-  const page = pages[dict];
-  if (!page) return match;
+    const page = pages[dict];
+    if (!page) return match;
 
-  let extDict = null;
+    const placeholder = `__LINK${placeholders.length}__`;
 
-  if (dict === "t") extDict = tdicDictionary;
-  if (dict === "n") extDict = ndicDictionary;
+    placeholders.push(
+      `<a href="${page}?id=${id}" class="etymology-link">${dict}:${id}</a>`
+    );
 
-  let word = id;
-  let meaning = "";
-
-  if (extDict) {
-    for (const [w, data] of Object.entries(extDict)) {
-      if (String(data.id) === id) {
-        word = w;
-        meaning = removeAnnotations(data.meaning?.[0] ?? "");
-        break;
-      }
-    }
-  }
-
-  const placeholder = `__LINK${placeholders.length}__`;
-
-  placeholders.push(
-    `<a href="${page}?id=${id}" class="etymology-link">${word}</a>（ ${meaning} ）`
-  );
-
-  return placeholder;
-});
+    return placeholder;
+  });
 
   // ② cdic ID
   text = text.replace(/\b(\d+)\b/g, (match, id) => {
@@ -1571,4 +1553,5 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
