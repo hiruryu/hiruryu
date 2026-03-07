@@ -1,0 +1,88 @@
+{
+    "dotíl": {
+    "id": 1,
+    "safe": false,
+    "word": "dotíl",
+    "tag": "古語",
+    "parts": "動詞",
+    "meaning": ["恋する［ 基が ］［ 与に ］"],
+    "pronunciation": ["/dotil/<br>[dətil]<br>《dotil-》"],
+    "etymology": {
+        "intro": ["合成語。", "「」+「」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["こいする", "恋愛する", "愛する"]
+  },
+  "pyósta": {
+    "id": 2,
+    "safe": false,
+    "word": "pyósta",
+    "tag": ["古語", "陸生"],
+    "parts": "名象",
+      "type": "sta 基本型",
+      "ruletype": "sta",
+    "meaning": ["（やや古）うさぎ"],
+    "pronunciation": ["/pʲosta/<br>[pʲʊsyə]<br>《pyosta-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 固い 」から。"],
+        "changes": []
+      },
+    "variants2": ["兎", "ウサギ", "rabbit"]
+  },
+    "eböl": {
+    "id": 3,
+    "safe": false,
+    "word": "eböl",
+    "tag": "古語",
+    "parts": "動詞",
+    "meaning": ["膨らむ［ 基が ］", "膨張する［ 基が ］"],
+    "pronunciation": ["/ebɒl/<br>[əbɒl]<br>《ebôl-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 膨らむ 」から。"],
+        "changes": []
+      },
+    "variants2": ["ふくらむ"]
+  },
+"fe-": {
+    "id": 4,
+    "safe": true,
+    "word": "fe",
+    "tag": ["古語", "屈折接辞", "動詞屈折"],
+    "parts": "派生接辞",
+    "meaning": ["〜される"],
+    "pronunciation": ["/fe/<br>[fə]<br>《fe-》"],
+    "etymology": {
+        "intro": ["語素。", "「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["される"]
+  },
+"ngál": {
+    "id": 5,
+    "safe": true,
+    "word": "ngal",
+    "tag": ["古語"],
+    "parts": "名象",
+    "meaning": ["王"],
+    "pronunciation": ["/Ngal/<br>[ŋ̍gäl]<br>《Ngal-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 偉大な 」から。"],
+        "changes": []
+      },
+    "variants2": ["おう"]
+  },
+"cháo": {
+    "id": 6,
+    "safe": true,
+    "word": "cháo",
+    "tag": ["古語"],
+    "parts": "離頭辞",
+    "meaning": ["〜できる"],
+    "pronunciation": ["/ʈ͡ʂao/<br>[ʈ͡ʂäo]<br>《čao-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["できる"]
+  }
+}
