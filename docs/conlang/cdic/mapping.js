@@ -65,12 +65,12 @@ function isMorphemeOrVariant(entry) {
 function resolveEtymologyText(text) {
   if (!text) return "";
 
-  // 他辞書リンク
+  // 他辞書
   text = text.replace(/([a-z]+):(\d+)/gi, (match, dict, id) => {
 
     const pages = {
-      n: "../ndic/ndic.html",
-      t: "../tdic/tdic.html"
+      ndic: "../ndic/ndic.html",
+      tdic: "../tdic/tdic.html"
     };
 
     const page = pages[dict];
@@ -79,8 +79,8 @@ function resolveEtymologyText(text) {
     return `<a href="${page}?id=${id}" class="etymology-link">${dict}:${id}</a>`;
   });
 
-  // cdic 内リンク
-  text = text.replace(/(\d+)/g, (match, id) => {
+  // cdic 内
+  text = text.replace(/(?<!:)(\d+)/g, (match, id) => {
 
     const word = idToWord[id];
     if (!word) return match;
@@ -1535,6 +1535,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
