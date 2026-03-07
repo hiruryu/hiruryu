@@ -42,7 +42,7 @@
     "meaning": ["～水", "～もの", "～するもの", "～こと", "～すること"],
     "pronunciation": ["/lo/<br>[lo]<br>《lo-》"],
     "etymology": {
-        "intro": ["語素。", "「」から。"],
+        "intro": ["変成体。", "「 120 」から。"],
         "changes": []
       },
     "variants2": ["もの"]
@@ -256,7 +256,7 @@
     "meaning": ["恋", "恋愛"],
     "pronunciation": ["/difa/<br>[dɨfə]<br>《difa-》<br>（ ⚠️発音に注意 ）"],
     "etymology": {
-        "intro": ["合成語。", "「 1 」+「 101 」が溶け合った単語。"],
+        "intro": ["合成語。", "「 01 」+「 101 」が溶け合った単語。"],
         "changes": [{"form": "《dotifa》原型 → dotifa"}, {"form": "《dutifa》狭化"},{"form": "《difa》母音脱落 → difa"},{"form": "《difa》綴り字の変更 → dtifa"}]
       },
     "variants2": ["こい", "れんあい", "difa"],
@@ -419,7 +419,7 @@
     "meaning": ["世界", "界隈"],
     "pronunciation": ["/fʲalo/<br>[fʲɑlo]<br>《fyalo-》"],
     "etymology": {
-        "intro": ["単純語。", "音象徴「 広い 」から。"],
+        "intro": ["単純語。", "音象徴「 広い 」から。", "語尾の lo は「 100 」から。"],
         "changes": []
       },
     "variants2": ["せかい", "かいわい", "ワールド", "world"]
@@ -706,6 +706,78 @@
       },
     "variants2": ["あまさ"]
   },
+    "fyíno": {
+    "id": 139,
+    "safe": true,
+    "word": "fyino",
+    "stem": "fyín",
+    "stem2": "fyin",
+    "tag": "身体部位",
+    "parts": "名象",
+      "type": "o 基本型",
+      "ruletype": "o",
+    "meaning": ["耳"],
+    "pronunciation": ["/fʲino/<br>[fʲinə]<br>《fyino-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["みみ", "ear"]
+  },
+  "kyúpa": {
+    "id": 140,
+    "safe": true,
+    "word": "kyúp",
+    "stem": "kyúp",
+    "stem2": "kyuip",
+    "tag": "身体部位",
+    "parts": "名象",
+      "type": "p 基本型",
+      "ruletype": "p",
+    "meaning": ["口"],
+    "pronunciation": ["/fʲino/<br>[fʲinə]<br>《fyino-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["くち", "mouth"]
+  },
+  "pánolo": {
+    "id": 140,
+    "safe": true,
+    "word": "panolo",
+    "stem": "pánolo",
+    "stem2": "panolo",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "lo 変則型",
+      "ruletype": "lo",
+    "meaning": ["樹液"],
+    "pronunciation": ["/panolo/<br>[pänolo]<br>《panolo-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 121 」+「 100 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["じゅえき"]
+  },
+  "yibá": {
+    "id": 141,
+    "safe": true,
+    "word": "yibá",
+    "stem": "yibá",
+    "stem2": "yiba",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "a 尾高型",
+      "ruletype": "á",
+    "meaning": ["球", "ボール"],
+    "pronunciation": ["/jiba/<br>[jɪbä]<br>《yiba-》"],
+    "etymology": {
+        "intro": ["変成語。", "古語「 03 」から。"],
+        "changes": []
+      },
+    "variants2": ["たま", "きゅう"]
+  },
   "myéna": {
     "id": 179,
     "safe": true,
@@ -755,7 +827,7 @@
     "meaning": ["電流"],
     "pronunciation": ["/ft͡salo/<br>[ft͡sɑlo]<br>《fcalo-》"],
     "etymology": {
-        "intro": ["合成語", "「 180 」+「 -lo（ 〜水 ）」が組み合わさった語。"],
+        "intro": ["合成語", "「 180 」+「 100 」が組み合わさった語。"],
         "changes": []
       },
     "variants2": ["でんりゅう", "181"]
@@ -779,6 +851,7 @@
     "variants2": ["あまい", "スウィートな", "スイートな", "sweet"]
     }
 }
+
 
 
 
