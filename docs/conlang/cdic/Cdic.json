@@ -988,7 +988,7 @@
         "intro": ["単純語。", "音象徴「 ? 」から。"],
         "changes": []
       },
-    "variants1": ["phóit", "pláska"],
+    "variants1": ["184", "201"],
     "variants2": ["はな", "華", "フラワー", "flower"]
     },
   "phóit": {
@@ -1007,7 +1007,7 @@
         "intro": ["借用語。", "トシュカ語「 183 」から。"],
         "changes": []
       },
-    "variants2": ["fára", "pláska"],
+    "variants1": ["183", "201"],
     "variants2": ["はな", "華", "フラワー", "flower"]
     },
   "myáo": {
@@ -1023,13 +1023,13 @@
     "meaning": ["私","わたし"],
     "pronunciation": ["/mʲao/<br>[mʲäo]<br>《myao-》"],
     "etymology": {
-        "intro": ["単純語。", "「 ? 」から。"],
+        "intro": ["変成語。", "「 6 」から。"],
         "changes": []
       },
     "variants2": ["俺", "僕", "おれ", "ぼく","うち","自分","じぶん"]
     },
     "puissáva": {
-    "id": 146,
+    "id": 200,
     "safe": true,
     "word": "puissáva",
     "stem": "puiss",
@@ -1062,9 +1062,10 @@
         "intro": ["合成語。", "「 200 」+「 99 」が組み合わさった語。"],
         "changes": []
       },
-    "variants2": ["fára", "phóit"],
+    "variants2": ["183", "184"],
     "variants2": ["はな", "華", "フラワー", "flower"]
     }
 }
+
 
 
