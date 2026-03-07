@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let dictionary = {};     // 検索対象
 let etymDictionary = {}; // 語源専用
-    const idToWord = {}; // ID → 単語 を引くためのマッピング
+const idToWord = {}; // ID → 単語 を引くためのマッピング
+let tdicDictionary = {};
+let ndicDictionary = {};
     let searchResults = []; // 検索結果を保存する配列
     let currentPage = 1; // 現在のページ番号
     const itemsPerPage = 30; // 1ページに表示する単語数⁺
@@ -1571,6 +1573,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
