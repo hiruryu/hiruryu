@@ -69,8 +69,8 @@ function resolveEtymologyText(text) {
   text = text.replace(/([a-z]+):(\d+)/gi, (match, dict, id) => {
 
     const pages = {
-      ndic: "../ndic/ndic.html",
-      tdic: "../tdic/tdic.html"
+      t: "../ndic/ndic.html",
+      n: "../tdic/tdic.html"
     };
 
     const page = pages[dict];
@@ -1535,6 +1535,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
