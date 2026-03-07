@@ -48,6 +48,54 @@
         "changes": []
       },
     "variants2": ["ふくらむ"]
+  },
+"fe-": {
+    "id": 4,
+    "safe": true,
+    "word": "fe",
+    "stem": "fe",
+    "stem2": "fe",
+    "tag": ["古語", "屈折接辞", "動詞屈折"],
+    "parts": "派生接辞",
+    "meaning": ["〜される"],
+    "pronunciation": ["/fe/<br>[fə]<br>《fe-》"],
+    "etymology": {
+        "intro": ["語素。", "「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["される"]
+  },
+"ngál": {
+    "id": 5,
+    "safe": true,
+    "word": "ngal",
+    "stem": "ngal",
+    "stem2": "ngal",
+    "tag": ["古語"],
+    "parts": "名象",
+    "meaning": ["王"],
+    "pronunciation": ["/Ngal/<br>[ŋ̍gäl]<br>《Ngal-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 偉大な 」から。"],
+        "changes": []
+      },
+    "variants2": ["おう"]
+  },
+"cháo": {
+    "id": 6,
+    "safe": true,
+    "word": "cháo",
+    "stem": "cháo",
+    "tag": ["古語"],
+    "parts": "離頭辞",
+    "meaning": ["〜できる"],
+    "pronunciation": ["/ʈ͡ʂao/<br>[ʈ͡ʂäo]<br>《čao-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["できる"]
   }
 }
+
 
