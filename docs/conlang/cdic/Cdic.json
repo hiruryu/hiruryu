@@ -988,6 +988,7 @@
         "intro": ["単純語。", "音象徴「 ? 」から。"],
         "changes": []
       },
+    "variants1": ["phóit", "pláska"],
     "variants2": ["はな", "華", "フラワー", "flower"]
     },
   "phóit": {
@@ -1006,9 +1007,9 @@
         "intro": ["借用語。", "トシュカ語「 183 」から。"],
         "changes": []
       },
+    "variants2": ["fára", "pláska"],
     "variants2": ["はな", "華", "フラワー", "flower"]
     },
-  ,
   "myáo": {
     "id": 185,
     "safe": true,
@@ -1026,6 +1027,44 @@
         "changes": []
       },
     "variants2": ["俺", "僕", "おれ", "ぼく","うち","自分","じぶん"]
+    },
+    "puissáva": {
+    "id": 146,
+    "safe": true,
+    "word": "puissáva",
+    "stem": "puiss",
+    "stem2": "plás",
+    "tag": "ー",
+    "parts": "動詞",
+    "type": "n 基本型",
+    "ruletype": "a",
+    "meaning": ["開く［ 能が ］［ 基を ］", "開封する［ 能が ］［ 基を ］"],
+    "pronunciation": ["/pɯsːava/<br>[pɤ̟sːävə]<br>《plas-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 開く 」から。"],
+        "changes": []
+      },
+    "variants2": ["あく", "ひらく", "open"]
+  },
+  "pláska": {
+    "id": 201,
+    "safe": true,
+    "word": "pláska",
+    "stem": "pláska",
+    "stem2": "plask",
+    "tag": ["ー"],
+    "parts": "名象",
+      "type": "k 基本型",
+      "ruletype": "a",
+    "meaning": ["花"],
+    "pronunciation": ["/plaska/<br>[pläskə]<br>《plaska-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 200 」+「 99 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["fára", "phóit"],
+    "variants2": ["はな", "華", "フラワー", "flower"]
     }
 }
+
 
