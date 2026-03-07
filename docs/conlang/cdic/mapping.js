@@ -116,7 +116,8 @@ function normalizeForSearch(input) {
 
 // JSON辞書を読み込んで……
     Promise.all([
-      fetch('Cdic.json').then(response => response.json())
+      fetch('Cdic.json').then(response => response.json()),
+    fetch('Etym.json').then(response => response.json())
     ]).then(([nounData, noun2Data, verbData, adjectiveData, othersData]) => {
       // 読み込んだ辞書を統合するよ！
       dictionary = { ...nounData, ...noun2Data, ...verbData, ...adjectiveData, ...othersData };
@@ -231,3 +232,4 @@ for (const [word, data] of Object.entries(dictionary)) {
     const prevPageBtn = document.getElementById("prevPage");
     const nextPageBtn = document.getElementById("nextPage");
     const pageInfoSpan = document.getElementById("pageInfo");
+
