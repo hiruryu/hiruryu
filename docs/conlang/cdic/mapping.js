@@ -46,15 +46,20 @@ function extractTranslations(text) {
       return text.replace(/［[^］]*］/g, "").replace(/（[^）]*）/g, "").trim();
     }
 
-    function isMorpheme(entry) {
+// 語素/変成体の判定
+function isMorphemeOrVariant(entry) {
   if (!entry || !entry.etymology || !entry.etymology.intro) return false;
 
   const intro = Array.isArray(entry.etymology.intro)
     ? entry.etymology.intro
     : [entry.etymology.intro];
 
-  return intro.some(t => String(t).includes("語素"));
+  return intro.some(t => {
+    const str = String(t);
+    return str.includes("語素") || str.includes("変成体");
+  });
 }
+
 
 // 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
@@ -372,18 +377,16 @@ function getSynonyms(data) {
 
 // 同源語
 function getCognates(data) {
-
   const myID = String(data.id);
   const sourceIDs = extractEtymologyIDs(data);
 
   return Object.entries(dictionary).filter(([word, entry]) => {
 
-    // 自分自身
+    // 自分自身は除外
     if (entry.id === data.id) return false;
 
-    // 語素は除外
-    if (isMorpheme(entry)) return false;
-
+    // 「語素」や「変成体」は除外
+    if (isMorphemeOrVariant(entry)) return false;
     const entryIDs = extractEtymologyIDs(entry);
 
     // 自分の語源に含まれる語
@@ -392,7 +395,7 @@ function getCognates(data) {
     // 自分が語源になっている語
     if (entryIDs.includes(myID)) return true;
 
-    // 同じ語源を共有
+    // 同じ語源を共有する語
     return entryIDs.some(id => sourceIDs.includes(id));
   });
 }
@@ -1514,4 +1517,5 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
