@@ -56,7 +56,7 @@ function isMorphemeOrVariant(entry) {
 
   return intro.some(t => {
     const str = String(t);
-    return str.includes("語素") || str.includes("変成体");
+    return str.includes("語素");
   });
 }
 
@@ -1517,6 +1517,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
