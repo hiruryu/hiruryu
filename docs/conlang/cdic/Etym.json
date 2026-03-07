@@ -1,6 +1,6 @@
 {
     "dotíl": {
-    "id": 1,
+    "id": 01,
     "safe": false,
     "word": "dotíl",
     "stem": "dotil",
@@ -16,7 +16,7 @@
     "variants2": ["こいする", "恋愛する", "愛する"]
   },
   "pyósta": {
-    "id": 2,
+    "id": 02,
     "safe": false,
     "word": "pyósta",
     "stem": "pyóst",
@@ -32,5 +32,21 @@
         "changes": []
       },
     "variants2": ["兎", "ウサギ", "rabbit"]
+  },
+    "eböl": {
+    "id": 03,
+    "safe": false,
+    "word": "eböl",
+    "stem": "eböl",
+    "stem2": "eböl",
+    "tag": "古語",
+    "parts": "動詞",
+    "meaning": ["膨らむ［ 基が ］", "膨張する［ 基が ］"],
+    "pronunciation": ["/ebɒl/<br>[əbɒl]<br>《ebôl-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 膨らむ 」から。"],
+        "changes": []
+      },
+    "variants2": ["ふくらむ"]
   }
 }
