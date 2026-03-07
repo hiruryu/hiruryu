@@ -151,7 +151,8 @@ function normalizeForSearch(input) {
 
 // JSON辞書を読み込んで……
   Promise.all([
-  fetch('Tdic.json').then(r => r.json())
+  fetch('Tdic.json').then(r => r.json()),
+fetch('Etym.json').then(r => r.json())
 ]).then(([dicData, oldData]) => {
 
   // 検索対象
