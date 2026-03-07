@@ -256,7 +256,7 @@
     "meaning": ["恋", "恋愛"],
     "pronunciation": ["/difa/<br>[dɨfə]<br>《difa-》<br>（ ⚠️発音に注意 ）"],
     "etymology": {
-        "intro": ["合成語。", "「 01 」+「 101 」が溶け合った単語。"],
+        "intro": ["合成語。", "「 1 」+「 101 」が溶け合った単語。"],
         "changes": [{"form": "《dotifa》原型 → dotifa"}, {"form": "《dutifa》狭化"},{"form": "《difa》母音脱落 → difa"},{"form": "《difa》綴り字の変更 → dtifa"}]
       },
     "variants2": ["こい", "れんあい", "difa"],
@@ -773,7 +773,7 @@
     "meaning": ["球", "ボール"],
     "pronunciation": ["/jiba/<br>[jɪbä]<br>《yiba-》"],
     "etymology": {
-        "intro": ["変成語。", "古語「 03 」から。"],
+        "intro": ["変成語。", "古語「 3 」から。"],
         "changes": []
       },
     "variants2": ["たま", "きゅう"]
@@ -851,6 +851,7 @@
     "variants2": ["あまい", "スウィートな", "スイートな", "sweet"]
     }
 }
+
 
 
 
