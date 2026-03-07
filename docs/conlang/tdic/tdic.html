@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📕 灯語辞書</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="upbar">
+      <a href="../../index.html" class="back-link">← メインページに戻る</a>
+      <label class="switch">
+        <input type="checkbox" id="safeSearchToggle" checked>
+        <span class="slider"></span>
+        <span class="label-text">セーフサーチ</span>
+      </label>
+    </div>
+
+  <div class="sidebar">
+    <label for="searchMode">検索モード:</label>
+    <select id="searchMode" title="検索モード">
+      <option value="prefix">前方一致</option>
+      <option value="partial">部分一致</option>
+      <option value="exact">完全一致</option>
+      <option value="tag">タグ検索</option>
+    </select>
+    <input type="text" id="searchBox" placeholder="検索...">
+    <ul id="wordList" class="searchResults"></ul>
+
+    <p id="placeholder" class="placeholder">
+      入力欄に単語を入力して<br>
+      Enter/Return キーを押してください｡<br><br>
+      （ 現在の収録語数： <span id="word-count"></span> 語 ）<br><br>
+      ⚠️ 本辞書内蔵の用語辞典は<br>
+      智式言語学・智式音楽理論に基づくため，<br>
+      一般的な定義とは異なる可能性があります。<br><br>
+      ⚠️この辞書は未完成です。<br>
+      単語・活用形・語義などは，<br>
+      変更される可能性があります。<br>
+      ご了承ください。 
+    </p>
+    <br>
+    <div id="pagination" class="pagination">
+      <button id="prevPage">＜ 前のページ</button>
+      <span class="bottonspan" id="pageInfo">0 / 0</span>
+      <button id="nextPage">次のページ ＞</button>
+    </div>
+    <br>
+      </div>
+      <div class="content">
+      <div id="details">
+        <p class="placeholder">左側のリストから単語をクリックしてください｡</p>
+      </div>
+    </div>
+  </div>
+  <script src="rules/nRules.js"></script>
+  <script src="rules/vRules.js"></script>
+  <script src="rules/aRules.js"></script>
+  <script src="rules/oRules.js"></script>
+  <script src="mapping.js"></script>
+</body>
+</html>
