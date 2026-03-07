@@ -76,16 +76,34 @@ function resolveEtymologyText(text) {
   // ① 他辞書を一旦退避
   text = text.replace(/\b([cnt]):(\d+)\b/gi, (match, dict, id) => {
 
-    const page = pages[dict];
-    if (!page) return match;
+  const page = pages[dict];
+  if (!page) return match;
 
-    const placeholder = `__LINK${placeholders.length}__`;
+  let extDict = null;
 
-    placeholders.push(
-      `<a href="${page}?id=${id}" class="etymology-link">${dict}:${id}</a>`
-    );
+  if (dict === "t") extDict = tdicDictionary;
+  if (dict === "n") extDict = ndicDictionary;
 
-    return placeholder;
+  let word = id;
+  let meaning = "";
+
+  if (extDict) {
+    for (const [w, data] of Object.entries(extDict)) {
+      if (String(data.id) === id) {
+        word = w;
+        meaning = removeAnnotations(data.meaning?.[0] ?? "");
+        break;
+      }
+    }
+  }
+
+  const placeholder = `__LINK${placeholders.length}__`;
+
+  placeholders.push(
+    `<a href="${page}?id=${id}" class="etymology-link">${word}</a>（ ${meaning} ）`
+  );
+
+  return placeholder;
   });
 
   // ② cdic ID
@@ -182,14 +200,18 @@ function normalizeForSearch(input) {
 }
 
 // JSON辞書を読み込んで……
-  Promise.all([
+Promise.all([
   fetch('Cdic.json').then(r => r.json()),
-  fetch('Etym.json').then(r => r.json())
-]).then(([dicData, oldData]) => {
+  fetch('Etym.json').then(r => r.json()),
+  fetch('../tdic/Tdic.json').then(r => r.json()),
+  fetch('../ndic/Ndic.json').then(r => r.json())
+]).then(([dicData, oldData, tdicData, ndicData]) => {
 
-  // 検索対象
   dictionary = { ...dicData };
   etymDictionary = { ...oldData };
+
+  tdicDictionary = tdicData;
+  ndicDictionary = ndicData;
   // 語源リンク用
   const linkDictionary = { ...dicData, ...oldData };
 
@@ -1549,6 +1571,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
