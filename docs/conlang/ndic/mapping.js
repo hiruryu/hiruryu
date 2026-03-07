@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const back = document.createElement('div');
     back.className = 'back-to-top';
-    back.innerHTML = `<a href="cdic.html">📖 辞書トップへ戻る</a>`;
+    back.innerHTML = `<a href="ndic.html">📖 辞書トップへ戻る</a>`;
     document.body.insertBefore(back, document.body.firstChild);
   });
 
