@@ -1,4 +1,4 @@
-     document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(location.search);
     const hasId = params.has('id');
     if (!hasId) return;
@@ -75,7 +75,7 @@ function resolveEtymologyText(text) {
     let meaning = entry.meaning?.[0] ?? "";
     meaning = removeAnnotations(meaning); // 注釈を除去
     // return
-    return `<a href="?id=${id}" class="etymology-link">${word}</a>（ ${meaning} ）`;
+    return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
   });
 }
 
@@ -1517,6 +1517,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
