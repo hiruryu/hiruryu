@@ -65,22 +65,8 @@ function isMorphemeOrVariant(entry) {
 function resolveEtymologyText(text) {
   if (!text) return "";
 
-  // 他辞書
-  text = text.replace(/([a-z]+):(\d+)/gi, (match, dict, id) => {
-
-    const pages = {
-      t: "../ndic/ndic.html",
-      n: "../tdic/tdic.html"
-    };
-
-    const page = pages[dict];
-    if (!page) return match;
-
-    return `<a href="${page}?id=${id}" class="etymology-link">${dict}:${id}</a>`;
-  });
-
-  // cdic 内
-  text = text.replace(/(?<!:)(\d+)/g, (match, id) => {
+  // ① cdic 内リンク
+  text = text.replace(/\b(\d+)\b/g, (match, id) => {
 
     const word = idToWord[id];
     if (!word) return match;
@@ -92,6 +78,21 @@ function resolveEtymologyText(text) {
     meaning = removeAnnotations(meaning);
 
     return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
+  });
+
+  // ② 他辞書
+  text = text.replace(/\b([cnt]):(\d+)\b/gi, (match, dict, id) => {
+
+    const pages = {
+      c: "cdic.html",
+      n: "../ndic/ndic.html",
+      t: "../tdic/tdic.html"
+    };
+
+    const page = pages[dict];
+    if (!page) return match;
+
+    return `<a href="${page}?id=${id}" class="etymology-link">${dict}:${id}</a>`;
   });
 
   return text;
@@ -1535,6 +1536,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
