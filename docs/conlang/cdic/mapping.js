@@ -69,7 +69,7 @@ function resolveEtymologyText(text) {
     const word = idToWord[id];
     if (!word) return match;
     // entry
-   const entry = dictionary[key] || etymDictionary[key];
+   const entry = dictionary[word] || etymDictionary[word];
     if (!entry) return word;
     // 意味
     let meaning = entry.meaning?.[0] ?? "";
@@ -1517,6 +1517,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
