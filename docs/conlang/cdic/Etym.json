@@ -1,6 +1,6 @@
 {
     "dotíl": {
-    "id": 01,
+    "id": 1,
     "safe": false,
     "word": "dotíl",
     "stem": "dotil",
@@ -16,7 +16,7 @@
     "variants2": ["こいする", "恋愛する", "愛する"]
   },
   "pyósta": {
-    "id": 02,
+    "id": 2,
     "safe": false,
     "word": "pyósta",
     "stem": "pyóst",
@@ -34,7 +34,7 @@
     "variants2": ["兎", "ウサギ", "rabbit"]
   },
     "eböl": {
-    "id": 03,
+    "id": 3,
     "safe": false,
     "word": "eböl",
     "stem": "eböl",
@@ -50,3 +50,4 @@
     "variants2": ["ふくらむ"]
   }
 }
+
