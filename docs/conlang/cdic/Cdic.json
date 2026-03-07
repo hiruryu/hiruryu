@@ -21,7 +21,7 @@
     "word": "ka",
     "stem": "ka",
     "stem2": "ka",
-    "tag": "派生接辞",
+    "tag": "派生接尾辞",
     "parts": "派生接辞",
     "meaning": ["～もの", "～するもの"],
     "pronunciation": ["/ka/<br>[kə]<br>《ka-》"],
@@ -37,7 +37,7 @@
     "word": "lo",
     "stem": "lo",
     "stem2": "lo",
-    "tag": "派生接辞",
+    "tag": "派生接尾辞",
     "parts": "派生接辞",
     "meaning": ["～水", "～もの", "～するもの", "～こと", "～すること"],
     "pronunciation": ["/lo/<br>[lo]<br>《lo-》"],
@@ -53,7 +53,7 @@
     "word": "fa",
     "stem": "fa",
     "stem2": "fa",
-    "tag": "派生接辞",
+    "tag": "派生接尾辞",
     "parts": "派生接辞",
     "meaning": ["～こと", "～すること"],
     "pronunciation": ["/fa/<br>[fə]<br>《fa-》"],
@@ -69,7 +69,7 @@
     "word": "n",
     "stem": "n",
     "stem2": "n",
-    "tag": "派生接辞",
+    "tag": "派生接尾辞",
     "parts": "質為着尾",
     "meaning": ["～する"],
     "pronunciation": ["/n/<br>[n]<br>《n-》"],
@@ -134,23 +134,6 @@
         "changes": [{"form": "《laž-》", "note": "古形 → lazh-"}, {"form": "《lož-》クオリア同期"},{"form": "《lož-》現代 → lozh-"}]
   },
     "variants2": ["ながす", "ながれる"]
-  },
-  "fvisháva": {
-    "id": 107,
-    "safe": true,
-    "word": "fvisháva",
-    "stem": "fvish",
-    "tag": "音楽",
-    "parts": "動詞",
-      "type": "sh 基本型",
-      "ruletype": "t",
-    "meaning": ["歌う［ 基を ］", "歌唱する［ 基を ］"],
-    "pronunciation": ["/fviʂava/<br>[fʋəʂävə]<br>《fviš-》"],
-    "etymology": {
-        "intro": ["単純語。", "形成の根拠は不明。"],
-        "changes": []
-      },
-    "variants2": ["うたう", "かしょうする", "sing"]
   },
   "bóna": {
     "id": 108,
@@ -502,7 +485,7 @@
     "safe": true,
     "word": "lúfa",
     "stem": "lúfa",
-    "stem2": "luf",
+    "stem2": "luif",
     "tag": "ー",
     "parts": "名象",
       "type": "a 基本型",
@@ -537,7 +520,7 @@
     "id": 129,
     "safe": true,
     "word": "zyíka",
-    "stem": "zyík",
+    "stem": "zyíka",
     "stem2": "zyik",
     "tag": ["魚介類"],
     "parts": "名象",
@@ -555,7 +538,7 @@
     "id": 130,
     "safe": true,
     "word": "pyóttsa",
-    "stem": "pyótts",
+    "stem": "pyóttsa",
     "stem2": "pyitts",
     "tag": ["陸生"],
     "parts": "名象",
@@ -573,7 +556,7 @@
     "id": 131,
     "safe": true,
     "word": "fmolo",
-    "stem": "fmól",
+    "stem": "fmólo",
     "stem2": "fmuil",
     "tag": "ー",
     "parts": "名象",
@@ -644,7 +627,7 @@
     "word": "yif",
     "stem": "yif",
     "stem2": "yif",
-    "tag": ["派生接尾時"],
+    "tag": ["派生接尾辞"],
     "parts": "派生接辞",
     "meaning": ["～させる"],
     "pronunciation": ["/jif/<br>[jif]<br>《yif-》"],
@@ -728,7 +711,7 @@
     "id": 140,
     "safe": true,
     "word": "kyúp",
-    "stem": "kyúp",
+    "stem": "kyúpa",
     "stem2": "kyuip",
     "tag": "身体部位",
     "parts": "名象",
@@ -747,7 +730,7 @@
     "safe": true,
     "word": "panolo",
     "stem": "pánolo",
-    "stem2": "panolo",
+    "stem2": "panol",
     "tag": "ー",
     "parts": "名象",
       "type": "lo 変則型",
@@ -778,16 +761,155 @@
       },
     "variants2": ["たま", "きゅう"]
   },
+  "hluikáva": {
+    "id": 142,
+    "safe": true,
+    "word": "hluikava",
+    "stem": "hluik",
+    "stem2": "hlók",
+    "tag": "ー",
+    "parts": "動詞",
+      "type": "k 基本型",
+      "ruletype": "k",
+    "meaning": ["囲む［ 能が ］［ 基を ］［ 具で ］", "囲う［ 能が ］［ 基を ］［ 具で ］"],
+    "pronunciation": ["/hlɯkava/<br>[hlɤ̟kävə]<br>《hlok-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 閉じる 」から。", "「 144 」と同象徴。"],
+        "changes": []
+      },
+    "variants2": ["かこむ", "かこう"]
+  },
+    "-i": {
+    "id": 143,
+    "safe": true,
+    "word": "i",
+    "stem": "i",
+    "stem2": "i",
+    "tag": ["派生接尾辞"],
+    "parts": "派生接辞",
+    "meaning": ["（ 名象を名飾化させる ）", "（ 動詞を名飾化させる ）", "〜の", "〜的な"],
+    "pronunciation": ["/j/<br>[j]<br>《y-》"],
+    "etymology": {
+        "intro": ["語素。", "「」から。"],
+        "changes": []
+      },
+    "variants2": ["てきな"]
+  },
+  "shuikáva": {
+    "id": 144,
+    "safe": true,
+    "word": "shuikava",
+    "stem": "shuik",
+    "stem2": "shók",
+    "tag": "ー",
+    "parts": "動詞",
+      "type": "k 基本型",
+      "ruletype": "k",
+    "meaning": ["閉まる［ 基が　］", "閉じる［ 基が　］", "閉める［ 能が ］［ 基を ］"],
+    "pronunciation": ["/ʂɯkava/<br>[ʂɤ̟kävə]<br>《šok-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 閉じる 」から。", "「 142 」と同象徴。"],
+        "changes": []
+      },
+    "variants2": ["しめる", "しまる", "とじる"]
+  },
+  "flóka": {
+    "id": 145,
+    "safe": true,
+    "word": "floka",
+    "stem": "flóka",
+    "stem2": "fluik",
+    "tag": "ー",
+    "parts": "名象",
+    "type": "k 基本型",
+    "ruletype": "a",
+    "meaning": ["柵", "フェンス"],
+    "pronunciation": ["/floka/<br>[flɔkə]<br>《floka-》"],
+    "etymology": {
+        "intro": ["変成語。", "「 142 」が訛った語。"],
+        "changes": []
+      },
+    "variants2": ["さく", "fence", "塀", "へい"]
+  },
+  "fluignáva": {
+    "id": 146,
+    "safe": true,
+    "word": "fluignáva",
+    "stem": "fluign",
+    "stem2": "flógn",
+    "tag": "ー",
+    "parts": "動詞",
+    "type": "n 基本型",
+    "ruletype": "a",
+    "meaning": ["区切る［ 能が ］［ 基を ］［ 具で ］", "分ける［ 能が ］［ 基を ］［ 具で ］"],
+    "pronunciation": ["/flɯgnava/<br>[flɤ̟gnävə]<br>《floka-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 145 」+「 102 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["くぎる", "わける", "分割する"]
+  },
+  "fi": {
+    "id": 148,
+    "safe": true,
+    "word": "fi",
+    "stem": "fi",
+    "stem2": "fi",
+    "tag": ["離頭辞"],
+    "parts": "派生接辞",
+    "meaning": ["〜される"],
+    "pronunciation": ["/fʲi/<br>[fʲi]<br>《fyi-》<br>（ ⚠️発音に注意 ）"],
+    "etymology": {
+        "intro": ["変成体。", "「 4 」が訛った語。"],
+        "changes": []
+      },
+    "note3": ["fi 構文を作る。","詳しくは　→ /"],
+    "variants2": ["てきな"]
+  },
+  "-ef": {
+    "id": 149,
+    "safe": true,
+    "word": "ef",
+    "stem": "i",
+    "stem2": "i",
+    "tag": ["派生接尾時"],
+    "parts": "派生接辞",
+    "meaning": ["〜されるもの", "（ 動詞を名飾化させる ）", "〜の", "〜的な"],
+    "pronunciation": ["/j/<br>[j]<br>《y-》"],
+    "etymology": {
+        "intro": ["変成体。", "「 4 」が訛った語。"],
+        "changes": []
+      },
+    "variants2": ["される","てきな"]
+  },
+  "fyíso": {
+    "id": 150,
+    "safe": true,
+    "word": "fyíso",
+    "stem": "fyíso",
+    "stem2": "fyis",
+    "tag": ["ー"],
+    "parts": "名象",
+    "type": "o 基本型",
+    "ruletype": "o",
+    "meaning": ["心", "心臓", "精神"],
+    "pronunciation": ["/j/<br>[j]<br>《y-》"],
+    "etymology": {
+        "intro": ["単純語。", "「 やわらかい 」から。"],
+        "changes": []
+      },
+    "variants2": ["こころ", "しんぞう", "せいしん"]
+  },
   "myéna": {
     "id": 179,
     "safe": true,
     "word": "myéna",
-    "stem": "myén",
+    "stem": "myéna",
     "stem2": "myin",
     "tag": "陸生",
     "parts": "名象",
       "type": "n 基本型",
-      "ruletype": "n",
+      "ruletype": "a",
     "meaning": ["羊"],
     "pronunciation": ["/mʲena/<br>[mʲɛnə]<br>《myena-》"],
     "etymology": {
@@ -817,15 +939,15 @@
   "fcálo": {
     "id": 181,
     "safe": true,
-    "word": "páclo",
-    "stem": "páclo",
-    "stem2": "pacl",
+    "word": "fcálo",
+    "stem": "fcálo",
+    "stem2": "fcal",
     "tag": "ー",
     "parts": "名象",
       "type": "lo 変則型",
       "ruletype": "lo",
     "meaning": ["電流"],
-    "pronunciation": ["/ft͡salo/<br>[ft͡sɑlo]<br>《fcalo-》"],
+    "pronunciation": ["/ft͡salo/<br>[ft͡sälo]<br>《fcalo-》"],
     "etymology": {
         "intro": ["合成語", "「 180 」+「 100 」が組み合わさった語。"],
         "changes": []
@@ -849,8 +971,27 @@
         "changes": []
       },
     "variants2": ["あまい", "スウィートな", "スイートな", "sweet"]
+    },
+  "fára": {
+    "id": 183,
+    "safe": true,
+    "word": "fára",
+    "stem": "fára",
+    "stem2": "far",
+    "tag": ["ー"],
+    "parts": "名象",
+      "type": "r 基本型",
+      "ruletype": "a",
+    "meaning": ["花"],
+    "pronunciation": ["/fara/<br>[fäɾə]<br>《fara-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["はな", "華", "フラワー", "flower"]
     }
 }
+
 
 
 
