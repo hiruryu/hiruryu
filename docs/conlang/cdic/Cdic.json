@@ -725,24 +725,6 @@
       },
     "variants2": ["くち", "mouth"]
   },
-  "pánolo": {
-    "id": 140,
-    "safe": true,
-    "word": "panolo",
-    "stem": "pánolo",
-    "stem2": "panol",
-    "tag": "ー",
-    "parts": "名象",
-      "type": "lo 変則型",
-      "ruletype": "lo",
-    "meaning": ["樹液"],
-    "pronunciation": ["/panolo/<br>[pänolo]<br>《panolo-》"],
-    "etymology": {
-        "intro": ["合成語。", "「 121 」+「 100 」が組み合わさった語。"],
-        "changes": []
-      },
-    "variants2": ["じゅえき"]
-  },
   "yibá": {
     "id": 141,
     "safe": true,
@@ -900,6 +882,24 @@
       },
     "variants2": ["こころ", "しんぞう", "せいしん"]
   },
+    "pánolo": {
+    "id": 151,
+    "safe": true,
+    "word": "panolo",
+    "stem": "pánolo",
+    "stem2": "panol",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "lo 変則型",
+      "ruletype": "lo",
+    "meaning": ["樹液"],
+    "pronunciation": ["/panolo/<br>[pänolo]<br>《panolo-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 121 」+「 100 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["じゅえき"]
+  },
   "myéna": {
     "id": 179,
     "safe": true,
@@ -1009,6 +1009,7 @@
     "variants2": ["はな", "華", "フラワー", "flower"]
     }
 }
+
 
 
 
