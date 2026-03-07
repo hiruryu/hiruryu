@@ -12,5 +12,19 @@
         "changes": []
       },
     "variants2": ["縫族", "ぬいぞく"]
+  },
+    "hiâk": {
+    "id": 101,
+    "safe": true,
+    "word": "hiâk",
+    "tag": ["—"],
+    "parts": "名象",
+    "meaning": ["学ぶ", "学習する", "勉強する"],
+    "pronunciation": ["/xiak/<br>[xi̯æk]<br>《hiak-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["まなぶ", "がくしゅうする", "べんきょうする", "学", "學"]
   }
 }
