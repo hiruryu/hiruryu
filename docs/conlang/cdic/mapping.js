@@ -68,7 +68,6 @@ function resolveEtymologyText(text) {
   if (!text) return "";
 
   const pages = {
-    c: "cdic.html",
     n: "../ndic/ndic.html",
     t: "../tdic/tdic.html"
   };
@@ -83,8 +82,8 @@ function resolveEtymologyText(text) {
 
   let extDict = null;
 
-  if (dict === "t") extDict = tdicDictionary;
-  if (dict === "n") extDict = ndicDictionary;
+if (dict === "t" && tdicDictionary) extDict = tdicDictionary;
+if (dict === "n" && ndicDictionary) extDict = ndicDictionary;
 
   let word = id;
   let meaning = "";
@@ -1573,6 +1572,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
