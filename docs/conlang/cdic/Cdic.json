@@ -330,7 +330,7 @@
     "meaning": ["竜", "ドラゴン"],
     "pronunciation": ["/mʲolo/<br>[mʲɔlo]<br>《myolo-》"],
     "etymology": {
-        "intro": ["化成語。", "古語「 mul（ 下 ）」が訛ったもの。"],
+        "intro": ["化成語。", "古語「 6 」が訛ったもの。"],
         "changes": []
       },
     "variants2": ["りゅう", "龍", "たつ"]
@@ -1007,5 +1007,25 @@
         "changes": []
       },
     "variants2": ["はな", "華", "フラワー", "flower"]
+    },
+  ,
+  "myáo": {
+    "id": 185,
+    "safe": true,
+    "word": "myáo",
+    "stem": "myáo",
+    "stem2": "mya",
+    "tag": ["ー"],
+    "parts": "名象",
+      "type": "代名詞型",
+      "ruletype": "o",
+    "meaning": ["私","わたし"],
+    "pronunciation": ["/mʲao/<br>[mʲäo]<br>《myao-》"],
+    "etymology": {
+        "intro": ["単純語。", "「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["俺", "僕", "おれ", "ぼく","うち","自分","じぶん"]
     }
 }
+
