@@ -734,7 +734,13 @@ if (data.vulgarMeaning && !safeSearch) {
         `</ul>`;
       } else {
       // 単文の場合
-      introHTML = `<p class="etymology-intro">${processH5Links(data.etymology.intro)}</p>`;
+      introHTML = `<p class="etymology-intro">${
+  safeInline(
+    processH5Links
+      ? processH5Links(resolveEtymologyText(data.etymology.intro))
+      : resolveEtymologyText(data.etymology.intro)
+  )
+}</p>`;
     }
   }
 
@@ -1597,4 +1603,5 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
