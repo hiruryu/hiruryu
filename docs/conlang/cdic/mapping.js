@@ -225,13 +225,31 @@ function normalizeForSearch(input) {
   rdicDictionary = rdicData;
   pdicDictionary = pdicData;
   // 語源リンク用
-  const linkDictionary = { ...dicData, ...oldData };
+const linkDictionary = {
+  c:  dicData,
+  e:  oldData,
+  n:  ndicData,
+  ng: ngdicData,
+  r:  rdicData,
+  t: tdicData,
+  p:  pdicData
+};
 
-  for (const [word, data] of Object.entries(linkDictionary)) {
-    if (data.id != null) {
-      idToWord[String(data.id)] = word;
+// idToWord
+const idToWord = Object.fromEntries(
+  Object.entries(linkDictionary).map(([dicId, dicData]) => {
+    const dic_Id2w  = {};
+    for (const [word, data] of Object.entries(dicData)) {
+      if (data.id != null) {
+        dic_Id2w[String(data.id)] = word;
+      }
     }
-  }
+    return [
+      dicId,
+      dic_Id2w
+    ]
+  })
+)
 
 for (const [word, data] of Object.entries(etymDictionary)) {
   if (data.id != null) {
@@ -310,11 +328,7 @@ for (const [word, data] of Object.entries(dictionary)) {
     idToWord[String(data.id)] = word;
   }
 }
-for (const [word, data] of Object.entries(etymDictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
+
 
 // URLパラメータから単語を取得するよ！
     function getWordFromParam() {
@@ -1583,3 +1597,4 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
