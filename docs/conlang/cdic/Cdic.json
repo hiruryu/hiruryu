@@ -330,7 +330,7 @@
     "meaning": ["竜", "ドラゴン"],
     "pronunciation": ["/mʲolo/<br>[mʲɔlo]<br>《myolo-》"],
     "etymology": {
-        "intro": ["化成語。", "古語「 8 」が訛ったもの。"],
+        "intro": ["化成語。", "古語「 6 」が訛ったもの。"],
         "changes": []
       },
     "variants2": ["りゅう", "龍", "たつ"]
@@ -846,7 +846,7 @@
         "changes": []
       },
     "note2": ["名詞の格によって意味が変わる。", "「 fi 基格 」→ 〜を通して。","「 fi 獣格 」→ 〜を通して。⚠️受動文の二重使役文で、物が動作主になる場合。擬人法。","「 fi 能格 」→ 〜を通して。二重使役文などで登場。","「 fi 与格 」→ 〜のために、〜が原因で（因格的用法）","「 fi 処格 」→ 〜を通って（通格的用法）","「 fi 具格 」→ 〜によって。fi 構文。"],
-    "note3": ["fi 構文については　→ /"],
+    "note3": ["fi 構文については → /"],
     "variants2": ["てきな"]
   },
   "-ef": {
@@ -1024,7 +1024,7 @@
     "meaning": ["私","わたし"],
     "pronunciation": ["/mʲao/<br>[mʲäo]<br>《myao-》"],
     "etymology": {
-        "intro": ["変成語。", "「 8 」が訛った語。"],
+        "intro": ["変成語。", "「 6 」が訛った語。"],
         "changes": []
       },
     "variants2": ["俺", "僕", "おれ", "ぼく","うち","自分","じぶん"]
@@ -1065,14 +1065,41 @@
       },
     "variants1": ["183", "184"],
     "variants2": ["はな", "華", "フラワー", "flower"]
+    },
+    "nos": {
+    "id": 210,
+    "safe": true,
+    "word": "nos",
+    "stem": "nos",
+    "stem2": "nos",
+    "tag": ["ー"],
+    "parts": "離辞",
+      "type": "代名詞型",
+      "ruletype": "o",
+    "meaning": ["～さん","～様","御～","お～","ご～","（ 敬称を作る ）"],
+    "pronunciation": ["/mʲao/<br>[mʲäo]<br>《myao-》"],
+    "etymology": {
+        "intro": ["借用語。", "ングレシャン語「 ng:13 」が訛った語。"],
+        "changes": []
+      },
+    "variants2": ["敬称","さん","さま","お","ご"]
+    },
+    "shtófa": {
+    "id": 211,
+    "safe": true,
+    "word": "nos",
+    "stem": "nos",
+    "stem2": "nos",
+    "tag": ["ー"],
+    "parts": "離辞",
+      "type": "代名詞型",
+      "ruletype": "o",
+    "meaning": ["町", "街"],
+    "pronunciation": ["/mʲao/<br>[mʲäo]<br>《myao-》"],
+    "etymology": {
+        "intro": ["借用語。", "ポヤーナ語「 p:2 」が訛った語。"],
+        "changes": []
+      },
+    "variants2": ["まち", "シティ", "city"]
     }
 }
-
-
-
-
-
-
-
-
-
