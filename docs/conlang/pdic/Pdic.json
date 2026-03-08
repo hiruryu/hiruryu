@@ -1,0 +1,20 @@
+{
+    "shtóf": {
+    "id": 2,
+    "safe": true,
+    "word": "shtófa",
+    "stem": "shtófa",
+    "stem2": "shtof",
+    "tag": ["ー"],
+    "parts": "名象",
+      "type": "f 基本型",
+      "ruletype": "a",
+    "meaning": ["町", "街"],
+    "pronunciation": ["/tof/<br>[tof]<br>《štof-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["まち", "シティ", "city"]
+    }
+}

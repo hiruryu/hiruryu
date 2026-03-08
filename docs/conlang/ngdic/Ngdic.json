@@ -1,0 +1,74 @@
+{
+    "wos": {
+    "id": 10,
+    "safe": true,
+    "word": "bos",
+    "stem": "bos",
+    "stem2": "bos",
+    "tag": ["ー"],
+    "parts": "動詞",
+      "type": "s 基本型",
+      "ruletype": "a",
+    "meaning": ["食べる", "食事する"],
+    "pronunciation": ["/wos/<br>[wos]<br>《wos-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["たべる", "しょくじする", "eat"]
+    },
+  "chej": {
+    "id": 11,
+    "safe": true,
+    "word": "chej",
+    "stem": "chej",
+    "stem2": "chej",
+    "tag": ["ー"],
+    "parts": "名象",
+      "type": "j 基本型",
+      "ruletype": "a",
+    "meaning": ["願い","願望"],
+    "pronunciation": ["/t͡ʃeʒ/<br>[t͡ʃɛʒ]<br>《čež-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["ねがい", "がんぼう", "望み", "のぞみ"]
+    },
+    "cheki": {
+    "id": 12,
+    "safe": true,
+    "word": "cheki",
+    "stem": "chek",
+    "stem2": "chek",
+    "tag": ["ー"],
+    "parts": "名飾",
+      "type": "k 基本型",
+      "ruletype": "k",
+    "meaning": ["新しい"],
+    "pronunciation": ["/t͡ʃeki/<br>[t͡ʃɛki]<br>《ček-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["あたらしい", "new"]
+    },
+    "nës": {
+    "id": 13,
+    "safe": true,
+    "word": "cheki",
+    "stem": "chek",
+    "stem2": "chek",
+    "tag": ["ー"],
+    "parts": "離辞",
+      "type": "無活用",
+      "ruletype": "k",
+    "meaning": ["～さん","～様","御～","（ 敬称を作る ）"],
+    "pronunciation": ["/nës/<br>[nës]<br>《nës-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["敬称","さん","さま","お","ご", "neos"]
+    }
+}
