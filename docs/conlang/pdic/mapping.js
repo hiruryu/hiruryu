@@ -228,19 +228,31 @@ Promise.all([
   tdicDictionary = tdicData;
 
   // 語源リンク用
-  const linkDictionary = { ...dicData, ...oldData };
+const linkDictionary = {
+  p:  dicData,
+  e:  oldData,
+  c:  cdicData,
+  n:  ndicData,
+  ng: ngdicData,
+  r:  rdicData,
+  t: tdicData
+};
 
-  for (const [word, data] of Object.entries(linkDictionary)) {
-    if (data.id != null) {
-      idToWord[String(data.id)] = word;
+// idToWord　{dicId: {id1, id2, id3, ...}, dicId2: {...}, ...}になればどうだっていいけど例えば
+const idToWord = Object.fromEntries(
+  Object.entries(linkDictionary).map(([dicId, dicData]) => {
+    const dic_Id2w  = {};
+    for (const [word, data] of Object.entries(dicData)) {
+      if (data.id != null) {
+        dic_Id2w[String(data.id)] = word;
+      }
     }
-  }
-
-//for (const [word, data] of Object.entries(etymDictionary)) {
-  //if (data.id != null) {
-    //idToWord[String(data.id)] = word;
-  //}
-//}
+    return [
+      dicId,
+      dic_Id2w
+    ]
+  })
+)
 
 function renderEtymology(etymology) {
   if (!etymology) return "";
@@ -1577,3 +1589,4 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
