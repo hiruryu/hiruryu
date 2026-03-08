@@ -800,8 +800,14 @@ if (similars.length) {
 
 // 単語リンククリック時
     window.loadWord = function(word) {
-      showDetails(word);
-    };
+  showDetails(word);
+
+  const data = getEntry(word);
+  const id = data?.id ?? word;
+
+  const newUrl = `${location.pathname}?id=${id}`;
+  history.pushState(null, "", newUrl);
+};
 
 // 単語リスト項目生成
     function createWordListItem(word) {
