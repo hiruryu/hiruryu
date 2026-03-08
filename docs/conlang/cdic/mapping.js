@@ -1121,9 +1121,15 @@ if (similars.length) {
     }
 
 // 単語リンククリック時
-    window.loadWord = function(word) {
-      showDetails(word);
-    };
+window.loadWord = function(word) {
+  showDetails(word);
+
+  const data = getEntry(word);
+  const id = data?.id ?? word;
+
+  const newUrl = `${location.pathname}?id=${id}`;
+  history.pushState(null, "", newUrl);
+};
 
 // 単語リスト項目生成
     function createWordListItem(word) {
@@ -1577,4 +1583,5 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
