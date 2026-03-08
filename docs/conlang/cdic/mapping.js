@@ -67,13 +67,16 @@ function resolveEtymologyText(text) {
   const pages = {
     c: "cdic.html",
     n: "../ndic/ndic.html",
-    t: "../tdic/tdic.html"
+    t: "../tdic/tdic.html",
+    ng: "../ngdic/ngdic.html",
+    r: "../rdic/rdic.html",
+    p: "../pdic/pdic.html"
   };
 
   const placeholders = [];
 
   // ① 他辞書を一旦退避
-  text = text.replace(/\b([cnt]):(\d+)\b/gi, (match, dict, id) => {
+  text = text.replace(/\b(c|n|t|ng|r|p):(\d+)\b/gi, (match, dict, id) => {
 
   const page = pages[dict];
   if (!page) return match;
@@ -82,7 +85,9 @@ function resolveEtymologyText(text) {
 
   if (dict === "t") extDict = tdicDictionary;
   if (dict === "n") extDict = ndicDictionary;
-
+  if (dict === "ng") extDict = ngdicDictionary;
+  if (dict === "r") extDict = rdicDictionary;
+  if (dict === "p") extDict = pdicDictionary;
   let word = id;
   let meaning = "";
 
@@ -203,16 +208,22 @@ function normalizeForSearch(input) {
 // JSON辞書を読み込んで……
   Promise.all([
   fetch('Cdic.json').then(r => r.json()),
-  fetch('Etym.json').then(r => r.json()),
+  fetch('../Etym.json').then(r => r.json()),
   fetch('../tdic/Tdic.json').then(r => r.json()),
-  fetch('../ndic/Ndic.json').then(r => r.json())
-]).then(([dicData, oldData, tdicData, ndicData]) => {
+  fetch('../ndic/Ndic.json').then(r => r.json()),
+  fetch('../ngdic/Ngdic.json').then(r => r.json()),
+  fetch('../rdic/Rdic.json').then(r => r.json()),
+  fetch('../pdic/Pdic.json').then(r => r.json())
+]).then(([dicData, oldData, tdicData, ndicData, ngdicData, rdicData, pdicData]) => {
 
   dictionary = { ...dicData };
   etymDictionary = { ...oldData };
 
   tdicDictionary = tdicData;
   ndicDictionary = ndicData;
+  ngdicDictionary = ngdicData;
+  rdicDictionary = rdicData;
+  pdicDictionary = pdicData;
   // 語源リンク用
   const linkDictionary = { ...dicData, ...oldData };
 
