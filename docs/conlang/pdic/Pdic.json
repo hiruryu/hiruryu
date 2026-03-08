@@ -30,9 +30,11 @@
     "meaning": ["町", "街"],
     "pronunciation": ["/tof/<br>[tof]<br>《štof-》"],
     "etymology": {
-        "intro": ["単純語。", "音象徴「 2 」から。"],
+        "intro": ["単純語。", "音象徴「 p:2 」「 e:2 」から。"],
         "changes": []
       },
+    "variants2": ["2", "p2"]
     "variants2": ["まち", "シティ", "city"]
     }
 }
+
