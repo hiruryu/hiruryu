@@ -325,11 +325,6 @@ for (const [word, data] of Object.entries(dictionary)) {
     idToWord[String(data.id)] = word;
   }
 }
-for (const [word, data] of Object.entries(etymDictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
 
 // URLパラメータから単語を取得するよ！
     function getWordFromParam() {
@@ -1589,4 +1584,5 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
