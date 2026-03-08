@@ -60,24 +60,75 @@ function isMorphemeOrVariant(entry) {
   });
 }
 
-
 // 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
   if (!text) return "";
-  return text.replace(/(\d+)/g, (match, id) => {
-    // 単語
+
+  const pages = {
+    c: "cdic.html",
+    n: "../ndic/ndic.html",
+    t: "../tdic/tdic.html"
+  };
+
+  const placeholders = [];
+
+  // ① 他辞書を一旦退避
+  text = text.replace(/\b([cnt]):(\d+)\b/gi, (match, dict, id) => {
+
+  const page = pages[dict];
+  if (!page) return match;
+
+  let extDict = null;
+
+  if (dict === "t") extDict = tdicDictionary;
+  if (dict === "n") extDict = ndicDictionary;
+
+  let word = id;
+  let meaning = "";
+
+  if (extDict) {
+    for (const [w, data] of Object.entries(extDict)) {
+      if (String(data.id) === id) {
+        word = w;
+        meaning = removeAnnotations(data.meaning?.[0] ?? "");
+        break;
+      }
+    }
+  }
+
+  const placeholder = `__LINK${placeholders.length}__`;
+
+  placeholders.push(
+    `<a href="${page}?id=${id}" class="etymology-link">${word}</a>（ ${meaning} ）`
+  );
+
+  return placeholder;
+});
+
+
+  // ② cdic ID
+  text = text.replace(/\b(\d+)\b/g, (match, id) => {
+
     const word = idToWord[id];
     if (!word) return match;
-    // entry
-   const entry = dictionary[word] || etymDictionary[word];
+
+    const entry = dictionary[word] || etymDictionary[word];
     if (!entry) return word;
-    // 意味
+
     let meaning = entry.meaning?.[0] ?? "";
-    meaning = removeAnnotations(meaning); // 注釈を除去
-    // return
+    meaning = removeAnnotations(meaning);
+
     return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
   });
+
+  // ③ 他辞書リンクを戻す
+  placeholders.forEach((link, i) => {
+    text = text.replace(`__LINK${i}__`, link);
+  });
+
+  return text;
 }
+
 
   // Markdown を HTML に変換して表示する関数
   function renderMarkdown(md) {　
@@ -152,12 +203,16 @@ function normalizeForSearch(input) {
 // JSON辞書を読み込んで……
   Promise.all([
   fetch('Cdic.json').then(r => r.json()),
-  fetch('Etym.json').then(r => r.json())
-]).then(([dicData, oldData]) => {
+  fetch('Etym.json').then(r => r.json()),
+  fetch('../tdic/Tdic.json').then(r => r.json()),
+  fetch('../ndic/Ndic.json').then(r => r.json())
+]).then(([dicData, oldData, tdicData, ndicData]) => {
 
-  // 検索対象
   dictionary = { ...dicData };
   etymDictionary = { ...oldData };
+
+  tdicDictionary = tdicData;
+  ndicDictionary = ndicData;
   // 語源リンク用
   const linkDictionary = { ...dicData, ...oldData };
 
