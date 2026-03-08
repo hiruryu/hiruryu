@@ -64,19 +64,75 @@ function isMorphemeOrVariant(entry) {
 // 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
   if (!text) return "";
-  return text.replace(/(\d+)/g, (match, id) => {
-    // 単語
+
+  const pages = {
+    t: "tdic.html",
+    n: "../ndic/ndic.html",
+    c: "../cdic/cdic.html",
+    ng: "../ngdic/ngdic.html",
+    r: "../rdic/rdic.html",
+    p: "../pdic/pdic.html"
+  };
+
+  const placeholders = [];
+
+  // ① 他辞書を一旦退避
+  text = text.replace(/\b(t|c|n|ng|r|p):(\d+)\b/gi, (match, dict, id) => {
+
+  const page = pages[dict];
+  if (!page) return match;
+
+  let extDict = null;
+
+  if (dict === "c") extDict = cdicDictionary;
+  if (dict === "n") extDict = ndicDictionary;
+  if (dict === "ng") extDict = ngdicDictionary;
+  if (dict === "r") extDict = rdicDictionary;
+  if (dict === "p") extDict = pdicDictionary;
+  let word = id;
+  let meaning = "";
+
+  if (extDict) {
+    for (const [w, data] of Object.entries(extDict)) {
+      if (String(data.id) === id) {
+        word = w;
+        meaning = removeAnnotations(data.meaning?.[0] ?? "");
+        break;
+      }
+    }
+  }
+
+  const placeholder = `__LINK${placeholders.length}__`;
+
+  placeholders.push(
+    `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}</a>（ ${meaning} ）`
+  );
+
+  return placeholder;
+});
+
+
+  // ② tdic ID
+  text = text.replace(/\b(\d+)\b/g, (match, id) => {
+
     const word = idToWord[id];
     if (!word) return match;
-    // entry
-   const entry = dictionary[word] || etymDictionary[word];
+
+    const entry = dictionary[word] || etymDictionary[word];
     if (!entry) return word;
-    // 意味
+
     let meaning = entry.meaning?.[0] ?? "";
-    meaning = removeAnnotations(meaning); // 注釈を除去
-    // return
+    meaning = removeAnnotations(meaning);
+
     return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
   });
+
+  // ③ 他辞書リンクを戻す
+  placeholders.forEach((link, i) => {
+    text = text.replace(`__LINK${i}__`, link);
+  });
+
+  return text;
 }
 
   // Markdown を HTML に変換して表示する関数
@@ -150,14 +206,24 @@ function normalizeForSearch(input) {
 }
 
 // JSON辞書を読み込んで……
-  Promise.all([
+Promise.all([
   fetch('Tdic.json').then(r => r.json()),
-fetch('Etym.json').then(r => r.json())
-]).then(([dicData, oldData]) => {
+  fetch('../Etym.json').then(r => r.json()),
+  fetch('../cdic/Cdic.json').then(r => r.json()),
+  fetch('../ndic/Ndic.json').then(r => r.json()),
+  fetch('../ngdic/Ngdic.json').then(r => r.json()),
+  fetch('../rdic/Rdic.json').then(r => r.json()),
+  fetch('../pdic/Pdic.json').then(r => r.json())
+]).then(([dicData, oldData, cdicData, ndicData, ngdicData, rdicData, pdicData]) => {
 
-  // 検索対象
   dictionary = { ...dicData };
   etymDictionary = { ...oldData };
+
+  cdicDictionary = cdicData;
+  ndicDictionary = ndicData;
+  ngdicDictionary = ngdicData;
+  rdicDictionary = rdicData;
+  pdicDictionary = pdicData;
   // 語源リンク用
   const linkDictionary = { ...dicData, ...oldData };
 
@@ -752,7 +818,7 @@ if (data.note1) {
         }
 
       
-// 智語解説タイトル
+// 灯語解説タイトル
 let note2TitleHTML = "";
 if (data.note2 && data.note2.title) {
   const titles = Array.isArray(data.note2.title)
@@ -763,7 +829,7 @@ if (data.note2 && data.note2.title) {
   }).join("");
 }
 
-// 智語解説本文
+// 灯語解説本文
 let note2HTML = "";
 if (data.note2) {
   let note2TextHTML = "";
@@ -795,7 +861,7 @@ if (data.note2) {
   detailsHTML += `<table class="detailTable">
     <tbody>
       <tr>
-        <th id="stripeth">智語解説</th>
+        <th id="stripeth">灯語解説</th>
         <td colspan="3">
           ${ note2TitleHTML ? note2TitleHTML : "" }
           ${ note2TextHTML ? `<ul>${note2TextHTML}</ul>` : "" }
