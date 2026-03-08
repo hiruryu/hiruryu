@@ -233,12 +233,6 @@ tdicDictionary = tdicData;
     }
   }
 
-for (const [word, data] of Object.entries(etymDictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
-
 function renderEtymology(etymology) {
   if (!etymology) return "";
 
@@ -306,6 +300,11 @@ for (const [word, data] of Object.entries(dictionary)) {
   }
 
 for (const [word, data] of Object.entries(dictionary)) {
+  if (data.id != null) {
+    idToWord[String(data.id)] = word;
+  }
+}
+for (const [word, data] of Object.entries(etymDictionary)) {
   if (data.id != null) {
     idToWord[String(data.id)] = word;
   }
@@ -1578,3 +1577,4 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
