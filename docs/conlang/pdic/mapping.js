@@ -65,6 +65,7 @@ function isMorphemeOrVariant(entry) {
 function resolveEtymologyText(text) {
   if (!text) return "";
 
+  // pages は表示先URLテーブル（既存と同じ）
   const pages = {
     p: "pdic.html",
     n: "../ndic/ndic.html",
@@ -76,59 +77,57 @@ function resolveEtymologyText(text) {
 
   const placeholders = [];
 
-  // ① 他辞書を一旦退避
-  text = text.replace(/\b(p|c|n|t|ng|r):(\d+)\b/gi, (match, dict, id) => {
+  // ① 他辞書プレフィックス (ex: t:138, ng:45) を一旦退避しておく
+  // 正規表現は辞書キー（複数文字可）を許す形にしておく
+  const dictKeysPattern = Object.keys(pages).join("|"); // "p,n,c,t,ng,r" 等
+  const regexOther = new RegExp(`\\b(${dictKeysPattern}):(\\d+)\\b`, "gi");
 
-  const page = pages[dict];
-  if (!page) return match;
+  text = text.replace(regexOther, (match, dict, id) => {
+    const page = pages[dict];
+    if (!page) return match;
 
-  let extDict = null;
+    // 高速に単語と意味を取る（idToWordByDic と dicDataMap を利用）
+    const wordFromDic = idToWordByDic[dict]?.[String(id)];
+    let word = id;
+    let meaning = "";
 
-  if (dict === "c") extDict = cdicDictionary;
-  if (dict === "n") extDict = ndicDictionary;
-  if (dict === "t") extDict = tdicDictionary;
-  if (dict === "ng") extDict = ngdicDictionary;
-  if (dict === "r") extDict = rdicDictionary;
-  
-  let word = id;
-  let meaning = "";
-
-  if (extDict) {
-    for (const [w, data] of Object.entries(extDict)) {
-      if (String(data.id) === id) {
-        word = w;
-        meaning = removeAnnotations(data.meaning?.[0] ?? "");
-        break;
+    if (wordFromDic) {
+      word = wordFromDic;
+      const entry = (dicDataMap[dict] || {})[word];
+      if (entry) {
+        meaning = Array.isArray(entry.meaning) ? entry.meaning[0] : (entry.meaning || "");
+        meaning = removeAnnotations(meaning);
       }
     }
-  }
 
-  const placeholder = `__LINK${placeholders.length}__`;
-
-  placeholders.push(
-    `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}</a>（ ${meaning} ）`
-  );
-
-  return placeholder;
-});
-
-
-  // ② pdic ID
-  text = text.replace(/\b(\d+)\b/g, (match, id) => {
-
-    const word = idToWord[id];
-    if (!word) return match;
-
-    const entry = dictionary[word] || etymDictionary[word];
-    if (!entry) return word;
-
-    let meaning = entry.meaning?.[0] ?? "";
-    meaning = removeAnnotations(meaning);
-
-    return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
+    const ph = `__LINK${placeholders.length}__`;
+    placeholders.push(`<a href="${page}?id=${id}" target="_blank" rel="noopener noreferrer" class="etymology-link">${word}</a>（ ${meaning} ）`);
+    return ph;
   });
 
-  // ③ 他辞書リンクを戻す
+  // ② 裸の数字（cdic/pdic優先）を処理
+  text = text.replace(/\b(\d+)\b/g, (match, id) => {
+    // findEntryById は優先順に辞書を探す
+    const found = findEntryById(id);
+    if (!found) return match;
+
+    const { dic, word, entry } = found;
+    // entry がないなら単語だけ返す
+    if (!entry) {
+      return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ）`;
+    }
+
+    const meaning = removeAnnotations(Array.isArray(entry.meaning) ? entry.meaning[0] : (entry.meaning || ""));
+    // 現行辞書（p）なら SPA で遷移、他辞書なら外部リンク扱い（ここは優先辞書による）
+    if (dic === 'p' || (dictionary && dictionary[word])) {
+      return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
+    } else {
+      const page = pages[dic] || pages.c || 'cdic.html';
+      return `<a href="${page}?id=${entry.id}" target="_blank" rel="noopener noreferrer" class="etymology-link">${word}</a>（ ${meaning} ）`;
+    }
+  });
+
+  // ③ プレースホルダ戻し
   placeholders.forEach((link, i) => {
     text = text.replace(`__LINK${i}__`, link);
   });
@@ -239,20 +238,69 @@ const linkDictionary = {
 };
 
 // idToWord　{dicId: {id1, id2, id3, ...}, dicId2: {...}, ...}になればどうだっていいけど例えば
-const idToWord = Object.fromEntries(
+// 1) 辞書ごとの id→word マップ（あなたの元コードをそのまま保持）
+const idToWordByDic = Object.fromEntries(
   Object.entries(linkDictionary).map(([dicId, dicData]) => {
     const dic_Id2w  = {};
-    for (const [word, data] of Object.entries(dicData)) {
-      if (data.id != null) {
+    for (const [word, data] of Object.entries(dicData || {})) {
+      if (data && data.id != null) {
         dic_Id2w[String(data.id)] = word;
       }
     }
-    return [
-      dicId,
-      dic_Id2w
-    ]
+    return [ dicId, dic_Id2w ];
   })
-)
+);
+
+// 2) 優先順にフラットな id→word マップを作る（p を最優先など）
+const idToWord = {}; // 平坦マップ（裸の数字をここで解決する）
+const priority = ['p','c','e','n','ng','r','t']; // 優先順。必要なら順を調整して
+for (const dicKey of priority) {
+  const dic = linkDictionary[dicKey] || {};
+  for (const [word, data] of Object.entries(dic)) {
+    if (data && data.id != null) {
+      const idStr = String(data.id);
+      if (!idToWord[idStr]) { // 既に優先辞書で登録されていたら上書きしない
+        idToWord[idStr] = word;
+      }
+    }
+  }
+}
+
+// 3) 辞書キー → 辞書データの参照表（意味やエントリを取るときに使う）
+const dicDataMap = {
+  p: dicData,    // このファイルで読み込んだ Pdic.json のデータ変数名に合わせる
+  e: oldData,
+  c: cdicData,
+  n: ndicData,
+  ng: ngdicData,
+  r: rdicData,
+  t: tdicData
+};
+
+// ヘルパー：id と（オプションで）辞書キーを渡してエントリを探す
+function findEntryById(id, preferredDic) {
+  const idStr = String(id);
+  if (preferredDic) {
+    const w = idToWordByDic[preferredDic]?.[idStr];
+    if (w) return { dic: preferredDic, word: w, entry: (dicDataMap[preferredDic] || {})[w] || null };
+    return null;
+  }
+  // 優先順で検索（flat map と idToWordByDic を併用）
+  for (const dicKey of priority) {
+    const w = idToWordByDic[dicKey]?.[idStr];
+    if (w) {
+      return { dic: dicKey, word: w, entry: (dicDataMap[dicKey] || {})[w] || null };
+    }
+  }
+  // 最後に平坦マップも参照（保険）
+  const wFlat = idToWord[idStr];
+  if (wFlat) {
+    // フラットはどの辞書に属しているか分からないので現行辞書優先で探す
+    const entry = (dictionary[wFlat] || etymDictionary[wFlat] || cdicDictionary?.[wFlat] || ndicDictionary?.[wFlat] || tdicDictionary?.[wFlat]) || null;
+    return { dic: null, word: wFlat, entry };
+  }
+  return null;
+}
 
 function renderEtymology(etymology) {
   if (!etymology) return "";
@@ -1590,6 +1638,7 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
 
