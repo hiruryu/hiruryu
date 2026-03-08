@@ -717,11 +717,17 @@ if (data.vulgarMeaning && !safeSearch) {
           if (Array.isArray(data.etymology.intro)) {
             // リスト形式
             introHTML = `<ul class="e-list">` +
-        data.etymology.intro.map(item => `<li>${processH5Links(item)}</li>`).join('') +
-        `</ul>`;
+  data.etymology.intro.map(item => {
+    const resolved = resolveEtymologyText(item);
+    const processed = processH5Links(resolved);
+    return `<li>${processed}</li>`;
+  }).join('')
++ `</ul>`;
       } else {
       // 単文の場合
-      introHTML = `<p class="etymology-intro">${processH5Links(data.etymology.intro)}</p>`;
+introHTML = `<p class="etymology-intro">${
+  processH5Links(resolveEtymologyText(data.etymology.intro))
+}</p>`;
     }
   }
 
@@ -1584,5 +1590,6 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
 
