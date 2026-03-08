@@ -99,7 +99,7 @@ function resolveEtymologyText(text) {
   const placeholder = `__LINK${placeholders.length}__`;
 
   placeholders.push(
-    `<a href="${page}?id=${id}" class="etymology-link">${word}</a>（ ${meaning} ）`
+    `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}</a>（ ${meaning} ）`
   );
 
   return placeholder;
