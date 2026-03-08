@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const back = document.createElement('div');
     back.className = 'back-to-top';
-    back.innerHTML = `<a href="ndic.html">📖 辞書トップへ戻る</a>`;
+    back.innerHTML = `<a href="etym.html">📖 辞書トップへ戻る</a>`;
     document.body.insertBefore(back, document.body.firstChild);
   });
 
@@ -164,12 +164,6 @@ function normalizeForSearch(input) {
       idToWord[String(data.id)] = word;
     }
   }
-
-for (const [word, data] of Object.entries(etymDictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
 
 function renderEtymology(etymology) {
   if (!etymology) return "";
