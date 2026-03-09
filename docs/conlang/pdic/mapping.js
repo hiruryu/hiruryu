@@ -67,29 +67,29 @@ function resolveEtymologyText(text) {
 
   const pages = {
     p: "pdic.html",
+    e: "../etym/etym.html",
     n: "../ndic/ndic.html",
-    c: "../cdic/cdic.html",
     t: "../tdic/tdic.html",
     ng: "../ngdic/ngdic.html",
-    r: "../rdic/rdic.html"
+    r: "../rdic/rdic.html",
+    c: "../cdic/cdic.html"
   };
 
   const placeholders = [];
 
   // ① 他辞書を一旦退避
-  text = text.replace(/\b(p|c|n|t|ng|r):(\d+)\b/gi, (match, dict, id) => {
+  text = text.replace(/\b(p|e|t|n|ng|r|c):(\d+)\b/gi, (match, dict, id) => {
 
   const page = pages[dict];
   if (!page) return match;
 
   let extDict = null;
-
-  if (dict === "c") extDict = cdicDictionary;
-  if (dict === "n") extDict = ndicDictionary;
+  if (dict === "e") extDict = etymDictionary;
   if (dict === "t") extDict = tdicDictionary;
+  if (dict === "n") extDict = ndicDictionary;
   if (dict === "ng") extDict = ngdicDictionary;
   if (dict === "r") extDict = rdicDictionary;
-  
+  if (dict === "c") extDict = cdicDictionary;
   let word = id;
   let meaning = "";
 
@@ -119,7 +119,7 @@ function resolveEtymologyText(text) {
     const word = idToWord[id];
     if (!word) return match;
 
-    const entry = dictionary[word] || etymDictionary[word];
+    const entry = dictionary[word];
     if (!entry) return word;
 
     let meaning = entry.meaning?.[0] ?? "";
@@ -208,51 +208,31 @@ function normalizeForSearch(input) {
 }
 
 // JSON辞書を読み込んで……
-Promise.all([
+  Promise.all([
   fetch('Pdic.json').then(r => r.json()),
-  fetch('../Etym.json').then(r => r.json()),
-  fetch('../cdic/Cdic.json').then(r => r.json()),
+  fetch('../etym/Etym.json').then(r => r.json()),
+  fetch('../tdic/Tdic.json').then(r => r.json()),
   fetch('../ndic/Ndic.json').then(r => r.json()),
-  fetch('../ngdic/Ngdic.json').then(r => r.json()),
+fetch('../ngdic/Ngdic.json').then(r => r.json()),
   fetch('../rdic/Rdic.json').then(r => r.json()),
-  fetch('../tdic/Tdic.json').then(r => r.json())
-]).then(([dicData, oldData, cdicData, ndicData, ngdicData, rdicData, tdicData]) => {
+fetch('../cdic/Cdic.json').then(r => r.json())
+]).then(([dicData, oldData, tdicData, ndicData,ngdicData, rdicData, cdicData]) => {
 
   dictionary = { ...dicData };
-  etymDictionary = { ...oldData };
-
-  cdicDictionary = cdicData;
+  etymDictionary = oldData;
+  tdicDictionary = tdicData;
   ndicDictionary = ndicData;
   ngdicDictionary = ngdicData;
   rdicDictionary = rdicData;
-  tdicDictionary = tdicData;
-
+  cdicDictionary = cdicData;
   // 語源リンク用
-const linkDictionary = {
-  p:  dicData,
-  e:  oldData,
-  c:  cdicData,
-  n:  ndicData,
-  ng: ngdicData,
-  r:  rdicData,
-  t: tdicData
-};
+  const linkDictionary = { ...dicData };
 
-// idToWord　{dicId: {id1, id2, id3, ...}, dicId2: {...}, ...}になればどうだっていいけど例えば
-const idToWord = Object.fromEntries(
-  Object.entries(linkDictionary).map(([dicId, dicData]) => {
-    const dic_Id2w  = {};
-    for (const [word, data] of Object.entries(dicData)) {
-      if (data.id != null) {
-        dic_Id2w[String(data.id)] = word;
-      }
+  for (const [word, data] of Object.entries(linkDictionary)) {
+    if (data.id != null) {
+      idToWord[String(data.id)] = word;
     }
-    return [
-      dicId,
-      dic_Id2w
-    ]
-  })
-)
+  }
 
 function renderEtymology(etymology) {
   if (!etymology) return "";
@@ -374,7 +354,7 @@ for (const [word, data] of Object.entries(dictionary)) {
     const nextPageBtn = document.getElementById("nextPage");
     const pageInfoSpan = document.getElementById("pageInfo");
 function getEntry(word) {
-  return dictionary[word] || etymDictionary[word];
+  return dictionary[word];
 }
     
 // ID抽出関数
@@ -717,17 +697,11 @@ if (data.vulgarMeaning && !safeSearch) {
           if (Array.isArray(data.etymology.intro)) {
             // リスト形式
             introHTML = `<ul class="e-list">` +
-  data.etymology.intro.map(item => {
-    const resolved = resolveEtymologyText(item);
-    const processed = processH5Links(resolved);
-    return `<li>${processed}</li>`;
-  }).join('')
-+ `</ul>`;
+        data.etymology.intro.map(item => `<li>${processH5Links(item)}</li>`).join('') +
+        `</ul>`;
       } else {
       // 単文の場合
-introHTML = `<p class="etymology-intro">${
-  processH5Links(resolveEtymologyText(data.etymology.intro))
-}</p>`;
+      introHTML = `<p class="etymology-intro">${processH5Links(data.etymology.intro)}</p>`;
     }
   }
 
@@ -1134,9 +1108,15 @@ if (similars.length) {
     }
 
 // 単語リンククリック時
-    window.loadWord = function(word) {
-      showDetails(word);
-    };
+window.loadWord = function(word) {
+  showDetails(word);
+
+  const data = getEntry(word);
+  const id = data?.id ?? word;
+
+  const newUrl = `${location.pathname}?id=${id}`;
+  history.pushState(null, "", newUrl);
+};
 
 // 単語リスト項目生成
     function createWordListItem(word) {
