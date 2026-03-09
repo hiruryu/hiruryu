@@ -67,6 +67,7 @@ function resolveEtymologyText(text) {
 
   const pages = {
     t: "tdic.html",
+    e: "../etym/etym.html",
     n: "../ndic/ndic.html",
     c: "../cdic/cdic.html",
     ng: "../ngdic/ngdic.html",
@@ -77,13 +78,13 @@ function resolveEtymologyText(text) {
   const placeholders = [];
 
   // ① 他辞書を一旦退避
-  text = text.replace(/\b(t|c|n|ng|r|p):(\d+)\b/gi, (match, dict, id) => {
+  text = text.replace(/\b(t|e|c|n|ng|r|p):(\d+)\b/gi, (match, dict, id) => {
 
   const page = pages[dict];
   if (!page) return match;
 
   let extDict = null;
-
+  if (dict === "e") extDict = etymDictionary;
   if (dict === "c") extDict = cdicDictionary;
   if (dict === "n") extDict = ndicDictionary;
   if (dict === "ng") extDict = ngdicDictionary;
@@ -112,13 +113,13 @@ function resolveEtymologyText(text) {
 });
 
 
-  // ② tdic ID
+  // ② cdic ID
   text = text.replace(/\b(\d+)\b/g, (match, id) => {
 
     const word = idToWord[id];
     if (!word) return match;
 
-    const entry = dictionary[word] || etymDictionary[word];
+    const entry = dictionary[word];
     if (!entry) return word;
 
     let meaning = entry.meaning?.[0] ?? "";
@@ -135,8 +136,9 @@ function resolveEtymologyText(text) {
   return text;
 }
 
+
   // Markdown を HTML に変換して表示する関数
-  function renderMarkdown(md) {　
+  function renderMarkdown(md) {
       
   // null や undefined の場合は空文字
   if (md === null || md === undefined) return "";
@@ -206,38 +208,32 @@ function normalizeForSearch(input) {
 }
 
 // JSON辞書を読み込んで……
-Promise.all([
+  Promise.all([
   fetch('Tdic.json').then(r => r.json()),
-  fetch('../Etym.json').then(r => r.json()),
+  fetch('../etym/Etym.json').then(r => r.json()),
   fetch('../cdic/Cdic.json').then(r => r.json()),
   fetch('../ndic/Ndic.json').then(r => r.json()),
-  fetch('../ngdic/Ngdic.json').then(r => r.json()),
+fetch('../ngdic/Ngdic.json').then(r => r.json()),
   fetch('../rdic/Rdic.json').then(r => r.json()),
-  fetch('../pdic/Pdic.json').then(r => r.json())
-]).then(([dicData, oldData, cdicData, ndicData, ngdicData, rdicData, pdicData]) => {
+fetch('../pdic/Pdic.json').then(r => r.json())
+]).then(([dicData, oldData, cdicData, ndicData,ngdicData, rdicData,pdicData]) => {
 
   dictionary = { ...dicData };
-  etymDictionary = { ...oldData };
-
+  etymDictionary = oldData;
   cdicDictionary = cdicData;
   ndicDictionary = ndicData;
   ngdicDictionary = ngdicData;
   rdicDictionary = rdicData;
   pdicDictionary = pdicData;
+
   // 語源リンク用
-  const linkDictionary = { ...dicData, ...oldData };
+  const linkDictionary = { ...dicData };
 
   for (const [word, data] of Object.entries(linkDictionary)) {
     if (data.id != null) {
       idToWord[String(data.id)] = word;
     }
   }
-
-for (const [word, data] of Object.entries(etymDictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
 
 function renderEtymology(etymology) {
   if (!etymology) return "";
@@ -306,11 +302,6 @@ for (const [word, data] of Object.entries(dictionary)) {
   }
 
 for (const [word, data] of Object.entries(dictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
-for (const [word, data] of Object.entries(etymDictionary)) {
   if (data.id != null) {
     idToWord[String(data.id)] = word;
   }
@@ -1123,9 +1114,15 @@ if (similars.length) {
     }
 
 // 単語リンククリック時
-    window.loadWord = function(word) {
-      showDetails(word);
-    };
+window.loadWord = function(word) {
+  showDetails(word);
+
+  const data = getEntry(word);
+  const id = data?.id ?? word;
+
+  const newUrl = `${location.pathname}?id=${id}`;
+  history.pushState(null, "", newUrl);
+};
 
 // 単語リスト項目生成
     function createWordListItem(word) {
