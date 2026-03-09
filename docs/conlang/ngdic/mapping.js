@@ -60,27 +60,84 @@ function isMorphemeOrVariant(entry) {
   });
 }
 
-
 // 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
   if (!text) return "";
-  return text.replace(/(\d+)/g, (match, id) => {
-    // 単語
+
+  const pages = {
+    ng: "ngdic.html",
+    e: "../etym/etym.html",
+    n: "../ndic/ndic.html",
+    t: "../tdic/tdic.html",
+    c: "../cdic/cdic.html",
+    r: "../rdic/rdic.html",
+    p: "../pdic/pdic.html"
+  };
+
+  const placeholders = [];
+
+  // ① 他辞書を一旦退避
+  text = text.replace(/\b(ng|e|t|n|c|r|p):(\d+)\b/gi, (match, dict, id) => {
+
+  const page = pages[dict];
+  if (!page) return match;
+
+  let extDict = null;
+  if (dict === "e") extDict = etymDictionary;
+  if (dict === "t") extDict = tdicDictionary;
+  if (dict === "n") extDict = ndicDictionary;
+  if (dict === "c") extDict = cdicDictionary;
+  if (dict === "r") extDict = rdicDictionary;
+  if (dict === "p") extDict = pdicDictionary;
+  let word = id;
+  let meaning = "";
+
+  if (extDict) {
+    for (const [w, data] of Object.entries(extDict)) {
+      if (String(data.id) === id) {
+        word = w;
+        meaning = removeAnnotations(data.meaning?.[0] ?? "");
+        break;
+      }
+    }
+  }
+
+  const placeholder = `__LINK${placeholders.length}__`;
+
+  placeholders.push(
+    `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}</a>（ ${meaning} ）`
+  );
+
+  return placeholder;
+});
+
+
+  // ② ngdic ID
+  text = text.replace(/\b(\d+)\b/g, (match, id) => {
+
     const word = idToWord[id];
     if (!word) return match;
-    // entry
-   const entry = dictionary[word] || etymDictionary[word];
+
+    const entry = dictionary[word];
     if (!entry) return word;
-    // 意味
+
     let meaning = entry.meaning?.[0] ?? "";
-    meaning = removeAnnotations(meaning); // 注釈を除去
-    // return
+    meaning = removeAnnotations(meaning);
+
     return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
   });
+
+  // ③ 他辞書リンクを戻す
+  placeholders.forEach((link, i) => {
+    text = text.replace(`__LINK${i}__`, link);
+  });
+
+  return text;
 }
 
+
   // Markdown を HTML に変換して表示する関数
-  function renderMarkdown(md) {　
+  function renderMarkdown(md) {
       
   // null や undefined の場合は空文字
   if (md === null || md === undefined) return "";
@@ -152,14 +209,23 @@ function normalizeForSearch(input) {
 // JSON辞書を読み込んで……
   Promise.all([
   fetch('Ngdic.json').then(r => r.json()),
-fetch('../Etym.json').then(r => r.json())
-]).then(([dicData, oldData]) => {
+  fetch('../etym/Etym.json').then(r => r.json()),
+  fetch('../tdic/Tdic.json').then(r => r.json()),
+  fetch('../ndic/Ndic.json').then(r => r.json()),
+fetch('../cdic/Cdic.json').then(r => r.json()),
+  fetch('../rdic/Rdic.json').then(r => r.json()),
+fetch('../pdic/Pdic.json').then(r => r.json())
+]).then(([dicData, oldData, tdicData, ndicData, cdicData, rdicData,pdicData]) => {
 
-  // 検索対象
   dictionary = { ...dicData };
-  etymDictionary = { ...oldData };
+  etymDictionary = oldData;
+  tdicDictionary = tdicData;
+  ndicDictionary = ndicData;
+  cdicDictionary = cdicData;
+  rdicDictionary = rdicData;
+  pdicDictionary = pdicData;
   // 語源リンク用
-  const linkDictionary = { ...dicData, ...oldData };
+  const linkDictionary = { ...dicData };
 
   for (const [word, data] of Object.entries(linkDictionary)) {
     if (data.id != null) {
@@ -167,11 +233,6 @@ fetch('../Etym.json').then(r => r.json())
     }
   }
 
-for (const [word, data] of Object.entries(etymDictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
 
 function renderEtymology(etymology) {
   if (!etymology) return "";
@@ -240,11 +301,6 @@ for (const [word, data] of Object.entries(dictionary)) {
   }
 
 for (const [word, data] of Object.entries(dictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
-for (const [word, data] of Object.entries(etymDictionary)) {
   if (data.id != null) {
     idToWord[String(data.id)] = word;
   }
@@ -1052,9 +1108,15 @@ if (similars.length) {
     }
 
 // 単語リンククリック時
-    window.loadWord = function(word) {
-      showDetails(word);
-    };
+window.loadWord = function(word) {
+  showDetails(word);
+
+  const data = getEntry(word);
+  const id = data?.id ?? word;
+
+  const newUrl = `${location.pathname}?id=${id}`;
+  history.pushState(null, "", newUrl);
+};
 
 // 単語リスト項目生成
     function createWordListItem(word) {
