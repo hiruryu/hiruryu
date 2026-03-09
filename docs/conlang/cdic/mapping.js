@@ -66,6 +66,7 @@ function resolveEtymologyText(text) {
 
   const pages = {
     c: "cdic.html",
+    e: "../etym/etym.html",
     n: "../ndic/ndic.html",
     t: "../tdic/tdic.html",
     ng: "../ngdic/ngdic.html",
@@ -76,13 +77,13 @@ function resolveEtymologyText(text) {
   const placeholders = [];
 
   // ① 他辞書を一旦退避
-  text = text.replace(/\b(c|t|n|ng|r|p):(\d+)\b/gi, (match, dict, id) => {
+  text = text.replace(/\b(c|e|t|n|ng|r|p):(\d+)\b/gi, (match, dict, id) => {
 
   const page = pages[dict];
   if (!page) return match;
 
   let extDict = null;
-
+  if (dict === "e") extDict = etymDictionary;
   if (dict === "t") extDict = tdicDictionary;
   if (dict === "n") extDict = ndicDictionary;
   if (dict === "ng") extDict = ngdicDictionary;
@@ -117,7 +118,7 @@ function resolveEtymologyText(text) {
     const word = idToWord[id];
     if (!word) return match;
 
-    const entry = dictionary[word] || etymDictionary[word];
+    const entry = dictionary[word];
     if (!entry) return word;
 
     let meaning = entry.meaning?.[0] ?? "";
@@ -136,7 +137,7 @@ function resolveEtymologyText(text) {
 
 
   // Markdown を HTML に変換して表示する関数
-  function renderMarkdown(md) {　
+  function renderMarkdown(md) {
       
   // null や undefined の場合は空文字
   if (md === null || md === undefined) return "";
@@ -208,7 +209,7 @@ function normalizeForSearch(input) {
 // JSON辞書を読み込んで……
   Promise.all([
   fetch('Cdic.json').then(r => r.json()),
-  fetch('../Etym.json').then(r => r.json()),
+  fetch('../etym/Etym.json').then(r => r.json()),
   fetch('../tdic/Tdic.json').then(r => r.json()),
   fetch('../ndic/Ndic.json').then(r => r.json()),
 fetch('../ngdic/Ngdic.json').then(r => r.json()),
@@ -217,15 +218,14 @@ fetch('../pdic/Pdic.json').then(r => r.json())
 ]).then(([dicData, oldData, tdicData, ndicData,ngdicData, rdicData,pdicData]) => {
 
   dictionary = { ...dicData };
-  etymDictionary = { ...oldData };
-
-tdicDictionary = tdicData;
+  etymDictionary = oldData;
+  tdicDictionary = tdicData;
   ndicDictionary = ndicData;
   ngdicDictionary = ngdicData;
   rdicDictionary = rdicData;
   pdicDictionary = pdicData;
   // 語源リンク用
-  const linkDictionary = { ...dicData, ...oldData };
+  const linkDictionary = { ...dicData };
 
   for (const [word, data] of Object.entries(linkDictionary)) {
     if (data.id != null) {
@@ -304,11 +304,6 @@ for (const [word, data] of Object.entries(dictionary)) {
     idToWord[String(data.id)] = word;
   }
 }
-for (const [word, data] of Object.entries(etymDictionary)) {
-  if (data.id != null) {
-    idToWord[String(data.id)] = word;
-  }
-}
 
 // URLパラメータから単語を取得するよ！
     function getWordFromParam() {
@@ -358,7 +353,7 @@ for (const [word, data] of Object.entries(etymDictionary)) {
     const nextPageBtn = document.getElementById("nextPage");
     const pageInfoSpan = document.getElementById("pageInfo");
 function getEntry(word) {
-  return dictionary[word] || etymDictionary[word];
+  return dictionary[word];
 }
     
 // ID抽出関数
@@ -506,9 +501,9 @@ function getSimilarWords(data) {
         { label: "獣形", prefix: "f_" },
         { label: "能格", prefix: "e_" },
         { label: "与格", prefix: "d_" },
+        { label: "奪格", prefix: "g_" },
         { label: "具格", prefix: "i_" },
         { label: "処格", prefix: "l_" },
-        { label: "奪格", prefix: "g_" },
         { label: "呼称形", prefix: "v_" },
         { label: "包括形", prefix: "in_" }
       ];
@@ -573,7 +568,7 @@ function getSimilarWords(data) {
     tableHTML = `<tr><td colspan="7">この動詞は活用型がありません。</td></tr>`;
   } else {
     const rows = [
-      { label: "素格一致", keys: ["s", "s2", "s3"] },
+      { label: "基格一致", keys: ["s", "s2", "s3"] },
       { label: "獣格一致", keys: ["fs", "fs2","fs3"] },
       { label: "能格一致", keys: ["on", "on2", "on3"] },
       { label: "奪格一致", keys: ["es", "es2", "es3"] },
@@ -1583,5 +1578,3 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
-
-
