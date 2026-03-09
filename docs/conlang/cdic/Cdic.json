@@ -239,7 +239,7 @@
     "meaning": ["恋", "恋愛"],
     "pronunciation": ["/difa/<br>[dɨfə]<br>《difa-》<br>（ ⚠️発音に注意 ）"],
     "etymology": {
-        "intro": ["合成語。", "「 1 」+「 101 」が溶け合った単語。"],
+        "intro": ["合成語。", "「 e:1 」+「 101 」が溶け合った単語。"],
         "changes": [{"form": "《dotifa》原型 → dotifa"}, {"form": "《dutifa》狭化"},{"form": "《difa》母音脱落 → difa"},{"form": "《difa》綴り字の変更 → dtifa"}]
       },
     "variants2": ["こい", "れんあい", "difa"],
@@ -330,7 +330,7 @@
     "meaning": ["竜", "ドラゴン"],
     "pronunciation": ["/mʲolo/<br>[mʲɔlo]<br>《myolo-》"],
     "etymology": {
-        "intro": ["化成語。", "古語「 e:6 」が訛ったもの。"],
+        "intro": ["化成語。", "古語「 e:8 」が訛ったもの。"],
         "changes": []
       },
     "variants2": ["りゅう", "龍", "たつ"]
@@ -738,7 +738,7 @@
     "meaning": ["球", "ボール"],
     "pronunciation": ["/jiba/<br>[jɪbä]<br>《yiba-》"],
     "etymology": {
-        "intro": ["変成語。", "古語「 3 」から。"],
+        "intro": ["変成語。", "古語「 e:3 」から。"],
         "changes": []
       },
     "variants2": ["たま", "きゅう"]
@@ -842,7 +842,7 @@
     "meaning": ["〜に","〜で","〜を通じて","〜を通して","〜を通って","〜を媒介にして","〜によって","〜のために","〜が原因で"],
     "pronunciation": ["/fʲi/<br>[fʲi]<br>《fyi-》<br>（ ⚠️発音に注意 ）"],
     "etymology": {
-        "intro": ["変成体。", "「 4 」が訛った語。"],
+        "intro": ["変成体。", "「 e:4 」が訛った語。"],
         "changes": []
       },
     "note2": {
@@ -862,7 +862,7 @@
     "meaning": ["〜されるもの", "（ 動詞を名飾化させる ）", "〜の", "〜的な"],
     "pronunciation": ["/j/<br>[j]<br>《y-》"],
     "etymology": {
-        "intro": ["変成体。", "「 4 」が訛った語。"],
+        "intro": ["変成体。", "「 e:4 」が訛った語。"],
         "changes": []
       },
     "variants2": ["される","てきな"]
@@ -1026,7 +1026,7 @@
     "meaning": ["私","わたし"],
     "pronunciation": ["/mʲao/<br>[mʲäo]<br>《myao-》"],
     "etymology": {
-        "intro": ["変成語。", "「 6 」が訛った語。"],
+        "intro": ["変成語。", "「 e:8 」が訛った語。"],
         "changes": []
       },
     "variants2": ["俺", "僕", "おれ", "ぼく","うち","自分","じぶん"]
@@ -1105,5 +1105,6 @@
     "variants2": ["まち", "シティ", "city"]
     }
 }
+
 
 
