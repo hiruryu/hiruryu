@@ -31,7 +31,7 @@
       },
     "variants2": ["もの", "物"]
   },
-      "-lo": {
+    "-lo": {
     "id": 100,
     "safe": true,
     "word": "lo",
@@ -498,10 +498,10 @@
       },
     "variants2": ["げんご", "ことば", "ラング", "lang", "language"]
   },
-    "kótos": {
+    "kótruis": {
     "id": 128,
     "safe": true,
-    "word": "kótos",
+    "word": "kótruis",
     "stem": "kót",
     "stem2": "kot",
     "tag": "ー",
@@ -509,7 +509,7 @@
       "type": "t 基本型",
       "ruletype": "t",
     "meaning": ["硬い", "固い"],
-    "pronunciation": ["/kotos/<br>[kotos]<br>《kot-》"],
+    "pronunciation": ["/kotrɯs/<br>[kɔtɾɤ̟s]<br>《kot-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 固い 」から。"],
         "changes": []
@@ -581,7 +581,7 @@
       "type": "t 基本型",
       "ruletype": "t",
     "meaning": ["言う［ 基を ］［ 補と ］"],
-    "pronunciation": ["/pratava/<br>[prətävə]<br>《prat-》"],
+    "pronunciation": ["/pratava/<br>[pɾətävə]<br>《prat-》"],
     "etymology": {
         "intro": ["単純語。", "擬声語「 話す 」から。"],
         "changes": []
@@ -848,7 +848,7 @@
     "note2": {
       "txt": ["名詞の格によって意味が変わる。", "「 fi 基格 」→ 〜を通して。","「 fi 獣格 」→ 〜を通して。⚠️受動文の二重使役文で、物が動作主になる場合。擬人法。","「 fi 能格 」→ 〜を通して。二重使役文などで登場。","「 fi 与格 」→ 〜のために、〜が原因で（因格的用法）","「 fi 処格 」→ 〜を通って（通格的用法）","「 fi 具格 」→ 〜によって。fi 構文。"]
     },
-    "note3": ["fi 構文については → /"],
+    "note3": ["fi 構文については → 149"],
     "variants2": ["てきな"]
   },
   "-ef": {
@@ -902,6 +902,24 @@
         "changes": []
       },
     "variants2": ["じゅえき"]
+  },
+    "kuisnáva": {
+    "id": 152,
+    "safe": true,
+    "word": "kuisnáva",
+    "stem": "kuisn",
+    "stem2": "kósn",
+    "tag": "ー",
+    "parts": "動詞",
+      "type": "n 基本型",
+      "ruletype": "n",
+    "meaning": ["固まる［ 基が ］","固める［ 能が ］［ 基を ］","固定する［ 能が ］［ 基を ］"],
+    "pronunciation": ["/panolo/<br>[pänolo]<br>《panolo-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 128 」+「 102 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["かたまる","かためる","こていする"]
   },
   "myéna": {
     "id": 179,
@@ -957,10 +975,10 @@
       },
     "variants2": ["でんりゅう", "181"]
   },
-    "lútos": {
+    "lútruis": {
     "id": 182,
     "safe": true,
-    "word": "lútos",
+    "word": "lútruis",
     "stem": "lút",
     "stem2": "lut",
     "tag": ["味"],
@@ -968,7 +986,7 @@
       "type": "t 基本型",
       "ruletype": "t",
     "meaning": ["甘い"],
-    "pronunciation": ["/lutos/<br>[lufʊs]<br>《lut-》"],
+    "pronunciation": ["/lutrɯs/<br>[lutɾɤ̟s]<br>《lut-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 甘い 」から。"],
         "changes": []
@@ -1031,6 +1049,24 @@
       },
     "variants2": ["俺", "僕", "おれ", "ぼく","うち","自分","じぶん"]
     },
+    "fnasáva": {
+    "id": 199,
+    "safe": true,
+    "word": "fnasáva",
+    "stem": "fnas",
+    "stem2": "fnás",
+    "tag": "ー",
+    "parts": "動詞",
+    "type": "n 基本型",
+    "ruletype": "a",
+    "meaning": ["開く［ 能が ］［ 基を ］", "開封する［ 能が ］［ 基を ］"],
+    "pronunciation": ["/pɯsːava/<br>[pɤ̟sːävə]<br>《plas-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 開く 」から。"],
+        "changes": []
+      },
+    "variants2": ["あく", "ひらく", "open"]
+  },
     "puissáva": {
     "id": 200,
     "safe": true,
@@ -1041,7 +1077,7 @@
     "parts": "動詞",
     "type": "n 基本型",
     "ruletype": "a",
-    "meaning": ["開く［ 能が ］［ 基を ］", "開封する［ 能が ］［ 基を ］"],
+    "meaning": ["咲く［ 基が ］", "開花する［ 基が ］"],
     "pronunciation": ["/pɯsːava/<br>[pɤ̟sːävə]<br>《plas-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 開く 」から。"],
@@ -1069,7 +1105,7 @@
     "variants2": ["はな", "華", "フラワー", "flower"]
     },
     "nos": {
-    "id": 210,
+    "id": 300,
     "safe": true,
     "word": "nos",
     "stem": "nos",
@@ -1087,7 +1123,7 @@
     "variants2": ["敬称","さん","さま","お","ご"]
     },
     "shtófa": {
-    "id": 211,
+    "id": 301,
     "safe": true,
     "word": "nos",
     "stem": "nos",
@@ -1103,8 +1139,62 @@
         "changes": []
       },
     "variants2": ["まち", "シティ", "city"]
-    }
+    },
+   "nógruis": {
+    "id": 302,
+    "safe": true,
+    "word": "nógruis",
+    "stem": "nóg",
+    "stem2": "nuig",
+    "tag": ["ー"],
+    "parts": "名飾",
+      "type": "g 型",
+      "ruletype": "c0",
+    "meaning": ["私","わたし"],
+    "pronunciation": ["/nogrɯs/<br>[nɔɡɾɤ̟s]<br>《nog-》"],
+    "etymology": {
+        "intro": ["変成語。", "「 e:8 」が訛った語。"],
+        "changes": []
+      },
+    "variants2": ["俺", "僕", "おれ", "ぼく","うち","自分","じぶん"]
+    },
+  "nå-": {
+    "id": 303,
+    "safe": true,
+    "word": "nå",
+    "stem": "nå",
+    "stem2": "nå",
+    "tag": ["派生接頭辞"],
+    "parts": "派生接辞",
+    "meaning": ["内〜","中〜"],
+    "pronunciation": ["/na/<br>[nə]<br>《nao-》<br>（ ⚠️発音に注意 ）"],
+    "etymology": {
+        "intro": ["変成体。", "「 302 」が訛った語。"],
+        "changes": []
+      ,
+    "note3": ["無声子音の前では 「 nag- 」 ｡<br>多重子音の前では 「 na- 」 ｡<br>「 p / b / f 」 との接続は 「 nag-v 」 ｡<br> 「 h」 との接続は 「 nag-h / naf-ph 」 。<br> 「 sh / zh / ch 」 との接続は 「 gnå- 」 ｡", "中に。入れる。<br>", "中を。内側を。", "内側。中の。", "内側に。心の中で。体の中で。<br>「 152 」⇒「 304 」<br>「 182 」⇒「 305 」<br>「 132 」⇒「 306 」"],
+    "variants2": ["なか","うち","in"]
+  },
+    "någkuisnáva": {
+    "id": 304,
+    "safe": true,
+    "word": "någkuisnáva",
+    "stem": "någkuisn",
+    "stem2": "någkósn",
+    "tag": "ー",
+    "parts": "動詞",
+    "type": "n 基本型",
+    "ruletype": "n",
+    "meaning": ["緊張する［ 基が ］", "警戒する［ 能が ］［ 基を ］"],
+    "pronunciation": ["/pɯsːava/<br>[pɤ̟sːävə]<br>《plas-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 303 」+「 152 」が組み合わさったた語。"],
+        "changes": []
+      },
+    "variants2": ["きんちょうする", "けいかいする"]
+  }
 }
+
 
 
 
