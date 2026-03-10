@@ -1,56 +1,56 @@
 {
-    "χαρσα": {
-    "id": 182,
+    "prágo": {
+    "id": 1,
     "safe": true,
-    "word": "χαρσα",
-    "stem": "χαρσα",
-    "stem2": "χαρσα",
+    "word": "prágo",
+    "stem": "prágo",
+    "stem2": "prago",
     "tag": ["ー"],
     "parts": "名象",
-      "type": "s 基本型",
-      "ruletype": "a",
-    "meaning": ["夢", "ドリーム"],
-    "pronunciation": ["/harsa/<br>[harsa]<br>《harsa-》"],
+      "type": "o 基本型",
+      "ruletype": "o",
+    "meaning": ["［f.］心","［f.］精神", "［f.］感情"],
+    "pronunciation": ["/prago/<br>[prägo]<br>《prago-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 ? 」から。"],
         "changes": []
       },
-    "variants2": ["ゆめ", "dream", "harsa"]
+    "variants2": ["こころ", "せいしん", "かんじょう"]
     },
-  "φοιτ": {
-    "id": 183,
+  "laz̧ít": {
+    "id": 2,
     "safe": true,
-    "word": "φοιτ",
-    "stem": "φοιτ",
-    "stem2": "φοιτ",
+    "word": "laz̧ít",
+    "stem": "laz̧ít",
+    "stem2": "laz̧it",
     "tag": ["ー"],
     "parts": "名象",
       "type": "t 基本型",
       "ruletype": "a",
-    "meaning": ["花"],
-    "pronunciation": ["/foit/<br>[foit]<br>《foit-》"],
+    "meaning": ["［n.］魚"],
+    "pronunciation": ["/lazit/<br>[ləzit]<br>《lažit-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 ? 」から。"],
         "changes": []
       },
-    "variants2": ["はな", "華", "フラワー", "flower", "foit", "phoit"]
+    "variants2": ["さかな", "うお", "fish"]
     },
-    "νοκτ": {
-    "id": 184,
+    "árt": {
+    "id": 3,
     "safe": true,
-    "word": "νοκτ",
-    "stem": "νοκτ",
-    "stem2": "νοκτ",
+    "word": "árt",
+    "stem": "árt",
+    "stem2": "árt",
     "tag": ["ー"],
     "parts": "名象",
       "type": "t 基本型",
       "ruletype": "a",
-    "meaning": ["根","根っこ"],
-    "pronunciation": ["/nokt/<br>[nokt]<br>《nokt-》"],
+    "meaning": ["［n.］夢"],
+    "pronunciation": ["/art/<br>[aɾt]<br>《art-》"],
     "etymology": {
-        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "intro": ["単純語。", "音象徴「 t:182 」から。"],
         "changes": []
       },
-    "variants2": ["ね", "ねっこ", "nokt"]
+    "variants2": ["ゆめ", "ドリーム", "dream"]
     }
 }
