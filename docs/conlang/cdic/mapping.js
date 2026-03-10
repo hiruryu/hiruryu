@@ -791,9 +791,11 @@ if (data.note1) {
   const notes = Array.isArray(data.note1)
     ? data.note1
     : data.note1.split(",").map(s => s.trim());
-  note1HTML = notes.map(note =>
-    `<li class="noteList">${processH5Links(note)}</li>`
-  ).join("");
+  note1HTML = notes.map(note => {
+  const resolved = resolveEtymologyText(note);
+  const processed = processH5Links(resolved);
+  return `<li class="noteList">${processed}</li>`;
+}).join("");
 }
     if (note1HTML) {
       detailsHTML += `<table class="detailTable">
@@ -832,7 +834,8 @@ if (data.note2) {
       ? data.note2.txt
       : data.note2.txt.split(",").map(s => s.trim());
     note2TextHTML = notes.map(note => {
-      const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
+  note = resolveEtymologyText(note);
+  const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
         const key = innerText.replace(/^⇒\s*/, '').trim();
         const linkWord = linkMapping[key] || key;
         return `<h5><a href="#" onclick="loadWord('${linkWord}'); return false;">${innerText.trim()}</a></h5>`;
@@ -996,6 +999,7 @@ if (similars.length) {
     : data.note3.split(",").map(s => s.trim());
   note3HTML = notes.map(note => {
 // <h5>タグ内の単語を辞書リンク化
+    note = resolveEtymologyText(note);
     const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
       const key = innerText.replace(/^⇒\s*/, '').trim();
       const linkWord = linkMapping[key] || key;
@@ -1578,3 +1582,4 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
