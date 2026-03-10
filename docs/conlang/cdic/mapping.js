@@ -869,6 +869,40 @@ if (data.note2) {
 }
 }
 
+// 備考（note3）
+      let note3HTML = "";
+      if (data.note3) {
+  const notes = Array.isArray(data.note3)
+    ? data.note3
+    : data.note3.split(",").map(s => s.trim());
+  note3HTML = notes.map(note => {
+// <h5>タグ内の単語を辞書リンク化
+    note = resolveEtymologyText(note);
+    const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
+      const key = innerText.replace(/^⇒\s*/, '').trim();
+      const linkWord = linkMapping[key] || key;
+      return `<h5><a href="#" onclick="loadWord('${linkWord}'); return false;">${innerText.trim()}</a></h5>`;
+    });
+    return `<li class="noteList">${processedNote}</li>`;
+  }).join("");
+}
+
+// テーブル生成
+    if (note3HTML) {
+      detailsHTML += `<table class="detailTable">
+        <tbody>
+          <tr>
+            <th id="stripeth">備考</th>
+            <td colspan="3">
+          <ul>
+            ${note3HTML}
+          </ul> 
+          </td>
+          </tr>
+          </tbody>
+          </table>`;
+        }
+        
 // 注意点の表示
         if (data.alert) {
     const alertData = data.alert;
@@ -905,6 +939,18 @@ if (data.note2) {
     }
   }
 
+         // 例文表示    
+      if (data.examples && data.examples.length) {
+        detailsHTML += `<table class="detailTable">
+          <tbody>
+            <tr>
+              <th>例文</th>
+              <td colspan="3">${data.examples.join("<br>")}</td>
+            </tr>
+          </tbody>
+        </table>`;
+      }
+        
 // 類義語の生成
 if (data.variants1 && data.variants1.length) {
   const links = data.variants1.map(id => {
@@ -977,53 +1023,6 @@ if (similars.length) {
       </tbody>
     </table>`;
 }
-
-
-  // 例文表示    
-      if (data.examples && data.examples.length) {
-        detailsHTML += `<table class="detailTable">
-          <tbody>
-            <tr>
-              <th>例文</th>
-              <td colspan="3">${data.examples.join("<br>")}</td>
-            </tr>
-          </tbody>
-        </table>`;
-      }
-
-// 備考（note3）
-      let note3HTML = "";
-      if (data.note3) {
-  const notes = Array.isArray(data.note3)
-    ? data.note3
-    : data.note3.split(",").map(s => s.trim());
-  note3HTML = notes.map(note => {
-// <h5>タグ内の単語を辞書リンク化
-    note = resolveEtymologyText(note);
-    const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
-      const key = innerText.replace(/^⇒\s*/, '').trim();
-      const linkWord = linkMapping[key] || key;
-      return `<h5><a href="#" onclick="loadWord('${linkWord}'); return false;">${innerText.trim()}</a></h5>`;
-    });
-    return `<li class="noteList">${processedNote}</li>`;
-  }).join("");
-}
-
-// テーブル生成
-    if (note3HTML) {
-      detailsHTML += `<table class="detailTable">
-        <tbody>
-          <tr>
-            <th id="stripeth">備考</th>
-            <td colspan="3">
-          <ul>
-            ${note3HTML}
-          </ul> 
-          </td>
-          </tr>
-          </tbody>
-          </table>`;
-        }
 
 // 屈折表表示
 // generateInflections() で生成された内容を表示するよ！
@@ -1582,4 +1581,5 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
 
