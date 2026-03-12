@@ -10,10 +10,10 @@
     "meaning": ["～すること", "（ 動詞の質別形を作る ）", "（ 具象詞を表す代理形 ）"],
     "pronunciation": ["/ava/<br>[ävə]<br>《ava-》"],
     "etymology": {
-        "intro": ["語素。", "音象徴「 固い 」から。"],
+        "intro": ["変成体。", "「 101 」から。"],
         "changes": []
       },
-    "variants2": ["具象形", "質別形"]
+    "variants2": ["具象形", "質別形", "辞書形"]
   },
   "-ka": {
     "id": 99,
@@ -1186,11 +1186,28 @@
     "type": "n 基本型",
     "ruletype": "n",
     "meaning": ["緊張する［ 基が ］", "警戒する［ 能が ］［ 基を ］"],
-    "pronunciation": ["/pɯsːava/<br>[pɤ̟sːävə]<br>《plas-》"],
+    "pronunciation": ["/nakːɯsava/<br>[nəkːɤ̟snävə]<br>《naoksn-》"],
     "etymology": {
         "intro": ["合成語。", "「 303 」+「 152 」が組み合わさったた語。"],
         "changes": []
       },
     "variants2": ["きんちょうする", "けいかいする"]
-  }
+  },
+  "någlút": {
+    "id": 305,
+    "safe": true,
+    "word": "pláska",
+    "stem": "pláska",
+    "stem2": "plask",
+    "tag": ["ー"],
+    "parts": "名象",
+      "type": "k 基本型",
+      "ruletype": "a",
+    "meaning": ["ブドウ糖"],
+    "pronunciation": ["/naglut/<br>[nəglut]<br>《naoglut-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 303 」+「 182 」が組み合わさった語。"],
+        "changes": []
+      },
 }
+
