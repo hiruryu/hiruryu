@@ -1,4 +1,20 @@
 {
+  "-r": {
+    "id":97,
+    "safe": true,
+    "word": "r",
+    "stem": "r",
+    "stem2": "r",
+    "tag": ["派生接尾辞"],
+    "parts": "派生接辞",
+    "meaning": ["～方向"],
+    "pronunciation": ["/r/<br>[ɾ]<br>《r-》"],
+    "etymology": {
+        "intro": ["語素。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["ほうこう", "位置", "いち", "向き", "むき", "の方", "のほう"]
+  },
   "-áva": {
     "id": 98,
     "safe": true,
@@ -1209,5 +1225,209 @@
         "intro": ["合成語。", "「 303 」+「 182 」が組み合わさった語。"],
         "changes": []
       }
+},
+      "dúiza": {
+    "id": 306,
+    "safe": false,
+    "word": "dúiza",
+    "stem": "dúiza",
+    "stem2": "dez",
+    "tag": "ー",
+   "parts": "名象",
+      "type": "z 基本型",
+      "ruletype": "a",
+    "meaning": ["力", "エネルギー", "パワー", "威力"],
+    "pronunciation": ["/dɯza/<br>[dɯzə]<br>《dïza-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 力強い 」から。"],
+        "changes": []
+      },
+        "variants2": ["ちから","いりょく"]
+  },
+  "dázma": {
+    "id": 307,
+    "safe": false,
+    "word": "dázma",
+    "stem": "dázma",
+    "stem2": "dazm",
+    "tag": ["性別", "LGBTQ"],
+    "parts": "名象",
+      "type": "m 基本型",
+      "ruletype": "a",
+    "meaning": ["男性", "男", "性自認男性-身体性男性-性指向女性（ の人 ）", "男心男体女性好き", "女性のことが好きな男性", "ヘテロ男性", "ストレート男性", "ダクフェリア"],
+"pronunciation": ["/dazma/<br>[däzmə]<br>《dazma-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 力強い 」から。"],
+        "changes": []
+      },
+        "variants2": ["おとこ","だんせい","ママーフ"]
+  },
+    "xóie": {
+    "id": 308,
+    "safe": false,
+    "word": "xóie",
+    "stem": "xui",
+    "stem2": "xó",
+    "tag": "古智語",
+    "parts": "名飾",
+      "type": "母音基本型",
+      "ruletype": "c0",
+    "meaning": ["強い", "強力な"],
+    "pronunciation": ["/zoje/<br>[zɔjə]<br>《ζo-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 力強い 」から。"],
+        "changes": []
+      },
+        "variants2": ["つよい","きょうりょくな"]
+  },
+"xå-": {
+    "id": 309,
+    "safe": true,
+    "word": "xå",
+    "stem": "xå",
+    "stem2": "xå",
+    "tag": ["派生接尾辞"],
+    "parts": "派生接辞",
+    "meaning": ["大〜", "（ 指大形を作る ）", "（ 卑語を作る ）"],
+    "pronunciation": ["/fe/<br>[fə]<br>《fe-》"],
+    "etymology": {
+        "intro": ["変成体。", "「 308 」が訛った語。"],
+        "changes": []
+      },
+        "variants2": ["だい","強い", "指大形", "指大辞", "しだいじ", "しだいけい", "ひご"]
+  },
+"glyílluis": {
+    "id": 310,
+    "safe": true,
+    "word": "glyílluis",
+    "stem": "glyil",
+    "stem2": "glyíl",
+    "tag": ["ー"],
+    "parts": "名飾",
+      "type": "l 基本型",
+      "ruletype": "c0",
+    "meaning": ["偉大な", "素晴らしい"],
+    "pronunciation": ["/Ngal/<br>[ŋ̍gäl]<br>《Ngal-》"],
+    "etymology": {
+        "intro": ["変成語。", "古智語「 e:5 」が訛った語。"],
+        "changes": []
+      },
+        "variants2": ["いだいな","すばらしい"]
+  },
+"luig-": {
+    "id": 311,
+    "safe": true,
+    "word": "luig",
+    "stem": "luig",
+    "tag": ["派生接尾辞"],
+    "parts": "派生接辞",
+    "meaning": ["御〜", "大〜", "超〜"],
+    "pronunciation": ["/lɯg/<br>[lɯg]<br>《lïg-》"],
+    "etymology": {
+        "intro": ["変成体。", "古智語「 e:5 」が訛った語。"],
+        "changes": []
+      }
+  },
+"-álla": {
+    "id": 312,
+    "safe": true,
+    "word": "álla",
+    "stem": "álla",
+    "tag": ["古智語"],
+    "parts": "離頭辞",
+    "meaning": ["〜王", "〜様", "〜さん"],
+    "pronunciation": ["/alːa/<br>[älːə]<br>《alla-》"],
+    "etymology": {
+        "intro": ["変成体。", "「 e:5 」が訛った語。"],
+        "changes": []
+      },
+        "variants2": ["王","おう", "様", "さま", "さん", "御"]
+  },
+    "kfyíka": {
+    "id": 313,
+    "safe": true,
+    "word": "kfyíka",
+    "stem": "kfyíka",
+    "stem2": "kfyik",
+    "tag": ["身体部位"],
+    "parts": "名象",
+      "type": "k 基本型",
+      "ruletype": "a",
+    "meaning": ["背中", "背"],
+    "pronunciation": ["/kfʲika/<br>[kfʲikə]<br>《kfyika-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 後ろの 」から。"],
+        "changes": []
+      },
+        "variants2": ["せなか","ばっく", "うら", "裏"]
+  },
+"kfyíkuiruis": {
+    "id": 314,
+    "safe": true,
+    "word": "kfyíkruis",
+    "stem": "kfyikr",
+    "stem2": "kfyíkr",
+    "tag": ["方向"],
+    "parts": "名飾",
+      "type": "r 基本型",
+      "ruletype": "c0",
+    "meaning": ["後ろの", "裏の"],
+    "pronunciation": ["/kfʲikrɯs/<br>[kfʲikɾɤ̟s]<br>《kfyikr-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 313 」+「 97 」が組み合わさった語。"],
+        "changes": []
+      },
+        "variants2": ["うしろの","うらの"]
+  },
+"púfka": {
+    "id": 315,
+    "safe": true,
+    "word": "púfka",
+    "stem": "puifk",
+    "stem2": "púfk",
+    "tag": ["位置"],
+    "parts": "名象",
+      "type": "k 基本型",
+      "ruletype": "a",
+    "meaning": ["奥", "向こう側"],
+    "pronunciation": ["/pufka/<br>[pufkə]<br>《pufka-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 後ろの 」から。"],
+        "changes": []
+      },
+        "variants2": ["おくの", "向こうの", "むこうがわの"]
+  },
+"púfkruis": {
+    "id": 316,
+    "safe": true,
+    "word": "púfkruis",
+    "stem": "puifk",
+    "stem2": "púfk",
+    "tag": ["位置"],
+    "parts": "名飾",
+      "type": "r 基本型",
+      "ruletype": "c0",
+    "meaning": ["奥の", "向こう側の"],
+    "pronunciation": ["/pufka/<br>[pufkə]<br>《pufka-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 後ろの 」から。"],
+        "changes": []
+      },
+        "variants2": ["おくの", "向こうの", "むこうがわの"]
+  },
+"pui-": {
+    "id": 317,
+    "safe": true,
+    "word": "pui",
+    "stem": "pui",
+    "tag": ["古智語"],
+    "parts": "動詞",
+    "meaning": ["越えて〜", "反対〜", "対面〜", "向こう側〜", "もう一つの〜"],
+    "pronunciation": ["/u:g/<br>[u:g]<br>《uug-》"],
+    "etymology": {
+        "intro": ["変成体。", "「 316 」が訛った語。"],
+        "changes": []
+      }
 }
 }
+
