@@ -671,7 +671,7 @@
       },
     "variants2": ["かんみりょう"]
   },
-    "luitiǻha": {
+    "luitiǻha": {
     "id": 138,
     "safe": true,
     "word": "lutiåha",
@@ -1167,7 +1167,7 @@
     "tag": ["派生接頭辞"],
     "parts": "派生接辞",
     "meaning": ["内〜","中〜"],
-    "pronunciation": ["/nag/<br>[nəg]<br>《naog-》<br>（ ⚠️発音に注意 ）"],
+    "pronunciation": ["/nag/<br>[nəg]<br>《naog-》"],
     "etymology": {
         "intro": ["変成体。", "「 302 」が訛った語。"],
         "changes": []
@@ -1196,9 +1196,9 @@
   "någlút": {
     "id": 305,
     "safe": true,
-    "word": "pláska",
-    "stem": "pláska",
-    "stem2": "plask",
+    "word": "någlút",
+    "stem": "någlút",
+    "stem2": "någluit-",
     "tag": ["ー"],
     "parts": "名象",
       "type": "k 基本型",
@@ -1208,6 +1208,6 @@
     "etymology": {
         "intro": ["合成語。", "「 303 」+「 182 」が組み合わさった語。"],
         "changes": []
-      },
+      }
 }
-
+}
