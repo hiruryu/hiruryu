@@ -1273,7 +1273,7 @@
       "type": "母音基本型",
       "ruletype": "c0",
     "meaning": ["強い", "強力な"],
-    "pronunciation": ["/zoje/<br>[zɔjə]<br>《ζo-》"],
+    "pronunciation": ["/zoje/<br>[zɔjə]<br>《zo-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 力強い 」から。"],
         "changes": []
@@ -1289,7 +1289,7 @@
     "tag": ["派生接尾辞"],
     "parts": "派生接辞",
     "meaning": ["大〜", "（ 指大形を作る ）", "（ 卑語を作る ）"],
-    "pronunciation": ["/fe/<br>[fə]<br>《fe-》"],
+    "pronunciation": ["/za/<br>[zə]<br>《zao-》"],
     "etymology": {
         "intro": ["変成体。", "「 308 」が訛った語。"],
         "changes": []
@@ -1307,7 +1307,7 @@
       "type": "l 基本型",
       "ruletype": "c0",
     "meaning": ["偉大な", "素晴らしい"],
-    "pronunciation": ["/Ngal/<br>[ŋ̍gäl]<br>《Ngal-》"],
+    "pronunciation": ["/glʲilːɯs/<br>[glʲilːɤ̟s]<br>《glil-》"],
     "etymology": {
         "intro": ["変成語。", "古智語「 e:5 」が訛った語。"],
         "changes": []
@@ -1422,13 +1422,35 @@
     "stem": "pui",
     "tag": ["古智語"],
     "parts": "動詞",
-    "meaning": ["越えて〜", "反対〜", "対面〜", "向こう側〜", "もう一つの〜"],
-    "pronunciation": ["/u:g/<br>[u:g]<br>《uug-》"],
+    "meaning": ["奥〜", "越えて〜", "反対〜", "対面〜", "向こう側〜", "もう一つの〜"],
+    "pronunciation": ["/pɯ/<br>[pɤ̟]<br>《pï-》"],
     "etymology": {
         "intro": ["変成体。", "「 316 」が訛った語。"],
         "changes": []
-      }
+      },
+      "note3": ["奥に。奥へ。<br>", "奥側。奥の。", "〜を超えて。", "隠れて。潜在的に。", "反対に。〜に対する。", "もう一つの。"],
+  "variants2": ["こえて", "超える", "こえる", "越える", "おくの", "向こうの", "むこうがわの", "たいめん", "もうひとつの", "はんたい", "逆〜", "ぎゃく〜"]
+},
+  "tkáto": {
+    "id": 318,
+    "safe": true,
+    "word": "tkáto",
+    "stem": "tkáto",
+    "stem2": "tkat",
+    "tag": ["陸生"],
+    "parts": "名象",
+      "type": "t 基本型",
+      "ruletype": "a",
+    "meaning": ["アルマジロ", "ヨロイネズミ", "犰狳"],
+    "pronunciation": ["/tkato/<br>[tkätʊ]<br>《tkato-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 小さくて固い 」から。", "「 112 」と同象徴"],
+        "changes": []
+      },
+        "variants2": ["きゅうよ"]
+  }
 }
 }
+
 
 
