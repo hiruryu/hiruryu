@@ -1,6 +1,60 @@
 {
-    "prágo": {
+    "ze": {
     "id": 1,
+    "safe": true,
+    "word": "ze",
+    "stem": "ze",
+    "stem2": "ze",
+    "tag": ["冠詞"],
+    "parts": "離辞",
+      "type": "o 基本型",
+      "ruletype": "o",
+    "meaning": ["（ 男性冠詞 ）"],
+    "pronunciation": ["/ze/<br>[zə]<br>《ze-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["こころ", "せいしん", "かんじょう"]
+    },
+    "le": {
+    "id": 2,
+    "safe": true,
+    "word": "le",
+    "stem": "le",
+    "stem2": "le",
+    "tag": ["冠詞"],
+    "parts": "離辞",
+      "type": "o 基本型",
+      "ruletype": "o",
+    "meaning": ["（ 女性冠詞 ）"],
+    "pronunciation": ["/le/<br>[lə]<br>《le-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["こころ", "せいしん", "かんじょう"]
+    },
+    "fe": {
+    "id": 3,
+    "safe": true,
+    "word": "fe",
+    "stem": "fe",
+    "stem2": "fe",
+    "tag": ["冠詞"],
+    "parts": "離辞",
+      "type": "o 基本型",
+      "ruletype": "o",
+    "meaning": ["（ 中性冠詞 ）"],
+    "pronunciation": ["/fe/<br>[fə]<br>《fe-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 ? 」から。"],
+        "changes": []
+      },
+    "variants2": ["こころ", "せいしん", "かんじょう"]
+    },
+    "prágo": {
+    "id": 10,
     "safe": true,
     "word": "prágo",
     "stem": "prágo",
@@ -18,7 +72,7 @@
     "variants2": ["こころ", "せいしん", "かんじょう"]
     },
   "laz̧ít": {
-    "id": 2,
+    "id": 11,
     "safe": true,
     "word": "laz̧ít",
     "stem": "laz̧ít",
@@ -35,12 +89,12 @@
       },
     "variants2": ["さかな", "うお", "fish"]
     },
-    "árt": {
-    "id": 3,
+    "fhárt": {
+    "id": 12,
     "safe": true,
-    "word": "árt",
-    "stem": "árt",
-    "stem2": "árt",
+    "word": "fhárt",
+    "stem": "fhárt",
+    "stem2": "fhart",
     "tag": ["ー"],
     "parts": "名象",
       "type": "t 基本型",
@@ -54,3 +108,4 @@
     "variants2": ["ゆめ", "ドリーム", "dream"]
     }
 }
+
