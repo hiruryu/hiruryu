@@ -12,44 +12,44 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 非限定単数形
           ansC: stem,
           f_ansC: stem + "f",
-          e_ansC: stem.slice(0, -1) + "on",
+          e_ansC: stem.slice(0, -1) + "åq",
           d_ansC: stem.slice(0, -1) + "es",
-          l_ansC: stem.slice(0, -1) + "om",
-          i_ansC: stem + "is",
-          g_ansC: stem.slice(0, -1) + "oi",
+          l_ansC: stem.slice(0, -1) + "uim",
+          i_ansC: stem + "yis",
+          g_ansC: stem.slice(0, -1) + "oy",
           v_ansC: stem + "rh",
-          in_ansC: stem.slice(0, -1) + "oita",
+          in_ansC: stem.slice(0, -1) + "oyta",
           // 非限定複数形
           anpC: anpC,
           f_anpC: anpC + "f",
-          e_anpC: anpC.slice(0, -1) + "on",
+          e_anpC: anpC.slice(0, -1) + "åq",
           d_anpC: anpC.slice(0, -1) + "es",
-          l_anpC: anpC.slice(0, -1) + "om",
+          l_anpC: anpC.slice(0, -1) + "uim",
           i_anpC: anpC + "is",
-          g_anpC: anpC.slice(0, -1) + "oi",
+          g_anpC: anpC.slice(0, -1) + "oy",
           v_anpC: anpC + "rh",
-          in_anpC: anpC.slice(0, -1) + "oita",
+          in_anpC: anpC.slice(0, -1) + "oyta",
     
           // 限定単数形
           adsC: adsC,
           f_adsC: adsC.slice(0, -1) + "af",
-          e_adsC: adsC.slice(0, -1) + "on",
+          e_adsC: adsC.slice(0, -1) + "åq",
           d_adsC: adsC.slice(0, -1) + "es",
-          l_adsC: adsC.slice(0, -1) + "om",
+          l_adsC: adsC.slice(0, -1) + "uim",
           i_adsC: adsC + "is",
-          g_adsC: adsC.slice(0, -1) + "oi",
+          g_adsC: adsC.slice(0, -1) + "oy",
           v_adsC: adsC.slice(0, -1) + "arh",
-          in_adsC: adsC.slice(0, -1) + "oita",
+          in_adsC: adsC.slice(0, -1) + "oyta",
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC.slice(0, -1) + "af",
-          e_adpC: adpC.slice(0, -1) + "on",
+          e_adpC: adpC.slice(0, -1) + "åq",
           d_adpC: adpC.slice(0, -1) + "es",
-          l_adpC: adpC.slice(0, -1) + "om",
+          l_adpC: adpC.slice(0, -1) + "uim",
           i_adpC: adpC + "is",
-          g_adpC: adpC.slice(0, -1) + "oi",
+          g_adpC: adpC.slice(0, -1) + "oy",
           v_adpC: adpC.slice(0, -1) + "arh",
-          in_adpC: adpC.slice(0, -1) + "oita",
+          in_adpC: adpC.slice(0, -1) + "oyta",
         }
         // a 尾高形
             } else if (ruletype === "á") {      
@@ -111,9 +111,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 非限定単数形
           ansC: stem,
           f_ansC: stem + "f",
-          e_ansC: stem.slice(0, -1) + "un",
+          e_ansC: stem.slice(0, -1) + "åq",
           d_ansC: stem.slice(0, -1) + "ös",
-          l_ansC: stem.slice(0, -1) + "um",
+          l_ansC: stem.slice(0, -1) + "om",
           i_ansC: stem.slice(0, -1) + "öis",
           g_ansC: stem.slice(0, -1) + "uui",
           v_ansC: stem + "rh",
@@ -121,9 +121,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 非限定複数形
           anpC: anpC,
           f_anpC: anpC + "f",
-          e_anpC: anpC.slice(0, -1) + "un",
+          e_anpC: anpC.slice(0, -1) + "åq",
           d_anpC: anpC.slice(0, -1) + "ös",
-          l_anpC: anpC.slice(0, -1) + "um",
+          l_anpC: anpC.slice(0, -1) + "om",
           i_anpC: anpC.slice(0, -1) + "öis",
           g_anpC: anpC.slice(0, -1) + "uui",
           v_anpC: anpC + "rh",
@@ -132,9 +132,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 限定単数形
           adsC: adsC,
           f_adsC: adsC.slice(0, -1) + "af",
-          e_adsC: adsC.slice(0, -1) + "un",
+          e_adsC: adsC.slice(0, -1) + "åq",
           d_adsC: adsC.slice(0, -1) + "ös",
-          l_adsC: adsC.slice(0, -1) + "um",
+          l_adsC: adsC.slice(0, -1) + "om",
           i_adsC: adsC.slice(0, -1) + "öis",
           g_adsC: adsC.slice(0, -1) + "uui",
           v_adsC: adsC.slice(0, -1) + "rh",
@@ -142,9 +142,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC.slice(0, -1) + "af",
-          e_adpC: adpC.slice(0, -1) + "un",
+          e_adpC: adpC.slice(0, -1) + "åq",
           d_adpC: adpC.slice(0, -1) + "ös",
-          l_adpC: adpC.slice(0, -1) + "um",
+          l_adpC: adpC.slice(0, -1) + "om",
           i_adpC: adpC.slice(0, -1) + "öis",
           g_adpC: adpC.slice(0, -1) + "uui",
           v_adpC: adpC.slice(0, -1) + "rh",
@@ -160,7 +160,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 非限定単数形
           ansC: stem,
           f_ansC: stem + "f",
-          e_ansC: stem.slice(0, -1) + "un",
+          e_ansC: stem.slice(0, -1) + "åq",
           d_ansC: stem.slice(0, -1) + "ös",
           l_ansC: stem.slice(0, -1) + "um",
           i_ansC: stem.slice(0, -1) + "öis",
@@ -170,7 +170,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 非限定複数形
           anpC: anpC + "is",
           f_anpC: anpC.slice(0, -1) + "caf",
-          e_anpC: anpC + "on",
+          e_anpC: anpC + "åq",
           d_anpC: anpC + "es",
           l_anpC: anpC + "om",
           i_anpC: anpC + "ais",
@@ -181,7 +181,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 限定単数形
           adsC: adsC,
           f_adsC: adsC.slice(0, -1) + "af",
-          e_adsC: adsC.slice(0, -1) + "on",
+          e_adsC: adsC.slice(0, -1) + "åq",
           d_adsC: adsC.slice(0, -1) + "es",
           l_adsC: adsC.slice(0, -1) + "om",
           i_adsC: adsC + "öis",
@@ -191,7 +191,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC.slice(0, -1) + "af",
-          e_adpC: adpC.slice(0, -1) + "on",
+          e_adpC: adpC.slice(0, -1) + "åq",
           d_adpC: adpC.slice(0, -1) + "es",
           l_adpC: adpC.slice(0, -1) + "om",
           i_adpC: adpC + "öis",
@@ -298,3 +298,4 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
         }}
 
 }
+
