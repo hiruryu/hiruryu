@@ -20,7 +20,7 @@ let etymDictionary = {}; // 語源専用
     const idToWord = {}; // ID → 単語 を引くためのマッピング
     let searchResults = []; // 検索結果を保存する配列
     let currentPage = 1; // 現在のページ番号
-    const itemsPerPage = 30; // 1ページに表示する単語数⁺
+    const itemsPerPage = 20; // 1ページに表示する単語数⁺
 
     // 品詞ごとに CSS クラスを割り当てるための対応表
     const partsStyles = {
@@ -30,7 +30,12 @@ let etymDictionary = {}; // 語源専用
   "副飾": "fukushoku",
   "接辞": "fukuji",
   "離辞": "fukuji",
-  "付称辞": "fukuji",
+"接辞": "fukuji",
+"屈折接辞": "fukuji",
+"派生接頭辞": "fukuji",
+  "派生接尾辞": "fukuji",
+"離頭辞": "fukuji",
+  "離尾辞": "fukuji",
   "間投詞": "kanto",
 };
 
