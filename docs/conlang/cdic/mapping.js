@@ -32,10 +32,8 @@ let etymDictionary = {}; // 語源専用
   "離辞": "fukuji",
 "接辞": "fukuji",
 "屈折接辞": "fukuji",
-"派生接頭辞": "fukuji",
-  "派生接尾辞": "fukuji",
-"離頭辞": "fukuji",
-  "離尾辞": "fukuji",
+"派生接辞": "fukuji",
+"離辞": "fukuji",
   "間投詞": "kanto",
 };
 
