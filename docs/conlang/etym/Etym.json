@@ -273,7 +273,7 @@
         "changes": []
       }
 },
-"melka": {
+"mélka": {
     "id": 19,
     "safe": true,
     "word": "melka",
@@ -366,6 +366,20 @@
     "parts": "動詞",
     "meaning": ["欲する"],
     "pronunciation": ["/tiko/<br>[tiko]<br>《tiko-》"],
+    "etymology": {
+        "intro": ["単純語。", "「  」から。"],
+        "changes": []
+      }
+},
+ "mélna": {
+    "id": 26,
+    "safe": true,
+    "word": "melna",
+    "stem": "melna",
+    "tag": ["古智語"],
+    "parts": "名象",
+    "meaning": ["数"],
+    "pronunciation": ["/melna/<br>[mɛlna]<br>《melna-》"],
     "etymology": {
         "intro": ["単純語。", "「  」から。"],
         "changes": []
