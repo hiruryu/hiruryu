@@ -1612,8 +1612,8 @@
   "fhǻxha": {
     "id": 326,
     "safe": true,
-    "word": "fhǻxh",
-    "stem": "fhǻxh",
+    "word": "fhǻxha",
+    "stem": "fhǻxha",
     "stem2": "fhåxh",
     "fix": "fháxh-",
     "tag": "ー",
@@ -1654,7 +1654,7 @@
     "stem": "muiksy",
     "stem2": "móksy",
     "fix": "muiksy-",
-    "tag": "計算",
+    "tag": "数学",
     "parts": "動詞",
       "type": "a 基本型",
       "ruletype": "a",
@@ -1666,23 +1666,120 @@
       },
     "variants2": ["ふやす", "ふえる", "たす", "くわえる", "プラスする", "+"]
   },
-  "muiksyáva": {
-    "id": 328,
+    "fsóza": {
+    "id": 329,
     "safe": true,
-    "word": "muiksyáva",
-    "stem": "muiksy",
-    "stem2": "móksy",
-    "fix": "muiksy-",
-    "tag": "計算",
-    "parts": "動詞",
+    "word": "fsóza",
+    "stem": "fsóza",
+    "stem2": "fsuiz",
+    "fix": "fsuiza-, fsós-, -ǻza",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["草", "（ 部首 ）艸"],
+    "pronunciation": ["/fsoza/<br>[fsɔzə]<br>《fsoza-》"],
+    "etymology": {
+        "intro": ["単純語。", "「 e:20 」から。"],
+        "changes": [{"form": "《fsos-》原型 → fsós"}, {"form": "《fsósa-》添拍 → fsósa"},{"form": "《fsoza-》有声化 → fsóza"}, {"form": "《fsoza-》現代 → fsóza"}]
+      },
+      "note3": ["接辞形 fsós- は「 e:20 」から。"],
+    "variants2": ["くさ"]
+  },
+  "fsyáska": {
+    "id": 330,
+    "safe": true,
+    "word": "fsyáska",
+    "stem": "fsyáska",
+    "stem2": "fsyask",
+    "fix": "fsyaska-",
+    "tag": "ー",
+    "parts": "名象",
       "type": "a 基本型",
       "ruletype": "a",
     "meaning": ["野菜", "ベジタブル"],
-    "pronunciation": ["/mɯksʲava/<br>[mɤ̟ksʲävə]<br>《moksy-》"],
+    "pronunciation": ["/fsʲaska/<br>[fsʲäskə]<br>《fsyaska-》"],
     "etymology": {
-        "intro": ["変成語。", "「 e:20 」の複数形「 fsés 」が訛った語。"],
-        "changes": [{"form": "《fses-》原型 → fsés"}, {"form": "《fsyés-》明音化 → fsyés"},{"form": "《fsyás-》広化 → fsyás-"},{"form": "《fsyása-》短化 → móka"}, {"form": "《moka-》現代"}]
+        "intro": ["合成語。", "「 e:20 」+「 99 」語。"],
+        "changes": [{"form": "《fseska-》原型 → fséska"}, {"form": "《fsyéska-》明音化 → fsyéska"},{"form": "《fsyáska-》広化 → fsyáska"}, {"form": "《fsyaska-》現代 → fsyáska"}]
       },
-    "variants2": ["ふやす", "ふえる", "たす", "くわえる", "プラスする", "+"]
+    "variants2": ["やさい"]
+  },
+    "fétruis": {
+    "id": 331,
+    "safe": true,
+    "word": "fétruis",
+    "stem": "fet",
+    "stem2": "fét",
+    "fix": "fet-, ft-",
+    "tag": "ー",
+    "parts": "名飾",
+      "type": "t 基本型",
+      "ruletype": "t",
+    "meaning": ["良い", "よろしい", "良好な", "好ましい", "善良な", "正しい", "美味しい", "美味い"],
+    "pronunciation": ["/fetrɯs/<br>[fe̞tɾɤ̟s]<br>《fet-》"],
+    "etymology": {
+        "intro": ["単純語。", "形成の根拠は不明。"],
+        "changes": []
+      },
+    "variants2": ["よい", "いい", "好い", "善い", "ぜんりょうな", "りょうこうな", "正しい", "うまい", "おいしい"]
+  },
+  "fǻtha": {
+    "id": 332,
+    "safe": true,
+    "word": "fǻtha",
+    "stem": "fǻtha",
+    "stem2": "fåtha",
+    "fix": "fåtha-",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["良さ"],
+    "pronunciation": ["/fota/<br>[fɔtə]<br>《feota-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 331 」+「 136 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["よさ", "善さ"]
+  },
+    "ftǻza": {
+    "id": 333,
+    "safe": true,
+    "word": "ftǻza",
+    "stem": "ftǻza",
+    "stem2": "ftåz",
+    "fix": "ftåza-",
+    "tag": "ー",
+    "parts": "名象",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["薬", "薬物"],
+    "pronunciation": ["/ftoza/<br>[ftɔzə]<br>《ftaoza-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 332 」+「 329 」が組み合わさった語。"],
+        "changes": []
+      },
+      "note3": ["古くは「 薬草 」の意だったが、のちに意味が拡張し現代では「 薬 」を広く指すようになった。<br>「 薬草 」は「 」を用いる。", "チェルスノー南部方言では「 薬草 」の意味で使われ、「 薬 」を意味する語はもっぱら「」が使われる。"],
+    "variants2": ["くすり", "やくぶつ"]
+  },
+  "ftǻzhruis": {
+    "id": 326,
+    "safe": true,
+    "word": "ftǻzhruis",
+    "stem": "ftåzh",
+    "stem2": "ftǻzh",
+    "fix": "fháxh-",
+    "tag": "ー",
+    "parts": "名飾",
+      "type": "zh 基本型",
+      "ruletype": "c0",
+    "meaning": ["薬の", "薬物の"],
+    "pronunciation": ["/ftoʐrɯs/<br>[ftɔʐɾɤ̟s]<br>《ftaož-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 333 」+「 143 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["くすりの", "やくぶつの"]
   }
 }
