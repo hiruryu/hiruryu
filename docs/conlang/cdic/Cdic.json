@@ -562,7 +562,7 @@
     "word": "fmolo",
     "stem": "fmólo",
     "stem2": "fmuil",
-    "fix": "fmuil-"
+    "fix": "fmuil-",
     "tag": "ー",
     "parts": "名象",
       "type": "lo 基本型",
@@ -581,7 +581,7 @@
     "word": "duifáva",
     "stem": "duif",
     "stem2": "dóf",
-    "fix": "duif-"
+    "fix": "duif-",
     "tag": "ー",
     "parts": "動詞",
       "type": "t 基本型",
@@ -617,7 +617,7 @@
     "word": "syifava",
     "stem": "syif",
     "stem2": "syáf",
-    "fix": "syif-, sy-"
+    "fix": "syif-, sy-",
     "tag": "ー",
     "parts": "動詞",
     "meaning": ["与える［ 能が ］［ 基を ］［ 与に ］", "送る［ 能が ］［ 基を ］［ 与に ］", "あげる［ 能が ］［ 基を ］［ 与に ］", "渡す［ 能が ］［ 基を ］［ 与に ］", "譲る［ 能が ］［ 基を ］［ 与に ］", "差し出す［ 能が ］［ 基を ］［ 与に ］",  "分ける［ 能が ］［ 基を ］［ 与に ］", "〜してあげる［ 能が ］［ 基を ］［ 与に ］"],
@@ -666,7 +666,7 @@
     "word": "luityifka",
     "stem": "luityífk",
     "stem2": "luityifk",
-    "fix": "luityifka-"
+    "fix": "luityifka-",
     "tag": "ー",
     "parts": "名象",
       "type": "k 基本型",
@@ -685,7 +685,7 @@
     "word": "lutiåha",
     "stem": "luitiǻha",
     "stem2": "luitiåh",
-    "fix": "luitiåh-"
+    "fix": "luitiåh-",
     "tag": "ー",
     "parts": "名象",
       "type": "h 基本型",
@@ -704,7 +704,7 @@
     "word": "fyino",
     "stem": "fyín",
     "stem2": "fyin",
-    "fix": "fyin-"
+    "fix": "fyin-",
     "tag": "身体部位",
     "parts": "名象",
       "type": "o 基本型",
@@ -723,7 +723,7 @@
     "word": "kyúp",
     "stem": "kyúpa",
     "stem2": "kyuip",
-    "fix": "kyuip-"
+    "fix": "kyuip-",
     "tag": "身体部位",
     "parts": "名象",
       "type": "p 基本型",
@@ -742,7 +742,7 @@
     "word": "yibá",
     "stem": "yibá",
     "stem2": "yiba",
-    "fix": "yibá-, yib-"
+    "fix": "yibá-, yib-",
     "tag": "ー",
     "parts": "名象",
       "type": "a 尾高型",
@@ -761,7 +761,7 @@
     "word": "hluikava",
     "stem": "hluik",
     "stem2": "hlók",
-    "fix": "hluik-"
+    "fix": "hluik-",
     "tag": "ー",
     "parts": "動詞",
       "type": "k 基本型",
@@ -796,7 +796,7 @@
     "word": "shuikava",
     "stem": "shuik",
     "stem2": "shók",
-    "fix": "shuik-"
+    "fix": "shuik-",
     "tag": "ー",
     "parts": "動詞",
       "type": "k 基本型",
@@ -815,7 +815,7 @@
     "word": "floka",
     "stem": "flóka",
     "stem2": "fluik",
-    "fix": "fluik-"
+    "fix": "fluik-",
     "tag": "ー",
     "parts": "名象",
     "type": "k 基本型",
@@ -834,7 +834,7 @@
     "word": "fluignáva",
     "stem": "fluign",
     "stem2": "flógn",
-    "fix": "fluign-"
+    "fix": "fluign-",
     "tag": "ー",
     "parts": "動詞",
     "type": "n 基本型",
@@ -889,6 +889,7 @@
     "word": "fyíso",
     "stem": "fyíso",
     "stem2": "fyis",
+    "fix": "fyis-",
     "tag": ["ー"],
     "parts": "名象",
     "type": "o 基本型",
@@ -908,7 +909,7 @@
     "stem": "pállo",
     "stem2": "pallo",
     "tag": "ー",
-    "fix": "pall-"
+    "fix": "pall-",
     "parts": "名象",
       "type": "lo 変則型",
       "ruletype": "lo",
@@ -926,7 +927,7 @@
     "word": "kuisnáva",
     "stem": "kuisn",
     "stem2": "kósn",
-    "fix": "kuisn-"
+    "fix": "kuisn-",
     "tag": "ー",
     "parts": "動詞",
       "type": "n 基本型",
@@ -1666,7 +1667,3 @@
     "variants2": ["ふやす", "ふえる", "たす", "くわえる", "プラスする", "+"]
   }
 }
-
-
-
-
