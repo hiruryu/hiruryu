@@ -1643,7 +1643,7 @@
     "pronunciation": ["/moka/<br>[mɔkə]<br>《moka-》"],
     "etymology": {
         "intro": ["単純語。", "形成の根拠は不明。"],
-        "changes": [{"form": "《melka-》原型 → mélka"}, {"form": "《meuka-》円滑化→ méłka"},{"form": "《mooka》母音合成 → móoka"},{"form": "《moka-》短化 → móka"}, {"form": "《moka-》現代"}]
+        "changes": [{"form": "《melka-》原型 → mélka"}, {"form": "《meuka-》L の円滑化 → méwka"},{"form": "《mooka-》母音合成 → móoka"},{"form": "《moka-》短化 → móka"}, {"form": "《moka-》現代"}]
       },
     "variants2": ["かず", "すうじ", "すうし", "number"]
   },
@@ -1663,6 +1663,25 @@
     "etymology": {
         "intro": ["合成語。", "「 327 」+「 134 」が組み合わさった語。"],
         "changes": []
+      },
+    "variants2": ["ふやす", "ふえる", "たす", "くわえる", "プラスする", "+"]
+  },
+  "muiksyáva": {
+    "id": 328,
+    "safe": true,
+    "word": "muiksyáva",
+    "stem": "muiksy",
+    "stem2": "móksy",
+    "fix": "muiksy-",
+    "tag": "計算",
+    "parts": "動詞",
+      "type": "a 基本型",
+      "ruletype": "a",
+    "meaning": ["野菜", "ベジタブル"],
+    "pronunciation": ["/mɯksʲava/<br>[mɤ̟ksʲävə]<br>《moksy-》"],
+    "etymology": {
+        "intro": ["変成語。", "「 e:20 」の複数形「 fsés 」が訛った語。"],
+        "changes": [{"form": "《fses-》原型 → fsés"}, {"form": "《fsyés-》明音化 → fsyés"},{"form": "《fsyás-》広化 → fsyás-"},{"form": "《fsyása-》短化 → móka"}, {"form": "《moka-》現代"}]
       },
     "variants2": ["ふやす", "ふえる", "たす", "くわえる", "プラスする", "+"]
   }
