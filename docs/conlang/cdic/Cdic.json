@@ -1,4 +1,53 @@
 {
+  "Chéssno": {
+    "id": 94,
+    "safe": true,
+    "word": "Chéssno",
+    "stem": "Chéssno",
+    "stem2": "Chessno",
+    "fix": "Chessno-, Chel-",
+    "tag": ["国名", "プルフカの地名"],
+    "parts": "名象",
+    "meaning": ["チェルスノー"],
+    "pronunciation": ["/ʈ͡ʂesːno/<br>[ʈ͡ʂe̞sːnʊ]<br>《čessno-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 」+「」が組み合わさった語。"],
+        "changes": [{"form": "《čelsnoo-》古形 → Čélsnoo"}, {"form": "《čessnoo-》子音同化"},{"form": "《čessno-》短化 → Chéssno"},{"form": "《čessno-》現代 → Chéssno"}]
+      },
+    "variants2": ["智国", "ちこく"]
+  },
+  "Chessnöpha": {
+    "id": 95,
+    "safe": true,
+    "word": "Chessnöpha",
+    "stem": "Chessnöpha",
+    "stem2": "Chessnöph",
+    "tag": ["言語", "プルフカの言語"],
+    "parts": "名象",
+    "meaning": ["チェルスノー語"],
+    "pronunciation": ["/ʈ͡ʂesːnafa/<br>[ʈ͡ʂəsːnäfə]<br>《čessnoafa-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 94 」+「 96 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["智語", "ちご"]
+  },
+  "-ápha": {
+    "id": 96,
+    "safe": true,
+    "word": "ápha",
+    "stem": "ápha",
+    "stem2": "apha",
+    "tag": ["派生接尾辞"],
+    "parts": "派生接辞",
+    "meaning": ["～語"],
+    "pronunciation": ["/afa/<br>[äfə]<br>《afa-》"],
+    "etymology": {
+        "intro": ["変成語。", "「 127 」が訛った語。"],
+        "changes": []
+      },
+    "variants2": ["語", "ご", "ápha", "apha", "言語", "げんご", "言葉", "ことば"]
+  },
   "-r": {
     "id": 97,
     "safe": true,
@@ -13,7 +62,7 @@
         "intro": ["語素。", "形成の根拠は不明。"],
         "changes": []
       },
-    "variants2": ["ほうこう", "位置", "いち", "向き", "むき", "の方", "のほう"]
+    "variants2": ["ほうこう", "位置", "いち", "向き", "むき", "の方", "のほう", "r"]
   },
   "-áva": {
     "id": 98,
@@ -22,14 +71,14 @@
     "stem": "ava",
     "stem2": "ava",
     "tag": ["屈折接辞", "動詞屈折"],
-    "parts": "動名接尾",
+    "parts": "屈折接辞",
     "meaning": ["～すること", "（ 動詞の質別形を作る ）", "（ 具象詞を表す代理形 ）"],
     "pronunciation": ["/ava/<br>[ävə]<br>《ava-》"],
     "etymology": {
         "intro": ["変成体。", "「 101 」から。"],
         "changes": []
       },
-    "variants2": ["具象形", "質別形", "辞書形"]
+    "variants2": ["具象形", "質別形", "辞書形", "ava", "áva"]
   },
   "-ka": {
     "id": 99,
@@ -45,7 +94,7 @@
         "intro": ["語素。", "音象徴「 固い 」から。"],
         "changes": []
       },
-    "variants2": ["もの", "物"]
+    "variants2": ["もの", "物", "ka"]
   },
     "-lo": {
     "id": 100,
@@ -61,7 +110,7 @@
         "intro": ["変成体。", "「 120 」から。"],
         "changes": []
       },
-    "variants2": ["もの"]
+    "variants2": ["もの", "すい", "lo"]
   },
     "-fa": {
     "id": 101,
@@ -77,7 +126,7 @@
         "intro": ["語素。", "「」から。"],
         "changes": []
       },
-    "variants2": ["こと"]
+    "variants2": ["こと", "fa"]
   },
   "-n": {
     "id": 102,
@@ -86,14 +135,14 @@
     "stem": "n",
     "stem2": "n",
     "tag": "派生接尾辞",
-    "parts": "質為着尾",
+    "parts": "派生接辞",
     "meaning": ["～する"],
     "pronunciation": ["/n/<br>[n]<br>《n-》"],
     "etymology": {
         "intro": ["語素。", "音象徴「 ～ 」から。"],
         "changes": []
       },
-    "variants2": ["する"]
+    "variants2": ["する", "n"]
   },
   "nuifáva": {
     "id": 103,
@@ -141,7 +190,7 @@
     "stem": "luizh",
     "stem2": "lózh",
     "fix": "luizh-",
-    "tag": "-",
+    "tag": "ー",
     "parts": "動詞",
       "type": "zh 基本型",
       "ruletype": "t",
@@ -149,7 +198,7 @@
     "pronunciation": ["/lɯʐava/<br>[lɤ̟ʐävə]<br>《lož-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 流れる 」から。"],
-        "changes": [{"form": "《laž-》", "note": "古形 → lazh-"}, {"form": "《lož-》クオリア同期"},{"form": "《lož-》現代 → lozh-"}]
+        "changes": [{"form": "《laž-》古形 → lazh-"}, {"form": "《lož-》クオリア同期"},{"form": "《lož-》現代 → lozh-"}]
   },
     "variants2": ["ながす", "ながれる"]
   },
@@ -245,7 +294,7 @@
     "pronunciation": ["/difa/<br>[dɨfə]<br>《difa-》<br>（ ⚠️発音に注意 ）"],
     "etymology": {
         "intro": ["合成語。", "「 e:1 」+「 101 」が溶け合った単語。"],
-        "changes": [{"form": "《dotifa》原型 → dotifa"}, {"form": "《dutifa》狭化"},{"form": "《difa》母音脱落 → difa"},{"form": "《difa》綴り字の変更 → dtifa"}]
+        "changes": [{"form": "《dotifa-》古形 → dotífa"}, {"form": "《dutifa-》狭化"},{"form": "《difa-》減拍 → difa"},{"form": "《difa-》綴り字の変更 → dtifa"},{"form": "《difa-》現代 → dtifa"}]
       },
     "variants2": ["こい", "れんあい", "difa"],
     "note3": "t の音は黙字。古くは dífa であったが、一部の知識人が語源を反映させた綴りで書くようになり、そこから多くの書物で dtífa と書かれるようになったため、それが正式な綴りとして採用された。"
@@ -360,9 +409,9 @@
     "pronunciation": ["/kɯkːava/<br>[kɯkːävə]<br>《klok-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 組み立てる 」から。"],
-        "changes": [{"form": "《kolok-》原音 → kolók（ 古智語 ）"}, {"form": "《kulok-》狭化 → kulok-"},{"form": "母音脱落 → klok-"}]
+        "changes": [{"form": "《kolok-》古形 → kolók-"}, {"form": "《kulok-》狭化 → kulok-"},{"form": "《klok-》母音脱落 → klok-"},{"form": "《klok-》綴り字の変更 → klok-"}]
       },
-    "variants2": ["つくる", "創作する", "せいさくする", "make"]
+    "variants2": ["つくる", "創作する", "創造する", "造る", "創る", "せいさくする", "make"]
   },
   "sválo": {
     "id": 120,
@@ -609,7 +658,7 @@
         "intro": ["語素。", "音象徴「 ? 」から。"],
         "changes": []
       },
-    "variants2": ["飾形"]
+    "variants2": ["飾形", "ey"]
   },
     "syifáva": {
     "id": 134,
@@ -642,7 +691,7 @@
         "intro": ["変成体。", "「 134 」が訛ったもの。"],
         "changes": []
       },
-    "variants2": ["させる"]
+    "variants2": ["させる", "yif"]
   },
   "-ha": {
     "id": 136,
@@ -652,13 +701,13 @@
     "stem2": "ha",
     "tag": ["派生接尾時"],
     "parts": "派生接辞",
-    "meaning": ["～さ", "〜性"],
+    "meaning": ["～もの", "〜こと", "〜さ", "〜性"],
     "pronunciation": ["/ha/<br>[xə]<br>《ha-》"],
     "etymology": {
         "intro": ["変成体。", "「 99 」が訛ったもの。"],
         "changes": []
       },
-    "variants2": ["せい"]
+    "variants2": ["せい", "ha"]
   },
   "luityífka": {
     "id": 137,
@@ -788,7 +837,7 @@
         "intro": ["語素。", "「」から。"],
         "changes": []
       },
-    "variants2": ["てきな"]
+    "variants2": ["てきな", "i"]
   },
   "shuikáva": {
     "id": 144,
@@ -854,7 +903,7 @@
     "stem": "fi",
     "stem2": "fi",
     "tag": ["離頭辞"],
-    "parts": "派生接辞",
+    "parts": "離辞",
     "meaning": ["〜に","〜で","〜を通じて","〜を通して","〜を通って","〜を媒介にして","〜によって","〜のために","〜が原因で"],
     "pronunciation": ["/fʲi/<br>[fʲi]<br>《fyi-》<br>（ ⚠️発音に注意 ）"],
     "etymology": {
@@ -881,7 +930,7 @@
         "intro": ["変成体。", "「 e:4 」が訛った語。"],
         "changes": []
       },
-    "variants2": ["される","てきな"]
+    "variants2": ["される","てきな", "ef"]
   },
   "fyíso": {
     "id": 150,
@@ -933,12 +982,69 @@
       "type": "n 基本型",
       "ruletype": "n",
     "meaning": ["固まる［ 基が ］","固める［ 能が ］［ 基を ］","固定する［ 能が ］［ 基を ］"],
-    "pronunciation": ["/panolo/<br>[pänolo]<br>《panolo-》"],
+    "pronunciation": ["/kɯsnava/<br>[kɤ̟snävə]<br>《kosn-》"],
     "etymology": {
         "intro": ["合成語。", "「 128 」+「 102 」が組み合わさった語。"],
         "changes": []
       },
     "variants2": ["かたまる","かためる","こていする"]
+  },
+  "snólluis": {
+    "id": 153,
+    "safe": true,
+    "word": "snólluis",
+    "stem": "snuil",
+    "stem2": "snól",
+    "fix": "snol-",
+    "tag": "ー",
+    "parts": "名飾",
+      "type": "l 基本型",
+      "ruletype": "l",
+    "meaning": ["美しい", "うるわしい", "綺麗な", "魅力的な"],
+    "pronunciation": ["/snolːɯs/<br>[snɔlːɤ̟s]<br>《snol-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 広い 」から。"],
+        "changes": []
+      },
+    "variants2": ["うつくしい","きれいな","麗しい", "みりょくてきな", "ビューティフルな"]
+  },
+  "fyúruis": {
+    "id": 154,
+    "safe": true,
+    "word": "fyúruis",
+    "stem": "fyui",
+    "stem2": "fyú",
+    "fix": "fyui-",
+    "tag": "ー",
+    "parts": "名飾",
+      "type": "母音終了型",
+      "ruletype": "a",
+    "meaning": ["広い", "広大な", "大きい", "大きな"],
+    "pronunciation": ["/fʲurɯs/<br>[fʲuɾɤ̟s]<br>《fyu-》"],
+    "etymology": {
+        "intro": ["単純語。", "音象徴「 広い 」から。"],
+        "changes": []
+      },
+    "variants2": ["ひろい","こうだいな","おおきい", "でかい"]
+  },
+  "fyuináva": {
+    "id": 154,
+    "safe": true,
+    "word": "fyuináva",
+    "stem": "fyuin",
+    "stem2": "fyún",
+    "fix": "fyuin-",
+    "tag": "ー",
+    "parts": "名飾",
+      "type": "母音終了型",
+      "ruletype": "a",
+    "meaning": ["広がる［ 基が ］", "広げる［ 能が ］［ 基を ］", "拡張する［ 能が ］［ 基を ］", "広まる［ 基が ］", "普及する［ 基が ］", "展開する［ 基が ］"],
+    "pronunciation": ["/fʲɯnava/<br>[fʲɤ̟nävə]<br>《kosn-》"],
+    "etymology": {
+        "intro": ["合成語。", "「 153 」+「 102 」が組み合わさった語。"],
+        "changes": []
+      },
+    "variants2": ["ひろがる","ひろげる","ひろまる", "かくちょうする", "ふきゅうする", "てんかいする"]
   },
   "myéna": {
     "id": 179,
@@ -1605,7 +1711,7 @@
     "pronunciation": ["/fazrɯs/<br>[fäzɾɤ̟s]<br>《faz-》"],
     "etymology": {
         "intro": ["単純語。", "形成の根拠は不明。"],
-        "changes": [{"form": "《had-》原型 → hádruis"}, {"form": "《haζ-》子音弱化 → háxruis"},{"form": "《haz-》子音弱化 → háxruis"},{"form": "《faz-》子音強化 → fháxruis"}, {"form": "《faz-》現代"}]
+        "changes": [{"form": "《had-》古形 → hádruis"}, {"form": "《haζ-》子音弱化 → háxruis"},{"form": "《haz-》子音弱化 → háxruis"},{"form": "《faz-》子音強化 → fháxruis"}, {"form": "《faz-》現代"}]
       },
     "variants2": ["可愛い", "可愛らしい", "あいらしい", "cute", "pretty"]
   },
@@ -1643,7 +1749,7 @@
     "pronunciation": ["/moka/<br>[mɔkə]<br>《moka-》"],
     "etymology": {
         "intro": ["単純語。", "形成の根拠は不明。"],
-        "changes": [{"form": "《melka-》原型 → mélka"}, {"form": "《meuka-》L の円滑化 → méwka"},{"form": "《mooka-》母音合成 → móoka"},{"form": "《moka-》短化 → móka"}, {"form": "《moka-》現代"}]
+        "changes": [{"form": "《melka-》古形 → mélka"}, {"form": "《meuka-》L の円滑化 → méwka"},{"form": "《mooka-》母音合成 → móoka"},{"form": "《moka-》短化 → móka"}, {"form": "《moka-》現代"}]
       },
     "variants2": ["かず", "すうじ", "すうし", "number"]
   },
@@ -1681,7 +1787,7 @@
     "pronunciation": ["/fsoza/<br>[fsɔzə]<br>《fsoza-》"],
     "etymology": {
         "intro": ["単純語。", "「 e:20 」から。"],
-        "changes": [{"form": "《fsos-》原型 → fsós"}, {"form": "《fsósa-》添拍 → fsósa"},{"form": "《fsoza-》有声化 → fsóza"}, {"form": "《fsoza-》現代 → fsóza"}]
+        "changes": [{"form": "《fsos-》古形 → fsós"}, {"form": "《fsósa-》添拍 → fsósa"},{"form": "《fsoza-》有声化 → fsóza"}, {"form": "《fsoza-》現代 → fsóza"}]
       },
       "note3": ["接辞形 fsós- は「 e:20 」から。"],
     "variants2": ["くさ"]
@@ -1701,7 +1807,7 @@
     "pronunciation": ["/fsʲaska/<br>[fsʲäskə]<br>《fsyaska-》"],
     "etymology": {
         "intro": ["合成語。", "「 e:20 」+「 99 」語。"],
-        "changes": [{"form": "《fseska-》原型 → fséska"}, {"form": "《fsyéska-》明音化 → fsyéska"},{"form": "《fsyáska-》広化 → fsyáska"}, {"form": "《fsyaska-》現代 → fsyáska"}]
+        "changes": [{"form": "《fseska-》古形 → fséska"}, {"form": "《fsyéska-》明音化 → fsyéska"},{"form": "《fsyáska-》広化 → fsyáska"}, {"form": "《fsyaska-》現代 → fsyáska"}]
       },
     "variants2": ["やさい"]
   },
