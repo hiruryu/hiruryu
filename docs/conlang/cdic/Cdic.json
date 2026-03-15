@@ -1,63 +1,20 @@
-{"Chéssno": {"id": 94,"safe": true,"word": "Chéssno","stem": "Chéssno","stem2": "Chessno","fix": "Chessno-, Chel-","tag": ["国名", "プルフカの地名"],"parts": "名象","meaning": ["チェルスノー"],"pronunciation": ["/ʈ͡ʂesːno/<br>[ʈ͡ʂe̞sːnʊ]<br>《čessno-》"],"etymology": {"intro": ["合成語。", "「 」+「」が組み合わさった語。"],"changes": [{"form": "《čelsnoo-》古形 → Čélsnoo"}, {"form": "《čessnoo-》子音同化"},{"form": "《čessno-》短化 → Chéssno"},{"form": "《čessno-》現代 → Chéssno"}]},"variants2": ["智国", "ちこく"]},
+{
+"Chéssno": {"id": 94,"safe": true,"word": "Chéssno","stem": "Chéssno","stem2": "Chessno","fix": "Chessno-, Chel-","tag": ["国名", "プルフカの地名"],"parts": "名象","meaning": ["チェルスノー"],"pronunciation": ["/ʈ͡ʂesːno/<br>[ʈ͡ʂe̞sːnʊ]<br>《čessno-》"],"etymology": {"intro": ["合成語。", "「 」+「」が組み合わさった語。"],"changes": [{"form": "《čelsnoo-》古形 → Čélsnoo"}, {"form": "《čessnoo-》子音同化"},{"form": "《čessno-》短化 → Chéssno"},{"form": "《čessno-》現代 → Chéssno"}]},"variants2": ["智国", "ちこく"]},
 "Chessnöpha": {"id": 95,"safe": true,"word": "Chessnöpha","stem": "Chessnöpha","stem2": "Chessnöph","tag": ["言語", "プルフカの言語"],"parts": "名象","meaning": ["チェルスノー語"],"pronunciation": ["/ʈ͡ʂesːnafa/<br>[ʈ͡ʂəsːnäfə]<br>《čessnoafa-》"],"etymology": {"intro": ["合成語。", "「 94 」+「 96 」が組み合わさった語。"],"changes": []},"variants2": ["智語", "ちご"]},
-"-ápha": {"id": 96,"safe": true,"word": "ápha","stem": "ápha","stem2": "apha","tag": ["派生接尾辞"],"parts": "派生接辞","meaning": ["～語"],"pronunciation": ["/afa/<br>[äfə]<br>《afa-》"],"etymology": {"intro": ["変成語。", "「 127 」が訛った語。"],"changes": []},"variants2": ["語", "ご", "ápha", "apha", "言語", "げんご", "言葉", "ことば"]},
-"-r": {"id": 97,"safe": true,"word": "r","stem": "r","stem2": "r","tag": ["派生接尾辞"],"parts": "派生接辞","meaning": ["～方向"],"pronunciation": ["/r/<br>[ɾ]<br>《r-》"],"etymology": {"intro": ["語素。", "形成の根拠は不明。"],"changes": []},"note3": ["多重子音との接続は「 -uin 」<br>「 p 」 との接続は 「 f-n 」 ｡<br> 「 b 」 との接続は 「 v-n 」 。<br> 「 t 」 との接続は 「 c-n 」<br> 「 d 」 との接続は 「 x-n 」 。<br> 「 k 」 との接続は 「 h-n 」<br> 「 r 」 との接続は 「 -m 」 。<br> 「 l 」 との接続は 「 n-n 」 ｡"],"variants2": ["ほうこう", "位置", "いち", "向き", "むき", "の方", "のほう", "r"]},
-"-áva": {"id": 98,"safe": true,"word": "ava","stem": "ava","stem2": "ava","tag": ["屈折接辞", "動詞屈折"],"parts": "屈折接辞","meaning": ["～すること", "（ 動詞の質別形を作る ）", "（ 具象詞を表す代理形 ）"],"pronunciation": ["/ava/<br>[ävə]<br>《ava-》"],"etymology": {"intro": ["変成体。", "「 101 」から。"],"changes": []},"note3": ["「 sh / zh / ch / xh / v 」 との接続は 「 -va 」 ｡"],
-  "variants2": ["具象形", "質別形", "辞書形", "ava", "áva"]
-  },
-"-ka": {"id": 99,"safe": true,"word": "ka","stem": "ka","stem2": "ka","tag": "派生接尾辞","parts": "派生接辞","meaning": ["～もの", "～するもの"],"pronunciation": ["/ka/<br>[kə]<br>《ka-》"],"etymology": {"intro": ["語素。", "音象徴「 固い 」から。"],"changes": []},"variants2": ["もの", "物", "ka"]},
+"-ápha": {"id": 96,"safe": true,"word": "ápha","tag": ["派生接尾辞"],"parts": "派生接辞","meaning": ["～語"],"pronunciation": ["/afa/<br>[äfə]<br>《afa-》"],"etymology": {"intro": ["変成語。", "「 127 」が訛った語。"],"changes": []},"variants2": ["語", "ご", "ápha", "apha", "言語", "げんご", "言葉", "ことば"]},
+"-r": {"id": 97,"safe": true,"word": "r","tag": ["派生接尾辞"],"parts": "派生接辞","meaning": ["～方向"],"pronunciation": ["/r/<br>[ɾ]<br>《r-》"],"etymology": {"intro": ["語素。", "形成の根拠は不明。"],"changes": []},"variants2": ["ほうこう", "位置", "いち", "向き", "むき", "の方", "のほう", "r"]},
+"-áva": {"id": 98,"safe": true,"word": "ava","tag": ["屈折接辞", "動詞屈折"],"parts": "屈折接辞","meaning": ["～すること", "（ 動詞の質別形を作る ）", "（ 具象詞を表す代理形 ）"],"pronunciation": ["/ava/<br>[ävə]<br>《ava-》"],"etymology": {"intro": ["変成体。", "「 101 」から。"],"changes": []},"note3": ["「 sh / zh / ch / xh / v 」 との接続は 「 -va 」 ｡"],"variants2": ["具象形", "質別形", "辞書形", "ava", "áva"]},
+"-ka": {"id": 99,"safe": true,"word": "ka","tag": "派生接尾辞","parts": "派生接辞","meaning": ["～もの", "～するもの"],"pronunciation": ["/ka/<br>[kə]<br>《ka-》"],"etymology": {"intro": ["語素。", "音象徴「 固い 」から。"],"changes": []},"variants2": ["もの", "物", "ka"]},
 "-lo": {"id": 100,"safe": true,"word": "lo","tag": "派生接尾辞","parts": "派生接辞","meaning": ["～水", "～もの", "～するもの", "～こと", "～すること"],"pronunciation": ["/lo/<br>[lo]<br>《lo-》"],"etymology": {"intro": ["変成体。", "「 120 」から。"],"changes": []},"variants2": ["もの", "すい", "lo"]},
-    "-fa": {
-    "id": 101,
-    "safe": true,
-    "word": "fa",
-    "stem": "fa",
-    "stem2": "fa",
-    "tag": "派生接尾辞",
-    "parts": "派生接辞",
-    "meaning": ["～こと", "～すること"],
-    "pronunciation": ["/fa/<br>[fə]<br>《fa-》"],
-    "etymology": {
-        "intro": ["語素。", "「」から。"],
-        "changes": []
-      },
-    "variants2": ["こと", "fa"]
-  },
-  "-n": {
-    "id": 102,
-    "safe": true,
-    "word": "n",
-    "stem": "n",
-    "stem2": "n",
-    "tag": "派生接尾辞",
-    "parts": "派生接辞",
-    "meaning": ["～する"],
-    "pronunciation": ["/n/<br>[n]<br>《n-》"],
-    "etymology": {
-        "intro": ["語素。", "音象徴「 ～ 」から。"],
-        "changes": []
-      },
-    "variants2": ["する", "n"]
-  },
-  "nuifáva": {
-    "id": 103,
-    "safe": true,
-    "word": "nuifava",
-    "stem": "nuip",
-    "stem2": "núp",
-    "fix": "nuip-",
-    "tag": "ー",
-    "parts": "動詞",
-      "type": "p 基本型",
-      "ruletype": "p",
-    "meaning": ["入れる［ 基を ］［ 副に ］", "入る［ 副に ］",  "入場する［ 副に ］","ログインする［ 副に ］"],
+"-fa": {"id": 101,"safe": true,"word": "fa","tag": "派生接尾辞","parts": "派生接辞","meaning": ["～こと", "～すること"],"pronunciation": ["/fa/<br>[fə]<br>《fa-》"],"etymology": {"intro": ["語素。", "「」から。"],"changes": []},"variants2": ["こと", "fa"]},
+"-n": {"id": 102,"safe": true,"word": "n","tag": "派生接尾辞","parts": "派生接辞","meaning": ["～する"],"pronunciation": ["/n/<br>[n]<br>《n-》"],
+"etymology": {"intro": ["語素。", "音象徴「 ～ 」から。"],"changes": []},"note3": ["多重子音との接続は「 -uin 」<br>「 p 」 との接続は 「 f-n 」 ｡<br> 「 b 」 との接続は 「 v-n 」 。<br> 「 t 」 との接続は 「 c-n 」<br> 「 d 」 との接続は 「 x-n 」 。<br> 「 k 」 との接続は 「 h-n 」<br> 「 r 」 との接続は 「 -m 」 。<br> 「 l 」 との接続は 「 n-n 」 ｡"],"variants2": ["する", "n"]},
+"nuifáva": {"id": 103,"safe": true,"word": "nuifava","stem": "nuip","stem2": "núp","fix": "nuip-","tag": "ー","parts": "動詞","type": "p 基本型","ruletype": "p","meaning": ["入れる［ 基を ］［ 副に ］", "入る［ 副に ］",  "入場する［ 副に ］","ログインする［ 副に ］"],
     "vulgarMeaning": ["性交する［ 基を ］", "セックスする［ 基を ］", "犯す［ 基を ］"],
     "pronunciation": ["/nɯfava/<br>[nɤ̟fävə]<br>《nup-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 入れる 」から。"],
-        "changes": []
-      },
-    "variants2": ["いれる","はいる","挿れる","にゅうじょう","login","nup","sexする", "ぬぷる"]
+        "changes": []},"variants2": ["いれる","はいる","挿れる","にゅうじょう","login","nup","sexする", "ぬぷる"]
   },
   "nyáfa": {
     "id": 105,
