@@ -198,11 +198,11 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           v_adpC: adpC.slice(0, -1) + "rh",
           in_adpC: adpC.slice(0, -1) + "uuita",
         }     
-    // t 基本形
+    // t 基本形（子音終了形）
       } else if (ruletype === "t") {      
         const anpC = stem + "ra";         
         const adsC = stem + "la";
-        const adpC = stem + "rla";      
+        const adpC = stem.slice(0, -1) + "rla";      
       
         return {
           // 非限定単数形
@@ -245,6 +245,54 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           g_adpC: anpC.slice(0, -1) + "ui",
           v_adpC: anpC + "rh",
           in_adpC: anpC.slice(0, -1) + "uita",
+        }
+    // t 基本形（母音終了形）
+      } else if (ruletype === "ta") {      
+        const anpC = stem.slice(0, -1) + "ra";         
+        const adsC = stem.slice(0, -1) + "óla";
+        const adpC = stem.slice(0, -1) + "róla";      
+      
+        return {
+          // 非限定単数形
+          ansC: stem,
+          f_ansC: stem.slice(0, -2) + "caf",
+          e_ansC: stem.slice(0, -1) + "uik",
+          d_ansC: stem.slice(0, -2) + "ces",
+          l_ansC: stem.slice(0, -1) + "uim",
+          i_ansC: stem + "sh",
+          g_ansC: stem.slice(0, -1) + "oy",
+          v_ansC: stem2 + "árh",
+          in_ansC: stem.slice(0, -1) + "oyta",
+          // 非限定複数形
+          anpC: anpC,
+          f_anpC: anpC + "f",
+          e_anpC: anpC.slice(0, -1) + "uik",
+          d_anpC: anpC.slice(0, -1) + "es",
+          l_anpC: anpC.slice(0, -1) + "uim",
+          i_anpC: anpC + "sh",
+          g_anpC: anpC.slice(0, -1) + "oy",
+          v_anpC: anpC + "rh",
+          in_anpC: anpC.slice(0, -1) + "oyta",
+          // 限定単数形
+          adsC: adsC,
+          f_adsC: adsC + "f",
+          e_adsC: adsC.slice(0, -1) + "uik",
+          d_adsC: anpC.slice(0, -1) + "es",
+          l_adsC: anpC.slice(0, -1) + "uim",
+          i_adsC: anpC + "sh",
+          g_adsC: anpC.slice(0, -1) + "oy",
+          v_adsC: anpC + "rh",
+          in_adsC: anpC.slice(0, -1) + "oyta",
+          // 限定複数形
+          adpC: adpC,
+          f_adpC: adpC + "f",
+          e_adpC: adpC.slice(0, -1) + "uik",
+          d_adpC: anpC.slice(0, -1) + "es",
+          l_adpC: anpC.slice(0, -1) + "uim",
+          i_adpC: anpC + "sh",
+          g_adpC: anpC.slice(0, -1) + "oy",
+          v_adpC: anpC + "rh",
+          in_adpC: anpC.slice(0, -1) + "oyta",
         }
          // na 基本形
             } else if (ruletype === "na") {
@@ -297,51 +345,52 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
         }
       // yo 基本形
 
-      // p 基本形
-      } else if (ruletype === "p") {      
-        const anpC = stem + "tas";         
-        const adsC = stem + "ola";      // adsCを定義     
-        const adpC = stem + "otta";      
+    // p 基本形（母音終了形）
+      } else if (ruletype === "pa") {      
+        const anpC = stem.slice(0, -1) + "ra";         
+        const adsC = stem.slice(0, -1) + "óla";
+        const adpC = stem.slice(0, -1) + "róla";      
       
         return {
+          // 非限定単数形
           ansC: stem,
-          f_ansC: stem.slice(0, -1) + "faf",
-          e_ansC: stem + "on",
-          d_ansC: stem + "e",
-          l_ansC: stem + "ūt",
-          in_ansC: stem + "ūt",
-          g_ansC: stem + "oy",
-          v_ansC: stem + "agh",
-          in_ansC: stem + "iax",
-          // 非限定形可視複数形
+          f_ansC: stem.slice(0, -2) + "faf",
+          e_ansC: stem.slice(0, -2) + "fuik",
+          d_ansC: stem.slice(0, -2) + "fes",
+          l_ansC: stem.slice(0, -2) + "fuim",
+          i_ansC: stem.slice(0, -2) + "fash",
+          g_ansC: stem.slice(0, -1) + "oy",
+          v_ansC: stem2 + "árh",
+          in_ansC: stem.slice(0, -1) + "oyta",
+          // 非限定複数形
           anpC: anpC,
-          f_anpC: anpC.slice(0, -1) + "f",
-          e_anpC: anpC.slice(0, -2) + "on",
-          d_anpC: anpC.slice(0, -2) + "e",
-          ad_anpC: anpC.slice(0, -2) + "ūt",
-          g_anpC: anpC.slice(0, -2) + "oy",
-          v_anpC: anpC.slice(0, -2) + "arh",
-          in_anpC: anpC.slice(0, -2) + "iax",
-    
-          // 限定形可視単数形
+          f_anpC: anpC + "f",
+          e_anpC: anpC.slice(0, -1) + "uik",
+          d_anpC: anpC.slice(0, -1) + "es",
+          l_anpC: anpC.slice(0, -1) + "uim",
+          i_anpC: anpC + "sh",
+          g_anpC: anpC.slice(0, -1) + "oy",
+          v_anpC: anpC + "rh",
+          in_anpC: anpC.slice(0, -1) + "oyta",
+          // 限定単数形
           adsC: adsC,
-          f_adsC: adsC.slice(0, -1) + "af",
-          e_adsC: adsC.slice(0, -1) + "on",
-          d_adsC: adsC.slice(0, -1) + "e",
-          ad_adsC: adsC.slice(0, -1) + "ūt",
-          g_adsC: adsC.slice(0, -1) + "oy",
-          v_adsC: adsC.slice(0, -1) + "agh",
-          in_adsC: adsC.slice(0, -1) + "iax",
-          // 限定形可視複数形
+          f_adsC: adsC + "f",
+          e_adsC: adsC.slice(0, -1) + "uik",
+          d_adsC: anpC.slice(0, -1) + "es",
+          l_adsC: anpC.slice(0, -1) + "uim",
+          i_adsC: anpC + "sh",
+          g_adsC: anpC.slice(0, -1) + "oy",
+          v_adsC: anpC + "rh",
+          in_adsC: anpC.slice(0, -1) + "oyta",
+          // 限定複数形
           adpC: adpC,
-          f_adpC: adpC.slice(0, -1) + "af",
-          e_adpC: adpC.slice(0, -1) + "on",
-          d_adpC: adpC.slice(0, -1) + "e",
-          ad_adpC: adpC.slice(0, -1) + "ūt",
-          g_adpC: adpC.slice(0, -1) + "oy",
-          v_adpC: adpC.slice(0, -1) + "arh",
-          in_adpC: adpC.slice(0, -1) + "iax",
+          f_adpC: adpC + "f",
+          e_adpC: adpC.slice(0, -1) + "uik",
+          d_adpC: anpC.slice(0, -1) + "es",
+          l_adpC: anpC.slice(0, -1) + "uim",
+          i_adpC: anpC + "sh",
+          g_adpC: anpC.slice(0, -1) + "oy",
+          v_adpC: anpC + "rh",
+          in_adpC: anpC.slice(0, -1) + "oyta",
         }}
-
 }
-
