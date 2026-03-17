@@ -1375,11 +1375,17 @@ else matchKey = data._normKey.includes(normalizedSearch);
 // 意味検索
 let matchMeaning = false;
 
-if (data._normMeaningArray) {
-  matchMeaning = data._normMeaningArray.some(m => {
-    if (searchMode === "exact") return m === normalizedSearch;
-    else if (searchMode === "prefix") return m.startsWith(normalizedSearch);
-    else return m.includes(normalizedSearch);
+if (data.meaning) {
+  const meanings = Array.isArray(data.meaning)
+    ? data.meaning
+    : data.meaning.split(",").map(s => s.trim());
+
+  matchMeaning = meanings.some(m => {
+    const cleaned = removeAnnotations(m).toLowerCase();
+
+    if (searchMode === "exact") return cleaned === normalizedSearch;
+    else if (searchMode === "prefix") return cleaned.startsWith(normalizedSearch);
+    else return cleaned.includes(normalizedSearch);
   });
 }
 
