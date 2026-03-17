@@ -1374,21 +1374,11 @@ else matchKey = data._normKey.includes(normalizedSearch);
 
 // 意味検索
 let matchMeaning = false;
-
-if (data.meaning) {
-  const meanings = Array.isArray(data.meaning)
-    ? data.meaning
-    : data.meaning.split(",").map(s => s.trim());
-
-  matchMeaning = meanings.some(m => {
-    const cleaned = removeAnnotations(m).toLowerCase();
-
-    if (searchMode === "exact") return cleaned === normalizedSearch;
-    else if (searchMode === "prefix") return cleaned.startsWith(normalizedSearch);
-    else return cleaned.includes(normalizedSearch);
-  });
-}
-
+ if (data._normMeaning) {
+ if (searchMode === "exact") matchMeaning = (data._normMeaning === normalizedSearch);
+ else if (searchMode === "prefix") matchMeaning = data._normMeaning.startsWith(normalizedSearch);
+ else matchMeaning = data._normMeaning.includes(normalizedSearch);
+ }
 
 // 俗語意味検索
   let matchVulgar = false;
