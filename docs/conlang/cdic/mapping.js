@@ -1239,6 +1239,7 @@ window.loadWord = function(word) {
       word,
       data.stem,
       data.stem2,
+    data.long_stem,
       data.type,
       data.ruletype
     ) || {};
@@ -1248,8 +1249,8 @@ window.loadWord = function(word) {
     raw = fn(
       word,
       data.stem,
-      data.long_stem,
       data.stem2,
+    data.long_stem,
       data.type,
       data.ruletype
     ) || {};
