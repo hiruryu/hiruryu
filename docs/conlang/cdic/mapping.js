@@ -1374,11 +1374,15 @@ else matchKey = data._normKey.includes(normalizedSearch);
 
 // 意味検索
 let matchMeaning = false;
-if (data._normMeaning) {
-  if (searchMode === "exact") matchMeaning = (data._normMeaning === normalizedSearch);
-  else if (searchMode === "prefix") matchMeaning = data._normMeaning.startsWith(normalizedSearch);
-  else matchMeaning = data._normMeaning.includes(normalizedSearch);
+
+if (data._normMeaningArray) {
+  matchMeaning = data._normMeaningArray.some(m => {
+    if (searchMode === "exact") return m === normalizedSearch;
+    else if (searchMode === "prefix") return m.startsWith(normalizedSearch);
+    else return m.includes(normalizedSearch);
+  });
 }
+
 
 // 俗語意味検索
   let matchVulgar = false;
