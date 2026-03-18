@@ -1374,11 +1374,20 @@ else matchKey = data._normKey.includes(normalizedSearch);
 
 // 意味検索
 let matchMeaning = false;
- if (data._normMeaning) {
- if (searchMode === "exact") matchMeaning = (data._normMeaning === normalizedSearch);
- else if (searchMode === "prefix") matchMeaning = data._normMeaning.startsWith(normalizedSearch);
- else matchMeaning = data._normMeaning.includes(normalizedSearch);
- }
+
+if (data.meaning) {
+  const meanings = Array.isArray(data.meaning)
+    ? data.meaning
+    : [data.meaning];
+
+  matchMeaning = meanings.some(m => {
+    const norm = normalizeForSearch(removeAnnotations(m));
+
+    if (searchMode === "exact") return norm === normalizedSearch;
+    else if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
+    else return norm.includes(normalizedSearch);
+  });
+}
 
 // 俗語意味検索
   let matchVulgar = false;
@@ -1585,5 +1594,3 @@ async function countWords() {
 
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
-
-
