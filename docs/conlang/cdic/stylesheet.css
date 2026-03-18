@@ -9,7 +9,7 @@ body {
     font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  background-color: #fefeff;
+  background-color: #F9F8F4;
   letter-spacing: 1px;
   }
 
@@ -33,7 +33,7 @@ body.detail-view #details table {
 body.detail-view .back-to-top {
   width: 100%;
   box-sizing: border-box;
-  background-color: #fefeff;
+  background-color: #F9F8F4;
   border-bottom: 1px solid #ccc;
   text-align: right;
   padding: 0.5rem 1rem;
@@ -179,7 +179,7 @@ body.detail-view .back-to-top a:hover {
   display: block;
   padding: 8px;
   margin-bottom: 4px;
-  background-color: #fefeff;
+  background-color: #F9F8F4;
   border-radius: 4px;
   color: #c33aac;
   cursor: pointer;
@@ -245,7 +245,7 @@ body.detail-view .back-to-top a:hover {
     letter-spacing: 2px;
   }
   .detailList {
-    background-color: #fefeff;
+    background-color: #F9F8F4;
     padding: 1px;
     list-style-position: inside;
     font-size: 16px;
@@ -254,7 +254,7 @@ body.detail-view .back-to-top a:hover {
     letter-spacing: 2px;
   }
   .noteList {
-    background-color: #fefeff;
+    background-color: #F9F8F4;
     list-style-position: inside;
     font-size: 16px;
     color: #997070;
@@ -274,7 +274,7 @@ body.detail-view .back-to-top a:hover {
   
   .fixList {
     list-style: none;
-    background-color: #fefeff;
+    background-color: #F9F8F4;
     padding: 1px;
     font-size: 16px;
     color: #aa8888;
@@ -440,12 +440,13 @@ body.detail-view .back-to-top a:hover {
   }
   
   .default { color: #225540; }
-  .meishou { color: #cc3399; }
-  .doushi { color: #3370cc; }
-  .meishoku { color: #50aa50; }
-  .fukushoku { color: #cc6300; }
-  .fukuji { color: #ca8686; }
-  .kanto { color: #8d8d8d; }
+  .meishou { color: #D1608B; }
+  .doushi { color: #007FC4; }
+  .meishoku { color: #859D41; }
+  .fukushoku { color: #F09A2D; }
+  .bunshoku { color: #774D9B; }
+  .fukuji { color: #D6A46E; }
+  .kanto { color: #B7BBBD; }
 
   .heading-cell {
     font-size: 35px;
@@ -455,12 +456,13 @@ body.detail-view .back-to-top a:hover {
     letter-spacing: 2px;
   }
   .heading-cell.default { color: #225540; }
-  .heading-cell.meishou { color: #cc3399; }
-  .heading-cell.doushi { color: #3370cc; }
-  .heading-cell.meishoku { color: #50aa50; }
-  .heading-cell.fukushoku { color: #cc6300; }
-  .heading-cell.fukuji { color: #ca8686; } 
-  .heading-cell.kanto { color: #8d8d8d; }
+  .heading-cell.meishou { color: #D1608B; }
+  .heading-cell.doushi { color: #007FC4; }
+  .heading-cell.meishoku { color: #859D41; }
+  .heading-cell.fukushoku { color: #F09A2D; }
+  .heading-cell.bunshoku { color: #774D9B; }
+  .heading-cell.fukuji { color: #D6A46E; } 
+  .heading-cell.kanto { color: #B7BBBD; }
 
   .detailTable th {
     table-layout: fixed;
