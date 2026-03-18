@@ -606,11 +606,6 @@ function getSimilarWords(data) {
     }).join("\n");
     tableHTML += `\n<tr class="con7"><td class="conname">叙述</td><td colspan="6" class="conname">${conjugations.nar || ""}</td></tr>`;
   }
-
-
-// 副飾詞の場合
-      } else if (data.parts === "副飾") {
-        conjugations = getConjA(data.word, data.stem, data.type, data.ruletype);
 // 活用が無い場合
         if (Object.keys(conjugations).length === 0) {
           tableHTML = `<tr><td colspan="6">この動詞は活用型がありません。</td></tr>`;
