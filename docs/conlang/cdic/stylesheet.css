@@ -1,4 +1,3 @@
-
 body {
     display: flex;
     min-width: 1800px;
@@ -248,10 +247,11 @@ body.detail-view .back-to-top a:hover {
     background-color: #F9F8F4;
     padding: 1px;
     list-style-position: inside;
-    font-size: 16px;
+    font-size: 15px;
     color: #997070;
     text-align: left;
     letter-spacing: 2px;
+    line-height: 25px;
   }
   .noteList {
     background-color: #F9F8F4;
