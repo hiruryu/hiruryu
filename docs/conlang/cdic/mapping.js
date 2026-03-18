@@ -451,7 +451,7 @@ function getSynonyms(data) {
   });
 }
 
-// 同源語
+// 関連語
 function getCognates(data) {
   const myID = String(data.id);
   const sourceIDs = extractEtymologyIDs(data);
@@ -580,6 +580,7 @@ function getSimilarWords(data) {
                 ${cells}
               </tr>`;
     }).join("");
+    tableHTML += `\n<tr class="con7"><td class="conname">具象形</td><td colspan="6" class="conname">${word || ""}</td></tr>`;
   }
 
 // 名飾詞の場合
@@ -619,7 +620,7 @@ function getSimilarWords(data) {
 // セーフサーチON/OFFの状態を取得
       const safeSearch = document.getElementById("safeSearchToggle").checked;
       let meaningsHTML = "";
-      const MAX_VISIBLE = 3;
+      const MAX_VISIBLE = 10;
 
 if (data.meaning) {
   // 配列ならそのまま、文字列ならカンマ分割
@@ -1020,7 +1021,7 @@ if (data.variants1 && data.variants1.length) {
 }
 
 
-// 同源語の生成
+// 関連語の生成
 const cognates = getCognates(data);
 if (cognates.length) {
   const links = cognates
@@ -1035,21 +1036,21 @@ if (cognates.length) {
     <table class="detailTable">
       <tbody>
         <tr>
-          <th>同源語</th>
+          <th>関連語かも</th>
           <td class="linktext" colspan="3">${links}</td>
         </tr>
       </tbody>
     </table>`;
 }
 
-
 // 同類語の生成
 const similars = getSimilarWords(data);
 if (similars.length) {
   const links = similars
-    .map(([word, entry]) =>
-      `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>`
-    )
+    .map(([word, entry]) => {
+    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
+  })
     .join(", ");
 
 // テーブル追加
