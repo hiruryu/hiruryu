@@ -1,41 +1,24 @@
-function getConjA(word, stem, type, ruletype) {
-  if (ruletype === "no") return {};
-
-  const rules = {
-    t: {
-      suffixes: {
-        s: "e", s2: "onna", s3: "uiska",
-        fs: "afie", fs2: "afna", fs3: "afuiska",
-        on: "ashie", on2: "ashna", on3: "ashuika",
-        es: "ol", es2: "onna", es3: "oluiska",
-        ds: "ies", ds2: "ienna", ds3: "iesska",
-        ads: "iup", ads2: "iupnui", ads3: "iupuiska",
-        nar: "os"
+function getConjA(_word, stem, _long_stem, stem2, _type, ruletype) {
+  if (ruletype === "no") {
+      return {};
+            // p 基本形
+         } else if (ruletype === "p") {      
+        return {
+          s: stem + "e", s2: stem + "fóte", s3: stem + "fóte",
+          fs: stem + "e", fs2: stem + "fóte", fs3: stem + "fóte",
+          on: stem + "e", on2: stem + "fóte", on3: stem + "fóte",
+          es: stem + "e", es2: stem + "fóte", es3: stem + "fóte",
+          ds: stem + "e", ds2: stem + "fóte", ds3: stem + "fóte",
+          ads: stem + "e", ads2: stem + "fóte", ads3: stem + "fóte",
+        }
+      } else if (ruletype === "g") {      
+        return {
+          s: stem + "hie", s2: stem2 + "hiélle", s3: stem2 + "hiónne",
+          fs: stem + "hve", fs2: stem2 + "vélle", fs3: stem2 + "vónne",
+          on: stem + "xhe", on2: stem2 + "fóte", on3: stem + "fóte",
+          es: stem + "e", es2: stem2 + "fóte", es3: stem + "fóte",
+          ds: stem + "e", ds2: stem2 + "fóte", ds3: stem + "fóte",
+          ads: stem + "e", ads2: stem2 + "fóte", ads3: stem + "fóte",
+        }     
       }
-    },
-    k: {
-      suffixes: {
-        s: "e", s2: "onna", s3: "uiska",
-        fs: "afie", fs2: "afna", fs3: "afuiska",
-        on: "ashie", on2: "ashna", on3: "ashuika",
-        es: "ol", es2: "onna", es3: "oluiska",
-        ds: "ies", ds2: "ienna", ds3: "iesska",
-        ads: "iup", ads2: "iupnui", ads3: "iupuiska",
-        nar: "os"
-      }
-    }
-    // 他の ruletype があればここに追加
-  };
-
-  const rule = rules[ruletype];
-  if (!rule) return {};
-
-  const forms = {};
-  for (const key in rule.suffixes) {
-    forms[key] = stem + rule.suffixes[key];
-  }
-
-  return forms;
 }
-
-
