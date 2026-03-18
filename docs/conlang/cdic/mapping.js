@@ -545,9 +545,7 @@ function getSimilarWords(data) {
 
 // 動詞の場合
 } else if (data.parts === "動詞") {
-
   let conjugations = {};
-
   if (data.stem) {
     conjugations = getConjV(
       data.word,
@@ -585,7 +583,10 @@ function getSimilarWords(data) {
 
 // 名飾詞の場合
 } else if (data.parts === "名飾") {
-  conjugations = getConjA(data.word, data.stem, data.type, data.ruletype);
+   const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
+    raw = getConjA(w, stem, long_stem, stem2, type, ruletype) || {};
+    conjugations = raw;
+// 活用が無い場合はメッセージを出すよ
   if (Object.keys(conjugations).length === 0) {
     tableHTML = `<tr><td colspan="7">この動詞は活用型がありません。</td></tr>`;
   } else {
@@ -598,13 +599,16 @@ function getSimilarWords(data) {
       { label: "副飾格一致", keys: ["ads", "ads2", "ads3"] }
     ];
 // HTMLテーブルを生成するよ！
-    tableHTML = rows.map((row, index) => {
+    tableHTML = rows.map((row, i) => {
       const cells = row.keys
         .map(key => `<td class="con">${conjugations[key] || ""}</td>`)
         .join("");
-      return `<tr class="con${index + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
-    }).join("\n");
-    tableHTML += `\n<tr class="con7"><td class="conname">叙述</td><td colspan="6" class="conname">${conjugations.nar || ""}</td></tr>`;
+      return `<tr class="con${i+1}">
+                <td class="conname">${row.label}</td>
+                ${cells}
+              </tr>`;
+    }).join("");
+    tableHTML += `\n<tr class="con7"><td class="conname">叙述</td><td colspan="6" class="conname">${word || ""}</td></tr>`;
   }
 // 活用が無い場合
         if (Object.keys(conjugations).length === 0) {
@@ -1118,22 +1122,6 @@ if (similars.length) {
                 <th colspan="1">原級</th>
                 <th colspan="1">比較級</th>
                 <th colspan="1">最上級</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${tableHTML}
-            </tbody>
-          </table>`;
-
-// 副詞（副飾）
-        } else if (data.parts === "副飾") {
-          detailsHTML += `<table>
-            <thead class="conH">
-              <tr>
-                <th>形態</th>
-                <th>基本形</th>
-                <th>比較級</th>
-                <th>最上級</th>
               </tr>
             </thead>
             <tbody>
