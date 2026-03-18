@@ -24,17 +24,18 @@ let etymDictionary = {}; // 語源専用
 
     // 品詞ごとに CSS クラスを割り当てるための対応表
     const partsStyles = {
-  "名象": "meishou",
+  "体象": "meishou",
   "動詞": "doushi",
   "名飾": "meishoku",
   "副飾": "fukushoku",
+  "文飾": "bunshoku",
+  "副合辞<br>文飾": "bunshoku",
   "接辞": "fukuji",
   "離辞": "fukuji",
-"接辞": "fukuji",
-"屈折接辞": "fukuji",
-"派生接辞": "fukuji",
-"離辞": "fukuji",
-  "間投詞": "kanto",
+  "屈折接辞": "fukuji",
+  "派生接辞": "fukuji",
+  "離辞": "fukuji",
+  "外詞": "kanto",
 };
 
 // 意味テキストから翻訳語を抽出する関数
@@ -173,6 +174,23 @@ function processH5Links(text) {
     return `<h5><a href="#" onclick="loadWord('${mappedLink}'); return false;">${trimmedText}</a></h5>`;
   });
 }
+
+window.toggleMeaning = function(el) {
+  const parent = el.closest("ul");
+  const hiddenItems = parent.querySelectorAll(".extraMeaning");
+
+  if (hiddenItems.length === 0) return;
+
+  const isHidden = getComputedStyle(hiddenItems[0]).display === "none";
+
+  hiddenItems.forEach(item => {
+    item.style.display = isHidden ? "list-item" : "none";
+  });
+
+  el.textContent = isHidden
+    ? "閉じる"
+    : el.textContent.replace("閉じる", "もっと見る");
+};
 
 // 性的な意味の表示 / 非表示 を切り替えるボタン
   function toggleVulgarMeaning(linkElem) {
@@ -488,8 +506,8 @@ function getSimilarWords(data) {
       let tableHTML = "";
       let conjugations = {};
 
-// 名象の場合
-       if (data.parts === "名象") {
+// 体象の場合
+       if (data.parts === "体象") {
 // 活用情報を取得するよ
     const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
     raw = getConjN(w, stem, long_stem, stem2, type, ruletype) || {};
@@ -585,7 +603,7 @@ function getSimilarWords(data) {
         .join("");
       return `<tr class="con${index + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
     }).join("\n");
-    tableHTML += `\n<tr class="con6"><td class="conname">叙述</td><td colspan="6">${conjugations.nar || ""}</td></tr>`;
+    tableHTML += `\n<tr class="con7"><td class="conname">叙述</td><td colspan="6" class="conname">${conjugations.nar || ""}</td></tr>`;
   }
 
 
@@ -601,13 +619,32 @@ function getSimilarWords(data) {
 // セーフサーチON/OFFの状態を取得
       const safeSearch = document.getElementById("safeSearchToggle").checked;
       let meaningsHTML = "";
+      const MAX_VISIBLE = 3;
+
 if (data.meaning) {
   // 配列ならそのまま、文字列ならカンマ分割
   const meanings = Array.isArray(data.meaning)
     ? data.meaning
     : data.meaning.split(",").map(s => s.trim());
-  // liタグで意味リストを生成
-  meaningsHTML = meanings.map(m => `<li class="detailList">${m}</li>`).join("");
+// liタグで意味リストを生成
+  meaningsHTML = meanings.map((m, i) => {
+    const extraClass = i >= MAX_VISIBLE ? " extraMeaning" : "";
+    return `<li class="detailList${extraClass}">${m}</li>`;
+  }).join("");
+
+  // 件数が多いときだけボタン追加
+  if (meanings.length > MAX_VISIBLE) {
+    const hiddenCount = meanings.length - MAX_VISIBLE;
+
+    meaningsHTML += `
+      <li class="detailList toggleWrapper">
+        <a href="#" class="toggleMeaning"
+           onclick="toggleMeaning(this); return false;">
+           もっと見る（+${hiddenCount}）
+        </a>
+      </li>
+    `;
+  }
 }
 
 // vulgarMeaning が存在し、セーフサーチがOFFの場合
@@ -1030,8 +1067,8 @@ if (similars.length) {
 // 屈折表表示
 // generateInflections() で生成された内容を表示するよ！
       if (tableHTML !== "") {
-// 名象屈折表
-        if (data.parts === "名象") {
+// 体象屈折表
+        if (data.parts === "体象") {
           detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
@@ -1216,7 +1253,7 @@ window.loadWord = function(word) {
 
 // 品詞ごとに対応する屈折生成関数だよ！
     const inflectionRules = {
-    名象: getConjN,
+    体象: getConjN,
     動詞: getConjV,
     名飾: getConjA,
     副飾: getConjA,
@@ -1232,9 +1269,9 @@ window.loadWord = function(word) {
   const fn = inflectionRules[data.parts];
   if (typeof fn !== "function") return [];
 
-// 名象の引数だよ！
+// 体象の引数だよ！
   let raw;
-  if (data.parts === "名象") {
+  if (data.parts === "体象") {
     raw = fn(
       word,
       data.stem,
