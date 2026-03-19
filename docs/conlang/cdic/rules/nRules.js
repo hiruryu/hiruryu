@@ -18,7 +18,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_ansC: stem + "ash",
           g_ansC: stem + "oy",
           v_ansC: stem + "arh",
-          in_ansC: stem + "oyta",
+          in_ansC: stem + "uita",
           // 非限定複数形
           anpC: anpC,
           f_anpC: anpC + "f",
@@ -28,7 +28,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_anpC: anpC + "sh",
           g_anpC: anpC.slice(0, -1) + "oy",
           v_anpC: anpC + "rh",
-          in_anpC: anpC.slice(0, -1) + "oyta",
+          in_anpC: anpC.slice(0, -1) + "uita",
     
           // 限定単数形
           adsC: adsC,
@@ -39,7 +39,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adsC: adsC + "sh",
           g_adsC: adsC.slice(0, -1) + "oy",
           v_adsC: adsC.slice(0, -1) + "arh",
-          in_adsC: adsC.slice(0, -1) + "oyta",
+          in_adsC: adsC.slice(0, -1) + "uita",
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC.slice(0, -1) + "af",
@@ -49,7 +49,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adpC: adpC + "sh",
           g_adpC: adpC.slice(0, -1) + "oy",
           v_adpC: adpC.slice(0, -1) + "arh",
-          in_adpC: adpC.slice(0, -1) + "oyta",
+          in_adpC: adpC.slice(0, -1) + "uita",
         }
         // a 尾高形
             } else if (ruletype === "á") {       
@@ -67,7 +67,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_ansC: stem + "sh",
           g_ansC: stem.slice(0, -1) + "óy",
           v_ansC: stem + "rh",
-          in_ansC: stem.slice(0, -1) + "óyta",
+          in_ansC: stem.slice(0, -1) + "uita",
           // 非限定複数形
           anpC: anpC,
           f_anpC: adsC.slice(0, -1) + "af",
@@ -77,7 +77,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_anpC: stem + "sh",
           g_anpC: stem.slice(0, -1) + "óy",
           v_anpC: stem + "rh",
-          in_anpC: stem.slice(0, -1) + "óyta",
+          in_anpC: stem.slice(0, -1) + "uita",
     
           // 限定単数形
           adsC: adsC,
@@ -88,7 +88,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adsC: stem + "sh",
           g_adsC: stem.slice(0, -1) + "óy",
           v_adsC: stem + "rh",
-          in_adsC: stem.slice(0, -1) + "óyta",
+          in_adsC: stem.slice(0, -1) + "uita",
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC.slice(0, -1) + "af",
@@ -98,7 +98,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adpC: adpC + "sh",
           g_adpC: adpC.slice(0, -1) + "óy",
           v_adpC: adpC + "rh",
-          in_adpC: adpC.slice(0, -1) + "óyta",
+          in_adpC: adpC.slice(0, -1) + "uita",
         }     
       // o 基本形
       } else if (ruletype === "o") {      
@@ -200,21 +200,21 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
         }  
       // p 基本形
       } else if (ruletype === "p") {      
-        const anpC = stem.slice(0, -1) + "ra";         
-        const adsC = stem.slice(0, -1) + "óla";
-        const adpC = stem.slice(0, -1) + "róla";      
+        const anpC = stem + "ra";         
+        const adsC = stem2 + "óla";
+        const adpC = stem2 + "róla";      
       
         return {
           // 非限定単数形
           ansC: word,
-          f_ansC: stem.slice(0, -2) + "faf",
-          e_ansC: stem.slice(0, -2) + "fuik",
-          d_ansC: stem.slice(0, -2) + "fes",
-          l_ansC: stem.slice(0, -2) + "fuim",
-          i_ansC: stem.slice(0, -2) + "fash",
-          g_ansC: stem.slice(0, -1) + "oy",
+          f_ansC: stem.slice(0, -1) + "faf",
+          e_ansC: stem.slice(0, -1) + "fuik",
+          d_ansC: stem.slice(0, -1) + "fes",
+          l_ansC: stem.slice(0, -1) + "fuim",
+          i_ansC: stem.slice(0, -1) + "fash",
+          g_ansC: stem + "oy",
           v_ansC: stem2 + "árh",
-          in_ansC: stem.slice(0, -1) + "oyta",
+          in_ansC: stem + "uita",
           // 非限定複数形
           anpC: anpC,
           f_anpC: anpC + "f",
@@ -224,7 +224,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_anpC: anpC + "sh",
           g_anpC: anpC.slice(0, -1) + "oy",
           v_anpC: anpC + "rh",
-          in_anpC: anpC.slice(0, -1) + "oyta",
+          in_anpC: anpC.slice(0, -1) + "uita",
           // 限定単数形
           adsC: adsC,
           f_adsC: adsC + "f",
@@ -234,7 +234,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adsC: anpC + "sh",
           g_adsC: anpC.slice(0, -1) + "oy",
           v_adsC: anpC + "rh",
-          in_adsC: anpC.slice(0, -1) + "oyta",
+          in_adsC: anpC.slice(0, -1) + "uita",
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC + "f",
@@ -244,25 +244,25 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adpC: anpC + "sh",
           g_adpC: anpC.slice(0, -1) + "oy",
           v_adpC: anpC + "rh",
-          in_adpC: anpC.slice(0, -1) + "oyta",
+          in_adpC: anpC.slice(0, -1) + "uita",
         }
         // b 基本形
       } else if (ruletype === "b") {      
-        const anpC = stem.slice(0, -1) + "ra";         
-        const adsC = stem.slice(0, -1) + "óla";
-        const adpC = stem.slice(0, -1) + "róla";      
+        const anpC = stem + "ra";         
+        const adsC = stem2 + "óla";
+        const adpC = stem2 + "róla";      
       
         return {
           // 非限定単数形
           ansC: word,
-          f_ansC: stem.slice(0, -2) + "vaf",
-          e_ansC: stem.slice(0, -2) + "vuik",
-          d_ansC: stem.slice(0, -2) + "ves",
-          l_ansC: stem.slice(0, -2) + "vuim",
-          i_ansC: stem.slice(0, -2) + "vash",
-          g_ansC: stem.slice(0, -1) + "oy",
+          f_ansC: stem.slice(0, -1) + "vaf",
+          e_ansC: stem.slice(0, -1) + "vuik",
+          d_ansC: stem.slice(0, -1) + "ves",
+          l_ansC: stem.slice(0, -1) + "vuim",
+          i_ansC: stem.slice(0, -1) + "vash",
+          g_ansC: stem + "oy",
           v_ansC: stem2 + "árh",
-          in_ansC: stem.slice(0, -1) + "oyta",
+          in_ansC: stem + "uita",
           // 非限定複数形
           anpC: anpC,
           f_anpC: anpC + "f",
@@ -272,7 +272,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_anpC: anpC + "sh",
           g_anpC: anpC.slice(0, -1) + "oy",
           v_anpC: anpC + "rh",
-          in_anpC: anpC.slice(0, -1) + "oyta",
+          in_anpC: anpC.slice(0, -1) + "uita",
           // 限定単数形
           adsC: adsC,
           f_adsC: adsC + "f",
@@ -282,7 +282,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adsC: anpC + "sh",
           g_adsC: anpC.slice(0, -1) + "oy",
           v_adsC: anpC + "rh",
-          in_adsC: anpC.slice(0, -1) + "oyta",
+          in_adsC: anpC.slice(0, -1) + "uita",
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC + "f",
@@ -292,25 +292,25 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adpC: anpC + "sh",
           g_adpC: anpC.slice(0, -1) + "oy",
           v_adpC: anpC + "rh",
-          in_adpC: anpC.slice(0, -1) + "oyta",
+          in_adpC: anpC.slice(0, -1) + "uita",
         }
     // t 基本形
       } else if (ruletype === "t") {      
-        const anpC = stem.slice(0, -1) + "ra";         
-        const adsC = stem.slice(0, -1) + "óla";
-        const adpC = stem.slice(0, -1) + "róla";      
+        const anpC = stem + "ra";         
+        const adsC = stem2 + "óla";
+        const adpC = stem2 + "róla";      
       
         return {
           // 非限定単数形
           ansC: word,
-          f_ansC: stem.slice(0, -2) + "caf",
-          e_ansC: stem.slice(0, -1) + "uik",
-          d_ansC: stem.slice(0, -2) + "ces",
-          l_ansC: stem.slice(0, -1) + "uim",
+          f_ansC: stem.slice(0, -1) + "caf",
+          e_ansC: stem + "uik",
+          d_ansC: stem.slice(0, -1) + "ces",
+          l_ansC: stem + "uim",
           i_ansC: stem + "sh",
-          g_ansC: stem.slice(0, -1) + "oy",
+          g_ansC: stem + "oy",
           v_ansC: stem2 + "árh",
-          in_ansC: stem.slice(0, -1) + "oyta",
+          in_ansC: stem.slice(0, -1) + "uita",
           // 非限定複数形
           anpC: anpC,
           f_anpC: anpC + "f",
@@ -320,7 +320,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_anpC: anpC + "sh",
           g_anpC: anpC.slice(0, -1) + "oy",
           v_anpC: anpC + "rh",
-          in_anpC: anpC.slice(0, -1) + "oyta",
+          in_anpC: anpC.slice(0, -1) + "uita",
           // 限定単数形
           adsC: adsC,
           f_adsC: adsC + "f",
@@ -330,7 +330,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adsC: anpC + "sh",
           g_adsC: anpC.slice(0, -1) + "oy",
           v_adsC: anpC + "rh",
-          in_adsC: anpC.slice(0, -1) + "oyta",
+          in_adsC: anpC.slice(0, -1) + "uita",
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC + "f",
@@ -340,25 +340,25 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adpC: anpC + "sh",
           g_adpC: anpC.slice(0, -1) + "oy",
           v_adpC: anpC + "rh",
-          in_adpC: anpC.slice(0, -1) + "oyta",
+          in_adpC: anpC.slice(0, -1) + "uita",
         }
  // d 基本形
       } else if (ruletype === "d") {      
-        const anpC = stem.slice(0, -1) + "ra";         
-        const adsC = stem.slice(0, -1) + "óla";
-        const adpC = stem.slice(0, -1) + "róla";      
+        const anpC = stem + "ra";         
+        const adsC = stem2 + "óla";
+        const adpC = stem2 + "róla";      
       
         return {
           // 非限定単数形
           ansC: word,
-          f_ansC: stem.slice(0, -2) + "xaf",
-          e_ansC: stem.slice(0, -1) + "uik",
-          d_ansC: stem.slice(0, -2) + "xes",
-          l_ansC: stem.slice(0, -1) + "uim",
-          i_ansC: stem + "sh",
+          f_ansC: stem.slice(0, -1) + "xaf",
+          e_ansC: stem + "uik",
+          d_ansC: stem.slice(0, -1) + "xes",
+          l_ansC: stem + "uim",
+          i_ansC: stem + "ash",
           g_ansC: stem.slice(0, -1) + "oy",
           v_ansC: stem2 + "árh",
-          in_ansC: stem.slice(0, -1) + "oyta",
+          in_ansC: stem + "uita",
           // 非限定複数形
           anpC: anpC,
           f_anpC: anpC + "f",
@@ -368,7 +368,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_anpC: anpC + "sh",
           g_anpC: anpC.slice(0, -1) + "oy",
           v_anpC: anpC + "rh",
-          in_anpC: anpC.slice(0, -1) + "oyta",
+          in_anpC: anpC.slice(0, -1) + "uita",
           // 限定単数形
           adsC: adsC,
           f_adsC: adsC + "f",
@@ -378,7 +378,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adsC: anpC + "sh",
           g_adsC: anpC.slice(0, -1) + "oy",
           v_adsC: anpC + "rh",
-          in_adsC: anpC.slice(0, -1) + "oyta",
+          in_adsC: anpC.slice(0, -1) + "uita",
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC + "f",
@@ -388,25 +388,25 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adpC: anpC + "sh",
           g_adpC: anpC.slice(0, -1) + "oy",
           v_adpC: anpC + "rh",
-          in_adpC: anpC.slice(0, -1) + "oyta",
+          in_adpC: anpC.slice(0, -1) + "uita",
         }
       // k 基本形
       } else if (ruletype === "k") {      
-        const anpC = stem.slice(0, -1) + "ra";         
-        const adsC = stem.slice(0, -1) + "óla";
-        const adpC = stem.slice(0, -1) + "róla";      
+        const anpC = stem + "ra";         
+        const adsC = stem2 + "óla";
+        const adpC = stem2 + "róla";      
       
         return {
           // 非限定単数形
           ansC: word,
-          f_ansC: stem.slice(0, -2) + "haf",
-          e_ansC: stem.slice(0, -1) + "uik",
-          d_ansC: stem.slice(0, -2) + "hes",
-          l_ansC: stem.slice(0, -1) + "uim",
-          i_ansC: stem + "sh",
-          g_ansC: stem.slice(0, -1) + "oy",
+          f_ansC: stem.slice(0, -1) + "haf",
+          e_ansC: stem + "uik",
+          d_ansC: stem.slice(0, -1) + "hes",
+          l_ansC: stem + "uim",
+          i_ansC: stem + "ash",
+          g_ansC: stem + "oy",
           v_ansC: stem2 + "árh",
-          in_ansC: stem.slice(0, -1) + "oyta",
+          in_ansC: stem + "uita",
           // 非限定複数形
           anpC: anpC,
           f_anpC: anpC + "f",
@@ -416,7 +416,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_anpC: anpC + "sh",
           g_anpC: anpC.slice(0, -1) + "oy",
           v_anpC: anpC + "rh",
-          in_anpC: anpC.slice(0, -1) + "oyta",
+          in_anpC: anpC.slice(0, -1) + "uita",
           // 限定単数形
           adsC: adsC,
           f_adsC: adsC + "f",
@@ -426,7 +426,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adsC: anpC + "sh",
           g_adsC: anpC.slice(0, -1) + "oy",
           v_adsC: anpC + "rh",
-          in_adsC: anpC.slice(0, -1) + "oyta",
+          in_adsC: anpC.slice(0, -1) + "uita",
           // 限定複数形
           adpC: adpC,
           f_adpC: adpC + "f",
@@ -436,7 +436,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
           i_adpC: anpC + "sh",
           g_adpC: anpC.slice(0, -1) + "oy",
           v_adpC: anpC + "rh",
-          in_adpC: anpC.slice(0, -1) + "oyta",
+          in_adpC: anpC.slice(0, -1) + "uita",
         }
       // m 基本形
       } else if (ruletype === "m") {      
