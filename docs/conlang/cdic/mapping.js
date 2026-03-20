@@ -596,7 +596,7 @@ function getSimilarWords(data) {
       { label: "能格一致", keys: ["on", "on2", "on3"] },
       { label: "奪格一致", keys: ["es", "es2", "es3"] },
       { label: "与/呼格一致", keys: ["ds", "ds2", "ds3"] },
-      { label: "副飾格一致", keys: ["ads", "ads2", "ads3"] }
+      { label: "処/具格一致", keys: ["ads", "ads2", "ads3"] }
     ];
 // HTMLテーブルを生成するよ！
     tableHTML = rows.map((row, i) => {
@@ -1024,44 +1024,51 @@ if (data.variants1 && data.variants1.length) {
 const cognates = getCognates(data);
 if (cognates.length) {
   const links = cognates
-  .map(([word, entry]) => {
-    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
-  })
-  .join(", ");
+    // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
+    .filter(([word, entry]) => !safeSearch || entry.safe !== false)
+    .map(([word, entry]) => {
+      const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
+    })
+    .join(", ");
 
-// テーブル追加
-  detailsHTML += `
-    <table class="detailTable">
-      <tbody>
-        <tr>
-          <th>関連語かも</th>
-          <td class="linktext" colspan="3">${links}</td>
-        </tr>
-      </tbody>
-    </table>`;
+  // リンクがある場合のみテーブルを表示（フィルタですべて消える可能性があるため）
+  if (links) {
+    detailsHTML += `
+      <table class="detailTable">
+        <tbody>
+          <tr>
+            <th>関連語かも</th>
+            <td class="linktext" colspan="3">${links}</td>
+          </tr>
+        </tbody>
+      </table>`;
+  }
 }
 
 // 同類語の生成
 const similars = getSimilarWords(data);
 if (similars.length) {
   const links = similars
+    // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
+    .filter(([word, entry]) => !safeSearch || entry.safe !== false)
     .map(([word, entry]) => {
-    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
-  })
+      const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
+    })
     .join(", ");
 
-// テーブル追加
-  detailsHTML += `
-    <table class="detailTable">
-      <tbody>
-        <tr>
-          <th>同類語</th>
-          <td class="linktext" colspan="3">${links}</td>
-        </tr>
-      </tbody>
-    </table>`;
+  if (links) {
+    detailsHTML += `
+      <table class="detailTable">
+        <tbody>
+          <tr>
+            <th>同類語</th>
+            <td class="linktext" colspan="3">${links}</td>
+          </tr>
+        </tbody>
+      </table>`;
+  }
 }
 
 // 屈折表表示
