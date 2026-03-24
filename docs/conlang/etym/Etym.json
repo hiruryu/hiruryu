@@ -26,5 +26,6 @@
   "hais-": {"id":24,"safe":true,"word":"hais","stem":"hais","tag":["古智語"],"parts":"動詞","meaning":["使う"],"pronunciation":["/hais/<br>[häis]<br>《hais-》"],"etymology":{"intro":["単純語。","「  」から。"],"changes":[]}},
   "tiko-": {"id":25,"safe":true,"word":"tiko","stem":"tiko","tag":["古智語"],"parts":"動詞","meaning":["欲する"],"pronunciation":["/tiko/<br>[tiko]<br>《tiko-》"],"etymology":{"intro":["単純語。","「  」から。"],"changes":[]}},
   "mélna": {"id":26,"safe":true,"word":"melna","stem":"melna","tag":["古智語"],"parts":"体象","meaning":["羊"],"pronunciation":["/melna/<br>[mɛlna]<br>《melna-》"],"etymology":{"intro":["単純語。","「  」から。"],"changes":[]}},
-  "féra": {"id":27,"safe":true,"word":"féra","stem":"fera","tag":["古智語"],"parts":"体象","meaning":["花"],"pronunciation":["/fera/<br>[fɛɾa]<br>《fera-》"],"etymology":{"intro":["単純語。","「  」から。"],"changes":[]}}
+  "féra": {"id":27,"safe":true,"word":"féra","stem":"fera","tag":["古智語"],"parts":"体象","meaning":["花"],"pronunciation":["/fera/<br>[fɛɾa]<br>《fera-》"],"etymology":{"intro":["単純語。","「  」から。"],"changes":[]}},
+  "-ika": {"id":28,"safe":true,"word":"ika","stem":"ika","stem2":"ika","tag":["古智語"],"parts":"派生接辞","meaning":["〜の概念", "〜", "（ 体象の不可視形を作る ）"],"pronunciation":["/jika/<br>[jɪkə]<br>《yika-》"],"etymology":{"intro":["語素。","「 ? 」から。"],"changes":[]}}
 }
