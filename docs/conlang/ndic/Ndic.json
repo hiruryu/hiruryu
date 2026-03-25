@@ -6,5 +6,7 @@
   "tī": {"id":104,"safe":true,"word":"tī","tag":["—"],"parts":"名飾","meaning":["小さい","しばらく","ちょっと","少し","低い","幼い","若い","子供","（ 兄弟姉妹で ）一番下の","子〜","小〜","（ 指小形を作る ）"],"pronunciation":["/tʲi⁵/<br>[tʲi⁵]"],"etymology":{"intro":["単純語。","音象徴「 小さい 」から。"],"changes":[]},"variants2":["むすこ","ちいさい","すこし","ひくい","わかい","おさない","こども","いちばんしたの","指小形","指小辞","ししょうじ","ししょうけい"]},
   "fẹ̀ng": {"id":105,"safe":true,"word":"fẹ̀ng","tag":["身体部位"],"parts":"名象","meaning":["翼"],"pronunciation":["/fḛŋ³¹/<br>[fə̰ŋ³¹]"],"etymology":{"intro":["単純語。","音象徴「 翼 」から。"],"changes":[]},"variants2":["つばさ", "はね", "羽根"]},
   "khâ": {"id":106,"safe":true,"word":"khā","tag":["—"],"parts":"名象","meaning":["風", "空気"],"pronunciation":["/ha⁵/<br>[χä⁵]"],"etymology":{"intro":["単純語。","音象徴「 空気 」から。"],"changes":[]},"variants2":["かぜ", "ふう", "くうき", "気"]},
-  "mō": {"id":107,"safe":true,"word":"mō","tag":["位置"],"parts":"名象","meaning":["内の","中の","内側の"],"pronunciation":["/mo⁵/<br>[mo⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["うち", "なか", "うちがわ"]}
+  "mō": {"id":107,"safe":true,"word":"mō","tag":["位置"],"parts":"名象","meaning":["内の","中の","内側の"],"pronunciation":["/mo⁵/<br>[mo⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["うち", "なか", "うちがわ"]},
+  "shá": {"id":108,"safe":true,"word":"mō","tag":["—"],"parts":"動詞","meaning":["加える","加わる","追加する"],"pronunciation":["/ɕa³⁵/<br>[ɕa³⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["くわえる", "ついかする", "くわわる"]},
+  "sháshá": {"id":109,"safe":true,"word":"mō","tag":["—"],"parts":"文飾","meaning":["もっと","さらに","いっそう","その上に","加えて"],"pronunciation":["/ɕa³⁵ɕa³⁵/<br>[ɕa³⁵ɕä³⁵]"],"etymology":{"intro":["合成語。","「 108 」+「 108 」から。"],"changes":[]},"variants2":["加加", "更に", "一層","そのうえ","くわえて"]}
 }
