@@ -112,8 +112,8 @@
   "fyúlo": {"id":206,"safe":true,"word":"fyúlo","stem":"fyúlo","stem2":"fyulo","fix":"fyulo-","tag":"ー","parts":"体象","type":"lo 変則型","ruletype":"lo","meaning":["風"],"pronunciation":["/fʲulo/<br>[fʲulʊ]<br>《fyulo-》"],"etymology":{"intro":["単純語。","音象徴「 風 」から。"],"changes":[]},"variants2":["かぜ","ウィンド"]},
   "gyálo": {"id":207,"safe":true,"word":"gyálo","stem":"gyálo","stem2":"gyalo","fix":"gyalo-","tag":"ー","parts":"体象","type":"lo 変則型","ruletype":"lo","meaning":["氷"],"pronunciation":["/gʲalo/<br>[gʲälʊ]<br>《fyulo-》"],"etymology":{"intro":["単純語。","音象徴「 氷 」から。"],"changes":[]},"variants2":["氷","アイス"]},
   "gyannálva": {"id":208,"safe":true,"word":"gyannálva","stem":"gyann","stem2":"gyánn","fix":"gyann-","tag":"ー","parts":"動詞","type":"m 基本型","ruletype":"m","meaning":["凍る［ 基が ］", "凍結する［ 基が ］", "凍らせる［ 能が ］［ 基を ］"],"pronunciation":["/gʲanːalva/<br>[gʲənːälvə]<br>《gyann-》"],"etymology":{"intro":["合成語。","「 207 」+「 152 」が組み合わさった語。"],"changes":[]},"variants2":["とうけつする","こおる","こおらせる"]},
-  
-  
+  "naválva": {"id":209,"safe":true,"word":"naválva","stem":"nav","stem2":"náv","fix":"nav-","tag":"ー","parts":"動詞","type":"v 基本型","ruletype":"v","meaning":["持つ［ 能が ］［ 基を ］","携える［ 能が ］［ 基を ］","所有する［ 能が ］［ 基を ］","分かる［ 与は ］［ 基が ］","（ 〜の存在を ）知っている［ 与が ］［ 基を ］","（ 〜のことについて ）知っている［ 基が ］［ 奪 ］","患う［ 与が ］［ 基を ］","かかっている［ 与が ］［ 基に ］", "発症している［ 与が ］［ 基に ］"],"pronunciation":["/navalva/<br>[nəvälvə]<br>《nav-》"],"etymology":{"intro":["単純語。","音象徴「 保持する 」から。"],"changes":[]},"variants2":["もつ","しょゆうする","たずさえる","わかる","はっしょうする","しっている","わずらう","はっしょうする"]},
+
   
   
   "nos": {"id":300,"safe":true,"word":"nos","stem":"nos","stem2":"nos","tag":["ー"],"parts":"離辞","type":"屈折形なし","ruletype":"o","meaning":["～さん","～様","御～","お～","ご～","（ 敬称を作る ）"],"pronunciation":["/nos/<br>[nʊs]<br>《nos-》"],"etymology":{"intro":["借用語。","ングレシャン語「 ng:13 」が訛った語。"],"changes":[]},"variants2":["敬称","さん","さま","お","ご"]},
