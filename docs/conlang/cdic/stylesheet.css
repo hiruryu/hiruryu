@@ -1,7 +1,6 @@
 body {
     display: flex;
-    min-width: auto;
-    width: 100%;
+    min-width: 1800px;
     overflow-x: auto;
     height: auto;
     flex-wrap: wrap; 
@@ -9,7 +8,7 @@ body {
     font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  background-color: #F9F8F4;
+  background-color: #f9f8f4;
   letter-spacing: 1px;
   }
 
@@ -33,7 +32,7 @@ body.detail-view #details table {
 body.detail-view .back-to-top {
   width: 100%;
   box-sizing: border-box;
-  background-color: #F9F8F4;
+  background-color: #f9f8f4;
   border-bottom: 1px solid #ccc;
   text-align: right;
   padding: 0.5rem 1rem;
