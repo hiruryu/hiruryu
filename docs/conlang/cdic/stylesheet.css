@@ -139,8 +139,8 @@ display: flex;
   }
 
   .content {
-    max-width: 83%;
-    width: 83%;
+    flex-grow: 1
+    max-width: 80%;
     padding: 1rem;
     box-sizing: border-box;
     overflow-y: auto;
