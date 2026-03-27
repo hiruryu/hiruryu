@@ -99,9 +99,9 @@ body.detail-view .back-to-top a:hover {
 }
 
 .wrapper {
+display: flex;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap
 }
 
 .upbar {
