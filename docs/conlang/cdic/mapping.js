@@ -824,7 +824,51 @@ let detailsHTML = `
     </tbody>
   </table>
 `;
+        
+// 漢字（縫読/智読）の表示処理
+let kanjiHTML = "";
+if (data.kanji && data.kanji.title) {
+  let nuiList = "";
+  let chelList = "";
 
+  // 縫読のリスト化
+  if (data.kanji.nui) {
+    const nuiArr = Array.isArray(data.kanji.nui) ? data.kanji.nui : [data.kanji.nui];
+    nuiList = nuiArr.map(item => `<li>${item}</li>`).join("");
+  }
+
+  // 智読のリスト化
+  if (data.kanji.chel) {
+    const chelArr = Array.isArray(data.kanji.chel) ? data.kanji.chel : [data.kanji.chel];
+    chelList = chelArr.map(item => `<li>${item}</li>`).join("");
+  }
+
+  // テーブルHTMLの構築
+  kanjiHTML = `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th id="stripeth" rowspan="2">漢字: ${data.kanji.title}</th>
+          <th>縫読</th>
+          <td colspan="2">
+            <ul class="kanji-list">${nuiList || "<li>ー</li>"}</ul>
+          </td>
+        </tr>
+        <tr>
+          <th>智読</th>
+          <td colspan="2">
+            <ul class="kanji-list">${chelList || "<li>ー</li>"}</ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>`;
+}
+
+// 構築したHTMLをdetailsHTMLに連結
+if (kanjiHTML) {
+  detailsHTML += kanjiHTML;
+}
+        
 // 一般言語学メモ（note1）
 let note1HTML = "";
 if (data.note1) {
