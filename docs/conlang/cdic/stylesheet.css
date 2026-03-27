@@ -101,7 +101,7 @@ body.detail-view .back-to-top a:hover {
 .wrapper {
 display: flex;
   width: 100%;
-  flex-wrap: nowrap
+  flex-wrap: wrap
 }
 
 .upbar {
