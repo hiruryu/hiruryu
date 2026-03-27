@@ -534,5 +534,6 @@ body.detail-view .back-to-top a:hover {
   background: #f0f0f0; /* 少し背景をつけるとタグっぽくなります */
   padding: 2px 8px;
   border-radius: 4px;
-  font-size: 0.9em;
+  text-align: center;
+  font-size: 20px
 }
