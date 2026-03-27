@@ -1,7 +1,6 @@
 body {
     display: flex;
-    min-width: auto;
-    width: 100%;
+    min-width: 1600px;
     overflow-x: auto;
     height: auto;
     flex-wrap: wrap; 
@@ -11,6 +10,23 @@ body {
   font-style: normal;
   background-color: #F9F8F4;
   letter-spacing: 1px;
+  }
+/* iPad・タブレット（1024px以下）向けの調整 */
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    width: 25%;
+    max-width: 25%;
+  }
+  .content {
+    width: 70%;
+    max-width: 75%;
+  }
+}
+
+/* スマホ（768px以下）向けの調整 */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column; /* サイドバーとメインを縦に並べる */
   }
 
   body.detail-view {
@@ -50,23 +66,7 @@ body.detail-view .back-to-top a {
 body.detail-view .back-to-top a:hover {
   text-decoration: underline;
 }
-/* iPad・タブレット（1024px以下）向けの調整 */
-@media screen and (max-width: 1024px) {
-  .sidebar {
-    width: 25%;
-    max-width: 25%;
-  }
-  .content {
-    width: 70%;
-    max-width: 75%;
-  }
-}
 
-/* スマホ（768px以下）向けの調整 */
-@media screen and (max-width: 768px) {
-  .wrapper {
-    flex-direction: column; /* サイドバーとメインを縦に並べる */
-  }
   a {
     color: #001ba0;
     font-size: 15px;
