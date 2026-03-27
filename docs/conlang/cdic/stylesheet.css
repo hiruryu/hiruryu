@@ -512,3 +512,26 @@ body.detail-view .back-to-top a:hover {
 .extraMeaning {
   display: none;
 }
+/* 漢字辞典セクション内の漢字を大きく */
+.kanji-main {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333; /* お好みのメインカラーに */
+}
+
+/* 読みのリストの余白調整 */
+.kanji-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px; /* 横に並べる時の間隔 */
+  flex-wrap: wrap;
+}
+
+.kanji-list li {
+  background: #f0f0f0; /* 少し背景をつけるとタグっぽくなります */
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
