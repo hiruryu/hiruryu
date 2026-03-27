@@ -1,6 +1,6 @@
 body {
     display: flex;
-    min-width: 1600px;
+    min-width: 1800px;
     overflow-x: auto;
     height: auto;
     flex-wrap: wrap; 
