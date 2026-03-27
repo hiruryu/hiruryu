@@ -825,7 +825,7 @@ let detailsHTML = `
   </table>
 `;
         
-// 漢字（縫読/智読）の表示処理
+// 漢字辞典セクションの表示処理
 let kanjiHTML = "";
 if (data.kanji && data.kanji.title) {
   let nuiList = "";
@@ -843,12 +843,17 @@ if (data.kanji && data.kanji.title) {
     chelList = chelArr.map(item => `<li>${item}</li>`).join("");
   }
 
-  // テーブルHTMLの構築
   kanjiHTML = `
     <table class="detailTable">
       <tbody>
         <tr>
-          <th id="stripeth" rowspan="2">漢字: ${data.kanji.title}</th>
+          <th id="stripeth" rowspan="3">漢字辞典</th>
+          <th>対応漢字</th>
+          <td colspan="2">
+            <span class="kanji-main">【 ${data.kanji.title} 】</span>
+          </td>
+        </tr>
+        <tr>
           <th>縫読</th>
           <td colspan="2">
             <ul class="kanji-list">${nuiList || "<li>ー</li>"}</ul>
@@ -864,7 +869,7 @@ if (data.kanji && data.kanji.title) {
     </table>`;
 }
 
-// 構築したHTMLをdetailsHTMLに連結
+// 構築したHTMLをdetailsHTMLに連結（note1の前あたりがおすすめ）
 if (kanjiHTML) {
   detailsHTML += kanjiHTML;
 }
