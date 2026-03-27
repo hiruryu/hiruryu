@@ -847,20 +847,20 @@ if (data.kanji && data.kanji.title) {
     <table class="detailTable">
       <tbody>
         <tr>
-          <th id="stripeth" rowspan="3">漢字辞典</th>
+          <th id="stripeth" rowspan="3">縫言録</th>
           <th>対応漢字</th>
           <td colspan="2">
             <span class="kanji-main">【 ${data.kanji.title} 】</span>
           </td>
         </tr>
         <tr>
-          <th>縫読</th>
+          <th>縫読み</th>
           <td colspan="2">
             <ul class="kanji-list">${nuiList || "<li>ー</li>"}</ul>
           </td>
         </tr>
         <tr>
-          <th>智読</th>
+          <th>智読み</th>
           <td colspan="2">
             <ul class="kanji-list">${chelList || "<li>ー</li>"}</ul>
           </td>
