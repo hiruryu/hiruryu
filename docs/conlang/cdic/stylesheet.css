@@ -14,12 +14,12 @@ body {
 /* iPad・タブレット（1024px以下）向けの調整 */
 @media screen and (max-width: 1024px) {
   .sidebar {
-    width: 25%;
-    max-width: 25%;
+    width: 20%;
+    max-width: 20%;
   }
   .content {
-    width: 70%;
-    max-width: 75%;
+    width: 85%;
+    max-width: 85%;
   }
 }
 
