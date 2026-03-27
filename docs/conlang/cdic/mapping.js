@@ -41,13 +41,13 @@ let etymDictionary = {}; // 語源専用
 // 意味テキストから翻訳語を抽出する関数
 // ［注釈］や（補足）を削除し、カンマで分割して配列にする
 function extractTranslations(text) {
-      const cleaned = text.replace(/［[^］]*］/g, "").replace(/（[^）]*）/g, "").trim();
+      const cleaned = text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/《[^］]*》/g, "").replace(/（[^）]*）/g, "").trim();
       return cleaned.split(/\s*,\s*/).filter(item => item !== "");
     }
 
     // ［注釈］や（補足）などを削除するユーティリティ関数
     function removeAnnotations(text) {
-      return text.replace(/［[^］]*］/g, "").replace(/（[^）]*）/g, "").trim();
+      return text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/《[^］]*》/g, "").replace(/（[^）]*）/g, "").trim();
     }
 
 // 語素/変成体の判定
