@@ -127,7 +127,7 @@ body.detail-view .back-to-top a:hover {
 }
 
   .sidebar {
-    max-width: 15%;
+    max-width: 20%;
     width: 20%;
     padding: 1rem;
     border-right: 1px solid #cccccc;
@@ -139,8 +139,8 @@ body.detail-view .back-to-top a:hover {
   }
 
   .content {
-    max-width: 85%;
-    width: 83%;
+    max-width: 80%;
+    width: 80%;
     padding: 1rem;
     box-sizing: border-box;
     overflow-y: auto;
