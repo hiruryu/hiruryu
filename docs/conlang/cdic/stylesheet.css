@@ -127,8 +127,8 @@ display: flex;
 }
 
   .sidebar {
-    max-width: 17%;
-    width: 17%;
+    max-width: 15%;
+    width: 15%;
     padding: 1rem;
     border-right: 1px solid #cccccc;
     box-sizing: border-box;
@@ -140,7 +140,7 @@ display: flex;
 
   .content {
     flex-grow: 1
-    max-width: 80%;
+    max-width: 90%;
     padding: 1rem;
     box-sizing: border-box;
     overflow-y: auto;
