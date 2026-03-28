@@ -1,15 +1,13 @@
-
 body {
-    display: flex;
-    min-width: 1800px;
+    display: block;
+    min-width: 1200px;
     overflow-x: auto;
     height: auto;
-    flex-wrap: wrap; 
     margin: 10px 0px 0px 0px;
     font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  background-color: #fefeff;
+  background-color: #f9f8f4;
   letter-spacing: 1px;
   }
 
@@ -33,7 +31,7 @@ body.detail-view #details table {
 body.detail-view .back-to-top {
   width: 100%;
   box-sizing: border-box;
-  background-color: #fefeff;
+  background-color: #f9f8f4;
   border-bottom: 1px solid #ccc;
   text-align: right;
   padding: 0.5rem 1rem;
@@ -100,23 +98,25 @@ body.detail-view .back-to-top a:hover {
   margin-left: 4px;
 }
 
-.wrapper {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .upbar {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 1rem;
+  box-sizing: border-box; /* paddingを含めた100%にする */
   background-color: #f6f6fa;
   border-bottom: 1px solid #ccc;
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+.wrapper {
+  display: flex; /* ここで横並びを指定 */
+  flex-wrap: nowrap; /* 下に落ちないように固定 */
+  width: 100%;
+  align-items: flex-start;
 }
 
 .back-link {
@@ -129,7 +129,7 @@ body.detail-view .back-to-top a:hover {
 }
 
   .sidebar {
-    max-width: 15%;
+    max-width: 20%;
     width: 20%;
     padding: 1rem;
     border-right: 1px solid #cccccc;
@@ -140,14 +140,13 @@ body.detail-view .back-to-top a:hover {
     border-radius: 10px;
   }
 
-  .content {
-    max-width: 85%;
-    width: 83%;
-    padding: 1rem;
-    box-sizing: border-box;
-    overflow-y: auto;
-    color: #000933;
-  }
+.content {
+  /* 20% + margin分を考慮して計算 */
+  width: calc(80% - 20px); 
+  flex-grow: 1;
+  padding: 1rem;
+  box-sizing: border-box;
+}
   
   input, select {
     width: 100%;
@@ -169,8 +168,8 @@ body.detail-view .back-to-top a:hover {
 }
 .pagination button{
               width: 100px;
-              height: 35px;
-              font-size: 13px;
+              height: 30px;
+              font-size: 12px;
               font-weight: bold;
               color: #A777AA;
               text-align: center;
@@ -179,7 +178,7 @@ body.detail-view .back-to-top a:hover {
   display: block;
   padding: 8px;
   margin-bottom: 4px;
-  background-color: #fefeff;
+  background-color: #F9F8F4;
   border-radius: 4px;
   color: #c33aac;
   cursor: pointer;
@@ -200,7 +199,7 @@ body.detail-view .back-to-top a:hover {
   }
 
   .bottonspan {
-    margin: 0 8px;
+    margin: 0.8px;
     border-bottom: none;
   }
 
@@ -222,6 +221,13 @@ body.detail-view .back-to-top a:hover {
     font-weight: bold;
     border-bottom: solid 2px #ffe45f;
   }
+
+#pageInfo {
+  width: 55px;
+  font-size: 11px;
+  text-align: center;
+  margin-bottom: 0;
+}
  img {
  padding: 0px 0px 0px 5%;
   }
@@ -245,16 +251,17 @@ body.detail-view .back-to-top a:hover {
     letter-spacing: 2px;
   }
   .detailList {
-    background-color: #fefeff;
+    background-color: #F9F8F4;
     padding: 1px;
     list-style-position: inside;
-    font-size: 16px;
+    font-size: 15px;
     color: #997070;
     text-align: left;
     letter-spacing: 2px;
+    line-height: 25px;
   }
   .noteList {
-    background-color: #fefeff;
+    background-color: #F9F8F4;
     list-style-position: inside;
     font-size: 16px;
     color: #997070;
@@ -274,7 +281,7 @@ body.detail-view .back-to-top a:hover {
   
   .fixList {
     list-style: none;
-    background-color: #fefeff;
+    background-color: #F9F8F4;
     padding: 1px;
     font-size: 16px;
     color: #aa8888;
@@ -283,8 +290,8 @@ body.detail-view .back-to-top a:hover {
   }
 
   .placeholder {
-    font-size: 15px;
-    padding: 4px;
+    font-size: 13px;
+    padding: 2px;
     color: #404040;
     vertical-align: center;
     text-align: center;
@@ -440,12 +447,13 @@ body.detail-view .back-to-top a:hover {
   }
   
   .default { color: #225540; }
-  .meishou { color: #cc3399; }
-  .doushi { color: #3370cc; }
-  .meishoku { color: #50aa50; }
-  .fukushoku { color: #cc6300; }
-  .fukuji { color: #ca8686; }
-  .kanto { color: #8d8d8d; }
+  .meishou { color: #D1608B; }
+  .doushi { color: #007FC4; }
+  .meishoku { color: #859D41; }
+  .fukushoku { color: #F09A2D; }
+  .bunshoku { color: #774D9B; }
+  .fukuji { color: #D6A46E; }
+  .kanto { color: #B7BBBD; }
 
   .heading-cell {
     font-size: 35px;
@@ -455,12 +463,13 @@ body.detail-view .back-to-top a:hover {
     letter-spacing: 2px;
   }
   .heading-cell.default { color: #225540; }
-  .heading-cell.meishou { color: #cc3399; }
-  .heading-cell.doushi { color: #3370cc; }
-  .heading-cell.meishoku { color: #50aa50; }
-  .heading-cell.fukushoku { color: #cc6300; }
-  .heading-cell.fukuji { color: #ca8686; } 
-  .heading-cell.kanto { color: #8d8d8d; }
+  .heading-cell.meishou { color: #D1608B; }
+  .heading-cell.doushi { color: #007FC4; }
+  .heading-cell.meishoku { color: #859D41; }
+  .heading-cell.fukushoku { color: #F09A2D; }
+  .heading-cell.bunshoku { color: #774D9B; }
+  .heading-cell.fukuji { color: #D6A46E; } 
+  .heading-cell.kanto { color: #B7BBBD; }
 
   .detailTable th {
     table-layout: fixed;
@@ -506,4 +515,7 @@ body.detail-view .back-to-top a:hover {
   .heading-namashou {
     color: #2a7f62;
   }
+}
+.extraMeaning {
+  display: none;
 }
