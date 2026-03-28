@@ -20,7 +20,7 @@ let etymDictionary = {}; // 語源専用
     const idToWord = {}; // ID → 単語 を引くためのマッピング
     let searchResults = []; // 検索結果を保存する配列
     let currentPage = 1; // 現在のページ番号
-    const itemsPerPage = 30; // 1ページに表示する単語数⁺
+    const itemsPerPage = 20; // 1ページに表示する単語数⁺
 
     // 品詞ごとに CSS クラスを割り当てるための対応表
     const partsStyles = {
@@ -28,22 +28,26 @@ let etymDictionary = {}; // 語源専用
   "動詞": "doushi",
   "名飾": "meishoku",
   "副飾": "fukushoku",
+  "文飾": "bunshoku",
+  "副合辞<br>文飾": "bunshoku",
   "接辞": "fukuji",
   "離辞": "fukuji",
-  "付称辞": "fukuji",
-  "間投詞": "kanto",
+  "屈折接辞": "fukuji",
+  "派生接辞": "fukuji",
+  "離辞": "fukuji",
+  "外詞": "kanto",
 };
 
 // 意味テキストから翻訳語を抽出する関数
 // ［注釈］や（補足）を削除し、カンマで分割して配列にする
 function extractTranslations(text) {
-      const cleaned = text.replace(/［[^］]*］/g, "").replace(/（[^）]*）/g, "").trim();
+      const cleaned = text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/《[^］]*》/g, "").replace(/（[^）]*）/g, "").trim();
       return cleaned.split(/\s*,\s*/).filter(item => item !== "");
     }
 
     // ［注釈］や（補足）などを削除するユーティリティ関数
     function removeAnnotations(text) {
-      return text.replace(/［[^］]*］/g, "").replace(/（[^）]*）/g, "").trim();
+      return text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/《[^］]*》/g, "").replace(/（[^）]*）/g, "").trim();
     }
 
 // 語素/変成体の判定
@@ -250,7 +254,7 @@ function renderEtymology(etymology) {
   return html;
 }
 
-  // 検索高速化のため、正規化済みデータを事前計算して保存
+// 検索高速化のため、正規化済みデータを事前計算して保存
 for (const [word, data] of Object.entries(dictionary)) {
   // 単語キーを正規化
   const keyClean = removeAnnotations(word);
@@ -271,6 +275,27 @@ for (const [word, data] of Object.entries(dictionary)) {
   // vulgarMeaning も検索対象にする
   const vul = data.vulgarMeaning ? (Array.isArray(data.vulgarMeaning) ? data.vulgarMeaning.join(' ') : String(data.vulgarMeaning)) : "";
   data._normVulgar = normalizeForSearch(removeAnnotations(vul));
+  try {
+  // 活用形を生成するよ
+  const inflRaw = (typeof generateInflections === "function") ? generateInflections(word) || [] : [];
+  // 配列に変換するよ
+  const inflArray = Array.isArray(inflRaw) ? inflRaw : Object.values(inflRaw || {});
+  // 注釈除去するよ
+  const inflCleanArray = inflArray
+    .map(i => i == null ? "" : removeAnnotations(String(i)).trim())
+    .filter(Boolean);
+
+  data._inflArray = inflCleanArray;
+
+  // 検索用正規化
+  data._normInflArray = inflCleanArray.map(i => normalizeForSearch(i));
+  data._normInflText = data._normInflArray.join(' ');
+} catch (e) {
+  // エラー時は空配列にしてね！
+  data._inflArray = [];
+  data._normInflArray = [];
+  data._normInflText = "";
+}
 }
 
 // URLパラメータがある場合はサイドバーを非表示にするよ！
@@ -408,47 +433,70 @@ function getSynonyms(data) {
   });
 }
 
-// 同源語
+// 関連語
 function getCognates(data) {
   const myID = String(data.id);
   const sourceIDs = extractEtymologyIDs(data);
 
   return Object.entries(dictionary).filter(([word, entry]) => {
 
-    // 自分自身は除外
+    // 1. 自分自身は除外
     if (entry.id === data.id) return false;
 
-    // 「語素」や「変成体」は除外
+    // 2. 相手（表示候補）が「語素」なら除外
     if (isMorphemeOrVariant(entry)) return false;
+
     const entryIDs = extractEtymologyIDs(entry);
 
-    // 自分の語源に含まれる語
+    // 3. 自分の語源に含まれる語（親）なら表示
     if (sourceIDs.includes(String(entry.id))) return true;
 
-    // 自分が語源になっている語
+    // 4. 自分が語源になっている語（子）なら表示
     if (entryIDs.includes(myID)) return true;
 
-    // 同じ語源を共有する語
-    return entryIDs.some(id => sourceIDs.includes(id));
+    // 5. 同じ語源を共有する語（兄弟）の判定
+    return entryIDs.some(id => {
+      // 共通の語源 ID を持っているか？
+      if (sourceIDs.includes(id)) {
+        // その共通 ID の語が「語素」でないかチェック
+        // idToWord などを使って辞書から引き、語素判定をかける
+        const sourceWord = idToWord[id];
+        const sourceEntry = dictionary[sourceWord];
+        
+        // 共通の語源が語素でない場合のみ true（関連語とする）
+        return !isMorphemeOrVariant(sourceEntry);
+      }
+      return false;
+    });
   });
 }
 
 
 // 同類語
 function getSimilarWords(data) {
-  return Object.entries(dictionary).filter(([word, entry]) => {
+  // 1. 自分のタグを配列に標準化。かつ「ー」や空文字を除外
+  const normalize = (t) => {
+    if (!t || t === "ー", "-") return [];
+    return Array.isArray(t) ? t.filter(v => v !== "ー") : [t];
+  };
 
+  const myTags = normalize(data.tag);
+
+  // 自分がタグを持っていないなら、同類語は探さない
+  if (myTags.length === 0) return [];
+
+  return Object.entries(dictionary).filter(([word, entry]) => {
     // 自分自身を除外
     if (entry.id === data.id) return false;
 
-    // tagが存在しない場合
-    if (!entry.tag || !data.tag) return false;
+    // 2. 相手のタグも同様に標準化
+    const entryTags = normalize(entry.tag);
 
-    // tagが「-」なら除外
-    if (entry.tag === "ー" || data.tag === "ー") return false;
+    // 相手が有効なタグを持っていないなら除外
+    if (entryTags.length === 0) return false;
 
-    // タグ一致
-    return entry.tag === data.tag;
+    // 3. 共通するタグが1つでもあるか判定
+    return myTags.some(tag => entryTags.includes(tag));
   });
 }
 
@@ -615,6 +663,43 @@ let detailsHTML = `
   </table>
 `;
 
+// 漢字辞典セクションの表示処理
+let kanjiHTML = "";
+if (data.kanji && data.kanji.title) {
+  let nuiList = "";
+  let chelList = "";
+
+  // 読みのリスト化
+  if (data.kanji.nui) {
+    const nuiArr = Array.isArray(data.kanji.nui) ? data.kanji.nui : [data.kanji.nui];
+    nuiList = nuiArr.map(item => `<li>${item}</li>`).join("");
+  }
+
+  kanjiHTML = `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th id="stripeth" rowspan="3">漢縫辞書</th>
+          <th>対応漢字</th>
+          <td colspan="2">
+            <span class="kanji-main">【 ${data.kanji.title} 】</span>
+          </td>
+        </tr>
+        <tr>
+          <th>読み</th>
+          <td colspan="2">
+            <ul class="kanji-list">${nuiList || "<li>ー</li>"}</ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>`;
+}
+
+// 構築したHTMLをdetailsHTMLに連結
+if (kanjiHTML) {
+  detailsHTML += kanjiHTML;
+}
+
 // 一般言語学メモ（note1）
 let note1HTML = "";
 if (data.note1) {
@@ -761,26 +846,30 @@ if (data.variants1 && data.variants1.length) {
 }
 
 
-// 同源語の生成
+// 関連語の生成
 const cognates = getCognates(data);
 if (cognates.length) {
   const links = cognates
-  .map(([word, entry]) => {
-    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
-  })
-  .join(", ");
+    // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
+    .filter(([word, entry]) => !safeSearch || entry.safe !== false)
+    .map(([word, entry]) => {
+      const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
+    })
+    .join(", ");
 
-// テーブル追加
-  detailsHTML += `
-    <table class="detailTable">
-      <tbody>
-        <tr>
-          <th>同源語</th>
-          <td class="linktext" colspan="3">${links}</td>
-        </tr>
-      </tbody>
-    </table>`;
+  // リンクがある場合のみテーブルを表示（フィルタですべて消える可能性があるため）
+  if (links) {
+    detailsHTML += `
+      <table class="detailTable">
+        <tbody>
+          <tr>
+            <th>関連語かも</th>
+            <td class="linktext" colspan="3">${links}</td>
+          </tr>
+        </tbody>
+      </table>`;
+  }
 }
 
 
