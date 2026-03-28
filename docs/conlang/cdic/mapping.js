@@ -458,40 +458,63 @@ function getCognates(data) {
 
   return Object.entries(dictionary).filter(([word, entry]) => {
 
-    // 自分自身は除外
+    // 1. 自分自身は除外
     if (entry.id === data.id) return false;
 
-    // 「語素」や「変成体」は除外
+    // 2. 相手（表示候補）が「語素」なら除外
     if (isMorphemeOrVariant(entry)) return false;
+
     const entryIDs = extractEtymologyIDs(entry);
 
-    // 自分の語源に含まれる語
+    // 3. 自分の語源に含まれる語（親）なら表示
     if (sourceIDs.includes(String(entry.id))) return true;
 
-    // 自分が語源になっている語
+    // 4. 自分が語源になっている語（子）なら表示
     if (entryIDs.includes(myID)) return true;
 
-    // 同じ語源を共有する語
-    return entryIDs.some(id => sourceIDs.includes(id));
+    // 5. 同じ語源を共有する語（兄弟）の判定
+    return entryIDs.some(id => {
+      // 共通の語源 ID を持っているか？
+      if (sourceIDs.includes(id)) {
+        // その共通 ID の語が「語素」でないかチェック
+        // idToWord などを使って辞書から引き、語素判定をかける
+        const sourceWord = idToWord[id];
+        const sourceEntry = dictionary[sourceWord];
+        
+        // 共通の語源が語素でない場合のみ true（関連語とする）
+        return !isMorphemeOrVariant(sourceEntry);
+      }
+      return false;
+    });
   });
 }
 
 
 // 同類語
 function getSimilarWords(data) {
-  return Object.entries(dictionary).filter(([word, entry]) => {
+  // 1. 自分のタグを配列に標準化。かつ「ー」や空文字を除外
+  const normalize = (t) => {
+    if (!t || t === "ー", "-") return [];
+    return Array.isArray(t) ? t.filter(v => v !== "ー") : [t];
+  };
 
+  const myTags = normalize(data.tag);
+
+  // 自分がタグを持っていないなら、同類語は探さない
+  if (myTags.length === 0) return [];
+
+  return Object.entries(dictionary).filter(([word, entry]) => {
     // 自分自身を除外
     if (entry.id === data.id) return false;
 
-    // tagが存在しない場合
-    if (!entry.tag || !data.tag) return false;
+    // 2. 相手のタグも同様に標準化
+    const entryTags = normalize(entry.tag);
 
-    // tagが「-」なら除外
-    if (entry.tag === "ー" || data.tag === "ー") return false;
+    // 相手が有効なタグを持っていないなら除外
+    if (entryTags.length === 0) return false;
 
-    // タグ一致
-    return entry.tag === data.tag;
+    // 3. 共通するタグが1つでもあるか判定
+    return myTags.some(tag => entryTags.includes(tag));
   });
 }
 
