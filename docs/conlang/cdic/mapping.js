@@ -24,7 +24,7 @@ let etymDictionary = {}; // 語源専用
 
     // 品詞ごとに CSS クラスを割り当てるための対応表
     const partsStyles = {
-  "体象": "meishou",
+  "名象": "meishou",
   "動詞": "doushi",
   "名飾": "meishoku",
   "副飾": "fukushoku",
@@ -529,8 +529,8 @@ function getSimilarWords(data) {
       let tableHTML = "";
       let conjugations = {};
 
-// 体象の場合
-       if (data.parts === "体象") {
+// 名象の場合
+       if (data.parts === "名象") {
 // 活用情報を取得するよ
     const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
     raw = getConjN(w, stem, long_stem, stem2, type, ruletype) || {};
@@ -1146,8 +1146,8 @@ if (similars.length) {
 // 屈折表表示
 // generateInflections() で生成された内容を表示するよ！
       if (tableHTML !== "") {
-// 体象屈折表
-        if (data.parts === "体象") {
+// 名象屈折表
+        if (data.parts === "名象") {
           detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
@@ -1316,7 +1316,7 @@ window.loadWord = function(word) {
 
 // 品詞ごとに対応する屈折生成関数だよ！
     const inflectionRules = {
-    体象: getConjN,
+    名象: getConjN,
     動詞: getConjV,
     名飾: getConjA,
     副飾: getConjA,
@@ -1332,9 +1332,9 @@ window.loadWord = function(word) {
   const fn = inflectionRules[data.parts];
   if (typeof fn !== "function") return [];
 
-// 体象の引数だよ！
+// 名象の引数だよ！
   let raw;
-  if (data.parts === "体象") {
+  if (data.parts === "名象") {
     raw = fn(
       word,
       data.stem,
