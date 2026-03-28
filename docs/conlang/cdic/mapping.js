@@ -877,13 +877,13 @@ if (data.kanji && data.kanji.title) {
           </td>
         </tr>
         <tr>
-          <th>縫読み</th>
+          <th>伝音</th>
           <td colspan="2">
             <ul class="kanji-list">${nuiList || "<li>ー</li>"}</ul>
           </td>
         </tr>
         <tr>
-          <th>智読み</th>
+          <th>解音</th>
           <td colspan="2">
             <ul class="kanji-list">${chelList || "<li>ー</li>"}</ul>
           </td>
