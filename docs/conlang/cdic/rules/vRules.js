@@ -502,5 +502,25 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype) {
           mp: stem + "ómis",
           mf: stem + "ómis",
         }
+       // r / l 基本形
+      } else if (ruletype === "r") {      
+        return {
+          // 完結相
+          n: "-",
+          p: stem + "ók",
+          f: stem + "yíf",
+          // 完了相
+          dn: stem + "ódis",
+          dp: stem + "ódis",
+          df: stem + "ódis",
+          // 進行相
+          sn: stem + "ósis",
+          sp: stem + "ósis",
+          sf: stem + "ósis",
+          // 反復相,
+          mn: stem + "ómis",
+          mp: stem + "ómis",
+          mf: stem + "ómis",
+        }
       }
 }
