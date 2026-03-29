@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(location.search);
+const hasId = params.has('id');
+const view = params.get('view');
 
-  // IDがある時だけ「戻るボタン」を作る処理だけ残す
-  if (hasId && view !== 'side') {
-    const back = document.createElement('div');
-    back.className = 'back-to-top';
-    back.innerHTML = `<a href="tdic.html">📖 辞書トップへ戻る</a>`;
-    document.body.insertBefore(back, document.body.firstChild);
-  }
-
+// ★ view が side のときは戻るボタンを出さない
+if (hasId && view !== 'side') {
+  const back = document.createElement('div');
+  back.className = 'back-to-top';
+  back.innerHTML = `<a href="tdic.html">📖 辞書トップへ戻る</a>`;
+  document.body.insertBefore(back, document.body.firstChild);
+}
   // ここでURLの状態を見てサイドバーの有無を判定させる
   syncUIWithURL();
 });
@@ -652,7 +653,7 @@ function showDetails(word) {
       tableHTML = `<tr><td colspan="7">この動詞は活用型がありません。</td></tr>`;
     } else {
       const rows = [
-        { label: "主格/呼称格一致", keys: ["s", "s2", "s3"] },
+        { label: "主格/呼格一致", keys: ["s", "s2", "s3"] },
         { label: "対格一致", keys: ["t", "t2", "t3"] },
         { label: "与格一致", keys: ["y", "y2", "y3"] },
         { label: "奪格一致", keys: ["d", "d2", "d3"] },
@@ -883,55 +884,6 @@ function showDetails(word) {
     </tbody>
   </table>
 `;
-
-  // 漢字辞典セクションの表示処理
-  let kanjiHTML = "";
-  if (data.kanji && data.kanji.title) {
-    let nuiList = "";
-    let chelList = "";
-
-    // 縫読のリスト化
-    if (data.kanji.nui) {
-      const nuiArr = Array.isArray(data.kanji.nui) ? data.kanji.nui : [data.kanji.nui];
-      nuiList = nuiArr.map(item => `<li>${item}</li>`).join("");
-    }
-
-    // 智読のリスト化
-    if (data.kanji.chel) {
-      const chelArr = Array.isArray(data.kanji.chel) ? data.kanji.chel : [data.kanji.chel];
-      chelList = chelArr.map(item => `<li>${item}</li>`).join("");
-    }
-
-    kanjiHTML = `
-    <table class="detailTable">
-      <tbody>
-        <tr>
-          <th id="stripeth" rowspan="3">縫言録</th>
-          <th>対応漢字</th>
-          <td colspan="2">
-            <span class="kanji-main">【 ${data.kanji.title} 】</span>
-          </td>
-        </tr>
-        <tr>
-          <th>縫読み</th>
-          <td colspan="2">
-            <ul class="kanji-list">${nuiList || "<li>ー</li>"}</ul>
-          </td>
-        </tr>
-        <tr>
-          <th>智読み</th>
-          <td colspan="2">
-            <ul class="kanji-list">${chelList || "<li>ー</li>"}</ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>`;
-  }
-
-  // 構築したHTMLをdetailsHTMLに連結
-  if (kanjiHTML) {
-    detailsHTML += kanjiHTML;
-  }
 
   // 一般言語学メモ（note1）
   let note1HTML = "";
