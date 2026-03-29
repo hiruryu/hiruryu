@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(location.search);
+  const hasId = params.has('id');
+  const view = params.get('view');
 
-  // IDがある時だけ「戻るボタン」を作る処理だけ残す
-if (hasId && view !== 'side') {
-  const back = document.createElement('div');
-  back.className = 'back-to-top';
-  back.innerHTML = `<a href="cdic.html">📖 辞書トップへ戻る</a>`;
-  document.body.insertBefore(back, document.body.firstChild);
-}
+  // view が side のときは戻るボタンを出さない
+  if (hasId && view !== 'side') {
+    const back = document.createElement('div');
+    back.className = 'back-to-top';
+    back.innerHTML = `<a href="cdic.html">📖 辞書トップへ戻る</a>`;
+    document.body.insertBefore(back, document.body.firstChild);
+  }
 
   // ここでURLの状態を見てサイドバーの有無を判定させる
   syncUIWithURL();
