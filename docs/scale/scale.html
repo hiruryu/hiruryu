@@ -2,59 +2,40 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>🎶 スケール検索機</title>
-  <link rel="stylesheet" href="stylesheet.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎹 智式音楽理論：スケール辞書</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
 </head>
 <body>
-    <div class="sidebar">
-        <label for="baseFreqInput">主音 (Hz):</label>
-        <input type="number" id="baseFreqInput" value="440" min="20" max="2000" step="1">
-        <br>
-        <label for="sortSelect">並べ替え：</label>
-        <select id="sortSelect">
-            <option value="dimension">次元順</option>
-            <option value="name">名前順</option>
-            <option value="length">音数順</option>
-            <option value="related">関連数順</option>
-        </select>
-        <br>
-        <div class="array-display">
-          <span class="bracket">[</span>
-          <span class="count">1</span>
-          <span class="comma">,</span>
-          <input
-            type="text"
-            id="searchBox"
-            placeholder="3, 5"
-            autocomplete="off"
-          >
-          <span class="bracket">]</span>
-        </div>
-        <p id="placeholder" class="placeholder">
-
-            （ 現在の収録スケール数：<span id="word-count">--</span> ）<br><br>
-            ⚠️ このサイトの内容は，<br>
-          智式音楽理論に基づくため，<br>
-            一般的な定義とは異なる可能性があります。
-          </p>
-              <div id="pagination" class="pagination">
-                <button id="prevPage">＜ 前のページ</button>
-                <span class="bottonspan" id="pageInfo">1 / 1</span>
-                <button id="nextPage">次のページ ＞</button>
-              </div>
-    </div>
-    
-    <div class="content">
-        <div id="details">
-          <p class="placeholder">
-            左側にコードを入力すると、ここにマッチしたスケールが表示されます。
-          </p>
-        </div>
+    <div class="upbar">
+      <a href="../../index.html" class="back-link">← メインページに戻る</a>
+      
+      <div class="audio-controls">
+        <label>波形: 
+          <select id="waveformSelect">
+            <option value="triangle">Triangle</option>
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Sawtooth</option>
+          </select>
+        </label>
+        <label>量子化: <input type="number" id="edoInput" value="41" style="width: 80px; padding: auto;"></label>
+        <label><input type="number" id="baseFreqInput" value="261.6255653006" step="1" style="width: 80px;"">Hz から</label>
       </div>
+    </div>
+  <div class="wrapper">
+    <div class="content">
+      <div id="details">
+        <p class="placeholder">左側のリストからスケールを選択してください。<br>各構成音をクリックすると、その高さの音が鳴ります。</p>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
