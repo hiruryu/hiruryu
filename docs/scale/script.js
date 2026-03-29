@@ -339,7 +339,7 @@ window.playScale = function(key) {
     });
 };
 
-// --- 格子グラフ生成ロジック ---
+// 格子グラフ生成ロジック
 function getPrimeExponents(ratioStr) {
     let num, den;
     const s = ratioStr.trim();
@@ -404,7 +404,7 @@ function renderLatticeSVG(notes) {
     // 3. 投影計算
     const project = (c) => ({
         px: (c.x * unit) + (c.z * zOff) + (c.w * wOff),
-        py: (-c.y * unit) - (c.z * zOff * 0.5) + (c.w * wOff * 0.8)
+        py: (-c.y * unit) - (c.z * zOff * 0.5) - (c.w * wOff * 0.8)
     });
 
     const nodesArr = Array.from(allNodesMap.values()).map(n => ({ ...n, ...project(n.coord) }));
