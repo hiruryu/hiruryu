@@ -215,16 +215,12 @@ function loadScale(key) {
 }
 
 function getMaxLimit(notes) {
-    let maxPrime = 1;
+    let maxPrime = 3;
     notes.forEach(note => {
         const exp = getPrimeExponents(note);
-        // 大きい順にチェックして、0でなければその素数を採用
-        if (exp.v !== 0) { if (maxPrime < 17) maxPrime = 17; }
-        else if (exp.u !== 0) { if (maxPrime < 13) maxPrime = 13; }
-        else if (exp.w !== 0) { if (maxPrime < 11) maxPrime = 11; }
-        else if (exp.z !== 0) { if (maxPrime < 7) maxPrime = 7; }
-        else if (exp.y !== 0) { if (maxPrime < 5) maxPrime = 5; }
-        else if (exp.x !== 0) { if (maxPrime < 3) maxPrime = 3; }
+        if (exp.w !== 0) maxPrime = 11;
+        else if (exp.z !== 0 && maxPrime < 7) maxPrime = 7;
+        else if (exp.y !== 0 && maxPrime < 5) maxPrime = 5;
     });
     return maxPrime;
 }
@@ -344,11 +340,10 @@ window.playScale = function(key) {
 };
 
 // 格子グラフ生成ロジック
-// 指数抽出の拡張
 function getPrimeExponents(ratioStr) {
     let num, den;
     const s = ratioStr.trim();
-    if (s === "1" || s === "1/1") return { x: 0, y: 0, z: 0, w: 0, u: 0, v: 0 };
+    if (s === "1" || s === "1/1") return { x: 0, y: 0, z: 0, w: 0 };
     if (s.startsWith('/')) { num = 1; den = Number(s.substring(1)); }
     else if (s.includes('/')) { [num, den] = s.split('/').map(Number); }
     else { num = Number(s); den = 1; }
@@ -361,87 +356,55 @@ function getPrimeExponents(ratioStr) {
     };
 
     return {
-        x: countExp(num, 3) - countExp(den, 3),   // 3-limit (横)
-        y: countExp(num, 5) - countExp(den, 5),   // 5-limit (真上)
-        z: countExp(num, 7) - countExp(den, 7),   // 7-limit (右斜)
-        w: countExp(num, 11) - countExp(den, 11), // 11-limit (左斜)
-        u: countExp(num, 13) - countExp(den, 13), // 13-limit (5と7の間)
-        v: countExp(num, 17) - countExp(den, 17)  // 17-limit (5と11の間)
+        x: countExp(num, 3) - countExp(den, 3), // 3-limit
+        y: countExp(num, 5) - countExp(den, 5), // 5-limit
+        z: countExp(num, 7) - countExp(den, 7), // 7-limit
+        w: countExp(num, 11) - countExp(den, 11) // 11-limit
     };
 }
 
 function renderLatticeSVG(notes) {
     const unit = 45;
-    const off = 35; // 斜め成分の基本単位
+    const zOff = 30; 
+    const wOff = 30;
+    const limit = getMaxLimit(notes);
 
-    // --- 投影計算の定義 ---
-    // 扇形に広がるようにベクトルを調整
-    const project = (c) => {
-        return {
-            // px: 左右の広がり
-            px: (c.x * unit)        // 3: 真右
-              + (c.z * off * 1.0)   // 7: 右に大きく
-              + (c.u * off * 0.5)   // 13: 右に少し (5と7の間)
-              - (c.w * off * 1.0)   // 11: 左に大きく
-              - (c.v * off * 0.5),  // 17: 左に少し (5と11の間)
-
-            // py: 上下の広がり (マイナスが上)
-            py: (-c.y * unit)       // 5: 真上
-              - (c.z * off * 0.5)   // 7: 少し上
-              - (c.u * off * 0.8)   // 13: 5に近いのでしっかり上
-              - (c.w * off * 0.8)   // 11: しっかり上
-              - (c.v * off * 0.9)   // 17: 5に最も近いので深く上
-        };
-    };
-
-    // 1. 実在ノード解析
+    // 1. 実在するノードの解析
     const realNodes = notes.map(n => ({
         note: n,
         coord: getPrimeExponents(n),
         isVirtual: false
     }));
 
-    // 2. 範囲計算（全軸対応）
-    const keys = ['x', 'y', 'z', 'w', 'u', 'v'];
-    const bounds = {};
-    keys.forEach(k => {
-        bounds[k] = {
-            min: Math.min(...realNodes.map(n => n.coord[k])),
-            max: Math.max(...realNodes.map(n => n.coord[k]))
-        };
+    // 2. 格子の範囲（境界）を計算して補完用のノードを作成
+    const getBounds = (key) => ({
+        min: Math.min(...realNodes.map(n => n.coord[key])),
+        max: Math.max(...realNodes.map(n => n.coord[key]))
     });
+    const bounds = { x: getBounds('x'), y: getBounds('y'), z: getBounds('z'), w: getBounds('w') };
 
     const allNodesMap = new Map();
-    // 注意: 13, 17まで含めた多重ループは範囲が広いと重くなるため、
-    // 必要に応じて補完ロジックを調整してください
+    // 補完ループ（範囲内をすべて埋める）
     for (let x = bounds.x.min; x <= bounds.x.max; x++) {
-    for (let y = bounds.y.min; y <= bounds.y.max; y++) {
-    for (let z = bounds.z.min; z <= bounds.z.max; z++) {
-    for (let w = bounds.w.min; w <= bounds.w.max; w++) {
-    for (let u = bounds.u.min; u <= bounds.u.max; u++) {
-    for (let v = bounds.v.min; v <= bounds.v.max; v++) {
-        const key = `${x},${y},${z},${w},${u},${v}`;
-        allNodesMap.set(key, { note: "", isVirtual: true, coord: { x, y, z, w, u, v } });
-    }}}}}}
-
+        for (let y = bounds.y.min; y <= bounds.y.max; y++) {
+            for (let z = bounds.z.min; z <= bounds.z.max; z++) {
+                for (let w = bounds.w.min; w <= bounds.w.max; w++) {
+                    const key = `${x},${y},${z},${w}`;
+                    allNodesMap.set(key, { note: "", isVirtual: true, coord: { x, y, z, w } });
+                }
+            }
+        }
+    }
+    // 実在するノードで上書き
     realNodes.forEach(n => {
-        const c = n.coord;
-        const key = `${c.x},${c.y},${c.z},${c.w},${c.u},${c.v}`;
+        const key = `${n.coord.x},${n.coord.y},${n.coord.z},${n.coord.w}`;
         allNodesMap.set(key, n);
     });
 
-    // 3. 投影計算 (変数を off に統一して修正)
+    // 3. 投影計算
     const project = (c) => ({
-        px: (c.x * unit)        // 3: 右
-          + (c.z * off * 1.0)   // 7: 右斜め
-          + (c.u * off * 0.5)   // 13: 5と7の間
-          - (c.w * off * 1.0)   // 11: 左斜め
-          - (c.v * off * 0.5),  // 17: 5と11の間
-        py: (-c.y * unit)       // 5: 上
-          - (c.z * off * 0.5)   // 7: 少し上
-          - (c.u * off * 0.8)   // 13: 5寄りの上
-          - (c.w * off * 0.8)   // 11: 5寄りの上
-          - (c.v * off * 0.9)   // 17: ほぼ上
+        px: (c.x * unit) + (c.z * zOff) - (c.w * wOff),
+        py: (-c.y * unit) - (c.z * zOff * 0.5) - (c.w * wOff * 0.8)
     });
 
     const nodesArr = Array.from(allNodesMap.values()).map(n => ({ ...n, ...project(n.coord) }));
@@ -452,7 +415,7 @@ function renderLatticeSVG(notes) {
     const minY = Math.min(...pys) - 40, maxY = Math.max(...pys) + 40;
 
     let svg = `<div class="lattice-graph-container">
-                <div class="lattice-label-small">${limit}-limit Lattice (Expanded)</div>
+                <div class="lattice-label-small">${limit}-limit Lattice (Diagonal=7,11)</div>
                 <svg viewBox="${minX} ${minY} ${maxX - minX} ${maxY - minY}" class="lattice-svg">`;
 
     // 4. エッジ（線）の描画
@@ -460,22 +423,11 @@ function renderLatticeSVG(notes) {
     for (let i = 0; i < nodesArr.length; i++) {
         for (let j = i + 1; j < nodesArr.length; j++) {
             const a = nodesArr[i].coord, b = nodesArr[j].coord;
-            
-            // 各次元の差分を計算
-            const dx = Math.abs(a.x - b.x), dy = Math.abs(a.y - b.y), 
-                  dz = Math.abs(a.z - b.z), dw = Math.abs(a.w - b.w),
-                  du = Math.abs(a.u - b.u), dv = Math.abs(a.v - b.v);
+            const dx = Math.abs(a.x - b.x), dy = Math.abs(a.y - b.y), dz = Math.abs(a.z - b.z), dw = Math.abs(a.w - b.w);
 
-            // 合計が1であれば隣接ノード
-            if (dx + dy + dz + dw + du + dv === 1) {
+            if (dx + dy + dz + dw === 1) {
                 const isV = nodesArr[i].isVirtual || nodesArr[j].isVirtual;
-                
-                // クラス分けの決定
-                let typeClass = dx === 1 ? "edge-3" : 
-                                dy === 1 ? "edge-5" : 
-                                dz === 1 ? "edge-7" : 
-                                dw === 1 ? "edge-11" :
-                                du === 1 ? "edge-13" : "edge-17";
+                let typeClass = dx === 1 ? "edge-3" : dy === 1 ? "edge-5" : dz === 1 ? "edge-7" : "edge-11";
                 
                 svg += `<line x1="${nodesArr[i].px}" y1="${nodesArr[i].py}" 
                               x2="${nodesArr[j].px}" y2="${nodesArr[j].py}" 
@@ -487,8 +439,7 @@ function renderLatticeSVG(notes) {
 
     // 5. ノード（円とラベル）の描画
     nodesArr.forEach(n => {
-        const c = n.coord;
-        const isRoot = (c.x === 0 && c.y === 0 && c.z === 0 && c.w === 0 && c.u === 0 && c.v === 0);
+        const isRoot = (n.coord.x === 0 && n.coord.y === 0 && n.coord.z === 0 && n.coord.w === 0);
         const nodeClass = n.isVirtual ? 'virtual-node' : (isRoot ? 'root-node' : 'real-node');
         
         svg += `<circle cx="${n.px}" cy="${n.py}" r="${n.isVirtual ? 2 : 8}" class="lattice-node ${nodeClass}" />`;
