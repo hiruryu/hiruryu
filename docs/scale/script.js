@@ -215,12 +215,16 @@ function loadScale(key) {
 }
 
 function getMaxLimit(notes) {
-    let maxPrime = 3;
+    let maxPrime = 1;
     notes.forEach(note => {
         const exp = getPrimeExponents(note);
-        if (exp.w !== 0) maxPrime = 11;
-        else if (exp.z !== 0 && maxPrime < 7) maxPrime = 7;
-        else if (exp.y !== 0 && maxPrime < 5) maxPrime = 5;
+        // 大きい順にチェックして、0でなければその素数を採用
+        if (exp.v !== 0) { if (maxPrime < 17) maxPrime = 17; }
+        else if (exp.u !== 0) { if (maxPrime < 13) maxPrime = 13; }
+        else if (exp.w !== 0) { if (maxPrime < 11) maxPrime = 11; }
+        else if (exp.z !== 0) { if (maxPrime < 7) maxPrime = 7; }
+        else if (exp.y !== 0) { if (maxPrime < 5) maxPrime = 5; }
+        else if (exp.x !== 0) { if (maxPrime < 3) maxPrime = 3; }
     });
     return maxPrime;
 }
@@ -426,11 +430,18 @@ function renderLatticeSVG(notes) {
         allNodesMap.set(key, n);
     });
 
-    // 3. 投影計算
+    // 3. 投影計算 (変数を off に統一して修正)
     const project = (c) => ({
-        // x:3, y:5, z:7, w:11, u:13, v:17
-        px: (c.x * unit) + (c.z * zOff) - (c.w * wOff) + (c.u * zOff * 0.5) - (c.v * wOff * 0.4),
-        py: (-c.y * unit) - (c.z * zOff * 0.5) - (c.w * wOff * 0.8) - (c.u * unit * 0.8) - (c.v * unit * 0.9)
+        px: (c.x * unit)        // 3: 右
+          + (c.z * off * 1.0)   // 7: 右斜め
+          + (c.u * off * 0.5)   // 13: 5と7の間
+          - (c.w * off * 1.0)   // 11: 左斜め
+          - (c.v * off * 0.5),  // 17: 5と11の間
+        py: (-c.y * unit)       // 5: 上
+          - (c.z * off * 0.5)   // 7: 少し上
+          - (c.u * off * 0.8)   // 13: 5寄りの上
+          - (c.w * off * 0.8)   // 11: 5寄りの上
+          - (c.v * off * 0.9)   // 17: ほぼ上
     });
 
     const nodesArr = Array.from(allNodesMap.values()).map(n => ({ ...n, ...project(n.coord) }));
