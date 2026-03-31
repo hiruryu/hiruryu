@@ -1,5 +1,8 @@
 {
-  "Núy": {"id":100,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["/nuj¹⁵/<br>[nuj¹⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]},
+  "Núy": {"id":1,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["/nuj¹⁵/<br>[nuj¹⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]},
+  "ɉǒ̠nh": {"id":20,"safe":true,"word":"ɉǒ̠nh","tag":["—"],"parts":"名象","meaning":["時","時間"],"pronunciation":["/ço̰ɲ²¹²/<br>[ço̰ɲ²¹²]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["とき","じかん","タイム"]},
+  "dò̠p": {"id":21,"safe":true,"word":"dò̠p","tag":["—"],"parts":"動詞","meaning":["死ぬ","活動しなくなる"],"pronunciation":["/do̰p²¹/<br>[do̰p²¹]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["しぬ","死"]},
+  
   "jàk": {"id":101,"safe":true,"word":"jàk","tag":["—"],"parts":"名象","meaning":["学ぶ","学習する","勉強する"],"pronunciation":["/çak⁵/<br>[çæk⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["まなぶ","がくしゅうする","べんきょうする","学","學"]},
   "pì": {"id":103,"safe":true,"word":"pì","tag":["—"],"parts":"名象","meaning":["子ども","息子","種","卵","粒","小〜","（ 指小形を作る ）"],"pronunciation":["/pi⁵³/<br>[pi⁵³]"],"etymology":{"intro":["単純語。","音象徴「 小さい 」から。"],"changes":[]},"variants2":["こ","むすこ","たね","たまご","つぶ","指小形","指小辞","ししょうじ","ししょうけい"]},
   "tī": {"id":104,"safe":true,"word":"tī","tag":["—"],"parts":"名飾","meaning":["小さい","しばらく","ちょっと","少し","低い","幼い","若い","子供","（ 兄弟姉妹で ）一番下の","子〜","小〜","（ 指小形を作る ）"],"pronunciation":["/tʲi⁵/<br>[tʲi⁵]"],"etymology":{"intro":["単純語。","音象徴「 小さい 」から。"],"changes":[]},"variants2":["むすこ","ちいさい","すこし","ひくい","わかい","おさない","こども","いちばんしたの","指小形","指小辞","ししょうじ","ししょうけい"]},
