@@ -1,8 +1,10 @@
 {
+    "λυκοτ": {"id":178,"safe":true,"word":"λυκοτ","stem":"λυκοτ","stem2":"λυκοτ","tag":["ー"],"parts":"名象","type":"t 基本型","ruletype":"a","meaning":["金平糖","砂糖"],"pronunciation":["/lukot/<br>[lukot]<br>《lukot-》"],"etymology":{"intro":["単純語。","音象徴「 金平糖 」から。"],"changes":[]},"variants2":["さとう","こんぺいとう","lukot"]},
     "-ιολ": {"id":179,"safe":true,"word":"ιολ","tag":["派生接尾辞"],"parts":"派生接辞","meaning":["〜されるもの","〜されたもの"],"pronunciation":["/∅ʲol/<br>[∅ʲol]<br>《yol-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["されるもの","iol"]},
     "μαχ": {"id":180,"safe":true,"word":"μαχ","stem":"μαχ","stem2":"μαχ","tag":["ー"],"parts":"名象","type":"h 基本型","ruletype":"a","meaning":["綿"],"pronunciation":["/mah/<br>[max]<br>《mah-》"],"etymology":{"intro":["単純語。","音象徴「 モフモフの 」から。"],"changes":[]},"variants2":["わた","mah"]},
     "μαχιολ": {"id":181,"safe":true,"word":"μαχιολ","stem":"μαχιολ","stem2":"μαχιοτ","tag":["ー"],"parts":"名象","type":"t 基本型","ruletype":"a","meaning":["ぬいぐるみ","ぬい"],"pronunciation":["/mahʲot/<br>[mahʲot]<br>《mahyot-》"],"etymology":{"intro":["合成語。","「 180 」+「 179 」が組み合わさった語。"],"changes":[]},"variants2":["縫いぐるみ","mahiot"]},
   "χαρσα": {"id":182,"safe":true,"word":"χαρσα","stem":"χαρσα","stem2":"χαρσα","tag":["ー"],"parts":"名象","type":"s 基本型","ruletype":"a","meaning":["夢","ドリーム"],"pronunciation":["/harsa/<br>[harsa]<br>《harsa-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["ゆめ","dream","harsa"]},
   "φοιτ": {"id":183,"safe":true,"word":"φοιτ","stem":"φοιτ","stem2":"φοιτ","tag":["ー"],"parts":"名象","type":"t 基本型","ruletype":"a","meaning":["花"],"pronunciation":["/foit/<br>[foit]<br>《foit-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["はな","華","フラワー","flower","foit","phoit"]},
   "νοκτ": {"id":184,"safe":true,"word":"νοκτ","stem":"νοκτ","stem2":"νοκτ","tag":["ー"],"parts":"名象","type":"t 基本型","ruletype":"a","meaning":["根","根っこ"],"pronunciation":["/nokt/<br>[nokt]<br>《nokt-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["ね","ねっこ","nokt"]}
+
 }
