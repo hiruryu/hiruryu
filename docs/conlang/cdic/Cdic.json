@@ -344,5 +344,5 @@
   "cnáryuis": {"id":434,"safe":true,"word":"cnáryuis","stem":"cnáy","stem2":"cnay","fix":"cnay-","type":"y 基本型","ruletype":"y","tag":["ー"],"parts":"名飾","meaning":["幼い","未熟な"],"pronunciation":["/snarʲɯs/<br>[snäɾʲɤ̟s]<br>《cnay-》"],"etymology":{"intro":["合成語。","「 431 」+「 143 」+「 92 」が組み合わさった語。"],"changes":[]},"variants2":["おさない","みじゅくな"]},
   "epö́lva": {"id":435,"safe":true,"word":"epö́lva","stem":"epo","stem2":"épo","fix":"epo-","type":"o 終了型","ruletype":"o","tag":["ー"],"parts":"動詞","meaning":["浮く［ 基が ］","浮遊する［ 基が ］","浮かす［ 能が ］［ 基を ］","浮かぶ［ 基が ］"],"pronunciation":["/epœlva/<br>[əpœlvə]<br>《epo-》"],"etymology":{"intro":["単純語。","音象徴「 高い 」から。","「 324 」「 405 」などと同象徴。"],"changes":[]},"variants2":["うかぶ","うかす","うく","ふゆうする"]},
   "klápast": {"id":436,"safe":true,"word":"klápast","tag":["ー"],"parts":"副飾","meaning":["また","再度","もう一回","もう一度"],"pronunciation":["/klapast/<br>[kläpəst]<br>《klapast-》"],"etymology":{"intro":["合成語。","「 202 」+「 346 」から。"],"changes":[]},"variants2":["又","もういっかい","もういちど","さいど","再一"]},
-  
+  "éshko": {"id":437,"safe":true,"word":"éshko","stem":"éshko","stem2":"eshko","fix":"eshk-","tag":"家具","parts":"名象","type":"ko 基本型","ruletype":"ko","meaning":["机","デスク","テーブル"],"pronunciation":["eʂko/<br>[əʂkʊ]<br>《eško-》"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["つくえ"]}
 }
