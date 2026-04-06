@@ -390,7 +390,6 @@ Promise.all([
     pageInfoSpan.textContent = '';
     prevPageBtn.disabled = true;
     nextPageBtn.disabled = true;
-    document.getElementById('pagination').style.display = 'none';
   }
   syncUIWithURL();
 }).catch(error => console.error("JSON読み込みエラー:", error));
