@@ -340,6 +340,39 @@ Promise.all([
     // vulgarMeaning も検索対象にする
     const vul = data.vulgarMeaning ? (Array.isArray(data.vulgarMeaning) ? data.vulgarMeaning.join(' ') : String(data.vulgarMeaning)) : "";
     data._normVulgar = normalizeForSearch(removeAnnotations(vul));
+
+    // 縫言録も検索対象にする
+let kanjiReadings = "";
+if (data.kanji) {
+  const nui = Array.isArray(data.kanji.nui)
+    ? data.kanji.nui
+    : (data.kanji.nui ? [data.kanji.nui] : []);
+
+  const chel = Array.isArray(data.kanji.chel)
+    ? data.kanji.chel
+    : (data.kanji.chel ? [data.kanji.chel] : []);
+
+  kanjiReadings = [...nui, ...chel].join(" ");
+}
+
+// ★ 正規表現を使わない安全な記号除去
+const symbolsToRemove = [
+  "-", "‐", "‑", "–", "—", "―", "_",
+  "(", ")", "［", "］", "〈", "〉", "《", "》", "「", "」",
+  "[", "]", "{", "}", "<", ">"
+];
+
+let cleanedKanjiReadings = kanjiReadings;
+symbolsToRemove.forEach(sym => {
+  cleanedKanjiReadings = cleanedKanjiReadings.split(sym).join(" ");
+});
+
+cleanedKanjiReadings = cleanedKanjiReadings.replace(/\s+/g, " ").trim();
+
+// 正規化して保存
+data._normKanjiReadings = normalizeForSearch(cleanedKanjiReadings);
+
+
     try {
       // 活用形を生成するよ
       const inflRaw = (typeof generateInflections === "function") ? generateInflections(word) || [] : [];
@@ -1067,16 +1100,35 @@ function showDetails(word) {
 
     if (hasA1 || hasA2) {
       const a1Text = hasA1 // 赤字警告文
-        ? `<span style="color: red;">${alertData.a1}</span>`
+        ? `<span style="color: #ff5555;">${alertData.a1}</span>`
         : "";
 
-      let a2Links = ""; // 関連語リンク生成
-      if (hasA2) {
-        a2Links = alertData.a2.map(obj => {
-          const w = obj.word || "";
-          return `<a href="#" onclick="loadWord('${w}'); return false;">${w}</a>`;
-        }).join(" ");
-      }
+      let a2Links = "";
+
+if (hasA2) {
+  a2Links = alertData.a2.map(raw => {
+
+    // ★ 数字を含む → ID として扱う
+    const id = String(raw).replace(/[^\d]/g, "");
+    if (id && idToWord[id]) {
+      const word = idToWord[id];
+      const entry = dictionary[word];
+      if (!entry) return "";
+
+      const meaning = removeAnnotations(
+        Array.isArray(entry.meaning)
+          ? entry.meaning[0]
+          : entry.meaning || ""
+      );
+
+      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（${meaning}）`;
+    }
+
+    // ★ 数字が無い → 文章として扱う
+    return raw;
+
+  }).join("<br>");
+}
 
       // テーブル追加
       detailsHTML += `
@@ -1467,85 +1519,60 @@ function performSearch() {
   const searchMode = searchModeSelect.value;
   searchResults = []; // 検索結果格納配列を初期化
 
-  // タグ検索
+  // タグ検索モード
   if (searchMode === "tag") {
-    // 入力されたタグを、カンマ区切りで分解するよ！
     const searchTags = searchTerm
       .split(",")
       .map(tag => tag.trim().toLowerCase())
       .filter(tag => tag.length > 0);
 
-    // 辞書からタグ一致する単語を取得するよ！
     const tagResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
-
-      // タグが存在しない語は除外するよ！
       if (!data.tag) return false;
-
-      // タグを配列として扱うためのもの
       const tags = Array.isArray(data.tag)
         ? data.tag.map(t => removeAnnotations(t).toLowerCase())
         : [removeAnnotations(data.tag).toLowerCase()];
-
-      // すべての検索タグが含まれているか確認するよ！
       return searchTags.every(searchTag => tags.includes(searchTag));
     });
 
-    // アルファベット順で並べ替えるよ！
     tagResults.sort((a, b) => a.localeCompare(b));
 
-    // 結果がある場合は検索結果リストに追加！
     if (tagResults.length > 0) {
-
-      // 見出しを追加して……
       searchResults.push({ type: "heading", text: "【タグでの検索結果】" });
-
-      // そして各単語を結果として追加
-      tagResults.forEach(word => {
-        searchResults.push({ type: "word", value: word });
-      });
+      tagResults.forEach(word => searchResults.push({ type: "word", value: word }));
     }
 
-    // 通常検索ならば、
   } else {
+    // primaryResults を作成
     const primaryResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
-      // 注釈削除した単語も検索に入れる
-      const cleanedWord = removeAnnotations(word).toLowerCase();
-
-      // 単語綴りの一致判定
+      // 単語キー一致
       let matchKey = false;
       if (searchMode === "exact") matchKey = (data._normKey === normalizedSearch);
       else if (searchMode === "prefix") matchKey = data._normKey.startsWith(normalizedSearch);
       else matchKey = data._normKey.includes(normalizedSearch);
 
-      // 意味検索
+      // 意味一致
       let matchMeaning = false;
-
       if (data.meaning) {
-        const meanings = Array.isArray(data.meaning)
-          ? data.meaning
-          : [data.meaning];
-
+        const meanings = Array.isArray(data.meaning) ? data.meaning : [data.meaning];
         matchMeaning = meanings.some(m => {
           const norm = normalizeForSearch(removeAnnotations(m));
-
           if (searchMode === "exact") return norm === normalizedSearch;
-          else if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
-          else return norm.includes(normalizedSearch);
+          if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
+          return norm.includes(normalizedSearch);
         });
       }
 
-      // 俗語意味検索
+      // 俗語意味
       let matchVulgar = false;
       if (data.vulgarMeaning) {
-        // 意味が複数ある場合
         if (Array.isArray(data.vulgarMeaning)) {
           matchVulgar = data.vulgarMeaning.some(v => {
             const cleaned = removeAnnotations(v).toLowerCase();
             if (searchMode === "exact") return cleaned === searchTerm;
-            else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-            else return cleaned.includes(searchTerm);
+            if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+            return cleaned.includes(searchTerm);
           });
         } else {
           const cleaned = removeAnnotations(data.vulgarMeaning).toLowerCase();
@@ -1555,29 +1582,26 @@ function performSearch() {
         }
       }
 
-      // variants2 も検索に引っかかるようにするよ！
+      // variants2
       let matchVariants2 = false;
       if (data.variants2) {
         matchVariants2 = data.variants2.some(v => {
           const cleaned = removeAnnotations(v).toLowerCase();
           if (searchMode === "exact") return cleaned === searchTerm;
-          else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-          else return cleaned.includes(searchTerm);
+          if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+          return cleaned.includes(searchTerm);
         });
       }
 
-      // 活用形も検索に引っかかるようにするよ！
+      // 活用形
       let matchInflection = false;
-      // 事前キャッシュがあればそれを使うよ！
       if (data._normInflArray && data._normInflArray.length) {
         matchInflection = data._normInflArray.some(norm => {
           if (searchMode === "exact") return norm === normalizedSearch;
           if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
           return norm.includes(normalizedSearch);
         });
-
       } else {
-        // キャッシュが無い場合はその場で生成するよ！
         try {
           const inflections = generateInflections(word) || [];
           matchInflection = inflections.some(inf => {
@@ -1587,12 +1611,10 @@ function performSearch() {
             return norm.includes(normalizedSearch);
           });
         } catch (e) {
-          // 活用生成失敗時は false！
           matchInflection = false;
         }
       }
 
-      // 以下のいずれかに一致した場合は true！
       return matchKey || matchMeaning || matchVariants2 || matchVulgar || matchInflection;
     });
 
@@ -1604,14 +1626,14 @@ function performSearch() {
         matchVariants1 = data.variants1.some(v => {
           const cleaned = removeAnnotations(v).toLowerCase();
           if (searchMode === "exact") return cleaned === searchTerm;
-          else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-          else return cleaned.includes(searchTerm);
+          if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+          return cleaned.includes(searchTerm);
         });
       }
       return matchVariants1;
     });
 
-    // タグ検索（通常検索時の補助だよ）
+    // タグ補助検索
     const tagResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
       let matchTag = false;
@@ -1625,18 +1647,17 @@ function performSearch() {
       return matchTag;
     });
 
-    // 重複したのを除去するよ！
+    // 重複除去とソート
     const primarySet = new Set(primaryResults);
-
-    // variants1のみヒットした語
     const variantOnlyResults = variantResults.filter(word => !primarySet.has(word));
     const variantSet = new Set(variantOnlyResults);
+
     let tagOnlyResults = [];
     if (searchMode === "tag") {
       tagOnlyResults = tagResults.filter(word => !primarySet.has(word) && !variantSet.has(word));
       tagOnlyResults.sort((a, b) => a.localeCompare(b));
     }
-    // 結果ソート
+
     primaryResults.sort((a, b) => a.localeCompare(b));
     variantOnlyResults.sort((a, b) => a.localeCompare(b));
     tagOnlyResults.sort((a, b) => a.localeCompare(b));
@@ -1649,6 +1670,22 @@ function performSearch() {
       ? primaryResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
       : primaryResults;
 
+       // 縫言録検索
+const kanjiResults = Object.keys(dictionary).filter(word => {
+  const d = getEntry(word);
+  if (!d) return false;
+
+  // 正規化済みの縫読み・智読みテキスト（空文字でも扱う）
+  const krText = (d._normKanjiReadings || "").trim();
+  if (!krText) return false;
+
+  // トークン化（空白で分割）
+  const tokens = krText.split(/\s+/); // e.g. ["kuikkalva","cha","che","klok"]
+
+  // 常に完全一致（トークンのどれかが検索語と完全一致するか）
+  return tokens.some(t => t === normalizedSearch);
+});
+
     const useVariantOnly = safeSearch
       ? variantOnlyResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
       : variantOnlyResults;
@@ -1657,26 +1694,40 @@ function performSearch() {
       ? (safeSearch ? tagOnlyResults.filter(w => !(dictionary[w] && dictionary[w].safe === false)) : tagOnlyResults)
       : [];
 
+    const tagSet = new Set(useTagOnly);
+    const kanjiOnlyResults = [...kanjiResults];
+
+    const useKanjiOnly = safeSearch
+      ? kanjiOnlyResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
+      : kanjiOnlyResults;
+
     // 検索結果を構築！
     searchResults = [];
 
+    // 縫言録の検索結果
+    if (useKanjiOnly && useKanjiOnly.length > 0) {
+  searchResults.push({ type: "heading", text: "縫言録検索の結果" });
+  useKanjiOnly.forEach(word => searchResults.push({ type: "word", value: word }));
+}
     // 綴り・意味での検索結果
     if (usePrimary.length > 0) {
-      searchResults.push({ type: "heading", text: "【綴り・意味での検索結果】" });
+      searchResults.push({ type: "heading", text: "通常検索の結果" });
       usePrimary.forEach(word => searchResults.push({ type: "word", value: word }));
     }
 
     // 関連語での検索結果
     if (useVariantOnly.length > 0) {
-      searchResults.push({ type: "heading", text: "【関連語での検索結果】" });
+      searchResults.push({ type: "heading", text: "関連語検索の結果" });
       useVariantOnly.forEach(word => searchResults.push({ type: "word", value: word }));
     }
+
     // タグでの検索結果
     if (useTagOnly.length > 0) {
-      searchResults.push({ type: "heading", text: "【タグでの検索結果】" });
+      searchResults.push({ type: "heading", text: "タグ検索の結果" });
       useTagOnly.forEach(word => searchResults.push({ type: "word", value: word }));
     }
   }
+
   // 検索結果がないなら「ない」とメッセージ
   if (searchResults.length === 0) {
     const li = document.createElement("li");
