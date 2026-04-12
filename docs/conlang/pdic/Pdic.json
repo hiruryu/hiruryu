@@ -2,35 +2,35 @@
     "shtóf": {
     "id": 2,
     "safe": true,
-    "word": "shtófa",
-    "stem": "shtófa",
+    "word": "shtóf",
+    "stem": "shtóf",
     "stem2": "shtof",
     "tag": ["ー"],
     "parts": "名象",
       "type": "f 基本型",
       "ruletype": "a",
     "meaning": ["町", "街"],
-    "pronunciation": ["/tof/<br>[tof]<br>《štof-》"],
+    "pronunciation": ["/ʂtof/<br>[ʂtof]<br>《štof-》"],
     "etymology": {
         "intro": ["単純語。", "音象徴「 ? 」から。"],
         "changes": []
       },
     "variants2": ["まち", "シティ", "city"]
     },
-    "test": {
+    "gnóva": {
     "id": 3,
     "safe": true,
-    "word": "shtófa",
-    "stem": "shtófa",
-    "stem2": "shtof",
+    "word": "gnóva",
+    "stem": "gnóv",
+    "stem2": "gnov",
     "tag": ["ー"],
     "parts": "名象",
-      "type": "f 基本型",
+      "type": "v 基本型",
       "ruletype": "a",
-    "meaning": ["町", "街"],
-    "pronunciation": ["/tof/<br>[tof]<br>《štof-》"],
+    "meaning": ["動物", "獣", "生き物","生物"],
+    "pronunciation": ["/gnova/<br>[gnovə]<br>《gnova-》"],
     "etymology": {
-        "intro": ["単純語。", "音象徴「 p:2 」から。"],
+        "intro": ["単純語。", "形成の根拠は不明。"],
         "changes": []
       },
     "variants2": ["2"],
