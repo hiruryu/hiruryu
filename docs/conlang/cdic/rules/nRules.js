@@ -4,9 +4,11 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
       return {};   
       // a 基本形
             } else if (ruletype === "a") {      
-        const anpC = stem + "ra";         
-        const adsC = stem2 + "óla";
-        const adpC = stem2 + "róla";
+        const base = {
+  anpC: stem + "ra",
+  adsC: stem2 + "óla",
+  adpC: stem2 + "róla"
+};
         if (data.baseOverrides) {
             Object.assign(base, data.baseOverrides);
         }
