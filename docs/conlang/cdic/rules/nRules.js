@@ -9,8 +9,8 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
         let adpC = stem2 + "róla";
         if (baseOverrides) {
             if (baseOverrides.anpC != null) anpC = baseOverrides.anpC;
-            if (baseOverrides.anpC != null) adsC = baseOverrides.adsC;
-            if (baseOverrides.anpC != null) adpC = baseOverrides.adpC;
+            if (baseOverrides.adsC != null) adsC = baseOverrides.adsC;
+            if (baseOverrides.adpC != null) adpC = baseOverrides.adpC;
         }
         
         return {
