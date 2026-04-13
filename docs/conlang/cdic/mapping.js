@@ -611,7 +611,7 @@ function showDetails(word) {
     const isUnique = data.unique === true; // "unique": true を判定
     // 活用情報を取得するよ
     const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
-    raw = getConjN(w, stem, long_stem, stem2, type, ruletype) || {};
+    raw = getConjN(w, stem, long_stem, stem2, type, ruletype, data.baseOverrides) || {};
 
 // overrideを適用
 if (data.overrides) {
