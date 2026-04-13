@@ -32,7 +32,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
     
           // 限定単数形
           adsC: adsC,
-          f_adsC: adsC + "af",
+          f_adsC: adsC.slice(0, -1) + "af",
           e_adsC: adsC.slice(0, -1) + "uik",
           d_adsC: adsC.slice(0, -1) + "es",
           l_adsC: adsC.slice(0, -1) + "am",
