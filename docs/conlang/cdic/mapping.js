@@ -21,7 +21,7 @@ const idToWord = {}; // ID → 単語 を引くためのマッピング
 let searchResults = []; // 検索結果を保存する配列
 let currentPage = 1; // 現在のページ番号
 const itemsPerPage = 20; // 1ページに表示する単語数⁺
-const isUnique = data.unique === true; // "unique": true を判定
+
 // 単語をクリックした時にURLを更新し、詳細を表示する関数
 function loadWord(word) {
   const data = dictionary[word];
@@ -608,6 +608,7 @@ function showDetails(word) {
 
   // 名象の場合
   if (data.parts === "名象") {
+    const isUnique = data.unique === true; // "unique": true を判定
     // 活用情報を取得するよ
     const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
     raw = getConjN(w, stem, long_stem, stem2, type, ruletype) || {};
