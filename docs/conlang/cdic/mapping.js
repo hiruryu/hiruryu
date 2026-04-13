@@ -21,7 +21,7 @@ const idToWord = {}; // ID → 単語 を引くためのマッピング
 let searchResults = []; // 検索結果を保存する配列
 let currentPage = 1; // 現在のページ番号
 const itemsPerPage = 20; // 1ページに表示する単語数⁺
-const isUnique = !!data.unique; // "unique": true を判定
+const isUnique = data.unique === true; // "unique": true を判定
 // 単語をクリックした時にURLを更新し、詳細を表示する関数
 function loadWord(word) {
   const data = dictionary[word];
@@ -635,7 +635,7 @@ function showDetails(word) {
       tableHTML = rows.map((row, i) => {
         const cells = columns.map(col => {
           const key = row.prefix + col;
-          const value = conjugations[key] ?? " — ";
+          let value = conjugations[key] ?? " — ";
           // 特有語なら特定列を空にする
           if (isUnique && ["anpC", "adsC", "adpC"].includes(col)) {
             value = " — ";
