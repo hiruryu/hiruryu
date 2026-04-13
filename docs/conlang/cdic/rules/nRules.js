@@ -4,15 +4,14 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
       return {};   
       // a 基本形
             } else if (ruletype === "a") {      
-        const base = {
-  anpC: stem + "ra",
-  adsC: stem2 + "óla",
-  adpC: stem2 + "róla"
-};
-        if (data.baseOverrides) {
-            Object.assign(base, data.baseOverrides);
+        let anpC = stem + "ra";         
+        let adsC = stem2 + "óla";
+        let adpC = stem2 + "róla";
+        if (baseOverrides) {
+            if (baseOverrides.anpC != null) anpC = baseOverrides.anpC;
+            if (baseOverrides.anpC != null) adsC = baseOverrides.adsC;
+            if (baseOverrides.anpC != null) adpC = baseOverrides.adpC;
         }
-        const { anpC, adsC, adpC } = base;
         
         return {
           // 非限定単数形
