@@ -612,7 +612,21 @@ function showDetails(word) {
     // 活用情報を取得するよ
     const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
     raw = getConjN(w, stem, long_stem, stem2, type, ruletype) || {};
-    conjugations = raw;
+
+// overrideを適用
+if (data.overrides) {
+  for (const key in data.overrides) {
+    const val = data.overrides[key];
+
+    if (val === null) {
+      delete raw[key]; // 削除
+    } else {
+      raw[key] = val;  // 上書き
+    }
+  }
+}
+
+conjugations = raw;
     // 活用が無い場合はメッセージを出すよ
     if (Object.keys(conjugations).length === 0) {
       tableHTML = `<tr><td colspan="9">この単語は活用型がありません。</td></tr>`;
