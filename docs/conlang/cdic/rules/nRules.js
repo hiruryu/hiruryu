@@ -1,5 +1,5 @@
 // 名象
-function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
+function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) {
     if (ruletype === "not") {
       return {};   
       // a 基本形
