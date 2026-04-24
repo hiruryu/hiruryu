@@ -1,17 +1,17 @@
 body {
-    display: block;
-    min-width: 1200px;
-    overflow-x: auto;
-    height: auto;
-    margin: 10px 0px 0px 0px;
-    font-family: "Roboto", sans-serif;
+  display: block;
+  min-width: 1200px;
+  overflow-x: auto;
+  height: auto;
+  margin: 10px 0px 0px 0px;
+  font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   background-color: #f9f8f4;
   letter-spacing: 1px;
-  }
+}
 
-  body.detail-view {
+body.detail-view {
   justify-content: center;
 }
 
@@ -24,6 +24,7 @@ body.detail-view .content {
 body.detail-view #details {
   text-align: center;
 }
+
 body.detail-view #details table {
   margin: 0 auto;
 }
@@ -49,11 +50,11 @@ body.detail-view .back-to-top a:hover {
   text-decoration: underline;
 }
 
-  a {
-    color: #001ba0;
-    font-size: 15px;
-    text-decoration: none;
-  }
+a {
+  color: #001ba0;
+  font-size: 15px;
+  text-decoration: none;
+}
 
 .switch {
   display: flex;
@@ -87,10 +88,11 @@ body.detail-view .back-to-top a:hover {
   transition: transform 0.2s;
 }
 
-.switch input:checked + .slider {
+.switch input:checked+.slider {
   background-color: #0ab400;
 }
-.switch input:checked + .slider::before {
+
+.switch input:checked+.slider::before {
   transform: translateX(18px);
 }
 
@@ -104,7 +106,8 @@ body.detail-view .back-to-top a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 1rem;
-  box-sizing: border-box; /* paddingを含めた100%にする */
+  box-sizing: border-box;
+  /* paddingを含めた100%にする */
   background-color: #f6f6fa;
   border-bottom: 1px solid #ccc;
   position: sticky;
@@ -113,8 +116,10 @@ body.detail-view .back-to-top a:hover {
 }
 
 .wrapper {
-  display: flex; /* ここで横並びを指定 */
-  flex-wrap: nowrap; /* 下に落ちないように固定 */
+  display: flex;
+  /* ここで横並びを指定 */
+  flex-wrap: nowrap;
+  /* 下に落ちないように固定 */
   width: 100%;
   align-items: flex-start;
 }
@@ -124,103 +129,112 @@ body.detail-view .back-to-top a:hover {
   color: #1100cc;
   text-decoration: none;
 }
+
 .back-link:hover {
   text-decoration: underline;
 }
 
-  .sidebar {
-    max-width: 20%;
-    width: 20%;
-    padding: 1rem;
-    border-right: 1px solid #cccccc;
-    box-sizing: border-box;
-    color: #000933;
-    font-size: 15px;
-    margin: 10px;
-    border-radius: 10px;
-  }
+.sidebar {
+  max-width: 20%;
+  width: 20%;
+  padding: 1rem;
+  border-right: 1px solid #cccccc;
+  box-sizing: border-box;
+  color: #000933;
+  font-size: 15px;
+  margin: 10px;
+  border-radius: 10px;
+}
 
 .content {
   /* 20% + margin分を考慮して計算 */
-  width: calc(80% - 20px); 
+  width: calc(80% - 20px);
   flex-grow: 1;
   padding: 1rem;
   box-sizing: border-box;
 }
-  
-  input, select {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-  }
 
-  .searchResults {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    color: #000933;
-  }
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.searchResults {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #000933;
+}
 
 #word-count {
   color: #444466;
   border-bottom: none;
 }
-.pagination button{
-              width: 100px;
-              height: 30px;
-              font-size: 12px;
-              font-weight: bold;
-              color: #A777AA;
-              text-align: center;
-            }
- .searchResults li {
+
+.pagination button {
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #A777AA;
+  text-align: center;
+}
+
+.searchResults li {
   display: block;
   padding: 8px;
   margin-bottom: 4px;
   background-color: #F9F8F4;
-  border-radius: 4px;
-  color: #c33aac;
+  border-radius: 5px;
+  color: #aa9988;
   cursor: pointer;
   border: 1px solid #c7c4c1;
+  border-left: solid 2px #a7a7a7;
   box-shadow: 5px 5px 2px -5px #9f85bf;
   text-align: center;
-  font-size: 20px
+  font-size: 19px
 }
 
-  .searchResults li:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .notesList {
-    font-size: 16px;
-    color: #6f6f66;
-    text-align: left;
-  }
+.searchResults li:hover {
+  background-color: #e0e0e0;
+}
 
-  .bottonspan {
-    margin: 0.8px;
-    border-bottom: none;
-  }
+.notesList {
+  font-size: 16px;
+  color: #6f6f66;
+  text-align: left;
+}
 
-  .pagespan {
-    border-bottom: none;
-    font-weight: normal;
-    font-size: 12px;
-    color: #909090;
-  }
-  small {
-    color: #709999;
-  }
-  sup, sub {
-    font-size: 10px;
-    color: #709999;
-  }
-  span {
-    color: #949090;
-    font-weight: bold;
-    border-bottom: solid 2px #ffe45f;
-  }
+.bottonspan {
+  margin: 0.8px;
+  border-bottom: none;
+}
+
+.pagespan {
+  border-bottom: none;
+  font-weight: normal;
+  font-size: 12px;
+  color: #909090;
+}
+
+small {
+  color: #709999;
+}
+
+sup,
+sub {
+  font-size: 10px;
+  color: #709999;
+}
+
+span {
+  color: #949090;
+  font-weight: bold;
+  border-bottom: solid 2px #ffe45f;
+}
 
 #pageInfo {
   width: 55px;
@@ -228,105 +242,119 @@ body.detail-view .back-to-top a:hover {
   text-align: center;
   margin-bottom: 0;
 }
- img {
- padding: 0px 0px 0px 5%;
-  }
-  
-  h3 {
-    color: #444a4e;
-    font-size: 20px;
-    letter-spacing: 1px;
-  }
-  h4 {
-    color: #444a4e;
-    font-size: 18px;
-    border-bottom: dashed 2px #cccccc;
-    display: inline-block;
-    letter-spacing: 1px;
-  }
-  h5 {
-    color: #444a4e;
-    border-bottom: dashed 2px #cccccc;
-    display: inline-block;
-    letter-spacing: 2px;
-  }
-  .detailList {
-    background-color: #F9F8F4;
-    padding: 1px;
-    list-style-position: inside;
-    font-size: 15px;
-    color: #997070;
-    text-align: left;
-    letter-spacing: 2px;
-    line-height: 25px;
-  }
-  .noteList {
-    background-color: #F9F8F4;
-    list-style-position: inside;
-    font-size: 16px;
-    color: #997070;
-    text-align: left !important;
-    line-height: 30px;
-    letter-spacing: 1px;
-  }
-  .note2-title {
-    max-width:800px;
-    display:inline-block;
-    font-size: 14px;
-    Letter-spacing: 2px;
-    color: #709999;
-    font-weight: bold;
-    border-bottom: dotted 2px #b6afd6;
-  }
-  
-  .fixList {
-    list-style: none;
-    background-color: #F9F8F4;
-    padding: 1px;
-    font-size: 16px;
-    color: #aa8888;
-    margin-right: 38px;
-    text-align: center;
-  }
 
-  .placeholder {
-    font-size: 13px;
-    padding: 2px;
-    color: #404040;
-    vertical-align: center;
-    text-align: center;
-
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 15px 0 15px 0;
-    color: #404040;
-    overflow: hidden;
-  }
-
-  table, th, td {
-    border: 1px solid #c7c4c1;
-  }
-  td {
-    font-size: 16px;
-    padding: 6px;
-    text-align: center;
-    font-family: 'Noto Sans JP', sans-serif !important;
-  }
-  th {
-    font-size: 15px;
-    padding: 6px;
-    text-align: center;
-    color: #807066;
+img {
+  padding: 0px 0px 0px 5%;
 }
-  .light {
-    color: #AA9988 !important;
+
+h3 {
+  color: #444a4e;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
+
+h4 {
+  color: #444a4e;
+  font-size: 18px;
+  border-bottom: dashed 2px #cccccc;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+h5 {
+  color: #444a4e;
+  border-bottom: dashed 2px #cccccc;
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+.detailList {
+  background-color: #F9F8F4;
+  padding: 1px;
+  list-style-position: inside;
+  font-size: 15px;
+  color: #997070;
+  text-align: left;
+  letter-spacing: 2px;
+  line-height: 25px;
+}
+
+.noteList {
+  background-color: #F9F8F4;
+  list-style-position: inside;
+  font-size: 16px;
+  color: #997070;
+  text-align: left !important;
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+
+.note2-title {
+  max-width: 800px;
+  display: inline-block;
+  font-size: 14px;
+  Letter-spacing: 2px;
+  color: #709999;
+  font-weight: bold;
+  border-bottom: dotted 2px #b6afd6;
+}
+
+.fixList {
+  list-style: none;
+  background-color: #F9F8F4;
+  padding: 1px;
+  font-size: 16px;
+  color: #aa8888;
+  margin-right: 38px;
+  text-align: center;
+}
+
+.placeholder {
+  font-size: 13px;
+  padding: 2px;
+  color: #404040;
+  vertical-align: center;
+  text-align: center;
+
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 15px 0 15px 0;
+  color: #404040;
+  overflow: hidden;
+}
+
+table,
+th,
+td {
+  border: 1px solid #c7c4c1;
+}
+
+td {
+  font-size: 16px;
+  padding: 6px;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+th {
+  font-size: 15px;
+  padding: 6px;
+  text-align: center;
+  color: #807066;
+}
+
+.light {
+  color: #AA9988 !important;
+}
+
 .marker {
   background: linear-gradient(to right, #ffe45f, #ffe45f) bottom repeat-x;
   background-size: 100% 5px;
 }
+
 .mini-marker {
   font-size: 12px;
   color: #B5AFA5;
@@ -339,6 +367,7 @@ body.detail-view .back-to-top a:hover {
 .e-list {
   color: #998077;
 }
+
 .t-td {
   color: #8888aa;
   font-size: 15px;
@@ -352,80 +381,92 @@ body.detail-view .back-to-top a:hover {
   line-height: 30px;
 }
 
-  .inner-table {
-    margin-left:auto;
-    margin-right:auto;
-    vertical-align:center ;
-    border-collapse:separate;
-    border-spacing:0;
-    border: 1px solid #B5AFA5;
-    overflow: hidden;
-    line-height:inherit;
-    color:#665550;
-    background-color: #fbf2ed;
-    font-family: "Roboto", sans-serif;
-    width: 50%;
-    border-radius: 20px;
-    line-height: 1; 
-  }
-  
-  .inner-table td, .inner-table th{
-    border: none !important;
-    text-align: left !important;
-    padding-left: 20px !important;
-    font-size: 14px !important;
-  }
+.inner-table {
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: center;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #B5AFA5;
+  overflow: hidden;
+  line-height: inherit;
+  color: #665550;
+  background-color: #fbf2ed;
+  font-family: "Roboto", sans-serif;
+  width: 50%;
+  border-radius: 20px;
+  line-height: 1;
+}
+
+.inner-table td,
+.inner-table th {
+  border: none !important;
+  text-align: left !important;
+  padding-left: 20px !important;
+  font-size: 14px !important;
+}
 
 .conH1 {
-    font-size: 50px;
-    color: #000933;
-    background-color: #f4f0f4;
-    letter-spacing: 2px;
-  }
+  font-size: 50px;
+  color: #000933;
+  background-color: #f4f0f4;
+  letter-spacing: 2px;
+}
+
 .conH2 {
-    color: #000933;
-    background-color: #f4f0f4;
-    letter-spacing: 2px;
-  }
+  color: #000933;
+  background-color: #f4f0f4;
+  letter-spacing: 2px;
+}
+
 .con1 {
-    background-color: #eaf5f7;
-    color: #5b9bd5;
+  background-color: #eaf5f7;
+  color: #5b9bd5;
 }
+
 .con2 {
-    background-color: #f0e0e0;
-    color: #ce4242;
+  background-color: #f0e0e0;
+  color: #ce4242;
 }
+
 .con3 {
-    background-color: #f0e0e7;
-    color: #54bbb2;
+  background-color: #f0e0e7;
+  color: #54bbb2;
 }
+
 .con4 {
-    background-color: #d2e9d7;
-    color: #44a359;
+  background-color: #d2e9d7;
+  color: #44a359;
 }
+
 .con5 {
-    background-color: #ece0d4;
-    color: #a88842;
+  background-color: #ece0d4;
+  color: #a88842;
 }
+
 .con6 {
-    background-color: #e0e6f0;
-    color: #447dac;
+  background-color: #e0e6f0;
+  color: #447dac;
 }
+
 .con7 {
-    background-color: #d8eee1;
-    color: #61a186;
+  background-color: #d8eee1;
+  color: #61a186;
 }
+
 .con8 {
-    background-color: #e2d5db;
-    color: #af4970;
+  background-color: #e2d5db;
+  color: #af4970;
 }
+
 .con9 {
-    background-color: #d4d0dd;
-    color: #663377;
+  background-color: #d4d0dd;
+  color: #663377;
 }
+
 .conname {
-    font-weight: bold;
-    font-size: 13px;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .maincolor {
@@ -433,61 +474,109 @@ body.detail-view .back-to-top a:hover {
 }
 
 .detailTable {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 1rem;
-    list-style-position: inside;
-  }
-  
-  .detailTable th, .detailTable td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    vertical-align: center;
-    text-align: center;
-  }
-  
-  .default { color: #225540; }
-  .meishou { color: #D1608B; }
-  .doushi { color: #007FC4; }
-  .meishoku { color: #859D41; }
-  .fukushoku { color: #F09A2D; }
-  .bunshoku { color: #774D9B; }
-  .fukuji { color: #D6A46E; }
-  .kanto { color: #B7BBBD; }
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+  list-style-position: inside;
+}
 
-  .heading-cell {
-    font-size: 35px;
-    background-color: #f4f0f4;
-    text-align: center;
-    vertical-align: middle;
-    letter-spacing: 2px;
-  }
-  .heading-cell.default { color: #225540; }
-  .heading-cell.meishou { color: #D1608B; }
-  .heading-cell.doushi { color: #007FC4; }
-  .heading-cell.meishoku { color: #859D41; }
-  .heading-cell.fukushoku { color: #F09A2D; }
-  .heading-cell.bunshoku { color: #774D9B; }
-  .heading-cell.fukuji { color: #D6A46E; } 
-  .heading-cell.kanto { color: #B7BBBD; }
+.detailTable th,
+.detailTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  vertical-align: center;
+  text-align: center;
+}
 
-  .detailTable th {
-    table-layout: fixed;
-    width: 7%;
-    font-size: 15px;
-    color: #4b0020b0;
-    background-color: #f4f0f4;
-    text-align: center;
-    vertical-align: center;
-  }
+.default {
+  color: #225540;
+}
 
-  .detailTable td {
-    table-layout: fixed;
-    width: 35%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-  }
+.meishou {
+  color: #D1608B;
+}
+
+.doushi {
+  color: #007FC4;
+}
+
+.meishoku {
+  color: #859D41;
+}
+
+.fukushoku {
+  color: #F09A2D;
+}
+
+.bunshoku {
+  color: #774D9B;
+}
+
+.fukuji {
+  color: #D6A46E;
+}
+
+.kanto {
+  color: #B7BBBD;
+}
+
+.heading-cell {
+  font-size: 35px;
+  background-color: #f4f0f4;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing: 2px;
+}
+
+.heading-cell.default {
+  color: #225540;
+}
+
+.heading-cell.meishou {
+  color: #D1608B;
+}
+
+.heading-cell.doushi {
+  color: #007FC4;
+}
+
+.heading-cell.meishoku {
+  color: #859D41;
+}
+
+.heading-cell.fukushoku {
+  color: #F09A2D;
+}
+
+.heading-cell.bunshoku {
+  color: #774D9B;
+}
+
+.heading-cell.fukuji {
+  color: #D6A46E;
+}
+
+.heading-cell.kanto {
+  color: #B7BBBD;
+}
+
+.detailTable th {
+  table-layout: fixed;
+  width: 7%;
+  font-size: 15px;
+  color: #4b0020b0;
+  background-color: #f4f0f4;
+  text-align: center;
+  vertical-align: center;
+}
+
+.detailTable td {
+  table-layout: fixed;
+  width: 35%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
 
 .pagination {
   display: flex;
@@ -500,25 +589,38 @@ body.detail-view .back-to-top a:hover {
   color: #b50bbb;
   letter-spacing: 1px;
 }
-.conname {font-family: 'Noto Sans JP', sans-serif !important; letter-spacing: 2px; font-size: 16px; font-weight: 600;}
-.con {letter-spacing: 1.2px; font-size: 14px; font-weight: bold; color: rgb(120, 120, 240);}
+
+.conname {
+  font-family: 'Noto Sans JP', sans-serif !important;
+  letter-spacing: 2px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.con {
+  letter-spacing: 1.2px;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(120, 120, 240);
+}
 
 #stripeth {
-  background-image: linear-gradient(
-    -45deg, 
-    #fcffc0 25%,
-    #ffffff 25%, #ffffff 50%,
-    #fcffc0 50%, #fcffc0 75%,
-    #ffffff 75%, #ffffff 100%
-  );
+  background-image: linear-gradient(-45deg,
+      #fcffc0 25%,
+      #ffffff 25%, #ffffff 50%,
+      #fcffc0 50%, #fcffc0 75%,
+      #ffffff 75%, #ffffff 100%);
   background-size: 20px 20px;
+
   .heading-namashou {
     color: #2a7f62;
   }
 }
+
 .extraMeaning {
   display: none;
 }
+
 /* 漢字辞典セクション内の漢字を大きく */
 .kanji-main {
   font-size: 1.4em;
@@ -539,10 +641,10 @@ body.detail-view .back-to-top a:hover {
 }
 
 .kanji-list li {
-  background: #dadeee; 
+  background: #dadeee;
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 20px;
   text-align: center;
-  min-width: 50px; 
+  min-width: 50px;
 }
