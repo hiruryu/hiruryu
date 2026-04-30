@@ -147,8 +147,8 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype) {
         return {
           s: stem + "i", s2: stem2 + "álla", s3: stem2 + "ónna",
           fs: stem2.slice(0,-4) + "éifie", fs2: stem + "ůifie", fs3: stem2 + "fiéna",
-          es: stem2 + "is", es2: stem + "ůis", es3: stem2 + "yós",
-          ds: stem2 + "ůi", ds2: stem + "ůi", ds3: stem.slice(0,-4) + "éinůi",
+          es: stem + "is", es2: stem + "ůis", es3: stem2 + "ós",
+          ds: stem + "ůi", ds2: stem + "ůi", ds3: stem.slice(0,-4) + "éinůi",
           ads: stem2.slice(0,-4) + "éimi", ads2: stem + "ůimy", ads3: stem + "móna",
           h: stem + "us", h2: stem2 + "álluis", h3: stem2 + "amónuis",
         }
