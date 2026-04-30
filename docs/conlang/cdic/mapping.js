@@ -1827,3 +1827,18 @@ window.addEventListener('popstate', () => {
 });
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
+// hover → tap対応
+document.addEventListener("click", function (e) {
+  const cell = e.target.closest(".has-hover");
+  
+  // 全部閉じる
+  document.querySelectorAll(".has-hover").forEach(el => {
+    if (el !== cell) el.classList.remove("active");
+  });
+
+  // 押したセルだけトグル
+  if (cell) {
+    cell.classList.toggle("active");
+  }
+});
