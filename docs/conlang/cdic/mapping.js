@@ -343,35 +343,35 @@ Promise.all([
     data._normVulgar = normalizeForSearch(removeAnnotations(vul));
 
     // 縫言録も検索対象にする
-let kanjiReadings = "";
-if (data.kanji) {
-  const nui = Array.isArray(data.kanji.nui)
-    ? data.kanji.nui
-    : (data.kanji.nui ? [data.kanji.nui] : []);
+    let kanjiReadings = "";
+    if (data.kanji) {
+      const nui = Array.isArray(data.kanji.nui)
+        ? data.kanji.nui
+        : (data.kanji.nui ? [data.kanji.nui] : []);
 
-  const chel = Array.isArray(data.kanji.chel)
-    ? data.kanji.chel
-    : (data.kanji.chel ? [data.kanji.chel] : []);
+      const chel = Array.isArray(data.kanji.chel)
+        ? data.kanji.chel
+        : (data.kanji.chel ? [data.kanji.chel] : []);
 
-  kanjiReadings = [...nui, ...chel].join(" ");
-}
+      kanjiReadings = [...nui, ...chel].join(" ");
+    }
 
-// ★ 正規表現を使わない安全な記号除去
-const symbolsToRemove = [
-  "-", "‐", "‑", "–", "—", "―", "_",
-  "(", ")", "［", "］", "〈", "〉", "《", "》", "「", "」",
-  "[", "]", "{", "}", "<", ">"
-];
+    // ★ 正規表現を使わない安全な記号除去
+    const symbolsToRemove = [
+      "-", "‐", "‑", "–", "—", "―", "_",
+      "(", ")", "［", "］", "〈", "〉", "《", "》", "「", "」",
+      "[", "]", "{", "}", "<", ">"
+    ];
 
-let cleanedKanjiReadings = kanjiReadings;
-symbolsToRemove.forEach(sym => {
-  cleanedKanjiReadings = cleanedKanjiReadings.split(sym).join(" ");
-});
+    let cleanedKanjiReadings = kanjiReadings;
+    symbolsToRemove.forEach(sym => {
+      cleanedKanjiReadings = cleanedKanjiReadings.split(sym).join(" ");
+    });
 
-cleanedKanjiReadings = cleanedKanjiReadings.replace(/\s+/g, " ").trim();
+    cleanedKanjiReadings = cleanedKanjiReadings.replace(/\s+/g, " ").trim();
 
-// 正規化して保存
-data._normKanjiReadings = normalizeForSearch(cleanedKanjiReadings);
+    // 正規化して保存
+    data._normKanjiReadings = normalizeForSearch(cleanedKanjiReadings);
 
 
     try {
@@ -613,20 +613,20 @@ function showDetails(word) {
     const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
     raw = getConjN(w, stem, long_stem, stem2, type, ruletype, data.baseOverrides) || {};
 
-// overrideを適用
-if (data.overrides) {
-  for (const key in data.overrides) {
-    const val = data.overrides[key];
+    // overrideを適用
+    if (data.overrides) {
+      for (const key in data.overrides) {
+        const val = data.overrides[key];
 
-    if (val === null) {
-      delete raw[key]; // 削除
-    } else {
-      raw[key] = val;  // 上書き
+        if (val === null) {
+          delete raw[key]; // 削除
+        } else {
+          raw[key] = val;  // 上書き
+        }
+      }
     }
-  }
-}
 
-conjugations = raw;
+    conjugations = raw;
     // 活用が無い場合はメッセージを出すよ
     if (Object.keys(conjugations).length === 0) {
       tableHTML = `<tr><td colspan="9">この単語は活用型がありません。</td></tr>`;
@@ -746,7 +746,6 @@ conjugations = raw;
       tableHTML = `<tr><td colspan="6">この動詞は活用型がありません。</td></tr>`;
     }
   }
-
 
   // セーフサーチON/OFFの状態を取得
   const safeSearch = document.getElementById("safeSearchToggle").checked;
@@ -891,7 +890,7 @@ conjugations = raw;
       changesTable = `<table class="inner-table"><tbody>`;
       changesTable += data.etymology.changes.map(change => {
         const note = change.note ? " " + processH5Links(change.note) : "";
-        return `<tr><td>${processH5Links(change.form)}<span>${note}</span></td></tr>`;
+        return `<tr><td>${processH5Links(change.form)}<span class="marker-span">${note}</span></td></tr>`;
       }).join("");
       changesTable += `</tbody></table>`;
     }
@@ -1138,30 +1137,30 @@ conjugations = raw;
 
       let a2Links = "";
 
-if (hasA2) {
-  a2Links = alertData.a2.map(raw => {
+      if (hasA2) {
+        a2Links = alertData.a2.map(raw => {
 
-    // ★ 数字を含む → ID として扱う
-    const id = String(raw).replace(/[^\d]/g, "");
-    if (id && idToWord[id]) {
-      const word = idToWord[id];
-      const entry = dictionary[word];
-      if (!entry) return "";
+          // ★ 数字を含む → ID として扱う
+          const id = String(raw).replace(/[^\d]/g, "");
+          if (id && idToWord[id]) {
+            const word = idToWord[id];
+            const entry = dictionary[word];
+            if (!entry) return "";
 
-      const meaning = removeAnnotations(
-        Array.isArray(entry.meaning)
-          ? entry.meaning[0]
-          : entry.meaning || ""
-      );
+            const meaning = removeAnnotations(
+              Array.isArray(entry.meaning)
+                ? entry.meaning[0]
+                : entry.meaning || ""
+            );
 
-      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（${meaning}）`;
-    }
+            return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（${meaning}）`;
+          }
 
-    // ★ 数字が無い → 文章として扱う
-    return raw;
+          // 数字が無い → 文章として扱う
+          return raw;
 
-  }).join("<br>");
-}
+        }).join("<br>");
+      }
 
       // テーブル追加
       detailsHTML += `
@@ -1703,21 +1702,21 @@ function performSearch() {
       ? primaryResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
       : primaryResults;
 
-       // 縫言録検索
-const kanjiResults = Object.keys(dictionary).filter(word => {
-  const d = getEntry(word);
-  if (!d) return false;
+    // 縫言録検索
+    const kanjiResults = Object.keys(dictionary).filter(word => {
+      const d = getEntry(word);
+      if (!d) return false;
 
-  // 正規化済みの縫読み・智読みテキスト（空文字でも扱う）
-  const krText = (d._normKanjiReadings || "").trim();
-  if (!krText) return false;
+      // 正規化済みの縫読み・智読みテキスト（空文字でも扱う）
+      const krText = (d._normKanjiReadings || "").trim();
+      if (!krText) return false;
 
-  // トークン化（空白で分割）
-  const tokens = krText.split(/\s+/); // e.g. ["kuikkalva","cha","che","klok"]
+      // トークン化（空白で分割）
+      const tokens = krText.split(/\s+/); // e.g. ["kuikkalva","cha","che","klok"]
 
-  // 常に完全一致（トークンのどれかが検索語と完全一致するか）
-  return tokens.some(t => t === normalizedSearch);
-});
+      // 常に完全一致（トークンのどれかが検索語と完全一致するか）
+      return tokens.some(t => t === normalizedSearch);
+    });
 
     const useVariantOnly = safeSearch
       ? variantOnlyResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
@@ -1739,9 +1738,9 @@ const kanjiResults = Object.keys(dictionary).filter(word => {
 
     // 縫言録の検索結果
     if (useKanjiOnly && useKanjiOnly.length > 0) {
-  searchResults.push({ type: "heading", text: "縫言録検索の結果" });
-  useKanjiOnly.forEach(word => searchResults.push({ type: "word", value: word }));
-}
+      searchResults.push({ type: "heading", text: "縫言録検索の結果" });
+      useKanjiOnly.forEach(word => searchResults.push({ type: "word", value: word }));
+    }
     // 綴り・意味での検索結果
     if (usePrimary.length > 0) {
       searchResults.push({ type: "heading", text: "通常検索の結果" });
