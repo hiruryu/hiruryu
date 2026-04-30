@@ -1,7 +1,7 @@
 // 名象
 function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) {
     if (ruletype === "not") {
-      return {};   
+      return {ansC: word};
       // a 基本形
             } else if (ruletype === "a") {      
         let anpC = stem + "ra";         
