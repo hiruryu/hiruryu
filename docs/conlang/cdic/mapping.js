@@ -679,6 +679,21 @@ conjugations = raw;
     if (Object.keys(conjugations).length === 0) {
       tableHTML = `<tr><td colspan="4">この語には活用データがありません。</td></tr>`;
     } else {
+      function makeCell(baseKey) {
+  const base = conjugations[baseKey] || "";
+  const concrete = conjugations[baseKey + "1"] || "";
+  const attr = conjugations[baseKey + "2"] || "";
+
+  return `
+    <td class="con has-hover">
+      <span class="base">${base}</span>
+      <span class="hover-box">
+        <div>具象形: ${concrete}</div>
+        <div>飾形: ${attr}</div>
+      </span>
+    </td>
+  `;
+}
 
       const rows = [
         { label: "完結相", keys: ["p", "n", "f"] },
@@ -688,17 +703,15 @@ conjugations = raw;
       ];
 
       tableHTML = rows.map((row, i) => {
-        const cells = row.keys
-          .map(key => `<td class="con">${conjugations[key] || ""}</td>`)
-          .join("");
+  const cells = row.keys
+    .map(key => makeCell(key))
+    .join("");
 
-        return `<tr class="con${i + 1}">
-                <td class="conname">${row.label}</td>
-                ${cells}
-              </tr>`;
-      }).join("");
-      tableHTML += `\n<tr class="con7"><td class="conname">具象形</td><td colspan="6" class="conname">${word || ""}</td></tr>`;
-    }
+  return `<tr class="con${i + 1}">
+            <td class="conname">${row.label}</td>
+            ${cells}
+          </tr>`;
+}).join("");}
 
     // 名飾詞の場合
   } else if (data.parts === "名飾") {
@@ -711,11 +724,11 @@ conjugations = raw;
     } else {
       const rows = [
         { label: "基格一致", keys: ["s", "s2", "s3"] },
-        { label: "獣格一致", keys: ["fs", "fs2", "fs3"] },
-        { label: "能格一致", keys: ["on", "on2", "on3"] },
-        { label: "奪格一致", keys: ["es", "es2", "es3"] },
+        { label: "獣/能格一致", keys: ["fs", "fs2", "fs3"] },
         { label: "与/呼格一致", keys: ["ds", "ds2", "ds3"] },
-        { label: "処/具格一致", keys: ["ads", "ads2", "ads3"] }
+        { label: "奪/具格一致", keys: ["es", "es2", "es3"] },
+        { label: "処格一致", keys: ["ads", "ads2", "ads3"] },
+        { label: "叙述形", keys: ["h", "h2", "h3"] }
       ];
       // HTMLテーブルを生成するよ！
       tableHTML = rows.map((row, i) => {
@@ -727,13 +740,13 @@ conjugations = raw;
                 ${cells}
               </tr>`;
       }).join("");
-      tableHTML += `\n<tr class="con7"><td class="conname">叙述</td><td colspan="6" class="conname">${word || ""}</td></tr>`;
     }
     // 活用が無い場合
     if (Object.keys(conjugations).length === 0) {
       tableHTML = `<tr><td colspan="6">この動詞は活用型がありません。</td></tr>`;
     }
   }
+
 
   // セーフサーチON/OFFの状態を取得
   const safeSearch = document.getElementById("safeSearchToggle").checked;
