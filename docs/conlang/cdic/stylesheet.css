@@ -230,7 +230,7 @@ sub {
   color: #709999;
 }
 
-span {
+.marker-span {
   color: #949090;
   font-weight: bold;
   border-bottom: solid 2px #ffe45f;
@@ -333,10 +333,9 @@ td {
 }
 
 td {
-  font-size: 16px;
+  font-size: 18px;
   padding: 6px;
   text-align: center;
-  font-family: 'Noto Sans JP', sans-serif !important;
 }
 
 th {
@@ -617,6 +616,8 @@ th {
   }
 }
 
+
+
 .extraMeaning {
   display: none;
 }
@@ -647,4 +648,28 @@ th {
   font-size: 20px;
   text-align: center;
   min-width: 50px;
+}
+
+.has-hover {
+  position: relative;
+}
+
+.hover-box {
+  display: none;
+  position: absolute;
+  top: -120%;
+  background: rgba(255, 255, 255, 0.50);
+  border: 1px solid #ccc;
+  padding: 8px 8px;
+  color: #707070;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  border-radius: 10px;
+  text-align: left;
+}
+
+.has-hover:hover .hover-box {
+  display: block;
 }
