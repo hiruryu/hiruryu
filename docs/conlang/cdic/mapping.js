@@ -80,6 +80,26 @@ function isMorphemeOrVariant(entry) {
   });
 }
 
+const seiiMap = {
+  H: "￣",
+  M: "—",
+  L: "＿"
+};
+
+// 声位を変換する関数
+function renderSeii(seiiArray) {
+  if (!seiiArray || !Array.isArray(seiiArray)) return "";
+  return seiiArray
+    .map(group => {
+      const converted = group
+        .split("")
+        .map(char => seiiMap[char] || char)
+        .join("");
+      return `[${converted}]`;
+    })
+    .join(" ");
+}
+
 // 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
   if (!text) return "";
@@ -809,7 +829,15 @@ function showDetails(word) {
 
   // 発音
   leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
-
+  
+// 声位
+leftRows.push(`
+  <tr>
+    <th>声位</th>
+    <td class="p-td">${renderSeii(data.seii)}</td>
+  </tr>
+`);
+  
   // 語彙素形がある場合
   if (data.lexemic) {
     leftRows.push(`<tr><th>語彙素形</th><td class="maincolor">${data.lexemic}</td></tr>`);
