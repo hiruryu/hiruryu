@@ -673,3 +673,11 @@ th {
 .has-hover:hover .hover-box {
   display: block;
 }
+
+
+.seii {
+  font-family: "Consolas", monospace;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  font-size: 1.05em;
+}
