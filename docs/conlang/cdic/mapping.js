@@ -82,7 +82,7 @@ function isMorphemeOrVariant(entry) {
 
 const seiiMap = {
   H: "￣",
-  M: "─",
+  M: "—",
   L: "＿"
 };
 
