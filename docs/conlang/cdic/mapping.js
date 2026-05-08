@@ -831,12 +831,14 @@ function showDetails(word) {
   leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
   
 // 声位
-leftRows.push(`
-  <tr>
-    <th>声位</th>
-    <td class="p-td">${renderSeii(data.seii)}</td>
-  </tr>
-`);
+if (data.seii) {
+  leftRows.push(`
+    <tr>
+      <th>声位</th>
+      <td class="p-td">${renderSeii(data.seii)}</td>
+    </tr>
+  `);
+}
   
   // 語彙素形がある場合
   if (data.lexemic) {
