@@ -82,7 +82,7 @@ function isMorphemeOrVariant(entry) {
 
 const seiiMap = {
   H: "￣",
-  M: "—",
+  M: "－",
   L: "＿"
 };
 
@@ -835,7 +835,7 @@ if (data.seii) {
   leftRows.push(`
     <tr>
       <th>声位</th>
-      <td class="p-td">${renderSeii(data.seii)}</td>
+      <td class="seii">${renderSeii(data.seii)}</td>
     </tr>
   `);
 }
