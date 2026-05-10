@@ -21,6 +21,57 @@ const idToWord = {}; // ID → 単語 を引くためのマッピング
 let searchResults = []; // 検索結果を保存する配列
 let currentPage = 1; // 現在のページ番号
 const itemsPerPage = 20; // 1ページに表示する単語数⁺
+const itemsCognates = 15; // 1ページに表示する単語数⁺
+
+function showMoreCognates() {
+  const all = window._cognatesAll;
+  const start = window._cognatesIndex;
+  const step = window._cognatesStep;
+
+  const next = all.slice(start, start + step);
+  window._cognatesIndex += next.length;
+
+  const html = next.map(([word, entry]) => {
+    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
+  }).join(", ");
+
+  const list = document.getElementById("cognatesList");
+  list.innerHTML += ", " + html;
+
+  // すべて表示したら「もっと見る」を消す
+  if (window._cognatesIndex >= all.length) {
+    document.getElementById("cognatesMore").style.display = "none";
+  }
+
+  // 閉じるボタンを表示
+  document.getElementById("cognatesClose").style.display = "block";
+}
+
+function closeCognates() {
+  const all = window._cognatesAll;
+  const step = window._cognatesStep;
+
+  const initial = all.slice(0, step);
+  window._cognatesIndex = initial.length;
+
+  const html = initial.map(([word, entry]) => {
+    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
+  }).join(", ");
+
+  // リストを初期状態に戻す
+  document.getElementById("cognatesList").innerHTML = html;
+
+  // 「もっと見る」を復活（まだ残りがある場合）
+  if (all.length > step) {
+    document.getElementById("cognatesMore").style.display = "block";
+  }
+
+  // 「閉じる」を隠す
+  document.getElementById("cognatesClose").style.display = "none";
+}
+
 
 // 単語をクリックした時にURLを更新し、詳細を表示する関数
 function loadWord(word) {
@@ -82,7 +133,7 @@ function isMorphemeOrVariant(entry) {
 
 const seiiMap = {
   H: "￣",
-  M: "—",
+  M: "ー",
   L: "＿"
 };
 
@@ -532,7 +583,7 @@ function buildWordList(list) {
     const meaning = getFirstMeaning(entry);
     return `<a href="#" onclick="loadWord('${word}'); return false;">
               ${word}
-            </a>（${meaning}）`;
+            </a><span class="meaning">（ ${meaning} ）</span>`;
   }).join(", ");
 }
 
@@ -1233,7 +1284,7 @@ if (data.seii) {
           : entry.meaning || ""
       );
 
-      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（${meaning}）`;
+      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（${meaning}）</span>`;
 
     }).filter(Boolean).join(", ");
 
@@ -1251,30 +1302,47 @@ if (data.seii) {
 
 
   // 関連語の生成
-  const cognates = getCognates(data);
-  if (cognates.length) {
-    const links = cognates
-      // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
-      .filter(([word, entry]) => !safeSearch || entry.safe !== false)
-      .map(([word, entry]) => {
-        const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
-      })
-      .join(", ");
+const cognates = getCognates(data);
 
-    // リンクがある場合のみテーブルを表示（フィルタですべて消える可能性があるため）
-    if (links) {
-      detailsHTML += `
-      <table class="detailTable">
-        <tbody>
-          <tr>
-            <th>関連語かも</th>
-            <td class="linktext" colspan="3">${links}</td>
-          </tr>
-        </tbody>
-      </table>`;
-    }
-  }
+if (cognates.length) {
+  // セーフサーチ適用
+  const filtered = cognates.filter(([word, entry]) => !safeSearch || entry.safe !== false);
+
+  // --- ページネーション用に保存 ---
+  window._cognatesAll = filtered; // 全件
+  window._cognatesIndex = 0;      // 現在の表示位置
+  window._cognatesStep = itemsCognates;
+
+  // 最初の itemsCognates 件を表示
+  const initial = filtered.slice(0, itemsCognates);
+  window._cognatesIndex = initial.length;
+
+  const links = initial.map(([word, entry]) => {
+    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
+  }).join(", ");
+
+  detailsHTML += `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th>関連語かも</th>
+          <td class="linktext" colspan="3">
+            <span id="cognatesList">${links}</span>
+
+            ${
+              filtered.length > itemsCognates
+                ? `<div id="cognatesMore" class="morelink" onclick="showMoreCognates()">もっと見る</div>`
+                : ""
+            }
+            <div id="cognatesClose" class="morelink" style="display:none;" onclick="closeCognates()">閉じる</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+}
+
 
   // 同類語の生成
   const similars = getSimilarWords(data);
@@ -1284,7 +1352,7 @@ if (data.seii) {
       .filter(([word, entry]) => !safeSearch || entry.safe !== false)
       .map(([word, entry]) => {
         const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
+        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
       })
       .join(", ");
 
@@ -1480,8 +1548,7 @@ const inflectionRules = {
   名象: getConjN,
   動詞: getConjV,
   名飾: getConjA,
-  副飾: getConjA,
-  o: getConjot,
+  副飾: getConjA
 };
 
 function generateInflections(word) {
@@ -1547,7 +1614,7 @@ function buildInflectionCache() {
       d._inflArray = [];
       d._normInflArray = [];
       d._normInflText = "";
-      console.error("buildInflectionCache error for", w, err);
+      // console.error("buildInflectionCache error for", w, err);
     }
   }
 }
