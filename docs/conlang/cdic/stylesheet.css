@@ -676,9 +676,62 @@ th {
 
 
 .seii {
-  font-family: "Consolas", monospace;
-  letter-spacing: 0.12em;
+  font-family: "Consolas";
+  letter-spacing: 0.2em;
   white-space: nowrap;
-  font-size: 1.05em;
-  color: rgb(64, 121, 0);
+  font-size: 15px;
+  color: rgb(229, 181, 26);
+}
+
+/* --- 関連語のもっと見る / 閉じる 共通スタイル --- */
+.morelink {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 10px;
+  font-size: 0.9em;
+  color: #0066cc;
+  background: #f2f7ff;
+  border: 1px solid #c8ddff;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+/* ホバー時 */
+.morelink:hover {
+  background: #e6f0ff;
+  border-color: #99c2ff;
+  color: #004a99;
+}
+
+/* クリック時 */
+.morelink:active {
+  background: #d9e8ff;
+  border-color: #80b5ff;
+  color: #003d80;
+}
+
+/* 閉じるボタンだけ少し色を変える（わかりやすく） */
+#cognatesClose {
+  background: #fff4f4;
+  border-color: #ffcccc;
+  color: #cc0000;
+  margin-left: 8px;
+}
+
+#cognatesClose:hover {
+  background: #ffeaea;
+  border-color: #ffb3b3;
+  color: #a30000;
+}
+
+#cognatesClose:active {
+  background: #ffdede;
+  border-color: #ff9999;
+  color: #800000;
+}
+.meaning {
+  color: #808080;
+  font-size: 14px;
 }
