@@ -21,7 +21,7 @@ const idToWord = {}; // ID → 単語 を引くためのマッピング
 let searchResults = []; // 検索結果を保存する配列
 let currentPage = 1; // 現在のページ番号
 const itemsPerPage = 20; // 1ページに表示する単語数⁺
-const itemsCognates = 15; // テーブルに表示する単語数⁺
+const itemsCognates = 15; // 1ページに表示する単語数⁺
 
 function showMoreCognates() {
   const all = window._cognatesAll;
@@ -104,8 +104,6 @@ const partsStyles = {
   "離辞": "fukuji",
   "外詞": "kanto",
 };
-
-let linkClass = partsStyles[data.parts] || "default"; // 品詞に合わせてリンクを色分け
 
 // 意味テキストから翻訳語を抽出する関数
 // ［注釈］や（補足）を削除し、カンマで分割して配列にする
@@ -429,7 +427,7 @@ Promise.all([
       kanjiReadings = [...nui, ...chel].join(" ");
     }
 
-    // 記号除去
+    // ★ 正規表現を使わない安全な記号除去
     const symbolsToRemove = [
       "-", "‐", "‑", "–", "—", "―", "_",
       "(", ")", "［", "］", "〈", "〉", "《", "》", "「", "」",
@@ -1142,7 +1140,7 @@ if (data.seii) {
         const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
           const key = innerText.replace(/^⇒\s*/, '').trim();
           const linkWord = linkMapping[key] || key;
-          return `<h5><a href="#" onclick="loadWord('${linkWord}'); class="heading-cell ${linkClass}"; return false;">${innerText.trim()}</a></h5>`;
+          return `<h5><a href="#" onclick="loadWord('${linkWord}'); return false;">${innerText.trim()}</a></h5>`;
         });
         return `<li class="noteList">${processedNote}</li>`;
       }).join("");
@@ -1185,7 +1183,7 @@ if (data.seii) {
       const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
         const key = innerText.replace(/^⇒\s*/, '').trim();
         const linkWord = linkMapping[key] || key;
-        return `<h5><a href="#" onclick="loadWord('${linkWord}'); class="heading-cell ${linkClass}"; return false;">${innerText.trim()}</a></h5>`;
+        return `<h5><a href="#" onclick="loadWord('${linkWord}'); return false;">${innerText.trim()}</a></h5>`;
       });
       return `<li class="noteList">${processedNote}</li>`;
     }).join("");
@@ -1236,7 +1234,7 @@ if (data.seii) {
                 : entry.meaning || ""
             );
 
-            return `<a href="#" onclick="loadWord('${word}');class="${linkClass}";  return false;">${word}</a>（${meaning}）`;
+            return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（${meaning}）`;
           }
 
           // 数字が無い → 文章として扱う
@@ -1286,7 +1284,7 @@ if (data.seii) {
           : entry.meaning || ""
       );
 
-      return `<a href="#" onclick="loadWord('${word}'); class="heading-cell ${linkClass}"; return false;">${word}</a><span class="meaning">（${meaning}）</span>`;
+      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（${meaning}）</span>`;
 
     }).filter(Boolean).join(", ");
 
@@ -1321,7 +1319,7 @@ if (cognates.length) {
 
   const links = initial.map(([word, entry]) => {
     const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); class="heading-cell ${linkClass}"; return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
+    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
   }).join(", ");
 
   detailsHTML += `
@@ -1330,7 +1328,7 @@ if (cognates.length) {
         <tr>
           <th>関連語かも</th>
           <td class="linktext" colspan="3">
-            <span class="${linkClass}"; id="cognatesList">${links}</span>
+            <span id="cognatesList">${links}</span>
 
             ${
               filtered.length > itemsCognates
@@ -1354,7 +1352,7 @@ if (cognates.length) {
       .filter(([word, entry]) => !safeSearch || entry.safe !== false)
       .map(([word, entry]) => {
         const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-        return `<a href="#" onclick="loadWord('${word}'); class="heading-cell ${linkClass}"; return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
+        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
       })
       .join(", ");
 
