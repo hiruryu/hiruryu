@@ -1142,7 +1142,7 @@ if (data.seii) {
         const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
           const key = innerText.replace(/^⇒\s*/, '').trim();
           const linkWord = linkMapping[key] || key;
-          return `<h5><a href="#" onclick="loadWord('${linkWord}'); class="${linkClass}"; return false;">${innerText.trim()}</a></h5>`;
+          return `<h5><a href="#" onclick="loadWord('${linkWord}'); class="heading-cell ${linkClass}"; return false;">${innerText.trim()}</a></h5>`;
         });
         return `<li class="noteList">${processedNote}</li>`;
       }).join("");
@@ -1185,7 +1185,7 @@ if (data.seii) {
       const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
         const key = innerText.replace(/^⇒\s*/, '').trim();
         const linkWord = linkMapping[key] || key;
-        return `<h5><a href="#" onclick="loadWord('${linkWord}'); class="${linkClass}"; return false;">${innerText.trim()}</a></h5>`;
+        return `<h5><a href="#" onclick="loadWord('${linkWord}'); class="heading-cell ${linkClass}"; return false;">${innerText.trim()}</a></h5>`;
       });
       return `<li class="noteList">${processedNote}</li>`;
     }).join("");
@@ -1286,7 +1286,7 @@ if (data.seii) {
           : entry.meaning || ""
       );
 
-      return `<a href="#" onclick="loadWord('${word}'); class="${linkClass}"; return false;">${word}</a><span class="meaning">（${meaning}）</span>`;
+      return `<a href="#" onclick="loadWord('${word}'); class="heading-cell ${linkClass}"; return false;">${word}</a><span class="meaning">（${meaning}）</span>`;
 
     }).filter(Boolean).join(", ");
 
@@ -1321,7 +1321,7 @@ if (cognates.length) {
 
   const links = initial.map(([word, entry]) => {
     const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
+    return `<a href="#" onclick="loadWord('${word}'); class="heading-cell ${linkClass}"; return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
   }).join(", ");
 
   detailsHTML += `
@@ -1354,7 +1354,7 @@ if (cognates.length) {
       .filter(([word, entry]) => !safeSearch || entry.safe !== false)
       .map(([word, entry]) => {
         const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
+        return `<a href="#" onclick="loadWord('${word}'); class="heading-cell ${linkClass}"; return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
       })
       .join(", ");
 
