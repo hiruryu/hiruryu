@@ -568,7 +568,7 @@
   "lyakálva": {"id":660,"safe":true,"seii":["LHL"],"word":"lyakálva","stem":"lyak","stem2":"lyák","fix":"lyak-","type":"k 基本型","ruletype":"k","tag":["ー"],"parts":"動詞","meaning":["正す［ 能が ］［ 基を ］"],"pronunciation":["/lʲakalva/<br>[lʲəkmälvə]<br>《lyak-》"],"etymology":{"intro":["合成語。","「 161 」+「 382 」が組み合わさった語。"],"changes":[]},"kanji":{"title":"正","nui":["？"],"chel":["lyak"]},"variants2":["ただす"]},
   "lyákyus": {"id":661,"safe":true,"seii":["HL"],"word":"lyákyus","stem":"lyáky","stem2":"lyaky","fix":"lyaky-","tag":["ー"],"parts":"名飾","type":"k 明音型","ruletype":"ky","meaning":["正しい"],"pronunciation":["/lʲakʲus/<br>[lʲäkʲʊs]<br>《lyaky-》"],"etymology":{"intro":["合成語。","「 660 」+「 143 」が組み合わさった語。"],"changes":[]},"variants2":["ただしい"]},
   "fmóshka": {"id":662,"safe":true,"seii":["HL"],"word":"fmóshka","stem":"fmóshk","stem2":"fmuishk","fix":"fmuishk-","tag":["家具"],"parts":"名象","type":"k 基本型","ruletype":"k","meaning":["椅子","チェス","座椅子"],"pronunciation":["/fmoʂka/<br>[fmɔʂkə]<br>《fmoška-》"],"etymology":{"intro":["合成語。","「 621 」+「 99 」が組み合わさった語。"],"changes":[]},"variants2":["いす","ざいす"]},
-  
+  "práma": {"id":663,"safe":true,"seii":["HL"],"word":"práma","stem":"prám","stem2":"pram","fix":"prama-","type":"m 基本型","ruletype":"m","tag":["ー"],"parts":"名象","meaning":["全員","みんな","皆"],"pronunciation":["/prama/<br>[pɾämə]<br>《prama-》"],"etymology":{"intro":["合成語。","「 474 」+「 371 」が組み合わさった語。"],"changes":[]},"variants2":["ぜんいん","皆んな"]},
 
 
 
