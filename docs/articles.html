@@ -105,19 +105,27 @@
             return 0;
           });
         }
-
+        
         ul.innerHTML = '';
         articles.forEach(article => {
-          let formattedTime = "";
-          if (article.publishedTime) {
-            const dateObj = new Date(article.publishedTime);
-            formattedTime = dateObj.toLocaleString('ja-JP', { dateStyle: 'medium', timeStyle: 'short' });
-          }
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${article.href}" style="font-size:20px; line-height:2;">${article.title}</a>` +
-                         (formattedTime ? `<span style="font-size:14px; color:gray;"> (${formattedTime})</span>` : '');
-          ul.appendChild(li);
-        });
+  let formattedTime = "";
+  if (article.publishedTime) {
+    const dateObj = new Date(article.publishedTime);
+    formattedTime = dateObj.toLocaleString('ja-JP', {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    });
+  }
+
+  const li = document.createElement('li');
+  li.innerHTML = `
+    <a href="${article.href}" style="font-size:20px; line-height: 2;">
+      ${article.title}
+    </a>
+    ${formattedTime ? `<span style="font-size:14px; color:gray;"> (${formattedTime})</span>` : ""}
+  `;
+  ul.appendChild(li);
+});
       }
 
       document.addEventListener('DOMContentLoaded', loadList);
