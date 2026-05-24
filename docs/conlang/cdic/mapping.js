@@ -20,8 +20,9 @@ let etymDictionary = {}; // 語源専用
 const idToWord = {}; // ID → 単語 を引くためのマッピング
 let searchResults = []; // 検索結果を保存する配列
 let currentPage = 1; // 現在のページ番号
-const itemsPerPage = 20; // 1ページに表示する単語数⁺
-const itemsCognates = 15; // 1ページに表示する単語数⁺
+const itemsPerPage = 12; // 1ページに表示する単語数⁺
+const itemsCognates = 20; // 1ページに表示する単語数⁺
+
 
 function showMoreCognates() {
   const all = window._cognatesAll;
@@ -29,22 +30,23 @@ function showMoreCognates() {
   const step = window._cognatesStep;
 
   const next = all.slice(start, start + step);
+
   window._cognatesIndex += next.length;
 
   const html = next.map(([word, entry]) => {
-    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
-  }).join(", ");
+    return createWordLink(word, entry);
+  }).join("，");
 
   const list = document.getElementById("cognatesList");
+
   list.innerHTML += ", " + html;
 
-  // すべて表示したら「もっと見る」を消す
+  // 全表示したら
   if (window._cognatesIndex >= all.length) {
     document.getElementById("cognatesMore").style.display = "none";
   }
 
-  // 閉じるボタンを表示
+  // 閉じる表示
   document.getElementById("cognatesClose").style.display = "block";
 }
 
@@ -56,8 +58,7 @@ function closeCognates() {
   window._cognatesIndex = initial.length;
 
   const html = initial.map(([word, entry]) => {
-    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
+    return createWordLink(word, entry);
   }).join(", ");
 
   // リストを初期状態に戻す
@@ -65,11 +66,64 @@ function closeCognates() {
 
   // 「もっと見る」を復活（まだ残りがある場合）
   if (all.length > step) {
-    document.getElementById("cognatesMore").style.display = "block";
+    document.getElementById("cognatesMore").style.display = "";
   }
 
   // 「閉じる」を隠す
   document.getElementById("cognatesClose").style.display = "none";
+}
+
+
+function showMoreSimilars() {
+  const start = window._similarsIndex;
+  const end = start + window._similarsStep;
+
+  const next = window._similarsAll.slice(start, end);
+
+  const html = next.map(([word, entry]) => {
+    return createWordLink(word, entry);
+  }).join(", ");
+
+  const list = document.getElementById("similarsList");
+
+  if (list && html) {
+    list.innerHTML += ", " + html;
+  }
+  window._similarsIndex = end;
+
+  // 全表示したら
+  if (window._similarsIndex >= window._similarsAll.length) {
+
+    const more = document.getElementById("similarsMore");
+    const close = document.getElementById("similarsClose");
+
+    if (more) more.style.display = "none";
+    if (close) close.style.display = "block";
+  }
+}
+
+function closeSimilars() {
+  const all = window._similarsAll;
+  const step = window._similarsStep;
+
+  const initial = all.slice(0, step);
+
+  window._similarsIndex = initial.length;
+
+  const html = initial.map(([word, entry]) => {
+    return createWordLink(word, entry);
+  }).join(", ");
+
+  // 同類語リストを戻す
+  document.getElementById("similarsList").innerHTML = html;
+
+  // もっと見る復活
+  if (all.length > step) {
+    document.getElementById("similarsMore").style.display = "";
+  }
+
+  // 閉じるを隠す
+  document.getElementById("similarsClose").style.display = "none";
 }
 
 
@@ -214,7 +268,16 @@ function resolveEtymologyText(text) {
     let meaning = entry.meaning?.[0] ?? "";
     meaning = removeAnnotations(meaning);
 
-    return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
+    const part = Array.isArray(entry.part)
+  ? entry.parts[0]
+  : entry.parts ?? "";
+
+const partClass = partsStyles[part] ?? "";
+
+return `<a href="#"
+onclick="loadWord('${word}'); return false;"
+class="etymology-link ${partClass}">
+${word}</a>（ ${meaning} ）`;
   });
 
   // ③ 他辞書リンクを戻す
@@ -225,6 +288,28 @@ function resolveEtymologyText(text) {
   return text;
 }
 
+function createWordLink(word, entry) {
+  const meaning = removeAnnotations(
+    Array.isArray(entry.meaning)
+      ? entry.meaning[0]
+      : entry.meaning || ""
+  );
+
+  const part = Array.isArray(entry.part)
+    ? entry.parts[0]
+    : entry.parts ?? "";
+
+  const partClass = partsStyles[part] ?? "";
+
+  return `
+    <a href="#"
+       onclick="loadWord('${word}'); return false;"
+       class="etymology-link ${partClass}">
+       ${word}
+    </a>
+    <span class="meaning">（ ${meaning} ）</span>
+  `;
+}
 
 // Markdown を HTML に変換して表示する関数
 function renderMarkdown(md) {
@@ -642,9 +727,14 @@ function getCognates(data) {
 function getSimilarWords(data) {
   // 1. 自分のタグを配列に標準化。かつ「ー」や空文字を除外
   const normalize = (t) => {
-    if (!t || t === "ー", "-") return [];
-    return Array.isArray(t) ? t.filter(v => v !== "ー") : [t];
-  };
+  if (!t) return [];
+
+  // 配列化
+  const arr = Array.isArray(t) ? t : [t];
+
+  // 無効タグ除外
+  return arr.filter(v => v && v !== "ー" && v !== "-");
+};
 
   const myTags = normalize(data.tag);
 
@@ -715,7 +805,7 @@ function showDetails(word) {
         { label: "包括形", prefix: "in_" }
       ];
       // 数や形などの列だよ！
-      const columns = ["ansC", "anpC", "adsC", "adpC"];
+      const columns = ["ansC", "anpC"];
 
       // HTMLテーブルを生成するよ！
       tableHTML = rows.map((row, i) => {
@@ -743,10 +833,22 @@ function showDetails(word) {
         data.long_stem,
         data.stem2,
         data.type,
-        data.ruletype
+        data.ruletype,
+        data.baseOverrides
       ) || {};
     }
+// overrideを適用
+if (data.overrides) {
+  for (const key in data.overrides) {
+    const val = data.overrides[key];
 
+    if (val === null) {
+      delete conjugations[key];
+    } else {
+      conjugations[key] = val;
+    }
+  }
+}
     if (Object.keys(conjugations).length === 0) {
       tableHTML = `<tr><td colspan="4">この語には活用データがありません。</td></tr>`;
     } else {
@@ -787,31 +889,48 @@ function showDetails(word) {
     // 名飾詞の場合
   } else if (data.parts === "名飾") {
     const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
-    raw = getConjA(w, stem, long_stem, stem2, type, ruletype) || {};
+    raw = getConjA(w, stem, long_stem, stem2, type, ruletype, data.baseOverrides) || {};
+
+        if (data.overrides) {
+      for (const key in data.overrides) {
+        const val = data.overrides[key];
+
+        if (val === null) {
+          delete raw[key]; // 削除
+        } else {
+          raw[key] = val;  // 上書き
+        }
+      }
+    }
+    
     conjugations = raw;
     // 活用が無い場合はメッセージを出すよ
     if (Object.keys(conjugations).length === 0) {
-      tableHTML = `<tr><td colspan="7">この動詞は活用型がありません。</td></tr>`;
+      tableHTML = `<tr><td colspan="7">この名飾詞は活用型がありません。</td></tr>`;
     } else {
       const rows = [
-        { label: "基格一致", keys: ["s", "s2", "s3"] },
-        { label: "獣/能格一致", keys: ["fs", "fs2", "fs3"] },
-        { label: "与/呼格一致", keys: ["ds", "ds2", "ds3"] },
-        { label: "奪/具格一致", keys: ["es", "es2", "es3"] },
-        { label: "処格一致", keys: ["ads", "ads2", "ads3"] },
-        { label: "叙述形", keys: ["h", "h2", "h3"] }
+        { label: "基格一致", prefix: "" },
+        { label: "獣/能格一致", prefix: "f_" },
+        { label: "与/呼格一致", prefix: "d_" },
+        { label: "奪/具格一致", prefix: "e_" },
+        { label: "処格一致", prefix: "ad_" },
+        { label: "叙述形", prefix: "h_" }
       ];
+       // 数や形などの列だよ！
+      const columns = ["s", "s2", "s3", "p", "p2", "p3"];
+
       // HTMLテーブルを生成するよ！
       tableHTML = rows.map((row, i) => {
-        const cells = row.keys
-          .map(key => `<td class="con">${conjugations[key] || ""}</td>`)
-          .join("");
-        return `<tr class="con${i + 1}">
-                <td class="conname">${row.label}</td>
-                ${cells}
-              </tr>`;
-      }).join("");
+        const cells = columns.map(col => {
+          const key = row.prefix + col;
+          let value = conjugations[key] ?? " — ";
+          return `<td class="con">${value}</td>`;
+        }).join("");
+
+        return `<tr class="con${i + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
+      }).join("\n");
     }
+
     // 活用が無い場合
     if (Object.keys(conjugations).length === 0) {
       tableHTML = `<tr><td colspan="6">この動詞は活用型がありません。</td></tr>`;
@@ -1221,7 +1340,7 @@ if (data.seii) {
       if (hasA2) {
         a2Links = alertData.a2.map(raw => {
 
-          // ★ 数字を含む → ID として扱う
+          // 数字を含む → ID として扱う
           const id = String(raw).replace(/[^\d]/g, "");
           if (id && idToWord[id]) {
             const word = idToWord[id];
@@ -1234,7 +1353,7 @@ if (data.seii) {
                 : entry.meaning || ""
             );
 
-            return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（${meaning}）`;
+            return `<span class="marker">${createWordLink(word, entry)}</span>`;
           }
 
           // 数字が無い → 文章として扱う
@@ -1248,7 +1367,7 @@ if (data.seii) {
         <table class="detailTable">
           <tbody>
             <tr>
-              <th id="stripeth">注意</th>
+              <th id="stripeth">⚠ 注意</th>
               <td colspan="3">
                 ${a1Text} <br><br>
                 ${a2Links ? " " + a2Links : ""}
@@ -1275,18 +1394,12 @@ if (data.seii) {
   // 類義語の生成
   if (data.variants1 && data.variants1.length) {
     const links = data.variants1.map(id => {
-      const word = idToWord[String(id)];
-      if (!word || !dictionary[word]) return "";
-      const entry = dictionary[word];
-      const meaning = removeAnnotations(
-        Array.isArray(entry.meaning)
-          ? entry.meaning[0]
-          : entry.meaning || ""
-      );
+  const word = idToWord[String(id)];
+  if (!word || !dictionary[word]) return "";
 
-      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（${meaning}）</span>`;
+  return createWordLink(word, dictionary[word]);
 
-    }).filter(Boolean).join(", ");
+}).filter(Boolean).join(", ");
 
     // テーブル追加
     detailsHTML += `
@@ -1318,9 +1431,8 @@ if (cognates.length) {
   window._cognatesIndex = initial.length;
 
   const links = initial.map(([word, entry]) => {
-    const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
-  }).join(", ");
+  return createWordLink(word, entry);
+}).join(", ");
 
   detailsHTML += `
     <table class="detailTable">
@@ -1344,30 +1456,57 @@ if (cognates.length) {
 }
 
 
-  // 同類語の生成
-  const similars = getSimilarWords(data);
-  if (similars.length) {
-    const links = similars
-      // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
-      .filter(([word, entry]) => !safeSearch || entry.safe !== false)
-      .map(([word, entry]) => {
-        const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="meaning">（ ${meaning} ）</span>`;
-      })
-      .join(", ");
+ const similars = getSimilarWords(data)
+  .filter(([word, entry]) => !safeSearch || entry.safe !== false);
 
-    if (links) {
-      detailsHTML += `
-      <table class="detailTable">
-        <tbody>
-          <tr>
-            <th>同類語</th>
-            <td class="linktext" colspan="3">${links}</td>
-          </tr>
-        </tbody>
-      </table>`;
-    }
-  }
+if (similars.length) {
+
+  // --- ページネーション保存 ---
+  window._similarsAll = similars;
+  window._similarsIndex = 0;
+  window._similarsStep = itemsCognates;
+
+  // 初期表示
+  const initial = similars.slice(0, itemsCognates);
+  window._similarsIndex = initial.length;
+
+  const links = initial.map(([word, entry]) => {
+    return createWordLink(word, entry);
+  }).join(", ");
+
+  detailsHTML += `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th>同類語</th>
+
+          <td class="linktext" colspan="3">
+
+            <span id="similarsList">${links}</span>
+
+            ${
+              similars.length > itemsCognates
+                ? `<div id="similarsMore"
+                        class="morelink"
+                        onclick="showMoreSimilars()">
+                    もっと見る
+                   </div>`
+                : ""
+            }
+
+            <div id="similarsClose"
+                 class="morelink"
+                 style="display:none;"
+                 onclick="closeSimilars()">
+              閉じる
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+}
 
   // 屈折表表示
   // generateInflections() で生成された内容を表示するよ！
@@ -1381,12 +1520,8 @@ if (cognates.length) {
               </tr>
               <tr class="conH2">
                 <th rowspan="2"></th>
-                <th colspan="2">非限定形</th>
-                <th colspan="2">限定形</th>
               </tr>
               <tr class="conH2">
-                <th>単数</th>
-                <th>複数</th>
                 <th>単数</th>
                 <th>複数</th>
               </tr>
@@ -1423,7 +1558,15 @@ if (cognates.length) {
                 <th colspan="7">屈折表</th>
               </tr>
               <tr class="conH2">
+              <th></th>
+                <th colspan="3">単数一致</th>
+                <th colspan="3">複数一致</th>
+              </tr>
+              <tr class="conH2">
                 <th rowspan="2"></th>
+                <th colspan="1">原級</th>
+                <th colspan="1">比較級</th>
+                <th colspan="1">最上級</th>
                 <th colspan="1">原級</th>
                 <th colspan="1">比較級</th>
                 <th colspan="1">最上級</th>
@@ -1433,7 +1576,6 @@ if (cognates.length) {
               ${tableHTML}
             </tbody>
           </table>`;
-
       // その他品詞
     } else {
       detailsHTML += `<table>
