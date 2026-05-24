@@ -1,156 +1,66 @@
 // スマートな形容詞屈折形生成
-function getConjA(_word, stem, _long_stem, stem2, _type, ruletype) {
+function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides) {
   if (ruletype === "no") {
       return {};
-            // p 基本形
-         } else if (ruletype === "p") {      
-        return {
-          s: stem2 + "e", s2: stem.slice(0, -1) + "fálla", s3: stem.slice(0, -1) + "fónna",
-          fs: stem2.slice(0, -1) + "fave", fs2: stem.slice(0, -1) + "faválla", fs3: stem.slice(0, -1) + "favónna",
-          es: stem2.slice(0, -1) + "feze", es2: stem.slice(0, -1) + "fyizálla", es3: stem.slice(0, -1) + "fyizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2.slice(0, -1) + "fame", ads2: stem.slice(0, -1) + "famálla", ads3: stem.slice(0, -1) + "famónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // b 基本形
-        } else if (ruletype === "b") {      
-        return {
-          s: stem2 + "e", s2: stem.slice(0, -1) + "válla", s3: stem.slice(0, -1) + "vónna",
-          fs: stem2.slice(0, -1) + "vave", fs2: stem.slice(0, -1) + "vaválla", fs3: stem.slice(0, -1) + "vavónna",
-          es: stem2.slice(0, -1) + "veze", es2: stem.slice(0, -1) + "vyizálla", es3: stem.slice(0, -1) + "vyizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2.slice(0, -1) + "vame", ads2: stem.slice(0, -1) + "vamálla", ads3: stem.slice(0, -1) + "vamónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // t 基本形
-         } else if (ruletype === "t") {      
-        return {
-          s: stem2 + "e", s2: stem.slice(0, -1) + "cálla", s3: stem.slice(0, -1) + "cónna",
-          fs: stem2.slice(0, -1) + "cave", fs2: stem.slice(0, -1) + "caválla", fs3: stem.slice(0, -1) + "cavónna",
-          es: stem2.slice(0, -1) + "ceze", es2: stem.slice(0, -1) + "cyizálla", es3: stem.slice(0, -1) + "cyizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2.slice(0, -1) + "came", ads2: stem.slice(0, -1) + "camálla", ads3: stem.slice(0, -1) + "camónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // d 基本形
-        } else if (ruletype === "d") {      
-        return {
-          s: stem2 + "e", s2: stem.slice(0, -1) + "xálla", s3: stem.slice(0, -1) + "xónna",
-          fs: stem2.slice(0, -1) + "xave", fs2: stem.slice(0, -1) + "xaválla", fs3: stem.slice(0, -1) + "xavónna",
-          es: stem2.slice(0, -1) + "xeze", es2: stem.slice(0, -1) + "xyizálla", es3: stem.slice(0, -1) + "xyizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2.slice(0, -1) + "xame", ads2: stem.slice(0, -1) + "xamálla", ads3: stem.slice(0, -1) + "xamónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // k 基本形
-        } else if (ruletype === "k") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2 + "ame", ads2: stem + "amálla", ads3: stem + "amónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // g 基本形
-      } else if (ruletype === "g") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2 + "ame", ads2: stem + "amálla", ads3: stem + "amónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // f / v / s / z / sh / zh / x / xh 基本形
-         } else if (ruletype === "f") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "ye", ds2: stem + "yálla", ds3: stem + "yónna",
-          ads: stem2 + "me", ads2: stem + "málla", ads3: stem + "mónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-         // f / v / s / z / sh / zh / x / xh 重子音形
-         } else if (ruletype === "sf") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "ye", ds2: stem + "yálla", ds3: stem + "yónna",
-          ads: stem2 + "áme", ads2: stem + "amálla", ads3: stem + "amónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // c 基本形
-        } else if (ruletype === "c") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "ye", ds2: stem + "yálla", ds3: stem + "yónna",
-          ads: stem2 + "me", ads2: stem + "málla", ads3: stem + "mónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // ch 基本形
-        } else if (ruletype === "ch") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2 + "ame", ads2: stem + "amálla", ads3: stem + "amónna",
-          h: stem2 + "ruis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // m 基本形
-      } else if (ruletype === "m") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2 + "ame", ads2: stem + "amálla", ads3: stem + "amónna",
-          h: stem2 + "uis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // n 基本形
-         } else if (ruletype === "n") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2 + "ame", ads2: stem + "amálla", ads3: stem + "amónna",
-          h: stem2 + "uis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // q 基本形
-      } else if (ruletype === "q") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2 + "ame", ads2: stem + "amálla", ads3: stem + "amónna",
-          h: stem2 + "uis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
-        // r / l 基本形
-      } else if (ruletype === "r") {      
-        return {
-          s: stem2 + "e", s2: stem + "álla", s3: stem + "ónna",
-          fs: stem2 + "ave", fs2: stem + "aválla", fs3: stem + "avónna",
-          es: stem2 + "eze", es2: stem + "yizálla", es3: stem + "yizónna",
-          ds: stem2 + "uiye", ds2: stem + "uiyálla", ds3: stem + "uiyónna",
-          ads: stem2 + "ame", ads2: stem + "amálla", ads3: stem + "amónna",
-          h: stem2 + "uis", h2: stem + "álluis", h3: stem + "amónuis",
-        }
 // ry / ly 基本形
-      } else if (ruletype === "ly") {      
+      } else if (ruletype === "ly") {  
+        let s = stem + "";         
+        let s2 = stem2 + "la";
+        let s3 = stem2 + "na"; 
+        let p = stem2 + "rå";         
+        let p2 = stem2 + "rva";
+        let p3 = stem2 + "rma"; 
+        if (baseOverrides) {
+            if (baseOverrides.s != null) s = baseOverrides.s;
+            if (baseOverrides.s2 != null) s2 = baseOverrides.s2;
+            if (baseOverrides.s3 != null) s3 = baseOverrides.s3;
+            if (baseOverrides.p != null) p = baseOverrides.p;
+            if (baseOverrides.p2 != null) p2 = baseOverrides.p2;
+            if (baseOverrides.p3 != null) p3 = baseOverrides.p3;
+        }    
         return {
-          s: stem + "i", s2: stem2 + "álla", s3: stem2 + "ónna",
-          fs: stem2.slice(0,-4) + "éifie", fs2: stem + "ůifie", fs3: stem2 + "fiéna",
-          es: stem + "is", es2: stem + "ůis", es3: stem2 + "ós",
-          ds: stem + "ůi", ds2: stem + "ůi", ds3: stem.slice(0,-4) + "éinůi",
-          ads: stem2.slice(0,-4) + "éimi", ads2: stem + "ůimy", ads3: stem + "móna",
-          h: stem + "us", h2: stem2 + "álluis", h3: stem2 + "amónuis",
-        }
+          // 単数一致-原級
+          s: s + "e",
+          f_s: stem2 + "fy",
+          d_s: s + "is",
+          e_s: s + "ůi",
+          ad_s: stem2 + "my",
+          h_s: s + "us",
+          // 単数一致-比較級
+          s2: s2,
+          f_s2: s2 + "fy",
+          d_s2: s2.slice(0, -1) + "es",
+          e_s2: s2.slice(0, -1) + "ůi",
+          ad_s2: s2 + "my",
+          h_s2: s2.slice(0, -1) + "os",
+          // 単数一致-最上級
+          s3: s3,
+          f_s3: s3 + "fy",
+          d_s3: s3.slice(0, -1) + "es",
+          e_s3: s3.slice(0, -1) + "ůi",
+          ad_s3: s3 + "my",
+          h_s3: s3.slice(0, -1) + "os",
+          // 単数一致-原級
+          p: p,
+          f_p: p + "fy",
+          d_p: p.slice(0, -1) + "es",
+          e_p: p.slice(0, -1) + "ůi",
+          ad_p: p + "my",
+          h_p: p.slice(0, -1) + "os",
+          // 単数一致-比較級
+          p2: p2,
+          f_p2: p2 + "fy",
+          d_p2: p2.slice(0, -1) + "es",
+          e_p2: p2.slice(0, -1) + "ůi",
+          ad_p2: p2 + "my",
+          h_p2: p2.slice(0, -1) + "os",
+          // 単数一致-最上級
+          p3: p3,
+          f_p3: p3 + "fy",
+          d_p3: p3.slice(0, -1) + "es",
+          e_p3: p3.slice(0, -1) + "ůi",
+          ad_p3: p3 + "my",
+          h_p3: p3.slice(0, -1) + "os",
+        }    
       }
 }
