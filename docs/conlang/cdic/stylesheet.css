@@ -616,8 +616,6 @@ th {
   }
 }
 
-
-
 .extraMeaning {
   display: none;
 }
@@ -734,4 +732,9 @@ th {
 .meaning {
   color: #808080;
   font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
