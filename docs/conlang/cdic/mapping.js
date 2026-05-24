@@ -1068,76 +1068,70 @@ if (data.seii) {
     return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1">$1</a>');
   }
 
+  // 数字を検出して、指定のIDリンクに変換する関数
+// テキスト内の「1行以上の連続した数字」をキャプチャしてリンクにするよ！
+const convertNumbersToLinks = (text) => {
+  if (!text) return '';
+  // 単純に数字だけの部分、または「id:106」のような形式に対応できるようにするよ
+  // ここでは数字（\d+）を見つけたら、<a href="#id-数字">数字</a> に置換しているよ
+  return String(text).replace(/\b(\d+)\b/g, '<a href="#id-$1" class="id-link">$1</a>');
+};
+  
   // 語源表示処理
-  if (data.etymology) {
+if (data.etymology) {
+  // HTML内の余計な改行や<p>を除去する関数
+  const safeInline = s => String(s || '').trim().replace(/\s*\n+\s*/g, ' ').replace(/<\/?p[^>]*>/g, '');
+
+  // 語源表示の最終構築
+  if (data.etymology && (data.etymology.intro || (data.etymology.changes && data.etymology.changes.length > 0))) {
     let introHTML = "";
-    // 語源説明
+    
+    // intro がある場合
     if (data.etymology.intro) {
       if (Array.isArray(data.etymology.intro)) {
-        // リスト形式
-        introHTML = `<ul class="e-list">` +
-          data.etymology.intro.map(item => `<li>${processH5Links(item)}</li>`).join('') +
-          `</ul>`;
-      } else {
-        // 単文の場合
-        introHTML = `<p class="etymology-intro">${processH5Links(data.etymology.intro)}</p>`;
-      }
-    }
-
-    // 音変化表
-    let changesTable = "";
-    if (data.etymology.changes && data.etymology.changes.length > 0) {
-      changesTable = `<table class="inner-table"><tbody>`;
-      changesTable += data.etymology.changes.map(change => {
-        const note = change.note ? " " + processH5Links(change.note) : "";
-        return `<tr><td>${processH5Links(change.form)}<span class="marker-span">${note}</span></td></tr>`;
-      }).join("");
-      changesTable += `</tbody></table>`;
-    }
-
-    // HTML内の余計な改行や<p>を除去する関数
-    const safeInline = s => String(s || '').trim().replace(/\s*\n+\s*/g, ' ').replace(/<\/?p[^>]*>/g, '');
-
-    // 語源表示の最終構築
-    if (data.etymology && (data.etymology.intro || (data.etymology.changes && data.etymology.changes.length > 0))) {
-      let introHTML = "";
-      // intro がある場合
-      if (data.etymology.intro) {
-        // 配列ならリストとして表示
-        if (Array.isArray(data.etymology.intro)) {
-          introHTML = '<ul class="e-list">' +
-            data.etymology.intro.map(item => {
-              const resolved = resolveEtymologyText(item);
-              const processed = processH5Links ? processH5Links(resolved) : resolved;
-              return `<li>${safeInline(processed)}</li>`;
-            }).join('') +
-            '</ul>';
-        } else {
-          // 文字列なら段落として表示
-          introHTML = `<p class="etymology-intro">${safeInline(processH5Links ? processH5Links(data.etymology.intro) : data.etymology.intro)}</p>`;
-        }
-      }
-
-      let changesTable = "";
-      // 語形変化の履歴がある場合
-      if (data.etymology.changes && data.etymology.changes.length > 0) {
-        changesTable = '<table class="inner-table"><tbody>' +
-          // 各変化を1行ずつ作成
-          data.etymology.changes.map(change => {
-            // 語形
-            const formHtml = `<span class="change-form">${safeInline(renderMarkdown ? renderMarkdown(change.form) : (processH5Links ? processH5Links(change.form) : change.form))}</span>`;
-            // 注釈
-            const noteRaw = change.note ? (renderMarkdown ? renderMarkdown(change.note) : (processH5Links ? processH5Links(change.note) : change.note)) : '';
-            const noteHtml = noteRaw ? `<span class="change-note">${safeInline(noteRaw)}</span>` : '';
-            return `<tr class="change-row"><td>${formHtml}${noteHtml}</td></tr>`;
+        introHTML = '<ul class="e-list">' +
+          data.etymology.intro.map(item => {
+            const resolved = resolveEtymologyText(item);
+            let processed = processH5Links ? processH5Links(resolved) : resolved;
+            // ★ここで数字をリンクに変換するよ！
+            processed = convertNumbersToLinks(processed);
+            return `<li>${safeInline(processed)}</li>`;
           }).join('') +
-          '</tbody></table>';
+          '</ul>';
+      } else {
+        let processed = processH5Links ? processH5Links(data.etymology.intro) : data.etymology.intro;
+        // ★ここでも数字をリンクに変換！
+        processed = convertNumbersToLinks(processed);
+        introHTML = `<p class="etymology-intro">${safeInline(processed)}</p>`;
       }
-
-      // 語源を下部テーブルに追加
-      bottomRows.push(`<tr><th>語源</th><td colspan="3">${introHTML}${changesTable}</td></tr>`);
     }
+
+    let changesTable = "";
+    // 語形変化の履歴がある場合
+    if (data.etymology.changes && data.etymology.changes.length > 0) {
+      changesTable = '<table class="inner-table"><tbody>' +
+        data.etymology.changes.map(change => {
+          // 語形
+          let formRaw = renderMarkdown ? renderMarkdown(change.form) : (processH5Links ? processH5Links(change.form) : change.form);
+          // ★語形に数字が入る場合を想定してリンク化！
+          formRaw = convertNumbersToLinks(formRaw);
+          const formHtml = `<span class="change-form">${safeInline(formRaw)}</span>`;
+          
+          // 注釈
+          let noteRaw = change.note ? (renderMarkdown ? renderMarkdown(change.note) : (processH5Links ? processH5Links(change.note) : change.note)) : '';
+          // ★注釈に「〇〇番を参照」などと数字が入ったときのためにリンク化！
+          noteRaw = convertNumbersToLinks(noteRaw);
+          const noteHtml = noteRaw ? `<span class="change-note">${safeInline(noteRaw)}</span>` : '';
+          
+          return `<tr class="change-row"><td>${formHtml}${noteHtml}</td></tr>`;
+        }).join('') +
+        '</tbody></table>';
+    }
+
+    // 語源を下部テーブルに追加
+    bottomRows.push(`<tr><th>語源</th><td colspan="3">${introHTML}${changesTable}</td></tr>`);
   }
+}
 
   // 見出しクラス決定（品詞による色分け）
   let headerClass = partsStyles[data.parts] || "default";
