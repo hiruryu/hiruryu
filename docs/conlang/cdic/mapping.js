@@ -906,7 +906,7 @@ if (data.overrides) {
     conjugations = raw;
     // 活用が無い場合はメッセージを出すよ
     if (Object.keys(conjugations).length === 0) {
-      tableHTML = `<tr><td colspan="7">この名飾詞は活用型がありません。</td></tr>`;
+      tableHTML = `<tr><td colspan="7">この名飾詞には活用型がありません。</td></tr>`;
     } else {
       const rows = [
         { label: "基格一致", prefix: "" },
@@ -933,7 +933,7 @@ if (data.overrides) {
 
     // 活用が無い場合
     if (Object.keys(conjugations).length === 0) {
-      tableHTML = `<tr><td colspan="6">この動詞は活用型がありません。</td></tr>`;
+      tableHTML = `<tr><td colspan="6">この名飾詞には活用型がありません。</td></tr>`;
     }
   }
 
