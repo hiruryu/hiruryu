@@ -288,6 +288,15 @@ ${word}</a>（ ${meaning} ）`;
   return text;
 }
 
+  // 数字を検出して、指定のIDリンクに変換する関数
+// テキスト内の「1行以上の連続した数字」をキャプチャしてリンクにするよ！
+const convertNumbersToLinks = (text) => {
+  if (!text) return '';
+  // 単純に数字だけの部分、または「id:106」のような形式に対応できるようにするよ
+  // ここでは数字（\d+）を見つけたら、<a href="#id-数字">数字</a> に置換しているよ
+  return String(text).replace(/\b(\d+)\b/g, '<a href="#id-$1" class="id-link">$1</a>');
+};
+
 function createWordLink(word, entry) {
   const meaning = removeAnnotations(
     Array.isArray(entry.meaning)
@@ -1068,14 +1077,6 @@ if (data.seii) {
     return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1">$1</a>');
   }
 
-  // 数字を検出して、指定のIDリンクに変換する関数
-// テキスト内の「1行以上の連続した数字」をキャプチャしてリンクにするよ！
-const convertNumbersToLinks = (text) => {
-  if (!text) return '';
-  // 単純に数字だけの部分、または「id:106」のような形式に対応できるようにするよ
-  // ここでは数字（\d+）を見つけたら、<a href="#id-数字">数字</a> に置換しているよ
-  return String(text).replace(/\b(\d+)\b/g, '<a href="#id-$1" class="id-link">$1</a>');
-};
   
   // 語源表示処理
 if (data.etymology) {
