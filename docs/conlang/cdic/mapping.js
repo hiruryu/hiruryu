@@ -1048,9 +1048,14 @@ if (data.seii) {
   }
 
   // 語義説明
-  if (data.explanation) {
-    leftRows.push(`<tr><th>語義</th><td>${data.explanation || ""}</td></tr>`);;
-  }
+if (data.explanation && data.explanation.length > 0) {
+  // 各要素を <li> で囲む
+  const listItems = data.explanation.map(text => `<li>${text}</li>`).join('');
+  // 全体を独自のクラスをつけた <ol> で囲む
+  const explanationHtml = `<ol class="circle-list">${listItems}</ol>`;
+
+  leftRows.push(`<tr><th>語義</th><td>${explanationHtml}</td></tr>`);
+}
 
   // 意味列の rowspan の計算
   const rowspanCount = leftRows.length;
