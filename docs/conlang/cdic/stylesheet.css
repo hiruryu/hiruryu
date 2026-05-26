@@ -734,11 +734,12 @@ th {
   font-size: 14px;
 }
 
-/* 箇条書きの数字を丸数字（①②③...）にする設定 */
-ol.circle-list {
-  list-style-type: circled-decimal;
-  padding-left: 20px;
-  margin: 0;
+.explanation-content {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4a4a4a;
+  padding: 12px 8px;
+  text-align: left;
 }
 
 a {
