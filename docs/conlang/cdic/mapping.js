@@ -1074,7 +1074,7 @@ if (data.explanation && data.explanation.length > 0) {
     })
     .join('<br>'); // 各項目を改行で繋ぐ
 
-  bottomRows.push(`<tr><th>語義</th><td>${explanationHtml}</td></tr>`);
+  bottomRows.push(`<tr><th>語義</th><td colspan="3">${explanationHtml}</td></tr>`);
 }
 
   // 語源表示処理
