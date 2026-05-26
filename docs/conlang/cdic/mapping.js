@@ -1047,20 +1047,6 @@ if (data.seii) {
     leftRows.push(`<tr><th>屈折型</th><td>${data.type || ""}</td></tr>`);;
   }
 
-// 語義説明
-if (data.explanation && data.explanation.length > 0) {
-  // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
-  const explanationHtml = data.explanation
-    .map((text, index) => {
-      // 1つ目は ① (Unicode: 2460), 2つ目は ② (Unicode: 2461) ... と動的に丸数字を生成
-      const circleNumber = String.fromCharCode(0x2460 + index);
-      return `${circleNumber} ${text}`;
-    })
-    .join('<br>'); // 各項目を改行で繋ぐ
-
-  leftRows.push(`<tr><th>語義</th><td>${explanationHtml}</td></tr>`);
-}
-
   // 意味列の rowspan の計算
   const rowspanCount = leftRows.length;
   // 最初の行に意味列を追加
@@ -1076,6 +1062,20 @@ if (data.explanation && data.explanation.length > 0) {
     }
     return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1">$1</a>');
   }
+
+  // 語義説明
+if (data.explanation && data.explanation.length > 0) {
+  // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
+  const explanationHtml = data.explanation
+    .map((text, index) => {
+      // 1つ目は ① (Unicode: 2460), 2つ目は ② (Unicode: 2461) ... と動的に丸数字を生成
+      const circleNumber = String.fromCharCode(0x2460 + index);
+      return `${circleNumber} ${text}`;
+    })
+    .join('<br>'); // 各項目を改行で繋ぐ
+
+  bottomRows.push(`<tr><th>語義</th><td>${explanationHtml}</td></tr>`);
+}
 
   // 語源表示処理
   if (data.etymology) {
