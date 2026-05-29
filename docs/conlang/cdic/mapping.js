@@ -250,7 +250,7 @@ function resolveEtymologyText(text) {
     const placeholder = `__LINK${placeholders.length}__`;
 
     placeholders.push(
-      `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}</a>（ ${meaning} ）`
+      `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}<sup>+</sup></a><span class="link-meaning">（ ${meaning} ）</span>`
     );
 
     return placeholder;
@@ -277,7 +277,7 @@ const partClass = partsStyles[part] ?? "";
 return `<a href="#"
 onclick="loadWord('${word}'); return false;"
 class="etymology-link ${partClass}">
-${word}</a>（ ${meaning} ）`;
+${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
   });
 
   // ③ 他辞書リンクを戻す
@@ -307,7 +307,7 @@ function createWordLink(word, entry) {
        class="etymology-link ${partClass}">
        ${word}
     </a>
-    <span class="meaning">（ ${meaning} ）</span>
+    <span class="meaning"><span class="link-meaning">（ ${meaning} ）</span></span>
   `;
 }
 
@@ -668,7 +668,7 @@ function buildWordList(list) {
     const meaning = getFirstMeaning(entry);
     return `<a href="#" onclick="loadWord('${word}'); return false;">
               ${word}
-            </a><span class="meaning">（ ${meaning} ）</span>`;
+            </a><span class="meaning"><span class="link-meaning">（ ${meaning} ）</span></span>`;
   }).join(", ");
 }
 
@@ -1068,8 +1068,9 @@ if (data.explanation && data.explanation.length > 0) {
   // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
   const explanationHtml = data.explanation
     .map((text, index) => {
-      // 1つ目は ① (Unicode: 2460), 2つ目は ② (Unicode: 2461) ... と動的に丸数字を生成
-      const circleNumber = String.fromCharCode(0x2460 + index);
+      // 丸数字（①〜⑳）を安全に配列から取得。21個以上ある場合は通常の数字にする
+      const circles = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
+      const circleNumber = circles[index] || `(${index + 1})`;
       return `${circleNumber} ${text}`;
     })
     .join('<br>'); // 各項目を改行で繋ぐ
@@ -1422,10 +1423,8 @@ if (data.explanation && data.explanation.length > 0) {
     </table>`;
   }
 
-
   // 関連語の生成
 const cognates = getCognates(data);
-
 if (cognates.length) {
   // セーフサーチ適用
   const filtered = cognates.filter(([word, entry]) => !safeSearch || entry.safe !== false);
@@ -1825,6 +1824,8 @@ function performSearch() {
   } else {
     // primaryResults を作成
     const primaryResults = Object.keys(dictionary).filter(word => {
+      // * で始まる語は検索対象外
+  if (word.startsWith("*")) return false;
       const data = getEntry(word);
       // 単語キー一致
       let matchKey = false;
