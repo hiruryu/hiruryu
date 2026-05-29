@@ -737,9 +737,15 @@ th {
 .explanation-content {
   font-size: 13px;
   line-height: 1.6;
-  color: #4a4a4a;
+  color: #886262;
   padding: 12px 8px;
   text-align: left;
+}
+
+.link-meaning{
+  color:#b0b0b0;
+  font-size: 14px;
+  margin: 0px -12px 0px -6px;
 }
 
 a {
