@@ -1,526 +1,334 @@
-function getConjV(_word, stem, _long_stem, stem2, _type, ruletype) {
+function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides) {
   if (ruletype === "no") {
-      return {};
-            // p 基本形
-         } else if (ruletype === "p") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }     
-         // b 基本形
-         } else if (ruletype === "b") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }     
-          // t 基本形
-            } else if (ruletype === "t") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // d 基本形
-            } else if (ruletype === "d") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // k 基本形
-            } else if (ruletype === "k") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-         // g 基本形
-            } else if (ruletype === "g") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        
-        // f 基本形
-      } else if (ruletype === "f") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // v 基本形
-      } else if (ruletype === "v") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // s 基本形
-            } else if (ruletype === "s") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // sy 基本形
-            } else if (ruletype === "sy") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // s 変則形
-            } else if (ruletype === "ls") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // z 基本形
-            } else if (ruletype === "z") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-// zy 基本形
-            } else if (ruletype === "zy") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // z 変則形
-            } else if (ruletype === "lz") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // c 基本形
-            } else if (ruletype === "c") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // cy 基本形
-            } else if (ruletype === "cy") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-         // sh 基本形
-            } else if (ruletype === "sh") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // zh 基本形
-            } else if (ruletype === "zh") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // ch 基本形
-            } else if (ruletype === "ch") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // m 基本形
-      } else if (ruletype === "m") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-         // my 基本形
-      } else if (ruletype === "my") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-// n 基本形
-      } else if (ruletype === "n") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // ny 基本形
-      } else if (ruletype === "ny") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // q 基本形
-      } else if (ruletype === "q") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-        // qy 基本形
-      } else if (ruletype === "qy") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-       // r / l 基本形
-      } else if (ruletype === "r") {      
-        return {
-          // 完結相
-          n: "-", n1: stem + "álva", n2: stem2 + "ey",
-          p: stem2 + "al", p1: stem + "alálva", p2: stem + "áley",
-          f: stem2 + "ie", f1: stem + "ifálva", f2: stem + "ífey",
-          // 完了相
-          dn: stem2 + "as", dn1: stem + "asálva", dn2: stem + "ásey",
-          dp: stem2 + "ais", dp1: stem + "aisálva", dp2: stem + "aisey",
-          df: stem + "iéis", df1: stem + "ieisálva", df2: stem + "iésey",
-          // 進行相
-          sn: stem2 + "is", sn1: stem + "isálva", sn2: stem + "ísey",
-          sp: stem + "ális", sp1: stem + "alisálva", sp2: stem + "álisey",
-          sf: stem2 + "ifis", sf1: stem + "ifisálva", sf2: stem + "ifísey",
-          // 反復相,
-          mn: stem + "óc", mn1: stem + "uicálva", mn2: stem + "ócey",
-          mp: stem + "uikóc", mp1: stem + "uikuicálva", mp2: stem + "uikócey",
-          mf: stem + "ipóc", mf1: stem + "ipuicálva", mf2: stem + "ipócey",
-        }
-      }
+    return {};
+    // t / d / k / g / s / z / c / h 基本形
+  } else if (["t", "d", "k", "g", "s", "z", "c", "x", "h"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2 + "ris",
+      dp: stem2 + "rol",
+      df: stem2 + "rip",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // p / b / f / v 基本形（唇音）
+  } else if (["p", "b", "f", "v"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "ík",
+      // 完了相
+      dn: stem2 + "ris",
+      dp: stem2 + "rol",
+      df: stem2 + "rip",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // sh / zh / ch / xh 基本形（反舌音）
+  } else if (["sh", "zh", "ch", "xh"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2 + "ris",
+      dp: stem2 + "rol",
+      df: stem2 + "rip",
+      // 進行相
+      sn: stem2 + "es",
+      sp: stem + "élle",
+      sf: stem + "ésfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // m 基本形
+  } else if (["m"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "ík",
+      // 完了相
+      dn: stem2 + "bis",
+      dp: stem2 + "bol",
+      df: stem2 + "bik",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // n 基本形
+  } else if (["n"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2 + "dis",
+      dp: stem2 + "dol",
+      df: stem2 + "dip",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // q 基本形
+  } else if (["q"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2 + "gis",
+      dp: stem2 + "gol",
+      df: stem2 + "gip",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // r / rh / l 基本形（流音）
+  } else if (["r", "rh", "l"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2.slice(0,-1) + "ddis",
+      dp: stem2.slice(0,-1) + "ddol",
+      df: stem2.slice(0,-1) + "ddip",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // y 基本形
+  } else if (["y"].includes(ruletype)) {
+    const d = stem2.slice(0,-1) + "i";
+
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: d + "dis",
+      dp: d + "dol",
+      df: d + "dip",
+      // 進行相
+      sn: d + "s",
+     sp: d + "lle",
+      sf: d + "sfe",
+      // 反復相,
+      mn: d + "m",
+      mp: d + "mol",
+      mf: d + "mik",
+    }
+
+
+    
+    // 明音型
+    // ty / dy / ky / gy / sy / zy / cy / xy / shy / zhy / chy / xhy / hy 基本形
+  } else if (["ty", "dy", "ky", "gy", "sy", "zy", "cy", "xy", "shy", "zhy", "chy", "xhy", "hy"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2 + "ris",
+      dp: stem2 + "rol",
+      df: stem2 + "rip",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // py / by / fy / vy 基本形（唇音）
+  } else if (["py", "by", "fy", "vy"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "ík",
+      // 完了相
+      dn: stem2.slice(0,-1) + "ries",
+      dp: stem2.slice(0,-1) + "riol",
+      df: stem2.slice(0,-1) + "riep",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // my 基本形
+  } else if (["my"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "ík",
+      // 完了相
+      dn: stem2.slice(0,-1) + "bies",
+      dp: stem2.slice(0,-1) + "biol",
+      df: stem2.slice(0,-1) + "biek",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // ny 基本形
+  } else if (["ny"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2.slice(0,-1) + "dies",
+      dp: stem2.slice(0,-1) + "diol",
+      df: stem2.slice(0,-1) + "diep",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // qy 基本形
+  } else if (["qy"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2.slice(0,-1) + "gies",
+      dp: stem2.slice(0,-1) + "giol",
+      df: stem2.slice(0,-1)+ "giep",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+    // ry / rhy / ly 基本形（流音）
+  } else if (["ry", "rhy", "ly"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem2.slice(0,-2) + "ddies",
+      dp: stem2.slice(0,-2) + "ddiol",
+      df: stem2.slice(0,-2) + "ddiep",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
+
+
+    // 母音終了型
+    // o 基本形（ po, bo, fo, vo, mo ）
+  } else if (["po"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem.slice(0,-1) + "ól",
+      f: stem.slice(0,-1) + "ík",
+      // 完了相
+      dn: stem2 + "dis",
+      dp: stem2 + "dol",
+      df: stem2 + "dip",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem.slice(0,-1) + "ílle",
+      sf: stem.slice(0,-1) + "ísfe",
+      // 反復相,
+      mn: stem2 + "m",
+      mp: stem2 + "mol",
+      mf: stem2 + "mik",
+    }
+    // o 基本形（ それ以外 ）
+  } else if (["o"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem.slice(0,-1) + "ól",
+      f: stem.slice(0,-1) + "íp",
+     // 完了相
+      dn: stem2 + "dis",
+      dp: stem2 + "dol",
+      df: stem2 + "dip",
+      // 進行相
+      sn: stem2 + "is",
+     sp: stem.slice(0,-1) + "ílle",
+      sf: stem.slice(0,-1) + "ísfe",
+      // 反復相,
+      mn: stem2 + "m",
+      mp: stem2 + "mol",
+      mf: stem2 + "mik",
+    }
+  }
 }
