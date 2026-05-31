@@ -1716,8 +1716,8 @@ function generateInflections(word) {
     raw = fn(
       word,
       data.stem,
-      data.stem2,
       data.long_stem,
+      data.stem2,
       data.type,
       data.ruletype
     ) || {};
