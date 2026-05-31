@@ -369,7 +369,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
 
     // o型名詞
     // p / b / t / d / k / g / f / v/ s / z / c / sh / zh / ch / xh / h / r / rh / l / y 基本形
-  } else if (["po", "bo", "to", "do", "ko", "go", "fo", "vo", "so", "zo", "co", "xo", "sho", "zho", "cho", "xho", "ho", "ro", "rho", "lo", "yo"].includes(ruletype)) {
+  } else if (["po", "bo", "to", "do", "ko", "go", "fo", "vo", "so", "zo", "co", "xo", "sho", "zho", "cho", "xho", "ho", "mo","no","qo","ro", "rho", "lo", "yo"].includes(ruletype)) {
     const anpC = stem + "ra";
     const anpC2 = stem2.slice(0, -1) + "óra";
     const anpC3 = stem2.slice(0, -1) + "ra";
