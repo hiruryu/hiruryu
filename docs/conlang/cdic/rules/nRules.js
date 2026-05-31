@@ -616,40 +616,6 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       in_anpC: anpC.slice(0, -1) + "uita"
     }
 
-
-    // o型名詞
-    // p / b / t / d / k / g / f / v/ s / z / c / sh / zh / ch / xh / h / r / rh / l / y 基本形
-  } else if (["po", "bo", "to", "do", "ko", "go", "fo", "vo", "so", "zo", "co", "xo", "sho", "zho", "cho", "xho", "ho", "ro", "rho", "lo", "yo"].includes(ruletype)) {
-    const anpC = stem + "ra";
-    const anpC2 = stem2.slice(0, -1) + "óra";
-    const anpC3 = stem2.slice(0, -1) + "ra";
-
-    return {
-      // 単数形
-      ansC: word,
-      f_ansC: stem + "f",
-      e_ansC: stem + "k",
-      d_ansC: stem2.slice(0, -1) + "ö́s",
-      l_ansC: stem.slice(0, -1) + "ö́m",
-      i_ansC: stem.slice(0, -1) + "ö́sh",
-      g_ansC: stem + "ì",
-      v_ansC: stem2.slice(0, -1) + "ö́rh",
-      in_ansC: stem + "ita",
-      // 複数形
-      anpC: anpC2,
-      f_anpC: anpC2.slice(0, -1) + "af",
-      e_anpC: anpC2.slice(0, -1) + "ak",
-      d_anpC: anpC2.slice(0, -1) + "es",
-      l_anpC: anpC2.slice(0, -1) + "am",
-      i_anpC: anpC2.slice(0, -1) + "ash",
-      g_anpC: anpC2.slice(0, -1) + "ui",
-      v_anpC: anpC3.slice(0, -1) + "árh",
-      in_anpC: anpC2.slice(0, -1) + "uita"
-    }
-
-
-
-
     // 変則型（〇q）
     // lo 変則形
   } else if (["lq"].includes(ruletype)) {
