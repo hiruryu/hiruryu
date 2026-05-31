@@ -736,6 +736,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       v_anpC: anpC2 + "árh",
       in_anpC: stem2.slice(0, -1) + "uita"
     }
+    //
   } else if (["lyiko","fyiko","tyiko"].includes(ruletype)) {
     const anpC = stem.slice(0,-2) + "ic";
     const anpC2 = stem2.slice(0,-3) + "or";
