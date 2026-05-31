@@ -732,7 +732,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: stem2.slice(0, -1) + "es",
       l_anpC: stem2 + "m",
       i_anpC: stem2 + "sh",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: stem2.slice(0, -1) + "ui",
       v_anpC: anpC2 + "árh",
       in_anpC: stem2.slice(0, -1) + "uita"
     }
@@ -759,7 +759,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: stem2.slice(0, -1) + "es",
       l_anpC: stem2 + "m",
       i_anpC: stem2 + "sh",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: stem2.slice(0, -1) + "ui",
       v_anpC: anpC2 + "árh",
       in_anpC: stem2.slice(0, -1) + "uita"
     }
@@ -786,7 +786,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: stem2.slice(0, -1) + "es",
       l_anpC: stem2 + "m",
       i_anpC: stem2 + "sh",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: stem2.slice(0, -1) + "ui",
       v_anpC: anpC2 + "árh",
       in_anpC: stem2.slice(0, -1) + "uita"
     }
@@ -813,7 +813,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: stem2.slice(0, -1) + "es",
       l_anpC: stem2 + "m",
       i_anpC: stem2 + "sh",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: stem2.slice(0, -1) + "ui",
       v_anpC: anpC2 + "árh",
       in_anpC: stem2.slice(0, -1) + "uita"
       }
