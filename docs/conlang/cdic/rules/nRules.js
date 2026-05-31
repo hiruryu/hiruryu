@@ -707,5 +707,60 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       v_anpC: anpC3.slice(0, -1) + "árh",
       in_anpC: anpC.slice(0, -1) + "uita"
     }
+    
+    // 代名詞型
+    // myigo, vliego,mpyigo
+      } else if (["myigo","vliego", "kyigo","pyigo"].includes(ruletype)) {
+    const anpC = stem.slice(0,-2) + "ig";
+    const anpC2 = stem2.slice(0,-3) + "or";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "zaf",
+      e_ansC: stem.slice(0, -1) + "zak",
+      d_ansC: stem.slice(0, -1) + "zes",
+      l_ansC: stem.slice(0, -1) + "zam",
+      i_ansC: stem.slice(0, -1) + "zash",
+      g_ansC: stem + "lui",
+      v_ansC: anpC + "zárh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: stem2,
+      f_anpC: stem2 + "f",
+      e_anpC: stem2 + "k",
+      d_anpC: stem2.slice(0, -1) + "es",
+      l_anpC: stem2 + "m",
+      i_anpC: stem2 + "sh",
+      g_anpC: anpC.slice(0, -1) + "ui",
+      v_anpC: anpC2 + "árh",
+      in_anpC: stem2.slice(0, -1) + "uita"
+    }
+  } else if (["lyiko","tyiko"].includes(ruletype)) {
+    const anpC = stem.slice(0,-2) + "ic";
+    const anpC2 = stem2.slice(0,-3) + "or";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "lui",
+      v_ansC: anpC + "árh",
+      in_ansC: stem + "ta",
+      // 複数形
+      anpC: stem2,
+      f_anpC: stem2 + "f",
+      e_anpC: stem2 + "k",
+      d_anpC: stem2.slice(0, -1) + "es",
+      l_anpC: stem2 + "m",
+      i_anpC: stem2 + "sh",
+      g_anpC: anpC.slice(0, -1) + "ui",
+      v_anpC: anpC2 + "árh",
+      in_anpC: stem2.slice(0, -1) + "uita"
+    }
   }
 }
