@@ -194,12 +194,12 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
 
     return {
       // 単数一致-原級
-      s: s + "i",
+      s: s + "e",
       f_s: s + "afy",
       d_s: s + "is",
       e_s: s + "ůi",
       ad_s: s + "amy",
-      h_s: s + "us",
+      h_s: s.slice(0,-1) + "iruis",
       // 単数一致-比較級
       s2: s2,
       f_s2: s2 + "fy",
