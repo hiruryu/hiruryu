@@ -33,5 +33,6 @@
   "có": {"id":31,"safe":true,"word":"có","stem":"có","stem2":"co","tag":["古智語"],"parts":"名象","type":"c 基本型","ruletype":"c","meaning":["子","子ども"],"pronunciation":["/t͡so/<br>[t͡so]<br>《co-》"],"etymology":{"intro":["単純語。","音象徴「 小さい 」から。"],"changes":[]}},
   "cóq": {"id":32,"safe":true,"word":"cóq","stem":"cóq","stem2":"coq","tag":["古智語"],"parts":"名象","type":"q 基本型","ruletype":"q","meaning":["胸","胸部"],"pronunciation":["/t͡soŋ/<br>[t͡soŋ]<br>《coň-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]}},
   "póka": {"id":33,"safe":true,"word":"póka","stem":"pók","stem2":"pok","tag":["古智語"],"parts":"名象","type":"k 基本型","ruletype":"k","meaning":["目","眼球"],"pronunciation":["/poka/<br>[pokə]<br>《poka-》"],"etymology":{"intro":["単純語。","音象徴「 丸い 」から。"],"changes":[]}},
-  "pokách": {"id":34,"safe":true,"word":"pokách","stem":"pokách","stem2":"pokach","tag":["古智語"],"parts":"名象","type":"ch 基本型","ruletype":"ch","meaning":["両目"],"pronunciation":["/pokäʈ͡ʂ/<br>[pokäʈ͡ʂ]<br>《pokač-》"],"etymology":{"intro":["合成語。","「 33 」の双数形。"],"changes":[]}}
+  "pokách": {"id":34,"safe":true,"word":"pokách","stem":"pokách","stem2":"pokach","tag":["古智語"],"parts":"名象","type":"ch 基本型","ruletype":"ch","meaning":["両目"],"pronunciation":["/pokäʈ͡ʂ/<br>[pokäʈ͡ʂ]<br>《pokač-》"],"etymology":{"intro":["合成語。","「 33 」の双数形。"],"changes":[]}},
+  "riir-": {"id":35,"safe":true,"word":"riir","stem":"riir","tag":["古智語"],"parts":"動詞","meaning":["書く"],"pronunciation":["/riːr/<br>[riːr]<br>《riir-》"],"etymology":{"intro":["単純語。","音象徴「 引っ掻く 」から。"],"changes":[]}}
 }
