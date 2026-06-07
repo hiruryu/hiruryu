@@ -34,5 +34,9 @@
   "cóq": {"id":32,"safe":true,"word":"cóq","stem":"cóq","stem2":"coq","tag":["古智語"],"parts":"名象","type":"q 基本型","ruletype":"q","meaning":["胸","胸部"],"pronunciation":["/t͡soŋ/<br>[t͡soŋ]<br>《coň-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]}},
   "póka": {"id":33,"safe":true,"word":"póka","stem":"pók","stem2":"pok","tag":["古智語"],"parts":"名象","type":"k 基本型","ruletype":"k","meaning":["目","眼球"],"pronunciation":["/poka/<br>[pokə]<br>《poka-》"],"etymology":{"intro":["単純語。","音象徴「 丸い 」から。"],"changes":[]}},
   "pokách": {"id":34,"safe":true,"word":"pokách","stem":"pokách","stem2":"pokach","tag":["古智語"],"parts":"名象","type":"ch 基本型","ruletype":"ch","meaning":["両目"],"pronunciation":["/pokäʈ͡ʂ/<br>[pokäʈ͡ʂ]<br>《pokač-》"],"etymology":{"intro":["合成語。","「 33 」の双数形。"],"changes":[]}},
-  "riir-": {"id":35,"safe":true,"word":"riir","stem":"riir","tag":["古智語"],"parts":"動詞","meaning":["書く"],"pronunciation":["/riːr/<br>[riːr]<br>《riir-》"],"etymology":{"intro":["単純語。","音象徴「 引っ掻く 」から。"],"changes":[]}}
+  "riir-": {"id":35,"safe":true,"word":"riir","stem":"riir","tag":["古智語"],"parts":"動詞","meaning":["書く"],"pronunciation":["/riːr/<br>[riːr]<br>《riir-》"],"etymology":{"intro":["単純語。","音象徴「 引っ掻く 」から。"],"changes":[]}},
+  "dis": {"id":36,"safe":true,"word":"dis","stem":"dis","tag":["古智語"],"parts":"相詞","meaning":["〜してある","（ 完了相を表す ）"],"pronunciation":["/dis/<br>[dis]<br>《dis-》"],"etymology":{"intro":["単純語。","「  」から。"],"changes":[]}},
+  "sis": {"id":37,"safe":true,"word":"sis","stem":"sis","tag":["古智語"],"parts":"相詞","meaning":["〜している","（ 進行相を表す ）"],"pronunciation":["/sis/<br>[sis]<br>《sis-》"],"etymology":{"intro":["単純語。","「  」から。"],"changes":[]}},
+  "mis": {"id":38,"safe":true,"word":"mis","stem":"mis","tag":["古智語"],"parts":"相詞","meaning":["〜する","（ 反復相を表す ）"],"pronunciation":["/mis/<br>[mis]<br>《mis-》"],"etymology":{"intro":["単純語。","「  」から。"],"changes":[]}},
+  "cás-": {"id":40,"safe":true,"word":"cás","stem":"cas","tag":["古智語"],"parts":"動詞","meaning":["感謝する"],"pronunciation":["/t͡sas/<br>[t͡säs]<br>《cas-》"],"etymology":{"intro":["単純語。","擬声語「 舌打ちの音 」から。"],"changes":[]}}
 }
