@@ -330,5 +330,26 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mp: stem2 + "mol",
       mf: stem2 + "mik",
     }
+
+    // t / d / k / g / s / z / c / h 基本形
+  } else if (["na"].includes(ruletype)) {
+    return {
+      // 完結相
+      n: "-",
+      p: stem + "ól",
+      f: stem + "íp",
+      // 完了相
+      dn: stem + "áris",
+      dp: stem + "árol",
+      df: stem + "árip",
+      // 進行相
+      sn: stem + "áis",
+     sp: stem + "ílle",
+      sf: stem + "ísfe",
+      // 反復相,
+      mn: stem2 + "uim",
+      mp: stem2 + "uimol",
+      mf: stem2 + "uimik",
+    }
   }
 }
