@@ -29,7 +29,7 @@ let etymDictionary = {}; // 語源専用
   "副飾": "fukushoku",
   "接辞": "fukuji",
   "離辞": "fukuji",
-  "付称辞": "fukuji",
+  "相詞": "fukuji",
   "間投詞": "kanto",
 };
 
