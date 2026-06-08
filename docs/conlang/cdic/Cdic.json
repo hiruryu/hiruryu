@@ -706,7 +706,7 @@
   "qyefálva": {"id":824,"safe":true,"seii":["LHL"],"word":"qyefálva","stem":"qyef","stem2":"qyéf","fix":"qyef-","type":"f 基本型","ruletype":"f","tag":["ー"],"parts":"動詞","meaning":["歪む［ 基が ］"],"pronunciation":["/ŋʲefalva/<br>[ŋʲəfälvə]<br>《ňef-》"],"etymology":{"intro":["合成語。","「 821 」+「 149 」が組み合わさった語。"],"changes":[]},"variants2":["ゆがむ"]},
   "qyakálva": {"id":825,"safe":true,"seii":["LHL"],"word":"qyakálva","stem":"qyak","stem2":"qyák","fix":"qyak-","type":"k 基本型","ruletype":"k","tag":["ー"],"parts":"動詞","meaning":["曲がる［ 基が ］","曲げる［ 能が ］［ 基を ］","湾曲する［ 基が ］"],"pronunciation":["/ŋʲakalva/<br>[ŋʲəkälvə]<br>《ňak-》"],"etymology":{"intro":["合成語。","「 823 」+「 382 」が組み合わさった語。"],"changes":[]},"variants2":["まがる","まげる","わんきょくする"]},
   "qyifálva": {"id":826,"safe":true,"seii":["LHL"],"word":"qyifálva","stem":"qyip","stem2":"qyíp","fix":"qyip-","type":"p 基本型","ruletype":"p","tag":["ー"],"parts":"動詞","meaning":["こねる［ 能が ］［ 基を ］"],"pronunciation":["/ŋʲifalva/<br>[ŋʲɪfälvə]<br>《ňyip-》"],"etymology":{"intro":["単純語。","音象徴「 こねる 」から。"],"changes":[]},"variants2":["捏ねる"]},
-  "fuétrai": {"id":827,"safe":true,"seii":["HML"],"word":"fuétrai","tag":["文飾表現"],"parts":"包飾詞","meaning":["だから","（ なぜなら ）〜だから","（ 否定文を続けて ）だけど","だが","〜であるが","〜であるから"],"pronunciation":["/fetrai/<br>[fe̞tɾəɪ]<br>《fetrai-》"],"etymology":{"intro":["合成語。","「 738 」+「 818 」が組み合わさった語。"],"changes":[]},"variants2":["何故なら","なぜなら","だけど","で","であるが","であるから"]},
+  "fuétrai": {"id":827,"safe":true,"seii":["HML"],"word":"fuétrai","tag":["包飾表現"],"parts":"包飾","meaning":["だから","（ なぜなら ）〜だから","（ 否定文を続けて ）だけど","だが","〜であるが","〜であるから"],"pronunciation":["/fetrai/<br>[fe̞tɾəɪ]<br>《fetrai-》"],"etymology":{"intro":["合成語。","「 738 」+「 818 」が組み合わさった語。"],"changes":[]},"variants2":["何故なら","なぜなら","だけど","で","であるが","であるから"]},
   
   
 
