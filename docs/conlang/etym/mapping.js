@@ -29,7 +29,7 @@ let etymDictionary = {}; // 語源専用
   "副飾": "fukushoku",
   "接辞": "fukuji",
   "離辞": "fukuji",
-  "相詞": "fukuji",
+  "付称辞": "fukuji",
   "間投詞": "kanto",
 };
 
@@ -74,7 +74,7 @@ function resolveEtymologyText(text) {
     let meaning = entry.meaning?.[0] ?? "";
     meaning = removeAnnotations(meaning); // 注釈を除去
     // return
-    return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
+    return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
   });
 }
 
@@ -239,7 +239,7 @@ for (const [word, data] of Object.entries(etymDictionary)) {
       pageInfoSpan.textContent     = '';
       prevPageBtn.disabled         = true;
       nextPageBtn.disabled         = true;
-      document.getElementById('pagination').style.display = 'none';     
+           
     }
   }).catch(error => console.error("JSON読み込みエラー:", error));
 
@@ -701,7 +701,7 @@ if (cognates.length) {
   const links = cognates
   .map(([word, entry]) => {
     const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
+    return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
   })
   .join(", ");
 
