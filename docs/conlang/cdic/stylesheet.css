@@ -299,13 +299,17 @@ h5 {
   border-bottom: dotted 2px #b6afd6;
 }
 
+.fixList td {
+  vertical-align: middle;
+}
+
 .fixList {
   list-style: none;
   background-color: #F9F8F4;
   padding: 1px;
   font-size: 16px;
   color: #aa8888;
-  margin-right: 38px;
+  margin: auto;
   text-align: center;
 }
 
@@ -363,13 +367,23 @@ th {
   color: #664c43;
 }
 
+.e-list td {
+  vertical-align: middle;
+}
 .e-list {
   color: #998077;
+  margin: auto;
+  text-align: center;
 }
 
+.t-list td {
+  vertical-align: middle;
+}
 .t-td {
   color: #8888aa;
   font-size: 15px;
+  margin: auto;
+  text-align: center;
 }
 
 .p-td {
@@ -378,6 +392,8 @@ th {
   font-size: 16px;
   font-family: 'Times New Roman', Times, serif;
   line-height: 30px;
+  margin: auto;
+  text-align: center;
 }
 
 .inner-table {
@@ -751,4 +767,8 @@ th {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.toggleMeaning {
+  color: #9c9fff;
 }
