@@ -683,13 +683,13 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     return {
       // 単数形
       ansC: word,
-      f_ansC: stem + "zaf",
-      e_ansC: stem + "zak",
-      d_ansC: stem + "zes",
-      l_ansC: stem + "zam",
-      i_ansC: stem + "zash",
+      f_ansC: stem + "raf",
+      e_ansC: stem + "rak",
+      d_ansC: stem + "res",
+      l_ansC: stem + "ram",
+      i_ansC: stem + "rash",
       g_ansC: stem + "lui",
-      v_ansC: anpC + "zárh",
+      v_ansC: anpC + "rárh",
       in_ansC: stem + "uita",
       // 複数形
       anpC: stem2,
@@ -737,13 +737,13 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     return {
       // 単数形
       ansC: word,
-      f_ansC: stem + "zaf",
-      e_ansC: stem + "zak",
-      d_ansC: stem + "zes",
-      l_ansC: stem + "zam",
-      i_ansC: stem + "zash",
+      f_ansC: stem + "raf",
+      e_ansC: stem + "rak",
+      d_ansC: stem + "res",
+      l_ansC: stem + "ram",
+      i_ansC: stem + "rash",
       g_ansC: stem + "lui",
-      v_ansC: anpC + "zárh",
+      v_ansC: anpC + "rárh",
       in_ansC: stem + "uita",
       // 複数形
       anpC: stem2,
