@@ -121,6 +121,33 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC.slice(0, -1) + "uita"
     }
+    // ma / na / qa 基本形
+  } else if (["ma", "na", "qa"].includes(ruletype)) {
+    const anpC = stem2 + "ára";
+    const anpC2 = stem2 + "ara";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC.slice(0, -1) + "af",
+      e_anpC: anpC.slice(0, -1) + "ak",
+      d_anpC: anpC.slice(0, -1) + "es",
+      l_anpC: anpC.slice(0, -1) + "am",
+      i_anpC: anpC.slice(0, -1) + "ash",
+      g_anpC: anpC.slice(0, -1) + "ui",
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "uita"
+    }
     // k / g / f / v/ s / z / c / sh / zh / ch / xh / h / r / rh / l 基本形
   } else if (["k", "g", "f", "v", "s", "z", "c", "x", "sh", "zh", "ch", "xh", "h", "r", "rh", "l", "pq"].includes(ruletype)) {
     const anpC = stem + "ra";
