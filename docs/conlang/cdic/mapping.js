@@ -149,8 +149,8 @@ const partsStyles = {
   "動詞": "doushi",
   "名飾": "meishoku",
   "副飾": "fukushoku",
-  "包飾": "bunshoku",
-  "副合辞<br>包飾": "bunshoku",
+  "文飾": "bunshoku",
+  "副合辞<br>文飾": "bunshoku",
   "接辞": "fukuji",
   "離辞": "fukuji",
   "屈折接辞": "fukuji",
@@ -1023,7 +1023,7 @@ if (data.seii) {
       ? data.fix
       : data.fix.split(",").map(s => s.trim());
     // liリスト化
-    fixHTML = fix.map(f => `<li class="fixList">${f}</li>`).join("");
+    fixHTML = fix.map(f => `<li>${f}</li>`).join("");
   }
   // 接辞形がある場合テーブル追加
   if (fixHTML) {
@@ -1031,7 +1031,7 @@ if (data.seii) {
         <tr>
         <th>接辞形</th>
         <td class="maincolor">
-        <ul>${fixHTML}</ul>
+        <ul class="fixList">${fixHTML}</ul>
       </td>
     </tr>
   `);
@@ -1067,15 +1067,19 @@ if (data.seii) {
 if (data.explanation && data.explanation.length > 0) {
   // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
   const explanationHtml = data.explanation
-    .map((text, index) => {
-      // 丸数字（①〜⑳）を安全に配列から取得。21個以上ある場合は通常の数字にする
-      const circles = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
-      const circleNumber = circles[index] || `(${index + 1})`;
-      return `${circleNumber} ${text}`;
-    })
-    .join('<br>'); // 各項目を改行で繋ぐ
+  .map((text, index) => {
+    const circles = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
+    const circleNumber = circles[index] || `(${index + 1})`;
 
-  bottomRows.push(`<tr><th>語義</th><td class="explanation-content" colspan="3">${explanationHtml}</td></tr>`);
+    return `
+      <div class="explanation-item">
+        ${circleNumber} ${text}
+      </div>
+    `;
+  })
+  .join('');
+
+  bottomRows.push(`<tr><th>語義</th><td colspan="3"><div class="explanation-content">${explanationHtml}</div></td></tr>`);
 }
 
   // 語源表示処理
