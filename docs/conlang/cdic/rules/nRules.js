@@ -121,6 +121,34 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC.slice(0, -1) + "uita"
     }
+    // u 基本形
+  } else if (ruletype === "u") {
+    const anpC = stem2 + "úra";
+    const anpC2 = stem2 + "uira";
+    
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "uif",
+      e_ansC: stem + "uik",
+      d_ansC: stem + "ues",
+      l_ansC: stem + "uim",
+      i_ansC: stem + "uish",
+      g_ansC: stem2 + "úvi",
+      v_ansC: stem2 + "úrh",
+      in_ansC: stem2 + "úvita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC.slice(0, -1) + "af",
+      e_anpC: anpC.slice(0, -1) + "ak",
+      d_anpC: anpC.slice(0, -1) + "es",
+      l_anpC: anpC.slice(0, -1) + "am",
+      i_anpC: anpC.slice(0, -1) + "ash",
+      g_anpC: anpC.slice(0, -1) + "ui",
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -2) + "tta",
+    }
+    
     // ma / na / qa 基本形
   } else if (["ma", "na", "qa"].includes(ruletype)) {
     const anpC = stem2 + "ára";
