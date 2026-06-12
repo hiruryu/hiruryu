@@ -751,16 +751,15 @@ th {
 }
 
 .explanation-content {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-
+  max-width: 800px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
   font-size: 13px;
   line-height: 18px;
   color: #6a6a6a;
   letter-spacing: 1px;
   padding: 12px 8px;
-  text-align: center;
+  text-align: left;
   box-sizing: border-box;
 }
 
