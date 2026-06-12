@@ -122,7 +122,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       in_anpC: anpC.slice(0, -1) + "uita"
     }
     // u 基本形
-  } else if (ruletype === "u") {
+  } else if (ruletype === "w") {
     const anpC = stem2 + "úra";
     const anpC2 = stem2 + "uira";
     
