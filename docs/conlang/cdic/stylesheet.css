@@ -370,6 +370,7 @@ th {
 .e-list td {
   vertical-align: middle;
 }
+
 .e-list {
   color: #998077;
   margin: auto;
@@ -379,6 +380,7 @@ th {
 .t-list td {
   vertical-align: middle;
 }
+
 .t-td {
   color: #8888aa;
   font-size: 15px;
@@ -745,20 +747,21 @@ th {
   border-color: #ff9999;
   color: #800000;
 }
+
 .meaning {
   color: #808080;
   font-size: 14px;
 }
 
 .explanation-content {
-  max-width: 800px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 auto;
   font-size: 13px;
-  line-height: 18px;
+  line-height: 17px;
   color: #6a6a6a;
   letter-spacing: 1px;
-  padding: 12px 8px;
+  padding: 10px 8px;
   text-align: left;
   box-sizing: border-box;
 }
@@ -771,8 +774,8 @@ th {
   margin-bottom: 0;
 }
 
-.link-meaning{
-  color:#b0b0b0;
+.link-meaning {
+  color: #b0b0b0;
   font-size: 14px;
   margin: 0px -12px 0px -6px;
 }
@@ -784,4 +787,5 @@ a {
 
 .toggleMeaning {
   color: #9c9fff;
+  font-size: 14px;
 }
