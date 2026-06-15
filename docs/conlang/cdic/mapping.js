@@ -269,12 +269,12 @@ function resolveEtymologyText(text) {
     meaning = removeAnnotations(meaning);
 
     const part = Array.isArray(entry.part)
-  ? entry.parts[0]
-  : entry.parts ?? "";
+      ? entry.parts[0]
+      : entry.parts ?? "";
 
-const partClass = partsStyles[part] ?? "";
+    const partClass = partsStyles[part] ?? "";
 
-return `<a href="#"
+    return `<a href="#"
 onclick="loadWord('${word}'); return false;"
 class="etymology-link ${partClass}">
 ${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
@@ -690,6 +690,8 @@ function getCognates(data) {
   const sourceIDs = extractEtymologyIDs(data);
 
   return Object.entries(dictionary).filter(([word, entry]) => {
+    // * から始まるものは除外する
+    if (word.startsWith("*")) return false;
 
     // 1. 自分自身は除外
     if (entry.id === data.id) return false;
@@ -727,14 +729,14 @@ function getCognates(data) {
 function getSimilarWords(data) {
   // 1. 自分のタグを配列に標準化。かつ「ー」や空文字を除外
   const normalize = (t) => {
-  if (!t) return [];
+    if (!t) return [];
 
-  // 配列化
-  const arr = Array.isArray(t) ? t : [t];
+    // 配列化
+    const arr = Array.isArray(t) ? t : [t];
 
-  // 無効タグ除外
-  return arr.filter(v => v && v !== "ー" && v !== "-");
-};
+    // 無効タグ除外
+    return arr.filter(v => v && v !== "ー" && v !== "-");
+  };
 
   const myTags = normalize(data.tag);
 
@@ -751,8 +753,12 @@ function getSimilarWords(data) {
     // 相手が有効なタグを持っていないなら除外
     if (entryTags.length === 0) return false;
 
+    // * から始まるものは除外する
+    if (word.startsWith("*")) return false;
+
     // 3. 共通するタグが1つでもあるか判定
     return myTags.some(tag => entryTags.includes(tag));
+
   });
 }
 
@@ -837,27 +843,27 @@ function showDetails(word) {
         data.baseOverrides
       ) || {};
     }
-// overrideを適用
-if (data.overrides) {
-  for (const key in data.overrides) {
-    const val = data.overrides[key];
+    // overrideを適用
+    if (data.overrides) {
+      for (const key in data.overrides) {
+        const val = data.overrides[key];
 
-    if (val === null) {
-      delete conjugations[key];
-    } else {
-      conjugations[key] = val;
+        if (val === null) {
+          delete conjugations[key];
+        } else {
+          conjugations[key] = val;
+        }
+      }
     }
-  }
-}
     if (Object.keys(conjugations).length === 0) {
       tableHTML = `<tr><td colspan="4">この語には活用データがありません。</td></tr>`;
     } else {
       function makeCell(baseKey) {
-  const base = conjugations[baseKey] || "";
-  const concrete = conjugations[baseKey + "1"] || "";
-  const attr = conjugations[baseKey + "2"] || "";
+        const base = conjugations[baseKey] || "";
+        const concrete = conjugations[baseKey + "1"] || "";
+        const attr = conjugations[baseKey + "2"] || "";
 
-  return `
+        return `
     <td class="con has-hover">
       <span class="base">${base}</span>
       <span class="hover-box">
@@ -866,7 +872,7 @@ if (data.overrides) {
       </span>
     </td>
   `;
-}
+      }
 
       const rows = [
         { label: "完結相", keys: ["p", "n", "f"] },
@@ -876,22 +882,23 @@ if (data.overrides) {
       ];
 
       tableHTML = rows.map((row, i) => {
-  const cells = row.keys
-    .map(key => makeCell(key))
-    .join("");
+        const cells = row.keys
+          .map(key => makeCell(key))
+          .join("");
 
-  return `<tr class="con${i + 1}">
+        return `<tr class="con${i + 1}">
             <td class="conname">${row.label}</td>
             ${cells}
           </tr>`;
-}).join("");}
+      }).join("");
+    }
 
     // 名飾詞の場合
   } else if (data.parts === "名飾") {
     const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
     raw = getConjA(w, stem, long_stem, stem2, type, ruletype, data.baseOverrides) || {};
 
-        if (data.overrides) {
+    if (data.overrides) {
       for (const key in data.overrides) {
         const val = data.overrides[key];
 
@@ -916,7 +923,7 @@ if (data.overrides) {
         { label: "処格一致", prefix: "ad_" },
         { label: "叙述形", prefix: "h_" }
       ];
-       // 数や形などの列だよ！
+      // 数や形などの列だよ！
       const columns = ["s", "s2", "s3", "p", "p2", "p3"];
 
       // HTMLテーブルを生成するよ！
@@ -999,17 +1006,17 @@ if (data.overrides) {
 
   // 発音
   leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
-  
-// 声位
-if (data.seii) {
-  leftRows.push(`
+
+  // 声位
+  if (data.seii) {
+    leftRows.push(`
     <tr>
       <th>声位</th>
       <td class="seii">${renderSeii(data.seii)}</td>
     </tr>
   `);
-}
-  
+  }
+
   // 語彙素形がある場合
   if (data.lexemic) {
     leftRows.push(`<tr><th>語彙素形</th><td class="maincolor">${data.lexemic}</td></tr>`);
@@ -1047,6 +1054,25 @@ if (data.seii) {
     leftRows.push(`<tr><th>屈折型</th><td>${data.type || ""}</td></tr>`);;
   }
 
+  // 語義説明
+  if (data.explanation && data.explanation.length > 0) {
+    // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
+    const explanationHtml = data.explanation
+      .map((text, index) => {
+        const circles = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
+        const circleNumber = circles[index] || `(${index + 1})`;
+
+        return `
+      <div class="explanation-item">
+        ${circleNumber} ${text}
+      </div>
+    `;
+      })
+      .join('');
+
+    leftRows.push(`<tr><th>語義</th><td colspan="1"><div class="explanation-content">${explanationHtml}</div></td></tr>`);
+  }
+
   // 意味列の rowspan の計算
   const rowspanCount = leftRows.length;
   // 最初の行に意味列を追加
@@ -1062,25 +1088,6 @@ if (data.seii) {
     }
     return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1">$1</a>');
   }
-
-  // 語義説明
-if (data.explanation && data.explanation.length > 0) {
-  // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
-  const explanationHtml = data.explanation
-  .map((text, index) => {
-    const circles = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
-    const circleNumber = circles[index] || `(${index + 1})`;
-
-    return `
-      <div class="explanation-item">
-        ${circleNumber} ${text}
-      </div>
-    `;
-  })
-  .join('');
-
-  bottomRows.push(`<tr><th>語義</th><td colspan="3"><div class="explanation-content">${explanationHtml}</div></td></tr>`);
-}
 
   // 語源表示処理
   if (data.etymology) {
@@ -1408,12 +1415,12 @@ if (data.explanation && data.explanation.length > 0) {
   // 類義語の生成
   if (data.variants1 && data.variants1.length) {
     const links = data.variants1.map(id => {
-  const word = idToWord[String(id)];
-  if (!word || !dictionary[word]) return "";
+      const word = idToWord[String(id)];
+      if (!word || !dictionary[word]) return "";
 
-  return createWordLink(word, dictionary[word]);
+      return createWordLink(word, dictionary[word]);
 
-}).filter(Boolean).join(", ");
+    }).filter(Boolean).join(", ");
 
     // テーブル追加
     detailsHTML += `
@@ -1428,25 +1435,25 @@ if (data.explanation && data.explanation.length > 0) {
   }
 
   // 関連語の生成
-const cognates = getCognates(data);
-if (cognates.length) {
-  // セーフサーチ適用
-  const filtered = cognates.filter(([word, entry]) => !safeSearch || entry.safe !== false);
+  const cognates = getCognates(data);
+  if (cognates.length) {
+    // セーフサーチ適用
+    const filtered = cognates.filter(([word, entry]) => !safeSearch || entry.safe !== false);
 
-  // --- ページネーション用に保存 ---
-  window._cognatesAll = filtered; // 全件
-  window._cognatesIndex = 0;      // 現在の表示位置
-  window._cognatesStep = itemsCognates;
+    // --- ページネーション用に保存 ---
+    window._cognatesAll = filtered; // 全件
+    window._cognatesIndex = 0;      // 現在の表示位置
+    window._cognatesStep = itemsCognates;
 
-  // 最初の itemsCognates 件を表示
-  const initial = filtered.slice(0, itemsCognates);
-  window._cognatesIndex = initial.length;
+    // 最初の itemsCognates 件を表示
+    const initial = filtered.slice(0, itemsCognates);
+    window._cognatesIndex = initial.length;
 
-  const links = initial.map(([word, entry]) => {
-  return createWordLink(word, entry);
-}).join(", ");
+    const links = initial.map(([word, entry]) => {
+      return createWordLink(word, entry);
+    }).join(", ");
 
-  detailsHTML += `
+    detailsHTML += `
     <table class="detailTable">
       <tbody>
         <tr>
@@ -1454,39 +1461,38 @@ if (cognates.length) {
           <td class="linktext" colspan="3">
             <span id="cognatesList">${links}</span>
 
-            ${
-              filtered.length > itemsCognates
-                ? `<div id="cognatesMore" class="morelink" onclick="showMoreCognates()">もっと見る</div>`
-                : ""
-            }
+            ${filtered.length > itemsCognates
+        ? `<div id="cognatesMore" class="morelink" onclick="showMoreCognates()">もっと見る</div>`
+        : ""
+      }
             <div id="cognatesClose" class="morelink" style="display:none;" onclick="closeCognates()">閉じる</div>
           </td>
         </tr>
       </tbody>
     </table>
   `;
-}
+  }
 
 
- const similars = getSimilarWords(data)
-  .filter(([word, entry]) => !safeSearch || entry.safe !== false);
+  const similars = getSimilarWords(data)
+    .filter(([word, entry]) => !safeSearch || entry.safe !== false);
 
-if (similars.length) {
+  if (similars.length) {
 
-  // --- ページネーション保存 ---
-  window._similarsAll = similars;
-  window._similarsIndex = 0;
-  window._similarsStep = itemsCognates;
+    // --- ページネーション保存 ---
+    window._similarsAll = similars;
+    window._similarsIndex = 0;
+    window._similarsStep = itemsCognates;
 
-  // 初期表示
-  const initial = similars.slice(0, itemsCognates);
-  window._similarsIndex = initial.length;
+    // 初期表示
+    const initial = similars.slice(0, itemsCognates);
+    window._similarsIndex = initial.length;
 
-  const links = initial.map(([word, entry]) => {
-    return createWordLink(word, entry);
-  }).join(", ");
+    const links = initial.map(([word, entry]) => {
+      return createWordLink(word, entry);
+    }).join(", ");
 
-  detailsHTML += `
+    detailsHTML += `
     <table class="detailTable">
       <tbody>
         <tr>
@@ -1496,15 +1502,14 @@ if (similars.length) {
 
             <span id="similarsList">${links}</span>
 
-            ${
-              similars.length > itemsCognates
-                ? `<div id="similarsMore"
+            ${similars.length > itemsCognates
+        ? `<div id="similarsMore"
                         class="morelink"
                         onclick="showMoreSimilars()">
                     もっと見る
                    </div>`
-                : ""
-            }
+        : ""
+      }
 
             <div id="similarsClose"
                  class="morelink"
@@ -1518,7 +1523,7 @@ if (similars.length) {
       </tbody>
     </table>
   `;
-}
+  }
 
   // 屈折表表示
   // generateInflections() で生成された内容を表示するよ！
@@ -1730,11 +1735,11 @@ function generateInflections(word) {
   } else {
     raw = fn(
       word,
-    data.stem,
-    data.long_stem,
-    data.stem2,
-    data.type,
-    data.ruletype
+      data.stem,
+      data.long_stem,
+      data.stem2,
+      data.type,
+      data.ruletype
     ) || {};
   }
 
@@ -1829,7 +1834,7 @@ function performSearch() {
     // primaryResults を作成
     const primaryResults = Object.keys(dictionary).filter(word => {
       // * で始まる語は検索対象外
-  if (word.startsWith("*")) return false;
+      if (word.startsWith("*")) return false;
       const data = getEntry(word);
       // 単語キー一致
       let matchKey = false;
@@ -1965,7 +1970,7 @@ function performSearch() {
       if (!krText) return false;
 
       // トークン化（空白で分割）
-      const tokens = krText.split(/\s+/); // e.g. ["kuikkalva","cha","che","klok"]
+      const tokens = krText.split(/\s+/);
 
       // 常に完全一致（トークンのどれかが検索語と完全一致するか）
       return tokens.some(t => t === normalizedSearch);
@@ -2084,7 +2089,7 @@ document.addEventListener('DOMContentLoaded', countWords);
 // hover → tap対応
 document.addEventListener("click", function (e) {
   const cell = e.target.closest(".has-hover");
-  
+
   // 全部閉じる
   document.querySelectorAll(".has-hover").forEach(el => {
     if (el !== cell) el.classList.remove("active");
