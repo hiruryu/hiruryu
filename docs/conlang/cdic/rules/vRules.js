@@ -42,7 +42,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // sh / zh / ch / xh 基本形（反舌音）
-  } else if (["sh", "zh", "ch", "xh"].includes(ruletype)) {
+  } else if (["sh", "zh", "ch", "xh", "rh"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
@@ -142,7 +142,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // y 基本形
-  } else if (["y"].includes(ruletype)) {
+  } else if (["y", "rhy"].includes(ruletype)) {
     const d = stem2.slice(0,-1) + "i";
 
     return {
@@ -268,7 +268,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // ry / rhy / ly 基本形（流音）
-  } else if (["ry", "rhy", "ly"].includes(ruletype)) {
+  } else if (["ry", "ly"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
