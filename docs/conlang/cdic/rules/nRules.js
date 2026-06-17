@@ -103,13 +103,13 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       // 単数形
       ansC: word,
       f_ansC: stem + "f",
-      e_ansC: stem.slice(0, -1) + "ók",
-      d_ansC: stem.slice(0, -1) + "ás",
-      l_ansC: stem.slice(0, -1) + "óm",
+      e_ansC: stem2.slice(0, -1) + "ók",
+      d_ansC: stem2.slice(0, -1) + "ás",
+      l_ansC: stem2.slice(0, -1) + "óm",
       i_ansC: stem + "sh",
-      g_ansC: stem.slice(0, -1) + "ói",
+      g_ansC: stem2.slice(0, -1) + "ói",
       v_ansC: stem + "rh",
-      in_ansC: stem.slice(0, -1) + "óita",
+      in_ansC: stem2.slice(0, -1) + "óita",
       // 複数形
       anpC: anpC,
       f_anpC: anpC.slice(0, -1) + "af",
