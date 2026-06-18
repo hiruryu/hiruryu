@@ -176,8 +176,8 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC.slice(0, -1) + "uita"
     }
-    // k / g / f / v/ s / z / c / sh / zh / ch / xh / h / r / rh / l 基本形
-  } else if (["k", "g", "f", "v", "s", "z", "c", "x", "sh", "zh", "ch", "xh", "h", "r", "rh", "l", "pq"].includes(ruletype)) {
+    // k / g / f / v/ s / z / c / sh / zh / ch / xh / r / rh / l 基本形
+  } else if (["k", "g", "f", "v", "s", "z", "c", "x", "sh", "zh", "ch", "xh", "rh", "pq"].includes(ruletype)) {
     const anpC = stem + "ra";
     const anpC2 = stem2 + "ra";
 
@@ -192,6 +192,33 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       g_ansC: stem + "ui",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC.slice(0, -1) + "af",
+      e_anpC: anpC.slice(0, -1) + "ak",
+      d_anpC: anpC.slice(0, -1) + "es",
+      l_anpC: anpC.slice(0, -1) + "am",
+      i_anpC: anpC.slice(0, -1) + "ash",
+      g_anpC: anpC.slice(0, -1) + "ui",
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "uita"
+    }
+    // h 基本形
+  } else if (["k", "g", "f", "v", "s", "z", "c", "x", "sh", "zh", "ch", "xh", "h", "rh", "pq"].includes(ruletype)) {
+    const anpC = stem + "ra";
+    const anpC2 = stem2 + "ra";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem.slice(0, -1) + "fhes",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem.slice(0, -1) + "fhui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem.slice(0, -1) + "fhta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC.slice(0, -1) + "af",
@@ -353,7 +380,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       i_ansC: stem + "ash",
       g_ansC: stem + "ui",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "ta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC.slice(0, -1) + "af",
@@ -838,5 +865,656 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       v_anpC: anpC2 + "árh",
       in_anpC: stem2.slice(0, -1) + "uita"
       }
+
+
+
+      // ia 基本形
+  } else if (["l","cia", "xia","fia", "via","sia", "zia","shia", "zhia","chia", "xhia","nia", "qia"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "úi": "í"
+  }[m];
+}) + "ia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "å": "ay",
+    "ål": "aly"
+  }[m];
+}) + "ia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+    // ia 基本形
+  } else if (["r"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "úi": "í"
+  }[m];
+}).slice(0,-1) + "dia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "å": "ay",
+    "ål": "aly"
+  }[m];
+}).slice(0,-1) + "dia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+
+     // ia 交替形
+  } else if (["pia","bia","tia","mia"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "úi": "í"
+  }[m];
+}) + "hia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "å": "ay",
+    "ål": "aly"
+  }[m];
+}) + "hia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+
+    // yia 基本形
+  } else if (["yia"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "úi": "í"
+  }[m];
+}).slice(0,-1) + "zhia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "ǻ": "áy",
+    "ǻl": "ály"
+  }[m];
+}).slice(0,-1) + "zhia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+
+
+    // k-ch 交替形
+  } else if (["kia"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "úi": "í",
+  }[m];
+}).slice(0,-1) + "chia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "å": "ay",
+    "ål": "aly"
+  }[m];
+}).slice(0,-1) + "chia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+    // g-xh 交替形
+  } else if (["gia"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "úi": "í"
+  }[m];
+}).slice(0,-1) + "xhia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "ǻ": "áy",
+    "ǻl": "ály"
+  }[m];
+}).slice(0,-1) + "xhia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+    // d-x 交替形
+  } else if (["dia"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "úi": "í"
+  }[m];
+}).slice(0,-1) + "xia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "ǻ": "áy",
+    "ǻl": "ály"
+  }[m];
+}).slice(0,-1) + "xia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+    // h-sh 交替形
+  } else if (["hia"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}).slice(0,-1) + "shia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}).slice(0,-1) + "shia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+
+    // gda 交替形
+  } else if (["gda"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály"
+  }[m];
+}).slice(0,-2) + "gra";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å|ö/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "ö": "a",
+  }[m];
+}).slice(0,-1) + "da";
+const anpC3 = stem2.replace(/yui|yo|ui|o|ål|å|ö/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "ö": "a",
+  }[m];
+}).slice(0,-1) + "ra";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: anpC2.slice(0,-1) + "árh",
+      in_ansC: stem + "uita",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1) + "ui",
+      v_anpC: anpC3.slice(0, -1) + "árh",
+      in_anpC: anpC3.slice(0, -1) + "áta"
+    }
+
+    // 明化形
+  } else if (["ia", "i"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}) + "y";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}) + "y";
+const anpC3 = stem.replace(/yú|yó|úi|ú|ó/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá"
+  }[m];
+}).slice(0,-1) + "i";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "ta",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC3 + "fy",
+      e_anpC: anpC3 + "ky",
+      d_anpC: anpC3 + "sy",
+      l_anpC: anpC3 + "my",
+      i_anpC: anpC3 + "shy",
+      g_anpC: anpC3,
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC3 + "ta"
+    }
+    // k 明化形
+  } else if (["ki"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}) + "y";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}) + "y";
+const anpC3 = stem.replace(/yú|yó|ú|ó/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá"
+  }[m];
+}).slice(0,-1) + "i";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "ta",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC3 + "fy",
+      e_anpC: anpC3 + "ky",
+      d_anpC: anpC3 + "sy",
+      l_anpC: anpC3 + "my",
+      i_anpC: anpC3 + "shy",
+      g_anpC: anpC3,
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC3 + "ta"
+    }
+
+
+    // ttsa 明化形
+  } else if (["tts"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "yí",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}).slice(0, -3) + "scia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "yi",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}).slice(0, -3) + "scia";
+const anpC3 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "yi",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}).slice(0, -3) + "sciá";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "ta",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC3 + "ta"
+    }
+    // sta / ska / sca 明化形
+  } else if (["sta", "ska", "sca"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "yá",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}).slice(0, -1) + "cia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ya",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}).slice(0, -1) + "cia";
+const anpC3 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ya",
+    "ǻ": "ay",
+    "ǻl": "aly"
+  }[m];
+}).slice(0, -1) + "ciá";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "af",
+      e_ansC: stem + "ak",
+      d_ansC: stem + "es",
+      l_ansC: stem + "am",
+      i_ansC: stem + "ash",
+      g_ansC: stem + "ui",
+      v_ansC: stem2 + "árh",
+      in_ansC: stem + "ta",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC3 + "ta"
+    }
   }
 }
