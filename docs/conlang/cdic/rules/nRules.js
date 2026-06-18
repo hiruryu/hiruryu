@@ -309,7 +309,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       i_anpC: anpC.slice(0, -1) + "ash",
       g_anpC: anpC.slice(0, -1) + "ui",
       v_anpC: anpC2.slice(0, -1) + "árh",
-      in_anpC: anpC.slice(0, -1) + "uita"
+      in_anpC: anpC2.slice(0, -1) + "áta"
     }
     // n 基本形
   } else if (["n"].includes(ruletype)) {
