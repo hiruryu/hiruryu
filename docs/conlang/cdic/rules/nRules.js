@@ -762,7 +762,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
 
 
       // ia 基本形
-  } else if (["l","cia", "xia","fia", "via","sia", "zia","shia", "zhia","chia", "xhia","nia", "qia"].includes(ruletype)) {
+  } else if (["l","cia", "xia","fia", "via","sia", "zia","shia", "zhia","chia", "xhia", "nia"].includes(ruletype)) {
     const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
   return {
     "ú": "í",
@@ -854,7 +854,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       in_anpC: anpC.slice(0, -1) + "ta"
     }
 
-     // ia 交替形
+     // p-ph 交替形
   } else if (["pia","bia","tia","mia"].includes(ruletype)) {
     const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
   return {
@@ -881,14 +881,61 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     return {
       // 単数形
       ansC: word,
-      f_ansC: stem + "af",
-      e_ansC: stem + "ak",
-      d_ansC: stem + "es",
-      l_ansC: stem + "am",
+      f_ansC: stem + "haf",
+      e_ansC: stem + "hak",
+      d_ansC: stem + "hies",
+      l_ansC: stem + "ham",
       i_ansC: stem + "ash",
       g_ansC: stem + "ui",
-      v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      v_ansC: stem2 + "hárh",
+      in_ansC: stem + "hta",
+      // 複数形
+      anpC: anpC,
+      f_anpC: anpC + "f",
+      e_anpC: anpC + "k",
+      d_anpC: anpC + "s",
+      l_anpC: anpC + "m",
+      i_anpC: anpC + "sh",
+      g_anpC: anpC.slice(0, -1),
+      v_anpC: anpC2.slice(0, -1) + "árh",
+      in_anpC: anpC.slice(0, -1) + "ta"
+    }
+        
+// q 交替形
+  } else if (["qia"].includes(ruletype)) {
+    const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
+  return {
+    "ú": "í",
+    "ó": "ié",
+    "yú": "yí",
+    "yó": "iá",
+    "ǻ": "áy",
+    "ǻl": "ály",
+    "úi": "í"
+  }[m];
+}) + "hia";
+    const anpC2 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
+  return {
+    "ui": "i",
+    "o": "ie",
+    "yui": "yi",
+    "yo": "ia",
+    "å": "ay",
+    "ål": "aly"
+  }[m];
+}) + "hia";
+
+    return {
+      // 単数形
+      ansC: word,
+      f_ansC: stem + "naf",
+      e_ansC: stem + "nak",
+      d_ansC: stem + "nies",
+      l_ansC: stem + "nam",
+      i_ansC: stem + "nash",
+      g_ansC: stem + "nui",
+      v_ansC: stem2 + "nárh",
+      in_ansC: stem2 + "náta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
