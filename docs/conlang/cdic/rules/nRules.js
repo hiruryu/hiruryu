@@ -381,7 +381,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       i_ansC: stem + "ash",
       g_ansC: stem.slice(0, -1) + "zhui",
       v_ansC: stem2 + "árh",
-      in_anpC: anpC2.slice(0, -1) + "áta"
+      in_anpC: anpC2.slice(0, -1) + "áta",
       // 複数形
       anpC: anpC2,
       f_anpC: anpC2.slice(0, -1) + "af",
@@ -588,7 +588,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       i_anpC: anpC.slice(0, -1) + "ash",
       g_anpC: anpC.slice(0, -1) + "ui",
       v_anpC: anpC2.slice(0, -1) + "árh",
-      in_anpC: anpC.slice(0, -1) + "uita"
+      in_anpC: anpC2.slice(0, -1) + "áta"
     }
 
     // 変則型（〇q）
