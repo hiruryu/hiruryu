@@ -1240,7 +1240,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       in_anpC: anpC.slice(0, -1) + "ta"
     }
 
-    // gda 交替形
+    // gda 変則型
   } else if (["gda"].includes(ruletype)) {
     const anpC = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
   return {
@@ -1334,8 +1334,8 @@ const anpC3 = stem.replace(/yú|yó|úi|ú|ó/g, (m) => {
       ansC: word,
       f_ansC: stem + "af",
       e_ansC: stem + "ak",
-      d_ansC: stem + "es",
-      l_ansC: stem + "am",
+      d_ansC: stem + "ie",
+      l_ansC: stem + "ũ",
       i_ansC: stem + "ash",
       g_ansC: stem + "ui",
       v_ansC: stem2 + "árh",
@@ -1388,14 +1388,14 @@ const anpC3 = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
     return {
       // 単数形
       ansC: word,
-      f_ansC: stem + "af",
-      e_ansC: stem + "ak",
-      d_ansC: stem + "es",
-      l_ansC: stem + "am",
+      f_ansC: stem + "h",
+      e_ansC: stem + "h",
+      d_ansC: stem + "hie",
+      l_ansC: stem + "ũ",
       i_ansC: stem + "ash",
       g_ansC: stem + "ui",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "ta",
+      in_ansC: stem + "hta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC3 + "fa",
@@ -1444,11 +1444,11 @@ const anpC3 = stem.replace(/yú|yó|úi|ú|ó|ǻl|ǻ/g, (m) => {
     return {
       // 単数形
       ansC: word,
-      f_ansC: stem + "af",
-      e_ansC: stem + "ak",
-      d_ansC: stem + "es",
-      l_ansC: stem + "am",
-      i_ansC: stem + "ash",
+      f_ansC: stem + "h",
+      e_ansC: stem + "h",
+      d_ansC: stem.slice(0,-1) + "chie",
+      l_ansC: stem + "ũ",
+      i_ansC: stem + "sh",
       g_ansC: stem + "ui",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
@@ -1520,6 +1520,7 @@ const anpC3 = stem2.replace(/yui|yo|ui|o|ål|å/g, (m) => {
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC3 + "ta"
     }
+    
     // sta / ska / sca 明化形
   } else if (["sta", "ska", "sca"].includes(ruletype)) {
     const anpC = stem.replace(/yú|yó|ú|ó|ǻl|ǻ/g, (m) => {
