@@ -231,7 +231,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
     // p 基本形
-  } else if (["p"", "b", "t"].includes(ruletype)) {
+  } else if (["p", "b", "t"].includes(ruletype)) {
     const anpC = stem + "ra";
     const anpC2 = stem2 + "ra";
 
