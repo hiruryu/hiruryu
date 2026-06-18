@@ -999,7 +999,14 @@ function showDetails(word) {
   let bottomRows = []; // 下部テーブル行
 
   // 品詞
-  leftRows.push(`<tr><th>属性</th><td>${data.parts || ""}</td></tr>`);
+const partClass = partsStyles[data.parts] ?? "";
+
+leftRows.push(`
+  <tr>
+    <th>属性</th>
+    <td class="${partClass}">${data.parts || ""}</td>
+  </tr>
+`);
 
   // タグ
   leftRows.push(`<tr><th>タグ</th><td class="t-td">${data.tag ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag) : ""}</td></tr>`);
@@ -1051,8 +1058,16 @@ function showDetails(word) {
 
   // 屈折型
   if (data.type) {
-    leftRows.push(`<tr><th>屈折型</th><td>${data.type || ""}</td></tr>`);;
-  }
+  const typeHTML = data.type
+    // 括弧部分を span に
+    .replace(/（[^）]+）/g, (m) => {
+      return `<span class="type-note">${m}</span>`;
+    })
+    // 括弧の前で改行
+    .replace(/<span class="type-note">/g, "<br><span class=\"type-note\">");
+
+  leftRows.push(`<tr><th>屈折型</th><td class="type">${typeHTML}</td></tr>`);
+}
 
   // 語義説明
   if (data.explanation && data.explanation.length > 0) {
@@ -1076,10 +1091,16 @@ function showDetails(word) {
   // 意味列の rowspan の計算
   const rowspanCount = leftRows.length;
   // 最初の行に意味列を追加
-  leftRows[0] = leftRows[0].replace(
-    `<tr><th>属性</th><td>${data.parts || ""}</td>`,
-    `<tr><th>属性</th><td>${data.parts || ""}</td><th rowspan="${rowspanCount}">意味</th><td rowspan="${rowspanCount}"><ul>${meaningsHTML}</ul></td>`
-  );
+  leftRows[0] = `
+  <tr>
+    <th>属性</th>
+    <td class="${partClass}">${data.parts || ""}</td>
+    <th rowspan="${rowspanCount}">意味</th>
+    <td rowspan="${rowspanCount}">
+      <ul>${meaningsHTML}</ul>
+    </td>
+  </tr>
+`;
 
   // URLを自動リンク化する関数
   function processH5Links(text) {
