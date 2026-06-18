@@ -803,3 +803,11 @@ a {
   margin-left: 0.3em;
   font-family: 'Noto Sans JP', sans-serif !important;
 }
+
+.word-count{
+  color: #4e4e60;
+  font-size: 12px;
+  box-sizing: border-box;
+  background-color: #f9f8f4;
+  border-bottom: 2px dotted #aaaaaa;
+}
