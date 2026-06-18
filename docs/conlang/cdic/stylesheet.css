@@ -702,9 +702,8 @@ th {
 /* --- 関連語のもっと見る / 閉じる 共通スタイル --- */
 .morelink {
   display: inline-block;
-  margin-top: 6px;
-  padding: 4px 10px;
-  font-size: 0.9em;
+  padding: 4px 4px;
+  font-size: 0.7em;
   color: #0066cc;
   background: #f2f7ff;
   border: 1px solid #c8ddff;
@@ -788,4 +787,19 @@ a {
 .toggleMeaning {
   color: #9c9fff;
   font-size: 14px;
+}
+
+.type {
+  color: #807066;
+  font-size: 17px;
+  margin-left: 0.3em;
+  letter-spacing: 1px;
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+.type-note {
+  color: #b0b0b0;
+  font-size: 0.8em;
+  margin-left: 0.3em;
+  font-family: 'Noto Sans JP', sans-serif !important;
 }
