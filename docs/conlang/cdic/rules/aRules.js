@@ -45,6 +45,34 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
     return result;
   }
 
+  const C = {
+      p: "ph", b: "bh",
+      t: "th", d: "x",
+      k: "ch", g: "xh",
+      h: "sh", q: "qn",
+      y: "zh"
+    };
+    const V1 = {
+      "ó": "ié",
+      "ú": "í",
+      "yó": "iá",
+      "yú": "yí",
+      "úi": "í",
+      "yúi": "yí",
+      "ǻ": "áy",
+      "ǻl": "ály"
+    };
+    const V2 = {
+      "yo": "ia",
+      "yi": "yi",
+      "yui": "yi",
+      "o": "ie",
+      "i": "i",
+      "ui": "i",
+      "å": "ay",
+      "ål": "aly"
+    };
+
   if (ruletype === "no") {
     return {};
 
@@ -111,7 +139,7 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       h_p3: p3.slice(0, -1) + "os",
     }
     // 歯茎音
-    } else if (["t", "d", "s", "z", "c", "x"].includes(ruletype)) {
+  } else if (["t", "d", "s", "z", "c", "x"].includes(ruletype)) {
     let s = stem + "";
     let s2 = stem + "iå";
     let s3 = stem + "nå";
@@ -261,7 +289,7 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       d_s: s + "is",
       e_s: s + "ůi",
       ad_s: s + "amy",
-      h_s: s.slice(0,-1) + "iruis",
+      h_s: s.slice(0, -1) + "iruis",
       // 単数一致-比較級
       s2: s2,
       f_s2: s2 + "fy",
@@ -426,67 +454,7 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
     }
 
     // 母音終了型
-  } else if (["a", "e", "o"].includes(ruletype)) {
-    let s = stem + "";
-    let s2 = stem + "lå";
-    let s3 = stem + "nå";
-    let p = stem + "rå";
-    let p2 = stem + "rvå";
-    let p3 = stem + "rmå";
-    if (baseOverrides) {
-      if (baseOverrides.s != null) s = baseOverrides.s;
-      if (baseOverrides.s2 != null) s2 = baseOverrides.s2;
-      if (baseOverrides.s3 != null) s3 = baseOverrides.s3;
-      if (baseOverrides.p != null) p = baseOverrides.p;
-      if (baseOverrides.p2 != null) p2 = baseOverrides.p2;
-      if (baseOverrides.p3 != null) p3 = baseOverrides.p3;
-    }
-    return {
-      // 単数一致-原級
-      s: s + "i",
-      f_s: s + "fyi",
-      d_s: s + "ris",
-      e_s: s + "růi",
-      ad_s: s + "myi",
-      h_s: s + "ruis",
-      // 単数一致-比較級
-      s2: s2,
-      f_s2: s2 + "fy",
-      d_s2: s2.slice(0, -1) + "es",
-      e_s2: s2.slice(0, -1) + "ůi",
-      ad_s2: s2 + "my",
-      h_s2: s2.slice(0, -1) + "os",
-      // 単数一致-最上級
-      s3: s3,
-      f_s3: s3 + "fy",
-      d_s3: s3.slice(0, -1) + "es",
-      e_s3: s3.slice(0, -1) + "ůi",
-      ad_s3: s3 + "my",
-      h_s3: s3.slice(0, -1) + "os",
-      // 単数一致-原級
-      p: p,
-      f_p: p + "fy",
-      d_p: p.slice(0, -1) + "es",
-      e_p: p.slice(0, -1) + "ůi",
-      ad_p: p + "my",
-      h_p: p.slice(0, -1) + "os",
-      // 単数一致-比較級
-      p2: p2,
-      f_p2: p2 + "fy",
-      d_p2: p2.slice(0, -1) + "es",
-      e_p2: p2.slice(0, -1) + "ůi",
-      ad_p2: p2 + "my",
-      h_p2: p2.slice(0, -1) + "os",
-      // 単数一致-最上級
-      p3: p3,
-      f_p3: p3 + "fy",
-      d_p3: p3.slice(0, -1) + "es",
-      e_p3: p3.slice(0, -1) + "ůi",
-      ad_p3: p3 + "my",
-      h_p3: p3.slice(0, -1) + "os",
-    }
-    // 母音終了型
-  } else if (["i", "ui"].includes(ruletype)) {
+  } else if (["a", "i", "e", "ui"].includes(ruletype)) {
     let s = stem + "";
     let s2 = stem + "lå";
     let s3 = stem + "nå";
@@ -546,7 +514,7 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       h_p3: p3.slice(0, -1) + "os",
     }
     // 母音終了型
-  } else if (["u"].includes(ruletype)) {
+  } else if (["u", "o"].includes(ruletype)) {
     let s = stem + "";
     let s2 = stem + "lå";
     let s3 = stem + "nå";
