@@ -2,12 +2,12 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
 
   const C = {
       p: "ph", b: "bh",
-      t: "th", d: "xh",
+      t: "th", d: "x",
       k: "ch", g: "xh",
       h: "sh", q: "qn",
       y: "zh",
     };
-    const V1 = { // 後階梯
+    const V1 = {
       "ó": "ié",
       "ú": "í",
       "yó": "yá",
@@ -17,7 +17,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       "ǻ": "áy",
       "ǻl": "ály"
     };
-    const V2 = { // 横階梯
+    const V2 = {
       "yo": "ya",
       "yi": "yi",
       "yui": "yi",
@@ -28,7 +28,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       "ål": "aly",
       "yi": "yi",
     };
-    const V3 = { // 後階梯
+    const V3 = {
       "yo": "ya",
       "yi": "yui",
       "yui": "yui",
