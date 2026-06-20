@@ -1,8 +1,8 @@
 function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides) {
 
   const C = {
-      p: "ph", b: "bh",
-      t: "th", d: "x",
+      p: "f", b: "v",
+      t: "c", d: "x",
       k: "ch", g: "xh",
       h: "sh", q: "qn",
       y: "zh",
