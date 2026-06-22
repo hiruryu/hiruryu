@@ -49,7 +49,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     };
     const V1 = {
       "ó": "é",
-      "ú": "í",
+      "ú": "yí",
       "yó": "yá",
       "yú": "yí",
       "úi": "yí",
@@ -63,7 +63,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       "yui": "yi",
       "o": "e",
       "i": "i",
-      "ui": "i",
+      "ui": "yi",
       "å": "ay",
       "ål": "aly"
     };
