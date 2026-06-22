@@ -48,20 +48,20 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       y: "zh"
     };
     const V1 = {
-      "ó": "ié",
+      "ó": "é",
       "ú": "í",
-      "yó": "iá",
+      "yó": "yá",
       "yú": "yí",
-      "úi": "í",
+      "úi": "yí",
       "yúi": "yí",
       "ǻ": "áy",
       "ǻl": "ály"
     };
     const V2 = {
-      "yo": "ia",
+      "yo": "ya",
       "yi": "yi",
       "yui": "yi",
-      "o": "ie",
+      "o": "e",
       "i": "i",
       "ui": "i",
       "å": "ay",
