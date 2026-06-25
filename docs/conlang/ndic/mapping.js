@@ -186,9 +186,12 @@ function isMorphemeOrVariant(entry) {
 }
 
 const seiiMap = {
-  H: "￣",
-  M: "ー",
-  L: "＿"
+  h: "￣",
+  l: "＿",
+  d: "＼",
+  u: "／",
+  a: "‾\",
+  u: "_/"
 };
 
 // 声位を変換する関数
