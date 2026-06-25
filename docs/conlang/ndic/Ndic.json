@@ -1,14 +1,23 @@
 {
-  "Núy": {"id":1,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["/nuj¹⁵/<br>[nuj¹⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]},
-  "ɉǒ̠nh": {"id":20,"safe":true,"word":"ɉǒ̠nh","tag":["—"],"parts":"名象","meaning":["時","時間"],"pronunciation":["/ço̰ɲ²¹²/<br>[ço̰ɲ²¹²]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["とき","じかん","タイム"]},
-  "dò̠p": {"id":21,"safe":true,"word":"dò̠p","tag":["—"],"parts":"動詞","meaning":["死ぬ","活動しなくなる"],"pronunciation":["/do̰p²¹/<br>[do̰p²¹]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["しぬ","死"]},
-  
-  "jàk": {"id":101,"safe":true,"word":"jàk","tag":["—"],"parts":"名象","meaning":["学ぶ","学習する","勉強する"],"pronunciation":["/çak⁵/<br>[çæk⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["まなぶ","がくしゅうする","べんきょうする","学","學"]},
-  "pì": {"id":103,"safe":true,"word":"pì","tag":["—"],"parts":"名象","meaning":["子ども","息子","種","卵","粒","小〜","（ 指小形を作る ）"],"pronunciation":["/pi⁵³/<br>[pi⁵³]"],"etymology":{"intro":["単純語。","音象徴「 小さい 」から。"],"changes":[]},"variants2":["こ","むすこ","たね","たまご","つぶ","指小形","指小辞","ししょうじ","ししょうけい"]},
-  "tī": {"id":104,"safe":true,"word":"tī","tag":["—"],"parts":"名飾","meaning":["小さい","しばらく","ちょっと","少し","低い","幼い","若い","子供","（ 兄弟姉妹で ）一番下の","子〜","小〜","（ 指小形を作る ）"],"pronunciation":["/tʲi⁵/<br>[tʲi⁵]"],"etymology":{"intro":["単純語。","音象徴「 小さい 」から。"],"changes":[]},"variants2":["むすこ","ちいさい","すこし","ひくい","わかい","おさない","こども","いちばんしたの","指小形","指小辞","ししょうじ","ししょうけい"]},
-  "fẹ̀ng": {"id":105,"safe":true,"word":"fẹ̀ng","tag":["身体部位"],"parts":"名象","meaning":["翼"],"pronunciation":["/fḛŋ³¹/<br>[fə̰ŋ³¹]"],"etymology":{"intro":["単純語。","音象徴「 翼 」から。"],"changes":[]},"variants2":["つばさ", "はね", "羽根"]},
-  "khâ": {"id":106,"safe":true,"word":"khā","tag":["—"],"parts":"名象","meaning":["風", "空気"],"pronunciation":["/ha⁵/<br>[χä⁵]"],"etymology":{"intro":["単純語。","音象徴「 空気 」から。"],"changes":[]},"variants2":["かぜ", "ふう", "くうき", "気"]},
-  "mō": {"id":107,"safe":true,"word":"mō","tag":["位置"],"parts":"名象","meaning":["内の","中の","内側の"],"pronunciation":["/mo⁵/<br>[mo⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["うち", "なか", "うちがわ"]},
-  "lé": {"id":108,"safe":true,"word":"lé","tag":["—"],"parts":"動詞","meaning":["加える","加わる","追加する"],"pronunciation":["/le³⁵/<br>[le³⁵]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["くわえる", "ついかする", "くわわる"]},
-  "lélé": {"id":109,"safe":true,"word":"lélé","tag":["—"],"parts":"文飾","meaning":["もっと","さらに","いっそう","その上に","加えて"],"pronunciation":["/le³⁵le³⁵/<br>[le³⁵le³⁵]"],"etymology":{"intro":["合成語。","「 108 」+「 108 」から。"],"changes":[]},"variants2":["加加", "更に", "一層","そのうえ","くわえて"]}
+  "*縫族": {"id":1,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]},
+  "良": {"id":10,"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["良い","よろしい","良好な","好ましい","善良な","正しい","美味しい","美味い"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["よい","いい","好い","善い","ぜんりょうな","りょうこうな","正しい","うまい","おいしい"]},
+  "悪": {"id":11,"safe":true,"word":"sā","tag":["ー"],"parts":"名象","meaning":["悪い","良くない"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["わるい","あく","よくない"]},
+  "晨": {"id":13,"vari":["朝"],"safe":true,"word":"sā","tag":["時間"],"parts":"名飾","meaning":["朝"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
+  "昼": {"id":14,"vari":["晝"],"safe":true,"word":"sā","tag":["時間"],"parts":"名象","meaning":["昼"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["ひる"]},
+  "夕": {"id":15,"safe":true,"word":"sā","tag":["時間"],"parts":"名飾","meaning":["夕方"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
+  "亱": {"id":16,"vari":["夜"],"safe":true,"word":"sā","tag":["時間"],"parts":"名象","meaning":["夜"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["ひる"]},
+  "吃": {"id":17,"safe":true,"word":"sā","tag":["ー"],"parts":"動詞","meaning":["食べる"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
+  "了": {"id":18,"safe":true,"word":"sā","tag":["ー"],"parts":"副辞","meaning":["～してある"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["ひる"]},
+  "少": {"id":20,"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["少ない"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["ひる"]},
+  "多": {"id":21,"vari":["夛"],"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["多い"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
+  "开": {"id":22,"vari":["開"],"safe":true,"word":"sā","tag":["ー"],"parts":"動詞","meaning":["開く"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
+  "心": {"id":23,"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["心","感情"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
+  "之": {"id":24,"safe":true,"word":"sā","tag":["ー"],"parts":"副辞","meaning":["～の"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["の"]},
+  "係": {"id":25,"safe":true,"word":"sā","tag":["ー"],"parts":"副辞","meaning":["～である","～だ"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["である","だ"]},
+
+
+
+
+
+  "*": {"id":111111111,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["M+H"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]}
 }
