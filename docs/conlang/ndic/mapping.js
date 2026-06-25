@@ -155,7 +155,7 @@ const partsStyles = {
   "離辞": "fukuji",
   "屈折接辞": "fukuji",
   "派生接辞": "fukuji",
-  "離辞": "fukuji",
+  "副辞": "fukuji",
   "外詞": "kanto",
 };
 
