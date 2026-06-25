@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(location.search);
-const hasId = params.has('id');
-const view = params.get('view');
+  const hasId = params.has('id');
+  const view = params.get('view');
 
-// view が side のときは戻るボタンを出さない
-if (hasId && view !== 'side') {
-  const back = document.createElement('div');
-  back.className = 'back-to-top';
-  back.innerHTML = `<a href="ndic.html">📖 辞書トップへ戻る</a>`;
-  document.body.insertBefore(back, document.body.firstChild);
-}
+  // view が side のときは戻るボタンを出さない
+  if (hasId && view !== 'side') {
+    const back = document.createElement('div');
+    back.className = 'back-to-top';
+    back.innerHTML = `<a href="cdic.html">📖 辞書トップへ戻る</a>`;
+    document.body.insertBefore(back, document.body.firstChild);
+  }
 
   // ここでURLの状態を見てサイドバーの有無を判定させる
   syncUIWithURL();
@@ -20,7 +20,113 @@ let etymDictionary = {}; // 語源専用
 const idToWord = {}; // ID → 単語 を引くためのマッピング
 let searchResults = []; // 検索結果を保存する配列
 let currentPage = 1; // 現在のページ番号
-const itemsPerPage = 20; // 1ページに表示する単語数⁺
+const itemsPerPage = 12; // 1ページに表示する単語数⁺
+const itemsCognates = 20; // 1ページに表示する単語数⁺
+
+
+function showMoreCognates() {
+  const all = window._cognatesAll;
+  const start = window._cognatesIndex;
+  const step = window._cognatesStep;
+
+  const next = all.slice(start, start + step);
+
+  window._cognatesIndex += next.length;
+
+  const html = next.map(([word, entry]) => {
+    return createWordLink(word, entry);
+  }).join("，");
+
+  const list = document.getElementById("cognatesList");
+
+  list.innerHTML += ", " + html;
+
+  // 全表示したら
+  if (window._cognatesIndex >= all.length) {
+    document.getElementById("cognatesMore").style.display = "none";
+  }
+
+  // 閉じる表示
+  document.getElementById("cognatesClose").style.display = "block";
+}
+
+function closeCognates() {
+  const all = window._cognatesAll;
+  const step = window._cognatesStep;
+
+  const initial = all.slice(0, step);
+  window._cognatesIndex = initial.length;
+
+  const html = initial.map(([word, entry]) => {
+    return createWordLink(word, entry);
+  }).join(", ");
+
+  // リストを初期状態に戻す
+  document.getElementById("cognatesList").innerHTML = html;
+
+  // 「もっと見る」を復活（まだ残りがある場合）
+  if (all.length > step) {
+    document.getElementById("cognatesMore").style.display = "";
+  }
+
+  // 「閉じる」を隠す
+  document.getElementById("cognatesClose").style.display = "none";
+}
+
+
+function showMoreSimilars() {
+  const start = window._similarsIndex;
+  const end = start + window._similarsStep;
+
+  const next = window._similarsAll.slice(start, end);
+
+  const html = next.map(([word, entry]) => {
+    return createWordLink(word, entry);
+  }).join(", ");
+
+  const list = document.getElementById("similarsList");
+
+  if (list && html) {
+    list.innerHTML += ", " + html;
+  }
+  window._similarsIndex = end;
+
+  // 全表示したら
+  if (window._similarsIndex >= window._similarsAll.length) {
+
+    const more = document.getElementById("similarsMore");
+    const close = document.getElementById("similarsClose");
+
+    if (more) more.style.display = "none";
+    if (close) close.style.display = "block";
+  }
+}
+
+function closeSimilars() {
+  const all = window._similarsAll;
+  const step = window._similarsStep;
+
+  const initial = all.slice(0, step);
+
+  window._similarsIndex = initial.length;
+
+  const html = initial.map(([word, entry]) => {
+    return createWordLink(word, entry);
+  }).join(", ");
+
+  // 同類語リストを戻す
+  document.getElementById("similarsList").innerHTML = html;
+
+  // もっと見る復活
+  if (all.length > step) {
+    document.getElementById("similarsMore").style.display = "";
+  }
+
+  // 閉じるを隠す
+  document.getElementById("similarsClose").style.display = "none";
+}
+
+
 // 単語をクリックした時にURLを更新し、詳細を表示する関数
 function loadWord(word) {
   const data = dictionary[word];
@@ -43,8 +149,8 @@ const partsStyles = {
   "動詞": "doushi",
   "名飾": "meishoku",
   "副飾": "fukushoku",
-  "文飾": "bunshoku",
-  "副合辞<br>文飾": "bunshoku",
+  "包飾": "bunshoku",
+  "副合辞<br>包飾": "bunshoku",
   "接辞": "fukuji",
   "離辞": "fukuji",
   "屈折接辞": "fukuji",
@@ -79,6 +185,26 @@ function isMorphemeOrVariant(entry) {
   });
 }
 
+const seiiMap = {
+  H: "￣",
+  M: "ー",
+  L: "＿"
+};
+
+// 声位を変換する関数
+function renderSeii(seiiArray) {
+  if (!seiiArray || !Array.isArray(seiiArray)) return "";
+  return seiiArray
+    .map(group => {
+      const converted = group
+        .split("")
+        .map(char => seiiMap[char] || char)
+        .join("");
+      return `[${converted}]`;
+    })
+    .join(" ");
+}
+
 // 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
   if (!text) return "";
@@ -92,7 +218,6 @@ function resolveEtymologyText(text) {
     r: "../rdic/rdic.html",
     p: "../pdic/pdic.html"
   };
-
   const placeholders = [];
 
   // ① 他辞書を一旦退避
@@ -108,8 +233,8 @@ function resolveEtymologyText(text) {
   if (dict === "ng") extDict = ngdicDictionary;
   if (dict === "r") extDict = rdicDictionary;
   if (dict === "p") extDict = pdicDictionary;
-  let word = id;
-  let meaning = "";
+    let word = id;
+    let meaning = "";
 
     if (extDict) {
       for (const [w, data] of Object.entries(extDict)) {
@@ -124,13 +249,13 @@ function resolveEtymologyText(text) {
     const placeholder = `__LINK${placeholders.length}__`;
 
     placeholders.push(
-      `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}</a>（ ${meaning} ）`
+      `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}<sup>+</sup></a><span class="link-meaning">（ ${meaning} ）</span>`
     );
 
     return placeholder;
   });
 
-  // ② cdic ID
+  // ② ndic ID
   text = text.replace(/\b(\d+)\b/g, (match, id) => {
 
     const word = idToWord[id];
@@ -142,7 +267,16 @@ function resolveEtymologyText(text) {
     let meaning = entry.meaning?.[0] ?? "";
     meaning = removeAnnotations(meaning);
 
-    return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a>（ ${meaning} ）`;
+    const part = Array.isArray(entry.part)
+      ? entry.parts[0]
+      : entry.parts ?? "";
+
+    const partClass = partsStyles[part] ?? "";
+
+    return `<a href="#"
+onclick="loadWord('${word}'); return false;"
+class="etymology-link ${partClass}">
+${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
   });
 
   // ③ 他辞書リンクを戻す
@@ -153,6 +287,28 @@ function resolveEtymologyText(text) {
   return text;
 }
 
+function createWordLink(word, entry) {
+  const meaning = removeAnnotations(
+    Array.isArray(entry.meaning)
+      ? entry.meaning[0]
+      : entry.meaning || ""
+  );
+
+  const part = Array.isArray(entry.part)
+    ? entry.parts[0]
+    : entry.parts ?? "";
+
+  const partClass = partsStyles[part] ?? "";
+
+  return `
+    <a href="#"
+       onclick="loadWord('${word}'); return false;"
+       class="etymology-link ${partClass}">
+       ${word}
+    </a>
+    <span class="meaning"><span class="link-meaning">（ ${meaning} ）</span></span>
+  `;
+}
 
 // Markdown を HTML に変換して表示する関数
 function renderMarkdown(md) {
@@ -282,10 +438,10 @@ Promise.all([
   fetch('../etym/Etym.json').then(r => r.json()),
   fetch('../tdic/Tdic.json').then(r => r.json()),
   fetch('../cdic/Cdic.json').then(r => r.json()),
-fetch('../ngdic/Ngdic.json').then(r => r.json()),
+  fetch('../ngdic/Ngdic.json').then(r => r.json()),
   fetch('../rdic/Rdic.json').then(r => r.json()),
-fetch('../pdic/Pdic.json').then(r => r.json())
-]).then(([dicData, oldData, tdicData, cdicData,ngdicData, rdicData,pdicData]) => {
+  fetch('../pdic/Pdic.json').then(r => r.json())
+]).then(([dicData, oldData, tdicData, cdicData, ngdicData, rdicData, pdicData]) => {
 
   dictionary = { ...dicData };
   etymDictionary = oldData;
@@ -340,6 +496,39 @@ fetch('../pdic/Pdic.json').then(r => r.json())
     // vulgarMeaning も検索対象にする
     const vul = data.vulgarMeaning ? (Array.isArray(data.vulgarMeaning) ? data.vulgarMeaning.join(' ') : String(data.vulgarMeaning)) : "";
     data._normVulgar = normalizeForSearch(removeAnnotations(vul));
+
+    // 縫言録も検索対象にする
+    let kanjiReadings = "";
+    if (data.kanji) {
+      const nui = Array.isArray(data.kanji.nui)
+        ? data.kanji.nui
+        : (data.kanji.nui ? [data.kanji.nui] : []);
+
+      const chel = Array.isArray(data.kanji.chel)
+        ? data.kanji.chel
+        : (data.kanji.chel ? [data.kanji.chel] : []);
+
+      kanjiReadings = [...nui, ...chel].join(" ");
+    }
+
+    // ★ 正規表現を使わない安全な記号除去
+    const symbolsToRemove = [
+      "-", "‐", "‑", "–", "—", "―", "_",
+      "(", ")", "［", "］", "〈", "〉", "《", "》", "「", "」",
+      "[", "]", "{", "}", "<", ">"
+    ];
+
+    let cleanedKanjiReadings = kanjiReadings;
+    symbolsToRemove.forEach(sym => {
+      cleanedKanjiReadings = cleanedKanjiReadings.split(sym).join(" ");
+    });
+
+    cleanedKanjiReadings = cleanedKanjiReadings.replace(/\s+/g, " ").trim();
+
+    // 正規化して保存
+    data._normKanjiReadings = normalizeForSearch(cleanedKanjiReadings);
+
+
     try {
       // 活用形を生成するよ
       const inflRaw = (typeof generateInflections === "function") ? generateInflections(word) || [] : [];
@@ -379,17 +568,6 @@ fetch('../pdic/Pdic.json').then(r => r.json())
     return null;
   }
   const initial = getWordFromParam();
-
-  // URLで指定した単語を表示するよ！
-  if (initial) {
-    showDetails(initial);
-    placeholder.style.display = 'none';
-    wordList.innerHTML = '';
-    pageInfoSpan.textContent = '';
-    prevPageBtn.disabled = true;
-    nextPageBtn.disabled = true;
-    document.getElementById('pagination').style.display = 'none';
-  }
   syncUIWithURL();
 }).catch(error => console.error("JSON読み込みエラー:", error));
 
@@ -477,7 +655,7 @@ function buildWordList(list) {
     const meaning = getFirstMeaning(entry);
     return `<a href="#" onclick="loadWord('${word}'); return false;">
               ${word}
-            </a>（${meaning}）`;
+            </a><span class="meaning"><span class="link-meaning">（ ${meaning} ）</span></span>`;
   }).join(", ");
 }
 
@@ -499,6 +677,8 @@ function getCognates(data) {
   const sourceIDs = extractEtymologyIDs(data);
 
   return Object.entries(dictionary).filter(([word, entry]) => {
+    // * から始まるものは除外する
+    if (word.startsWith("*")) return false;
 
     // 1. 自分自身は除外
     if (entry.id === data.id) return false;
@@ -536,8 +716,13 @@ function getCognates(data) {
 function getSimilarWords(data) {
   // 1. 自分のタグを配列に標準化。かつ「ー」や空文字を除外
   const normalize = (t) => {
-    if (!t || t === "ー", "-") return [];
-    return Array.isArray(t) ? t.filter(v => v !== "ー") : [t];
+    if (!t) return [];
+
+    // 配列化
+    const arr = Array.isArray(t) ? t : [t];
+
+    // 無効タグ除外
+    return arr.filter(v => v && v !== "ー" && v !== "-");
   };
 
   const myTags = normalize(data.tag);
@@ -555,8 +740,12 @@ function getSimilarWords(data) {
     // 相手が有効なタグを持っていないなら除外
     if (entryTags.length === 0) return false;
 
+    // * から始まるものは除外する
+    if (word.startsWith("*")) return false;
+
     // 3. 共通するタグが1つでもあるか判定
     return myTags.some(tag => entryTags.includes(tag));
+
   });
 }
 
@@ -567,6 +756,8 @@ function showDetails(word) {
     alert("単語「" + word + "」の詳細が見つかりません。");
     return;
   }
+
+  let tableHTML = "";
 
   // セーフサーチON/OFFの状態を取得
   const safeSearch = document.getElementById("safeSearchToggle").checked;
@@ -623,63 +814,75 @@ function showDetails(word) {
   let bottomRows = []; // 下部テーブル行
 
   // 品詞
-  leftRows.push(`<tr><th>属性</th><td>${data.parts || ""}</td></tr>`);
+const partClass = partsStyles[data.parts] ?? "";
+
+leftRows.push(`
+  <tr>
+    <th>属性</th>
+    <td class="${partClass}">${data.parts || ""}</td>
+  </tr>
+`);
 
   // タグ
   leftRows.push(`<tr><th>タグ</th><td class="t-td">${data.tag ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag) : ""}</td></tr>`);
 
   // 発音
-  leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
+  const pronHTML = (data.pronunciation || [])
+  .map(p => `<span class="pron-item">${p}</span>`)
+  .join("<br>");
 
-  // 語彙素形がある場合
-  if (data.lexemic) {
-    leftRows.push(`<tr><th>語彙素形</th><td class="maincolor">${data.lexemic}</td></tr>`);
-  }
+leftRows.push(
+  `<tr><th>発音</th><td class="p-td">${pronHTML}</td></tr>`
+);
 
-  // 接辞形
-  let fixHTML = "";
-  if (data.fix) {
-    // 配列 or カンマ区切りを処理
-    const fix = Array.isArray(data.fix)
-      ? data.fix
-      : data.fix.split(",").map(s => s.trim());
-    // liリスト化
-    fixHTML = fix.map(f => `<li class="fixList">${f}</li>`).join("");
-  }
-  // 接辞形がある場合テーブル追加
-  if (fixHTML) {
+
+  // 声位
+  if (data.seii) {
     leftRows.push(`
-        <tr>
-        <th>接辞形</th>
-        <td class="maincolor">
-        <ul>${fixHTML}</ul>
-      </td>
+    <tr>
+      <th>声位</th>
+      <td class="seii">${renderSeii(data.seii)}</td>
     </tr>
   `);
   }
 
-  // 異形
+  // 異体字
   if (data.vari) {
-    leftRows.push(`<tr><th>異形</th><td class="variList">${data.vari}</td></tr>`);
-  }
-
-  // 屈折型
-  if (data.type) {
-    leftRows.push(`<tr><th>屈折型</th><td>${data.type || ""}</td></tr>`);;
+    leftRows.push(`<tr><th>異体字</th><td class="variList">${data.vari}</td></tr>`);
   }
 
   // 語義説明
-  if (data.explanation) {
-    leftRows.push(`<tr><th>語義</th><td>${data.explanation || ""}</td></tr>`);;
+  if (data.explanation && data.explanation.length > 0) {
+    // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
+    const explanationHtml = data.explanation
+      .map((text, index) => {
+        const circles = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
+        const circleNumber = circles[index] || `(${index + 1})`;
+
+        return `
+      <div class="explanation-item">
+        ${circleNumber} ${text}
+      </div>
+    `;
+      })
+      .join('');
+
+    leftRows.push(`<tr><th>語義</th><td colspan="1"><div class="explanation-content">${explanationHtml}</div></td></tr>`);
   }
 
   // 意味列の rowspan の計算
   const rowspanCount = leftRows.length;
   // 最初の行に意味列を追加
-  leftRows[0] = leftRows[0].replace(
-    `<tr><th>属性</th><td>${data.parts || ""}</td>`,
-    `<tr><th>属性</th><td>${data.parts || ""}</td><th rowspan="${rowspanCount}">意味</th><td rowspan="${rowspanCount}"><ul>${meaningsHTML}</ul></td>`
-  );
+  leftRows[0] = `
+  <tr>
+    <th>属性</th>
+    <td class="${partClass}">${data.parts || ""}</td>
+    <th rowspan="${rowspanCount}">意味</th>
+    <td rowspan="${rowspanCount}">
+      <ul>${meaningsHTML}</ul>
+    </td>
+  </tr>
+`;
 
   // URLを自動リンク化する関数
   function processH5Links(text) {
@@ -711,7 +914,7 @@ function showDetails(word) {
       changesTable = `<table class="inner-table"><tbody>`;
       changesTable += data.etymology.changes.map(change => {
         const note = change.note ? " " + processH5Links(change.note) : "";
-        return `<tr><td>${processH5Links(change.form)}<span>${note}</span></td></tr>`;
+        return `<tr><td>${processH5Links(change.form)}<span class="marker-span">${note}</span></td></tr>`;
       }).join("");
       changesTable += `</tbody></table>`;
     }
@@ -778,42 +981,6 @@ function showDetails(word) {
   </table>
 `;
 
-  // 漢字辞典セクションの表示処理
-  let kanjiHTML = "";
-  if (data.kanji && data.kanji.title) {
-    let nuiList = "";
-
-    // 縫読のリスト化
-    if (data.kanji.nui) {
-      const nuiArr = Array.isArray(data.kanji.nui) ? data.kanji.nui : [data.kanji.nui];
-      nuiList = nuiArr.map(item => `<li>${item}</li>`).join("");
-    }
-
-    kanjiHTML = `
-    <table class="detailTable">
-      <tbody>
-        <tr>
-          <th id="stripeth" rowspan="3">漢縫辞書</th>
-          <th>対応漢字</th>
-          <td colspan="2">
-            <span class="kanji-main">【 ${data.kanji.title} 】</span>
-          </td>
-        </tr>
-        <tr>
-          <th>読み</th>
-          <td colspan="2">
-            <ul class="kanji-list">${nuiList || "<li>ー</li>"}</ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>`;
-}
-
-  // 構築したHTMLをdetailsHTMLに連結
-  if (kanjiHTML) {
-    detailsHTML += kanjiHTML;
-  }
-
   // 一般言語学メモ（note1）
   let note1HTML = "";
   if (data.note1) {
@@ -842,7 +1009,7 @@ function showDetails(word) {
   }
 
 
-  // 智語解説タイトル
+  // 縫語解説タイトル
   let note2TitleHTML = "";
   if (data.note2 && data.note2.title) {
     const titles = Array.isArray(data.note2.title)
@@ -853,7 +1020,7 @@ function showDetails(word) {
     }).join("");
   }
 
-  // 智語解説本文
+  // 縫語解説本文
   let note2HTML = "";
   if (data.note2) {
     let note2TextHTML = "";
@@ -886,7 +1053,7 @@ function showDetails(word) {
       detailsHTML += `<table class="detailTable">
     <tbody>
       <tr>
-        <th id="stripeth">智語解説</th>
+        <th id="stripeth">縫語解説</th>
         <td colspan="3">
           ${note2TitleHTML ? note2TitleHTML : ""}
           ${note2TextHTML ? `<ul>${note2TextHTML}</ul>` : ""}
@@ -940,15 +1107,34 @@ function showDetails(word) {
 
     if (hasA1 || hasA2) {
       const a1Text = hasA1 // 赤字警告文
-        ? `<span style="color: red;">${alertData.a1}</span>`
+        ? `<span style="color: #ff5555;">${alertData.a1}</span>`
         : "";
 
-      let a2Links = ""; // 関連語リンク生成
+      let a2Links = "";
+
       if (hasA2) {
-        a2Links = alertData.a2.map(obj => {
-          const w = obj.word || "";
-          return `<a href="#" onclick="loadWord('${w}'); return false;">${w}</a>`;
-        }).join(" ");
+        a2Links = alertData.a2.map(raw => {
+
+          // 数字を含む → ID として扱う
+          const id = String(raw).replace(/[^\d]/g, "");
+          if (id && idToWord[id]) {
+            const word = idToWord[id];
+            const entry = dictionary[word];
+            if (!entry) return "";
+
+            const meaning = removeAnnotations(
+              Array.isArray(entry.meaning)
+                ? entry.meaning[0]
+                : entry.meaning || ""
+            );
+
+            return `<span class="marker">${createWordLink(word, entry)}</span>`;
+          }
+
+          // 数字が無い → 文章として扱う
+          return raw;
+
+        }).join("<br>");
       }
 
       // テーブル追加
@@ -956,7 +1142,7 @@ function showDetails(word) {
         <table class="detailTable">
           <tbody>
             <tr>
-              <th id="stripeth">注意</th>
+              <th id="stripeth">⚠ 注意</th>
               <td colspan="3">
                 ${a1Text} <br><br>
                 ${a2Links ? " " + a2Links : ""}
@@ -985,14 +1171,8 @@ function showDetails(word) {
     const links = data.variants1.map(id => {
       const word = idToWord[String(id)];
       if (!word || !dictionary[word]) return "";
-      const entry = dictionary[word];
-      const meaning = removeAnnotations(
-        Array.isArray(entry.meaning)
-          ? entry.meaning[0]
-          : entry.meaning || ""
-      );
 
-      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（${meaning}）`;
+      return createWordLink(word, dictionary[word]);
 
     }).filter(Boolean).join(", ");
 
@@ -1008,56 +1188,95 @@ function showDetails(word) {
     </table>`;
   }
 
-
   // 関連語の生成
   const cognates = getCognates(data);
   if (cognates.length) {
-    const links = cognates
-      // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
-      .filter(([word, entry]) => !safeSearch || entry.safe !== false)
-      .map(([word, entry]) => {
-        const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
-      })
-      .join(", ");
+    // セーフサーチ適用
+    const filtered = cognates.filter(([word, entry]) => !safeSearch || entry.safe !== false);
 
-    // リンクがある場合のみテーブルを表示（フィルタですべて消える可能性があるため）
-    if (links) {
-      detailsHTML += `
-      <table class="detailTable">
-        <tbody>
-          <tr>
-            <th>関連語かも</th>
-            <td class="linktext" colspan="3">${links}</td>
-          </tr>
-        </tbody>
-      </table>`;
-    }
+    // --- ページネーション用に保存 ---
+    window._cognatesAll = filtered; // 全件
+    window._cognatesIndex = 0;      // 現在の表示位置
+    window._cognatesStep = itemsCognates;
+
+    // 最初の itemsCognates 件を表示
+    const initial = filtered.slice(0, itemsCognates);
+    window._cognatesIndex = initial.length;
+
+    const links = initial.map(([word, entry]) => {
+      return createWordLink(word, entry);
+    }).join(", ");
+
+    detailsHTML += `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th>関連語かも</th>
+          <td class="linktext" colspan="3">
+            <span id="cognatesList">${links}</span>
+
+            ${filtered.length > itemsCognates
+        ? `<div id="cognatesMore" class="morelink" onclick="showMoreCognates()">もっと見る</div>`
+        : ""
+      }
+            <div id="cognatesClose" class="morelink" style="display:none;" onclick="closeCognates()">閉じる</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
   }
 
-  // 同類語の生成
-  const similars = getSimilarWords(data);
-  if (similars.length) {
-    const links = similars
-      // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
-      .filter(([word, entry]) => !safeSearch || entry.safe !== false)
-      .map(([word, entry]) => {
-        const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
-        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（ ${meaning} ）`;
-      })
-      .join(", ");
 
-    if (links) {
-      detailsHTML += `
-      <table class="detailTable">
-        <tbody>
-          <tr>
-            <th>同類語</th>
-            <td class="linktext" colspan="3">${links}</td>
-          </tr>
-        </tbody>
-      </table>`;
-    }
+  const similars = getSimilarWords(data)
+    .filter(([word, entry]) => !safeSearch || entry.safe !== false);
+
+  if (similars.length) {
+
+    // --- ページネーション保存 ---
+    window._similarsAll = similars;
+    window._similarsIndex = 0;
+    window._similarsStep = itemsCognates;
+
+    // 初期表示
+    const initial = similars.slice(0, itemsCognates);
+    window._similarsIndex = initial.length;
+
+    const links = initial.map(([word, entry]) => {
+      return createWordLink(word, entry);
+    }).join(", ");
+
+    detailsHTML += `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th>同類語</th>
+
+          <td class="linktext" colspan="3">
+
+            <span id="similarsList">${links}</span>
+
+            ${similars.length > itemsCognates
+        ? `<div id="similarsMore"
+                        class="morelink"
+                        onclick="showMoreSimilars()">
+                    もっと見る
+                   </div>`
+        : ""
+      }
+
+            <div id="similarsClose"
+                 class="morelink"
+                 style="display:none;"
+                 onclick="closeSimilars()">
+              閉じる
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
   }
   // HTMLを画面に描画
   details.innerHTML = detailsHTML;
@@ -1113,6 +1332,8 @@ function createWordListItem(word) {
   return li;
 }
 
+
+
 function renderPage() {
   wordList.innerHTML = "";
 
@@ -1159,14 +1380,13 @@ function renderPage() {
   nextPageBtn.disabled = (currentPage === total);
 }
 
+
 function performSearch() {
-  // 検索語取得
   const rawSearch = searchBox.value || "";
   const normalizedSearch = normalizeForSearch(rawSearch);
   const searchTerm = searchBox.value.toLowerCase();
   wordList.innerHTML = "";
 
-  // 検索語なし
   if (searchTerm === "") {
     placeholder.style.display = "block";
     searchResults = [];
@@ -1179,227 +1399,152 @@ function performSearch() {
     placeholder.style.display = "none";
   }
 
-  // 辞書未ロード
   if (Object.keys(dictionary).length === 0) {
     wordList.innerHTML = "<li>データ読み込み中...</li>";
     return;
   }
 
-  // 検索モードを取得
   const searchMode = searchModeSelect.value;
-  searchResults = []; // 検索結果格納配列を初期化
+  searchResults = [];
 
-  // タグ検索
   if (searchMode === "tag") {
-    // 入力されたタグを、カンマ区切りで分解するよ！
     const searchTags = searchTerm
       .split(",")
       .map(tag => tag.trim().toLowerCase())
       .filter(tag => tag.length > 0);
 
-    // 辞書からタグ一致する単語を取得するよ！
     const tagResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
-
-      // タグが存在しない語は除外するよ！
       if (!data.tag) return false;
-
-      // タグを配列として扱うためのもの
       const tags = Array.isArray(data.tag)
         ? data.tag.map(t => removeAnnotations(t).toLowerCase())
         : [removeAnnotations(data.tag).toLowerCase()];
-
-      // すべての検索タグが含まれているか確認するよ！
       return searchTags.every(searchTag => tags.includes(searchTag));
     });
 
-    // アルファベット順で並べ替えるよ！
     tagResults.sort((a, b) => a.localeCompare(b));
 
-    // 結果がある場合は検索結果リストに追加！
     if (tagResults.length > 0) {
-
-      // 見出しを追加して……
       searchResults.push({ type: "heading", text: "【タグでの検索結果】" });
-
-      // そして各単語を結果として追加
-      tagResults.forEach(word => {
-        searchResults.push({ type: "word", value: word });
-      });
+      tagResults.forEach(word => searchResults.push({ type: "word", value: word }));
     }
 
-    // 通常検索ならば、
   } else {
     const primaryResults = Object.keys(dictionary).filter(word => {
+      if (word.startsWith("*")) return false;
       const data = getEntry(word);
-      // 注釈削除した単語も検索に入れる
-      const cleanedWord = removeAnnotations(word).toLowerCase();
 
-      // 単語綴りの一致判定
       let matchKey = false;
       if (searchMode === "exact") matchKey = (data._normKey === normalizedSearch);
       else if (searchMode === "prefix") matchKey = data._normKey.startsWith(normalizedSearch);
       else matchKey = data._normKey.includes(normalizedSearch);
 
-      // 意味検索
       let matchMeaning = false;
-
       if (data.meaning) {
-        const meanings = Array.isArray(data.meaning)
-          ? data.meaning
-          : [data.meaning];
-
+        const meanings = Array.isArray(data.meaning) ? data.meaning : [data.meaning];
         matchMeaning = meanings.some(m => {
           const norm = normalizeForSearch(removeAnnotations(m));
-
           if (searchMode === "exact") return norm === normalizedSearch;
-          else if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
-          else return norm.includes(normalizedSearch);
+          if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
+          return norm.includes(normalizedSearch);
         });
       }
 
-      // 俗語意味検索
       let matchVulgar = false;
       if (data.vulgarMeaning) {
-        // 意味が複数ある場合
-        if (Array.isArray(data.vulgarMeaning)) {
-          matchVulgar = data.vulgarMeaning.some(v => {
-            const cleaned = removeAnnotations(v).toLowerCase();
-            if (searchMode === "exact") return cleaned === searchTerm;
-            else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-            else return cleaned.includes(searchTerm);
-          });
-        } else {
-          const cleaned = removeAnnotations(data.vulgarMeaning).toLowerCase();
-          if (searchMode === "exact") matchVulgar = (cleaned === searchTerm);
-          else if (searchMode === "prefix") matchVulgar = cleaned.startsWith(searchTerm);
-          else matchVulgar = cleaned.includes(searchTerm);
-        }
+        const list = Array.isArray(data.vulgarMeaning) ? data.vulgarMeaning : [data.vulgarMeaning];
+        matchVulgar = list.some(v => {
+          const cleaned = removeAnnotations(v).toLowerCase();
+          if (searchMode === "exact") return cleaned === searchTerm;
+          if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+          return cleaned.includes(searchTerm);
+        });
       }
 
-      // variants2 も検索に引っかかるようにするよ！
+      let matchWord = false;
+if (data.word) {
+  const words = Array.isArray(data.word)
+    ? data.word
+    : [data.word];
+
+  matchWord = words.some(v => {
+    const norm = normalizeForSearch(removeAnnotations(v));
+
+    if (searchMode === "exact")
+      return norm === normalizedSearch;
+
+    if (searchMode === "prefix")
+      return norm.startsWith(normalizedSearch);
+
+    return norm.includes(normalizedSearch);
+  });
+}
       let matchVariants2 = false;
       if (data.variants2) {
         matchVariants2 = data.variants2.some(v => {
           const cleaned = removeAnnotations(v).toLowerCase();
           if (searchMode === "exact") return cleaned === searchTerm;
-          else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-          else return cleaned.includes(searchTerm);
+          if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+          return cleaned.includes(searchTerm);
         });
       }
 
-      // 活用形も検索に引っかかるようにするよ！
-      let matchInflection = false;
-      // 事前キャッシュがあればそれを使うよ！
-      if (data._normInflArray && data._normInflArray.length) {
-        matchInflection = data._normInflArray.some(norm => {
-          if (searchMode === "exact") return norm === normalizedSearch;
-          if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
-          return norm.includes(normalizedSearch);
-        });
-
-      } else {
-        // キャッシュが無い場合はその場で生成するよ！
-        try {
-          const inflections = generateInflections(word) || [];
-          matchInflection = inflections.some(inf => {
-            const norm = normalizeForSearch(removeAnnotations(String(inf)));
-            if (searchMode === "exact") return norm === normalizedSearch;
-            if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
-            return norm.includes(normalizedSearch);
-          });
-        } catch (e) {
-          // 活用生成失敗時は false！
-          matchInflection = false;
-        }
-      }
-
-      // 以下のいずれかに一致した場合は true！
-      return matchKey || matchMeaning || matchVariants2 || matchVulgar || matchInflection;
+      return matchKey || matchMeaning || matchWord || matchVariants2 || matchVulgar;
     });
 
-    // variants1 検索
     const variantResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
-      let matchVariants1 = false;
-      if (data.variants1) {
-        matchVariants1 = data.variants1.some(v => {
-          const cleaned = removeAnnotations(v).toLowerCase();
-          if (searchMode === "exact") return cleaned === searchTerm;
-          else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-          else return cleaned.includes(searchTerm);
-        });
-      }
-      return matchVariants1;
+      if (!data.variants1) return false;
+      return data.variants1.some(v => {
+        const cleaned = removeAnnotations(v).toLowerCase();
+        if (searchMode === "exact") return cleaned === searchTerm;
+        if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+        return cleaned.includes(searchTerm);
+      });
     });
 
-    // タグ検索（通常検索時の補助だよ）
     const tagResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
-      let matchTag = false;
-      if (data.tag) {
-        if (Array.isArray(data.tag)) {
-          matchTag = data.tag.some(t => removeAnnotations(t).toLowerCase() === searchTerm);
-        } else {
-          matchTag = removeAnnotations(data.tag).toLowerCase() === searchTerm;
-        }
+      if (!data.tag) return false;
+      if (Array.isArray(data.tag)) {
+        return data.tag.some(t => removeAnnotations(t).toLowerCase() === searchTerm);
       }
-      return matchTag;
+      return removeAnnotations(data.tag).toLowerCase() === searchTerm;
     });
 
-    // 重複したのを除去するよ！
     const primarySet = new Set(primaryResults);
-
-    // variants1のみヒットした語
-    const variantOnlyResults = variantResults.filter(word => !primarySet.has(word));
+    const variantOnlyResults = variantResults.filter(w => !primarySet.has(w));
     const variantSet = new Set(variantOnlyResults);
-    let tagOnlyResults = [];
-    if (searchMode === "tag") {
-      tagOnlyResults = tagResults.filter(word => !primarySet.has(word) && !variantSet.has(word));
-      tagOnlyResults.sort((a, b) => a.localeCompare(b));
-    }
-    // 結果ソート
-    primaryResults.sort((a, b) => a.localeCompare(b));
-    variantOnlyResults.sort((a, b) => a.localeCompare(b));
-    tagOnlyResults.sort((a, b) => a.localeCompare(b));
+    const tagOnlyResults = tagResults.filter(w => !primarySet.has(w) && !variantSet.has(w));
 
-    // セーフサーチ判定
+    primaryResults.sort();
+    variantOnlyResults.sort();
+    tagOnlyResults.sort();
+
     const safeSearch = document.getElementById("safeSearchToggle").checked;
 
-    // safe=false の語を除外
-    const usePrimary = safeSearch
-      ? primaryResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
-      : primaryResults;
+    const usePrimary = safeSearch ? primaryResults.filter(w => dictionary[w].safe !== false) : primaryResults;
+    const useVariantOnly = safeSearch ? variantOnlyResults.filter(w => dictionary[w].safe !== false) : variantOnlyResults;
+    const useTagOnly = safeSearch ? tagOnlyResults.filter(w => dictionary[w].safe !== false) : tagOnlyResults;
 
-    const useVariantOnly = safeSearch
-      ? variantOnlyResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
-      : variantOnlyResults;
-
-    const useTagOnly = (typeof tagOnlyResults !== 'undefined' && Array.isArray(tagOnlyResults))
-      ? (safeSearch ? tagOnlyResults.filter(w => !(dictionary[w] && dictionary[w].safe === false)) : tagOnlyResults)
-      : [];
-
-    // 検索結果を構築！
     searchResults = [];
 
-    // 綴り・意味での検索結果
     if (usePrimary.length > 0) {
-      searchResults.push({ type: "heading", text: "【綴り・意味での検索結果】" });
+      searchResults.push({ type: "heading", text: "通常検索の結果" });
       usePrimary.forEach(word => searchResults.push({ type: "word", value: word }));
     }
 
-    // 関連語での検索結果
     if (useVariantOnly.length > 0) {
-      searchResults.push({ type: "heading", text: "【関連語での検索結果】" });
+      searchResults.push({ type: "heading", text: "関連語検索の結果" });
       useVariantOnly.forEach(word => searchResults.push({ type: "word", value: word }));
     }
-    // タグでの検索結果
+
     if (useTagOnly.length > 0) {
-      searchResults.push({ type: "heading", text: "【タグでの検索結果】" });
+      searchResults.push({ type: "heading", text: "タグ検索の結果" });
       useTagOnly.forEach(word => searchResults.push({ type: "word", value: word }));
     }
   }
-  // 検索結果がないなら「ない」とメッセージ
+
   if (searchResults.length === 0) {
     const li = document.createElement("li");
     li.textContent = "該当する単語はありません｡";
@@ -1411,18 +1556,18 @@ function performSearch() {
     return;
   }
 
-  // ページ表示を初期化するよ！
   currentPage = 1;
   renderPage();
 }
 
-// Enterキーで検索するようにするよ！
+
 searchBox.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
     performSearch();
   }
 });
+
 
 // 検索モードを変更したら再検索されるよ
 searchModeSelect.addEventListener("change", performSearch);
@@ -1437,6 +1582,8 @@ prevPageBtn.addEventListener("click", () => {
 nextPageBtn.addEventListener("click", () => {
   currentPage++;
   renderPage();
+  console.log(data.word);
+console.log(typeof data.word);
 });
 
 // 辞書ファイル一覧だよ！
@@ -1466,3 +1613,18 @@ window.addEventListener('popstate', () => {
 });
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
+
+// hover → tap対応
+document.addEventListener("click", function (e) {
+  const cell = e.target.closest(".has-hover");
+
+  // 全部閉じる
+  document.querySelectorAll(".has-hover").forEach(el => {
+    if (el !== cell) el.classList.remove("active");
+  });
+
+  // 押したセルだけトグル
+  if (cell) {
+    cell.classList.toggle("active");
+  }
+});
