@@ -43,8 +43,8 @@
   "又": {"id":53,"safe":true,"word":"lī","tag":["ー"],"parts":"副飾","meaning":["また","再び", "再度", "繰り返し", "今度も", "同様に", "やはり"],"pronunciation":["⟨lī⟩","/lʲi/","[lʲi]"],"seii":["h"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["ふたたび","さいど","どうように","矢張り","くりかえし","こんども"]},
   "又是": {"id":54,"safe":true,"word":"lī yǎe","tag":["ー"],"parts":"包飾","meaning":["または","あるいは","その上に", "かつ", "それから"],"pronunciation":["⟨lī yǎe⟩","/lʲi jæ/","[lʲi jæ]"],"seii":["h","v"],"etymology":{"intro":["合成語。","「 53 」+「 28 」が組み合わさった語。"],"changes":[]},"variants2":["又は","或いは"]},
   
-  "草": {"id":56,"vari":["艸"],"safe":true,"word":"sê","tag":["ー"],"parts":"全詞","meaning":["草"],"pronunciation":["⟨sê⟩","/se/","[sə]"],"seii":["a"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["くさ", "そう", "艸"]},
-  "木": {"id":57,"vari":["樹"],"safe":true,"word":"nòk","tag":["ー"],"parts":"名象","meaning":["木","樹木", "木材","木製の"],"pronunciation":["⟨nòk⟩","/nok/","[nɔk̚]"],"seii":["d"],"etymology":{"intro":["単純語。","音象徴「 冷たい水 」から。"],"changes":[]},"variants2":["き","じゅもく","もくざい"],
+  "草": {"id":56,"vari":["艸"],"safe":true,"word":"sê","tag":["ー"],"parts":"名象","meaning":["草"],"pronunciation":["⟨sê⟩","/se/","[sə]"],"seii":["a"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["くさ", "そう", "艸"]},
+  "木": {"id":57,"vari":["樹"],"safe":true,"word":"nòk","tag":["ー"],"parts":"全詞","meaning":["木","樹木", "木材","木製の"],"pronunciation":["⟨nòk⟩","/nok/","[nɔk̚]"],"seii":["d"],"etymology":{"intro":["単純語。","音象徴「 冷たい水 」から。"],"changes":[]},"variants2":["き","じゅもく","もくざい"],
   "火": {"id":58,"safe":true,"word":"bo","tag":["ー"],"parts":"全詞","meaning":["火","燃える","燃えている","火災", "火事", "赤い", "赤色", "熱", "怒り", "怒る", "盛んである", "盛んな", "盛り上がっている"],"pronunciation":["⟨bo⟩","/bo/","[pɔ]"],"seii":["l"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["ひ","もえる","かさい", "かじ", "あかい", "あかいろ", "ねつ", "いかり", "おこる","いかる", "さかんである", "さかんな", "もりあがっている"]},
   "水": {"id":59,"safe":true,"word":"slô","tag":["ー"],"parts":"名象","meaning":["水","液", "汁"],"pronunciation":["⟨slô⟩","/slo/","[ɬɔ]"],"seii":["a"],"etymology":{"intro":["単純語。","音象徴「 冷たい水 」から。"],"changes":[]},"variants2":["みず","えき","しる"]},
   "良": {"id":60,"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["良い","よろしい","良好な","好ましい","善良な","正しい","美味しい","美味い"],"pronunciation":["⟨sā⟩","/sa/","[sɑ]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["よい","いい","好い","善い","ぜんりょうな","りょうこうな","正しい","うまい","おいしい"]},
@@ -55,4 +55,4 @@
   "左": {"id":65,"safe":true,"word":"slā","tag":["ー"],"parts":"全詞","meaning":["左", "左側の", "左方の"],"pronunciation":["⟨slā⟩","/sla/","[ɬɔ]"],"seii":["h"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["ひだりがわ","さほう"]},
   
   "*": {"id":111111111,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]}
-}
+}}
