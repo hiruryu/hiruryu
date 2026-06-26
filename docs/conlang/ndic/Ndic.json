@@ -1,22 +1,21 @@
 {
   "*縫族": {"id":1,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["⟨Núy⟩","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]},
   "良": {"id":10,"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["良い","よろしい","良好な","好ましい","善良な","正しい","美味しい","美味い"],"pronunciation":["⟨sā⟩","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["よい","いい","好い","善い","ぜんりょうな","りょうこうな","正しい","うまい","おいしい"]},
-  "悪": {"id":11,"safe":true,"word":"sā","tag":["ー"],"parts":"名象","meaning":["悪い","良くない"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["わるい","あく","よくない"]},
-  "晨": {"id":13,"vari":["朝"],"safe":true,"word":"sā","tag":["時間"],"parts":"名飾","meaning":["朝"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
-  "昼": {"id":14,"vari":["晝"],"safe":true,"word":"sā","tag":["時間"],"parts":"名象","meaning":["昼"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["ひる"]},
-  "夕": {"id":15,"safe":true,"word":"sā","tag":["時間"],"parts":"名飾","meaning":["夕方"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
-  "亱": {"id":16,"vari":["夜"],"safe":true,"word":"sā","tag":["時間"],"parts":"名象","meaning":["夜"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["ひる"]},
-  "吃": {"id":17,"safe":true,"word":"sā","tag":["ー"],"parts":"動詞","meaning":["食べる"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["v"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
-  "了": {"id":18,"safe":true,"word":"sā","tag":["ー"],"parts":"副辞","meaning":["～してある"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["l"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["ひる"]},
-  "少": {"id":20,"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["少ない"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["a"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["ひる"]},
-  "多": {"id":21,"vari":["夛"],"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["多い"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["u"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
-  "开": {"id":22,"vari":["開"],"safe":true,"word":"sā","tag":["ー"],"parts":"動詞","meaning":["開く"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
-  "心": {"id":23,"safe":true,"word":"sā","tag":["ー"],"parts":"名飾","meaning":["心","感情"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 良い 」から。"],"changes":[]},"variants2":["あさ"]},
-  "之": {"id":24,"safe":true,"word":"sā","tag":["ー"],"parts":"副辞","meaning":["～の"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["の"]},
-  "係": {"id":25,"safe":true,"word":"sā","tag":["ー"],"parts":"副辞","meaning":["～である","～だ"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["である","だ"]},
-
-
-
+  "悪": {"id":11,"safe":true,"word":"ngó","tag":["ー"],"parts":"名象","meaning":["悪い","良くない"],"pronunciation":["⟨ngó⟩","/ŋo/","[ŋɔ]"],"seii":["u"],"etymology":{"intro":["単純語。","音象徴「 悪い 」から。"],"changes":[]},"variants2":["わるい","あく","よくない"]},
+  "晨": {"id":13,"vari":["朝"],"safe":true,"word":"xēng","tag":["時間"],"parts":"名飾","meaning":["朝"],"pronunciation":["⟨xēng⟩","/xeŋ/","[xəŋ]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 明るい 」から。"],"changes":[]},"variants2":["あさ"]},
+  "昼": {"id":14,"vari":["晝"],"safe":true,"word":"pōk","tag":["時間"],"parts":"名象","meaning":["昼"],"pronunciation":["⟨pòk⟩","/pok/","[pʰɔk̚]"],"seii":["d"],"etymology":{"intro":["単純語。","音象徴「 浮かぶ 」から。"],"changes":[]},"variants2":["ひる"]},
+  "夕": {"id":15,"safe":true,"word":"līng","tag":["時間"],"parts":"名飾","meaning":["夕方"],"pronunciation":["⟨līng⟩","/lʲiŋ/","[lʲiŋ]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 落ち着いた 」から。"],"changes":[]},"variants2":["ゆう","ゆうがた"]},
+  "亱": {"id":16,"vari":["夜"],"safe":true,"word":"wa","tag":["時間"],"parts":"名象","meaning":["夜"],"pronunciation":["⟨wa⟩","/wa/","[wɑ]"],"seii":["l"],"etymology":{"intro":["単純語。","音象徴「 暗い 」から。"],"changes":[]},"variants2":["よる"]},
+  "吃": {"id":17,"safe":true,"word":"hàm","tag":["ー"],"parts":"動詞","meaning":["食べる","食事する"],"pronunciation":["⟨hàm⟩","/ham/","[xɑm]"],"seii":["d"],"etymology":{"intro":["単純語。","音象徴「 食べる 」から。"],"changes":[]},"variants2":["たべる","しょくじする"]},
+  "了": {"id":18,"safe":true,"word":"ge","tag":["ー"],"parts":"副辞","meaning":["（ 完了を表す ）～した","してある"],"pronunciation":["⟨ge⟩","/ge/","[kə]"],"seii":["l"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["完了相","完了形","かんりょうけい","した","してある"]},
+  "少": {"id":20,"safe":true,"word":"slā","tag":["ー"],"parts":"名飾","meaning":["少ない"],"pronunciation":["⟨slā⟩","/sla/","[ɬɑ]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 少ない 」から。"],"changes":[]},"variants2":["すくない"]},
+  "多": {"id":21,"vari":["夛"],"safe":true,"word":"duǒ","tag":["ー"],"parts":"名飾","meaning":["多い"],"pronunciation":["⟨duǒ⟩","/duo/","[tu̯ɔ]"],"seii":["v"],"etymology":{"intro":["単純語。","音象徴「 多い 」から。"],"changes":[]},"variants2":["おおい"]},
+  "开": {"id":22,"vari":["開"],"safe":true,"word":"bàk","tag":["ー"],"parts":"動詞","meaning":["開く","開ける","開封する"],"pronunciation":["⟨bàk⟩","/bak/","[pɑk̚]"],"seii":["d"],"etymology":{"intro":["単純語。","音象徴「 開ける 」から。"],"changes":[]},"variants2":["あく","あける"]},
+  "心": {"id":23,"safe":true,"word":"dǒk","tag":["ー"],"parts":"名飾","meaning":["心","心臓","感情"],"pronunciation":["⟨dǒk⟩","/dok/","[dɔk̚]"],"seii":["v"],"etymology":{"intro":["単純語。","擬声語「 鼓動の音 」から。"],"changes":[]},"variants2":["こころ","かんじょう","しんぞう"]},
+  "之": {"id":24,"safe":true,"word":"làk","tag":["ー"],"parts":"副辞","meaning":["～の"],"pronunciation":["⟨làk⟩","/lak/","[lɑk̚]"],"seii":["d"],"etymology":{"intro":["単純語。","音象徴「 繋げる 」から。"],"changes":[]},"variants2":["の"]},
+  "係": {"id":25,"safe":true,"word":"kìs","tag":["ー"],"parts":"副辞","meaning":["～である","～だ"],"pronunciation":["⟨kìs⟩","/kʲit̚/","[kʲʰit̚]"],"seii":["d"],"etymology":{"intro":["単純語。","音象徴「 繋げる 」から。"],"changes":[]},"variants2":["である","だ"]},
+  "枼": {"id":26,"vari":["枽", "葉", "牒", "艓"],"safe":true,"word":"sēng","tag":["植物"],"parts":"名象","meaning":["（ < 葉 ）葉っぱ","（ < 牒 ）ビラ","（ < 牒 ）メモ","（ < 牒 ）ポスター","（ < 牒 ）書き付け","（ < 艓 ）舟","（ < 艓 ）小舟"],"pronunciation":["⟨sēng⟩","/seŋ/","[səŋ]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 葉っぱ 」から。"],"changes":[]},"note3":["植物の葉。<br>「」","薄く平たいもの。<br>「」","〜表。〜録。〜リスト。〜書<br>「」","船。小舟。<br>「」"],"variants2":["は","はっぱ","かきつけ","表","リスト","ひょう","録","ろく","ふね","こぶね","船"]},
+  "我": {"id":27,"safe":true,"word":"hā","tag":["人称代名詞"],"parts":"名象","meaning":["（ 一人称 ）わたし"],"pronunciation":["⟨hā⟩","/ha/","[xɑ]"],"seii":["h"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["私","おれ","俺","僕","ぼく","自分","じぶん","一人称","1人称","いちにんしょう"]},
 
 
   "*": {"id":111111111,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]}
