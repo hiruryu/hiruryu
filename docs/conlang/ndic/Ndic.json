@@ -54,7 +54,8 @@
   "右": {"id":64,"safe":true,"word":"qá","tag":["ー"],"parts":"全詞","meaning":["右", "右側の", "右方の"],"pronunciation":["⟨bo⟩","/bo/","[pɔ]"],"seii":["l"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["みぎがわ","うほう"]},
   "左": {"id":65,"safe":true,"word":"slā","tag":["ー"],"parts":"全詞","meaning":["左", "左側の", "左方の"],"pronunciation":["⟨slā⟩","/sla/","[ɬɔ]"],"seii":["h"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["ひだりがわ","さほう"]},
   "魚": {"id":66,"vari":["鱼"],"safe":true,"word":"giàm","tag":["ー"],"parts":"名象","meaning":["魚"],"pronunciation":["⟨giàm⟩","/gʲam/","[gʲɑm]"],"seii":["d"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["さかな", "うお", "鱼"]},
-
+  "猫": {"id":67,"vari":["貓"],"safe":true,"word":"miãw","tag":["ー"],"parts":"名象","meaning":["ねこ"],"pronunciation":["⟨miãw⟩","/mʲaw/","[mʲɑw]"],"seii":["?"],"etymology":{"intro":["単純語。","擬声語「 猫の鳴き声 」から。"],"changes":[]},"variants2":["ねこ", "びょう", "貓"]},
+  
   
   "*": {"id":111111111,"safe":true,"word":"Núy","tag":["民族"],"parts":"名象","meaning":["ヌイ族"],"pronunciation":["❬Núy❭","/nuj/","[nuj]"],"seii":["h"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["縫族","ぬいぞく"]}
 }
