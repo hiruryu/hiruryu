@@ -184,6 +184,10 @@ select {
 }
 
 .searchResults li {
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Serif HK", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
   display: block;
   padding: 8px;
   margin-bottom: 4px;
@@ -506,7 +510,7 @@ th {
 }
 
 .default {
-  color: #225540;
+  color: #484866;
 }
 
 .meishou {
@@ -538,6 +542,10 @@ th {
 }
 
 .heading-cell {
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Serif HK", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
   font-size: 35px;
   background-color: #f4f0f4;
   text-align: center;
@@ -603,6 +611,10 @@ th {
 }
 
 .variList {
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Serif HK", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
   color: #b50bbb;
   letter-spacing: 1px;
 }
@@ -638,34 +650,6 @@ th {
   display: none;
 }
 
-/* 漢字辞典セクション内の漢字を大きく */
-.kanji-main {
-  font-size: 1.4em;
-  font-weight: bold;
-  color: #333;
-}
-
-/* 読みのリストの余白調整 */
-.kanji-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.kanji-list li {
-  background: #dadeee;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 20px;
-  text-align: center;
-  min-width: 50px;
-}
-
 .has-hover {
   position: relative;
 }
@@ -689,7 +673,6 @@ th {
 .has-hover:hover .hover-box {
   display: block;
 }
-
 
 .seii {
   font-family: "Consolas";
@@ -765,12 +748,17 @@ th {
   box-sizing: border-box;
 }
 
-.explanation-item {
-  margin-bottom: 9px;
-}
-
 .explanation-item:last-child {
   margin-bottom: 0;
+}
+
+.explanation-item .number {
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.explanation-item .text {
+    flex: 1;
 }
 
 .link-meaning {
@@ -810,4 +798,9 @@ a {
   box-sizing: border-box;
   background-color: #f9f8f4;
   border-bottom: 2px dotted #aaaaaa;
+}
+
+.pron-item {
+  display: inline-block;
+  margin-bottom: 2px;
 }
