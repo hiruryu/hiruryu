@@ -748,12 +748,17 @@ th {
   box-sizing: border-box;
 }
 
-.explanation-item {
-  margin-bottom: 9px;
-}
-
 .explanation-item:last-child {
   margin-bottom: 0;
+}
+
+.explanation-item .number {
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.explanation-item .text {
+    flex: 1;
 }
 
 .link-meaning {
