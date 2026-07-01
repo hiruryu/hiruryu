@@ -859,17 +859,18 @@ leftRows.push(
   if (data.explanation && data.explanation.length > 0) {
     // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
     const explanationHtml = data.explanation
-      .map((text, index) => {
-        const circles = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
-        const circleNumber = circles[index] || `(${index + 1})`;
+  .map((text, index) => {
+    const circles = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
+    const circleNumber = circles[index] || `(${index + 1})`;
 
-        return `
+    return `
       <div class="explanation-item">
-        ${circleNumber} ${text}
+        <span class="number">${circleNumber}</span>
+        <span class="text">${text}</span>
       </div>
     `;
-      })
-      .join('');
+  })
+  .join('');
 
     leftRows.push(`<tr><th>語義</th><td colspan="1"><div class="explanation-content">${explanationHtml}</div></td></tr>`);
   }
