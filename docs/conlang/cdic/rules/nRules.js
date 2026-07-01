@@ -21,16 +21,16 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     { from: "yihy", to: "yi" },
     { from: "yiqy", to: "yi" },
     { from: "yirhy", to: "yi" },
-    { from: "uiny", to: "yi" },
-    { from: "uily", to: "yi" },
-    { from: "uihy", to: "yi" },
-    { from: "uiqy", to: "yi" },
-    { from: "uirhy", to: "yi" },
-    { from: "uny", to: "ui" },
-    { from: "uly", to: "ui" },
-    { from: "uhy", to: "ui" },
-    { from: "uqy", to: "ui" },
-    { from: "urhy", to: "ui" }
+    { from: "euny", to: "yi" },
+    { from: "euly", to: "yi" },
+    { from: "euhy", to: "yi" },
+    { from: "euqy", to: "yi" },
+    { from: "eurhy", to: "yi" },
+    { from: "uny", to: "eu" },
+    { from: "uly", to: "eu" },
+    { from: "uhy", to: "eu" },
+    { from: "uqy", to: "eu" },
+    { from: "urhy", to: "eu" }
   ];
   function applyVowelRules(text) {
     let result = text;
@@ -48,22 +48,22 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       y: "zh"
     };
     const V1 = {
-      "ó": "é",
-      "ú": "yí",
-      "yó": "yá",
+      "ó": "ié",
+      "ú": "í",
+      "yó": "iá",
       "yú": "yí",
-      "úi": "yí",
-      "yúi": "yí",
+      "eú": "í",
+      "yeú": "yí",
       "ǻ": "áy",
       "ǻl": "ály"
     };
     const V2 = {
-      "yo": "ya",
+      "yo": "ia",
       "yi": "yi",
-      "yui": "yi",
-      "o": "e",
+      "yeu": "yi",
+      "o": "ie",
       "i": "i",
-      "ui": "yi",
+      "eu": "i",
       "å": "ay",
       "ål": "aly"
     };
@@ -92,9 +92,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
-      v_anpC: anpC.slice(0, -1) + "uirh",
-      in_anpC: anpC.slice(0, -1) + "uita",
+      g_anpC: anpC.slice(0, -1) + "eu",
+      v_anpC: anpC.slice(0, -1) + "eurh",
+      in_anpC: anpC.slice(0, -1) + "euta",
     }
     // o 尾高形
   } else if (ruletype === "ó") {
@@ -118,9 +118,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
-      v_anpC: anpC.slice(0, -1) + "uirh",
-      in_anpC: anpC.slice(0, -1) + "uita",
+      g_anpC: anpC.slice(0, -1) + "eu",
+      v_anpC: anpC.slice(0, -1) + "eurh",
+      in_anpC: anpC.slice(0, -1) + "euta",
     }
     // ũ 基本型
   } else if (ruletype === "ũ") {
@@ -145,23 +145,23 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
     // u 基本形
   } else if (ruletype === "w") {
     const anpC = stem2 + "úra";
-    const anpC2 = stem2 + "uira";
+    const anpC2 = stem2 + "eura";
 
     return {
       // 単数形
       ansC: word,
-      f_ansC: stem + "uif",
-      e_ansC: stem + "uik",
+      f_ansC: stem + "euf",
+      e_ansC: stem + "euk",
       d_ansC: stem + "ues",
-      l_ansC: stem + "uim",
-      i_ansC: stem + "uish",
+      l_ansC: stem + "eum",
+      i_ansC: stem + "eush",
       g_ansC: stem2 + "úvi",
       v_ansC: stem2 + "úrh",
       in_ansC: stem2 + "úvita",
@@ -172,7 +172,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC.slice(0, -2) + "tta",
     }
@@ -190,9 +190,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC.slice(0, -1) + "af",
@@ -200,7 +200,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -217,9 +217,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC.slice(0, -1) + "af",
@@ -227,7 +227,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -244,7 +244,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem.slice(0, -1) + "fhes",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem.slice(0, -1) + "fhui",
+      g_ansC: stem.slice(0, -1) + "fheu",
       v_ansC: stem2 + "árh",
       in_ansC: stem.slice(0, -1) + "fhta",
       // 複数形
@@ -254,7 +254,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -271,7 +271,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "hes",
       l_ansC: stem + "ham",
       i_ansC: stem + "hash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "hárh",
       in_ansC: stem + "hta",
       // 複数形
@@ -281,7 +281,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -298,7 +298,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem.slice(0, -1) + "xies",
       l_ansC: stem.slice(0, -1) + "xam",
       i_ansC: stem.slice(0, -1) + "xash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem.slice(0, -1) + "xta",
       // 複数形
@@ -308,7 +308,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -325,7 +325,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "hies",
       l_ansC: stem + "ham",
       i_ansC: stem + "hash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "hta",
       // 複数形
@@ -335,7 +335,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -352,7 +352,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -362,7 +362,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -379,7 +379,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "nies",
       l_ansC: stem + "nam",
       i_ansC: stem + "nash",
-      g_ansC: stem + "nui",
+      g_ansC: stem + "neu",
       v_ansC: stem2 + "nárh",
       in_ansC: stem2 + "náta",
       // 複数形
@@ -389,7 +389,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -407,9 +407,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem.slice(0, -1) + "zhui",
+      g_ansC: stem.slice(0, -1) + "zheu",
       v_ansC: stem2 + "árh",
-      in_anpC: anpC2.slice(0, -1) + "áta",
+      in_ansC: stem2 + "áta",
       // 複数形
       anpC: anpC2,
       f_anpC: anpC2.slice(0, -1) + "af",
@@ -417,7 +417,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC2.slice(0, -1) + "es",
       l_anpC: anpC2.slice(0, -1) + "am",
       i_anpC: anpC2.slice(0, -1) + "ash",
-      g_anpC: anpC2.slice(0, -1) + "ui",
+      g_anpC: anpC2.slice(0, -1) + "eu",
       v_anpC: anpC3.slice(0, -1) + "árh",
       in_anpC: anpC3.slice(0, -1) + "áta"
     }
@@ -448,7 +448,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC2.slice(0, -1) + "es",
       l_anpC: anpC2.slice(0, -1) + "am",
       i_anpC: anpC2.slice(0, -1) + "ash",
-      g_anpC: anpC2.slice(0, -1) + "ui",
+      g_anpC: anpC2.slice(0, -1) + "eu",
       v_anpC: anpC3.slice(0, -1) + "árh",
       in_anpC: anpC3.slice(0, -1) + "áta"
     }
@@ -468,9 +468,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC.slice(0, -1) + "af",
@@ -478,7 +478,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -505,7 +505,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -533,7 +533,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -560,7 +560,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -577,9 +577,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC.slice(0, -1) + "af",
@@ -587,7 +587,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -604,7 +604,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem.slice(0, -1) + "nyes",
       l_ansC: stem.slice(0, -1) + "nyam",
       i_ansC: stem.slice(0, -1) + "nyash",
-      g_ansC: stem.slice(0, -1) + "nyui",
+      g_ansC: stem.slice(0, -1) + "nyeu",
       v_ansC: stem2.slice(0, -1) + "nyárh",
       in_ansC: stem2.slice(0, -1) + "nyáta",
       // 複数形
@@ -614,7 +614,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC2.slice(0, -1) + "árh",
       in_anpC: anpC2.slice(0, -1) + "áta"
     }
@@ -644,9 +644,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC2.slice(0, -1) + "es",
       l_anpC: anpC2.slice(0, -1) + "am",
       i_anpC: anpC2.slice(0, -1) + "ash",
-      g_anpC: anpC2.slice(0, -1) + "ui",
+      g_anpC: anpC2.slice(0, -1) + "eu",
       v_anpC: anpC3.slice(0, -1) + "árh",
-      in_anpC: anpC2.slice(0, -1) + "uita"
+      in_anpC: anpC2.slice(0, -1) + "euta"
     }
     // hy / ny / qy / ly / rhy 変則形
   } else if (["hyq", "nyq", "lyq", "rhyq"].includes(ruletype)) {
@@ -662,9 +662,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC.slice(0, -1) + "af",
@@ -672,9 +672,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC.slice(0, -1) + "es",
       l_anpC: anpC.slice(0, -1) + "am",
       i_anpC: anpC.slice(0, -1) + "ash",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC3.slice(0, -1) + "árh",
-      in_anpC: anpC.slice(0, -1) + "uita"
+      in_anpC: anpC.slice(0, -1) + "euta"
     }
 
     // 代名詞型
@@ -691,9 +691,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "res",
       l_ansC: stem + "ram",
       i_ansC: stem + "rash",
-      g_ansC: stem + "lui",
+      g_ansC: stem + "leu",
       v_ansC: anpC + "rárh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: stem2,
       f_anpC: stem2 + "f",
@@ -701,9 +701,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: stem2.slice(0, -1) + "es",
       l_anpC: stem2 + "m",
       i_anpC: stem2 + "sh",
-      g_anpC: stem2.slice(0, -1) + "ui",
+      g_anpC: stem2.slice(0, -1) + "eu",
       v_anpC: anpC2 + "árh",
-      in_anpC: stem2.slice(0, -1) + "uita"
+      in_anpC: stem2.slice(0, -1) + "euta"
     }
     //
   } else if (["lyiko", "fyiko", "tyiko"].includes(ruletype)) {
@@ -718,7 +718,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "lui",
+      g_ansC: stem + "leu",
       v_ansC: anpC + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -728,9 +728,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: stem2.slice(0, -1) + "es",
       l_anpC: stem2 + "m",
       i_anpC: stem2 + "sh",
-      g_anpC: stem2.slice(0, -1) + "ui",
+      g_anpC: stem2.slice(0, -1) + "eu",
       v_anpC: anpC2 + "árh",
-      in_anpC: stem2.slice(0, -1) + "uita"
+      in_anpC: stem2.slice(0, -1) + "euta"
     }
     // syiga
   } else if (["syiga"].includes(ruletype)) {
@@ -745,9 +745,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "res",
       l_ansC: stem + "ram",
       i_ansC: stem + "rash",
-      g_ansC: stem + "lui",
+      g_ansC: stem + "leu",
       v_ansC: anpC + "rárh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: stem2,
       f_anpC: stem2 + "f",
@@ -755,9 +755,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: stem2.slice(0, -1) + "es",
       l_anpC: stem2 + "m",
       i_anpC: stem2 + "sh",
-      g_anpC: stem2.slice(0, -1) + "ui",
+      g_anpC: stem2.slice(0, -1) + "eu",
       v_anpC: anpC2 + "árh",
-      in_anpC: stem2.slice(0, -1) + "uita"
+      in_anpC: stem2.slice(0, -1) + "euta"
     }
     // pyika
   } else if (["pyika"].includes(ruletype)) {
@@ -772,7 +772,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "lui",
+      g_ansC: stem + "leu",
       v_ansC: anpC + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -782,9 +782,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: stem2.slice(0, -1) + "es",
       l_anpC: stem2 + "m",
       i_anpC: stem2 + "sh",
-      g_anpC: stem2.slice(0, -1) + "ui",
+      g_anpC: stem2.slice(0, -1) + "eu",
       v_anpC: anpC2 + "árh",
-      in_anpC: stem2.slice(0, -1) + "uita"
+      in_anpC: stem2.slice(0, -1) + "euta"
     }
 
 
@@ -792,7 +792,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // ia 基本形
   } else if (["l", "cia", "xia", "fia", "via", "sia", "zia", "shia", "zhia", "chia", "xhia", "nia"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -800,7 +800,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "ia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -816,9 +816,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
@@ -833,7 +833,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // ia 基本形
   } else if (["r"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -841,7 +841,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "dia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -857,9 +857,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
@@ -875,7 +875,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // p-ph 交替形
   } else if (["pia", "bia", "tia", "mia"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -883,7 +883,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "hia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -899,7 +899,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "hies",
       l_ansC: stem + "ham",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "hárh",
       in_ansC: stem + "hta",
       // 複数形
@@ -917,7 +917,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // q 交替形
   } else if (["qia"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -925,7 +925,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "nia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -941,7 +941,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "nies",
       l_ansC: stem + "nam",
       i_ansC: stem + "nash",
-      g_ansC: stem + "nui",
+      g_ansC: stem + "neu",
       v_ansC: stem2 + "nárh",
       in_ansC: stem2 + "náta",
       // 複数形
@@ -959,7 +959,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // yia 基本形
   } else if (["yia"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -967,7 +967,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0,-1) + "zhia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -983,9 +983,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
@@ -1002,7 +1002,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // k-ch 交替形
   } else if (["kia"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1010,7 +1010,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "chia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1026,9 +1026,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
@@ -1043,7 +1043,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // g-xh 交替形
   } else if (["gia"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1051,7 +1051,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "xhia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1067,9 +1067,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
@@ -1084,7 +1084,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // d-x 交替形
   } else if (["dia"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1092,7 +1092,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "xia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1108,9 +1108,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
@@ -1125,7 +1125,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // h-sh 交替形
   } else if (["hia"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1133,7 +1133,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "shia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1149,9 +1149,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
@@ -1167,7 +1167,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // gda 変則型
   } else if (["gda"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1175,7 +1175,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -2) + "gra";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1183,7 +1183,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "da";
     const anpC3 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1199,9 +1199,9 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: anpC2.slice(0, -1) + "árh",
-      in_ansC: stem + "uita",
+      in_ansC: stem + "euta",
       // 複数形
       anpC: anpC,
       f_anpC: anpC + "f",
@@ -1209,7 +1209,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC + "s",
       l_anpC: anpC + "m",
       i_anpC: anpC + "sh",
-      g_anpC: anpC.slice(0, -1) + "ui",
+      g_anpC: anpC.slice(0, -1) + "eu",
       v_anpC: anpC3.slice(0, -1) + "árh",
       in_anpC: anpC3.slice(0, -1) + "áta"
     }
@@ -1217,7 +1217,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // 明化形
   } else if (["ia", "i"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1225,7 +1225,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "y";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1233,7 +1233,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "y";
     const anpC3 = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1249,7 +1249,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "ie",
       l_ansC: stem + "ũ",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -1267,7 +1267,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // p 明化形
   } else if (["pi", "bi", "ti", "mi"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1275,7 +1275,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "hy";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1283,7 +1283,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "h";
     const anpC3 = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1299,7 +1299,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "hie",
       l_ansC: stem + "ũ",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "hta",
       // 複数形
@@ -1309,7 +1309,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_anpC: anpC3 + "sa",
       l_anpC: anpC3 + "ma",
       i_anpC: anpC3 + "sha",
-      g_anpC: anpC3 + "ui",
+      g_anpC: anpC3 + "eu",
       v_anpC: anpC2 + "árh",
       in_anpC: anpC3 + "ta"
     }
@@ -1317,7 +1317,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // k 明化形
   } else if (["ki"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1325,7 +1325,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "y";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1333,7 +1333,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) + "y";
     const anpC3 = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1349,7 +1349,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem.slice(0, -1) + "chie",
       l_ansC: stem + "ũ",
       i_ansC: stem + "sh",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -1368,7 +1368,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // ttsa 明化形
   } else if (["tts"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1376,7 +1376,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -3) + "scia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1384,7 +1384,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) .slice(0, -3) + "scia";
     const anpC3 = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1400,7 +1400,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -1418,7 +1418,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // sta / sca 明化形
   } else if (["sta", "sca"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1426,7 +1426,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "cia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1434,7 +1434,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) .slice(0, -1) + "cia";
     const anpC3 = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1450,7 +1450,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -1467,7 +1467,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // ska 明化形
   } else if (["ska"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1475,7 +1475,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "chia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1483,7 +1483,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) .slice(0, -1) + "chia";
     const anpC3 = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1499,7 +1499,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -1516,7 +1516,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // zda zxa 明化形
   } else if (["zda", "zxa"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1524,7 +1524,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "xia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1532,7 +1532,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) .slice(0, -1) + "xia";
     const anpC3 = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1548,7 +1548,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
       // 複数形
@@ -1565,7 +1565,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
     // zda zxa 明化形
   } else if (["zga"].includes(ruletype)) {
     const anpC = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1573,7 +1573,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ).slice(0, -1) + "xhia";
     const anpC2 = stem2.replace(
-      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyui|byui|tyui|dyui|kyui|gyui|hyui|pui|bui|tui|dui|kui|gui|hui|yui|yo|ui|o|ål|å)/g,
+      /(pyo|byo|tyo|dyo|kyo|gyo|hyo|po|bo|to|do|ko|go|ho|pyi|byi|tyi|dyi|kyi|gyi|hyi|pi|bi|ti|di|ki|gi|hi|pyeu|byeu|tyeu|dyeu|kyeu|gyeu|hyeu|peu|beu|teu|deu|keu|geu|heu|yeu|yo|eu|o|ål|å)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1581,7 +1581,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       }
     ) .slice(0, -1) + "xhia";
     const anpC3 = stem.replace(
-      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yúi|úi|yú|yó|ú|ó|ǻl|ǻ)/g,
+      /(pyó|byó|tyó|dyó|kyó|gyó|hyó|pó|bó|tó|dó|kó|gó|hó|pyú|byú|tyú|dyú|kyú|gyú|hyú|pú|bú|tú|dú|kú|gú|hú|yeú|eú|yú|yó|ú|ó|ǻl|ǻ)/g,
       (m) => {
         const c = m[0];          // 子音
         const v = m.slice(1);    // 母音部分
@@ -1597,7 +1597,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype, baseOverrides) 
       d_ansC: stem + "es",
       l_ansC: stem + "am",
       i_ansC: stem + "ash",
-      g_ansC: stem + "ui",
+      g_ansC: stem + "eu",
       v_ansC: stem2 + "árh",
       in_ansC: stem + "ta",
       // 複数形
