@@ -1,10 +1,26 @@
+@font-face {
+    font-family: 'HanaMinA';
+    src: url('../../font/HanaMinA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jigmo';
+    src: url('../../font/Jigmo.woff') format('woff'),
+    url('../../font/Jigmo2.woff') format('woff')
+    url('../../font/Jigmo3.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
   display: block;
   min-width: 1200px;
   overflow-x: auto;
   height: auto;
   margin: 10px 0px 0px 0px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA";
   font-optical-sizing: auto;
   font-style: normal;
   background-color: #f9f8f4;
@@ -184,7 +200,7 @@ select {
 }
 
 .searchResults li {
-  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Serif HK", serif;
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA";
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
@@ -413,18 +429,24 @@ th {
   line-height: inherit;
   color: #665550;
   background-color: #fbf2ed;
-  font-family: "Roboto", sans-serif;
-  width: 50%;
-  border-radius: 20px;
-  line-height: 1;
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA";
+  width: 55%;
+  border-radius: 3px;
 }
 
-.inner-table td,
-.inner-table th {
-  border: none !important;
+.inner-table td {
   text-align: left !important;
-  padding-left: 20px !important;
+  padding: auto !important;
   font-size: 14px !important;
+  letter-spacing: 2px !important;
+}
+/* "Noto Serif SC", serif, "Noto Serif TC", serif; */
+.inner-table th {
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA";
+  text-align: left !important;
+  padding: auto !important;
+  font-size: 14px !important;
+  letter-spacing: 2px !important;
 }
 
 .conH1 {
@@ -542,7 +564,7 @@ th {
 }
 
 .heading-cell {
-  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Serif HK", serif;
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA";
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
@@ -603,6 +625,25 @@ th {
   white-space: normal;
 }
 
+.etymology-table th {
+  table-layout: fixed;
+  width: 30%;
+  font-size: 14px;
+  color: #4b0020b0;
+  background-color: #f8f6f8;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Roboto", sans-serif, "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA" !important;
+}
+
+.etymology-table td {
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  font-family: "Roboto", sans-serif, "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA" !important;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -611,7 +652,7 @@ th {
 }
 
 .variList {
-  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Serif HK", serif;
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA";
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
