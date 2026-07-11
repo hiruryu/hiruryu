@@ -20,7 +20,7 @@ body {
   overflow-x: auto;
   height: auto;
   margin: 10px 0px 0px 0px;
-  font-family: "Jigmo", "HanaMinA", "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", serif;
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA";
   font-optical-sizing: auto;
   font-style: normal;
   background-color: #f9f8f4;
@@ -564,7 +564,7 @@ th {
 }
 
 .heading-cell {
-  font-family: "Jigmo", "HanaMinA", "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", serif;
+  font-family: "Noto Serif SC", serif, "Noto Serif TC", serif, "Noto Sans HK", sans-serif, "Jigmo", "HanaMinA";
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
