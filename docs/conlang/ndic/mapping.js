@@ -230,13 +230,13 @@ function resolveEtymologyText(text) {
     const page = pages[dict];
     if (!page) return match;
 
-  let extDict = null;
-  if (dict === "e") extDict = etymDictionary;
-  if (dict === "t") extDict = tdicDictionary;
-  if (dict === "c") extDict = cdicDictionary;
-  if (dict === "ng") extDict = ngdicDictionary;
-  if (dict === "r") extDict = rdicDictionary;
-  if (dict === "p") extDict = pdicDictionary;
+    let extDict = null;
+    if (dict === "e") extDict = etymDictionary;
+    if (dict === "t") extDict = tdicDictionary;
+    if (dict === "c") extDict = cdicDictionary;
+    if (dict === "ng") extDict = ngdicDictionary;
+    if (dict === "r") extDict = rdicDictionary;
+    if (dict === "p") extDict = pdicDictionary;
     let word = id;
     let meaning = "";
 
@@ -253,7 +253,7 @@ function resolveEtymologyText(text) {
     const placeholder = `__LINK${placeholders.length}__`;
 
     placeholders.push(
-      `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}<sup>+</sup></a><span class="link-meaning">（ ${meaning} ）</span>`
+      `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}<sup>+</sup></a>`
     );
 
     return placeholder;
@@ -280,7 +280,7 @@ function resolveEtymologyText(text) {
     return `<a href="#"
 onclick="loadWord('${word}'); return false;"
 class="etymology-link ${partClass}">
-${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
+${word}</a>`;
   });
 
   // ③ 他辞書リンクを戻す
@@ -818,9 +818,9 @@ function showDetails(word) {
   let bottomRows = []; // 下部テーブル行
 
   // 品詞
-const partClass = partsStyles[data.parts] ?? "";
+  const partClass = partsStyles[data.parts] ?? "";
 
-leftRows.push(`
+  leftRows.push(`
   <tr>
     <th>属性</th>
     <td class="${partClass}">${data.parts || ""}</td>
@@ -832,12 +832,12 @@ leftRows.push(`
 
   // 発音
   const pronHTML = (data.pronunciation || [])
-  .map(p => `<span class="pron-item">${p}</span>`)
-  .join("<br>");
+    .map(p => `<span class="pron-item">${p}</span>`)
+    .join("<br>");
 
-leftRows.push(
-  `<tr><th>発音</th><td class="p-td">${pronHTML}</td></tr>`
-);
+  leftRows.push(
+    `<tr><th>発音</th><td class="p-td">${pronHTML}</td></tr>`
+  );
 
 
   // 声位
@@ -859,18 +859,18 @@ leftRows.push(
   if (data.explanation && data.explanation.length > 0) {
     // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
     const explanationHtml = data.explanation
-  .map((text, index) => {
-    const circles = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
-    const circleNumber = circles[index] || `(${index + 1})`;
+      .map((text, index) => {
+        const circles = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
+        const circleNumber = circles[index] || `(${index + 1})`;
 
-    return `
+        return `
       <div class="explanation-item">
         <span class="number">${circleNumber}</span>
         <span class="text">${text}</span>
       </div>
     `;
-  })
-  .join('');
+      })
+      .join('');
 
     leftRows.push(`<tr><th>語義</th><td colspan="1"><div class="explanation-content">${explanationHtml}</div></td></tr>`);
   }
@@ -899,73 +899,85 @@ leftRows.push(
 
   // 語源表示処理
   if (data.etymology) {
-    let introHTML = "";
-    // 語源説明
-    if (data.etymology.intro) {
-      if (Array.isArray(data.etymology.intro)) {
-        // リスト形式
-        introHTML = `<ul class="e-list">` +
-          data.etymology.intro.map(item => `<li>${processH5Links(item)}</li>`).join('') +
-          `</ul>`;
-      } else {
-        // 単文の場合
-        introHTML = `<p class="etymology-intro">${processH5Links(data.etymology.intro)}</p>`;
+    const ety = data.etymology;
+
+    const safeInline = s =>
+      String(s || "")
+        .trim()
+        .replace(/\s*\n+\s*/g, " ")
+        .replace(/<\/?p[^>]*>/g, "");
+
+    const render = text => {
+      let html = resolveEtymologyText(text);
+
+      if (renderMarkdown) {
+        // Markdown を HTML に変換してサニタイズ
+        html = renderMarkdown(html);
       }
+
+      // DOMPurify によって onclick が削られるので、
+      // サニタイズ後に a.etymology-link にクリックハンドラを付け直す
+      const container = document.createElement('div');
+      container.innerHTML = html;
+
+      // a.etymology-link のうち href="#" のものに対して
+      // テキストを単語として loadWord を呼ぶハンドラを付与する
+      container.querySelectorAll('a.etymology-link').forEach(a => {
+        // 既に onclick が残っているなら何もしない
+        if (a.getAttribute('onclick')) return;
+
+        // href が外部や辞書ページなら無視
+        const href = a.getAttribute('href') || '';
+        if (href !== '#') return;
+
+        // 表示テキストを単語として使う（resolveEtymologyText と同じ表示）
+        const word = a.textContent.trim();
+
+        // エスケープして onclick 属性を付ける（innerHTML に戻すため）
+        const esc = s => String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        a.setAttribute('onclick', `loadWord('${esc(word)}'); return false;`);
+      });
+
+      // safeInline と同等の余計な改行や <p> 除去を行って返す
+      const out = String(container.innerHTML || '')
+        .trim()
+        .replace(/\s*\n+\s*/g, ' ')
+        .replace(/<\/?p[^>]*>/g, '');
+
+      return out;
+    };
+
+    // 説明文
+    let introHTML = "";
+
+    if (ety.intro) {
+      introHTML = Array.isArray(ety.intro)
+        ? `<ul class="e-list">${ety.intro.map(i => `<li>${render(i)}</li>`).join("")
+        }</ul>`
+        : `<p class="etymology-intro">${render(ety.intro)}</p>`;
     }
 
     // 音変化表
-    let changesTable = "";
-    if (data.etymology.changes && data.etymology.changes.length > 0) {
-      changesTable = `<table class="inner-table"><tbody>`;
-      changesTable += data.etymology.changes.map(change => {
-        const note = change.note ? " " + processH5Links(change.note) : "";
-        return `<tr><td>${processH5Links(change.form)}<span class="marker-span">${note}</span></td></tr>`;
-      }).join("");
-      changesTable += `</tbody></table>`;
-    }
-
-    // HTML内の余計な改行や<p>を除去する関数
-    const safeInline = s => String(s || '').trim().replace(/\s*\n+\s*/g, ' ').replace(/<\/?p[^>]*>/g, '');
-
-    // 語源表示の最終構築
-    if (data.etymology && (data.etymology.intro || (data.etymology.changes && data.etymology.changes.length > 0))) {
-      let introHTML = "";
-      // intro がある場合
-      if (data.etymology.intro) {
-        // 配列ならリストとして表示
-        if (Array.isArray(data.etymology.intro)) {
-          introHTML = '<ul class="e-list">' +
-            data.etymology.intro.map(item => {
-              const resolved = resolveEtymologyText(item);
-              const processed = processH5Links ? processH5Links(resolved) : resolved;
-              return `<li>${safeInline(processed)}</li>`;
-            }).join('') +
-            '</ul>';
-        } else {
-          // 文字列なら段落として表示
-          introHTML = `<p class="etymology-intro">${safeInline(processH5Links ? processH5Links(data.etymology.intro) : data.etymology.intro)}</p>`;
+    const changesTable = ety.changes?.length
+      ? `<table class="inner-table etymology-table"><tbody>${ety.changes.map(c => `
+          <tr>
+            <th>${c.stage || ""}</th>
+            <td>
+              <span class="change-form">${render(c.form)}</span>
+             ${c.note
+          ? `【 ${render(Array.isArray(c.note) ? c.note.join(" ") : c.note)} 】`
+          : ""
         }
-      }
+              </td>
+          </tr>
+        `).join("")
+      }</tbody></table>`
+      : "";
 
-      let changesTable = "";
-      // 語形変化の履歴がある場合
-      if (data.etymology.changes && data.etymology.changes.length > 0) {
-        changesTable = '<table class="inner-table"><tbody>' +
-          // 各変化を1行ずつ作成
-          data.etymology.changes.map(change => {
-            // 語形
-            const formHtml = `<span class="change-form">${safeInline(renderMarkdown ? renderMarkdown(change.form) : (processH5Links ? processH5Links(change.form) : change.form))}</span>`;
-            // 注釈
-            const noteRaw = change.note ? (renderMarkdown ? renderMarkdown(change.note) : (processH5Links ? processH5Links(change.note) : change.note)) : '';
-            const noteHtml = noteRaw ? `<span class="change-note">${safeInline(noteRaw)}</span>` : '';
-            return `<tr class="change-row"><td>${formHtml}${noteHtml}</td></tr>`;
-          }).join('') +
-          '</tbody></table>';
-      }
-
-      // 語源を下部テーブルに追加
-      bottomRows.push(`<tr><th>語源</th><td colspan="3">${introHTML}${changesTable}</td></tr>`);
-    }
+    // 語源を追加
+    bottomRows.push(
+      `<tr><th>語源</th><td colspan="3">${introHTML}${changesTable}</td></tr>`
+    );
   }
 
   // 見出しクラス決定（品詞による色分け）
@@ -976,7 +988,7 @@ leftRows.push(
   <table>
     <thead>
       <tr>
-        <th class="heading-cell ${headerClass}" colspan="4">${word}</th>
+        <th class="heading-cell ${headerClass}" colspan="4">【 ${word} 】</th>
       </tr>
     </thead>
     <tbody class="detailTable">
@@ -1199,7 +1211,7 @@ leftRows.push(
     // セーフサーチ適用
     const filtered = cognates.filter(([word, entry]) => !safeSearch || entry.safe !== false);
 
-    // --- ページネーション用に保存 ---
+    // ページネーション用に保存
     window._cognatesAll = filtered; // 全件
     window._cognatesIndex = 0;      // 現在の表示位置
     window._cognatesStep = itemsCognates;
@@ -1238,7 +1250,7 @@ leftRows.push(
 
   if (similars.length) {
 
-    // --- ページネーション保存 ---
+    // ページネーション保存
     window._similarsAll = similars;
     window._similarsIndex = 0;
     window._similarsStep = itemsCognates;
@@ -1467,23 +1479,23 @@ function performSearch() {
       }
 
       let matchWord = false;
-if (data.word) {
-  const words = Array.isArray(data.word)
-    ? data.word
-    : [data.word];
+      if (data.word) {
+        const words = Array.isArray(data.word)
+          ? data.word
+          : [data.word];
 
-  matchWord = words.some(v => {
-    const norm = normalizeForSearch(removeAnnotations(v));
+        matchWord = words.some(v => {
+          const norm = normalizeForSearch(removeAnnotations(v));
 
-    if (searchMode === "exact")
-      return norm === normalizedSearch;
+          if (searchMode === "exact")
+            return norm === normalizedSearch;
 
-    if (searchMode === "prefix")
-      return norm.startsWith(normalizedSearch);
+          if (searchMode === "prefix")
+            return norm.startsWith(normalizedSearch);
 
-    return norm.includes(normalizedSearch);
-  });
-}
+          return norm.includes(normalizedSearch);
+        });
+      }
       let matchVariants2 = false;
       if (data.variants2) {
         matchVariants2 = data.variants2.some(v => {
@@ -1588,7 +1600,7 @@ nextPageBtn.addEventListener("click", () => {
   currentPage++;
   renderPage();
   console.log(data.word);
-console.log(typeof data.word);
+  console.log(typeof data.word);
 });
 
 // 辞書ファイル一覧だよ！
