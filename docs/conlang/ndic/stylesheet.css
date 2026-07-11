@@ -7,7 +7,7 @@
 @font-face {
     font-family: 'Jigmo';
     src: url('../../font/Jigmo.woff') format('woff'),
-    url('../../font/Jigmo2.woff') format('woff')
+    url('../../font/Jigmo2.woff') format('woff'),
     url('../../font/Jigmo3.woff') format('woff');
     font-weight: normal;
     font-style: normal;
