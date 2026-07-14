@@ -4,8 +4,12 @@
 }
 @font-face {
     font-family: 'Jigmo';
-    src: url('../../font/Jigmo2.woff'),
-    url('../../font/Jigmo3.woff');
+    src: url('../../font/Jigmo2.woff');
+}
+
+@font-face {
+    font-family: 'Jigmo2';
+    src: url('../../font/Jigmo3.woff');
 }
 
 body {
@@ -14,7 +18,7 @@ body {
   overflow-x: auto;
   height: auto;
   margin: 10px 0px 0px 0px;
-  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "HanaMinA";
+  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "Jigmo2", "HanaMinA";
   font-optical-sizing: auto;
   font-style: normal;
   background-color: #f9f8f4;
@@ -194,7 +198,7 @@ select {
 }
 
 .searchResults li {
-  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "HanaMinA";
+  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "Jigmo2", "HanaMinA";
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
@@ -423,7 +427,7 @@ th {
   line-height: inherit;
   color: #665550;
   background-color: #fbf2ed;
-  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "HanaMinA";
+  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "Jigmo2", "HanaMinA";
   width: 55%;
   border-radius: 3px;
 }
@@ -436,7 +440,7 @@ th {
 }
 /* "Noto Serif SC", serif, "Noto Serif TC", serif; */
 .inner-table th {
-  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "HanaMinA";
+  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "Jigmo2", "HanaMinA";
   text-align: left !important;
   padding: auto !important;
   font-size: 14px !important;
@@ -558,7 +562,7 @@ th {
 }
 
 .heading-cell {
-  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "HanaMinA";
+  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "Jigmo2", "HanaMinA";
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
@@ -627,7 +631,7 @@ th {
   background-color: #f8f6f8;
   text-align: center;
   vertical-align: middle;
-  font-family: "Roboto", "Noto Serif SC", "Noto Serif TC", "Noto Sans HK" sans-serif, "Jigmo", "HanaMinA" !important;
+  font-family: "Roboto", "Noto Serif SC", "Noto Serif TC", "Noto Sans HK" sans-serif, "Jigmo", "Jigmo2", "HanaMinA" !important;
 }
 
 .etymology-table td {
@@ -635,7 +639,7 @@ th {
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
-  font-family: "Roboto", "Noto Serif SC", "Noto Serif TC", "Noto Sans HK" sans-serif, "Jigmo", "HanaMinA" !important;
+  font-family: "Roboto", "Noto Serif SC", "Noto Serif TC", "Noto Sans HK" sans-serif, "Jigmo", "Jigmo2", "HanaMinA" !important;
 }
 
 .pagination {
