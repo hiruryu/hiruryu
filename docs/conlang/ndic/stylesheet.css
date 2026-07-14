@@ -4,7 +4,7 @@
 }
 @font-face {
     font-family: 'Jigmo';
-    url('../../font/Jigmo2.woff'),
+    src: url('../../font/Jigmo2.woff'),
     url('../../font/Jigmo3.woff');
 }
 
