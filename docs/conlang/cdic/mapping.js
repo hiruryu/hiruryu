@@ -132,6 +132,12 @@ function loadWord(word) {
   const data = dictionary[word];
   if (!data) return;
 
+  const safeSearch = document.getElementById("safeSearchToggle").checked;
+  if (safeSearch && data.safe === false) {
+    alert("この語はセーフサーチが有効なため表示できません。セーフサーチをオフにしてください。");
+    return;
+  }
+
   const params = new URLSearchParams(window.location.search);
   params.set('id', data.id || word);
 
@@ -238,14 +244,19 @@ function resolveEtymologyText(text) {
     let meaning = "";
 
     if (extDict) {
-      for (const [w, data] of Object.entries(extDict)) {
-        if (String(data.id) === id) {
-          word = w;
-          meaning = removeAnnotations(data.meaning?.[0] ?? "");
-          break;
-        }
+  for (const [w, data] of Object.entries(extDict)) {
+    if (String(data.id) === id) {
+      word = w;
+      meaning = removeAnnotations(data.meaning?.[0] ?? "");
+      const safeSearch = document.getElementById("safeSearchToggle")?.checked;
+      if (safeSearch && data.safe === false) {
+        placeholders.push(`<span class="etymology-hidden"></span>`);
+        return placeholder;
       }
+      break;
     }
+  }
+}
 
     const placeholder = `__LINK${placeholders.length}__`;
 
@@ -259,26 +270,31 @@ function resolveEtymologyText(text) {
   // ② cdic ID
   text = text.replace(/\b(\d+)\b/g, (match, id) => {
 
-    const word = idToWord[id];
-    if (!word) return match;
+  const word = idToWord[id];
+  if (!word) return match;
 
-    const entry = dictionary[word];
-    if (!entry) return word;
+  const entry = dictionary[word];
+  if (!entry) return word;
 
-    let meaning = entry.meaning?.[0] ?? "";
-    meaning = removeAnnotations(meaning);
+  const safeSearch = document.getElementById("safeSearchToggle")?.checked;
+  if (safeSearch && entry.safe === false) {
+    return `<span class="etymology-hidden"></span>`;
+  }
 
-    const part = Array.isArray(entry.part)
-      ? entry.parts[0]
-      : entry.parts ?? "";
+  let meaning = entry.meaning?.[0] ?? "";
+  meaning = removeAnnotations(meaning);
 
-    const partClass = partsStyles[part] ?? "";
+  const part = Array.isArray(entry.part)
+    ? entry.parts[0]
+    : entry.parts ?? "";
 
-    return `<a href="#"
+  const partClass = partsStyles[part] ?? "";
+
+  return `<a href="#"
 onclick="loadWord('${word}'); return false;"
 class="etymology-link ${partClass}">
 ${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
-  });
+});
 
   // ③ 他辞書リンクを戻す
   placeholders.forEach((link, i) => {
@@ -406,16 +422,23 @@ function syncUIWithURL() {
   const detailsContainer = document.getElementById("details");
   const placeholder = document.getElementById("placeholder");
 
+  const safeSearch = document.getElementById("safeSearchToggle").checked;
+
   if (id) {
     const word = idToWord[id] || id;
 
-    // 辞書が読み込まれている時だけ詳細を表示
     if (dictionary && dictionary[word]) {
-      showDetails(word);
-      if (placeholder) placeholder.style.display = 'none';
+      const entry = dictionary[word];
+      if (safeSearch && entry && entry.safe === false) {
+        detailsContainer.innerHTML = `<p class="placeholder">この語はセーフサーチが有効なため表示できません。</p>`;
+        if (placeholder) placeholder.style.display = 'none';
+      } else {
+        showDetails(word);
+        if (placeholder) placeholder.style.display = 'none';
+      }
     }
 
-    // ★ UI 切り替えは辞書の有無に関係なく必ず行う
+    // UI 切り替えは辞書の有無に関係なく必ず行う
     if (viewMode === 'side') {
       sidebar.style.display = 'block';
       document.body.classList.remove('detail-view');
@@ -597,6 +620,7 @@ document.getElementById("safeSearchToggle").addEventListener("change", () => {
   // 検索結果なら再検索
   performSearch();
 });
+
 // DOM要素を取得するよ
 const searchBox = document.getElementById("searchBox");
 const searchModeSelect = document.getElementById("searchMode");
