@@ -1,4 +1,15 @@
 {
+    "αβι": {"id":147,"safe":true,"word":"αβι","stem":"αβι","stem2":"αβι","tag":["ー"],"parts":"名飾","type":"a 基本型","ruletype":"a","meaning":["大きい"],"pronunciation":["/avi/<br>[avi]<br>《av-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["おおきい","avi"]},
+    "θαι": {"id":148,"safe":true,"word":"θαι","stem":"θαι","stem2":"θαι","tag":["ー"],"parts":"名飾","type":"a 基本型","ruletype":"a","meaning":["小さい"],"pronunciation":["/t͡sai/<br>[t͡sai]<br>《ca-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["ちいさい","cai"]},
+    "μιενε": {"id":149,"safe":true,"word":"μιενε","stem":"μιενε","stem2":"μιενε","tag":["ー"],"parts":"名象","type":"n 基本型","ruletype":"a","meaning":["男","男性"],"pronunciation":["/mʲene/<br>[mʲene]<br>《mjene-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["おとこ","だんせい","miene"]},
+    "λαγαν": {"id":150,"safe":true,"word":"λαγαν","stem":"λαγαν","stem2":"λαγαν","tag":["ー"],"parts":"名象","type":"n 基本型","ruletype":"a","meaning":["女","女性"],"pronunciation":["/laɣan/<br>[laɣan]<br>《lağan-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["おんな","じょせい","lagan"]},
+    "θα-": {"id":151,"safe":true,"word":"θα","tag":["派生接頭辞"],"parts":"派生接辞","meaning":["小〜","〜","（ 指小形を作る ）"],"pronunciation":["/t͡sa/<br>[t͡sa]<br>《ca-》"],"etymology":{"intro":["単純語。","音象徴「 151 」から。"],"changes":[]},"variants2":["指小形","指小辞","ca"]},
+    "θαμιενε": {"id":152,"safe":true,"word":"θαμιενε","stem":"θαμιενε","stem2":"θαμιενε","tag":["ー"],"parts":"名象","type":"e 基本型","ruletype":"a","meaning":["ぬいぐるみ","ぬい"],"pronunciation":["/t͡samʲene/<br>[t͡samʲene]<br>《camjene-》"],"etymology":{"intro":["合成語。","「 151 」+「 149 」が組み合わさった語。"],"changes":[]},"variants2":["しょうじょ","calagan"]},
+    "θαλαγαν": {"id":153,"safe":true,"word":"θαλαγαν","stem":"θαλαγαν","stem2":"θαλαγαν","tag":["ー"],"parts":"名象","type":"n 基本型","ruletype":"a","meaning":["ぬいぐるみ","ぬい"],"pronunciation":["/t͡salaɣan/<br>[t͡salaɣan]<br>《calağan-》"],"etymology":{"intro":["合成語。","「 151 」+「 150 」が組み合わさった語。"],"changes":[]},"variants2":["しょうじょ","calagan"]},
+    
+    
+    
+    
     "-ιολ": {"id":179,"safe":true,"word":"ιολ","tag":["派生接尾辞"],"parts":"派生接辞","meaning":["〜されるもの","〜されたもの"],"pronunciation":["/∅ʲol/<br>[∅ʲol]<br>《yol-》"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["されるもの","iol"]},
     "μαχ": {"id":180,"safe":true,"word":"μαχ","stem":"μαχ","stem2":"μαχ","tag":["ー"],"parts":"名象","type":"h 基本型","ruletype":"a","meaning":["綿"],"pronunciation":["/mah/<br>[max]<br>《mah-》"],"etymology":{"intro":["単純語。","音象徴「 モフモフの 」から。"],"changes":[]},"variants2":["わた","mah"]},
     "μαχιολ": {"id":181,"safe":true,"word":"μαχιολ","stem":"μαχιολ","stem2":"μαχιοτ","tag":["ー"],"parts":"名象","type":"t 基本型","ruletype":"a","meaning":["ぬいぐるみ","ぬい"],"pronunciation":["/mahʲot/<br>[mahʲot]<br>《mahyot-》"],"etymology":{"intro":["合成語。","「 180 」+「 179 」が組み合わさった語。"],"changes":[]},"variants2":["縫いぐるみ","mahiot"]},
