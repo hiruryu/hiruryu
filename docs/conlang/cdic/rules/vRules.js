@@ -142,7 +142,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // y 基本形
-  } else if (["y", "rhy"].includes(ruletype)) {
+  } else if (["j", "rhj"].includes(ruletype)) {
     const d = stem2.slice(0,-1) + "i";
 
     return {
@@ -168,7 +168,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
     
     // 明音型
     // ty / dy / ky / gy / sy / zy / cy / xy / shy / zhy / chy / xhy / hy 基本形
-  } else if (["ty", "dy", "ky", "gy", "sy", "zy", "cy", "xy", "shy", "zhy", "chy", "xhy", "hy"].includes(ruletype)) {
+  } else if (["tj", "dj", "kj", "gj", "sj", "zj", "cj", "xj", "shj", "zhj", "chj", "xhj", "hj"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
@@ -188,7 +188,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // py / by / fy / vy 基本形（唇音）
-  } else if (["py", "by", "fy", "vy"].includes(ruletype)) {
+  } else if (["pj", "bj", "fj", "vj"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
@@ -208,7 +208,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // my 基本形
-  } else if (["my"].includes(ruletype)) {
+  } else if (["mj"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
@@ -228,7 +228,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // ny 基本形
-  } else if (["ny"].includes(ruletype)) {
+  } else if (["nj"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
@@ -248,7 +248,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // qy 基本形
-  } else if (["qy"].includes(ruletype)) {
+  } else if (["qj"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
@@ -268,7 +268,7 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mf: stem2 + "uimik",
     }
     // ry / rhy / ly 基本形（流音）
-  } else if (["ry", "ly"].includes(ruletype)) {
+  } else if (["rj", "lj"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
