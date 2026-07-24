@@ -132,6 +132,12 @@ function loadWord(word) {
   const data = dictionary[word];
   if (!data) return;
 
+  const safeSearch = document.getElementById("safeSearchToggle").checked;
+  if (safeSearch && data.safe === false) {
+    alert("この語はセーフサーチが有効なため表示できません。セーフサーチをオフにしてください。");
+    return;
+  }
+
   const params = new URLSearchParams(window.location.search);
   params.set('id', data.id || word);
 
@@ -162,13 +168,13 @@ const partsStyles = {
 // 意味テキストから翻訳語を抽出する関数
 // ［注釈］や（補足）を削除し、カンマで分割して配列にする
 function extractTranslations(text) {
-  const cleaned = text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/《[^］]*》/g, "").replace(/（[^）]*）/g, "").trim();
+  const cleaned = text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/⫽[^］]*⫽/g, "").replace(/（[^）]*）/g, "").trim();
   return cleaned.split(/\s*,\s*/).filter(item => item !== "");
 }
 
 // ［注釈］や（補足）などを削除するユーティリティ関数
 function removeAnnotations(text) {
-  return text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/《[^］]*》/g, "").replace(/（[^）]*）/g, "").trim();
+  return text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/⫽[^］]*⫽/g, "").replace(/（[^）]*）/g, "").trim();
 }
 
 // 語素/変成体の判定
@@ -245,7 +251,12 @@ function resolveEtymologyText(text) {
         if (String(data.id) === id) {
           word = w;
           meaning = removeAnnotations(data.meaning?.[0] ?? "");
-          break;
+      const safeSearch = document.getElementById("safeSearchToggle")?.checked;
+      if (safeSearch && data.safe === false) {
+        placeholders.push(`<span class="etymology-hidden"></span>`);
+        return placeholder;
+      }
+      break;
         }
       }
     }
@@ -267,6 +278,11 @@ function resolveEtymologyText(text) {
 
     const entry = dictionary[word];
     if (!entry) return word;
+
+    const safeSearch = document.getElementById("safeSearchToggle")?.checked;
+  if (safeSearch && entry.safe === false) {
+    return `<span class="etymology-hidden"></span>`;
+  }
 
     let meaning = entry.meaning?.[0] ?? "";
     meaning = removeAnnotations(meaning);
@@ -408,14 +424,21 @@ function syncUIWithURL() {
   const sidebar = document.querySelector('.sidebar');
   const detailsContainer = document.getElementById("details");
   const placeholder = document.getElementById("placeholder");
-
+ const safeSearch = document.getElementById("safeSearchToggle").checked;
+  
   if (id) {
     const word = idToWord[id] || id;
 
     // 辞書が読み込まれている時だけ詳細を表示
     if (dictionary && dictionary[word]) {
-      showDetails(word);
-      if (placeholder) placeholder.style.display = 'none';
+      const entry = dictionary[word];
+      if (safeSearch && entry && entry.safe === false) {
+        detailsContainer.innerHTML = `<p class="placeholder">この語はセーフサーチが有効なため表示できません。</p>`;
+        if (placeholder) placeholder.style.display = 'none';
+      } else {
+        showDetails(word);
+        if (placeholder) placeholder.style.display = 'none';
+      }
     }
 
     // UI 切り替えは辞書の有無に関係なく必ず行う
@@ -515,10 +538,10 @@ Promise.all([
       kanjiReadings = [...nui, ...chel].join(" ");
     }
 
-    // ★ 正規表現を使わない安全な記号除去
+    // 正規表現を使わない安全な記号除去
     const symbolsToRemove = [
       "-", "‐", "‑", "–", "—", "―", "_",
-      "(", ")", "［", "］", "〈", "〉", "《", "》", "「", "」",
+      "(", ")", "［", "］", "〈", "〉", "⫽", "⫽", "「", "」",
       "[", "]", "{", "}", "<", ">"
     ];
 
@@ -588,6 +611,7 @@ document.getElementById("safeSearchToggle").addEventListener("change", () => {
   // 検索結果なら再検索
   performSearch();
 });
+
 // DOM要素を取得するよ
 const searchBox = document.getElementById("searchBox");
 const searchModeSelect = document.getElementById("searchMode");
@@ -1538,8 +1562,10 @@ function performSearch() {
     variantOnlyResults.sort();
     tagOnlyResults.sort();
 
+    // セーフサーチ判定
     const safeSearch = document.getElementById("safeSearchToggle").checked;
 
+    // safe=false の語を除外
     const usePrimary = safeSearch ? primaryResults.filter(w => dictionary[w].safe !== false) : primaryResults;
     const useVariantOnly = safeSearch ? variantOnlyResults.filter(w => dictionary[w].safe !== false) : variantOnlyResults;
     const useTagOnly = safeSearch ? tagOnlyResults.filter(w => dictionary[w].safe !== false) : tagOnlyResults;
