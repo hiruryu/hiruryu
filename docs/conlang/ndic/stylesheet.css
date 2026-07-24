@@ -650,7 +650,7 @@ th {
 }
 
 .variList {
-  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "HanaMinA";
+  font-family: "Noto Serif SC", "Noto Serif TC", "Noto Sans HK", "Jigmo", "Jigmo2", "HanaMinA" !important;
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
