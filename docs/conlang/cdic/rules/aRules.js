@@ -1,4 +1,4 @@
-function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides) {
+function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
   const vRules = [
     { from: "al", to: "o" },
     { from: "el", to: "o" },
@@ -137,6 +137,8 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
     // 歯茎音
   } else if (["t", "d", "s", "z", "c", "x"].includes(ruletype)) {
@@ -199,6 +201,8 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
     // l 基本形
   } else if (["l"].includes(ruletype)) {
@@ -261,6 +265,8 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
 
 
@@ -325,8 +331,9 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
-
 
 
     // 明音型
@@ -391,6 +398,8 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
     // ry / ly 基本形
   } else if (["hj", "nj", "qj", "lj", "rj", "rhj"].includes(ruletype)) {
@@ -451,6 +460,8 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
 
     // 母音終了型
@@ -512,7 +523,11 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
+
+
     // 母音終了型
   } else if (["u", "o"].includes(ruletype)) {
     let s = stem + "";
@@ -572,7 +587,11 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
+
+
     // 変則形
     // l 変則形
   } else if (["lq"].includes(ruletype)) {
@@ -635,6 +654,8 @@ function getConjA(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       e_p3: p3.slice(0, -1) + "ůi",
       ad_p3: p3 + "mj",
       h_p3: p3.slice(0, -1) + "os",
+      // 重畳形
+      l: long_stem,
     }
   }
 }
