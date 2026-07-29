@@ -168,13 +168,13 @@ const partsStyles = {
 // 意味テキストから翻訳語を抽出する関数
 // ［注釈］や（補足）を削除し、カンマで分割して配列にする
 function extractTranslations(text) {
-  const cleaned = text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/《[^］]*》/g, "").replace(/（[^）]*）/g, "").trim();
+  const cleaned = text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/⫽[^］]*⫽/g, "").replace(/（[^）]*）/g, "").trim();
   return cleaned.split(/\s*,\s*/).filter(item => item !== "");
 }
 
 // ［注釈］や（補足）などを削除するユーティリティ関数
 function removeAnnotations(text) {
-  return text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/《[^］]*》/g, "").replace(/（[^）]*）/g, "").trim();
+  return text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/⫽[^］]*⫽/g, "").replace(/（[^）]*）/g, "").trim();
 }
 
 // 語素/変成体の判定
@@ -244,19 +244,19 @@ function resolveEtymologyText(text) {
     let meaning = "";
 
     if (extDict) {
-  for (const [w, data] of Object.entries(extDict)) {
-    if (String(data.id) === id) {
-      word = w;
-      meaning = removeAnnotations(data.meaning?.[0] ?? "");
-      const safeSearch = document.getElementById("safeSearchToggle")?.checked;
-      if (safeSearch && data.safe === false) {
-        placeholders.push(`<span class="etymology-hidden"></span>`);
-        return placeholder;
+      for (const [w, data] of Object.entries(extDict)) {
+        if (String(data.id) === id) {
+          word = w;
+          meaning = removeAnnotations(data.meaning?.[0] ?? "");
+          const safeSearch = document.getElementById("safeSearchToggle")?.checked;
+          if (safeSearch && data.safe === false) {
+            placeholders.push(`<span class="etymology-hidden"></span>`);
+            return placeholder;
+          }
+          break;
+        }
       }
-      break;
     }
-  }
-}
 
     const placeholder = `__LINK${placeholders.length}__`;
 
@@ -270,31 +270,31 @@ function resolveEtymologyText(text) {
   // ② cdic ID
   text = text.replace(/\b(\d+)\b/g, (match, id) => {
 
-  const word = idToWord[id];
-  if (!word) return match;
+    const word = idToWord[id];
+    if (!word) return match;
 
-  const entry = dictionary[word];
-  if (!entry) return word;
+    const entry = dictionary[word];
+    if (!entry) return word;
 
-  const safeSearch = document.getElementById("safeSearchToggle")?.checked;
-  if (safeSearch && entry.safe === false) {
-    return `<span class="etymology-hidden"></span>`;
-  }
+    const safeSearch = document.getElementById("safeSearchToggle")?.checked;
+    if (safeSearch && entry.safe === false) {
+      return `<span class="etymology-hidden"></span>`;
+    }
 
-  let meaning = entry.meaning?.[0] ?? "";
-  meaning = removeAnnotations(meaning);
+    let meaning = entry.meaning?.[0] ?? "";
+    meaning = removeAnnotations(meaning);
 
-  const part = Array.isArray(entry.part)
-    ? entry.parts[0]
-    : entry.parts ?? "";
+    const part = Array.isArray(entry.part)
+      ? entry.parts[0]
+      : entry.parts ?? "";
 
-  const partClass = partsStyles[part] ?? "";
+    const partClass = partsStyles[part] ?? "";
 
-  return `<a href="#"
+    return `<a href="#"
 onclick="loadWord('${word}'); return false;"
 class="etymology-link ${partClass}">
 ${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
-});
+  });
 
   // ③ 他辞書リンクを戻す
   placeholders.forEach((link, i) => {
@@ -421,7 +421,6 @@ function syncUIWithURL() {
   const sidebar = document.querySelector('.sidebar');
   const detailsContainer = document.getElementById("details");
   const placeholder = document.getElementById("placeholder");
-
   const safeSearch = document.getElementById("safeSearchToggle").checked;
 
   if (id) {
@@ -535,10 +534,10 @@ Promise.all([
       kanjiReadings = [...nui, ...chel].join(" ");
     }
 
-    // ★ 正規表現を使わない安全な記号除去
+    // 正規表現を使わない安全な記号除去
     const symbolsToRemove = [
       "-", "‐", "‑", "–", "—", "―", "_",
-      "(", ")", "［", "］", "〈", "〉", "《", "》", "「", "」",
+      "(", ")", "［", "］", "〈", "〉", "⫽", "⫽", "「", "」",
       "[", "]", "{", "}", "<", ">"
     ];
 
@@ -796,13 +795,25 @@ function showDetails(word) {
 
   let tableHTML = "";
   let conjugations = {};
+  // 配列の処理関数
+  function renderCell(value) {
+  if (value == null) return " — ";
+
+  // 配列なら複数行表示
+  if (Array.isArray(value)) {
+    return value.map(v => `<div>${v}</div>`).join("");
+  }
+
+  return value;
+}
+
 
   // 名象の場合
   if (data.parts === "名象") {
-    const isUnique = data.unique === true; // "unique": true を判定
+    const isUnique = data.unique === true;
     // 活用情報を取得するよ
-    const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
-    raw = getConjN(w, stem, long_stem, stem2, type, ruletype, data.baseOverrides) || {};
+    const { word: w, stem, stem2, stem3 = stem, long_stem = stem, type, ruletype } = data;
+    raw = getConjN(w, stem, long_stem, stem2, stem3, type, ruletype, data.baseOverrides) || {};
 
     // overrideを適用
     if (data.overrides) {
@@ -831,6 +842,7 @@ function showDetails(word) {
         { label: "奪格", prefix: "g_" },
         { label: "具格", prefix: "i_" },
         { label: "処格", prefix: "l_" },
+        { label: "所有形", prefix: "p_" },
         { label: "呼称形", prefix: "v_" },
         { label: "包括形", prefix: "in_" }
       ];
@@ -841,9 +853,9 @@ function showDetails(word) {
       tableHTML = rows.map((row, i) => {
         const cells = columns.map(col => {
           const key = row.prefix + col;
-          let value = conjugations[key] ?? " — ";
+          let value = renderCell(conjugations[key]);
           // 特有語なら特定列を空にする
-          if (isUnique && ["anpC", "adsC", "adpC"].includes(col)) {
+          if (isUnique && ["anpC"].includes(col)) {
             value = " — ";
           }
           return `<td class="con">${value}</td>`;
@@ -851,6 +863,12 @@ function showDetails(word) {
 
         return `<tr class="con${i + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
       }).join("\n");
+      tableHTML += `
+      <tr class="con5">
+        <td class="conname">重畳形</td>
+        <td colspan="3" class="con has-hover">${conjugations.l || ""}</td>
+      </tr>
+    `;
     }
 
     // 動詞の場合
@@ -862,6 +880,7 @@ function showDetails(word) {
         data.stem,
         data.long_stem,
         data.stem2,
+        data.stem3,
         data.type,
         data.ruletype,
         data.baseOverrides
@@ -883,20 +902,14 @@ function showDetails(word) {
       tableHTML = `<tr><td colspan="4">この語には活用データがありません。</td></tr>`;
     } else {
       function makeCell(baseKey) {
-        const base = conjugations[baseKey] || "";
-        const concrete = conjugations[baseKey + "1"] || "";
-        const attr = conjugations[baseKey + "2"] || "";
+  const base = conjugations[baseKey];
 
-        return `
-    <td class="con has-hover">
-      <span class="base">${base}</span>
-      <span class="hover-box">
-        <div>具象形: ${concrete}</div>
-        <div>飾形: ${attr}</div>
-      </span>
+  return `
+    <td class="con">
+      ${renderCell(base)}
     </td>
   `;
-      }
+}
 
       const rows = [
         { label: "完結相", keys: ["p", "n", "f"] },
@@ -913,14 +926,21 @@ function showDetails(word) {
         return `<tr class="con${i + 1}">
             <td class="conname">${row.label}</td>
             ${cells}
+            
           </tr>`;
       }).join("");
+      tableHTML += `
+      <tr class="con5">
+        <td class="conname">重畳形</td>
+        <td colspan="3" class="con has-hover">${conjugations.l || ""}</td>
+      </tr>
+    `;
     }
 
     // 名飾詞の場合
   } else if (data.parts === "名飾") {
-    const { word: w, stem, stem2 = stem, long_stem = stem, type, ruletype } = data;
-    raw = getConjA(w, stem, long_stem, stem2, type, ruletype, data.baseOverrides) || {};
+    const { word: w, stem, stem2, stem3 = stem, long_stem = stem, type, ruletype } = data;
+    raw = getConjA(w, stem, long_stem, stem2, stem3, type, ruletype, data.baseOverrides) || {};
 
     if (data.overrides) {
       for (const key in data.overrides) {
@@ -954,12 +974,19 @@ function showDetails(word) {
       tableHTML = rows.map((row, i) => {
         const cells = columns.map(col => {
           const key = row.prefix + col;
-          let value = conjugations[key] ?? " — ";
+          let value = renderCell(conjugations[key]);
+
           return `<td class="con">${value}</td>`;
         }).join("");
 
         return `<tr class="con${i + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
       }).join("\n");
+      tableHTML += `
+      <tr class="con5">
+        <td class="conname">重畳形</td>
+        <td colspan="6" class="con has-hover">${conjugations.l || ""}</td>
+      </tr>
+    `;
     }
 
     // 活用が無い場合
@@ -1023,9 +1050,9 @@ function showDetails(word) {
   let bottomRows = []; // 下部テーブル行
 
   // 品詞
-const partClass = partsStyles[data.parts] ?? "";
+  const partClass = partsStyles[data.parts] ?? "";
 
-leftRows.push(`
+  leftRows.push(`
   <tr>
     <th>属性</th>
     <td class="${partClass}">${data.parts || ""}</td>
@@ -1082,33 +1109,33 @@ leftRows.push(`
 
   // 屈折型
   if (data.type) {
-  const typeHTML = data.type
-    // 括弧部分を span に
-    .replace(/（[^）]+）/g, (m) => {
-      return `<span class="type-note">${m}</span>`;
-    })
-    // 括弧の前で改行
-    .replace(/<span class="type-note">/g, "<br><span class=\"type-note\">");
+    const typeHTML = data.type
+      // 括弧部分を span に
+      .replace(/（[^）]+）/g, (m) => {
+        return `<span class="type-note">${m}</span>`;
+      })
+      // 括弧の前で改行
+      .replace(/<span class="type-note">/g, "<br><span class=\"type-note\">");
 
-  leftRows.push(`<tr><th>屈折型</th><td class="type">${typeHTML}</td></tr>`);
-}
+    leftRows.push(`<tr><th>屈折型</th><td class="type">${typeHTML}</td></tr>`);
+  }
 
   // 語義説明
   if (data.explanation && data.explanation.length > 0) {
     // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
     const explanationHtml = data.explanation
-  .map((text, index) => {
-    const circles = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
-    const circleNumber = circles[index] || `(${index + 1})`;
+      .map((text, index) => {
+        const circles = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
+        const circleNumber = circles[index] || `(${index + 1})`;
 
-    return `
+        return `
       <div class="explanation-item">
         <span class="number">${circleNumber}</span>
         <span class="text">${text}</span>
       </div>
     `;
-  })
-  .join('');
+      })
+      .join('');
 
     leftRows.push(`<tr><th>語義</th><td colspan="1"><div class="explanation-content">${explanationHtml}</div></td></tr>`);
   }
