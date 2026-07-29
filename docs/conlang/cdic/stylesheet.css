@@ -472,11 +472,16 @@ th {
 }
 
 .con8 {
+  background-color: #bde5ea;
+  color: #8284b3;
+}
+
+.con9 {
   background-color: #e2d5db;
   color: #af4970;
 }
 
-.con9 {
+.con10 {
   background-color: #d4d0dd;
   color: #663377;
 }
