@@ -1,45 +1,49 @@
-function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides) {
+function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
   if (ruletype === "not") {
     return {};
     // t / d / k / g / s / z / c / h 基本形
-  } else if (["t", "d", "k", "g", "s", "z", "c", "x", "h"].includes(ruletype)) {
+  } else if (["t", "d", "k", "g", "f", "v", "s", "z", "c", "x", "h"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
-      p: stem + "ól",
-      f: stem + "íp",
+      p: stem2 + "ál",
+      f: stem3 + "íp",
       // 完了相
-      dn: stem2 + "ris",
-      dp: stem2 + "rol",
-      df: stem2 + "rip",
+      dn: stem + "ris",
+      dp: stem + "rol",
+      df: stem + "rip",
       // 進行相
-      sn: stem2 + "is",
+      sn: stem + "is",
      sp: stem + "ílle",
       sf: stem + "ísfe",
       // 反復相,
-      mn: stem2 + "uim",
-      mp: stem2 + "uimol",
-      mf: stem2 + "uimik",
+      mn: stem + "uium",
+      mp: stem + "uiumal",
+      mf: stem + "uiumik",
+      // 重畳形,
+      l: long_stem
     }
     // p / b / f / v 基本形（唇音）
-  } else if (["p", "b", "f", "v"].includes(ruletype)) {
+  } else if (["p", "b"].includes(ruletype)) {
     return {
       // 完結相
       n: "-",
-      p: stem + "ól",
-      f: stem + "ík",
+      p: stem2 + "hál",
+      f: stem3 + "híup",
       // 完了相
-      dn: stem2 + "ris",
-      dp: stem2 + "rol",
-      df: stem2 + "rip",
+      dn: stem + "ras",
+      dp: stem + "rol",
+      df: stem + "ruip",
       // 進行相
-      sn: stem2 + "is",
-     sp: stem + "ílle",
-      sf: stem + "ísfe",
+      sn: stem + "hius",
+     sp: stem3 + "híul",
+      sf: stem3 + "híusfa",
       // 反復相,
-      mn: stem2 + "uim",
-      mp: stem2 + "uimol",
-      mf: stem2 + "uimik",
+      mn: stem + "huium",
+      mp: stem + "huiumal",
+      mf: stem + "huimik",
+      // 重畳形,
+      l: long_stem
     }
     // sh / zh / ch / xh 基本形（反舌音）
   } else if (["sh", "zh", "ch", "xh", "rh"].includes(ruletype)) {
@@ -60,6 +64,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+      // 重畳形,
+      l: long_stem
     }
     // m 基本形
   } else if (["m"].includes(ruletype)) {
@@ -80,6 +86,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+      // 重畳形,
+      l: long_stem
     }
     // n 基本形
   } else if (["n"].includes(ruletype)) {
@@ -100,6 +108,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+      // 重畳形,
+      l: long_stem
     }
     // q 基本形
   } else if (["q"].includes(ruletype)) {
@@ -120,6 +130,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+      // 重畳形,
+      l: long_stem
     }
     // r / rh / l 基本形（流音）
   } else if (["r", "rh", "l"].includes(ruletype)) {
@@ -140,6 +152,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+      // 重畳形,
+      l: long_stem
     }
     // y 基本形
   } else if (["j", "rhj"].includes(ruletype)) {
@@ -162,6 +176,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: d + "m",
       mp: d + "mol",
       mf: d + "mik",
+      // 重畳形,
+      l: long_stem
     }
 
 
@@ -186,6 +202,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+       // 重畳形,
+      l: long_stem
     }
     // py / by / fy / vy 基本形（唇音）
   } else if (["pj", "bj", "fj", "vj"].includes(ruletype)) {
@@ -206,6 +224,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+       // 重畳形,
+      l: long_stem
     }
     // my 基本形
   } else if (["mj"].includes(ruletype)) {
@@ -226,6 +246,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+       // 重畳形,
+      l: long_stem
     }
     // ny 基本形
   } else if (["nj"].includes(ruletype)) {
@@ -246,6 +268,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+       // 重畳形,
+      l: long_stem
     }
     // qy 基本形
   } else if (["qj"].includes(ruletype)) {
@@ -266,6 +290,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+       // 重畳形,
+      l: long_stem
     }
     // ry / rhy / ly 基本形（流音）
   } else if (["rj", "lj"].includes(ruletype)) {
@@ -286,6 +312,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+       // 重畳形,
+      l: long_stem
     }
 
 
@@ -309,6 +337,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "m",
       mp: stem2 + "mol",
       mf: stem2 + "mik",
+       // 重畳形,
+      l: long_stem
     }
     // o 基本形（ それ以外 ）
   } else if (["o"].includes(ruletype)) {
@@ -329,6 +359,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "m",
       mp: stem2 + "mol",
       mf: stem2 + "mik",
+       // 重畳形,
+      l: long_stem
     }
 
     // t / d / k / g / s / z / c / h 基本形
@@ -350,6 +382,8 @@ function getConjV(_word, stem, _long_stem, stem2, _type, ruletype, baseOverrides
       mn: stem2 + "uim",
       mp: stem2 + "uimol",
       mf: stem2 + "uimik",
+       // 重畳形,
+      l: long_stem
     }
   }
 }
