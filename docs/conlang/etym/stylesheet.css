@@ -302,6 +302,7 @@ h5 {
 .fixList td {
   vertical-align: middle;
 }
+
 .fixList {
   list-style: none;
   background-color: #F9F8F4;
@@ -366,13 +367,25 @@ th {
   color: #664c43;
 }
 
+.e-list td {
+  vertical-align: middle;
+}
+
 .e-list {
   color: #998077;
+  margin: auto;
+  text-align: center;
+}
+
+.t-list td {
+  vertical-align: middle;
 }
 
 .t-td {
   color: #8888aa;
   font-size: 15px;
+  margin: auto;
+  text-align: center;
 }
 
 .p-td {
@@ -381,6 +394,8 @@ th {
   font-size: 16px;
   font-family: 'Times New Roman', Times, serif;
   line-height: 30px;
+  margin: auto;
+  text-align: center;
 }
 
 .inner-table {
@@ -457,11 +472,16 @@ th {
 }
 
 .con8 {
+  background-color: #bde5ea;
+  color: #8284b3;
+}
+
+.con9 {
   background-color: #e2d5db;
   color: #af4970;
 }
 
-.con9 {
+.con10 {
   background-color: #d4d0dd;
   color: #663377;
 }
@@ -687,9 +707,8 @@ th {
 /* --- 関連語のもっと見る / 閉じる 共通スタイル --- */
 .morelink {
   display: inline-block;
-  margin-top: 6px;
-  padding: 4px 10px;
-  font-size: 0.9em;
+  padding: 4px 4px;
+  font-size: 0.7em;
   color: #0066cc;
   background: #f2f7ff;
   border: 1px solid #c8ddff;
@@ -732,21 +751,46 @@ th {
   border-color: #ff9999;
   color: #800000;
 }
+
 .meaning {
   color: #808080;
   font-size: 14px;
 }
 
 .explanation-content {
+  max-width: 550px;
+  width: 100%;
+  margin: 0 auto;
   font-size: 13px;
-  line-height: 1.6;
-  color: #886262;
-  padding: 12px 8px;
+  line-height: 17px;
+  color: #6a6a6a;
+  letter-spacing: 1px;
+  padding: 10px 8px;
   text-align: left;
+  box-sizing: border-box;
 }
 
-.link-meaning{
-  color:#b0b0b0;
+.explanation-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 9px;
+}
+
+.explanation-item:last-child {
+  margin-bottom: 0;
+}
+
+.explanation-item .number {
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.explanation-item .text {
+    flex: 1;
+}
+
+.link-meaning {
+  color: #b0b0b0;
   font-size: 14px;
   margin: 0px -12px 0px -6px;
 }
@@ -754,4 +798,32 @@ th {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.toggleMeaning {
+  color: #9c9fff;
+  font-size: 14px;
+}
+
+.type {
+  color: #807066;
+  font-size: 17px;
+  margin-left: 0.3em;
+  letter-spacing: 1px;
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+.type-note {
+  color: #b0b0b0;
+  font-size: 0.8em;
+  margin-left: 0.3em;
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+.word-count{
+  color: #4e4e60;
+  font-size: 12px;
+  box-sizing: border-box;
+  background-color: #f9f8f4;
+  border-bottom: 2px dotted #aaaaaa;
 }
