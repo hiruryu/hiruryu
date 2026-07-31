@@ -874,6 +874,9 @@ function showDetails(word) {
   let leftRows = []; // 左側テーブル行
   let bottomRows = []; // 下部テーブル行
 
+  // 言語名
+  leftRows.push(`<tr><th>言語</th><td class="t-td">${data.lang ? (Array.isArray(data.lang) ? data.lang.join(", ") : data.lang) : ""}</td></tr>`);
+
   // 品詞
   const partClass = partsStyles[data.parts] ?? "";
 
