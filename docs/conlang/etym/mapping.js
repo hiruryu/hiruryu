@@ -874,8 +874,6 @@ function showDetails(word) {
   let leftRows = []; // 左側テーブル行
   let bottomRows = []; // 下部テーブル行
 
-  // 言語名
-  leftRows.push(`<tr><th>言語</th><td class="t-td">${data.lang ? (Array.isArray(data.lang) ? data.lang.join(", ") : data.lang) : ""}</td></tr>`);
 
   // 品詞
   const partClass = partsStyles[data.parts] ?? "";
@@ -886,6 +884,9 @@ function showDetails(word) {
     <td class="${partClass}">${data.parts || ""}</td>
   </tr>
 `);
+
+  // 言語名
+  leftRows.push(`<tr><th>言語</th><td class="t-td">${data.lang ? (Array.isArray(data.lang) ? data.lang.join(", ") : data.lang) : ""}</td></tr>`);
 
   // タグ
   leftRows.push(`<tr><th>タグ</th><td class="t-td">${data.tag ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag) : ""}</td></tr>`);
