@@ -797,15 +797,15 @@ function showDetails(word) {
   let conjugations = {};
   // 配列の処理関数
   function renderCell(value) {
-  if (value == null) return " — ";
+    if (value == null) return " — ";
 
-  // 配列なら複数行表示
-  if (Array.isArray(value)) {
-    return value.map(v => `<div>${v}</div>`).join("");
+    // 配列なら複数行表示
+    if (Array.isArray(value)) {
+      return value.map(v => `<div>${v}</div>`).join("");
+    }
+
+    return value;
   }
-
-  return value;
-}
 
 
   // 名象の場合
@@ -863,12 +863,6 @@ function showDetails(word) {
 
         return `<tr class="con${i + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
       }).join("\n");
-      tableHTML += `
-      <tr class="con5">
-        <td class="conname">重畳形</td>
-        <td colspan="3" class="con has-hover">${conjugations.l || ""}</td>
-      </tr>
-    `;
     }
 
     // 動詞の場合
@@ -902,14 +896,14 @@ function showDetails(word) {
       tableHTML = `<tr><td colspan="4">この語には活用データがありません。</td></tr>`;
     } else {
       function makeCell(baseKey) {
-  const base = conjugations[baseKey];
+        const base = conjugations[baseKey];
 
-  return `
+        return `
     <td class="con">
       ${renderCell(base)}
     </td>
   `;
-}
+      }
 
       const rows = [
         { label: "完結相", keys: ["p", "n", "f"] },
@@ -929,12 +923,6 @@ function showDetails(word) {
             
           </tr>`;
       }).join("");
-      tableHTML += `
-      <tr class="con5">
-        <td class="conname">重畳形</td>
-        <td colspan="3" class="con has-hover">${conjugations.l || ""}</td>
-      </tr>
-    `;
     }
 
     // 名飾詞の場合
@@ -981,12 +969,6 @@ function showDetails(word) {
 
         return `<tr class="con${i + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
       }).join("\n");
-      tableHTML += `
-      <tr class="con5">
-        <td class="conname">重畳形</td>
-        <td colspan="6" class="con has-hover">${conjugations.l || ""}</td>
-      </tr>
-    `;
     }
 
     // 活用が無い場合
