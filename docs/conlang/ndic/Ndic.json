@@ -145,6 +145,20 @@
   "奴": {"id":148,"safe":true,"word":"nu","tag":["ー"],"parts":"名象","meaning":["召使い","奴隷","しもべ"],"pronunciation":["⟨nu⟩","/nu/","[nu]"],"seii":["l"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[{"stage":"縫祖語","form":"*nul"},{"stage":"古縫語","form":"nul"},{"stage":"中縫語","form":"nul","note":["⇒［智］"]},{"stage":"近代縫語","form":"nu"},{"stage":"現代縫語","form":"nu","note":["⇒ 148"]}]},"variants2":["めしつかい","どれい","下部"]},
   
   
+  
+  
+  
+  
+  "哬": {"id":159,"safe":true,"word":"hě","tag":["ー"],"parts":"名象","meaning":["～ですか？","何","どうして","なんて"],"pronunciation":["⟨hě⟩","/he/","[xə]"],"seii":["v"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[{"stage":"縫祖語","form":"*kouk"},{"stage":"古縫語","form":"kouk","note":["⇒［智］"]},{"stage":"中縫語","form":"hǒu"},{"stage":"近代縫語","form":"hǎu"},{"stage":"現代縫語","form":"hě","note":["⇒ 149"]}]},"variants2":["なに","何て","如何して","ですか","か","疑問","ぎもん"]},
+  "哬個": {"id":160,"safe":true,"word":"hě","tag":["ー"],"parts":"名象","meaning":["何","何か","何も"],"pronunciation":["⟨hě⟩","/he/","[xə]"],"seii":["v"],"etymology":{"intro":["合成語。","「 160 」+「  」が組み合わさった語。"],"changes":[]},"variants2":["なに","なにか","なにも","哬個"]},
+  "哬処": {"id":161,"safe":true,"word":"hě","tag":["ー"],"parts":"名象","meaning":["どこ","どこか","どこも"],"pronunciation":["⟨hě⟩","/he/","[xə]"],"seii":["v"],"etymology":{"intro":["合成語。","「 160 」+「  」が組み合わさった語。"],"changes":[]},"variants2":["何処","何処か","何処も","哬処"]},
+  "哬時": {"id":162,"safe":true,"word":"hě","tag":["ー"],"parts":"名象","meaning":["いつ","いつか","いつも"],"pronunciation":["⟨hě⟩","/he/","[xə]"],"seii":["v"],"etymology":{"intro":["合成語。","「 160 」+「  」が組み合わさった語。"],"changes":[]},"variants2":["何時","何時か","何時も","哬時"]},
+  "哬為": {"id":163,"safe":true,"word":"hě","tag":["ー"],"parts":"名象","meaning":["どう","どうやって","どのように"],"pronunciation":["⟨hě⟩","/he/","[xə]"],"seii":["v"],"etymology":{"intro":["合成語。","「 160 」+「  」が組み合わさった語。"],"changes":[]},"variants2":["如何","如何やって","どの様に","哬為"]},
+  "哬様": {"id":164,"safe":true,"word":"hě","tag":["ー"],"parts":"名象","meaning":["どんな","どのような"],"pronunciation":["⟨hě⟩","/he/","[xə]"],"seii":["v"],"etymology":{"intro":["合成語。","「 160 」+「  」が組み合わさった語。"],"changes":[]},"variants2":["どんな","どの様な","哬樣","哬様"]},
+  "哬因": {"id":165,"safe":true,"word":"hě","tag":["ー"],"parts":"名象","meaning":["なぜ","なんで","どうして"],"pronunciation":["⟨hě⟩","/he/","[xə]"],"seii":["v"],"etymology":{"intro":["合成語。","「 160 」+「  」が組み合わさった語。"],"changes":[]},"variants2":["何故","何で","如何して","哬因"]},
+  "哬者": {"id":166,"safe":true,"word":"hě","tag":["ー"],"parts":"名象","meaning":["だれ","だれか","だれも"],"pronunciation":["⟨hě⟩","/he/","[xə]"],"seii":["v"],"etymology":{"intro":["合成語。","「 160 」+「  」が組み合わさった語。"],"changes":[]},"variants2":["誰","誰か","誰も","哬者","哬人"]},
+  
+  
   "粪": {"id":1146,"vari":["糞"],"safe":false,"word":"buo","tag":["ー"],"parts":"名象","meaning":["糞","大便","肥やし","（ ⇒ ）"],"pronunciation":["⟨buo⟩","/buo/","[puɔ]"],"seii":["l"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[{"stage":"縫祖語","form":"*bwog"},{"stage":"古縫語","form":"bwog"},{"stage":"中縫語","form":"bwog","note":["⇒［智］"]},{"stage":"近代縫語","form":"buo"},{"stage":"現代縫語","form":"buo","note":["⇒ 1146"]}]},"variants2":["くそ","ふん","うんこ","うんち","だいべん","べん","こやし"]},
   "屎": {"id":1147,"safe":false,"word":"sǐ","tag":["ー"],"parts":"名象","meaning":["ふん","糞","大便","（ ⇒ ）"],"pronunciation":["⟨sǐ⟩","/sʲi/","[sʲi]"],"seii":["v"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[{"stage":"縫祖語","form":"*sus"},{"stage":"古縫語","form":"sus"},{"stage":"中縫語","form":"sǔs","note":["⇒［智］"]},{"stage":"近代縫語","form":"sǐ"},{"stage":"現代縫語","form":"sǐ","note":["⇒ 1147"]}]},"variants2":["くそ","ふん","うんこ","うんち","だいべん","べん"]},
   "屎奴": {"id":1148,"safe":false,"word":"sǐnu","tag":["暴言"],"parts":"名象","meaning":["ろくでなし","糞野郎"],"pronunciation":["⟨sǐnu⟩","/sʲinu/","[sʲinu]"],"seii":["v","l"],"etymology":{"intro":["合成語。","「 1147 」+「 148 」が組み合わさった語。"],"changes":[]},"variants2":["くそやろう","ごみかす","かす"]}
