@@ -843,3 +843,300 @@ a {
   display: inline-block;
   margin-bottom: 2px;
 }
+
+/* =========================================================
+   NDIC 新詳細表示
+   ========================================================= */
+
+.ndic-entry {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+/* ---------- ヘッダー ---------- */
+
+.entry-header {
+  margin-bottom: 18px;
+}
+
+.entry-title {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 8px 0 14px;
+}
+
+.entry-word {
+  font-size: 42px;
+  line-height: 1;
+}
+
+.entry-pronunciation {
+  font-size: 22px;
+  color: #807066;
+}
+
+.entry-pronunciation span {
+  margin-right: 8px;
+}
+
+.entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: 2px solid #666;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #aaa;
+  font-size: 17px;
+}
+
+.entry-word {
+  color: #225540;
+}
+
+.entry-meta span {
+  margin-right: 18px;
+}
+
+.entry-meta b {
+  font-weight: normal;
+  color: #888;
+}
+
+.meta {
+  font-weight: normal;
+  color: #aaa;
+}
+
+/* ---------- 語義 ---------- */
+.meaning-section {
+  margin-top: 12px;
+}
+
+.meaning-entry {
+  margin: 0 0 18px 0;
+  padding-left: 20px;
+}
+
+.meaning-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 7px;
+}
+
+.meaning-number {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  background: #aaa;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.meaning-pos {
+  font-size: 20px;
+  color: #ababaa;
+}
+
+.meaning-text {
+  margin-left: 25px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #505048;
+}
+
+
+/* ---------- 語義内の例 ---------- */
+
+.meaning-examples {
+  margin: 7px 0 0 48px;
+}
+
+.meaning-example {
+  margin: 18px 0;
+}
+
+.example-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+
+  font-size: 18px;
+}
+
+.example-arrow {
+  color: #4d4d4d;
+  font-size: 15px;
+}
+
+.example-word {
+  font-size: 19px;
+  color: #554545;
+}
+
+.example-pron {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.example-gloss {
+  margin-left: 20px;
+  margin-top: 6px;
+  color: #aaaccc;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+
+/* ---------- 同義語 ---------- */
+
+.meaning-synonyms {
+  margin: 9px 0 0 48px;
+  font-size: 18px;
+}
+
+.synonym-label {
+  display: inline-block;
+  margin-right: 8px;
+
+  padding: 2px 5px;
+
+  border: 1px solid #888;
+  border-radius: 4px;
+
+  color: #aaa;
+}
+
+
+/* ---------- 語源 ---------- */
+
+.etymology-section {
+  margin-top: 35px;
+  padding-top: 15px;
+
+  border-top: 1px solid #555;
+}
+
+.section-title {
+  margin: 0 0 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #225540;
+}
+
+.etymology-link {
+  font-size: 18px;
+  color: 807066;
+}
+
+.etymology-intro {
+  margin-bottom: 15px;
+  color: #807066;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.etymology-changes {
+  margin: 10px 0;
+}
+
+.etymology-change {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  min-height: 38px;
+  border-left: 2px solid #777;
+}
+
+.etymology-stage {
+  padding: 6px 18px;
+  color: #807066;
+  font-size: 15px;
+  text-align: right;
+}
+
+.etymology-form {
+  position: relative;
+  padding: 6px 18px;
+  color: #998077;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.etymology-form::before {
+  content: "→";
+
+  position: absolute;
+  left: -9px;
+
+  color: #888;
+}
+
+.etymology-note {
+  margin-left: 12px;
+
+  color: #807066;
+  font-size: 15px;
+}
+
+
+/* ---------- その他 ---------- */
+
+.extra-section {
+  margin-top: 30px;
+  padding-top: 15px;
+
+  border-top: 1px solid #555;
+}
+
+.extra-content {
+  line-height: 2;
+  font-size: 18px;
+}
+
+.morelink {
+  margin-top: 8px;
+  cursor: pointer;
+  color: #807066;
+}
+
+.morelink:hover {
+  text-decoration: underline;
+}
+
+.meaning-bracket {
+  display: inline;
+  font-size: 0.85em;
+  margin: 0 0.1em;
+}
+
+.meaning-bracket.square {
+  color: #888;
+}
+
+.meaning-bracket.corner {
+  color: #888;
+  font-weight: bold;
+}
+
+.meaning-bracket.round {
+  color: #999;
+  font-size: 0.85em;
+}
+
+.meaning-bracket.tri {
+  color: #999;
+  font-size: 0.85em;
+}
+
+.meaning-bracket.dtri {
+  color: #999;
+  font-size: 0.85em;
+}
