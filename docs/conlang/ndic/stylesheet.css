@@ -897,8 +897,16 @@ a {
   color: #225540;
 }
 
-.entry-meta span {
-  margin-right: 18px;
+.entry-meta > span {
+  margin-right: 12px;
+}
+
+.entry-meta > span:last-child {
+  margin-right: 0px;
+}
+
+.entry-meta .meta {
+  margin-right: 10px;
 }
 
 .entry-meta b {
@@ -1139,4 +1147,25 @@ a {
 .meaning-bracket.dtri {
   color: #999;
   font-size: 0.85em;
+}
+
+.meaning-variants {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.form-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-right: 0.8em;
+}
+
+.form-numbers {
+  white-space: nowrap;
+}
+
+.form-character {
+  white-space: nowrap;
 }
