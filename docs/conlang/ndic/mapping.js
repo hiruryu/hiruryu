@@ -860,6 +860,50 @@ function renderMeaningText(text) {
   return html;
 }
 
+function renderMeaningForms(forms) {
+  if (!forms || typeof forms !== "object") {
+    return "";
+  }
+
+  const groups = {};
+
+  for (const [index, char] of Object.entries(forms)) {
+    if (!groups[char]) {
+      groups[char] = [];
+    }
+
+    groups[char].push(index);
+  }
+
+  return Object.entries(groups)
+    .map(([char, indexes]) => {
+      const numbers = indexes
+        .map(index => {
+          const n = Number(index);
+
+          if (n >= 1 && n <= 20) {
+            const circles = [
+              "①", "②", "③", "④", "⑤",
+              "⑥", "⑦", "⑧", "⑨", "⑩",
+              "⑪", "⑫", "⑬", "⑭", "⑮",
+              "⑯", "⑰", "⑱", "⑲", "⑳"
+            ];
+
+            return circles[n - 1];
+          }
+
+          return `(${index})`;
+        })
+        .join("");
+
+      return `<span class="form-group">
+        <span class="form-numbers">${numbers}</span>
+        <span class="form-char">${char}</span>
+      </span>`;
+    })
+    .join("");
+}
+
 
 function renderMeaningExamples(examples) {
   if (!Array.isArray(examples) || examples.length === 0) {
@@ -1299,6 +1343,16 @@ function showDetails(word) {
                  </span>`
       : ""
     }
+
+    ${data.forms
+    ? `<span>
+          <b>表記</b>:
+          <span class="meta meaning-forms">
+            ${renderMeaningForms(data.forms)}
+          </span>
+       </span>`
+    : ""
+}
 
         </div>
 
