@@ -833,6 +833,12 @@ function renderMeaningText(text) {
     '<span class="meaning-bracket round">（$1）</span>'
   );
 
+  // ｟ ... ｠
+  html = html.replace(
+    /｟([^（）]+)｠/g,
+    '<span class="meaning-bracket round">｟$1｠</span>'
+  );
+
   // 〈 ... 〉
   html = html.replace(
     /〈([^（）]+)〉/g,
