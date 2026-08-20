@@ -1353,15 +1353,10 @@ function showDetails(word) {
        </span>`
     : ""
 }
-
         </div>
-
       </header>
 
       ${renderMeaningBlock(data.meaning)}
-
-      ${renderEtymologyBlock(data.etymology)}
-
   `;
 
   /*
