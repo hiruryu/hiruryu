@@ -1137,6 +1137,222 @@ function extractEtymologyIDs(entry) {
   return ids;
 }
 
+function renderNotes(data) {
+  if (!data) return "";
+
+  const htmlParts = [];
+
+  // =========================
+  // note1 = 一般言語学
+  // =========================
+  if (data.note1) {
+    const items = normalizeNote(data.note1);
+
+    const list = items
+      .map(item =>
+        `<li class="noteList">${processNoteText(item)}</li>`
+      )
+      .join("");
+
+    if (list) {
+      htmlParts.push(`
+        <table class="detailTable">
+          <tbody>
+            <tr>
+              <th id="stripeth">一般言語学</th>
+              <td colspan="3">
+                <ul>${list}</ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      `);
+    }
+  }
+
+  // =========================
+  // note2 = 縫語解説
+  // =========================
+  if (data.note2) {
+
+    const title = data.note2.title
+      ? normalizeNote(data.note2.title)
+      : [];
+
+    const txt = data.note2.txt
+      ? normalizeNote(data.note2.txt)
+      : [];
+
+    const img = data.note2.img
+      ? normalizeNote(data.note2.img)
+      : [];
+
+    const titleHTML = title
+      .map(t => `<div class="note2-title">${processNoteText(t)}</div>`)
+      .join("");
+
+    const txtHTML = txt
+      .map(t => `<li class="noteList">${processNoteText(t)}</li>`)
+      .join("");
+
+    const imgHTML = img.join("");
+
+    if (titleHTML || txtHTML || imgHTML) {
+      htmlParts.push(`
+        <table class="detailTable">
+          <tbody>
+            <tr>
+              <th id="stripeth">智語解説</th>
+              <td colspan="3">
+                ${titleHTML}
+                ${txtHTML ? `<ul>${txtHTML}</ul>` : ""}
+                ${imgHTML}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      `);
+    }
+  }
+
+  // =========================
+  // note3 = 備考
+  // =========================
+  if (data.note3) {
+    const items = normalizeNote(data.note3);
+
+    const list = items
+      .map(item =>
+        `<li class="noteList">${processNoteText(item)}</li>`
+      )
+      .join("");
+
+    if (list) {
+      htmlParts.push(`
+        <table class="detailTable">
+          <tbody>
+            <tr>
+              <th id="stripeth">備考</th>
+              <td colspan="3">
+                <ul>${list}</ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      `);
+    }
+  }
+
+  // =========================
+  // alert = 注意事項
+  // =========================
+  if (data.alert) {
+
+    const a1 = data.alert.a1
+      ? normalizeNote(data.alert.a1)
+      : [];
+
+    const a2 = data.alert.a2
+      ? normalizeNote(data.alert.a2)
+      : [];
+
+    const a1HTML = a1
+      .map(item =>
+        `<li class="alertList">${processNoteText(item)}</li>`
+      )
+      .join("");
+
+    const a2HTML = a2
+      .map(item =>
+        `<li class="alertList">${processNoteText(item)}</li>`
+      )
+      .join("");
+
+  }
+  return htmlParts.join("");
+}
+
+function renderAlert(alertObj) {
+  if (!alertObj) return "";
+
+  const a1 = alertObj.a1 ? normalizeNote(alertObj.a1) : [];
+  const a2 = alertObj.a2 ? normalizeNote(alertObj.a2) : [];
+
+  const a1HTML = a1.map(t => `<div class="alert-line" style="color:#ff5555;">${t}</div>`).join("");
+
+  const a2HTML = a2.map(raw => {
+    const id = String(raw).replace(/[^\d]/g, "");
+    if (id && idToWord[id]) {
+      const word = idToWord[id];
+      const entry = dictionary[word];
+      return `<span class="marker">${createWordLink(word, entry)}</span>`;
+    }
+    return raw;
+  }).join("<br>");
+
+  return `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th id="stripeth">⚠ 注意</th>
+          <td colspan="3">
+            ${a1HTML}
+            ${a2HTML}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+}
+
+function normalizeNote(val) {
+  if (!val) return [];
+
+  if (Array.isArray(val)) {
+    return val;
+  }
+
+  if (typeof val === "object") {
+    if (Array.isArray(val.txt)) {
+      return val.txt;
+    }
+
+    return Object.values(val).flat();
+  }
+
+  return String(val)
+    .split(",")
+    .map(s => s.trim())
+    .filter(Boolean);
+}
+
+function processNoteText(text) {
+  let resolved = resolveEtymologyText(String(text ?? ""));
+
+  resolved = resolved.replace(
+    /<h5>(.*?)<\/h5>/g,
+    (match, innerText) => {
+
+      const key = innerText
+        .replace(/^⇒\s*/, "")
+        .trim();
+
+      const linkWord = linkMapping[key] || key;
+
+      return `
+        <h5>
+          <a href="#"
+             onclick="loadWord('${linkWord}'); return false;">
+            ${innerText.trim()}
+          </a>
+        </h5>
+      `;
+    }
+  );
+
+  return resolved;
+}
+
 // 意味を1つ取得する関数
 function getFirstMeaning(entry) {
   if (!entry || !entry.meaning) return "";
@@ -1357,6 +1573,8 @@ function showDetails(word) {
       </header>
 
       ${renderMeaningBlock(data.meaning)}
+      ${renderNotes(data)}
+      ${renderAlert(data.alert)}
   `;
 
   /*
