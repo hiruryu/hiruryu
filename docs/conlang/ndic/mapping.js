@@ -1573,6 +1573,7 @@ function showDetails(word) {
       </header>
 
       ${renderMeaningBlock(data.meaning)}
+      ${renderEtymologyBlock(data.etymology)}
       ${renderNotes(data)}
       ${renderAlert(data.alert)}
   `;
