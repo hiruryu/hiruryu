@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(location.search);
-  const hasId = params.has('id');
-  const view = params.get('view');
 
-  // view が side のときは戻るボタンを出さない
-  if (hasId && view !== 'side') {
+  // IDがある時だけ「戻るボタン」を作る処理だけ残す
+  if (params.has('id')) {
     const back = document.createElement('div');
     back.className = 'back-to-top';
     back.innerHTML = `<a href="ndic.html">📖 辞書トップへ戻る</a>`;
@@ -20,123 +18,11 @@ let etymDictionary = {}; // 語源専用
 const idToWord = {}; // ID → 単語 を引くためのマッピング
 let searchResults = []; // 検索結果を保存する配列
 let currentPage = 1; // 現在のページ番号
-const itemsPerPage = 12; // 1ページに表示する単語数⁺
-const itemsCognates = 20; // 1ページに表示する単語数⁺
-
-
-function showMoreCognates() {
-  const all = window._cognatesAll;
-  const start = window._cognatesIndex;
-  const step = window._cognatesStep;
-
-  const next = all.slice(start, start + step);
-
-  window._cognatesIndex += next.length;
-
-  const html = next.map(([word, entry]) => {
-    return createWordLink(word, entry);
-  }).join("，");
-
-  const list = document.getElementById("cognatesList");
-
-  list.innerHTML += ", " + html;
-
-  // 全表示したら
-  if (window._cognatesIndex >= all.length) {
-    document.getElementById("cognatesMore").style.display = "none";
-  }
-
-  // 閉じる表示
-  document.getElementById("cognatesClose").style.display = "block";
-}
-
-function closeCognates() {
-  const all = window._cognatesAll;
-  const step = window._cognatesStep;
-
-  const initial = all.slice(0, step);
-  window._cognatesIndex = initial.length;
-
-  const html = initial.map(([word, entry]) => {
-    return createWordLink(word, entry);
-  }).join(", ");
-
-  // リストを初期状態に戻す
-  document.getElementById("cognatesList").innerHTML = html;
-
-  // 「もっと見る」を復活（まだ残りがある場合）
-  if (all.length > step) {
-    document.getElementById("cognatesMore").style.display = "";
-  }
-
-  // 「閉じる」を隠す
-  document.getElementById("cognatesClose").style.display = "none";
-}
-
-
-function showMoreSimilars() {
-  const start = window._similarsIndex;
-  const end = start + window._similarsStep;
-
-  const next = window._similarsAll.slice(start, end);
-
-  const html = next.map(([word, entry]) => {
-    return createWordLink(word, entry);
-  }).join(", ");
-
-  const list = document.getElementById("similarsList");
-
-  if (list && html) {
-    list.innerHTML += ", " + html;
-  }
-  window._similarsIndex = end;
-
-  // 全表示したら
-  if (window._similarsIndex >= window._similarsAll.length) {
-
-    const more = document.getElementById("similarsMore");
-    const close = document.getElementById("similarsClose");
-
-    if (more) more.style.display = "none";
-    if (close) close.style.display = "block";
-  }
-}
-
-function closeSimilars() {
-  const all = window._similarsAll;
-  const step = window._similarsStep;
-
-  const initial = all.slice(0, step);
-
-  window._similarsIndex = initial.length;
-
-  const html = initial.map(([word, entry]) => {
-    return createWordLink(word, entry);
-  }).join(", ");
-
-  // 同類語リストを戻す
-  document.getElementById("similarsList").innerHTML = html;
-
-  // もっと見る復活
-  if (all.length > step) {
-    document.getElementById("similarsMore").style.display = "";
-  }
-
-  // 閉じるを隠す
-  document.getElementById("similarsClose").style.display = "none";
-}
-
-
+const itemsPerPage = 20; // 1ページに表示する単語数⁺
 // 単語をクリックした時にURLを更新し、詳細を表示する関数
 function loadWord(word) {
   const data = dictionary[word];
   if (!data) return;
-
-  const safeSearch = document.getElementById("safeSearchToggle").checked;
-  if (safeSearch && data.safe === false) {
-    alert("この語はセーフサーチが有効なため表示できません。セーフサーチをオフにしてください。");
-    return;
-  }
 
   const params = new URLSearchParams(window.location.search);
   params.set('id', data.id || word);
@@ -155,13 +41,13 @@ const partsStyles = {
   "動詞": "doushi",
   "名飾": "meishoku",
   "副飾": "fukushoku",
-  "包飾": "bunshoku",
-  "副合辞<br>包飾": "bunshoku",
+  "文飾": "bunshoku",
+  "副合辞<br>文飾": "bunshoku",
   "接辞": "fukuji",
   "離辞": "fukuji",
   "屈折接辞": "fukuji",
   "派生接辞": "fukuji",
-  "副辞": "fukuji",
+  "離辞": "fukuji",
   "外詞": "kanto",
 };
 
@@ -175,79 +61,6 @@ function extractTranslations(text) {
 // ［注釈］や（補足）などを削除するユーティリティ関数
 function removeAnnotations(text) {
   return text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/⫽[^］]*⫽/g, "").replace(/（[^）]*）/g, "").trim();
-}
-// 検索用に、旧形式・新形式のどちらからでも文字列を取り出す
-function getSearchText(value) {
-  if (value === null || value === undefined) return "";
-
-  // 文字列・数値など
-  if (typeof value !== "object") {
-    return String(value);
-  }
-
-  // 配列
-  if (Array.isArray(value)) {
-    return value
-      .map(v => getSearchText(v))
-      .filter(Boolean)
-      .join(" ");
-  }
-
-  // オブジェクト
-  const parts = [];
-
-  // meaning の本体
-  if (value.text != null) {
-    parts.push(getSearchText(value.text));
-  }
-
-  // 例文
-  if (value.examples != null) {
-    parts.push(getSearchText(value.examples));
-  }
-
-  // 注釈
-  if (value.note != null) {
-    parts.push(getSearchText(value.note));
-  }
-
-  // 例文オブジェクトの各フィールド
-  if (value.word != null) {
-    parts.push(getSearchText(value.word));
-  }
-
-  if (value.pron != null) {
-    parts.push(getSearchText(value.pron));
-  }
-
-  if (value.gloss != null) {
-    parts.push(getSearchText(value.gloss));
-  }
-
-  if (value.sentence != null) {
-    parts.push(getSearchText(value.sentence));
-  }
-
-  if (value.translation != null) {
-    parts.push(getSearchText(value.translation));
-  }
-
-  // 同義語
-  if (value.synonyms != null) {
-    const synonyms = Array.isArray(value.synonyms)
-      ? value.synonyms
-      : [value.synonyms];
-
-    parts.push(
-      synonyms.map(s => {
-        // IDなら辞書から単語を取得
-        const word = idToWord[String(s)];
-        return word || String(s);
-      }).join(" ")
-    );
-  }
-
-  return parts.filter(Boolean).join(" ");
 }
 
 // 語素/変成体の判定
@@ -264,30 +77,6 @@ function isMorphemeOrVariant(entry) {
   });
 }
 
-const seiiMap = {
-  h: "￣",
-  l: "＿",
-  d: "＼",
-  u: "／",
-  a: "‾\\",
-  v: "_/",
-  "?": "—+￣",
-};
-
-// 声位を変換する関数
-function renderSeii(seiiArray) {
-  if (!seiiArray || !Array.isArray(seiiArray)) return "";
-  return seiiArray
-    .map(group => {
-      const converted = group
-        .split("")
-        .map(char => seiiMap[char] || char)
-        .join("");
-      return `[${converted}]`;
-    })
-    .join(" ");
-}
-
 // 語源文中のIDを辞書リンクに変換
 function resolveEtymologyText(text) {
   if (!text) return "";
@@ -301,6 +90,7 @@ function resolveEtymologyText(text) {
     r: "../rdic/rdic.html",
     p: "../pdic/pdic.html"
   };
+
   const placeholders = [];
 
   // ① 他辞書を一旦退避
@@ -323,12 +113,7 @@ function resolveEtymologyText(text) {
       for (const [w, data] of Object.entries(extDict)) {
         if (String(data.id) === id) {
           word = w;
-          meaning = getFirstMeaning(data);
-          const safeSearch = document.getElementById("safeSearchToggle")?.checked;
-          if (safeSearch && data.safe === false) {
-            placeholders.push(`<span class="etymology-hidden"></span>`);
-            return placeholder;
-          }
+          meaning = removeAnnotations(data.meaning?.[0] ?? "");
           break;
         }
       }
@@ -337,13 +122,13 @@ function resolveEtymologyText(text) {
     const placeholder = `__LINK${placeholders.length}__`;
 
     placeholders.push(
-      `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}<sup>+</sup></a>`
+      `<a href="${page}?id=${id}" target="_blank" class="etymology-link">${word}</a><span class="link-meaning">（ ${meaning} ）</span>`
     );
 
     return placeholder;
   });
 
-  // ② ndic ID
+  // ② cdic ID
   text = text.replace(/\b(\d+)\b/g, (match, id) => {
 
     const word = idToWord[id];
@@ -352,23 +137,10 @@ function resolveEtymologyText(text) {
     const entry = dictionary[word];
     if (!entry) return word;
 
-    const safeSearch = document.getElementById("safeSearchToggle")?.checked;
-    if (safeSearch && entry.safe === false) {
-      return `<span class="etymology-hidden"></span>`;
-    }
+    let meaning = entry.meaning?.[0] ?? "";
+    meaning = removeAnnotations(meaning);
 
-    const meaning = getFirstMeaning(entry);
-
-    const part = Array.isArray(entry.part)
-      ? entry.parts[0]
-      : entry.parts ?? "";
-
-    const partClass = partsStyles[part] ?? "";
-
-    return `<a href="#"
-onclick="loadWord('${word}'); return false;"
-class="etymology-link">
-${word}</a>`;
+    return `<a href="#" onclick="loadWord('${word}'); return false;" class="etymology-link">${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
   });
 
   // ③ 他辞書リンクを戻す
@@ -379,26 +151,6 @@ ${word}</a>`;
   return text;
 }
 
-function createWordLink(word, entry) {
-  const meaning = getFirstMeaning(entry);
-
-  const part = Array.isArray(entry.part)
-    ? entry.parts[0]
-    : entry.parts ?? "";
-
-  const partClass = partsStyles[part] ?? "";
-
-  return `
-    <a href="#"
-       onclick="loadWord('${word}'); return false;"
-       class="etymology-link ${partClass}">
-       ${word}
-    </a>
-    <span class="meaning">
-      <span class="link-meaning">（ ${meaning} ）</span>
-    </span>
-  `;
-}
 
 // Markdown を HTML に変換して表示する関数
 function renderMarkdown(md) {
@@ -494,21 +246,14 @@ function syncUIWithURL() {
   const sidebar = document.querySelector('.sidebar');
   const detailsContainer = document.getElementById("details");
   const placeholder = document.getElementById("placeholder");
-  const safeSearch = document.getElementById("safeSearchToggle").checked;
 
   if (id) {
     const word = idToWord[id] || id;
 
     // 辞書が読み込まれている時だけ詳細を表示
     if (dictionary && dictionary[word]) {
-      const entry = dictionary[word];
-      if (safeSearch && entry && entry.safe === false) {
-        detailsContainer.innerHTML = `<p class="placeholder">この語はセーフサーチが有効なため表示できません。</p>`;
-        if (placeholder) placeholder.style.display = 'none';
-      } else {
-        showDetails(word);
-        if (placeholder) placeholder.style.display = 'none';
-      }
+      showDetails(word);
+      if (placeholder) placeholder.style.display = 'none';
     }
 
     // UI 切り替えは辞書の有無に関係なく必ず行う
@@ -579,22 +324,10 @@ Promise.all([
     data._normKey = normalizeForSearch(keyClean);
 
     // 意味を正規化
-    const meaningTexts = Array.isArray(data.meaning)
-      ? data.meaning.map(m => {
-        if (m && typeof m === "object") {
-          return m.text || "";
-        }
-        return String(m ?? "");
-      })
-      : data.meaning
-        ? [String(data.meaning)]
-        : [];
-
-    data._normMeaning = normalizeForSearch(
-      meaningTexts
-        .map(text => removeAnnotations(text))
-        .join(" ")
-    );
+    const meaningText = data.meaning
+      ? (Array.isArray(data.meaning) ? data.meaning.join(' ') : String(data.meaning))
+      : "";
+    data._normMeaning = normalizeForSearch(removeAnnotations(meaningText));
 
     // variants1 / variants2 を統合
     const variants = [];
@@ -605,39 +338,6 @@ Promise.all([
     // vulgarMeaning も検索対象にする
     const vul = data.vulgarMeaning ? (Array.isArray(data.vulgarMeaning) ? data.vulgarMeaning.join(' ') : String(data.vulgarMeaning)) : "";
     data._normVulgar = normalizeForSearch(removeAnnotations(vul));
-
-    // 縫言録も検索対象にする
-    let kanjiReadings = "";
-    if (data.kanji) {
-      const nui = Array.isArray(data.kanji.nui)
-        ? data.kanji.nui
-        : (data.kanji.nui ? [data.kanji.nui] : []);
-
-      const chel = Array.isArray(data.kanji.chel)
-        ? data.kanji.chel
-        : (data.kanji.chel ? [data.kanji.chel] : []);
-
-      kanjiReadings = [...nui, ...chel].join(" ");
-    }
-
-    // 正規表現を使わない安全な記号除去
-    const symbolsToRemove = [
-      "-", "‐", "‑", "–", "—", "―", "_",
-      "(", ")", "［", "］", "〈", "〉", "⫽", "⫽", "「", "」",
-      "[", "]", "{", "}", "<", ">"
-    ];
-
-    let cleanedKanjiReadings = kanjiReadings;
-    symbolsToRemove.forEach(sym => {
-      cleanedKanjiReadings = cleanedKanjiReadings.split(sym).join(" ");
-    });
-
-    cleanedKanjiReadings = cleanedKanjiReadings.replace(/\s+/g, " ").trim();
-
-    // 正規化して保存
-    data._normKanjiReadings = normalizeForSearch(cleanedKanjiReadings);
-
-
     try {
       // 活用形を生成するよ
       const inflRaw = (typeof generateInflections === "function") ? generateInflections(word) || [] : [];
@@ -677,6 +377,17 @@ Promise.all([
     return null;
   }
   const initial = getWordFromParam();
+
+  // URLで指定した単語を表示するよ！
+  if (initial) {
+    showDetails(initial);
+    placeholder.style.display = 'none';
+    wordList.innerHTML = '';
+    pageInfoSpan.textContent = '';
+    prevPageBtn.disabled = true;
+    nextPageBtn.disabled = true;
+
+  }
   syncUIWithURL();
 }).catch(error => console.error("JSON読み込みエラー:", error));
 
@@ -693,7 +404,6 @@ document.getElementById("safeSearchToggle").addEventListener("change", () => {
   // 検索結果なら再検索
   performSearch();
 });
-
 // DOM要素を取得するよ
 const searchBox = document.getElementById("searchBox");
 const searchModeSelect = document.getElementById("searchMode");
@@ -729,401 +439,6 @@ function extractEtymologyIDs(data) {
   return ids;
 }
 
-function renderMeaningBlock(meanings) {
-  if (!Array.isArray(meanings) || meanings.length === 0) {
-    return "";
-  }
-  console.log("【意味データ】", meanings);
-
-  const circles = [
-    "①", "②", "③", "④", "⑤",
-    "⑥", "⑦", "⑧", "⑨", "⑩",
-    "⑪", "⑫", "⑬", "⑭", "⑮",
-    "⑯", "⑰", "⑱", "⑲", "⑳"
-  ];
-
-  return `
-    <section class="meaning-section">
-
-      ${meanings.map((meaning, index) => {
-
-    const text =
-      typeof meaning === "object"
-        ? meaning.text ?? ""
-        : String(meaning);
-
-    const pos =
-      typeof meaning === "object"
-        ? meaning.pos ?? ""
-        : "";
-
-    const examples =
-      typeof meaning === "object"
-        ? meaning.examples ?? []
-        : [];
-
-    const synonyms =
-      typeof meaning === "object"
-        ? meaning.synonyms ?? []
-        : [];
-
-    const number =
-      circles[index] ?? `(${index + 1})`;
-
-    return `
-          <article class="meaning-entry">
-
-            <div class="meaning-title">
-  <span class="meaning-number">${number}</span>
-  <span class="meaning-pos">${pos}</span>
-</div>
-
-
-            <div class="meaning-text">
-  ${renderMeaningText(text)}
-</div>
-
-            ${renderMeaningExamples(examples)}
-
-            ${renderMeaningSynonyms(synonyms)}
-
-          </article>
-        `;
-
-  }).join("")}
-
-    </section>
-  `;
-}
-
-function renderMeaningText(text) {
-  if (text === null || text === undefined) {
-    return "";
-  }
-
-  let html = String(text);
-
-  // HTMLとして解釈されないように最低限エスケープ
-  html = html
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-
-      // 〔 ... 〕
-  html = html.replace(
-    /〔([^\[\]]+)〕/g,
-    '<span class="meaning-bracket square">〔$1〕</span>'
-  );
-
-  // [ ... ]
-  html = html.replace(
-    /\[([^\[\]]+)\]/g,
-    '<span class="meaning-bracket square">[$1]</span>'
-  );
-
-  // 【 ... 】
-  html = html.replace(
-    /【([^【】]+)】/g,
-    '<span class="meaning-bracket corner">【$1】</span>'
-  );
-
-  // （ ... ）
-  html = html.replace(
-    /（([^（）]+)）/g,
-    '<span class="meaning-bracket round">（$1）</span>'
-  );
-
-  // ｟ ... ｠
-  html = html.replace(
-    /｟([^（）]+)｠/g,
-    '<span class="meaning-bracket round">｟$1｠</span>'
-  );
-
-  // 〈 ... 〉
-  html = html.replace(
-    /〈([^（）]+)〉/g,
-    '<span class="meaning-bracket tri">〈$1〉</span>'
-  );
-
-  // 《 ... 》
-  html = html.replace(
-    /《([^（）]+)》/g,
-    '<span class="meaning-bracket dtri">《$1》</span>'
-  );
-
-  // （...）ではなく通常の ( ... ) も対象にする
-  html = html.replace(
-    /\(([^()]+)\)/g,
-    '<span class="meaning-bracket round">($1)</span>'
-  );
-
-  return html;
-}
-
-function renderMeaningForms(forms) {
-  if (!forms || typeof forms !== "object") {
-    return "";
-  }
-
-  const groups = {};
-
-  for (const [index, char] of Object.entries(forms)) {
-    if (!groups[char]) {
-      groups[char] = [];
-    }
-
-    groups[char].push(index);
-  }
-
-  return Object.entries(groups)
-    .map(([char, indexes]) => {
-      const numbers = indexes
-        .map(index => {
-          const n = Number(index);
-
-          if (n >= 1 && n <= 20) {
-            const circles = [
-              "①", "②", "③", "④", "⑤",
-              "⑥", "⑦", "⑧", "⑨", "⑩",
-              "⑪", "⑫", "⑬", "⑭", "⑮",
-              "⑯", "⑰", "⑱", "⑲", "⑳"
-            ];
-
-            return circles[n - 1];
-          }
-
-          return `(${index})`;
-        })
-        .join("");
-
-      return `<span class="form-group">
-        <span class="form-numbers">${numbers}</span>
-        <span class="form-char">${char}</span>
-      </span>`;
-    })
-    .join("");
-}
-
-
-function renderMeaningExamples(examples) {
-  if (!Array.isArray(examples) || examples.length === 0) {
-    return "";
-  }
-
-  return `
-    <div class="meaning-examples">
-
-      ${examples.map(example => {
-
-    if (!example) return "";
-
-    // 単語例
-    if (example.word) {
-      const word = String(example.word);
-
-      let link = word;
-
-      if (
-        example.id != null &&
-        idToWord[String(example.id)] &&
-        dictionary[idToWord[String(example.id)]]
-      ) {
-        const targetWord = idToWord[String(example.id)];
-        link = createWordLink(
-          targetWord,
-          dictionary[targetWord]
-        );
-      } else if (dictionary[word]) {
-        link = createWordLink(
-          word,
-          dictionary[word]
-        );
-      }
-
-      return `
-            <div class="meaning-example">
-
-              <div class="example-head">
-                <span class="example-arrow">▸</span>
-                <span class="example-word">${link}</span>
-
-                ${example.pron
-          ? `<span class="example-pron">
-                        ${example.pron}
-                       </span>`
-          : ""
-        }
-              </div>
-
-              ${example.gloss
-          ? `<div class="example-gloss">
-                      「 ${example.gloss} 」
-                     </div>`
-          : ""
-        }
-
-            </div>
-          `;
-    }
-
-    // 文章例
-    if (example.sentence) {
-      return `
-            <div class="meaning-example sentence-example">
-
-              <div class="example-head">
-                <span class="example-arrow">▸</span>
-                <span>${example.sentence}</span>
-              </div>
-
-              ${example.translation
-          ? `<div class="example-gloss">
-                      「 ${example.translation}」
-                     </div>`
-          : ""
-        }
-            </div>
-          `;
-    }
-    return "";
-  }).join("")}
-    </div>
-  `;
-}
-
-function renderMeaningSynonyms(synonyms) {
-  if (!Array.isArray(synonyms) || synonyms.length === 0) {
-    return "";
-  }
-
-  const links = synonyms.map(value => {
-
-    // ID
-    if (
-      typeof value === "number" ||
-      /^\d+$/.test(String(value))
-    ) {
-      const id = String(value);
-      const word = idToWord[id];
-
-      if (word && dictionary[word]) {
-        return createWordLink(
-          word,
-          dictionary[word]
-        );
-      }
-
-      return String(value);
-    }
-
-    // 単語
-    if (
-      typeof value === "string" &&
-      dictionary[value]
-    ) {
-      return createWordLink(
-        value,
-        dictionary[value]
-      );
-    }
-
-    return String(value);
-
-  }).join("、");
-
-  return `
-    <div class="meaning-synonyms">
-      <span class="synonym-label">同義語</span>
-      ${links}
-    </div>
-  `;
-}
-
-function renderEtymologyBlock(etymology) {
-  if (!etymology) return "";
-
-  let html = `
-    <section class="etymology-section">
-      <h3 class="section-title">語源</h3>
-  `;
-
-  if (etymology.intro) {
-
-    const intro = Array.isArray(etymology.intro)
-      ? etymology.intro
-      : [etymology.intro];
-
-    html += `
-      <div class="etymology-intro">
-        ${intro.map(text => `
-          <div>${processH5Links(
-      resolveEtymologyText(String(text))
-    )}</div>
-        `).join("")}
-      </div>
-    `;
-  }
-
-  if (
-    Array.isArray(etymology.changes) &&
-    etymology.changes.length
-  ) {
-
-    html += `
-      <div class="etymology-changes">
-
-        ${etymology.changes.map((change, index) => {
-
-      const form = resolveEtymologyText(
-        String(change.form ?? "")
-      );
-
-      const notes = change.note
-        ? (
-          Array.isArray(change.note)
-            ? change.note
-            : [change.note]
-        )
-          .map(note =>
-            processH5Links(
-              resolveEtymologyText(String(note))
-            )
-          )
-          .join(" ")
-        : "";
-
-      return `
-            <div class="etymology-change">
-
-              <div class="etymology-stage">
-                ${change.stage ?? ""}
-              </div>
-
-              <div class="etymology-form">
-                ${form}
-
-                ${notes
-          ? `<span class="etymology-note">
-                        ${notes}
-                       </span>`
-          : ""
-        }
-              </div>
-
-            </div>
-          `;
-
-    }).join("")}
-
-      </div>
-    `;
-  }
-
-  html += `</section>`;
-
-  return html;
-}
-
 function extractEtymologyIDs(entry) {
   const ids = [];
   if (!entry.etymology || !entry.etymology.intro) return ids;
@@ -1137,241 +452,21 @@ function extractEtymologyIDs(entry) {
   return ids;
 }
 
-function renderNotes(data) {
-  if (!data) return "";
-
-  const htmlParts = [];
-
-  // =========================
-  // note1 = 一般言語学
-  // =========================
-  if (data.note1) {
-    const items = normalizeNote(data.note1);
-
-    const list = items
-      .map(item =>
-        `<li class="noteList">${processNoteText(item)}</li>`
-      )
-      .join("");
-
-    if (list) {
-      htmlParts.push(`
-        <table class="detailTable">
-          <tbody>
-            <tr>
-              <th id="stripeth">一般言語学</th>
-              <td colspan="3">
-                <ul>${list}</ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      `);
-    }
-  }
-
-  // =========================
-  // note2 = 縫語解説
-  // =========================
-  if (data.note2) {
-
-    const title = data.note2.title
-      ? normalizeNote(data.note2.title)
-      : [];
-
-    const txt = data.note2.txt
-      ? normalizeNote(data.note2.txt)
-      : [];
-
-    const img = data.note2.img
-      ? normalizeNote(data.note2.img)
-      : [];
-
-    const titleHTML = title
-      .map(t => `<div class="note2-title">${processNoteText(t)}</div>`)
-      .join("");
-
-    const txtHTML = txt
-      .map(t => `<li class="noteList">${processNoteText(t)}</li>`)
-      .join("");
-
-    const imgHTML = img.join("");
-
-    if (titleHTML || txtHTML || imgHTML) {
-      htmlParts.push(`
-        <table class="detailTable">
-          <tbody>
-            <tr>
-              <th id="stripeth">智語解説</th>
-              <td colspan="3">
-                ${titleHTML}
-                ${txtHTML ? `<ul>${txtHTML}</ul>` : ""}
-                ${imgHTML}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      `);
-    }
-  }
-
-  // =========================
-  // note3 = 備考
-  // =========================
-  if (data.note3) {
-    const items = normalizeNote(data.note3);
-
-    const list = items
-      .map(item =>
-        `<li class="noteList">${processNoteText(item)}</li>`
-      )
-      .join("");
-
-    if (list) {
-      htmlParts.push(`
-        <table class="detailTable">
-          <tbody>
-            <tr>
-              <th id="stripeth">備考</th>
-              <td colspan="3">
-                <ul>${list}</ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      `);
-    }
-  }
-
-  // =========================
-  // alert = 注意事項
-  // =========================
-  if (data.alert) {
-
-    const a1 = data.alert.a1
-      ? normalizeNote(data.alert.a1)
-      : [];
-
-    const a2 = data.alert.a2
-      ? normalizeNote(data.alert.a2)
-      : [];
-
-    const a1HTML = a1
-      .map(item =>
-        `<li class="alertList">${processNoteText(item)}</li>`
-      )
-      .join("");
-
-    const a2HTML = a2
-      .map(item =>
-        `<li class="alertList">${processNoteText(item)}</li>`
-      )
-      .join("");
-
-  }
-  return htmlParts.join("");
-}
-
-function renderAlert(alertObj) {
-  if (!alertObj) return "";
-
-  const a1 = alertObj.a1 ? normalizeNote(alertObj.a1) : [];
-  const a2 = alertObj.a2 ? normalizeNote(alertObj.a2) : [];
-
-  const a1HTML = a1.map(t => `<div class="alert-line" style="color:#ff5555;">${t}</div>`).join("");
-
-  const a2HTML = a2.map(raw => {
-    const id = String(raw).replace(/[^\d]/g, "");
-    if (id && idToWord[id]) {
-      const word = idToWord[id];
-      const entry = dictionary[word];
-      return `<span class="marker">${createWordLink(word, entry)}</span>`;
-    }
-    return raw;
-  }).join("<br>");
-
-  return `
-    <table class="detailTable">
-      <tbody>
-        <tr>
-          <th id="stripeth">⚠ 注意</th>
-          <td colspan="3">
-            ${a1HTML}
-            ${a2HTML}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  `;
-}
-
-function normalizeNote(val) {
-  if (!val) return [];
-
-  if (Array.isArray(val)) {
-    return val;
-  }
-
-  if (typeof val === "object") {
-    if (Array.isArray(val.txt)) {
-      return val.txt;
-    }
-
-    return Object.values(val).flat();
-  }
-
-  return String(val)
-    .split(",")
-    .map(s => s.trim())
-    .filter(Boolean);
-}
-
-function processNoteText(text) {
-  let resolved = resolveEtymologyText(String(text ?? ""));
-
-  resolved = resolved.replace(
-    /<h5>(.*?)<\/h5>/g,
-    (match, innerText) => {
-
-      const key = innerText
-        .replace(/^⇒\s*/, "")
-        .trim();
-
-      const linkWord = linkMapping[key] || key;
-
-      return `
-        <h5>
-          <a href="#"
-             onclick="loadWord('${linkWord}'); return false;">
-            ${innerText.trim()}
-          </a>
-        </h5>
-      `;
-    }
-  );
-
-  return resolved;
-}
-
 // 意味を1つ取得する関数
 function getFirstMeaning(entry) {
-  if (!entry || !entry.meaning) return "";
+  if (!entry.meaning) return "";
 
-  const first = Array.isArray(entry.meaning)
+  // 配列なら最初の要素
+  let m = Array.isArray(entry.meaning)
     ? entry.meaning[0]
     : entry.meaning;
 
-  // 新形式:
-  if (first && typeof first === "object") {
-    return removeAnnotations(first.text || "")
-      .split(",")[0]
-      .trim();
-  }
+  // 注釈削除
+  m = removeAnnotations(m);
 
-  // 旧形式
-  return removeAnnotations(String(first))
-    .split(",")[0]
-    .trim();
+  // カンマ区切りなら最初だけ
+  return m.split(",")[0].trim();
+
 }
 
 // 語リスト表示生成
@@ -1380,7 +475,7 @@ function buildWordList(list) {
     const meaning = getFirstMeaning(entry);
     return `<a href="#" onclick="loadWord('${word}'); return false;">
               ${word}
-            </a><span class="meaning"><span class="link-meaning">（ ${meaning} ）</span></span>`;
+            </a>（${meaning}）`;
   }).join(", ");
 }
 
@@ -1402,8 +497,6 @@ function getCognates(data) {
   const sourceIDs = extractEtymologyIDs(data);
 
   return Object.entries(dictionary).filter(([word, entry]) => {
-    // * から始まるものは除外する
-    if (word.startsWith("*")) return false;
 
     // 1. 自分自身は除外
     if (entry.id === data.id) return false;
@@ -1441,13 +534,8 @@ function getCognates(data) {
 function getSimilarWords(data) {
   // 1. 自分のタグを配列に標準化。かつ「ー」や空文字を除外
   const normalize = (t) => {
-    if (!t) return [];
-
-    // 配列化
-    const arr = Array.isArray(t) ? t : [t];
-
-    // 無効タグ除外
-    return arr.filter(v => v && v !== "ー" && v !== "-");
+    if (!t || t === "ー", "-") return [];
+    return Array.isArray(t) ? t.filter(v => v !== "ー") : [t];
   };
 
   const myTags = normalize(data.tag);
@@ -1465,313 +553,512 @@ function getSimilarWords(data) {
     // 相手が有効なタグを持っていないなら除外
     if (entryTags.length === 0) return false;
 
-    // * から始まるものは除外する
-    if (word.startsWith("*")) return false;
-
     // 3. 共通するタグが1つでもあるか判定
     return myTags.some(tag => entryTags.includes(tag));
-
   });
 }
 
 // 単語の詳細表示についてだよ！
 function showDetails(word) {
   const data = getEntry(word);
-
   if (!data) {
     alert("単語「" + word + "」の詳細が見つかりません。");
     return;
   }
 
-  const safeSearch =
-    document.getElementById("safeSearchToggle")?.checked;
+  // セーフサーチON/OFFの状態を取得
+  const safeSearch = document.getElementById("safeSearchToggle").checked;
+  let meaningsHTML = "";
+  const MAX_VISIBLE = 10;
 
-  if (safeSearch && data.safe === false) {
-    document.getElementById("details").innerHTML =
-      `<p class="placeholder">
-        この語はセーフサーチが有効なため表示できません。
-      </p>`;
-    return;
-  }
+  if (data.meaning) {
+    // 配列ならそのまま、文字列ならカンマ分割
+    const meanings = Array.isArray(data.meaning)
+      ? data.meaning
+      : data.meaning.split(",").map(s => s.trim());
+    // liタグで意味リストを生成
+    meaningsHTML = meanings.map((m, i) => {
+      const extraClass = i >= MAX_VISIBLE ? " extraMeaning" : "";
+      return `<li class="detailList${extraClass}">${m}</li>`;
+    }).join("");
 
-  const headerClass =
-    partsStyles[data.parts] || "default";
+    // 件数が多いときだけボタン追加
+    if (meanings.length > MAX_VISIBLE) {
+      const hiddenCount = meanings.length - MAX_VISIBLE;
 
-  /*
-   * ─────────────────────
-   * ヘッダー
-   * ─────────────────────
-   */
-
-  const pronunciation =
-    Array.isArray(data.pronunciation)
-      ? data.pronunciation
-      : data.pronunciation
-        ? [data.pronunciation]
-        : [];
-
-  const pronHTML = pronunciation
-    .map(p => `<span>${p}</span>`)
-    .join(" ");
-
-  let html = `
-    <div class="ndic-entry">
-      <header class="entry-header">
-        <div class="entry-title">
-          <span class="entry-word">
-            ${word}
-          </span>
-          ${pronHTML
-      ? `<span class="entry-pronunciation">
-                  ${pronHTML}
-                 </span>`
-      : ""
-    }
-        </div>
-
-        <div class="entry-meta">
-          ${data.tag
-      ? `<span>
-                  <b>タグ</b>:
-                  <span class="meta">
-                  ${Array.isArray(data.tag)
-        ? data.tag.join("、")
-        : data.tag
-      }
-                  </span>
-                 </span>`
-      : ""
-    }
-          
-          ${data.seii
-      ? `<span>
-                  <b>声位</b>:
-                  <span class="meta">
-                  ${renderSeii(data.seii)}
-                  </span>
-                 </span>`
-      : ""
-    }
-
-          ${data.vari
-      ? `<span>
-                  <b>異体字</b>: <span class="meta">${data.vari}</span>
-                 </span>`
-      : ""
-    }
-
-    ${data.forms
-    ? `<span>
-          <b>表記</b>:
-          <span class="meta meaning-forms">
-            ${renderMeaningForms(data.forms)}
-          </span>
-       </span>`
-    : ""
-}
-        </div>
-      </header>
-
-      ${renderMeaningBlock(data.meaning)}
-      ${renderEtymologyBlock(data.etymology)}
-      ${renderNotes(data)}
-      ${renderAlert(data.alert)}
-  `;
-
-  /*
-   * ─────────────────────
-   * 全体例文
-   * ─────────────────────
-   */
-
-  if (
-    Array.isArray(data.examples) &&
-    data.examples.length
-  ) {
-    html += `
-      <section class="extra-section">
-        <h3 class="section-title">例文</h3>
-
-        <div class="extra-content">
-          ${data.examples.join("<br>")}
-        </div>
-      </section>
+      meaningsHTML += `
+      <li class="detailList toggleWrapper">
+        <a href="#" class="toggleMeaning"
+           onclick="toggleMeaning(this); return false;">
+           もっと見る（+${hiddenCount}）
+        </a>
+      </li>
     `;
+    }
   }
 
-  /*
-   * ─────────────────────
-   * 類義語
-   * ─────────────────────
-   */
+  // vulgarMeaning が存在し、セーフサーチがOFFの場合
+  if (data.vulgarMeaning && !safeSearch) {
+    let vulgarListHTML = "";
+    if (Array.isArray(data.vulgarMeaning)) {
+      vulgarListHTML = data.vulgarMeaning.map(item => `<li class="detailList">${item}</li>`).join("");
+    } else {
+      vulgarListHTML = `<li class="detailList">${data.vulgarMeaning}</li>`;
+    }
 
-  if (
-    Array.isArray(data.variants1) &&
-    data.variants1.length
-  ) {
+    // 「俗語意味を表示」トグルUIを追加
+    meaningsHTML += `
+    <li class="detailList">
+      <a href="#" class="toggleVulgar" onclick="toggleVulgarMeaning(this); return false;">俗的な意味を表示</a>
+      <ul class="vulgarList" style="display: none;">
+        ${vulgarListHTML}
+      </ul>
+    </li>
+  `;
+  }
 
-    const links = data.variants1
-      .map(id => {
+  let leftRows = []; // 左側テーブル行
+  let bottomRows = []; // 下部テーブル行
 
-        const w = idToWord[String(id)];
+  // 品詞
+  leftRows.push(`<tr><th>属性</th><td>${data.parts || ""}</td></tr>`);
 
-        if (!w || !dictionary[w]) {
-          return "";
+  // タグ
+  leftRows.push(`<tr><th>タグ</th><td class="t-td">${data.tag ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag) : ""}</td></tr>`);
+
+  // 発音
+  leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
+
+  // 語彙素形がある場合
+  if (data.lexemic) {
+    leftRows.push(`<tr><th>語彙素形</th><td class="maincolor">${data.lexemic}</td></tr>`);
+  }
+
+  // 接辞形
+  let fixHTML = "";
+  if (data.fix) {
+    // 配列 or カンマ区切りを処理
+    const fix = Array.isArray(data.fix)
+      ? data.fix
+      : data.fix.split(",").map(s => s.trim());
+    // liリスト化
+    fixHTML = fix.map(f => `<li class="fixList">${f}</li>`).join("");
+  }
+  // 接辞形がある場合テーブル追加
+  if (fixHTML) {
+    leftRows.push(`
+        <tr>
+        <th>接辞形</th>
+        <td class="maincolor">
+        <ul>${fixHTML}</ul>
+      </td>
+    </tr>
+  `);
+  }
+
+  // 異形
+  if (data.vari) {
+    leftRows.push(`<tr><th>異形</th><td class="variList">${data.vari}</td></tr>`);
+  }
+
+  // 屈折型
+  if (data.type) {
+    leftRows.push(`<tr><th>屈折型</th><td>${data.type || ""}</td></tr>`);;
+  }
+
+  // 語義説明
+  if (data.explanation) {
+    leftRows.push(`<tr><th>語義</th><td>${data.explanation || ""}</td></tr>`);;
+  }
+
+  // 意味列の rowspan の計算
+  const rowspanCount = leftRows.length;
+  // 最初の行に意味列を追加
+  leftRows[0] = leftRows[0].replace(
+    `<tr><th>属性</th><td>${data.parts || ""}</td>`,
+    `<tr><th>属性</th><td>${data.parts || ""}</td><th rowspan="${rowspanCount}">意味</th><td rowspan="${rowspanCount}"><ul>${meaningsHTML}</ul></td>`
+  );
+
+  // URLを自動リンク化する関数
+  function processH5Links(text) {
+    if (Array.isArray(text)) {
+      text = text.join(' ');
+    }
+    return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1">$1</a>');
+  }
+
+  // 語源表示処理
+  if (data.etymology) {
+    let introHTML = "";
+    // 語源説明
+    if (data.etymology.intro) {
+      if (Array.isArray(data.etymology.intro)) {
+        // リスト形式
+        introHTML = `<ul class="e-list">` +
+          data.etymology.intro.map(item => `<li>${processH5Links(item)}</li>`).join('') +
+          `</ul>`;
+      } else {
+        // 単文の場合
+        introHTML = `<p class="etymology-intro">${processH5Links(data.etymology.intro)}</p>`;
+      }
+    }
+
+    // 音変化表
+    let changesTable = "";
+    if (data.etymology.changes && data.etymology.changes.length > 0) {
+      changesTable = `<table class="inner-table"><tbody>`;
+      changesTable += data.etymology.changes.map(change => {
+        const note = change.note ? " " + processH5Links(change.note) : "";
+        return `<tr><td>${processH5Links(change.form)}<span>${note}</span></td></tr>`;
+      }).join("");
+      changesTable += `</tbody></table>`;
+    }
+
+    // HTML内の余計な改行や<p>を除去する関数
+    const safeInline = s => String(s || '').trim().replace(/\s*\n+\s*/g, ' ').replace(/<\/?p[^>]*>/g, '');
+
+    // 語源表示の最終構築
+    if (data.etymology && (data.etymology.intro || (data.etymology.changes && data.etymology.changes.length > 0))) {
+      let introHTML = "";
+      // intro がある場合
+      if (data.etymology.intro) {
+        // 配列ならリストとして表示
+        if (Array.isArray(data.etymology.intro)) {
+          introHTML = '<ul class="e-list">' +
+            data.etymology.intro.map(item => {
+              const resolved = resolveEtymologyText(item);
+              const processed = processH5Links ? processH5Links(resolved) : resolved;
+              return `<li>${safeInline(processed)}</li>`;
+            }).join('') +
+            '</ul>';
+        } else {
+          // 文字列なら段落として表示
+          introHTML = `<p class="etymology-intro">${safeInline(processH5Links ? processH5Links(data.etymology.intro) : data.etymology.intro)}</p>`;
         }
+      }
 
-        return createWordLink(
-          w,
-          dictionary[w]
-        );
-      })
-      .filter(Boolean)
-      .join("、");
+      let changesTable = "";
+      // 語形変化の履歴がある場合
+      if (data.etymology.changes && data.etymology.changes.length > 0) {
+        changesTable = '<table class="inner-table"><tbody>' +
+          // 各変化を1行ずつ作成
+          data.etymology.changes.map(change => {
+            // 語形
+            const formHtml = `<span class="change-form">${safeInline(renderMarkdown ? renderMarkdown(change.form) : (processH5Links ? processH5Links(change.form) : change.form))}</span>`;
+            // 注釈
+            const noteRaw = change.note ? (renderMarkdown ? renderMarkdown(change.note) : (processH5Links ? processH5Links(change.note) : change.note)) : '';
+            const noteHtml = noteRaw ? `<span class="change-note">${safeInline(noteRaw)}</span>` : '';
+            return `<tr class="change-row"><td>${formHtml}${noteHtml}</td></tr>`;
+          }).join('') +
+          '</tbody></table>';
+      }
 
-    if (links) {
-      html += `
-        <section class="extra-section">
-          <h3 class="section-title">類義語</h3>
-          <div class="extra-content">
-            ${links}
-          </div>
-        </section>
+      // 語源を下部テーブルに追加
+      bottomRows.push(`<tr><th>語源</th><td colspan="3">${introHTML}${changesTable}</td></tr>`);
+    }
+  }
+
+  // 見出しクラス決定（品詞による色分け）
+  let headerClass = partsStyles[data.parts] || "default";
+
+  // 単語詳細テーブルの本体生成
+  let detailsHTML = `
+  <table>
+    <thead>
+      <tr>
+        <th class="heading-cell ${headerClass}" colspan="4">${word}</th>
+      </tr>
+    </thead>
+    <tbody class="detailTable">
+      ${leftRows.join("\n")}
+      ${bottomRows.join("\n")}
+    </tbody>
+  </table>
+`;
+
+  // 漢字辞典セクションの表示処理
+  let kanjiHTML = "";
+  if (data.kanji && data.kanji.title) {
+    let nuiList = "";
+
+    // 縫読のリスト化
+    if (data.kanji.nui) {
+      const nuiArr = Array.isArray(data.kanji.nui) ? data.kanji.nui : [data.kanji.nui];
+      nuiList = nuiArr.map(item => `<li>${item}</li>`).join("");
+    }
+
+    kanjiHTML = `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th id="stripeth" rowspan="3">漢縫辞書</th>
+          <th>対応漢字</th>
+          <td colspan="2">
+            <span class="kanji-main">【 ${data.kanji.title} 】</span>
+          </td>
+        </tr>
+        <tr>
+          <th>読み</th>
+          <td colspan="2">
+            <ul class="kanji-list">${nuiList || "<li>ー</li>"}</ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
+
+  // 構築したHTMLをdetailsHTMLに連結
+  if (kanjiHTML) {
+    detailsHTML += kanjiHTML;
+  }
+
+  // 一般言語学メモ（note1）
+  let note1HTML = "";
+  if (data.note1) {
+    const notes = Array.isArray(data.note1)
+      ? data.note1
+      : data.note1.split(",").map(s => s.trim());
+    note1HTML = notes.map(note => {
+      const resolved = resolveEtymologyText(note);
+      const processed = processH5Links(resolved);
+      return `<li class="noteList">${processed}</li>`;
+    }).join("");
+  }
+  if (note1HTML) {
+    detailsHTML += `<table class="detailTable">
+          <tbody>
+          <tr>
+            <th id="stripeth">一般言語学</th>
+            <td colspan="3">
+          <ul>
+            ${note1HTML}
+          </ul> 
+          </td>
+          </tr>
+          </tbody>
+          </table>`;
+  }
+
+
+  // 智語解説タイトル
+  let note2TitleHTML = "";
+  if (data.note2 && data.note2.title) {
+    const titles = Array.isArray(data.note2.title)
+      ? data.note2.title
+      : data.note2.title.split(",").map(s => s.trim());
+    note2TitleHTML = titles.map(title => {
+      return `<div class="note2-title">${title}</div>`;
+    }).join("");
+  }
+
+  // 智語解説本文
+  let note2HTML = "";
+  if (data.note2) {
+    let note2TextHTML = "";
+    if (data.note2.txt) {
+
+      const notes = Array.isArray(data.note2.txt)
+        ? data.note2.txt
+        : data.note2.txt.split(",").map(s => s.trim());
+      note2TextHTML = notes.map(note => {
+        note = resolveEtymologyText(note);
+        const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
+          const key = innerText.replace(/^⇒\s*/, '').trim();
+          const linkWord = linkMapping[key] || key;
+          return `<h5><a href="#" onclick="loadWord('${linkWord}'); return false;">${innerText.trim()}</a></h5>`;
+        });
+        return `<li class="noteList">${processedNote}</li>`;
+      }).join("");
+    }
+
+    // note2 の画像
+    let note2ImgHTML = "";
+    if (data.note2.img) {
+      const images = Array.isArray(data.note2.img)
+        ? data.note2.img
+        : [data.note2.img];
+      note2ImgHTML = images.map(imgTag => imgTag).join("");
+    }
+    // note2 を表示
+    if (note2TitleHTML || note2TextHTML || note2ImgHTML) {
+      detailsHTML += `<table class="detailTable">
+    <tbody>
+      <tr>
+        <th id="stripeth">智語解説</th>
+        <td colspan="3">
+          ${note2TitleHTML ? note2TitleHTML : ""}
+          ${note2TextHTML ? `<ul>${note2TextHTML}</ul>` : ""}
+          ${note2ImgHTML ? note2ImgHTML : ""}
+        </td>
+      </tr>
+    </tbody>
+  </table>`;
+    }
+  }
+
+  // 備考（note3）
+  let note3HTML = "";
+  if (data.note3) {
+    const notes = Array.isArray(data.note3)
+      ? data.note3
+      : data.note3.split(",").map(s => s.trim());
+    note3HTML = notes.map(note => {
+      // <h5>タグ内の単語を辞書リンク化
+      note = resolveEtymologyText(note);
+      const processedNote = note.replace(/<h5>(.*?)<\/h5>/g, (match, innerText) => {
+        const key = innerText.replace(/^⇒\s*/, '').trim();
+        const linkWord = linkMapping[key] || key;
+        return `<h5><a href="#" onclick="loadWord('${linkWord}'); return false;">${innerText.trim()}</a></h5>`;
+      });
+      return `<li class="noteList">${processedNote}</li>`;
+    }).join("");
+  }
+
+  // テーブル生成
+  if (note3HTML) {
+    detailsHTML += `<table class="detailTable">
+        <tbody>
+          <tr>
+            <th id="stripeth">備考</th>
+            <td colspan="3">
+          <ul>
+            ${note3HTML}
+          </ul> 
+          </td>
+          </tr>
+          </tbody>
+          </table>`;
+  }
+
+  // 注意点の表示
+  if (data.alert) {
+    const alertData = data.alert;
+    const hasA1 = !!alertData.a1; // a1: 赤字の警告文
+    const hasA2 = Array.isArray(alertData.a2) && alertData.a2.length > 0; // a2: 関連語リンク配列
+
+    if (hasA1 || hasA2) {
+      const a1Text = hasA1 // 赤字警告文
+        ? `<span style="color: red;">${alertData.a1}</span>`
+        : "";
+
+      let a2Links = ""; // 関連語リンク生成
+      if (hasA2) {
+        a2Links = alertData.a2.map(obj => {
+          const w = obj.word || "";
+          return `<a href="#" onclick="loadWord('${w}'); return false;">${w}</a>`;
+        }).join(" ");
+      }
+
+      // テーブル追加
+      detailsHTML += `
+        <table class="detailTable">
+          <tbody>
+            <tr>
+              <th id="stripeth">注意</th>
+              <td colspan="3">
+                ${a1Text} <br><br>
+                ${a2Links ? " " + a2Links : ""}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       `;
     }
   }
 
-  /*
-   * ─────────────────────
-   * 関連語
-   * ─────────────────────
-   */
+  // 例文表示    
+  if (data.examples && data.examples.length) {
+    detailsHTML += `<table class="detailTable">
+          <tbody>
+            <tr>
+              <th>例文</th>
+              <td colspan="3">${data.examples.join("<br>")}</td>
+            </tr>
+          </tbody>
+        </table>`;
+  }
 
-  const cognates =
-    getCognates(data)
-      .filter(([w, e]) =>
-        !safeSearch || e.safe !== false
+  // 類義語の生成
+  if (data.variants1 && data.variants1.length) {
+    const links = data.variants1.map(id => {
+      const word = idToWord[String(id)];
+      if (!word || !dictionary[word]) return "";
+      const entry = dictionary[word];
+      const meaning = removeAnnotations(
+        Array.isArray(entry.meaning)
+          ? entry.meaning[0]
+          : entry.meaning || ""
       );
 
+      return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a>（${meaning}）`;
+
+    }).filter(Boolean).join(", ");
+
+    // テーブル追加
+    detailsHTML += `
+    <table class="detailTable">
+      <tbody>
+        <tr>
+          <th>類義語</th>
+          <td class="linktext" colspan="3">${links}</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
+
+
+  // 関連語の生成
+  const cognates = getCognates(data);
   if (cognates.length) {
+    const links = cognates
+      // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
+      .filter(([word, entry]) => !safeSearch || entry.safe !== false)
+      .map(([word, entry]) => {
+        const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
+      })
+      .join(", ");
 
-    window._cognatesAll = cognates;
-    window._cognatesIndex =
-      Math.min(itemsCognates, cognates.length);
-    window._cognatesStep = itemsCognates;
-
-    const initial =
-      cognates.slice(0, itemsCognates);
-
-    const links =
-      initial
-        .map(([w, e]) =>
-          createWordLink(w, e)
-        )
-        .join("、");
-
-    html += `
-      <section class="extra-section">
-
-        <h3 class="section-title">
-          関連語かも
-        </h3>
-
-        <div
-          id="cognatesList"
-          class="extra-content"
-        >
-          ${links}
-        </div>
-
-        ${cognates.length > itemsCognates
-        ? `<div
-                 id="cognatesMore"
-                 class="morelink"
-                 onclick="showMoreCognates()"
-               >もっと見る</div>`
-        : ""
-      }
-
-        <div
-          id="cognatesClose"
-          class="morelink"
-          style="display:none"
-          onclick="closeCognates()"
-        >
-          閉じる
-        </div>
-
-      </section>
-    `;
+    // リンクがある場合のみテーブルを表示（フィルタですべて消える可能性があるため）
+    if (links) {
+      detailsHTML += `
+      <table class="detailTable">
+        <tbody>
+          <tr>
+            <th>関連語かも</th>
+            <td class="linktext" colspan="3">${links}</td>
+          </tr>
+        </tbody>
+      </table>`;
+    }
   }
 
-  /*
-   * ─────────────────────
-   * 同類語
-   * ─────────────────────
-   */
-
-  const similars =
-    getSimilarWords(data)
-      .filter(([w, e]) =>
-        !safeSearch || e.safe !== false
-      );
-
+  // 同類語の生成
+  const similars = getSimilarWords(data);
   if (similars.length) {
+    const links = similars
+      // セーフサーチがONの時、safe:falseの語を除外するフィルタを追加
+      .filter(([word, entry]) => !safeSearch || entry.safe !== false)
+      .map(([word, entry]) => {
+        const meaning = removeAnnotations(entry.meaning?.[0] ?? "");
+        return `<a href="#" onclick="loadWord('${word}'); return false;">${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
+      })
+      .join(", ");
 
-    window._similarsAll = similars;
-    window._similarsIndex =
-      Math.min(itemsCognates, similars.length);
-    window._similarsStep = itemsCognates;
-
-    const initial =
-      similars.slice(0, itemsCognates);
-
-    const links =
-      initial
-        .map(([w, e]) =>
-          createWordLink(w, e)
-        )
-        .join("、");
-
-    html += `
-      <section class="extra-section">
-
-        <h3 class="section-title">
-          同類語
-        </h3>
-
-        <div
-          id="similarsList"
-          class="extra-content"
-        >
-          ${links}
-        </div>
-
-        ${similars.length > itemsCognates
-        ? `<div
-                 id="similarsMore"
-                 class="morelink"
-                 onclick="showMoreSimilars()"
-               >もっと見る</div>`
-        : ""
-      }
-
-        <div
-          id="similarsClose"
-          class="morelink"
-          style="display:none"
-          onclick="closeSimilars()"
-        >
-          閉じる
-        </div>
-
-      </section>
-    `;
+    if (links) {
+      detailsHTML += `
+      <table class="detailTable">
+        <tbody>
+          <tr>
+            <th>同類語</th>
+            <td class="linktext" colspan="3">${links}</td>
+          </tr>
+        </tbody>
+      </table>`;
+    }
   }
-
-  html += `</div>`;
-
-  document.getElementById("details").innerHTML = html;
+  // HTMLを画面に描画
+  details.innerHTML = detailsHTML;
 }
 
 // 単語リスト項目生成
@@ -1780,11 +1067,13 @@ function createWordListItem(word) {
   const li = document.createElement("li");
 
   // 意味テキストを取得
-  const meaningText = getFirstMeaning(data);
+  let meaningText = data.meaning
+    ? (Array.isArray(data.meaning) ? data.meaning.join(', ') : data.meaning)
+    : "";
 
   // 翻訳を抽出
   const translations = extractTranslations(meaningText);
-  let displayText = translations.join(", ");
+  let displayText = translations.join(', ');
 
   // 表示文字数制限
   const maxLength = 20;
@@ -1793,42 +1082,32 @@ function createWordListItem(word) {
   }
 
   // 品詞による色分け
-  const headerClass = partsStyles[data.parts] || "default";
-
-  li.innerHTML = `
-    <strong class="${headerClass}">${word}</strong>
-    <br>
-    <span class="pagespan">${displayText}</span>
-  `;
+  let headerClass = partsStyles[data.parts] || "default";
+  li.innerHTML = `<strong class="${headerClass}">${word}</strong><br><span class="pagespan">${displayText}</span>`;
 
   // クリックで詳細表示
   li.addEventListener("click", () => {
     showDetails(word);
 
-    // URL更新
-    const value = data.id != null
-      ? String(data.id)
-      : encodeURIComponent(word);
-
+    // URL更新（履歴管理）
+    const value = data.id != null ? String(data.id) : encodeURIComponent(word);
     const params = new URLSearchParams(location.search);
 
     // 常に id をセット
-    params.set("id", value);
+    params.set('id', value);
 
-    // 検索結果クリック時はサイド表示
-    if (!params.has("view")) {
-      params.set("view", "side");
+    // 検索結果クリック時はサイド表示が期待されるので view=side を明示的にセット
+    // 既に view がある場合は上書きしない（既存の view を尊重）
+    if (!params.has('view')) {
+      params.set('view', 'side');
     }
 
-    const newUrl =
-      `${location.pathname}?${params.toString()}`;
-
+    const newUrl = `${location.pathname}?${params.toString()}`;
     history.pushState(null, "", newUrl);
 
-    // UI同期
+    // UI を同期（pushState 後に呼ぶ）
     syncUIWithURL();
   });
-
   return li;
 }
 
@@ -1878,13 +1157,14 @@ function renderPage() {
   nextPageBtn.disabled = (currentPage === total);
 }
 
-
 function performSearch() {
+  // 検索語取得
   const rawSearch = searchBox.value || "";
   const normalizedSearch = normalizeForSearch(rawSearch);
   const searchTerm = searchBox.value.toLowerCase();
   wordList.innerHTML = "";
 
+  // 検索語なし
   if (searchTerm === "") {
     placeholder.style.display = "block";
     searchResults = [];
@@ -1897,180 +1177,227 @@ function performSearch() {
     placeholder.style.display = "none";
   }
 
+  // 辞書未ロード
   if (Object.keys(dictionary).length === 0) {
     wordList.innerHTML = "<li>データ読み込み中...</li>";
     return;
   }
 
+  // 検索モードを取得
   const searchMode = searchModeSelect.value;
-  searchResults = [];
+  searchResults = []; // 検索結果格納配列を初期化
 
+  // タグ検索
   if (searchMode === "tag") {
+    // 入力されたタグを、カンマ区切りで分解するよ！
     const searchTags = searchTerm
       .split(",")
       .map(tag => tag.trim().toLowerCase())
       .filter(tag => tag.length > 0);
 
+    // 辞書からタグ一致する単語を取得するよ！
     const tagResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
+
+      // タグが存在しない語は除外するよ！
       if (!data.tag) return false;
+
+      // タグを配列として扱うためのもの
       const tags = Array.isArray(data.tag)
         ? data.tag.map(t => removeAnnotations(t).toLowerCase())
         : [removeAnnotations(data.tag).toLowerCase()];
+
+      // すべての検索タグが含まれているか確認するよ！
       return searchTags.every(searchTag => tags.includes(searchTag));
     });
 
+    // アルファベット順で並べ替えるよ！
     tagResults.sort((a, b) => a.localeCompare(b));
 
+    // 結果がある場合は検索結果リストに追加！
     if (tagResults.length > 0) {
+
+      // 見出しを追加して……
       searchResults.push({ type: "heading", text: "【タグでの検索結果】" });
-      tagResults.forEach(word => searchResults.push({ type: "word", value: word }));
+
+      // そして各単語を結果として追加
+      tagResults.forEach(word => {
+        searchResults.push({ type: "word", value: word });
+      });
     }
 
+    // 通常検索ならば、
   } else {
     const primaryResults = Object.keys(dictionary).filter(word => {
-      if (word.startsWith("*")) return false;
       const data = getEntry(word);
+      // 注釈削除した単語も検索に入れる
+      const cleanedWord = removeAnnotations(word).toLowerCase();
 
+      // 単語綴りの一致判定
       let matchKey = false;
       if (searchMode === "exact") matchKey = (data._normKey === normalizedSearch);
       else if (searchMode === "prefix") matchKey = data._normKey.startsWith(normalizedSearch);
       else matchKey = data._normKey.includes(normalizedSearch);
 
-      const matchMeaning = (() => {
-        const norm = data._normMeaning || "";
+      // 意味検索
+      let matchMeaning = false;
 
-        if (searchMode === "exact") {
-          return norm === normalizedSearch;
-        }
+      if (data.meaning) {
+        const meanings = Array.isArray(data.meaning)
+          ? data.meaning
+          : [data.meaning];
 
-        if (searchMode === "prefix") {
-          return norm.startsWith(normalizedSearch);
-        }
+        matchMeaning = meanings.some(m => {
+          const norm = normalizeForSearch(removeAnnotations(m));
 
-        return norm.includes(normalizedSearch);
-      })();
+          if (searchMode === "exact") return norm === normalizedSearch;
+          else if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
+          else return norm.includes(normalizedSearch);
+        });
+      }
 
+      // 俗語意味検索
       let matchVulgar = false;
       if (data.vulgarMeaning) {
-        const list = Array.isArray(data.vulgarMeaning) ? data.vulgarMeaning : [data.vulgarMeaning];
-        matchVulgar = list.some(v => {
-          const cleaned = removeAnnotations(v).toLowerCase();
-          if (searchMode === "exact") return cleaned === searchTerm;
-          if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-          return cleaned.includes(searchTerm);
-        });
+        // 意味が複数ある場合
+        if (Array.isArray(data.vulgarMeaning)) {
+          matchVulgar = data.vulgarMeaning.some(v => {
+            const cleaned = removeAnnotations(v).toLowerCase();
+            if (searchMode === "exact") return cleaned === searchTerm;
+            else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+            else return cleaned.includes(searchTerm);
+          });
+        } else {
+          const cleaned = removeAnnotations(data.vulgarMeaning).toLowerCase();
+          if (searchMode === "exact") matchVulgar = (cleaned === searchTerm);
+          else if (searchMode === "prefix") matchVulgar = cleaned.startsWith(searchTerm);
+          else matchVulgar = cleaned.includes(searchTerm);
+        }
       }
 
-      let matchWord = false;
-      if (data.word) {
-        const words = Array.isArray(data.word)
-          ? data.word
-          : [data.word];
-
-        matchWord = words.some(v => {
-          const norm = normalizeForSearch(removeAnnotations(v));
-
-          if (searchMode === "exact")
-            return norm === normalizedSearch;
-
-          if (searchMode === "prefix")
-            return norm.startsWith(normalizedSearch);
-
-          return norm.includes(normalizedSearch);
-        });
-      }
-
+      // variants2 も検索に引っかかるようにするよ！
       let matchVariants2 = false;
       if (data.variants2) {
         matchVariants2 = data.variants2.some(v => {
           const cleaned = removeAnnotations(v).toLowerCase();
           if (searchMode === "exact") return cleaned === searchTerm;
-          if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-          return cleaned.includes(searchTerm);
+          else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+          else return cleaned.includes(searchTerm);
         });
       }
 
-      return matchKey || matchMeaning || matchWord || matchVariants2 || matchVulgar;
+      // 活用形も検索に引っかかるようにするよ！
+      let matchInflection = false;
+      // 事前キャッシュがあればそれを使うよ！
+      if (data._normInflArray && data._normInflArray.length) {
+        matchInflection = data._normInflArray.some(norm => {
+          if (searchMode === "exact") return norm === normalizedSearch;
+          if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
+          return norm.includes(normalizedSearch);
+        });
+
+      } else {
+        // キャッシュが無い場合はその場で生成するよ！
+        try {
+          const inflections = generateInflections(word) || [];
+          matchInflection = inflections.some(inf => {
+            const norm = normalizeForSearch(removeAnnotations(String(inf)));
+            if (searchMode === "exact") return norm === normalizedSearch;
+            if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
+            return norm.includes(normalizedSearch);
+          });
+        } catch (e) {
+          // 活用生成失敗時は false！
+          matchInflection = false;
+        }
+      }
+
+      // 以下のいずれかに一致した場合は true！
+      return matchKey || matchMeaning || matchVariants2 || matchVulgar || matchInflection;
     });
 
+    // variants1 検索
     const variantResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
+      let matchVariants1 = false;
       if (data.variants1) {
-        const variants1 = Array.isArray(data.variants1)
-          ? data.variants1
-          : [data.variants1];
-
-        matchVariants1 = variants1.some(v => {
-
-          const candidates = [
-            String(v),
-            idToWord[String(v)]
-          ].filter(Boolean);
-
-          return candidates.some(candidate => {
-            const cleaned = normalizeForSearch(
-              removeAnnotations(candidate)
-            );
-
-            if (searchMode === "exact") {
-              return cleaned === normalizedSearch;
-            }
-
-            if (searchMode === "prefix") {
-              return cleaned.startsWith(normalizedSearch);
-            }
-
-            return cleaned.includes(normalizedSearch);
-          });
+        matchVariants1 = data.variants1.some(v => {
+          const cleaned = removeAnnotations(v).toLowerCase();
+          if (searchMode === "exact") return cleaned === searchTerm;
+          else if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
+          else return cleaned.includes(searchTerm);
         });
       }
+      return matchVariants1;
     });
 
+    // タグ検索（通常検索時の補助だよ）
     const tagResults = Object.keys(dictionary).filter(word => {
       const data = getEntry(word);
-      if (!data.tag) return false;
-      if (Array.isArray(data.tag)) {
-        return data.tag.some(t => removeAnnotations(t).toLowerCase() === searchTerm);
+      let matchTag = false;
+      if (data.tag) {
+        if (Array.isArray(data.tag)) {
+          matchTag = data.tag.some(t => removeAnnotations(t).toLowerCase() === searchTerm);
+        } else {
+          matchTag = removeAnnotations(data.tag).toLowerCase() === searchTerm;
+        }
       }
-      return removeAnnotations(data.tag).toLowerCase() === searchTerm;
+      return matchTag;
     });
 
+    // 重複したのを除去するよ！
     const primarySet = new Set(primaryResults);
-    const variantOnlyResults = variantResults.filter(w => !primarySet.has(w));
-    const variantSet = new Set(variantOnlyResults);
-    const tagOnlyResults = tagResults.filter(w => !primarySet.has(w) && !variantSet.has(w));
 
-    primaryResults.sort();
-    variantOnlyResults.sort();
-    tagOnlyResults.sort();
+    // variants1のみヒットした語
+    const variantOnlyResults = variantResults.filter(word => !primarySet.has(word));
+    const variantSet = new Set(variantOnlyResults);
+    let tagOnlyResults = [];
+    if (searchMode === "tag") {
+      tagOnlyResults = tagResults.filter(word => !primarySet.has(word) && !variantSet.has(word));
+      tagOnlyResults.sort((a, b) => a.localeCompare(b));
+    }
+    // 結果ソート
+    primaryResults.sort((a, b) => a.localeCompare(b));
+    variantOnlyResults.sort((a, b) => a.localeCompare(b));
+    tagOnlyResults.sort((a, b) => a.localeCompare(b));
 
     // セーフサーチ判定
     const safeSearch = document.getElementById("safeSearchToggle").checked;
 
     // safe=false の語を除外
-    const usePrimary = safeSearch ? primaryResults.filter(w => dictionary[w].safe !== false) : primaryResults;
-    const useVariantOnly = safeSearch ? variantOnlyResults.filter(w => dictionary[w].safe !== false) : variantOnlyResults;
-    const useTagOnly = safeSearch ? tagOnlyResults.filter(w => dictionary[w].safe !== false) : tagOnlyResults;
+    const usePrimary = safeSearch
+      ? primaryResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
+      : primaryResults;
 
+    const useVariantOnly = safeSearch
+      ? variantOnlyResults.filter(w => !(dictionary[w] && dictionary[w].safe === false))
+      : variantOnlyResults;
+
+    const useTagOnly = (typeof tagOnlyResults !== 'undefined' && Array.isArray(tagOnlyResults))
+      ? (safeSearch ? tagOnlyResults.filter(w => !(dictionary[w] && dictionary[w].safe === false)) : tagOnlyResults)
+      : [];
+
+    // 検索結果を構築！
     searchResults = [];
 
+    // 綴り・意味での検索結果
     if (usePrimary.length > 0) {
-      searchResults.push({ type: "heading", text: "通常検索の結果" });
+      searchResults.push({ type: "heading", text: "【綴り・意味での検索結果】" });
       usePrimary.forEach(word => searchResults.push({ type: "word", value: word }));
     }
 
+    // 関連語での検索結果
     if (useVariantOnly.length > 0) {
-      searchResults.push({ type: "heading", text: "関連語検索の結果" });
+      searchResults.push({ type: "heading", text: "【関連語での検索結果】" });
       useVariantOnly.forEach(word => searchResults.push({ type: "word", value: word }));
     }
-
+    // タグでの検索結果
     if (useTagOnly.length > 0) {
-      searchResults.push({ type: "heading", text: "タグ検索の結果" });
+      searchResults.push({ type: "heading", text: "【タグでの検索結果】" });
       useTagOnly.forEach(word => searchResults.push({ type: "word", value: word }));
     }
   }
-
+  // 検索結果がないなら「ない」とメッセージ
   if (searchResults.length === 0) {
     const li = document.createElement("li");
     li.textContent = "該当する単語はありません｡";
@@ -2082,18 +1409,18 @@ function performSearch() {
     return;
   }
 
+  // ページ表示を初期化するよ！
   currentPage = 1;
   renderPage();
 }
 
-
+// Enterキーで検索するようにするよ！
 searchBox.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
     performSearch();
   }
 });
-
 
 // 検索モードを変更したら再検索されるよ
 searchModeSelect.addEventListener("change", performSearch);
@@ -2108,8 +1435,6 @@ prevPageBtn.addEventListener("click", () => {
 nextPageBtn.addEventListener("click", () => {
   currentPage++;
   renderPage();
-  console.log(data.word);
-  console.log(typeof data.word);
 });
 
 // 辞書ファイル一覧だよ！
@@ -2139,18 +1464,3 @@ window.addEventListener('popstate', () => {
 });
 // ページ読み込み後に語数を表示するようにするよ！
 document.addEventListener('DOMContentLoaded', countWords);
-
-// hover → tap対応
-document.addEventListener("click", function (e) {
-  const cell = e.target.closest(".has-hover");
-
-  // 全部閉じる
-  document.querySelectorAll(".has-hover").forEach(el => {
-    if (el !== cell) el.classList.remove("active");
-  });
-
-  // 押したセルだけトグル
-  if (cell) {
-    cell.classList.toggle("active");
-  }
-});
