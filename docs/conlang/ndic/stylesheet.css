@@ -856,7 +856,6 @@ a {
 
 
 /* ---------- ヘッダー ---------- */
-
 .entry-header {
   margin-bottom: 18px;
 }
@@ -869,13 +868,14 @@ a {
 }
 
 .entry-word {
-  font-size: 42px;
+  font-size: 50px;
   line-height: 1;
 }
 
 .entry-pronunciation {
-  font-size: 22px;
-  color: #807066;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: #9a9a9a;
 }
 
 .entry-pronunciation span {
