@@ -457,10 +457,10 @@ function toggleVulgarMeaning(linkElem) {
   const span = linkElem.nextElementSibling;
   if (span.style.display === "none") {
     span.style.display = "inline";
-    linkElem.textContent = "性的な意味を非表示";
+    linkElem.textContent = "▶ 性的な意味を非表示";
   } else {
     span.style.display = "none";
-    linkElem.textContent = "性的な意味を表示";
+    linkElem.textContent = "▷ 性的な意味を表示";
   }
 }
 // 検索用正規化（ひらがな/カタカナ同一視、ラテンは小文字化＋アクセント除去）
@@ -785,6 +785,74 @@ function renderMeaningBlock(meanings) {
     </section>
   `;
 }
+
+function renderVulgarMeaningBlock(vulgarmeanings) {
+  if (!Array.isArray(vulgarmeanings) || vulgarmeanings.length === 0) {
+    return "";
+  }
+
+  const circles = [
+    "①", "②", "③", "④", "⑤",
+    "⑥", "⑦", "⑧", "⑨", "⑩",
+    "⑪", "⑫", "⑬", "⑭", "⑮",
+    "⑯", "⑰", "⑱", "⑲", "⑳"
+  ];
+
+  return `
+    <section class="vulgarmeaning-section">
+
+      <a href="#" class="toggle"
+   onclick="toggleVulgarMeaning(this); return false;">
+   ▷ 性的な意味を表示
+</a>
+
+      <span class="toggleMeaning" style="display:none;">
+
+        ${vulgarmeanings.map((meaning, index) => {
+
+    const text = typeof meaning === "object"
+      ? meaning.text ?? ""
+      : String(meaning);
+
+    const pos = typeof meaning === "object"
+      ? meaning.pos ?? ""
+      : "";
+
+    const examples = typeof meaning === "object"
+      ? meaning.examples ?? []
+      : [];
+
+    const synonyms = typeof meaning === "object"
+      ? meaning.synonyms ?? []
+      : [];
+
+    const number = circles[index] ?? `(${index + 1})`;
+
+    return `
+            <article class="vulgarmeaning-entry">
+
+              <div class="meaning-title">
+                <span class="meaning-number">${number}</span>
+                <span class="meaning-pos">${pos}</span>
+              </div>
+
+              <div class="meaning-text">
+                ${renderMeaningText(text)}
+              </div>
+
+              ${renderMeaningExamples(examples)}
+              ${renderMeaningSynonyms(synonyms)}
+
+            </article>
+          `;
+  }).join("")}
+
+      </span>
+
+    </section>
+  `;
+}
+
 
 function renderMeaningText(text) {
   if (text === null || text === undefined) {
@@ -1563,7 +1631,13 @@ function showDetails(word) {
       </header>
 
       ${renderMeaningBlock(data.meaning)}
-      ${renderEtymologyBlock(data.etymology)}
+
+${(!safeSearch && Array.isArray(data.vulgarmeaning))
+      ? renderVulgarMeaningBlock(data.vulgarmeaning)
+      : ""
+    }
+
+${renderEtymologyBlock(data.etymology)}
       ${renderNotes(data)}
       ${renderAlert(data.alert)}
   `;
