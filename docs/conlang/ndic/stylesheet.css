@@ -960,7 +960,23 @@ a {
   line-height: 1.5;
   color: #505048;
 }
+/* ---------- 語義 ---------- */
+.toggle {
+  color: #ee80bb;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
 
+.vulgarmeaning-section {
+  margin-top: 12px;
+}
+
+.vulgarmeaning-entry {
+  margin: 0 0 18px 0;
+  padding-top: 20px;
+  padding-left: 20px;
+}
 
 /* ---------- 語義内の例 ---------- */
 
@@ -1066,7 +1082,7 @@ a {
 .etymology-stage {
   padding: 6px 18px;
   color: #807066;
-  font-size: 15px;
+  font-size: 16px;
   text-align: right;
 }
 
@@ -1074,8 +1090,9 @@ a {
   position: relative;
   padding: 6px 18px;
   color: #998077;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 2px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .etymology-form::before {
