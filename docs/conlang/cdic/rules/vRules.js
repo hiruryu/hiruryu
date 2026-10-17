@@ -76,6 +76,9 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   stem2oö = stem2.replace('o', 'ö');
   stem2eë = stem2.replace('e', 'ë');
   
+function uniqueForms(…forms) {
+return […new Set(forms)];
+{
   
   if (ruletype === "not") {
     return {};
@@ -83,14 +86,31 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   } else if (["p", "b"].includes(ruletype)) {
     return {
       // 完結相
-      p: [stem2 + pfx, stem + "al"],
+      p: stem2 + pfx,
       n: "ー",
       f: stem2 + ffxp,
 
       // 進行相
-      sp: stemVi + spfx,
-      sn: [stemVi + snfx],
-      sf: stemVi + sffx,
+      sp: uniqueForms(
+stem + spfx,
+stemVi + spfx,
+stemui + spfx,
+stemoö + spfx,
+).join(""),
+
+      sn: uniqueForms(
+stem + snfx,
+stemVi + snfx,
+stemui + snfx,
+stemoö + snfx,
+).join(""),
+
+      sf: uniqueForms(
+stem + sffx,
+stemVi + sffx,
+stemui + sffx,
+stemoö + sffx,
+).join(""),
 
       // 完了相
       dp: stem2 + dpfxh,
