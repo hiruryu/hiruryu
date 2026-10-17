@@ -442,13 +442,13 @@ th {
 }
 
 .con2 {
-  background-color: #f0e0e0;
-  color: #ce4242;
+  background-color: #f0e0e7;
+  color: #54bbb2;
 }
 
 .con3 {
-  background-color: #f0e0e7;
-  color: #54bbb2;
+  background-color: #f0e0e0;
+  color: #ce4242;
 }
 
 .con4 {
@@ -826,4 +826,33 @@ a {
   box-sizing: border-box;
   background-color: #f9f8f4;
   border-bottom: 2px dotted #aaaaaa;
+}
+
+.con-hover {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.gerund-tooltip {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  padding: 5px 9px;
+  border-radius: 5px;
+  background: #333;
+  color: #fff;
+
+  white-space: nowrap;
+  font-size: 0.9em;
+  font-weight: normal;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.con-hover:hover .gerund-tooltip {
+  display: block;
 }
