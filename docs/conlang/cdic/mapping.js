@@ -896,20 +896,36 @@ function showDetails(word) {
       tableHTML = `<tr><td colspan="4">この語には活用データがありません。</td></tr>`;
     } else {
       function makeCell(baseKey) {
-        const base = conjugations[baseKey];
+  const base = conjugations[baseKey];
+  const gerund = conjugations[`${baseKey}_gerund`];
 
-        return `
+  return `
     <td class="con">
-      ${renderCell(base)}
+      <span class="con-hover">
+        ${renderCell(base)}
+        ${
+          gerund != null
+            ? `<span class="gerund-tooltip">${renderCell(gerund)}</span>`
+            : ""
+        }
+      </span>
     </td>
   `;
-      }
+}
 
       const rows = [
         { label: "完結相", keys: ["p", "n", "f"] },
-        { label: "完了相", keys: ["dp", "dn", "df"] },
         { label: "進行相", keys: ["sp", "sn", "sf"] },
+        { label: "完了相", keys: ["dp", "dn", "df"] },
         { label: "反復相", keys: ["mp", "mn", "mf"] }
+      ];
+
+
+      const rows2 = [
+        { label: "完結相", keys: ["ne", "fe"] },
+        { label: "進行相", keys: ["sne", "sfe"] },
+        { label: "完了相", keys: ["dne", "dfe"] },
+        { label: "反復相", keys: ["mne", "mfe"] }
       ];
 
       tableHTML = rows.map((row, i) => {
@@ -919,6 +935,18 @@ function showDetails(word) {
 
         return `<tr class="con${i + 1}">
             <td class="conname">${row.label}</td>
+            ${cells}
+            
+          </tr>`;
+      }).join("");
+
+      tableHTML2 = rows2.map((row2, i) => {
+        const cells = row2.keys
+          .map(key => makeCell(key))
+          .join("");
+
+        return `<tr class="con${i + 1}">
+            <td class="conname">${row2.label}</td>
             ${cells}
             
           </tr>`;
@@ -1621,6 +1649,24 @@ function showDetails(word) {
               ${tableHTML}
             </tbody>
           </table>`;
+
+          detailsHTML += `<table>
+            <thead>
+              <tr class="conH1" id="conH1">
+                <th colspan="3">飾形</th>
+              </tr>
+              <tr class="conH2">
+                <th></th>
+                <th>既済時制</th>
+                <th>未済時制</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tableHTML2}
+            </tbody>
+          </table>`;
+
+          
 
       // 形容詞（名飾）
     } else if (data.parts === "名飾") {
