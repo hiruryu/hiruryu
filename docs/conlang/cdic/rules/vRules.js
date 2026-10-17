@@ -96,21 +96,21 @@ stem + spfx,
 stemVi + spfx,
 stemui + spfx,
 stemoö + spfx,
-).join(""),
+).join("<br>"),
 
       sn: uniqueForms(
 stem + snfx,
 stemVi + snfx,
 stemui + snfx,
 stemoö + snfx,
-).join(""),
+).join("<br>"),
 
       sf: uniqueForms(
 stem + sffx,
 stemVi + sffx,
 stemui + sffx,
 stemoö + sffx,
-).join(""),
+).join("<br>"),
 
       // 完了相
       dp: stem2 + dpfxh,
