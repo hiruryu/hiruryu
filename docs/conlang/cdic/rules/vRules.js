@@ -78,7 +78,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   
 function uniqueForms(...forms) {
   return [...new Set(forms)];
-{
+}
   
   if (ruletype === "not") {
     return {};
