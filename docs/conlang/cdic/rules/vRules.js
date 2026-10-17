@@ -76,8 +76,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   stem2oö = stem2.replace('o', 'ö');
   stem2eë = stem2.replace('e', 'ë');
   
-function uniqueForms(…forms) {
-return […new Set(forms)];
+function uniqueForms(...forms) {
+  return [...new Set(forms)];
 {
   
   if (ruletype === "not") {
