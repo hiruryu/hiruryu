@@ -842,7 +842,6 @@ function showDetails(word) {
         { label: "奪格", prefix: "g_" },
         { label: "具格", prefix: "i_" },
         { label: "処格", prefix: "l_" },
-        { label: "所有形", prefix: "p_" },
         { label: "呼称形", prefix: "v_" },
         { label: "包括形", prefix: "in_" }
       ];
@@ -905,7 +904,7 @@ function showDetails(word) {
         ${renderCell(base)}
         ${
           gerund != null
-            ? `<span class="gerund-tooltip">${renderCell(gerund)}</span>`
+            ? `<span class="gerund-tooltip">動名詞形：${renderCell(gerund)}</span>`
             : ""
         }
       </span>
@@ -1073,7 +1072,7 @@ function showDetails(word) {
   leftRows.push(`<tr><th>タグ</th><td class="t-td">${data.tag ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag) : ""}</td></tr>`);
 
   // 発音
-  leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
+  // leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
 
   // 声位
   if (data.seii) {
