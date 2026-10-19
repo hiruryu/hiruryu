@@ -1823,25 +1823,28 @@ function generateInflections(word) {
   let raw;
   if (data.parts === "名象") {
     raw = fn(
-      word,
-      data.stem,
-      data.long_stem,
-      data.stem2,
-      data.type,
-      data.ruletype
-    ) || {};
+  word,
+  data.stem,
+  data.long_stem,
+  data.stem2,
+  data.stem3,
+  data.type,
+  data.ruletype
+) || {};
 
     // 動詞・飾詞は以下の通り
   } else {
     raw = fn(
-      word,
-      data.stem,
-      data.long_stem,
-      data.stem2,
-      data.type,
-      data.ruletype
-    ) || {};
+  word,
+  data.stem,
+  data.long_stem,
+  data.stem2,
+  data.stem3,
+  data.type,
+  data.ruletype
+) || {};
   }
+  console.log(generateInflections("単語"));
 
   // 配列 or オブジェクトどちらでも扱えるよう統一
   const infls = Array.isArray(raw) ? raw : Object.values(raw);
