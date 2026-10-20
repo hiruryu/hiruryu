@@ -840,8 +840,8 @@ function showDetails(word) {
         { label: "能格", prefix: "e_" },
         { label: "与格", prefix: "d_" },
         { label: "奪格", prefix: "g_" },
-        { label: "具格", prefix: "i_" },
         { label: "処格", prefix: "l_" },
+        { label: "具格", prefix: "i_" },
         { label: "呼称形", prefix: "v_" },
         { label: "包括形", prefix: "in_" }
       ];
@@ -1075,14 +1075,14 @@ function showDetails(word) {
   // leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
 
   // 声位
-  if (data.seii) {
-    leftRows.push(`
-    <tr>
-      <th>声位</th>
-      <td class="seii">${renderSeii(data.seii)}</td>
-    </tr>
-  `);
-  }
+  // if (data.seii) {
+   // leftRows.push(`
+   // <tr>
+   //   <th>声位</th>
+    //  <td class="seii">${renderSeii(data.seii)}</td>
+   // </tr>
+//  `);
+//  }
 
   // 語彙素形がある場合
   if (data.lexemic) {
@@ -1615,7 +1615,7 @@ function showDetails(word) {
       detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="5">屈折型</th>
+                <th colspan="5"></th>
               </tr>
               <tr class="conH2">
                 <th rowspan="2"></th>
@@ -1635,7 +1635,7 @@ function showDetails(word) {
       detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="5">屈折型</th>
+                <th colspan="5"></th>
               </tr>
               <tr class="conH2">
                 <th></th>
@@ -1672,7 +1672,7 @@ function showDetails(word) {
       detailsHTML += `<table>
              <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="7">屈折表</th>
+                <th colspan="7"></th>
               </tr>
               <tr class="conH2">
               <th></th>
