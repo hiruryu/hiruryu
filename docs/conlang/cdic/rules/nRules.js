@@ -77,7 +77,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   if (ruletype === "not") {
     return { ansC: word };
     // k / g / f / v/ s / z / c / sh / zh / c / xh 基本形
-  } else if (["p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "c", "x", "sh", "zh", "ch", "xh", "h", "pq", "r"].includes(ruletype)) {
+  } else if (["p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "c", "x", "sh", "zh", "ch", "xh", "h", "pq", "r", "w"].includes(ruletype)) {
     return {
       // 単数形
       ansC: word,
