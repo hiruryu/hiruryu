@@ -28,7 +28,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   stem2q = stem2.replace(/^[mnq][iu]/, 'ũ');
 
   function uniqueForms(...forms) {
-    return [...new Set(forms.filter(form => !/jí|ji|ii|íi/.test(form)))];
+    return [...new Set(forms.filter(form => !/ji|ii|íi/.test(form)))];
   }
 
   if (ruletype === "no") {
@@ -2977,7 +2977,6 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
 
       f_s: uniqueForms(
         s_2 + "jíhë",
-        stem2Vi + "jíhë",
         stem2ui + "jíhë",
         stem2oö + "jíhë",
         stem2jui + "jíhë",
@@ -2986,7 +2985,6 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
 
       d_s: uniqueForms(
         s_2 + "jéze",
-        stem2Vi + "jéze",
         stem2ui + "jéze",
         stem2oö + "jéze",
         stem2jui + "jéze",
