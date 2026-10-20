@@ -28,106 +28,2950 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   stem2q = stem2.replace(/^[mnq][iu]/, 'ũ');
 
   function uniqueForms(...forms) {
-    return [...new Set(forms)];
+    return [...new Set(forms.filter(form => !/jí|ji|ii|íi/.test(form)))];
   }
 
   if (ruletype === "no") {
     return {};
 
-    // 基本形
-  } else if (["p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "c", "x", "sh", "zh", "ch", "xh", "h", "m", "n", "q", "r", "rh", "l", "j"].includes(ruletype)) {
+    // p / b 基本形
+  } else if (["p", "b", "k", "g", "m", "q"].includes(ruletype)) {
     return {
       // 単数一致-原級
-      s: s + "i",
-      f_s: s + "ihë",
-      d_s: s_2 + "éze",
-      e_s: s_2 + "áisi",
-      ad_s: s_2 + "éni",
-      h_s: s + "las",
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "hlas",
+      ).join("<br>"),
+
       // 単数一致-比較級
       s2: s2,
-      f_s2: s_2 + "álih",
-      d_s2: s_2 + "ález",
-      e_s2: s_2 + "ális",
-      ad_s2: s_2 + "álen",
-      h_s2: s_2 + "ë́sen",
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
       // 単数一致-最上級
       s3: s3,
-      f_s3: s_2 + "ónih",
-      d_s3: s_2  + "ónza",
-      e_s3: s_2 + "ónas",
-      ad_s3: s_2 + "ónön",
-      h_s3: s_2 + "ë́na",
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
       // 複数一致-原級
-      p: p + "a",
-      f_p: p + "ihë",
-      d_p: p_2 + "éze",
-      e_p: p_2 + "áisi",
-      ad_p: p_2 + "éni",
-      h_p: p + "las",
-      // 単数一致-比較級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
       p2: p2,
-      f_p2: p_2 + "álih",
-      d_p2: p_2 + "ález",
-      e_p2: p_2 + "ális",
-      ad_p2: p_2 + "álen",
-      h_p2: p_2 + "ë́sen",
-      // 単数一致-最上級
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
       p3: p3,
-      f_p3: p_2 + "ónih",
-      d_p3: p_2  + "ónza",
-      e_p3: p_2 + "ónas",
-      ad_p3: p_2 + "ónön",
-      h_p3: p_2 + "ë́na",
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
     }
-    
 
 
-    // 明音形
-  } else if (["pj", "bj", "tj", "dj", "kj", "gj", "fj", "vj", "sj", "zj", "cj", "xj", "shj", "zhj", "chj", "xhj", "hj", "mj", "nj", "qj", "rj", "rhj", "lj", "j"].includes(ruletype)) {
+    // p / b 明音形
+  } else if (["pj", "bj", "kj", "gj", "mj", "qj"].includes(ruletype)) {
     return {
       // 単数一致-原級
-      s: s + "i",
-      f_s: s + "ihë",
-      d_s: s_2 + "éze",
-      e_s: s_2 + "áisi",
-      ad_s: s_2 + "éni",
-      h_s: s + "las",
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "hlas",
+      ).join("<br>"),
+
       // 単数一致-比較級
       s2: s2,
-      f_s2: s_2 + "álih",
-      d_s2: s_2 + "ález",
-      e_s2: s_2 + "ális",
-      ad_s2: s_2 + "álen",
-      h_s2: s_2 + "ë́sen",
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
       // 単数一致-最上級
       s3: s3,
-      f_s3: s_2 + "ónih",
-      d_s3: s_2  + "ónza",
-      e_s3: s_2 + "ónas",
-      ad_s3: s_2 + "ónön",
-      h_s3: s_2 + "ë́na",
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
       // 複数一致-原級
-      p: p + "a",
-      f_p: p + "ihë",
-      d_p: p_2 + "éze",
-      e_p: p_2 + "áisi",
-      ad_p: p_2 + "éni",
-      h_p: p + "las",
-      // 単数一致-比較級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
       p2: p2,
-      f_p2: p_2 + "álih",
-      d_p2: p_2 + "ález",
-      e_p2: p_2 + "ális",
-      ad_p2: p_2 + "álen",
-      h_p2: p_2 + "ë́sen",
-      // 単数一致-最上級
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
       p3: p3,
-      f_p3: p_2 + "ónih",
-      d_p3: p_2  + "ónza",
-      e_p3: p_2 + "ónas",
-      ad_p3: p_2 + "ónön",
-      h_p3: p_2 + "ë́na",
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
     }
+
+    // f 基本形
+  } else if (["f", "v", "sh", "zh", "ch", "xh", "h", "rh"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "las",
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+
+    // f / v 明音形
+  } else if (["fj", "vj", "shj", "zhj", "chj", "xhj", "hj", "rhj"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "hlas", // fádhlas
+        s + "jas", // fádjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+    // t / d 基本形
+  } else if (["t", "d"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "hlas", // fádhlas
+        s + "jas", // fádjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+
+    // t / d 明音形
+  } else if (["tj", "dj"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "hlas", // fádhlas
+        s + "jas", // fádjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+    // s 基本形
+  } else if (["s", "sj"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "sas", // fádhlas
+        s + "jas", // fádjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+
+    // z
+  } else if (["z", "zj"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "zas", // -zzas
+        s + "jas", // -zjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+    // c 基本形
+  } else if (["c", "cj"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "cas", // fádhlas
+        s + "jas", // fádjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+
+    // x
+  } else if (["x", "xj"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "xas", // -zzas
+        s + "jas", // -zjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+    // n 基本形
+  } else if (["n", "nj"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "nas", // fádhlas
+        s + "jas", // fádjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+    // L
+  } else if (["r", "l", "rj", "lj"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "las", // fádhlas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+
+    }
+
+    // j
+  } else if (["j"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "í",
+
+      d_s: uniqueForms(
+        s_2 + "íhë",
+        stem2Vi + "íhë",
+        stem2ui + "íhë",
+        stem2oö + "íhë",
+        stem2jui + "íhë",
+        stem2joi + "íhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "éze",
+        stem2Vi + "éze",
+        stem2ui + "éze",
+        stem2oö + "éze",
+        stem2jui + "éze",
+        stem2joi + "éze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "áisi",
+        stem2ua + "áisi",
+        stem2eë + "áisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "éni",
+        stem2Vi + "éni",
+        stem2ui + "éni",
+        stem2oö + "éni",
+        stem2jui + "éni",
+        stem2joi + "éni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "jas", // fádjas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "áli",
+        stem2ua + "áli",
+        stem2eë + "áli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "ález",
+        stem2ua + "ález",
+        stem2eë + "ález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "ális",
+        stem2ua + "ális",
+        stem2eë + "ális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "álen",
+        stem2ua + "álen",
+        stem2eë + "álen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "ë́sen",
+        stem2ui + "ë́sen",
+        stem2oö + "ë́sen",
+        stem2jui + "ë́sen",
+        stem2joi + "ë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "óni",
+        stem2ua + "óni",
+        stem2eë + "óni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "ónza",
+        stem2ua + "ónza",
+        stem2eë + "ónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "ónas",
+        stem2ua + "ónas",
+        stem2eë + "ónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "ónön",
+        stem2ua + "ónön",
+        stem2eë + "ónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "ë́na",
+        stem2ui + "ë́na",
+        stem2oö + "ë́na",
+        stem2jui + "ë́na",
+        stem2joi + "ë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      d_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "las", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2Vi + "rë́sen",
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2Vi + "rë́na",
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
   }
 }
