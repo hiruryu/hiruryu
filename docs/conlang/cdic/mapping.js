@@ -1656,8 +1656,8 @@ function showDetails(word) {
               </tr>
               <tr class="conH2">
                 <th></th>
-                <th>既済時制</th>
-                <th>未済時制</th>
+                <th>既行時制</th>
+                <th>未行時制</th>
               </tr>
             </thead>
             <tbody>
