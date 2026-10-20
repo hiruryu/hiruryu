@@ -40,7 +40,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -151,7 +151,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -185,7 +185,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -266,7 +266,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -377,7 +377,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -411,7 +411,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -491,7 +491,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -602,7 +602,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -636,7 +636,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -717,7 +717,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -829,7 +829,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -863,7 +863,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -943,7 +943,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -1055,7 +1055,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -1089,7 +1089,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -1170,7 +1170,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -1282,7 +1282,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -1316,7 +1316,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -1396,7 +1396,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -1508,7 +1508,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -1542,7 +1542,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -1623,7 +1623,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -1735,7 +1735,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -1769,7 +1769,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -1849,7 +1849,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -1961,7 +1961,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -1995,7 +1995,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -2076,7 +2076,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -2188,7 +2188,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -2222,7 +2222,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -2302,7 +2302,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -2414,7 +2414,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -2448,7 +2448,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -2528,7 +2528,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -2639,7 +2639,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -2673,7 +2673,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
@@ -2754,7 +2754,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 単数一致-原級
       s: s_2 + "í",
 
-      d_s: uniqueForms(
+      f_s: uniqueForms(
         s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
@@ -2819,7 +2819,6 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_s2: uniqueForms(
-        stem2Vi + "ë́sen",
         stem2ui + "ë́sen",
         stem2oö + "ë́sen",
         stem2jui + "ë́sen",
@@ -2854,7 +2853,6 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_s3: uniqueForms(
-        stem2Vi + "ë́na",
         stem2ui + "ë́na",
         stem2oö + "ë́na",
         stem2jui + "ë́na",
@@ -2865,7 +2863,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 複数一致-原級
       p: p_2 + "á",
 
-      d_p: uniqueForms(
+      f_p: uniqueForms(
         p_2 + "íhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
@@ -2899,7 +2897,230 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       h_p: uniqueForms(
-        p + "las", // fádralas
+        p + "alas", // fádralas
+      ).join("<br>"),
+
+      // 複数一致-比較級
+      p2: p2,
+
+      f_p2: uniqueForms(
+        p_2 + "áli",
+        stem2ua + "ráli",
+        stem2eë + "ráli",
+      ).join("<br>"),
+
+      d_p2: uniqueForms(
+        p_2 + "ález",
+        stem2ua + "rález",
+        stem2eë + "rález",
+      ).join("<br>"),
+
+      e_p2: uniqueForms(
+        p_2 + "ális",
+        stem2ua + "rális",
+        stem2eë + "rális",
+      ).join("<br>"),
+
+      ad_p2: uniqueForms(
+        p_2 + "álen",
+        stem2ua + "rálen",
+        stem2eë + "rálen",
+      ).join("<br>"),
+
+      h_p2: uniqueForms(
+        stem2ui + "rë́sen",
+        stem2oö + "rë́sen",
+        stem2jui + "rë́sen",
+        stem2joi + "rë́sen",
+      ).join("<br>"),
+
+      // 複数一致-最上級
+      p3: p3,
+
+      f_p3: uniqueForms(
+        p_2 + "óni",
+        stem2ua + "róni",
+        stem2eë + "róni",
+      ).join("<br>"),
+
+      d_p3: uniqueForms(
+        p_2 + "ónza",
+        stem2ua + "rónza",
+        stem2eë + "rónza",
+      ).join("<br>"),
+
+      e_p3: uniqueForms(
+        p_2 + "ónas",
+        stem2ua + "rónas",
+        stem2eë + "rónas",
+      ).join("<br>"),
+
+      ad_p3: uniqueForms(
+        p_2 + "ónön",
+        stem2ua + "rónön",
+        stem2eë + "rónön",
+      ).join("<br>"),
+
+      h_p3: uniqueForms(
+        stem2ui + "rë́na",
+        stem2oö + "rë́na",
+        stem2jui + "rë́na",
+        stem2joi + "rë́na",
+      ).join("<br>"),
+    }
+
+    // 母音終了
+  } else if (["a", "e", "i", "o", "u", "ui"].includes(ruletype)) {
+    return {
+      // 単数一致-原級
+      s: s_2 + "jí",
+
+      f_s: uniqueForms(
+        s_2 + "jíhë",
+        stem2Vi + "jíhë",
+        stem2ui + "jíhë",
+        stem2oö + "jíhë",
+        stem2jui + "jíhë",
+        stem2joi + "jíhë",
+      ).join("<br>"),
+
+      d_s: uniqueForms(
+        s_2 + "jéze",
+        stem2Vi + "jéze",
+        stem2ui + "jéze",
+        stem2oö + "jéze",
+        stem2jui + "jéze",
+        stem2joi + "jéze",
+      ).join("<br>"),
+
+      e_s: uniqueForms(
+        s_2 + "jáisi",
+        stem2ua + "jáisi",
+        stem2eë + "jáisi",
+      ).join("<br>"),
+
+      ad_s: uniqueForms(
+        s_2 + "jéni",
+        stem2Vi + "jéni",
+        stem2ui + "jéni",
+        stem2oö + "jéni",
+        stem2jui + "jéni",
+        stem2joi + "jéni",
+      ).join("<br>"),
+
+      h_s: uniqueForms(
+        s + "las", // dólas
+      ).join("<br>"),
+
+      // 単数一致-比較級
+      s2: s2,
+
+      f_s2: uniqueForms(
+        s_2 + "jáli",
+        stem2ua + "jáli",
+        stem2eë + "jáli",
+      ).join("<br>"),
+
+      d_s2: uniqueForms(
+        s_2 + "jález",
+        stem2ua + "jález",
+        stem2eë + "jález",
+      ).join("<br>"),
+
+      e_s2: uniqueForms(
+        s_2 + "jális",
+        stem2ua + "jális",
+        stem2eë + "jális",
+      ).join("<br>"),
+
+      ad_s2: uniqueForms(
+        s_2 + "jálen",
+        stem2ua + "jálen",
+        stem2eë + "jálen",
+      ).join("<br>"),
+
+      h_s2: uniqueForms(
+        stem2Vi + "jë́sen",
+        stem2ui + "jë́sen",
+        stem2oö + "jë́sen",
+        stem2jui + "jë́sen",
+        stem2joi + "jë́sen",
+      ).join("<br>"),
+
+      // 単数一致-最上級
+      s3: s3,
+
+      f_s3: uniqueForms(
+        s_2 + "jóni",
+        stem2ua + "jóni",
+        stem2eë + "jóni",
+      ).join("<br>"),
+
+      d_s3: uniqueForms(
+        s_2 + "jónza",
+        stem2ua + "jónza",
+        stem2eë + "jónza",
+      ).join("<br>"),
+
+      e_s3: uniqueForms(
+        s_2 + "jónas",
+        stem2ua + "jónas",
+        stem2eë + "jónas",
+      ).join("<br>"),
+
+      ad_s3: uniqueForms(
+        s_2 + "jónön",
+        stem2ua + "jónön",
+        stem2eë + "jónön",
+      ).join("<br>"),
+
+      h_s3: uniqueForms(
+        stem2Vi + "jë́na",
+        stem2ui + "jë́na",
+        stem2oö + "jë́na",
+        stem2jui + "jë́na",
+        stem2joi + "jë́na",
+      ).join("<br>"),
+
+
+      // 複数一致-原級
+      p: p_2 + "á",
+
+      f_p: uniqueForms(
+        p_2 + "íhë",
+        stem2Vi + "ríhë",
+        stem2ui + "ríhë",
+        stem2oö + "ríhë",
+        stem2jui + "ríhë",
+        stem2joi + "ríhë",
+      ).join("<br>"),
+
+      d_p: uniqueForms(
+        p_2 + "éze",
+        stem2Vi + "réze",
+        stem2ui + "réze",
+        stem2oö + "réze",
+        stem2jui + "réze",
+        stem2joi + "réze",
+      ).join("<br>"),
+
+      e_p: uniqueForms(
+        p_2 + "áisi",
+        stem2ua + "ráisi",
+        stem2eë + "ráisi",
+      ).join("<br>"),
+
+      ad_p: uniqueForms(
+        p_2 + "éni",
+        stem2Vi + "réni",
+        stem2ui + "réni",
+        stem2oö + "réni",
+        stem2jui + "réni",
+        stem2joi + "réni",
+      ).join("<br>"),
+
+      h_p: uniqueForms(
+        p + "alas", // fádralas
       ).join("<br>"),
 
       // 複数一致-比較級
