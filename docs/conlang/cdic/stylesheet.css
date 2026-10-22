@@ -135,8 +135,8 @@ a {
 }
 
 .sidebar {
-  max-width: 20%;
-  width: 20%;
+  max-width: 25%;
+  width: 25%;
   padding: 1rem;
   border-right: 1px solid #cccccc;
   box-sizing: border-box;
@@ -307,8 +307,8 @@ h5 {
   list-style: none;
   background-color: #F9F8F4;
   padding: 1px;
-  font-size: 16px;
-  color: #aa8888;
+  font-size: 18px;
+  color: #5555aa;
   margin: auto;
   text-align: center;
 }
@@ -492,7 +492,8 @@ th {
 }
 
 .maincolor {
-  color: #cc0aaa;
+  color: #cc5555;
+  font-family: "Charis SIL", serif;
 }
 
 .detailTable {
@@ -580,6 +581,26 @@ th {
 
 .heading-cell.kanto {
   color: #B7BBBD;
+}
+
+.word {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.pronunciation {
+  font-family: "Charis SIL", serif;
+  font-size: 16px;
+  color: #9a9a9a;
+}
+
+.meaningList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.meaningList .detailList {
+  list-style: none;
 }
 
 .detailTable th {
@@ -701,7 +722,7 @@ th {
   letter-spacing: 0.2em;
   white-space: nowrap;
   font-size: 15px;
-  color: rgb(229, 181, 26);
+  color: rgb(178, 178, 178);
 }
 
 /* --- 関連語のもっと見る / 閉じる 共通スタイル --- */
@@ -771,9 +792,9 @@ th {
 }
 
 .explanation-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 9px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 9px;
 }
 
 .explanation-item:last-child {
@@ -781,12 +802,12 @@ th {
 }
 
 .explanation-item .number {
-    width: 20px;
-    flex-shrink: 0;
+  width: 20px;
+  flex-shrink: 0;
 }
 
 .explanation-item .text {
-    flex: 1;
+  flex: 1;
 }
 
 .link-meaning {
@@ -820,7 +841,7 @@ a {
   font-family: 'Noto Sans JP', sans-serif !important;
 }
 
-.word-count{
+.word-count {
   color: #4e4e60;
   font-size: 12px;
   box-sizing: border-box;
@@ -855,4 +876,56 @@ a {
 
 .con-hover:hover .gerund-tooltip {
   display: block;
+}
+
+.search-box {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #cfc4ae;
+  border-radius: 4px;
+  background: #fffcf5;
+  color: #40382d;
+  font-size: 14px;
+  outline: none;
+  box-shadow: none;
+  transition: none;
+}
+
+.search-box::placeholder {
+  color: #9c907d;
+}
+
+.search-box:hover,
+.search-box:focus {
+  border-color: #cfc4ae;
+  box-shadow: none;
+}
+
+
+#searchMode {
+  box-sizing: border-box;
+  padding: 12px 32px 12px 14px;
+  border: 1px solid #cfc4ae;
+  border-radius: 4px;
+  background-color: #fffcf5;
+  color: #40382d;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  transition: none;
+}
+
+#searchMode:hover,
+#searchMode:focus {
+  border-color: #cfc4ae;
+  background-color: #fffcf5;
+  box-shadow: none;
+}
+
+#searchMode option {
+  background-color: #fffcf5;
+  color: #40382d;
 }
