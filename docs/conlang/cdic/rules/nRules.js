@@ -64,7 +64,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   stemeë = (stem ?? "").replace('é', 'ë́');
 
   // stem2
-  stem2ua = (stem2 ?? "").replace('u', 'a');
+  stem2ua = (stem2 ?? "").replace(/[ou]/g, 'a');
   stem2ui = (stem2 ?? "").replace(/[ou]/g, 'i');
   stem2oö = (stem2 ?? "").replace('o', 'ö');
   stem2eë = (stem2 ?? "").replace('e', 'ë');
@@ -188,7 +188,11 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+
+      v_ansC: uniqueForms(
+        stem2ua + v_fx,
+      ).join("<br>"),
+
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpCn,
@@ -198,7 +202,11 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_anpC: anpCn.slice(0, -1) + l_fx,
       i_anpC: anpCn.slice(0, -1) + i_fx,
       g_anpC: anpCn.slice(0, -1) + g_fx,
-      v_anpC: anpCn2.slice(0, -1) + v_fx,
+
+      v_anpC: uniqueForms(
+        stem2ua + "hr" + v_fx,
+      ).join("<br>"),
+
       in_anpC: anpCn2.slice(0, -1) + in_fx,
     }
     // m 明音形
@@ -212,7 +220,14 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+
+      v_ansC: uniqueForms(
+        stem2Vi + v_fx,
+        stem2ui + v_fx,
+        stem2oö + v_fx,
+        stem2jui + v_fx,
+      ).join("<br>"),
+
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpCn,
@@ -222,7 +237,14 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_anpC: anpCn.slice(0, -1) + l_fx,
       i_anpC: anpCn.slice(0, -1) + i_fx,
       g_anpC: anpCn.slice(0, -1) + g_fx,
-      v_anpC: anpCn2.slice(0, -1) + v_fx,
+
+      v_anpC: uniqueForms(
+        stem2Vi + "hr" + v_fx,
+        stem2ui + "hr" + v_fx,
+        stem2oö + "hr" + v_fx,
+        stem2jui + "hr" + v_fx,
+      ).join("<br>"),
+
       in_anpC: anpCn2.slice(0, -1) + in_fx,
     }
     // n 基本形
@@ -236,7 +258,9 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+      v_ansC: uniqueForms(
+        stem2ua + v_fx,
+      ).join("<br>"),
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpCnn,
@@ -247,6 +271,9 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       i_anpC: anpCnn.slice(0, -1) + i_fx,
       g_anpC: anpCnn.slice(0, -1) + g_fx,
       v_anpC: anpCnn2.slice(0, -1) + v_fx,
+      v_anpC: uniqueForms(
+        stem2ua + "d" + v_fx,
+      ).join("<br>"),
       in_anpC: anpCnn2.slice(0, -1) + in_fx,
     }
     // n 明音形
@@ -260,7 +287,12 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+      v_ansC: uniqueForms(
+        stem2Vi + v_fx,
+        stem2ui + v_fx,
+        stem2oö + v_fx,
+        stem2jui + v_fx,
+      ).join("<br>"),
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpCn,
@@ -270,7 +302,12 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_anpC: anpCn.slice(0, -1) + l_fx,
       i_anpC: anpCn.slice(0, -1) + i_fx,
       g_anpC: anpCn.slice(0, -1) + g_fx,
-      v_anpC: anpCn2.slice(0, -1) + v_fx,
+      v_anpC: uniqueForms(
+        stem2Vi + "d" + v_fx,
+        stem2ui + "d" + v_fx,
+        stem2oö + "d" + v_fx,
+        stem2jui + "d" + v_fx,
+      ).join("<br>"),
       in_anpC: anpCn2.slice(0, -1) + in_fx,
     }
 
@@ -285,7 +322,9 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+      v_ansC: uniqueForms(
+        stem2ua + v_fx,
+      ).join("<br>"),
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpCq,
@@ -309,7 +348,12 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+      v_ansC: uniqueForms(
+        stem2Vi + v_fx,
+        stem2ui + v_fx,
+        stem2oö + v_fx,
+        stem2jui + v_fx,
+      ).join("<br>"),
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpCq,
@@ -319,7 +363,12 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_anpC: anpCq.slice(0, -1) + l_fx,
       i_anpC: anpCq.slice(0, -1) + i_fx,
       g_anpC: anpCq.slice(0, -1) + g_fx,
-      v_anpC: anpCq2.slice(0, -1) + v_fx,
+      v_anpC: uniqueForms(
+        stem2Vi + "hr" + v_fx,
+        stem2ui + "hr" + v_fx,
+        stem2oö + "hr" + v_fx,
+        stem2jui + "hr" + v_fx,
+      ).join("<br>"),
       in_anpC: anpCq2.slice(0, -1) + in_fx,
     }
 
@@ -384,7 +433,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fxo,
       i_ansC: stem + i_fxo,
       g_ansC: stem + g_fxo,
-      v_ansC: stem2 + v_fxo,
+      v_ansC: stem2ua + v_fxo,
       in_ansC: stem + in_fxo,
       // 複数形
       anpC: anpCo,
@@ -409,7 +458,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fxo,
       i_ansC: stem + i_fxo,
       g_ansC: stem + g_fxo,
-      v_ansC: stem2 + v_fxo,
+      v_ansC: stem2ua + v_fxo,
       in_ansC: stem + in_fxo,
       // 複数形
       anpC: anpCl,
@@ -419,7 +468,9 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_anpC: anpCl.slice(0, -1) + l_fx,
       i_anpC: anpCl.slice(0, -1) + i_fx,
       g_anpC: anpCl.slice(0, -1) + g_fx,
-      v_anpC: anpCl2.slice(0, -1) + v_fx,
+      v_anpC: uniqueForms(
+        stem2ua + "l" + v_fx,
+      ).join("<br>"),
       in_anpC: anpCl2.slice(0, -1) + in_fx,
     }
 
@@ -434,7 +485,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       l_ansC: stem + l_fxũ,
       i_ansC: stem + i_fxũ,
       g_ansC: stem + g_fxũ,
-      v_ansC: stem2 + v_fxũ,
+      v_ansC: stem2ua + v_fxũ,
       in_ansC: stem + in_fxũ,
       // 複数形
       anpC: anpCl,
