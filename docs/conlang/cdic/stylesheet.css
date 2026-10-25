@@ -273,7 +273,7 @@ h5 {
   padding: 1px;
   list-style-position: inside;
   font-size: 15px;
-  color: #997070;
+  color: #7A7A6A;
   text-align: left;
   letter-spacing: 2px;
   line-height: 25px;
@@ -283,7 +283,7 @@ h5 {
   background-color: #F9F8F4;
   list-style-position: inside;
   font-size: 16px;
-  color: #997070;
+  color: #7A7A6A;
   text-align: left !important;
   line-height: 30px;
   letter-spacing: 1px;
@@ -928,4 +928,34 @@ a {
 #searchMode option {
   background-color: #fffcf5;
   color: #40382d;
+}
+
+.meaning-bracket {
+  display: inline;
+  font-size: 0.85em;
+  margin: 0 0.1em;
+}
+
+.meaning-bracket.square {
+  color: #888 !important;;
+}
+
+.meaning-bracket.corner {
+  color: #888 !important;;
+  font-weight: bold !important;;
+}
+
+.meaning-bracket.round {
+  color: #999 !important;;
+  font-size: 0.85em !important;;
+}
+
+.meaning-bracket.tri {
+  color: #999 !important;;
+  font-size: 0.85em !important;;
+}
+
+.meaning-bracket.dtri {
+  color: #999 !important;;
+  font-size: 0.85em !important;;
 }
