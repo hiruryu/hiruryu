@@ -840,8 +840,8 @@ function showDetails(word) {
         { label: "能格", prefix: "e_" },
         { label: "与格", prefix: "d_" },
         { label: "奪格", prefix: "g_" },
-        { label: "処格", prefix: "l_" },
         { label: "具格", prefix: "i_" },
+        { label: "処格", prefix: "l_" },
         { label: "呼称形", prefix: "v_" },
         { label: "包括形", prefix: "in_" }
       ];
@@ -895,22 +895,21 @@ function showDetails(word) {
       tableHTML = `<tr><td colspan="4">この語には活用データがありません。</td></tr>`;
     } else {
       function makeCell(baseKey) {
-  const base = conjugations[baseKey];
-  const gerund = conjugations[`${baseKey}_gerund`];
+        const base = conjugations[baseKey];
+        const gerund = conjugations[`${baseKey}_gerund`];
 
-  return `
+        return `
     <td class="con">
       <span class="con-hover">
         ${renderCell(base)}
-        ${
-          gerund != null
+        ${gerund != null
             ? `<span class="gerund-tooltip">動名詞形：${renderCell(gerund)}</span>`
             : ""
-        }
+          }
       </span>
     </td>
   `;
-}
+      }
 
       const rows = [
         { label: "完結相", keys: ["p", "n", "f"] },
@@ -1010,21 +1009,37 @@ function showDetails(word) {
   const MAX_VISIBLE = 10;
 
   if (data.meaning) {
-    // 配列ならそのまま、文字列ならカンマ分割
-    const meanings = Array.isArray(data.meaning)
-      ? data.meaning
-      : data.meaning.split(",").map(s => s.trim());
-    // liタグで意味リストを生成
-    meaningsHTML = meanings.map((m, i) => {
-      const extraClass = i >= MAX_VISIBLE ? " extraMeaning" : "";
-      return `<li class="detailList${extraClass}">${m}</li>`;
-    }).join("");
+  // 配列ならそのまま、文字列ならカンマ分割
+  const meanings = Array.isArray(data.meaning)
+    ? data.meaning
+    : data.meaning.split(",").map(s => s.trim());
 
-    // 件数が多いときだけボタン追加
-    if (meanings.length > MAX_VISIBLE) {
-      const hiddenCount = meanings.length - MAX_VISIBLE;
+  // 意味の番号
+  const circles = [
+    "①", "②", "③", "④", "⑤",
+    "⑥", "⑦", "⑧", "⑨", "⑩",
+    "⑪", "⑫", "⑬", "⑭", "⑮",
+    "⑯", "⑰", "⑱", "⑲", "⑳"
+  ];
 
-      meaningsHTML += `
+  // liタグで意味リストを生成
+  meaningsHTML = meanings.map((m, i) => {
+    const extraClass = i >= MAX_VISIBLE ? " extraMeaning" : "";
+    const circleNumber = circles[i] || `(${i + 1})`;
+
+    return `
+      <li class="detailList${extraClass}">
+        <span class="number">${circleNumber}</span>
+        <span class="text">${m}</span>
+      </li>
+    `;
+  }).join("");
+
+  // 件数が多いときだけボタン追加
+  if (meanings.length > MAX_VISIBLE) {
+    const hiddenCount = meanings.length - MAX_VISIBLE;
+
+    meaningsHTML += `
       <li class="detailList toggleWrapper">
         <a href="#" class="toggleMeaning"
            onclick="toggleMeaning(this); return false;">
@@ -1032,8 +1047,8 @@ function showDetails(word) {
         </a>
       </li>
     `;
-    }
   }
+}
 
   // vulgarMeaning が存在し、セーフサーチがOFFの場合
   if (data.vulgarMeaning && !safeSearch) {
@@ -1058,110 +1073,103 @@ function showDetails(word) {
   let leftRows = []; // 左側テーブル行
   let bottomRows = []; // 下部テーブル行
 
-  // 品詞
-  const partClass = partsStyles[data.parts] ?? "";
+  // 各項目のHTMLを格納
+const pairedRows = [];
 
-  leftRows.push(`
+// 品詞
+const partClass = partsStyles[data.parts] ?? "";
+const partHTML = `
+  <th>属性</th>
+  <td class="${partClass}">${data.parts || ""}</td>
+`;
+
+// タグ
+const tagHTML = `
+  <th>タグ</th>
+  <td class="t-td">${data.tag
+    ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag)
+    : ""}</td>
+`;
+
+// 発音
+const pronunciationHTML = `
+  <th>発音</th>
+  <td class="pronunciation">${data.pronunciation || ""}</td>
+`;
+
+// 声位
+const seiiHTML = data.seii
+  ? `<th>声位</th><td class="seii">${renderSeii(data.seii)}</td>`
+  : "";
+
+// 語彙素形
+const lexemicHTML = data.lexemic
+  ? `<th>語彙素形</th><td class="maincolor">${data.lexemic}</td>`
+  : "";
+
+// 接辞形
+let fixHTML = "";
+if (data.fix) {
+  const fix = Array.isArray(data.fix)
+    ? data.fix
+    : data.fix.split(",").map(s => s.trim());
+
+  fixHTML = fix.map(f => `<li>${f}</li>`).join("");
+}
+
+const fixRowHTML = fixHTML
+  ? `<th>接辞形</th><td class="maincolor"><ul class="fixList">${fixHTML}</ul></td>`
+  : "";
+
+// 異形
+const variHTML = data.vari
+  ? `<th>異形</th><td class="variList">${data.vari}</td>`
+  : "";
+
+// 屈折型
+let typeHTML = "";
+if (data.type) {
+  const formattedType = data.type
+    .replace(/（[^）]+）/g, m => `<span class="type-note">${m}</span>`)
+    .replace(/<span class="type-note">/g, '<br><span class="type-note">');
+
+  typeHTML = `<th>屈折型</th><td class="type">${formattedType}</td>`;
+}
+
+// 2項目ずつ横並びの行を生成
+// 2項目を横並びにする。存在しない項目は空欄にせず、残った項目を横幅いっぱいにする
+function makePairedRow(left, right) {
+  if (!left && !right) return "";
+
+  // 両方ある場合は左右に並べる
+  if (left && right) {
+    return `<tr>${left}${right}</tr>`;
+  }
+
+  // 片方だけある場合は、項目名1列＋値3列にする
+  const item = left || right;
+
+  return `<tr>${item
+    .replace(/<th\b[^>]*>/, match => match)
+    .replace(/<td\b([^>]*)>/, '<td$1 colspan="3">')
+  }</tr>`;
+}
+
+// 指定した順番で横並びにする
+leftRows.push(makePairedRow(partHTML, tagHTML));
+leftRows.push(makePairedRow(pronunciationHTML, seiiHTML));
+leftRows.push(makePairedRow(lexemicHTML, fixRowHTML));
+leftRows.push(makePairedRow(variHTML, typeHTML));
+
+// 意味欄をテーブルの下に縦一列で配置
+leftRows.push(`
   <tr>
-    <th>属性</th>
-    <td class="${partClass}">${data.parts || ""}</td>
-  </tr>
-`);
-
-  // タグ
-  leftRows.push(`<tr><th>タグ</th><td class="t-td">${data.tag ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag) : ""}</td></tr>`);
-
-  // 発音
-  // leftRows.push(`<tr><th>発音</th><td class="p-td">${data.pronunciation || ""}</td></tr>`);
-
-  // 声位
-  // if (data.seii) {
-   // leftRows.push(`
-   // <tr>
-   //   <th>声位</th>
-    //  <td class="seii">${renderSeii(data.seii)}</td>
-   // </tr>
-//  `);
-//  }
-
-  // 語彙素形がある場合
-  if (data.lexemic) {
-    leftRows.push(`<tr><th>語彙素形</th><td class="maincolor">${data.lexemic}</td></tr>`);
-  }
-
-  // 接辞形
-  let fixHTML = "";
-  if (data.fix) {
-    // 配列 or カンマ区切りを処理
-    const fix = Array.isArray(data.fix)
-      ? data.fix
-      : data.fix.split(",").map(s => s.trim());
-    // liリスト化
-    fixHTML = fix.map(f => `<li>${f}</li>`).join("");
-  }
-  // 接辞形がある場合テーブル追加
-  if (fixHTML) {
-    leftRows.push(`
-        <tr>
-        <th>接辞形</th>
-        <td class="maincolor">
-        <ul class="fixList">${fixHTML}</ul>
-      </td>
-    </tr>
-  `);
-  }
-
-  // 異形
-  if (data.vari) {
-    leftRows.push(`<tr><th>異形</th><td class="variList">${data.vari}</td></tr>`);
-  }
-
-  // 屈折型
-  if (data.type) {
-    const typeHTML = data.type
-      // 括弧部分を span に
-      .replace(/（[^）]+）/g, (m) => {
-        return `<span class="type-note">${m}</span>`;
-      })
-      // 括弧の前で改行
-      .replace(/<span class="type-note">/g, "<br><span class=\"type-note\">");
-
-    leftRows.push(`<tr><th>屈折型</th><td class="type">${typeHTML}</td></tr>`);
-  }
-
-  // 語義説明
-  if (data.explanation && data.explanation.length > 0) {
-    // 配列の各要素を「① 〇〇 <br>」の形に変換し、最後に結合する
-    const explanationHtml = data.explanation
-      .map((text, index) => {
-        const circles = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
-        const circleNumber = circles[index] || `(${index + 1})`;
-
-        return `
-      <div class="explanation-item">
-        <span class="number">${circleNumber}</span>
-        <span class="text">${text}</span>
-      </div>
-    `;
-      })
-      .join('');
-
-    leftRows.push(`<tr><th>語義</th><td colspan="1"><div class="explanation-content">${explanationHtml}</div></td></tr>`);
-  }
-
-  // 意味列の rowspan の計算
-  const rowspanCount = leftRows.length;
-  // 最初の行に意味列を追加
-  leftRows[0] = `
-  <tr>
-    <th>属性</th>
-    <td class="${partClass}">${data.parts || ""}</td>
-    <th rowspan="${rowspanCount}">意味</th>
-    <td rowspan="${rowspanCount}">
-      <ul>${meaningsHTML}</ul>
+    <th>意味</th>
+    <td colspan="3">
+      <ul class="meaningList">${meaningsHTML}</ul>
     </td>
   </tr>
-`;
+`);
 
   // URLを自動リンク化する関数
   function processH5Links(text) {
@@ -1250,7 +1258,9 @@ function showDetails(word) {
   <table>
     <thead>
       <tr>
-        <th class="heading-cell ${headerClass}" colspan="4">${word}</th>
+        <th class="heading-cell ${headerClass}" colspan="4">
+        <span class="word">${word}</span>
+        </th>
       </tr>
     </thead>
     <tbody class="detailTable">
@@ -1615,7 +1625,7 @@ function showDetails(word) {
       detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="5"></th>
+                <th colspan="5">屈折型</th>
               </tr>
               <tr class="conH2">
                 <th rowspan="2"></th>
@@ -1635,7 +1645,7 @@ function showDetails(word) {
       detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="5"></th>
+                <th colspan="5">屈折型</th>
               </tr>
               <tr class="conH2">
                 <th></th>
@@ -1649,15 +1659,15 @@ function showDetails(word) {
             </tbody>
           </table>`;
 
-          detailsHTML += `<table>
+      detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
                 <th colspan="3">飾形</th>
               </tr>
               <tr class="conH2">
                 <th></th>
-                <th>既行時制</th>
-                <th>未行時制</th>
+                <th>既済時制</th>
+                <th>未済時制</th>
               </tr>
             </thead>
             <tbody>
@@ -1665,14 +1675,14 @@ function showDetails(word) {
             </tbody>
           </table>`;
 
-          
+
 
       // 形容詞（名飾）
     } else if (data.parts === "名飾") {
       detailsHTML += `<table>
              <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="7"></th>
+                <th colspan="7">屈折表</th>
               </tr>
               <tr class="conH2">
               <th></th>
@@ -1823,28 +1833,27 @@ function generateInflections(word) {
   let raw;
   if (data.parts === "名象") {
     raw = fn(
-  word,
-  data.stem,
-  data.long_stem,
-  data.stem2,
-  data.stem3,
-  data.type,
-  data.ruletype
-) || {};
+      word,
+      data.stem,
+      data.long_stem,
+      data.stem2,
+      data.stem3,
+      data.type,
+      data.ruletype
+    ) || {};
 
     // 動詞・飾詞は以下の通り
   } else {
     raw = fn(
-  word,
-  data.stem,
-  data.long_stem,
-  data.stem2,
-  data.stem3,
-  data.type,
-  data.ruletype
-) || {};
+      word,
+      data.stem,
+      data.long_stem,
+      data.stem2,
+      data.stem3,
+      data.type,
+      data.ruletype
+    ) || {};
   }
-  console.log(generateInflections("単語"));
 
   // 配列 or オブジェクトどちらでも扱えるよう統一
   const infls = Array.isArray(raw) ? raw : Object.values(raw);
