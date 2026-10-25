@@ -166,15 +166,107 @@ const partsStyles = {
 };
 
 // 意味テキストから翻訳語を抽出する関数
-// ［注釈］や（補足）を削除し、カンマで分割して配列にする
+// 検索用テキストの生成にも使用する
+function removeAnnotations(text) {
+  if (text === null || text === undefined) {
+    return "";
+  }
+
+  return String(text)
+    .replace(/［[^］]*］/g, "")
+    .replace(/〈[^〉]*〉/g, "")
+    .replace(/⫽[^⫽]*⫽/g, "")
+    .replace(/（[^）]*）/g, "")
+    .replace(/〔[^〕]*〕/g, "")
+    .replace(/\[[^\]]*\]/g, "")
+    .replace(/【[^】]*】/g, "")
+    .replace(/｟[^｠]*｠/g, "")
+    .replace(/《[^》]*》/g, "")
+    .replace(/\([^)]*\)/g, "")
+    .trim();
+}
+
+// 括弧内を除外してからカンマで分割する
 function extractTranslations(text) {
-  const cleaned = text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/⫽[^］]*⫽/g, "").replace(/（[^）]*）/g, "").trim();
+  const cleaned = removeAnnotations(text);
   return cleaned.split(/\s*,\s*/).filter(item => item !== "");
 }
 
-// ［注釈］や（補足）などを削除するユーティリティ関数
-function removeAnnotations(text) {
-  return text.replace(/［[^］]*］/g, "").replace(/〈[^］]*〉/g, "").replace(/⫽[^］]*⫽/g, "").replace(/（[^）]*）/g, "").trim();
+// 意味テキストを HTML に変換する関数
+function renderMeaningText(text) {
+  if (text === null || text === undefined) {
+    return "";
+  }
+
+  let html = String(text);
+
+  // HTML として解釈されないようにエスケープ
+  html = html
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // ［ ... ］
+  html = html.replace(
+    /［([^］]*)］/g,
+    '<span class="meaning-bracket square">［$1］</span>'
+  );
+
+  // 〈 ... 〉
+  html = html.replace(
+    /〈([^〉]*)〉/g,
+    '<span class="meaning-bracket tri">〈$1〉</span>'
+  );
+
+  // ⫽ ... ⫽
+  html = html.replace(
+    /⫽([^⫽]*)⫽/g,
+    '<span class="meaning-bracket slash">⫽$1⫽</span>'
+  );
+
+  // 〔 ... 〕
+  html = html.replace(
+    /〔([^〕]*)〕/g,
+    '<span class="meaning-bracket square">〔$1〕</span>'
+  );
+
+  // [ ... ]
+  html = html.replace(
+    /\[([^\]]*)\]/g,
+    '<span class="meaning-bracket square">[$1]</span>'
+  );
+
+  // 【 ... 】
+  html = html.replace(
+    /【([^】]*)】/g,
+    '<span class="meaning-bracket corner">【$1】</span>'
+  );
+
+  // （ ... ）
+  html = html.replace(
+    /（([^）]*)）/g,
+    '<span class="meaning-bracket round">（$1）</span>'
+  );
+
+  // ｟ ... ｠
+  html = html.replace(
+    /｟([^｠]*)｠/g,
+    '<span class="meaning-bracket round">｟$1｠</span>'
+  );
+
+  // 《 ... 》
+  html = html.replace(
+    /《([^》]*)》/g,
+    '<span class="meaning-bracket dtri">《$1》</span>'
+  );
+
+  // ( ... )
+  html = html.replace(
+    /\(([^)]*)\)/g,
+    '<span class="meaning-bracket round">($1)</span>'
+  );
+
+  return html;
 }
 
 // 語素/変成体の判定
@@ -1009,37 +1101,37 @@ function showDetails(word) {
   const MAX_VISIBLE = 10;
 
   if (data.meaning) {
-  // 配列ならそのまま、文字列ならカンマ分割
-  const meanings = Array.isArray(data.meaning)
-    ? data.meaning
-    : data.meaning.split(",").map(s => s.trim());
+    // 配列ならそのまま、文字列ならカンマ分割
+    const meanings = Array.isArray(data.meaning)
+      ? data.meaning
+      : data.meaning.split(",").map(s => s.trim());
 
-  // 意味の番号
-  const circles = [
-    "①", "②", "③", "④", "⑤",
-    "⑥", "⑦", "⑧", "⑨", "⑩",
-    "⑪", "⑫", "⑬", "⑭", "⑮",
-    "⑯", "⑰", "⑱", "⑲", "⑳"
-  ];
+    // 意味の番号
+    const circles = [
+      "①", "②", "③", "④", "⑤",
+      "⑥", "⑦", "⑧", "⑨", "⑩",
+      "⑪", "⑫", "⑬", "⑭", "⑮",
+      "⑯", "⑰", "⑱", "⑲", "⑳"
+    ];
 
-  // liタグで意味リストを生成
-  meaningsHTML = meanings.map((m, i) => {
-    const extraClass = i >= MAX_VISIBLE ? " extraMeaning" : "";
-    const circleNumber = circles[i] || `(${i + 1})`;
+    // liタグで意味リストを生成
+    meaningsHTML = meanings.map((m, i) => {
+      const extraClass = i >= MAX_VISIBLE ? " extraMeaning" : "";
+      const circleNumber = circles[i] || `(${i + 1})`;
 
-    return `
+      return `
       <li class="detailList${extraClass}">
         <span class="number">${circleNumber}</span>
-        <span class="text">${m}</span>
+        <span class="text">${renderMeaningText(m)}</span>
       </li>
     `;
-  }).join("");
+    }).join("");
 
-  // 件数が多いときだけボタン追加
-  if (meanings.length > MAX_VISIBLE) {
-    const hiddenCount = meanings.length - MAX_VISIBLE;
+    // 件数が多いときだけボタン追加
+    if (meanings.length > MAX_VISIBLE) {
+      const hiddenCount = meanings.length - MAX_VISIBLE;
 
-    meaningsHTML += `
+      meaningsHTML += `
       <li class="detailList toggleWrapper">
         <a href="#" class="toggleMeaning"
            onclick="toggleMeaning(this); return false;">
@@ -1047,8 +1139,8 @@ function showDetails(word) {
         </a>
       </li>
     `;
+    }
   }
-}
 
   // vulgarMeaning が存在し、セーフサーチがOFFの場合
   if (data.vulgarMeaning && !safeSearch) {
@@ -1074,95 +1166,95 @@ function showDetails(word) {
   let bottomRows = []; // 下部テーブル行
 
   // 各項目のHTMLを格納
-const pairedRows = [];
+  const pairedRows = [];
 
-// 品詞
-const partClass = partsStyles[data.parts] ?? "";
-const partHTML = `
+  // 品詞
+  const partClass = partsStyles[data.parts] ?? "";
+  const partHTML = `
   <th>属性</th>
   <td class="${partClass}">${data.parts || ""}</td>
 `;
 
-// タグ
-const tagHTML = `
+  // タグ
+  const tagHTML = `
   <th>タグ</th>
   <td class="t-td">${data.tag
-    ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag)
-    : ""}</td>
+      ? (Array.isArray(data.tag) ? data.tag.join(", ") : data.tag)
+      : ""}</td>
 `;
 
-// 発音
-const pronunciationHTML = `
+  // 発音
+  const pronunciationHTML = `
   <th>発音</th>
   <td class="pronunciation">${data.pronunciation || ""}</td>
 `;
 
-// 声位
-const seiiHTML = data.seii
-  ? `<th>声位</th><td class="seii">${renderSeii(data.seii)}</td>`
-  : "";
+  // 声位
+  const seiiHTML = data.seii
+    ? `<th>声位</th><td class="seii">${renderSeii(data.seii)}</td>`
+    : "";
 
-// 語彙素形
-const lexemicHTML = data.lexemic
-  ? `<th>語彙素形</th><td class="maincolor">${data.lexemic}</td>`
-  : "";
+  // 語彙素形
+  const lexemicHTML = data.lexemic
+    ? `<th>語彙素形</th><td class="maincolor">${data.lexemic}</td>`
+    : "";
 
-// 接辞形
-let fixHTML = "";
-if (data.fix) {
-  const fix = Array.isArray(data.fix)
-    ? data.fix
-    : data.fix.split(",").map(s => s.trim());
+  // 接辞形
+  let fixHTML = "";
+  if (data.fix) {
+    const fix = Array.isArray(data.fix)
+      ? data.fix
+      : data.fix.split(",").map(s => s.trim());
 
-  fixHTML = fix.map(f => `<li>${f}</li>`).join("");
-}
-
-const fixRowHTML = fixHTML
-  ? `<th>接辞形</th><td class="maincolor"><ul class="fixList">${fixHTML}</ul></td>`
-  : "";
-
-// 異形
-const variHTML = data.vari
-  ? `<th>異形</th><td class="variList">${data.vari}</td>`
-  : "";
-
-// 屈折型
-let typeHTML = "";
-if (data.type) {
-  const formattedType = data.type
-    .replace(/（[^）]+）/g, m => `<span class="type-note">${m}</span>`)
-    .replace(/<span class="type-note">/g, '<br><span class="type-note">');
-
-  typeHTML = `<th>屈折型</th><td class="type">${formattedType}</td>`;
-}
-
-// 2項目ずつ横並びの行を生成
-// 2項目を横並びにする。存在しない項目は空欄にせず、残った項目を横幅いっぱいにする
-function makePairedRow(left, right) {
-  if (!left && !right) return "";
-
-  // 両方ある場合は左右に並べる
-  if (left && right) {
-    return `<tr>${left}${right}</tr>`;
+    fixHTML = fix.map(f => `<li>${f}</li>`).join("");
   }
 
-  // 片方だけある場合は、項目名1列＋値3列にする
-  const item = left || right;
+  const fixRowHTML = fixHTML
+    ? `<th>接辞形</th><td class="maincolor"><ul class="fixList">${fixHTML}</ul></td>`
+    : "";
 
-  return `<tr>${item
-    .replace(/<th\b[^>]*>/, match => match)
-    .replace(/<td\b([^>]*)>/, '<td$1 colspan="3">')
-  }</tr>`;
-}
+  // 異形
+  const variHTML = data.vari
+    ? `<th>異形</th><td class="variList">${data.vari}</td>`
+    : "";
 
-// 指定した順番で横並びにする
-leftRows.push(makePairedRow(partHTML, tagHTML));
-leftRows.push(makePairedRow(pronunciationHTML, seiiHTML));
-leftRows.push(makePairedRow(lexemicHTML, fixRowHTML));
-leftRows.push(makePairedRow(variHTML, typeHTML));
+  // 屈折型
+  let typeHTML = "";
+  if (data.type) {
+    const formattedType = data.type
+      .replace(/（[^）]+）/g, m => `<span class="type-note">${m}</span>`)
+      .replace(/<span class="type-note">/g, '<br><span class="type-note">');
 
-// 意味欄をテーブルの下に縦一列で配置
-leftRows.push(`
+    typeHTML = `<th>屈折型</th><td class="type">${formattedType}</td>`;
+  }
+
+  // 2項目ずつ横並びの行を生成
+  // 2項目を横並びにする。存在しない項目は空欄にせず、残った項目を横幅いっぱいにする
+  function makePairedRow(left, right) {
+    if (!left && !right) return "";
+
+    // 両方ある場合は左右に並べる
+    if (left && right) {
+      return `<tr>${left}${right}</tr>`;
+    }
+
+    // 片方だけある場合は、項目名1列＋値3列にする
+    const item = left || right;
+
+    return `<tr>${item
+      .replace(/<th\b[^>]*>/, match => match)
+      .replace(/<td\b([^>]*)>/, '<td$1 colspan="3">')
+      }</tr>`;
+  }
+
+  // 指定した順番で横並びにする
+  leftRows.push(makePairedRow(partHTML, tagHTML));
+  leftRows.push(makePairedRow(pronunciationHTML, seiiHTML));
+  leftRows.push(makePairedRow(lexemicHTML, fixRowHTML));
+  leftRows.push(makePairedRow(variHTML, typeHTML));
+
+  // 意味欄をテーブルの下に縦一列で配置
+  leftRows.push(`
   <tr>
     <th>意味</th>
     <td colspan="3">
