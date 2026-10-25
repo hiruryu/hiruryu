@@ -1194,9 +1194,9 @@ function showDetails(word) {
     ? `<th>声位</th><td class="seii">${renderSeii(data.seii)}</td>`
     : "";
 
-  // 語彙素形
+  // 潜在形
   const lexemicHTML = data.lexemic
-    ? `<th>語彙素形</th><td class="maincolor">${data.lexemic}</td>`
+    ? `<th>潜在形</th><td class="maincolor">${data.lexemic}</td>`
     : "";
 
   // 接辞形
