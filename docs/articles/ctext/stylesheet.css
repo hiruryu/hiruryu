@@ -1,0 +1,351 @@
+:root{
+  --bg:#f6f4ef;
+  --paper:#fffdf8;
+  --ink:#2c2c2c;
+  --soft:#8e8a83;
+  --accent:#e8dfc8;
+  --border:#d7d1c5;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:
+    "Noto Sans JP",
+    sans-serif; 
+  line-height:1.9;
+  letter-spacing:.03em;
+}
+
+.page{
+  width:min(900px, 92%);
+  margin:60px auto;
+  padding:50px;
+  background:var(--paper);
+  border:2px solid var(--border);
+  border-radius:28px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* 背景のうっすら線 */
+.page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 38px,
+      rgba(0,0,0,.025) 39px
+    );
+  pointer-events:none;
+}
+
+/* タイトル */
+
+.title{
+  margin:0;
+  font-size:2.3rem;
+  font-weight:800;
+  position:relative;
+  display:inline-block;
+}
+
+.title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:100%;
+  height:6px;
+  background:var(--accent);
+  border-radius:999px;
+}
+
+.subtitle{
+  margin:0;
+  font-size:1.5rem;
+  font-weight:600;
+  position:relative;
+  display:inline-block;
+}
+
+.sub {
+  color:var(--soft);
+  margin-top:18px;
+  margin-bottom:50px;
+}
+
+/* セクション */
+
+.section{
+  margin-top:60px;
+  position:relative;
+}
+
+.section-title{
+  font-size:1.4rem;
+  font-weight:700;
+  margin-bottom:22px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.section-title::before{
+  content:"";
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+.section-title2{
+  font-size:1.2rem;
+  font-weight:700;
+  margin-bottom:22px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.section-title2::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+/* 解説ボックス */
+/* 左吹き出し */
+.t-note {
+  width:clamp(280px, 80%, 650px);
+  padding:28px;
+  background:#fff;
+  border-radius:28px;
+}
+.c-note {
+  width:clamp(280px, 80%, 650px);
+  padding:30px;
+  background:#fff;
+  border-radius:10px;
+}
+
+.t-note{
+  border:3px solid #dba300;
+}
+
+.c-note{
+  border:3px solid #8a63d2;
+}
+
+/* 解説ボックス */
+.note{
+  background:#fff;
+  border:2px solid var(--border);
+  border-radius:22px;
+  padding:24px;
+  position:relative;
+  margin-top:20px;
+}
+
+/* 例文 */
+
+.example{
+  margin-top:18px;
+  padding:18px 22px;
+  background:#faf7f1;
+  border-radius:18px;
+  border-left:6px solid #d8c9a5;
+}
+
+.conlang{
+  font-size:1.2rem;
+  font-weight:700;
+}
+
+.gloss{
+  color:var(--soft);
+  font-size:.95rem;
+}
+
+.translation{
+  margin-top:8px;
+}
+
+/* キャラ */
+.character-wrap{
+  width:100%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:30px;
+  margin:40px 0;
+}
+
+.speech{
+  background:white;
+  border:2px solid var(--border);
+  border-radius:24px;
+  padding:18px 22px;
+  max-width:500px;
+  position:relative;
+}
+
+.speech::after{
+  content:"";
+  position:absolute;
+  right:-9.5px;
+  bottom:28px;
+
+  width:18px;
+  height:24px;
+  background:white;
+
+  border-right:2px solid var(--border);
+  border-bottom:2px solid var(--border);
+  border-color: inherit;
+  transform:rotate(-45deg);
+}
+
+.character{
+  width:140px;
+  min-width:140px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+}
+
+.character img{
+  width:100%;
+  display:block;
+}
+
+/* ミニメモ */
+.mini{
+  margin-top:24px;
+  font-size:.95rem;
+  color:var(--soft);
+  padding-left:14px;
+  border-left:3px dashed var(--border);
+}
+
+/* 表 */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+th, td{
+  padding:14px 18px;
+  border-bottom:1px solid var(--border);
+}
+
+th{
+  background:#f7f2e7;
+  text-align:left;
+}
+
+tr:last-child td{
+  border-bottom:none;
+}
+
+.tabletitleA {
+  font-weight: bold;
+  font-size: 20px;
+  color: #444444;
+  text-align: center;
+}
+
+.tabletitleB {
+  font-weight: bold;
+  font-size: 15px;
+  color: #444444;
+  text-align: center;
+}
+
+.td {
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.td-charis {
+  font-size: 16px;
+  color: #858585;
+  font-family: "Charis SIL-Regular", serif;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/* 語尾強調 */
+.suffix{
+  color:#b16d3b;
+  font-weight:700;
+}
+
+/* 手描き風線 */
+.wavy{
+  width:100%;
+  margin:36px 0;
+}
+
+.wavy svg{
+  width:100%;
+  height:24px;
+}
+
+.quiz-container { text-align: center; }
+.quiz-input { width: 100%; max-width: 500px; box-sizing: border-box; padding: 0.5em; font-size: 1em; text-align: center; margin: 0 auto; display: block;}
+.feedback { margin-left: 0.5em; font-weight: bold; }
+.feedback.correct { color: #17ab39; }
+.feedback.wrong { color: #e21a1a; }
+.reveal { color: #7dc87d; margin-left: 0.5em; }
+
+a {
+    text-decoration: none;
+    color: rgb(91, 91, 255);
+    background: linear-gradient(to right, #99bbff99) bottom repeat-x;
+    background-size: 100% 5px;
+  }
+
+  sup {
+    font-size: 8px;
+}
+
+
+.light {
+    color: #AA9988 !important;
+}
+.marker {
+    background: linear-gradient(to right, #ffe45f, #ffe45f) bottom repeat-x;
+    background-size: 100% 5px;
+}
+.mini-marker {
+    font-size: 12px;
+    color: #B5AFA5;
+}
+
+.quiztext {
+    font-size: 16px;
+    text-align: center;
+    color: #444444;
+}
+
+
+.audio-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
