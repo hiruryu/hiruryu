@@ -1931,7 +1931,8 @@ function generateInflections(word) {
       data.stem2,
       data.stem3,
       data.type,
-      data.ruletype
+      data.ruletype,
+      data.baseOverrides
     ) || {};
 
     // 動詞・飾詞は以下の通り
@@ -1943,7 +1944,8 @@ function generateInflections(word) {
       data.stem2,
       data.stem3,
       data.type,
-      data.ruletype
+      data.ruletype,
+      data.baseOverrides
     ) || {};
   }
 

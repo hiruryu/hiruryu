@@ -54,6 +54,56 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   in_fxũ = g_fxũ + "ta";
 
 
+  // baseOverrides: 複数形の基底を差し替えるよ
+  // Cdic.json に "baseOverrides": {"anpC": "..."} と書くと、
+  // anpC から作られる格形（f/e/d/l/i/g/in_anpC）も
+  // 差し替えた基底から作り直されるよ。
+  // "anpC" はどの ruletype でも複数形の基底全体に効くよ。
+  // 細かく分けたいときは anpC2 / anpCl / anpCn / anpCnn / anpCq / anpCo / anpCw
+  // （とそれぞれの 2 系）を指定すると、そちらが優先されるよ。
+  // "ansC" は単数形の表示だけを変えるよ。
+  // 旧システムの adsC / adpC は今の nRules にはないよ。
+  if (baseOverrides) {
+    if (baseOverrides.anpC != null) {
+      anpC = baseOverrides.anpC;
+      anpC2 = baseOverrides.anpC;
+      anpCl = baseOverrides.anpC;
+      anpCl2 = baseOverrides.anpC;
+      anpCn = baseOverrides.anpC;
+      anpCn2 = baseOverrides.anpC;
+      anpCnn = baseOverrides.anpC;
+      anpCnn2 = baseOverrides.anpC;
+      anpCq = baseOverrides.anpC;
+      anpCq2 = baseOverrides.anpC;
+      anpCo = baseOverrides.anpC;
+      anpCo2 = baseOverrides.anpC;
+      anpCw = baseOverrides.anpC;
+      anpCw2 = baseOverrides.anpC;
+    }
+    if (baseOverrides.anpC2 != null) {
+      anpC2 = baseOverrides.anpC2;
+      anpCl2 = baseOverrides.anpC2;
+      anpCn2 = baseOverrides.anpC2;
+      anpCnn2 = baseOverrides.anpC2;
+      anpCq2 = baseOverrides.anpC2;
+      anpCo2 = baseOverrides.anpC2;
+      anpCw2 = baseOverrides.anpC2;
+    }
+    if (baseOverrides.anpCl != null) anpCl = baseOverrides.anpCl;
+    if (baseOverrides.anpCl2 != null) anpCl2 = baseOverrides.anpCl2;
+    if (baseOverrides.anpCn != null) anpCn = baseOverrides.anpCn;
+    if (baseOverrides.anpCn2 != null) anpCn2 = baseOverrides.anpCn2;
+    if (baseOverrides.anpCnn != null) anpCnn = baseOverrides.anpCnn;
+    if (baseOverrides.anpCnn2 != null) anpCnn2 = baseOverrides.anpCnn2;
+    if (baseOverrides.anpCq != null) anpCq = baseOverrides.anpCq;
+    if (baseOverrides.anpCq2 != null) anpCq2 = baseOverrides.anpCq2;
+    if (baseOverrides.anpCo != null) anpCo = baseOverrides.anpCo;
+    if (baseOverrides.anpCo2 != null) anpCo2 = baseOverrides.anpCo2;
+    if (baseOverrides.anpCw != null) anpCw = baseOverrides.anpCw;
+    if (baseOverrides.anpCw2 != null) anpCw2 = baseOverrides.anpCw2;
+  }
+  const ansCBase = (baseOverrides && baseOverrides.ansC != null) ? baseOverrides.ansC : word;
+
   // 母音の置き換え
   stemVi = (stem ?? "").replace(/[áéóúö́ë́]/g, '$&i');
   stem2Vi = (stem2 ?? "").replace(/[aeouöë]/g, '$&i');
@@ -76,13 +126,13 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   }
 
   if (ruletype === "not") {
-    return { ansC: word };
+    return { ansC: ansCBase };
   }
   // k / g / f / v/ s / z / c / sh / zh / c / xh 基本形
   if (["p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "c", "x", "sh", "zh", "ch", "xh", "h", "pq", "r"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -106,7 +156,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["pj", "bj", "tj", "dj", "kj", "gj", "fj", "vj", "sj", "zj", "cj", "xj", "shj", "zhj", "chj", "xhj", "hj", "rj", "rhj", "j"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -131,7 +181,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["l", "rh"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -156,7 +206,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["lj"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -181,7 +231,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["m"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -213,7 +263,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["mj"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -251,7 +301,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["n"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -280,7 +330,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["nj"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -315,7 +365,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["q"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -341,7 +391,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["qj"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fx,
       e_ansC: stem + e_fx,
       d_ansC: stem + d_fx,
@@ -376,7 +426,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["á"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + "á" + f_fx.slice(1, 2),
       e_ansC: stem + "á" + e_fx.slice(1, 2),
       d_ansC: stem + "á" + d_fx.slice(1, 2),
@@ -386,22 +436,22 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       v_ansC: stem + "á" + v_fx.slice(1, 3),
       in_ansC: stem + "á" + in_fx.slice(1, 6),
       // 複数形
-      anpC: stem2 + "ra",
-      f_anpC: stem2 + "r" + f_fx,
-      e_anpC: stem2 + "r" + e_fx,
-      d_anpC: stem2 + "r" + d_fx,
-      l_anpC: stem2 + "r" + l_fx,
-      i_anpC: stem2 + "r" + i_fx,
-      g_anpC: stem2 + "r" + g_fx,
+      anpC: anpC2,
+      f_anpC: anpC2.slice(0, -1) + f_fx,
+      e_anpC: anpC2.slice(0, -1) + e_fx,
+      d_anpC: anpC2.slice(0, -1) + d_fx,
+      l_anpC: anpC2.slice(0, -1) + l_fx,
+      i_anpC: anpC2.slice(0, -1) + i_fx,
+      g_anpC: anpC2.slice(0, -1) + g_fx,
       v_anpC: stem2.slice(0, -1) + "ar" + v_fx,
-      in_anpC: stem2 + "r" + in_fx,
+      in_anpC: anpC2.slice(0, -1) + in_fx,
     }
 
     // o 尾高形
   } else if (["ó"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + "ó" + f_fx.slice(1, 2),
       e_ansC: stem + "ó" + e_fx.slice(1, 2),
       d_ansC: stem + "ó" + d_fx.slice(1, 2),
@@ -411,22 +461,22 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       v_ansC: stem + "ó" + v_fx.slice(1, 3),
       in_ansC: stem + "ó" + in_fx.slice(1, 6),
       // 複数形
-      anpC: stem2 + "ra",
-      f_anpC: stem2 + "r" + f_fx,
-      e_anpC: stem2 + "r" + e_fx,
-      d_anpC: stem2 + "r" + d_fx,
-      l_anpC: stem2 + "r" + l_fx,
-      i_anpC: stem2 + "r" + i_fx,
-      g_anpC: stem2 + "r" + g_fx,
+      anpC: anpC2,
+      f_anpC: anpC2.slice(0, -1) + f_fx,
+      e_anpC: anpC2.slice(0, -1) + e_fx,
+      d_anpC: anpC2.slice(0, -1) + d_fx,
+      l_anpC: anpC2.slice(0, -1) + l_fx,
+      i_anpC: anpC2.slice(0, -1) + i_fx,
+      g_anpC: anpC2.slice(0, -1) + g_fx,
       v_anpC: stem2.slice(0, -1) + "ar" + v_fx,
-      in_anpC: stem2 + "r" + in_fx,
+      in_anpC: anpC2.slice(0, -1) + in_fx,
     }
 
     // o 基本形
   } else if (["o", "po", "bo", "to", "do", "ko", "go", "fo", "vo", "so", "zo", "sho", "zho", "co", "xo", "ho", "ro"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fxo,
       e_ansC: stem + e_fxo,
       d_ansC: stem + d_fxo,
@@ -451,7 +501,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["lo"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fxo,
       e_ansC: stem + e_fxo,
       d_ansC: stem + d_fxo,
@@ -478,7 +528,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["ũ"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + f_fxũ,
       e_ansC: stem + e_fxũ,
       d_ansC: stem + d_fxũ,
@@ -502,7 +552,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   } else if (["w"].includes(ruletype)) {
     return {
       // 単数形
-      ansC: word,
+      ansC: ansCBase,
       f_ansC: stem + "uf",
       e_ansC: stem + "uk",
       d_ansC: word,
