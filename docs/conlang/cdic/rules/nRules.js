@@ -157,7 +157,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       i_anpC: anpC.slice(0, -1) + i_fx,
       g_anpC: anpC.slice(0, -1) + g_fx,
       v_anpC: anpC2.slice(0, -1) + v_fx,
-      in_anpC: anpC2.slice(0, -1) + in_fx,
+      in_anpC: anpC.slice(0, -1) + in_fx,
     }
     // k / g / f / v/ s / z / c / sh / zh / cn / xh 明音形
   } else if (["pj", "bj", "tj", "dj", "kj", "gj", "fj", "vj", "sj", "zj", "cj", "xj", "shj", "zhj", "chj", "xhj", "hj", "rj", "rhj", "j"].includes(ruletype)) {
@@ -181,7 +181,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       i_anpC: anpC.slice(0, -1) + i_fx,
       g_anpC: anpC.slice(0, -1) + g_fx,
       v_anpC: anpC2.slice(0, -1) + v_fx,
-      in_anpC: anpC2.slice(0, -1) + in_fx,
+      in_anpC: anpC.slice(0, -1) + in_fx,
     }
 
     // l 基本形
@@ -206,7 +206,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       i_anpC: anpCl.slice(0, -1) + i_fx,
       g_anpC: anpCl.slice(0, -1) + g_fx,
       v_anpC: anpCl2.slice(0, -1) + v_fx,
-      in_anpC: anpCl2.slice(0, -1) + in_fx,
+      in_anpC: anpCl.slice(0, -1) + in_fx,
     }
 
     // l 明音形
@@ -231,7 +231,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       i_anpC: anpCl.slice(0, -1) + i_fx,
       g_anpC: anpCl.slice(0, -1) + g_fx,
       v_anpC: anpCl2.slice(0, -1) + v_fx,
-      in_anpC: anpCl2.slice(0, -1) + in_fx,
+      in_anpC: anpCl.slice(0, -1) + in_fx,
     }
 
     // m 基本形
@@ -264,7 +264,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
         stem2ua + "hr" + v_fx,
       ).join("<br>"),
 
-      in_anpC: anpCn2.slice(0, -1) + in_fx,
+      in_anpC: anpCn.slice(0, -1) + in_fx,
     }
     // m 明音形
   } else if (["mj"].includes(ruletype)) {
@@ -302,7 +302,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
         stem2jui + "hr" + v_fx,
       ).join("<br>"),
 
-      in_anpC: anpCn2.slice(0, -1) + in_fx,
+      in_anpC: anpCn.slice(0, -1) + in_fx,
     }
     // n 基本形
   } else if (["n"].includes(ruletype)) {
@@ -331,7 +331,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       v_anpC: vAnpCFromBase ?? uniqueForms(
         stem2ua + "d" + v_fx,
       ).join("<br>"),
-      in_anpC: anpCnn2.slice(0, -1) + in_fx,
+      in_anpC: anpCnn.slice(0, -1) + in_fx,
     }
     // n 明音形
   } else if (["nj"].includes(ruletype)) {
@@ -365,7 +365,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
         stem2oö + "d" + v_fx,
         stem2jui + "d" + v_fx,
       ).join("<br>"),
-      in_anpC: anpCn2.slice(0, -1) + in_fx,
+      in_anpC: anpCn.slice(0, -1) + in_fx,
     }
 
     // q 基本形
@@ -392,7 +392,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       i_anpC: anpCq.slice(0, -1) + i_fx,
       g_anpC: anpCq.slice(0, -1) + g_fx,
       v_anpC: anpCq2.slice(0, -1) + v_fx,
-      in_anpC: anpCq2.slice(0, -1) + in_fx,
+      in_anpC: anpCq.slice(0, -1) + in_fx,
     }
     // q 明音形
   } else if (["qj"].includes(ruletype)) {
@@ -426,7 +426,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
         stem2oö + "hr" + v_fx,
         stem2jui + "hr" + v_fx,
       ).join("<br>"),
-      in_anpC: anpCq2.slice(0, -1) + in_fx,
+      in_anpC: anpCq.slice(0, -1) + in_fx,
     }
 
     // a 尾高形
@@ -501,7 +501,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       i_anpC: anpCo.slice(0, -1) + i_fx,
       g_anpC: anpCo.slice(0, -1) + g_fx,
       v_anpC: anpCo2.slice(0, -1) + v_fx,
-      in_anpC: anpCo2.slice(0, -1) + in_fx,
+      in_anpC: anpCo.slice(0, -1) + in_fx,
     }
 
     // lo 基本形
@@ -528,7 +528,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       v_anpC: vAnpCFromBase ?? uniqueForms(
         stem2ua + "l" + v_fx,
       ).join("<br>"),
-      in_anpC: anpCl2.slice(0, -1) + in_fx,
+      in_anpC: anpCl.slice(0, -1) + in_fx,
     }
 
     // ũ 基本形
@@ -553,7 +553,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       i_anpC: anpCl.slice(0, -1) + i_fx,
       g_anpC: anpCl.slice(0, -1) + g_fx,
       v_anpC: anpCl2.slice(0, -1) + v_fx,
-      in_anpC: anpCl2.slice(0, -1) + in_fx,
+      in_anpC: anpCl.slice(0, -1) + in_fx,
     }
 
   } else if (["w"].includes(ruletype)) {
