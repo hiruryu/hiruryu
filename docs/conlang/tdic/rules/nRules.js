@@ -31,6 +31,7 @@
 //   （合成語 μαχιόλ のように、音節数規則から外れる語も見出し語の通りになる）。
 //   なければ音節数で決める（1音節→その母音、2音節→第1音節、3音節以上→後ろから2番目）。
 //   長音も見出し語の母音ごとに維持する。接辞の母音にアクセントは付かない。
+//   分音符（ϊ、ϋ など）も見出し語の母音ごとに維持する。
 //   なお stem2（例：μαχιόλ の μαχιοτ）は現行の屈折では使わない（旧コードと同じ）。
 
 const TDIC_VOWELS = new Set(["α", "ε", "η", "ι", "ο", "υ", "ω"]);
@@ -48,6 +49,27 @@ const TDIC_CASE_SUFFIXES = [
   ["ο" + TDIC_CIRCUMFLEX + "ς", "gen"], // 属格
   ["α" + TDIC_CIRCUMFLEX + "ζε", "voc"], // 呼格
 ];
+
+// 格接辞を付けるときの母音の接合。基本形が母音で終わり、接辞も母音で始まる場合：
+//   同じ母音＋短母音 → 長母音に融合する（ο+ο → ο̂。例：μάχο + ος → μάχο̂ς）。
+//   同じ母音＋長母音 → ρ を挟む（ο+ο̂ → ορο̂、α+α̂ → αρα̂。例：μάχο + ο̂ς → μάχορο̂ς）。
+//   異なる母音 → そのまま付ける（α+ο̂ → αο̂ など。例：λυκόττα + ο̂ς → λυκότταο̂ς）。
+// 融合で末尾母音のアクセントを失う場合は、融合せず ρ を挟む。
+function tdicJoinCase(form, suffix) {
+  const fChars = [...form];
+  let i = fChars.length - 1;
+  while (i >= 0 && /[\u0300-\u036f]/.test(fChars[i])) i -= 1;
+  const lastVowel = fChars[i];
+  const sChars = [...suffix];
+  const first = sChars[0];
+  if (!TDIC_VOWELS.has(lastVowel) || !TDIC_VOWELS.has(first)) return form + suffix;
+  if (lastVowel !== first) return form + suffix;
+  const suffixLong = sChars[1] === TDIC_CIRCUMFLEX;
+  const hasAcute = fChars.slice(i + 1).includes(TDIC_ACUTE);
+  if (suffixLong || hasAcute) return form + "ρ" + suffix;
+  // 同じ短母音同士：末尾母音を落とし、長母音（サーカムフレックス付き）にする。
+  return fChars.slice(0, i).join("") + first + TDIC_CIRCUMFLEX + sChars.slice(1).join("");
+}
 
 function tdicStripMarks(s) {
   return String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -111,17 +133,18 @@ function tdicSyllabify(stem, diaeresis) {
 // アクセントを置く母音の番号（stem の母音の中での順番）を決める。
 function tdicStressedVowel(word, stem) {
   const feats = tdicWordFeatures(word, stem);
-  if (feats && feats.stressed >= 0) return { stressed: feats.stressed, long: feats.long };
+  if (feats && feats.stressed >= 0) return { stressed: feats.stressed, long: feats.long, diaeresis: feats.diaeresis };
   const diaeresis = feats ? feats.diaeresis : new Set();
   const nuclei = tdicSyllabify(stem, diaeresis);
   const target = nuclei.length <= 2 ? 0 : nuclei.length - 2;
   const stressed = nuclei.length ? nuclei[target][0] : 0;
-  return { stressed, long: feats ? feats.long : new Set() };
+  return { stressed, long: feats ? feats.long : new Set(), diaeresis };
 }
 
-// 記号なしの綴りにアクセント（鋭）と長音（サーカムフレックス）を付ける。
-// stressed / long は stem の母音番号。接辞の母音には付かない。
-function tdicApplyMarks(form, stemVowelCount, stressed, long) {
+// 記号なしの綴りに分音符・長音（サーカムフレックス）・アクセント（鋭）を付ける。
+// stressed / long / diaeresis は stem の母音番号。接辞の母音には付かない。
+// 結合文字の順序は見出し語と同じ（分音符 → 長音 → 鋭アクセント）。
+function tdicApplyMarks(form, stemVowelCount, stressed, long, diaeresis) {
   const chars = [...String(form)];
   let v = 0;
   let out = "";
@@ -129,6 +152,7 @@ function tdicApplyMarks(form, stemVowelCount, stressed, long) {
     out += ch;
     if (TDIC_VOWELS.has(ch)) {
       if (v < stemVowelCount) {
+        if (diaeresis.has(v)) out += TDIC_DIAERESIS;
         if (long.has(v)) out += TDIC_CIRCUMFLEX;
         if (v === stressed) out += TDIC_ACUTE;
       }
@@ -147,7 +171,7 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
   // 語末の ς は語中では σ になる（stem に ς が残っていた場合の保険）。
   if (full.endsWith("ς")) full = full.slice(0, -1) + "σ";
 
-  const { stressed, long } = tdicStressedVowel(word || full, full);
+  const { stressed, long, diaeresis } = tdicStressedVowel(word || full, full);
   const stemVowels = [...full].filter(c => TDIC_VOWELS.has(c));
   const lastIsVowel = TDIC_VOWELS.has(full[full.length - 1]);
   // 母音終わりの語は末尾母音を落とす。ただしアクセントのある末尾母音は落とさない。
@@ -156,8 +180,8 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
     : full;
   const baseVowelCount = [...base].filter(c => TDIC_VOWELS.has(c)).length;
 
-  const mark = (s) => tdicApplyMarks(s, baseVowelCount, stressed, long);
-  const markFull = (s) => tdicApplyMarks(s, stemVowels.length, stressed, long);
+  const mark = (s) => tdicApplyMarks(s, baseVowelCount, stressed, long, diaeresis);
+  const markFull = (s) => tdicApplyMarks(s, stemVowels.length, stressed, long, diaeresis);
 
   // 数・可視性の4形（主格）を作る
   let base4;
@@ -241,11 +265,12 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
   }
 
   // 格接辞を4形それぞれの後ろに付ける（主格はそのまま）。4形 × 7格 = 28形。
+  // 母音同士の接合は tdicJoinCase で処理する（融合・ρ挿入・そのまま）。
   const out = {};
   for (const [key, form] of Object.entries(base4)) {
     out[key] = form;
     for (const [suf, code] of TDIC_CASE_SUFFIXES) {
-      out[`${key}_${code}`] = form + suf;
+      out[`${key}_${code}`] = tdicJoinCase(form, suf);
     }
   }
   return out;
