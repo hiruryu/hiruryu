@@ -1,5 +1,7 @@
 // 名象（トシュカ語）
-// 屈折は数（単数 sg / 複数 pl）と可視性（可視 vis / 不可視 invis）のみ。
+// 屈折は数（単数 sg / 複数 pl）と可視性（可視 vis / 不可視 invis）、
+// さらに格（主格 nom / 対格 acc / 与格 dat / 奪格 abl / 処格 loc / 属格 gen / 呼格 voc）。
+// 格接辞は数・可視性の4形それぞれの後ろにそのまま付ける。主格はそのまま。
 // 旧コード（格・限定形の ansC / anpC / adsC / adpC 体系）は廃止した。
 //
 // ruletype:
@@ -13,7 +15,9 @@
 //   IIB - II-B型：φ, β, σ, σ̌, ζ, ζ̌, θ, δ, χ, γ で終わる語
 //   IIC - II-C型：μ, ν で終わる語
 //   IID - II-D型：ρ, λ で終わる語
-// 返り値: { sgVis, plVis, sgInvis, plInvis }
+// 返り値: 4形 × 7格 = 28形。
+//   sgVis, sgVis_acc, sgVis_dat, sgVis_abl, sgVis_loc, sgVis_gen, sgVis_voc,
+//   plVis, plVis_acc, ..., sgInvis, ..., plInvis, ...（主格は接辞なしの基本形そのもの）
 //
 // 語幹の扱い:
 //   full は stem（アクセント・長音記号なしの綴り）。
@@ -34,6 +38,16 @@ const TDIC_DIPHTHONGS = new Set(["αι", "ει", "οι", "αυ", "ευ", "ου",
 const TDIC_ACUTE = "\u0301"; // 鋭アクセント
 const TDIC_CIRCUMFLEX = "\u0302"; // 長音
 const TDIC_DIAERESIS = "\u0308"; // 分音符（母音を分けて読む印）
+
+// 格接辞（主格は -∅ なのでここにはない）。属格・呼格の母音は長音。
+const TDIC_CASE_SUFFIXES = [
+  ["τε", "acc"], // 対格
+  ["μι", "dat"], // 与格
+  ["ος", "abl"], // 奪格
+  ["ουμ", "loc"], // 処格
+  ["ο" + TDIC_CIRCUMFLEX + "ς", "gen"], // 属格
+  ["α" + TDIC_CIRCUMFLEX + "ζε", "voc"], // 呼格
+];
 
 function tdicStripMarks(s) {
   return String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -145,28 +159,33 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
   const mark = (s) => tdicApplyMarks(s, baseVowelCount, stressed, long);
   const markFull = (s) => tdicApplyMarks(s, stemVowels.length, stressed, long);
 
+  // 数・可視性の4形（主格）を作る
+  let base4;
   switch (ruletype) {
     case "IA": // α で終わる語：sg.vis -∅ / pl.vis -ις / sg.invis -ανα / pl.invis -αναις
-      return {
+      base4 = {
         sgVis: markFull(full),
         plVis: mark(base + "ις"),
         sgInvis: mark(base + "ανα"),
         plInvis: mark(base + "αναις"),
       };
+      break;
     case "IB": // ο で終わる語：sg.vis -ον / pl.vis -οις / sg.invis -οαν / pl.invis -οαναις
-      return {
+      base4 = {
         sgVis: markFull(full + "ν"),
         plVis: mark(base + "οις"),
         sgInvis: mark(base + "οαν"),
         plInvis: mark(base + "οαναις"),
       };
+      break;
     case "IC": // ε で終わる語：sg.vis -∅ / pl.vis -ις / sg.invis -ενα / pl.invis -εναις
-      return {
+      base4 = {
         sgVis: markFull(full),
         plVis: mark(base + "ις"),
         sgInvis: mark(base + "ενα"),
         plInvis: mark(base + "εναις"),
       };
+      break;
     case "ID": { // 母音連続で終わる語：末尾母音を落とさず ρ + 接辞
       // α終わり（ντΐα）はユーザーの指定通り -ρις / -ρανα / -ραναις。
       // ο・ε終わりは現行データに例がなく、ρ + 各型の通常接辞（I-B / I-C）に
@@ -177,42 +196,57 @@ function getConjN(word, stem, _long_stem, stem2, type, ruletype) {
         : last === "ε"
         ? { plVis: "ρις", sgInvis: "ρενα", plInvis: "ρεναις" }
         : { plVis: "ρις", sgInvis: "ρανα", plInvis: "ραναις" }; // α（既定）
-      return {
+      base4 = {
         sgVis: markFull(full),
         plVis: markFull(full + suf.plVis),
         sgInvis: markFull(full + suf.sgInvis),
         plInvis: markFull(full + suf.plInvis),
       };
+      break;
     }
     case "IIA": // π, τ, κ で終わる語：sg.vis -∅ / pl.vis -ελ / sg.invis -ιτ / pl.invis -ιτελ
-      return {
+      base4 = {
         sgVis: markFull(full),
         plVis: mark(full + "ελ"),
         sgInvis: mark(full + "ιτ"),
         plInvis: mark(full + "ιτελ"),
       };
+      break;
     case "IIB": // φ, β, σ, σ̌, ζ, ζ̌, θ, δ, χ, γ で終わる語：sg.vis -∅ / pl.vis -ο / sg.invis -ικ / pl.invis -ικο
-      return {
+      base4 = {
         sgVis: markFull(full),
         plVis: mark(full + "ο"),
         sgInvis: mark(full + "ικ"),
         plInvis: mark(full + "ικο"),
       };
+      break;
     case "IIC": // μ, ν で終わる語：sg.vis -∅ / pl.vis -εν / sg.invis -ιζ / pl.invis -ιζεν
-      return {
+      base4 = {
         sgVis: markFull(full),
         plVis: mark(full + "εν"),
         sgInvis: mark(full + "ιζ"),
         plInvis: mark(full + "ιζεν"),
       };
+      break;
     case "IID": // ρ, λ で終わる語：sg.vis -∅ / pl.vis -ας / sg.invis -ιρ / pl.invis -ιρας
-      return {
+      base4 = {
         sgVis: markFull(full),
         plVis: mark(full + "ας"),
         sgInvis: mark(full + "ιρ"),
         plInvis: mark(full + "ιρας"),
       };
+      break;
     default:
       return {};
   }
+
+  // 格接辞を4形それぞれの後ろに付ける（主格はそのまま）。4形 × 7格 = 28形。
+  const out = {};
+  for (const [key, form] of Object.entries(base4)) {
+    out[key] = form;
+    for (const [suf, code] of TDIC_CASE_SUFFIXES) {
+      out[`${key}_${code}`] = form + suf;
+    }
+  }
+  return out;
 }

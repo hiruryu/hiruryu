@@ -581,18 +581,25 @@ function showDetails(word) {
     conjugations = raw;
     // 活用が無い場合はメッセージを出すよ
     if (Object.keys(conjugations).length === 0) {
-      tableHTML = `<tr><td colspan="3">この単語は活用型がありません。</td></tr>`;
+      tableHTML = `<tr><td colspan="5">この単語は活用型がありません。</td></tr>`;
     } else {
-      // 数（単数/複数）と可視性（可視/不可視）の表だよ！
-      const rows = [
-        { label: "可視", keys: ["sgVis", "plVis"] },
-        { label: "不可視", keys: ["sgInvis", "plInvis"] }
+      // 格（主格/対格/与格/奪格/処格/属格/呼格）× 数・可視性
+      // （単数・可視/複数・可視/単数・不可視/複数・不可視）の表だよ！
+      const caseRows = [
+        { label: "主格", suffix: "" },
+        { label: "対格", suffix: "_acc" },
+        { label: "与格", suffix: "_dat" },
+        { label: "奪格", suffix: "_abl" },
+        { label: "処格", suffix: "_loc" },
+        { label: "属格", suffix: "_gen" },
+        { label: "呼格", suffix: "_voc" },
       ];
+      const baseKeys = ["sgVis", "plVis", "sgInvis", "plInvis"];
 
       // HTMLテーブルを生成するよ！
-      tableHTML = rows.map((row, i) => {
-        const cells = row.keys.map(key => {
-          const value = conjugations[key] ?? " — ";
+      tableHTML = caseRows.map((row, i) => {
+        const cells = baseKeys.map(base => {
+          const value = conjugations[base + row.suffix] ?? " — ";
           return `<td class="con">${value}</td>`;
         }).join("");
 
@@ -1132,10 +1139,16 @@ function showDetails(word) {
       detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="3">屈折表</th>
+                <th colspan="5">屈折表</th>
               </tr>
               <tr class="conH2">
-                <th></th>
+                <th rowspan="2"></th>
+                <th colspan="2">可視</th>
+                <th colspan="2">不可視</th>
+              </tr>
+              <tr class="conH2">
+                <th>単数</th>
+                <th>複数</th>
                 <th>単数</th>
                 <th>複数</th>
               </tr>
