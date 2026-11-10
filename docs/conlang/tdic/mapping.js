@@ -627,11 +627,12 @@ function showDetails(word) {
       tableHTML = `<tr><td colspan="4">この語には活用データがありません。</td></tr>`;
     } else {
 
+      // 時制を行、動詞形・分詞形を列にした表。相は載せない。
       const rows = [
-        { label: "無相", keys: ["p", "n", "f"] },
-        { label: "完了相", keys: ["dp", "dn", "df"] },
-        { label: "進行相", keys: ["sp", "sn", "sf"] },
-        { label: "反復相", keys: ["mp", "mn", "mf"] }
+        { label: "現在", keys: ["pres", "presPart"] },
+        { label: "過去", keys: ["past", "pastPart"] },
+        { label: "未来", keys: ["fut", "futPart"] },
+        { label: "過去未来", keys: ["pastFut", "pastFutPart"] },
       ];
 
       tableHTML = rows.map((row, i) => {
@@ -644,6 +645,13 @@ function showDetails(word) {
                 ${cells}
               </tr>`;
       }).join("");
+
+      // 命令形は1行で、2列分にまたがって表示する。
+      tableHTML += `
+              <tr class="con5">
+                <td class="conname">命令形</td>
+                <td class="con" colspan="2">${conjugations.imp || ""}</td>
+              </tr>`;
     }
 
     // 名飾詞の場合
@@ -1163,13 +1171,12 @@ function showDetails(word) {
       detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="5">屈折型</th>
+                <th colspan="3">屈折表</th>
               </tr>
               <tr class="conH2">
                 <th></th>
-                <th>過去</th>
-                <th>現在</th>
-                <th>未来</th>
+                <th>動詞形</th>
+                <th>分詞形</th>
               </tr>
             </thead>
             <tbody>
