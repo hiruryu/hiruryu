@@ -581,24 +581,17 @@ function showDetails(word) {
     conjugations = raw;
     // 活用が無い場合はメッセージを出すよ
     if (Object.keys(conjugations).length === 0) {
-      tableHTML = `<tr><td colspan="9">この単語は活用型がありません。</td></tr>`;
+      tableHTML = `<tr><td colspan="3">この単語は活用型がありません。</td></tr>`;
     } else {
-      // 格だよ！
+      // 数（単数/複数）と可視性（可視/不可視）の表だよ！
       const rows = [
-        { label: "主格", prefix: "" },
-        { label: "対格", prefix: "t_" },
-        { label: "与格", prefix: "y_" },
-        { label: "奪格", prefix: "d_" },
-        { label: "処格", prefix: "f_" },
-        { label: "呼称形", prefix: "v_" }
+        { label: "可視", keys: ["sgVis", "plVis"] },
+        { label: "不可視", keys: ["sgInvis", "plInvis"] }
       ];
-      // 数や形などの列だよ！
-      const columns = ["ansC", "anpC", "adsC", "adpC"];
 
       // HTMLテーブルを生成するよ！
       tableHTML = rows.map((row, i) => {
-        const cells = columns.map(col => {
-          const key = row.prefix + col;
+        const cells = row.keys.map(key => {
           const value = conjugations[key] ?? " — ";
           return `<td class="con">${value}</td>`;
         }).join("");
@@ -1139,16 +1132,10 @@ function showDetails(word) {
       detailsHTML += `<table>
             <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="5">屈折型</th>
+                <th colspan="3">屈折表</th>
               </tr>
               <tr class="conH2">
-                <th rowspan="2"></th>
-                <th colspan="2">非限定形</th>
-                <th colspan="2">限定形</th>
-              </tr>
-              <tr class="conH2">
-                <th>単数</th>
-                <th>複数</th>
+                <th></th>
                 <th>単数</th>
                 <th>複数</th>
               </tr>
@@ -1324,11 +1311,15 @@ function generateInflections(word) {
   if (typeof fn !== "function") return [];
 
   // 名象の引数だよ！
+  // 旧コードは引数が1つ少なく、stem2 が long_stem の位置にずれていたため
+  // ruletype が渡らず名詞の屈折が検索用キャッシュに入らなかったよ。
+  // showDetails と同じ6引数に直したよ。
   let raw;
   if (data.parts === "名象") {
     raw = fn(
       word,
       data.stem,
+      data.long_stem,
       data.stem2,
       data.type,
       data.ruletype
