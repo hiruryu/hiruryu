@@ -55,7 +55,9 @@ const TDIC_CASE_SUFFIXES = [
 //   同じ母音＋長母音 → ρ を挟む（ο+ο̂ → ορο̂、α+α̂ → αρα̂。例：μάχο + ο̂ς → μάχορο̂ς）。
 //   異なる母音 → そのまま付ける（α+ο̂ → αο̂ など。例：λυκόττα + ο̂ς → λυκότταο̂ς）。
 // 融合で末尾母音のアクセントを失う場合は、融合せず ρ を挟む。
+// なお、接辞が付くと語末の ς は語中になるので σ にする（ψίκαναις + τε → ψίκαναιστε）。
 function tdicJoinCase(form, suffix) {
+  if (form.endsWith("ς")) form = form.slice(0, -1) + "σ";
   const fChars = [...form];
   let i = fChars.length - 1;
   while (i >= 0 && /[\u0300-\u036f]/.test(fChars[i])) i -= 1;
