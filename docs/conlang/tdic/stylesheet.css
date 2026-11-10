@@ -333,7 +333,9 @@ body.detail-view .back-to-top a:hover {
     font-size: 16px;
     padding: 6px;
     text-align: center;
-    font-family: 'Noto Sans JP', sans-serif !important;
+    /* ギリシア文字・IPA は Gentium Plus で、ない文字（日本語など）は Noto Sans JP にフォールバックする。
+       意味・語源の文の中のギリシア語もこれで崩れずに表示される。 */
+    font-family: "Gentium Plus", 'Noto Sans JP', sans-serif !important;
   }
   th {
     font-size: 15px;
@@ -369,7 +371,7 @@ body.detail-view .back-to-top a:hover {
   letter-spacing: 1.5px;
   color: #404040;
   font-size: 16px;
-  font-family: "Gentium Plus", serif;
+  font-family: "Gentium Plus", serif !important;
   line-height: 30px;
 }
 
