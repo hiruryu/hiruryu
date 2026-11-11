@@ -9,6 +9,7 @@
 // ξ は II-B（2026-11-10 決定。名詞・動詞・名飾詞で同じ）。
 // 4形：原級 pos（-∅）、比較級 comp、最上級 sup、副飾形 adv。
 // アクセント規則は名詞・動詞と同じ（見出し語の鋭アクセントを維持、なければ音節数規則）。
+// 同じ母音が重なるときは長母音に融合する（ι + ι → ι̂、ε + ε → ε̂）。名詞・動詞と同じ理屈。
 // 格・数・可視性での一致はない。叙述形は残さない（副飾形に置き換え）。
 // 副詞 σνο（id 189）は名飾詞とは別（独立した副飾語）で、ここでは扱わない。
 
@@ -97,6 +98,26 @@ function tdicAdjSuffixPairs(suffix) {
   return tdicAdjParseWord(suffix);
 }
 
+// 同じ母音が重なるときは長母音（サーカムフレックス付き）に融合する。
+// 例：ι + ι → ι̂、ε + ε → ε̂。名詞・動詞と同じ理屈。
+// （名詞は tdicJoinCase で同じ母音＋短母音を長母音に融合する。）
+function tdicAdjMergeVowel(basePairs, suffixPairs) {
+  if (!basePairs.length || !suffixPairs.length) return [...basePairs, ...suffixPairs];
+  const lastBase = basePairs[basePairs.length - 1];
+  const firstSuffix = suffixPairs[0];
+  if (TDIC_A_VOWELS.has(lastBase.ch) && lastBase.ch === firstSuffix.ch) {
+    // 融合：基底の末尾母音と接辞の先頭母音を1つの長母音にする。
+    const merged = {
+      ch: lastBase.ch,
+      marks: [...lastBase.marks, ...firstSuffix.marks]
+    };
+    // 長音（サーカムフレックス）を付ける。重複を除く。
+    if (!merged.marks.includes("\u0302")) merged.marks.push("\u0302");
+    return [...basePairs.slice(0, -1), merged, ...suffixPairs.slice(1)];
+  }
+  return [...basePairs, ...suffixPairs];
+}
+
 // ---------- 屈折 ----------
 // 4形を返す：pos（原級）、comp（比較級）、sup（最上級）、adv（副飾形）。
 // 基底は見出し語そのもの（切り落としなし）。接辞をそのまま付ける。
@@ -125,7 +146,7 @@ function getConjA(word, stem, _long_stem, stem2, type, ruletype) {
     joinPairs[joinPairs.length - 1].ch = "σ";
   }
   const build = (suffix) => {
-    const combined = [...joinPairs, ...tdicAdjSuffixPairs(suffix)];
+    const combined = tdicAdjMergeVowel(joinPairs, tdicAdjSuffixPairs(suffix));
     return tdicAdjRenderPairs(combined, stressIdx);
   };
 
