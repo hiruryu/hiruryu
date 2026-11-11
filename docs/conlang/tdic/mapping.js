@@ -656,30 +656,11 @@ function showDetails(word) {
 
     // 名飾詞の場合
   } else if (data.parts === "名飾") {
-    conjugations = getConjA(data.word, data.stem, data.type, data.ruletype);
+    conjugations = getConjA(data.word, data.stem, data.long_stem, data.stem2, data.type, data.ruletype);
     if (Object.keys(conjugations).length === 0) {
-      tableHTML = `<tr><td colspan="7">この動詞は活用型がありません。</td></tr>`;
+      tableHTML = `<tr><td colspan="4">この名飾詞は活用型がありません。</td></tr>`;
     } else {
-      const rows = [
-        { label: "主格/呼格一致", keys: ["s", "s2", "s3"] },
-        { label: "対格一致", keys: ["t", "t2", "t3"] },
-        { label: "与格一致", keys: ["y", "y2", "y3"] },
-        { label: "奪格一致", keys: ["d", "d2", "d3"] },
-        { label: "処格一致", keys: ["f", "f2", "f3"] }
-      ];
-      // HTMLテーブルを生成するよ！
-      tableHTML = rows.map((row, index) => {
-        const cells = row.keys
-          .map(key => `<td class="con">${conjugations[key] || ""}</td>`)
-          .join("");
-        return `<tr class="con${index + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
-      }).join("\n");
-      tableHTML += `\n<tr class="con6"><td class="conname">叙述</td><td colspan="6">${conjugations.nar || ""}</td></tr>`;
-    }
-
-    // 活用が無い場合
-    if (Object.keys(conjugations).length === 0) {
-      tableHTML = `<tr><td colspan="6">この動詞は活用型がありません。</td></tr>`;
+      tableHTML = `<tr class="con1"><td class="con">${conjugations.pos || ""}</td><td class="con">${conjugations.comp || ""}</td><td class="con">${conjugations.sup || ""}</td><td class="con">${conjugations.adv || ""}</td></tr>`;
     }
   }
 
@@ -1189,13 +1170,13 @@ function showDetails(word) {
       detailsHTML += `<table>
              <thead>
               <tr class="conH1" id="conH1">
-                <th colspan="7">屈折表</th>
+                <th colspan="4">屈折表</th>
               </tr>
               <tr class="conH2">
-                <th rowspan="2"></th>
-                <th colspan="1">原級</th>
-                <th colspan="1">比較級</th>
-                <th colspan="1">最上級</th>
+                <th>原級</th>
+                <th>比較級</th>
+                <th>最上級</th>
+                <th>副飾形</th>
               </tr>
             </thead>
             <tbody>
