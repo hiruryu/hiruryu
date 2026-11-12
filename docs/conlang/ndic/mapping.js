@@ -579,11 +579,22 @@ Promise.all([
     data._normKey = normalizeForSearch(keyClean);
 
     // 意味を正規化
+    // 「、」で区切られた各意味も個別に検索できるようにする（variants2 と同じ扱い）。
+    // 例：「方法、手段、手順。」→「方法」「手段」「手順」のそれぞれで前方・完全一致検索に引っかかる
     const meaningTexts = Array.isArray(data.meaning)
       ? data.meaning.map(m => removeAnnotations(m.text || ""))
       : data.meaning ? [removeAnnotations(String(data.meaning))] : [];
 
-    data._normMeaningList = meaningTexts.map(t => normalizeForSearch(t));
+    const meaningPieces = [];
+    for (const t of meaningTexts) {
+      meaningPieces.push(t);
+      for (const piece of t.split(/[、,，]/)) {
+        const cleaned = piece.trim().replace(/。+$/, "").trim();
+        if (cleaned) meaningPieces.push(cleaned);
+      }
+    }
+    // 重複を除いて正規化
+    data._normMeaningList = [...new Set(meaningPieces.map(t => normalizeForSearch(t)))];
 
 
     // variants1 / variants2 を統合
