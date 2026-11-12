@@ -1419,17 +1419,18 @@ function getFirstMeaning(entry) {
     ? entry.meaning[0]
     : entry.meaning;
 
-  // 新形式:
-  if (first && typeof first === "object") {
-    return removeAnnotations(first.text || "")
-      .split(",")[0]
-      .trim();
-  }
+  if (first === null || first === undefined) return "";
 
-  // 旧形式
-  return removeAnnotations(String(first))
-    .split(",")[0]
-    .trim();
+  // 新形式は text を、旧形式は文字列を取る
+  const text = (typeof first === "object")
+    ? (first.text || "")
+    : String(first);
+
+  // 「、」「,」「，」区切りなら最初だけ、末尾の「。」も取る
+  return removeAnnotations(text)
+    .split(/[、,，]/)[0]
+    .trim()
+    .replace(/。+$/, "");
 }
 
 // 語リスト表示生成
