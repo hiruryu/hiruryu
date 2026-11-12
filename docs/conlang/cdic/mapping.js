@@ -339,7 +339,7 @@ function resolveEtymologyText(text) {
       for (const [w, data] of Object.entries(extDict)) {
         if (String(data.id) === id) {
           word = w;
-          meaning = removeAnnotations(data.meaning?.[0] ?? "");
+          meaning = getFirstMeaning(data);
           const safeSearch = document.getElementById("safeSearchToggle")?.checked;
           if (safeSearch && data.safe === false) {
             placeholders.push(`<span class="etymology-hidden"></span>`);
@@ -373,8 +373,7 @@ function resolveEtymologyText(text) {
       return `<span class="etymology-hidden"></span>`;
     }
 
-    let meaning = entry.meaning?.[0] ?? "";
-    meaning = removeAnnotations(meaning);
+    let meaning = getFirstMeaning(entry);
 
     const part = Array.isArray(entry.part)
       ? entry.parts[0]
@@ -397,11 +396,7 @@ ${word}</a><span class="link-meaning">（ ${meaning} ）</span>`;
 }
 
 function createWordLink(word, entry) {
-  const meaning = removeAnnotations(
-    Array.isArray(entry.meaning)
-      ? entry.meaning[0]
-      : entry.meaning || ""
-  );
+  const meaning = getFirstMeaning(entry);
 
   const part = Array.isArray(entry.part)
     ? entry.parts[0]
@@ -762,7 +757,7 @@ function extractEtymologyIDs(entry) {
 
 // 意味を1つ取得する関数
 function getFirstMeaning(entry) {
-  if (!entry.meaning) return "";
+  if (!entry || !entry.meaning) return "";
 
   // 配列なら最初の要素
   let m = Array.isArray(entry.meaning)
@@ -772,8 +767,8 @@ function getFirstMeaning(entry) {
   // 注釈削除
   m = removeAnnotations(m);
 
-  // カンマ区切りなら最初だけ
-  return m.split(",")[0].trim();
+  // 「、」「,」「，」区切りなら最初だけ、末尾の「。」も取る
+  return m.split(/[、,，]/)[0].trim().replace(/。+$/, "");
 
 }
 
@@ -1551,12 +1546,6 @@ function showDetails(word) {
             const word = idToWord[id];
             const entry = dictionary[word];
             if (!entry) return "";
-
-            const meaning = removeAnnotations(
-              Array.isArray(entry.meaning)
-                ? entry.meaning[0]
-                : entry.meaning || ""
-            );
 
             return `<span class="marker">${createWordLink(word, entry)}</span>`;
           }
