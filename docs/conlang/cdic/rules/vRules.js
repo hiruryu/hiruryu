@@ -971,7 +971,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
 
 
     // s / z 基本形
-  } else if (["s", "z", "sh", "zh", "c", "x", "ch", "xh"].includes(ruletype)) {
+  } else if (["s", "z", "sh", "zh", "c", "x", "ch", "xh", "h"].includes(ruletype)) {
     return {
       // 完結相
       p: uniqueForms(
@@ -1118,7 +1118,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
     }
 
     // s / z 明音形
-  } else if (["sj", "zj", "shj", "zhj", "cj", "xj", "chj", "xhj"].includes(ruletype)) {
+  } else if (["sj", "zj", "shj", "zhj", "cj", "xj", "chj", "xhj", "hj"].includes(ruletype)) {
     return {
       // 完結相
       p: uniqueForms(
