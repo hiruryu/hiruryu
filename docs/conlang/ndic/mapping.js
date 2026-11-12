@@ -2105,7 +2105,23 @@ function performSearch() {
     const variantSet = new Set(variantOnlyResults);
     const tagOnlyResults = tagResults.filter(w => !primarySet.has(w) && !variantSet.has(w));
 
-    primaryResults.sort();
+    // 完全一致は必ず一番上に表示する（前方・部分一致検索時も）。
+    // キー（漢字）の完全一致のほか、読み（data.word）の完全一致も対象にする。
+    const isExactMatch = (w) => {
+      const d = getEntry(w);
+      if (!d) return false;
+      if (d._normKey === normalizedSearch) return true;
+      if (d.word) {
+        const words = Array.isArray(d.word) ? d.word : [d.word];
+        return words.some(v => normalizeForSearch(removeAnnotations(v)) === normalizedSearch);
+      }
+      return false;
+    };
+    primaryResults.sort((a, b) => {
+      const aExact = isExactMatch(a) ? 0 : 1;
+      const bExact = isExactMatch(b) ? 0 : 1;
+      return aExact - bExact || a.localeCompare(b);
+    });
     variantOnlyResults.sort();
     tagOnlyResults.sort();
 

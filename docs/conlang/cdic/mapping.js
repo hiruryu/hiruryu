@@ -2143,7 +2143,16 @@ function performSearch() {
       tagOnlyResults.sort((a, b) => a.localeCompare(b));
     }
 
-    primaryResults.sort((a, b) => a.localeCompare(b));
+    // 完全一致は必ず一番上に表示する（前方・部分一致検索時も）
+    const isExactMatch = (w) => {
+      const d = getEntry(w);
+      return d && d._normKey === normalizedSearch;
+    };
+    primaryResults.sort((a, b) => {
+      const aExact = isExactMatch(a) ? 0 : 1;
+      const bExact = isExactMatch(b) ? 0 : 1;
+      return aExact - bExact || a.localeCompare(b);
+    });
     variantOnlyResults.sort((a, b) => a.localeCompare(b));
     tagOnlyResults.sort((a, b) => a.localeCompare(b));
 
@@ -2189,15 +2198,23 @@ function performSearch() {
     // 検索結果を構築！
     searchResults = [];
 
+    // 完全一致は縫言録より上、必ず一番上に表示する
+    const exactWords = usePrimary.filter(w => isExactMatch(w));
+    const restPrimary = usePrimary.filter(w => !isExactMatch(w));
+    if (exactWords.length > 0) {
+      searchResults.push({ type: "heading", text: "完全一致" });
+      exactWords.forEach(word => searchResults.push({ type: "word", value: word }));
+    }
+
     // 縫言録の検索結果
     if (useKanjiOnly && useKanjiOnly.length > 0) {
       searchResults.push({ type: "heading", text: "縫言録検索の結果" });
       useKanjiOnly.forEach(word => searchResults.push({ type: "word", value: word }));
     }
     // 綴り・意味での検索結果
-    if (usePrimary.length > 0) {
+    if (restPrimary.length > 0) {
       searchResults.push({ type: "heading", text: "通常検索の結果" });
-      usePrimary.forEach(word => searchResults.push({ type: "word", value: word }));
+      restPrimary.forEach(word => searchResults.push({ type: "word", value: word }));
     }
 
     // 関連語での検索結果

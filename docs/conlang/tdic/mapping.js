@@ -1571,8 +1571,16 @@ function performSearch() {
       tagOnlyResults = tagResults.filter(word => !primarySet.has(word) && !variantSet.has(word));
       tagOnlyResults.sort((a, b) => a.localeCompare(b));
     }
-    // 結果ソート
-    primaryResults.sort((a, b) => a.localeCompare(b));
+    // 結果ソート（完全一致は必ず一番上に表示する）
+    const isExactMatch = (w) => {
+      const d = getEntry(w);
+      return d && d._normKey === normalizedSearch;
+    };
+    primaryResults.sort((a, b) => {
+      const aExact = isExactMatch(a) ? 0 : 1;
+      const bExact = isExactMatch(b) ? 0 : 1;
+      return aExact - bExact || a.localeCompare(b);
+    });
     variantOnlyResults.sort((a, b) => a.localeCompare(b));
     tagOnlyResults.sort((a, b) => a.localeCompare(b));
 
