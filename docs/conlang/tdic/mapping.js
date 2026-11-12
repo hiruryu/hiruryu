@@ -216,6 +216,36 @@ function toggleVulgarMeaning(linkElem) {
     linkElem.textContent = "性的な意味を表示";
   }
 }
+// ギリシャ文字 → ラテン文字の対応表（NFD形。長いものから順に置換する）
+// 灯語のローマ字検索用。長母音は ā/ē/ī/ō/ȳ、ϊ/ϋ は i/u、σ̌/ζ̌ は š/ž。
+// φ/β/θ/δ/χ は f/v/c/x/h（ph/bh/th/dh/kh は normalizeForSearch で後から畳み込む）。
+const GREEK_TO_LATIN = [
+  // 長母音（曲折アクセント付き）＋鋭アクセント
+  ["α\u0302\u0301", "ā́"], ["ε\u0302\u0301", "ḗ"], ["ι\u0302\u0301", "ī́"], ["ο\u0302\u0301", "ṓ"], ["υ\u0302\u0301", "ȳ́"],
+  // 長母音（曲折アクセント付き）
+  ["α\u0302", "ā"], ["ε\u0302", "ē"], ["ι\u0302", "ī"], ["ο\u0302", "ō"], ["υ\u0302", "ȳ"],
+  // ダイエレシス付き（＋鋭アクセント）
+  ["ι\u0308\u0301", "i"], ["υ\u0308\u0301", "u"],
+  ["ι\u0308", "i"], ["υ\u0308", "u"],
+  // カロン付き子音
+  ["σ\u030c", "š"], ["ς\u030c", "š"], ["ζ\u030c", "ž"],
+  // 単母音
+  ["α", "a"], ["ε", "e"], ["ι", "i"], ["ο", "o"], ["υ", "y"],
+  // 子音
+  ["π", "p"], ["τ", "t"], ["κ", "k"], ["φ", "f"], ["β", "v"],
+  ["θ", "c"], ["δ", "x"], ["χ", "h"],
+  ["σ", "s"], ["ς", "s"], ["ζ", "z"],
+  ["μ", "m"], ["ν", "n"], ["γ", "g"], ["ρ", "r"], ["λ", "l"],
+  ["ξ", "ks"], ["ψ", "ps"],
+];
+
+function transliterateGreekToLatin(s) {
+  for (const [from, to] of GREEK_TO_LATIN) {
+    s = s.split(from).join(to);
+  }
+  return s;
+}
+
 // 検索用正規化（ひらがな/カタカナ同一視、ラテンは小文字化＋アクセント除去）
 function normalizeForSearch(input) {
   if (input === null || input === undefined) return "";
@@ -233,8 +263,18 @@ function normalizeForSearch(input) {
     return ch;
   }).join('');
 
-  // アクセントなどの結合文字を削除
-  s = s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+  // NFD に分解して小文字化
+  s = s.normalize('NFD').toLowerCase();
+
+  // ギリシャ文字 → ラテン文字（灯語のローマ字検索用）
+  s = transliterateGreekToLatin(s);
+
+  // 二重子音の畳み込み（ph→f, bh→v, th→c, dh→x, kh→h）
+  // φ/β/θ/δ/χ は既に f/v/c/x/h になっているので、ラテン入力の二重子音も同じ形に揃える
+  s = s.replace(/ph/g, "f").replace(/bh/g, "v").replace(/th/g, "c").replace(/dh/g, "x").replace(/kh/g, "h");
+
+  // アクセントなどの結合文字を削除（再分解してから）
+  s = s.normalize('NFD').replace(/\p{M}/gu, '');
 
   // NFC に戻して返す
   return s.normalize('NFC');
