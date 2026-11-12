@@ -11257,7 +11257,7 @@
   "seii": [
    "L"
   ],
-  "word": "ma",
+  "word": "mal",
   "tag": [
    "派生接尾辞",
    "副飾化"
@@ -11267,7 +11267,7 @@
    "〜ように。"
   ],
   "pronunciation": [
-   "/ma/"
+   "/mal/"
   ],
   "etymology": {
    "intro": [
@@ -17285,7 +17285,7 @@
   "seii": [
    "L"
   ],
-  "word": "-chav",
+  "word": "chav",
   "tag": [
    "派生接尾辞"
   ],
@@ -17467,7 +17467,7 @@
   "seii": [
    "L"
   ],
-  "word": "-ma",
+  "word": "ma",
   "vari": "-áma",
   "tag": [
    "派生接尾辞"
@@ -26445,7 +26445,7 @@
   "seii": [
    "HL"
   ],
-  "word": "-ójka",
+  "word": "ójka",
   "vari": "-aika",
   "tag": [
    "派生接尾辞"
@@ -27788,13 +27788,13 @@
    "mia"
   ]
  },
- "-is": {
+ "-ish": {
   "id": 834,
   "safe": true,
   "seii": [
    "L"
   ],
-  "word": "is",
+  "word": "ish",
   "tag": [
    "派生接尾辞",
    "副飾化"
@@ -27806,7 +27806,7 @@
    "〜に"
   ],
   "pronunciation": [
-   "/∅ʲisʲ/"
+   "/∅ʲiʂʲ/"
   ],
   "etymology": {
    "intro": [
@@ -27822,13 +27822,13 @@
    "isj"
   ]
  },
- "-rais": {
+ "-laish": {
   "id": 835,
   "safe": true,
   "seii": [
    "L"
   ],
-  "word": "rais",
+  "word": "laish",
   "tag": [
    "派生接尾辞",
    "副飾化"
@@ -27839,7 +27839,7 @@
    "〜ように"
   ],
   "pronunciation": [
-   "/rasʲ/"
+   "/laʂʲ/"
   ],
   "etymology": {
    "intro": [
@@ -34829,7 +34829,7 @@
   "seii": [
    "HL"
   ],
-  "word": "-áchta",
+  "word": "áchta",
   "tag": [
    "派生接尾辞"
   ],
