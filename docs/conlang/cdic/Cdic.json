@@ -6533,7 +6533,7 @@
   "word": "fóro",
   "stem": "fór",
   "stem2": "for",
-  "fix": "firo-",
+  "fix": "faro-",
   "tag": [
    "ー"
   ],
@@ -7227,7 +7227,7 @@
   "stem": "dó",
   "stem2": "do",
   "fix": [
-   "di-"
+   "da-"
   ],
   "tag": [
    "ー"
@@ -10393,7 +10393,7 @@
   "word": "kakö́lva",
   "stem": "kúk",
   "stem2": "kuk",
-  "fix": "kiko-",
+  "fix": "kako-",
   "tag": [
    "ー"
   ],
@@ -11561,7 +11561,7 @@
   "word": "mahjól",
   "stem": "mahjól",
   "stem2": "mahjol",
-  "fix": "mahil-",
+  "fix": "mahal-",
   "type": "l 終了型",
   "ruletype": "l",
   "tag": [
@@ -11664,7 +11664,7 @@
   "word": "dóplo",
   "stem": "dópl",
   "stem2": "dopl",
-  "fix": "diplo-",
+  "fix": "daplo-",
   "tag": [
    "ー"
   ],
@@ -11991,7 +11991,7 @@
   "word": "xódhlas",
   "stem": "xód",
   "stem2": "xod",
-  "fix": "xid-",
+  "fix": "xad-",
   "type": "d 基本型",
   "ruletype": "d",
   "tag": [
@@ -12160,7 +12160,7 @@
   "word": "fóma",
   "stem": "fóm",
   "stem2": "fom",
-  "fix": "fima-",
+  "fix": "fama-",
   "tag": [
    "ー"
   ],
@@ -13678,7 +13678,7 @@
   "word": "fuedsól",
   "stem": "fuedsól",
   "stem2": "fuedsol",
-  "fix": "fuedsil-",
+  "fix": "fuedsal-",
   "tag": [
    "音楽"
   ],
@@ -14758,7 +14758,7 @@
   "word": "pórfa",
   "stem": "pórf",
   "stem2": "porf",
-  "fix": "pirfa-",
+  "fix": "parfa-",
   "tag": [
    "ー"
   ],
@@ -14946,7 +14946,7 @@
   "word": "zúdhlas",
   "stem": "zúd",
   "stem2": "zud",
-  "fix": "zid-",
+  "fix": "zad-",
   "type": "d 基本型",
   "ruletype": "d",
   "tag": [
@@ -14993,7 +14993,7 @@
   "word": "zdólas",
   "stem": "zdó",
   "stem2": "zdo",
-  "fix": "zdi-",
+  "fix": "zda-",
   "type": "o 基本型",
   "ruletype": "o",
   "tag": [
@@ -15316,7 +15316,7 @@
   "word": "stanchálva",
   "stem": "stónch",
   "stem2": "stonch",
-  "fix": "stinch-",
+  "fix": "stanch-",
   "tag": [
    "ー"
   ],
@@ -17212,7 +17212,7 @@
   "word": "dócchavlas",
   "stem": "dócchav",
   "stem2": "docchav",
-  "fix": "dicchav-",
+  "fix": "dacchav-",
   "type": "v 基本型",
   "ruletype": "v",
   "tag": [
@@ -21116,7 +21116,7 @@
   "word": "palálva",
   "stem": "púl",
   "stem2": "pul",
-  "fix": "pil-",
+  "fix": "pal-",
   "type": "l 基本型",
   "ruletype": "l",
   "tag": [
@@ -25582,7 +25582,7 @@
   "word": "lúfma",
   "stem": "lúfm",
   "stem2": "lufm",
-  "fix": "lifma-",
+  "fix": "lafma-",
   "type": "m 基本型",
   "ruletype": "m",
   "tag": [
@@ -26660,7 +26660,7 @@
   "word": "túplas",
   "stem": "túp",
   "stem2": "tup",
-  "fix": "tip-",
+  "fix": "tap-",
   "type": "p 終了型",
   "ruletype": "p",
   "tag": [
@@ -28992,7 +28992,7 @@
   "word": "qúmũ",
   "stem": "qúmũ",
   "stem2": "qumũ",
-  "fix": "qimũ-",
+  "fix": "qamũ-",
   "type": "ũ 基本型",
   "ruletype": "ũ",
   "tag": [
@@ -32942,7 +32942,7 @@
   "word": "tylút",
   "stem": "tylút",
   "stem2": "tylut",
-  "fix": "tylit-",
+  "fix": "tylat-",
   "type": "t 基本型",
   "ruletype": "t",
   "tag": [
@@ -33673,7 +33673,7 @@
   "word": "dóvfa",
   "stem": "dóvf",
   "stem2": "dovf",
-  "fix": "divfa-",
+  "fix": "davfa-",
   "type": "f 基本型",
   "ruletype": "f",
   "tag": [
@@ -34966,7 +34966,7 @@
   "word": "fnóka",
   "stem": "fnók",
   "stem2": "fnok",
-  "fix": "fnik-",
+  "fix": "fnak-",
   "type": "k 基本型",
   "ruletype": "k",
   "tag": [
@@ -35000,7 +35000,7 @@
   "word": "rhólũ",
   "stem": "rhól",
   "stem2": "rhol",
-  "fix": "rhilũ-",
+  "fix": "rhalũ-",
   "type": "ũ 基本型",
   "ruletype": "ũ",
   "tag": [
