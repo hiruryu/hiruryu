@@ -4062,7 +4062,7 @@
   ],
   "word": "mýgo",
   "stem": "mýg",
-  "stem2": "mjóra",
+  "stem2": "myg",
   "fix": "mygo-",
   "tag": [
    "人称代名詞"
@@ -4091,7 +4091,11 @@
    "うち",
    "自分",
    "じぶん"
-  ]
+  ],
+  "baseOverrides": {
+   "anpC": "mjúro",
+   "anpC2": "mjuro"
+  }
  },
  "pycálva": {
   "id": 186,
@@ -25798,7 +25802,11 @@
    "おまえ",
    "お前",
    "あなた"
-  ]
+  ],
+  "baseOverrides": {
+   "anpC": "týkko",
+   "anpC2": "tykko"
+  }
  },
  "kígo": {
   "id": 766,
