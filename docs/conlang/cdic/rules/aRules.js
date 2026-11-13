@@ -1,4 +1,4 @@
-function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
+function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
 
   s = stem + ""; s_2 = stem2 + "";
   s2 = stem2 + "ála";
@@ -3186,4 +3186,17 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
     }
   }
+}
+
+// tl·dl → ll の同化（2026-11-13、みゅら確認済）。nRules.js と同じ規則。
+// 例：pitálas の h_s形 pit＋las → pillas、mantálas の h_s mónt＋las → mónllas。
+// 名飾詞の一致形（h_s など）で、語幹＋接辞 "las" の境界で tl·dl が生じることがある。
+function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
+  const r = getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides);
+  if (r == null) return r;
+  const out = {};
+  for (const [k, v] of Object.entries(r)) {
+    out[k] = typeof v === "string" ? v.replace(/tl/g, "ll").replace(/dl/g, "ll") : v;
+  }
+  return out;
 }

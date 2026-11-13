@@ -1,5 +1,5 @@
 // 名象
-function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverrides) {
+function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverrides) {
 
   // 屈折接辞
   // 基本形
@@ -631,4 +631,19 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
     }
 
   }
+}
+
+// tl·dl → ll の同化（2026-11-13、みゅら確認済）。
+// 例：sýto の能格 sýt＋lak → syllak、káto の能格 kát＋lak → kállak。
+// 生成形の語幹＋接辞の境界で tl·dl が生じたものを ll にする。
+// 辞書の語・stem に tl·dl を含むものはないため、生成形への置換で十分。
+// ansC は辞書形そのものなので対象外。
+function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverrides) {
+  const r = getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverrides);
+  if (r == null) return r;
+  const out = {};
+  for (const [k, v] of Object.entries(r)) {
+    out[k] = (k !== "ansC" && typeof v === "string") ? v.replace(/tl/g, "ll").replace(/dl/g, "ll") : v;
+  }
+  return out;
 }
