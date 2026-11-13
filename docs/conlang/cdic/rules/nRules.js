@@ -9,7 +9,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   d_fx = "es";
   l_fx = "am";
   i_fx = "ash";
-  g_fx = "i";
+  g_fx = "y";
   v_fx = "árh";
   in_fx = g_fx + "ta";
   anpC = stem + "ra";
@@ -578,6 +578,56 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
       g_anpC: anpCw,
       v_anpC: anpCw2.slice(0, -1) + "órh",
       in_anpC: anpCw + "ta",
+    }
+
+    // 代名詞 a 終わり（prona）：単数形は a 型と同じ。呼称形は基格。
+  } else if (["prona"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + f_fx,
+      e_ansC: stem + e_fx,
+      d_ansC: stem + d_fx,
+      l_ansC: stem + l_fx,
+      i_ansC: stem + i_fx,
+      g_ansC: stem + g_fx,
+      v_ansC: ansCBase,
+      in_ansC: stem + in_fx,
+      // 複数形（a 型と同じ）
+      anpC: anpC,
+      f_anpC: anpC.slice(0, -1) + f_fx,
+      e_anpC: anpC.slice(0, -1) + e_fx,
+      d_anpC: anpC.slice(0, -1) + d_fx,
+      l_anpC: anpC.slice(0, -1) + l_fx,
+      i_anpC: anpC.slice(0, -1) + i_fx,
+      g_anpC: anpC.slice(0, -1) + g_fx,
+      v_anpC: anpC2.slice(0, -1) + v_fx,
+      in_anpC: anpC.slice(0, -1) + in_fx,
+    }
+
+    // 代名詞 o 終わり（prono）：単数形は a 型に l を挟む。呼称形は基格。
+  } else if (["prono"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "l" + f_fx,
+      e_ansC: stem + "l" + e_fx,
+      d_ansC: stem + "l" + d_fx,
+      l_ansC: stem + "l" + l_fx,
+      i_ansC: stem + "l" + i_fx,
+      g_ansC: stem + "l" + g_fx,
+      v_ansC: ansCBase,
+      in_ansC: stem + "l" + in_fx,
+      // 複数形（o 型と同じ）
+      anpC: anpCo,
+      f_anpC: anpCo.slice(0, -1) + f_fx,
+      e_anpC: anpCo.slice(0, -1) + e_fx,
+      d_anpC: anpCo.slice(0, -1) + d_fx,
+      l_anpC: anpCo.slice(0, -1) + l_fx,
+      i_anpC: anpCo.slice(0, -1) + i_fx,
+      g_anpC: anpCo.slice(0, -1) + g_fx,
+      v_anpC: anpCo2.slice(0, -1) + v_fx,
+      in_anpC: anpCo.slice(0, -1) + in_fx,
     }
 
   }
