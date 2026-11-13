@@ -42625,16 +42625,16 @@
    "changes": []
   }
  },
- "lymálva": {
+ "limálva": {
   "id": 388,
   "safe": true,
   "seii": [
    "LHL"
   ],
-  "word": "lymálva",
-  "stem": "lým",
-  "stem2": "lym",
-  "fix": "lym-",
+  "word": "limálva",
+  "stem": "lím",
+  "stem2": "lim",
+  "fix": "lim-",
   "type": "m 基本型",
   "ruletype": "m",
   "tag": [
