@@ -7829,48 +7829,6 @@
    "ふくむ"
   ]
  },
- "rýshálva": {
-  "id": 296,
-  "safe": true,
-  "seii": [
-   "LHL"
-  ],
-  "word": "rýshálva",
-  "stem": "rýsh",
-  "stem2": "rysh",
-  "fix": "rysh-",
-  "tag": [
-   "ー"
-  ],
-  "parts": "動詞",
-  "type": "sh 基本型",
-  "ruletype": "sh",
-  "meaning": [
-   "［ 能が ］［ 基を ］書く。"
-  ],
-  "pronunciation": [
-   "/rʲi.ʂál.va/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "音象徴「 刻む 」から。"
-   ],
-   "changes": []
-  },
-  "kanji": {
-   "title": "書",
-   "nui": [
-    "？"
-   ],
-   "chel": [
-    "rísh"
-   ]
-  },
-  "variants2": [
-   "かく"
-  ]
- },
  "nåfcálva": {
   "id": 297,
   "safe": true,
@@ -22001,111 +21959,6 @@
    "指示代名飾"
   ]
  },
- "kóta": {
-  "id": 679,
-  "safe": true,
-  "seii": [
-   "LH"
-  ],
-  "word": "kóta",
-  "stem": "kót",
-  "stem2": "kot",
-  "fix": "kota-",
-  "tag": [
-   "指示"
-  ],
-  "parts": "名象",
-  "type": "a 尾高型",
-  "ruletype": "á",
-  "meaning": [
-   "これ。"
-  ],
-  "pronunciation": [
-   "/kó.ta/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 676 」+「 99 」が組み合わさった語"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "此れ",
-   "指示代名詞",
-   "指示代名象"
-  ]
- },
- "káta": {
-  "id": 680,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "káta",
-  "stem": "kát",
-  "stem2": "kat",
-  "fix": "kata-",
-  "tag": [
-   "指示"
-  ],
-  "parts": "名象",
-  "type": "k 基本型",
-  "ruletype": "k",
-  "meaning": [
-   "それ。"
-  ],
-  "pronunciation": [
-   "/ká.ta/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 677 」+「 99 」が組み合わさった語"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "其れ",
-   "指示代名詞",
-   "指示代名象"
-  ]
- },
- "kýta": {
-  "id": 681,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "kýta",
-  "stem": "kýt",
-  "stem2": "kyt",
-  "fix": "kyta-",
-  "tag": [
-   "指示"
-  ],
-  "parts": "名象",
-  "type": "k 基本型",
-  "ruletype": "k",
-  "meaning": [
-   "あれ。"
-  ],
-  "pronunciation": [
-   "/kʲí.ta/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 678 」+「 99 」が組み合わさった語"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "彼れ",
-   "指示代名詞",
-   "指示代名象"
-  ]
- },
  "úzmal": {
   "id": 682,
   "safe": true,
@@ -25622,142 +25475,6 @@
    "あたし"
   ]
  },
- "vljégo": {
-  "id": 762,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "vljégo",
-  "stem": "vljég",
-  "stem2": "vljóra",
-  "fix": "vlego-",
-  "tag": [
-   "人称代名詞"
-  ],
-  "parts": "名象",
-  "type": "代名詞型",
-  "ruletype": "vliego",
-  "meaning": [
-   "（ 一人称中性 ）自分。"
-  ],
-  "pronunciation": [
-   "/vlʲé.go/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 185 」+「 761 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "俺",
-   "僕",
-   "おれ",
-   "ぼく",
-   "うち",
-   "わたし",
-   "あたし",
-   "じぶん",
-   "僕",
-   "私"
-  ]
- },
- "síga": {
-  "id": 763,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "síga",
-  "stem": "síg",
-  "stem2": "sjára",
-  "fix": "siga-",
-  "tag": [
-   "人称代名詞"
-  ],
-  "parts": "名象",
-  "type": "代名詞型",
-  "ruletype": "siga",
-  "meaning": [
-   "（ 二人称男性 ）君、あなた"
-  ],
-  "pronunciation": [
-   "/sʲí.ga/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "形成の根拠は不明。"
-   ],
-   "changes": []
-  },
-  "kanji": {
-   "title": "你",
-   "nui": [
-    "？"
-   ],
-   "chel": [
-    "síga",
-    "píka"
-   ]
-  },
-  "variants2": [
-   "貴方",
-   "きみ",
-   "おまえ",
-   "お前",
-   "あなた"
-  ]
- },
- "píka⁽²⁾": {
-  "id": 764,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "píka",
-  "stem": "píc",
-  "stem2": "picóra",
-  "fix": "pika-",
-  "tag": [
-   "人称代名詞"
-  ],
-  "parts": "名象",
-  "type": "代名詞型",
-  "ruletype": "pika",
-  "meaning": [
-   "（ 二人称女性 ）君、あなた。"
-  ],
-  "pronunciation": [
-   "/pʲí.ka/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "形成の根拠は不明。"
-   ],
-   "changes": []
-  },
-  "kanji": {
-   "title": "你",
-   "nui": [
-    "？"
-   ],
-   "chel": [
-    "síga",
-    "píka"
-   ]
-  },
-  "variants2": [
-   "貴方",
-   "きみ",
-   "おまえ",
-   "お前",
-   "あなた"
-  ]
- },
  "týko": {
   "id": 765,
   "safe": true,
@@ -25807,133 +25524,6 @@
    "anpC": "týkko",
    "anpC2": "tykko"
   }
- },
- "kígo": {
-  "id": 766,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "kígo",
-  "stem": "kíg",
-  "stem2": "kjóra",
-  "fix": "kigo-",
-  "tag": [
-   "人称代名詞"
-  ],
-  "parts": "名象",
-  "type": "代名詞型",
-  "ruletype": "kigo",
-  "meaning": [
-   "（ 三人称男性 ）彼。"
-  ],
-  "pronunciation": [
-   "/kʲí.go/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "形成の根拠は不明。"
-   ],
-   "changes": []
-  },
-  "kanji": {
-   "title": "彼",
-   "nui": [
-    "？"
-   ],
-   "chel": [
-    "kígo"
-   ]
-  },
-  "variants2": [
-   "かれ",
-   "彼奴",
-   "あの人",
-   "あのひと"
-  ]
- },
- "fíko": {
-  "id": 767,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "fíko",
-  "stem": "fík",
-  "stem2": "ficóra",
-  "fix": "fiko-",
-  "tag": [
-   "人称代名詞"
-  ],
-  "parts": "名象",
-  "type": "代名詞型",
-  "ruletype": "fiko",
-  "meaning": [
-   "（ 三人称女性 ）彼女。"
-  ],
-  "pronunciation": [
-   "/fʲí.ko/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "形成の根拠は不明。"
-   ],
-   "changes": []
-  },
-  "kanji": {
-   "title": "她",
-   "nui": [
-    "？"
-   ],
-   "chel": [
-    "fíko"
-   ]
-  },
-  "variants2": [
-   "かのじょ",
-   "彼奴",
-   "あの人",
-   "あのひと"
-  ]
- },
- "pígo": {
-  "id": 768,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "pígo",
-  "stem": "píg",
-  "stem2": "pjóra",
-  "fix": "pigo-",
-  "tag": [
-   "人称代名詞"
-  ],
-  "parts": "名象",
-  "type": "代名詞型",
-  "ruletype": "pigo",
-  "meaning": [
-   "（ 三人称中性 ）あの人。"
-  ],
-  "pronunciation": [
-   "/pʲí.go/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "形成の根拠は不明。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "かのじょ",
-   "かれ",
-   "彼奴",
-   "あの人",
-   "あのひと"
-  ]
  },
  "dóvka": {
   "id": 769,
@@ -41978,5 +41568,1123 @@
    "klåi",
    "kloja"
   ]
+ },
+ "ryshálva": {
+  "id": 296,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "ryshálva",
+  "stem": "rýsh",
+  "stem2": "rysh",
+  "fix": "rysh-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "sh 基本型",
+  "ruletype": "sh",
+  "meaning": [
+   "［ 能が ］［ 基を ］書く。"
+  ],
+  "pronunciation": [
+   "/rʲi.ʂál.va/"
+  ],
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "音象徴「 刻む 」から。"
+   ],
+   "changes": []
+  },
+  "kanji": {
+   "title": "書",
+   "nui": [
+    "？"
+   ],
+   "chel": [
+    "rísh"
+   ]
+  },
+  "variants2": [
+   "かく"
+  ]
+ },
+ "chifmázhka": {
+  "id": 1305,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "chifmázhka",
+  "stem": "chifmázhk",
+  "stem2": "chifmazhk",
+  "fix": "chifmazhka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "朝食、朝ごはん。"
+  ],
+  "pronunciation": [
+   "/ʈ͡ʂʲifʲ.mʲáʂ.ka/"
+  ],
+  "variants2": [],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 771 」+「 755 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "klafmázhka": {
+  "id": 1306,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "klafmázhka",
+  "stem": "klafmázhk",
+  "stem2": "klafmazhk",
+  "fix": "klafmazhka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "昼食、昼ごはん。"
+  ],
+  "pronunciation": [
+   "/klaf.máʂ.ka/"
+  ],
+  "variants2": [],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 529 」+「 755 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "mjafmázhka": {
+  "id": 1307,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "mjafmázhka",
+  "stem": "mjafmázhk",
+  "stem2": "mjafmazhk",
+  "fix": "mjafmazhka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "夕食、晩ごはん。"
+  ],
+  "pronunciation": [
+   "/mʲaf.máʂ.ka/"
+  ],
+  "variants2": [],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 772 」+「 755 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "narfmázhka": {
+  "id": 1308,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "narfmázhka",
+  "stem": "narfmázhk",
+  "stem2": "narfmazhk",
+  "fix": "narfmazhka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "夜食。"
+  ],
+  "pronunciation": [
+   "/narf.máʂ.ka/"
+  ],
+  "variants2": [],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 293 」+「 755 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "mazhája": {
+  "id": 1309,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "mazhája",
+  "stem": "mazháj",
+  "stem2": "mazhaj",
+  "fix": "mazhaja-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "j 基本型",
+  "meaning": [
+   "食べる道具、箸、スプーン、フォークなど。"
+  ],
+  "pronunciation": [
+   "/ma.ʐá.∅ʲa/"
+  ],
+  "variants2": [],
+  "ruletype": "j",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 285 」+「 359 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kaphája": {
+  "id": 1310,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "kaphája",
+  "stem": "kapháj",
+  "stem2": "kaphaj",
+  "fix": "kaphaja-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "j 基本型",
+  "meaning": [
+   "飲む道具、杯、コップ、グラス。"
+  ],
+  "pronunciation": [
+   "/ka.fá.∅ʲa/"
+  ],
+  "variants2": [],
+  "ruletype": "j",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 736 」+「 359 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gvefája": {
+  "id": 1311,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "gvefája",
+  "stem": "gvefáj",
+  "stem2": "gvefaj",
+  "fix": "gvefaja-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "j 基本型",
+  "meaning": [
+   "焼く道具、フライパン。"
+  ],
+  "pronunciation": [
+   "/gve.fá.∅ʲa/"
+  ],
+  "variants2": [],
+  "ruletype": "j",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 751 」+「 359 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kjaphnálva": {
+  "id": 1312,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "kjaphnálva",
+  "stem": "kjáphn",
+  "stem2": "kjaphn",
+  "fix": "kjaphna-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 複子音型",
+  "meaning": [
+   "［ 能が ］［ 基を ］噛む、咀嚼する。"
+  ],
+  "pronunciation": [
+   "/kʲaf.nál.va/"
+  ],
+  "variants2": [],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 140 」+「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "dalójlas": {
+  "id": 1313,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "dalójlas",
+  "stem": "dalój",
+  "stem2": "daloj",
+  "fix": "daloj-",
+  "tag": [
+   "味"
+  ],
+  "parts": "名飾",
+  "type": "j 基本型",
+  "meaning": [
+   "海の、海洋の。",
+   "塩辛い、塩味の。"
+  ],
+  "pronunciation": [
+   "/da.ló∅ʲ.las/"
+  ],
+  "variants2": [],
+  "ruletype": "j",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 576 」+「 143 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "vuebýfka": {
+  "id": 1314,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "vuebýfka",
+  "stem": "vuebýfk",
+  "stem2": "vuebyfk",
+  "fix": "vuebyfka-",
+  "tag": [
+   "味"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "調味料、味付けのもの。"
+  ],
+  "pronunciation": [
+   "/ve.bʲíf.ka/"
+  ],
+  "variants2": [],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 740 」+「 135 」+「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pakfása": {
+  "id": 1327,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "pakfása",
+  "stem": "pakfás",
+  "stem2": "pakfas",
+  "fix": "pakfasa-",
+  "tag": [
+   "身体部位"
+  ],
+  "parts": "名象",
+  "type": "s 基本型",
+  "meaning": [
+   "眉毛、まゆげ。"
+  ],
+  "pronunciation": [
+   "/pak.fá.sa/"
+  ],
+  "variants2": [],
+  "ruletype": "s",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 656 」+「 397 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "halmúkũ": {
+  "id": 1328,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "halmúkũ",
+  "stem": "halmúk",
+  "stem2": "halmuk",
+  "fix": "halmakũ-",
+  "tag": [
+   "身体部位"
+  ],
+  "parts": "名象",
+  "type": "ũ 基本型",
+  "meaning": [
+   "肺。"
+  ],
+  "pronunciation": [
+   "/hal.mú.kN/"
+  ],
+  "variants2": [],
+  "ruletype": "ũ",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 575 」+「 544 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "banmúkũ": {
+  "id": 1329,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "banmúkũ",
+  "stem": "banmúk",
+  "stem2": "banmuk",
+  "fix": "banmakũ-",
+  "tag": [
+   "身体部位"
+  ],
+  "parts": "名象",
+  "type": "ũ 基本型",
+  "meaning": [
+   "胃。"
+  ],
+  "pronunciation": [
+   "/bam.mú.kN/"
+  ],
+  "variants2": [],
+  "ruletype": "ũ",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 108 」+「 544 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "sjatkúla": {
+  "id": 1330,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "sjatkúla",
+  "stem": "sjatkúl",
+  "stem2": "sjatkul",
+  "fix": "sjatkila-",
+  "tag": [
+   "身体部位"
+  ],
+  "parts": "名象",
+  "type": "l 基本型",
+  "meaning": [
+   "肩。"
+  ],
+  "pronunciation": [
+   "/sʲat͡s.kú.la/"
+  ],
+  "variants2": [],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 545 」+「 657 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "svannálva": {
+  "id": 1331,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "svannálva",
+  "stem": "svánn",
+  "stem2": "svann",
+  "fix": "svanna-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］泳ぐ、水泳する。"
+  ],
+  "pronunciation": [
+   "/svan.nál.va/"
+  ],
+  "variants2": [],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 120 」+「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "shnefnálva": {
+  "id": 1332,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "shnefnálva",
+  "stem": "shnéfn",
+  "stem2": "shnefn",
+  "fix": "shnefna-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 複子音型",
+  "meaning": [
+   "［ 能が ］［ 基を ］握る、掴む、把持する。"
+  ],
+  "pronunciation": [
+   "/ʂnʲef.nál.va/"
+  ],
+  "variants2": [],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 445 」+「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "khannálva": {
+  "id": 1333,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "khannálva",
+  "stem": "khónn",
+  "stem2": "khonn",
+  "fix": "khonna-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］叫ぶ、大声を出す。"
+  ],
+  "pronunciation": [
+   "/han.nál.va/"
+  ],
+  "variants2": [],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 685 」+「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "dafnaválva": {
+  "id": 1334,
+  "safe": true,
+  "seii": [
+   "LLHL"
+  ],
+  "word": "dafnaválva",
+  "stem": "dafnáv",
+  "stem2": "dafnav",
+  "fix": "dafnav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "v 基本型",
+  "meaning": [
+   "［ 能が ］［ 基を ］運ぶ、運搬する。"
+  ],
+  "pronunciation": [
+   "/daf.na.vál.va/"
+  ],
+  "variants2": [],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 737 」+「 209 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "rhráffa": {
+  "id": 1335,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "rhráffa",
+  "stem": "rhráff",
+  "stem2": "rhrhaff",
+  "fix": "rhrhaffa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "眠り、睡眠。"
+  ],
+  "pronunciation": [
+   "/ʀráf.fa/"
+  ],
+  "variants2": [],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 155 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pjákfa": {
+  "id": 1336,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pjákfa",
+  "stem": "pjákf",
+  "stem2": "pjakf",
+  "fix": "pjakfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "跳び、ジャンプ。"
+  ],
+  "pronunciation": [
+   "/pʲák.fa/"
+  ],
+  "variants2": [],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 194 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ýko": {
+  "id": 1337,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "ýko",
+  "stem": "ýk",
+  "stem2": "yk",
+  "fix": "yko-",
+  "tag": [
+   "人称代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ 一人称中性 ）私。"
+  ],
+  "pronunciation": [
+   "/∅ʲí.ko/"
+  ],
+  "variants2": [
+   "俺",
+   "僕",
+   "おれ",
+   "ぼく",
+   "うち",
+   "わたし",
+   "あたし",
+   "じぶん",
+   "僕",
+   "私"
+  ],
+  "ruletype": "prono",
+  "baseOverrides": {
+   "anpC": "jákko",
+   "anpC2": "jakko"
+  },
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "sýto": {
+  "id": 1338,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "sýto",
+  "stem": "sýt",
+  "stem2": "syt",
+  "fix": "syto-",
+  "tag": [
+   "人称代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ 二人称男性 ）君、あなた"
+  ],
+  "pronunciation": [
+   "/sʲí.to/"
+  ],
+  "variants2": [
+   "貴方",
+   "きみ",
+   "おまえ",
+   "お前",
+   "あなた"
+  ],
+  "ruletype": "prono",
+  "baseOverrides": {
+   "anpC": "sýtto",
+   "anpC2": "sytto"
+  },
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "páko": {
+  "id": 1339,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "páko",
+  "stem": "pák",
+  "stem2": "pak",
+  "fix": "pako-",
+  "tag": [
+   "人称代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ 二人称女性 ）君、あなた。"
+  ],
+  "pronunciation": [
+   "/pá.ko/"
+  ],
+  "variants2": [
+   "貴方",
+   "きみ",
+   "おまえ",
+   "お前",
+   "あなた"
+  ],
+  "ruletype": "prono",
+  "baseOverrides": {
+   "anpC": "pákko",
+   "anpC2": "pakko"
+  },
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "káto": {
+  "id": 1340,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "káto",
+  "stem": "kát",
+  "stem2": "kat",
+  "fix": "kato-",
+  "tag": [
+   "人称代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ 三人称男性 ）彼。"
+  ],
+  "pronunciation": [
+   "/ká.to/"
+  ],
+  "variants2": [
+   "かれ",
+   "彼奴",
+   "あの人",
+   "あのひと"
+  ],
+  "ruletype": "prono",
+  "baseOverrides": {
+   "anpC": "kátto",
+   "anpC2": "katto"
+  },
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "fýka": {
+  "id": 1341,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "fýka",
+  "stem": "fýk",
+  "stem2": "fyk",
+  "fix": "fyka-",
+  "tag": [
+   "人称代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ 三人称女性 ）彼女。"
+  ],
+  "pronunciation": [
+   "/fʲí.ka/"
+  ],
+  "variants2": [
+   "かのじょ",
+   "彼奴",
+   "あの人",
+   "あのひと"
+  ],
+  "ruletype": "prona",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "cáko": {
+  "id": 1342,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "cáko",
+  "stem": "cák",
+  "stem2": "cak",
+  "fix": "cako-",
+  "tag": [
+   "人称代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ 三人称中性 ）あの人。"
+  ],
+  "pronunciation": [
+   "/t͡sá.ko/"
+  ],
+  "variants2": [
+   "かのじょ",
+   "かれ",
+   "彼奴",
+   "あの人",
+   "あのひと"
+  ],
+  "ruletype": "prono",
+  "baseOverrides": {
+   "anpC": "cákko",
+   "anpC2": "cakko"
+  },
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "koca": {
+  "id": 1343,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "koca",
+  "stem": "koc",
+  "stem2": "koc",
+  "fix": "koca-",
+  "tag": [
+   "指示代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ もの・近称 ）これ。"
+  ],
+  "pronunciation": [
+   "/kó.t͡sa/"
+  ],
+  "variants2": [
+   "此れ",
+   "指示代名詞",
+   "指示代名象"
+  ],
+  "ruletype": "prona",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "kaca": {
+  "id": 1344,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "kaca",
+  "stem": "kac",
+  "stem2": "kac",
+  "fix": "kaca-",
+  "tag": [
+   "指示代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ もの・中称 ）それ。"
+  ],
+  "pronunciation": [
+   "/ká.t͡sa/"
+  ],
+  "variants2": [
+   "其れ",
+   "指示代名詞",
+   "指示代名象"
+  ],
+  "ruletype": "prona",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "kyca": {
+  "id": 1345,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "kyca",
+  "stem": "kyc",
+  "stem2": "kyc",
+  "fix": "kyca-",
+  "tag": [
+   "指示代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ もの・遠称 ）あれ。"
+  ],
+  "pronunciation": [
+   "/kʲí.t͡sa/"
+  ],
+  "variants2": [
+   "彼れ",
+   "指示代名詞",
+   "指示代名象"
+  ],
+  "ruletype": "prona",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "fota": {
+  "id": 1346,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "fota",
+  "stem": "fot",
+  "stem2": "fot",
+  "fix": "fota-",
+  "tag": [
+   "指示代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ こと・近称 ）このこと。"
+  ],
+  "pronunciation": [
+   "/fó.ta/"
+  ],
+  "variants2": [
+   "このこと",
+   "指示代名詞",
+   "指示代名象"
+  ],
+  "ruletype": "prona",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "fata": {
+  "id": 1347,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "fata",
+  "stem": "fat",
+  "stem2": "fat",
+  "fix": "fata-",
+  "tag": [
+   "指示代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ こと・中称 ）そのこと。"
+  ],
+  "pronunciation": [
+   "/fá.ta/"
+  ],
+  "variants2": [
+   "そのこと",
+   "指示代名詞",
+   "指示代名象"
+  ],
+  "ruletype": "prona",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
+ },
+ "fyta": {
+  "id": 1348,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "fyta",
+  "stem": "fyt",
+  "stem2": "fyt",
+  "fix": "fyta-",
+  "tag": [
+   "指示代名詞"
+  ],
+  "parts": "名象",
+  "type": "代名詞型",
+  "meaning": [
+   "（ こと・遠称 ）あのこと。"
+  ],
+  "pronunciation": [
+   "/fʲí.ta/"
+  ],
+  "variants2": [
+   "あのこと",
+   "指示代名詞",
+   "指示代名象"
+  ],
+  "ruletype": "prona",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  }
  }
 }
