@@ -4069,7 +4069,7 @@
   ],
   "parts": "名象",
   "type": "代名詞型",
-  "ruletype": "migo",
+  "ruletype": "prono",
   "meaning": [
    "（ 一人称男性 ）俺、僕、私。"
   ],
@@ -25595,7 +25595,7 @@
   ],
   "parts": "名象",
   "type": "代名詞型",
-  "ruletype": "liko",
+  "ruletype": "prona",
   "meaning": [
    "（ 一人称女性 ）私"
   ],
@@ -25769,7 +25769,7 @@
   ],
   "parts": "名象",
   "type": "代名詞型",
-  "ruletype": "tiko",
+  "ruletype": "prono",
   "meaning": [
    "（ 二人称中性 ）君、あなた。"
   ],
