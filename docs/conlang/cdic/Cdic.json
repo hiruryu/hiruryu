@@ -7305,75 +7305,6 @@
    "アダルト"
   ]
  },
- "carmhózuejlas": {
-  "id": 282,
-  "safe": true,
-  "seii": [
-   "LHLL"
-  ],
-  "word": "carmhózuejlas",
-  "stem": "carmhózuej",
-  "stem2": "carmhozuei",
-  "fix": "carmhazey-",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "type": "j 基本型",
-  "ruletype": "j",
-  "meaning": [
-   "子供向けの、健全な。"
-  ],
-  "pronunciation": [
-   "/t͡sar.vó.zej.las/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    " ｢ 279 」+「 277 」+「 81 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "健全な",
-   "けんぜんな",
-   "こどもむけの"
-  ]
- },
- "darmhózuejlas": {
-  "id": 283,
-  "safe": true,
-  "seii": [
-   "LHLL"
-  ],
-  "word": "darmhózuejlas",
-  "stem": "darmhózuej",
-  "stem2": "darmhozuei",
-  "fix": "darmhazey-",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "type": "j 基本型",
-  "ruletype": "j",
-  "meaning": [
-   "大人向けの、成人向けの。"
-  ],
-  "pronunciation": [
-   "/dar.vó.zej.lis/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    " ｢ 281 」+「 277 」+「 81 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "おとなむけの",
-   "アダルトな"
-  ]
- },
  "darmjálas": {
   "id": 284,
   "safe": true,
@@ -13184,50 +13115,6 @@
   "variants2": [
    "子魚",
    "ちぎょ"
-  ]
- },
- "cnájlas": {
-  "id": 434,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "cnájlas",
-  "stem": "cnáj",
-  "stem2": "cnaj",
-  "fix": "cnaj-",
-  "type": "j 基本型",
-  "ruletype": "j",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "meaning": [
-   "幼い、未熟な。"
-  ],
-  "pronunciation": [
-   "/sná∅ʲ.las/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 431 」+「 143 」+「 81 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "kanji": {
-   "title": "幼",
-   "nui": [
-    "？"
-   ],
-   "chel": [
-    "cnáj"
-   ]
-  },
-  "variants2": [
-   "おさない",
-   "みじゅくな",
-   "未熟な"
   ]
  },
  "epö́lva": {
@@ -42679,6 +42566,119 @@
    "六度",
    "ろっかい",
    "ろくど"
+  ]
+ },
+ "cnájjas": {
+  "id": 434,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "cnájjas",
+  "stem": "cnáj",
+  "stem2": "cnaj",
+  "fix": "cnaj-",
+  "type": "j 基本型",
+  "ruletype": "j",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "meaning": [
+   "幼い、未熟な。"
+  ],
+  "pronunciation": [
+   "/sná∅ʲ.jas/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 431 」+「 143 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "kanji": {
+   "title": "幼",
+   "nui": [
+    "？"
+   ],
+   "chel": [
+    "cnáj"
+   ]
+  },
+  "variants2": [
+   "おさない",
+   "みじゅくな",
+   "未熟な"
+  ]
+ },
+ "carmhózuejjas": {
+  "id": 282,
+  "safe": true,
+  "seii": [
+   "LHLL"
+  ],
+  "word": "carmhózuejjas",
+  "stem": "carmhózuej",
+  "stem2": "carmhozuej",
+  "fix": "carmhazuej",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "j 基本型",
+  "ruletype": "j",
+  "meaning": [
+   "子供向けの、健全な。"
+  ],
+  "pronunciation": [
+   "/t͡sar.vó.zej.jas/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    " ｢ 279 」+「 277 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "健全な",
+   "けんぜんな",
+   "こどもむけの"
+  ]
+ },
+ "darmhózuejjas": {
+  "id": 283,
+  "safe": true,
+  "seii": [
+   "LHLL"
+  ],
+  "word": "darmhózuejjas",
+  "stem": "darmhózuej",
+  "stem2": "darmhozuej",
+  "fix": "darmhazuej",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "j 基本型",
+  "ruletype": "j",
+  "meaning": [
+   "大人向けの、成人向けの。"
+  ],
+  "pronunciation": [
+   "/dar.vó.zej.jas/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    " ｢ 281 」+「 277 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "おとなむけの",
+   "アダルトな"
   ]
  }
 }
