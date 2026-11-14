@@ -2287,7 +2287,151 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
 
 
     // n 複子音形
-  } else if (["na"].includes(ruletype)) {
+  } else if (["a"].includes(ruletype)) {
+   return {
+      // 完結相
+      p: uniqueForms(
+        stem2 + pfx,
+        stem2ua + pfx,
+        stem2juiu + pfx,
+      ).join("<br>"),
+
+      n: "ー",
+      f: uniqueForms(
+        stem2ua + ffx,
+        stem2ui + ffx,
+        stem2oö + ffx,
+        stem2jui + ffx,
+      ).join("<br>"),
+
+      // 進行相
+      sp: uniqueForms(
+
+        stemVi + spfx,
+        stemui + spfx,
+        stemoö + spfx,
+      ).join("<br>"),
+
+      sn: uniqueForms(
+        stemVi + snfx,
+        stemui + snfx,
+        stemoö + snfx,
+      ).join("<br>"),
+
+      sf: uniqueForms(
+
+        stemVi + sffx,
+        stemui + sffx,
+        stemoö + sffx,
+      ).join("<br>"),
+
+      // 完了相
+      dp: uniqueForms(
+        stem2ua.slice(0, -1) + dpfx,
+        stem2.slice(0, -1) + dpfx,
+        stem2juiu.slice(0, -1) + dpfx,
+      ).join("<br>"),
+
+      dn: stem.slice(0, -1) + dnfx,
+
+      df: uniqueForms(
+        stem2ua.slice(0, -1) + dffx,
+        stem2.slice(0, -1) + dffx,
+        stem2juiu.slice(0, -1) + dffx,
+      ).join("<br>"),
+
+      // 反復相,
+      mp: stem + mpfx.slice(1, 4),
+
+      mn: uniqueForms(
+        stemVi + mnfx,
+        stemui + mnfx,
+
+      ).join("<br>"),
+
+      mf: uniqueForms(
+        stemVi + mffx,
+        stemui + mffx,
+      ).join("<br>"),
+
+      // 飾形
+      // 完結相
+      ne: uniqueForms(
+        stemVi + nefx,
+        stemui + nefx,
+
+      ).join("<br>"),
+
+      fe: uniqueForms(
+        stem2ui + fefx,
+        stem2oö + fefx,
+        stem2jui + fefx,
+      ).join("<br>"),
+
+      // 進行相
+      sne: uniqueForms(
+        stemVi + snefx,
+        stemui + snefx,
+
+      ).join("<br>"),
+
+      sfe: uniqueForms(
+        stemui + sfefx,
+        stemoö + sfefx,
+
+      ).join("<br>"),
+
+      // 完了相
+      dne: uniqueForms(
+        stem2ua + dnefx,
+        stem2 + dnefx,
+        stem2juiu + dnefx,
+      ).join("<br>"),
+
+      dfe: uniqueForms(
+        stem2ua + dfefx,
+        stem2 + dfefx,
+        stem2juiu + dfefx,
+      ).join("<br>"),
+
+      // 反復相,
+      mne: uniqueForms(
+        stem.slice(0, -1) + mnefx,
+        stemui.slice(0, -1) + mnefx,
+      ).join("<br>"),
+
+      mfe: uniqueForms(
+        stem.slice(0, -1) + mfefx,
+        stemui.slice(0, -1) + mfefx,
+      ).join("<br>"),
+
+      // 具象形
+      // 完結相
+      p_gerund: uniqueForms(
+        stem2ua + pfx2 + alva,
+        stem2q + pfx2 + alva,
+      ).join("<br>"),
+
+      n_gerund: stem2ua + alva,
+      f_gerund: stem2ua + ffxp2 + alva,
+
+      // 進行相
+      sp_gerund: stem2ui + spfx + alva,
+      sn_gerund: stem2ui + snfx + alva,
+      sf_gerund: stem2ui + sffx + alva,
+
+      // 完了相
+      dp_gerund: stem2ua.slice(0, -1) + dpfx2 + alva,
+      dn_gerund: stem2ua.slice(0, -1) + dnfx.slice(0, -1) + alva,
+      df_gerund: stem2ua.slice(0, -1) + dffx2 + alva,
+
+      // 反復相,
+      mp_gerund: stem2ua + mpfx.slice(1, 4) + alva,
+      mn_gerund: stem2ui + mnfx + alva,
+      mf_gerund: stem2ui + mffx + alva,
+    }
+
+    // sna 明音形  } else if (["na"].includes(ruletype)) {
     return {
       // 完結相
       p: uniqueForms(
