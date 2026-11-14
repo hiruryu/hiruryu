@@ -4957,7 +4957,7 @@
   "stem": "ftónn",
   "stem2": "ftonn",
   "fix": [
-   "ftann-"
+   "ftanna-"
   ],
   "tag": [
    "ー"
@@ -41293,7 +41293,7 @@
   "word": "khannálva",
   "stem": "khónn",
   "stem2": "khonn",
-  "fix": "khonna-",
+  "fix": "khanna-",
   "tag": [
    "ー"
   ],
@@ -43023,7 +43023,7 @@
   "word": "pavnálva",
   "stem": "póvn",
   "stem2": "povn",
-  "fix": "povna-",
+  "fix": "pavna-",
   "tag": [
    "感情"
   ],
@@ -45949,7 +45949,7 @@
   "word": "lophnálva",
   "stem": "lóphn",
   "stem2": "lophn",
-  "fix": "lophn-",
+  "fix": "lophna-",
   "tag": [
    "ー"
   ],
@@ -45982,7 +45982,7 @@
   "word": "qajnálva",
   "stem": "qájn",
   "stem2": "qajn",
-  "fix": "qajn-",
+  "fix": "qajna-",
   "tag": [
    "ー"
   ],
@@ -46015,7 +46015,7 @@
   "word": "ghaqnálva",
   "stem": "gháqn",
   "stem2": "ghaqn",
-  "fix": "ghaqn-",
+  "fix": "ghaqna-",
   "tag": [
    "ー"
   ],
@@ -46048,7 +46048,7 @@
   "word": "loqnálva",
   "stem": "lóqn",
   "stem2": "loqn",
-  "fix": "loqn-",
+  "fix": "loqna-",
   "tag": [
    "ー"
   ],
