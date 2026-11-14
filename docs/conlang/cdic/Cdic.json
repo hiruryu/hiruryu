@@ -42540,39 +42540,6 @@
    "おだやかな"
   ]
  },
- "týkhlas⁽²⁾": {
-  "id": 489,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "týkhlas",
-  "stem": "týk",
-  "stem2": "tyk",
-  "fix": "tyk-",
-  "type": "k 明音型",
-  "ruletype": "kj",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "meaning": [
-   "枝状の。"
-  ],
-  "pronunciation": [
-   "/tʲíh.las/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 487 」+「 143 」+「 81 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "えだじょうの"
-  ]
- },
  "ljáikhlas": {
   "id": 661,
   "safe": true,
@@ -42680,5 +42647,38 @@
   "type": "p 明音型",
   "variants2": [],
   "word": "gáiphlas"
+ },
+ "týklas⁽²⁾": {
+  "id": 489,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "týklas",
+  "stem": "týk",
+  "stem2": "tyk",
+  "fix": "tyk-",
+  "type": "k 基本型",
+  "ruletype": "k",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "meaning": [
+   "枝状の。"
+  ],
+  "pronunciation": [
+   "/tʲík.las/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 487 」+「 143 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "えだじょうの"
+  ]
  }
 }
