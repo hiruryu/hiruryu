@@ -32748,53 +32748,6 @@
    "ぼやく"
   ]
  },
- "méllas": {
-  "id": 1118,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "méllas",
-  "stem": "mél",
-  "stem2": "mel",
-  "fix": "mel-",
-  "type": "l 基本型",
-  "ruletype": "l",
-  "tag": [
-   "性格"
-  ],
-  "parts": "名飾",
-  "meaning": [
-   "優しい",
-   "親切な",
-   "丁寧な",
-   "温厚な",
-   "手厚い",
-   "まろやかな",
-   "マイルドな",
-   "丁重な",
-   "好意的な"
-  ],
-  "pronunciation": [
-   "/mél.las/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "音象徴「 甘い 」から。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "やさしい",
-   "しんせつな",
-   "ていねいな",
-   "おんこうな",
-   "てあつい",
-   "ていちょうな",
-   "こういてきな"
-  ]
- },
  "zarhálva": {
   "id": 1119,
   "safe": true,
@@ -37018,44 +36971,6 @@
    "四個",
    "四つ",
    "よっつ"
-  ]
- },
- "pókka": {
-  "id": 956,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "pókka",
-  "stem": "pókk",
-  "stem2": "pokk",
-  "fix": "pakka-",
-  "tag": [
-   "数詞",
-   "個数詞"
-  ],
-  "parts": "名象",
-  "type": "k 基本型",
-  "ruletype": "k",
-  "meaning": [
-   "5個",
-   "5つ"
-  ],
-  "pronunciation": [
-   "/pók.ka/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 864 」+「 99 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "ごこ",
-   "五個",
-   "五つ",
-   "いつつ"
   ]
  },
  "chómka": {
@@ -42680,5 +42595,3714 @@
    "キラキラした",
    "眩しい"
   ]
+ },
+ "lópo": {
+  "id": 1349,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "lópo",
+  "stem": "lóp",
+  "stem2": "lop",
+  "fix": "lapo-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "o 基本型",
+  "meaning": [
+   "たまご。"
+  ],
+  "pronunciation": [
+   "/ló.po/"
+  ],
+  "variants2": [
+   "卵",
+   "玉子"
+  ],
+  "ruletype": "o",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "音象徴「 丸い 」から。"
+   ],
+   "changes": []
+  },
+  "kanji": {
+   "title": "卵",
+   "chel": [
+    "lópo"
+   ]
+  }
+ },
+ "svadóllas": {
+  "id": 1350,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "svadóllas",
+  "stem": "svadól",
+  "stem2": "svadol",
+  "fix": "svadal-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "l 基本型",
+  "meaning": [
+   "水に溶ける、水溶性の。"
+  ],
+  "pronunciation": [
+   "/sva.dól.las/"
+  ],
+  "variants2": [
+   "すいようせいの",
+   "水溶の",
+   "すいようの",
+   "溶ける",
+   "とける"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 120 」+「 550 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "svadallópo": {
+  "id": 1351,
+  "safe": true,
+  "seii": [
+   "LLHL"
+  ],
+  "word": "svadallópo",
+  "stem": "svadallóp",
+  "stem2": "svadallop",
+  "fix": "svadallapo-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "o 基本型",
+  "meaning": [
+   "バスボム。"
+  ],
+  "pronunciation": [
+   "/sva.dal.ló.po/"
+  ],
+  "variants2": [],
+  "ruletype": "o",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1350 」+「 1349 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "gvaklúfa": {
+  "id": 1352,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "gvaklúfa",
+  "stem": "gvaklúf",
+  "stem2": "gvakluf",
+  "fix": "gvaklafa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "太陽。"
+  ],
+  "pronunciation": [
+   "/gva.klú.fa/"
+  ],
+  "variants2": [],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 750 」+「 529 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "tychýta": {
+  "id": 1353,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "tychýta",
+  "stem": "tychýt",
+  "stem2": "tychyt",
+  "fix": "tychyta-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "t 基本型",
+  "meaning": [
+   "月。"
+  ],
+  "pronunciation": [
+   "/tʲi.ʈ͡ʂʲí.ta/"
+  ],
+  "variants2": [],
+  "ruletype": "t",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 495 」+「 556 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gjalfára": {
+  "id": 1354,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "gjalfára",
+  "stem": "gjalfár",
+  "stem2": "gjalfar",
+  "fix": "gjalfara-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "r 基本型",
+  "meaning": [
+   "雪。"
+  ],
+  "pronunciation": [
+   "/gʲal.fá.ra/"
+  ],
+  "variants2": [],
+  "ruletype": "r",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 207 」+「 183 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "zaffára": {
+  "id": 1355,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "zaffára",
+  "stem": "zaffár",
+  "stem2": "zaffar",
+  "fix": "zaffara-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "r 基本型",
+  "meaning": [
+   "虹。"
+  ],
+  "pronunciation": [
+   "/zaf.fá.ra/"
+  ],
+  "variants2": [],
+  "ruletype": "r",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 344 」+「 183 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "famkhólo": {
+  "id": 1356,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "famkhólo",
+  "stem": "famkhól",
+  "stem2": "famkhol",
+  "fix": "famkhalo-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "lo 基本型",
+  "meaning": [
+   "雷、雷鳴。"
+  ],
+  "pronunciation": [
+   "/fam.hó.lo/"
+  ],
+  "variants2": [],
+  "ruletype": "lo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 407 」+「 685 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "svafóma": {
+  "id": 1357,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "svafóma",
+  "stem": "svafóm",
+  "stem2": "svafom",
+  "fix": "svafama-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "meaning": [
+   "霧。"
+  ],
+  "pronunciation": [
+   "/sva.fó.ma/"
+  ],
+  "variants2": [],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 120 」+「 407 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "chikfa": {
+  "id": 1358,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "chikfa",
+  "stem": "chíkf",
+  "stem2": "chikf",
+  "fix": "chikfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "輝き、光。"
+  ],
+  "pronunciation": [
+   "/ʈ͡ʂʲikʲ.fʲa/"
+  ],
+  "variants2": [],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 687 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "narfnábo": {
+  "id": 1359,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "narfnábo",
+  "stem": "narfnáb",
+  "stem2": "narfnab",
+  "fix": "narfnabo-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "bo 基本型",
+  "meaning": [
+   "影。"
+  ],
+  "pronunciation": [
+   "/narf.ná.bo/"
+  ],
+  "variants2": [],
+  "ruletype": "bo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 293 」+「 413 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "tysválo": {
+  "id": 1360,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "tysválo",
+  "stem": "tysvál",
+  "stem2": "tysval",
+  "fix": "tysvalo-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "lo 変則型",
+  "meaning": [
+   "露。"
+  ],
+  "pronunciation": [
+   "/tʲi.svá.lo/"
+  ],
+  "variants2": [],
+  "ruletype": "lo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 495 」+「 120 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "hafnábo": {
+  "id": 1361,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "hafnábo",
+  "stem": "hafnáb",
+  "stem2": "hafnab",
+  "fix": "hafnabo-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "bo 基本型",
+  "meaning": [
+   "天気、天候。"
+  ],
+  "pronunciation": [
+   "/haf.ná.bo/"
+  ],
+  "variants2": [],
+  "ruletype": "bo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 324 」+「 413 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pavnálva": {
+  "id": 1362,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "pavnálva",
+  "stem": "póvn",
+  "stem2": "povn",
+  "fix": "povna-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］照れる。",
+   "［ 与が ］［ 基を ］恥ずかしがる。"
+  ],
+  "pronunciation": [
+   "/pav.nál.va/"
+  ],
+  "variants2": [
+   "はずかしがる",
+   "てれる"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "音象徴「 照れる 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "póivlas": {
+  "id": 1363,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "póivlas",
+  "stem": "póiv",
+  "stem2": "poiv",
+  "fix": "paiv-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名飾",
+  "type": "v 明音型",
+  "meaning": [
+   "恥ずかしい。"
+  ],
+  "pronunciation": [
+   "/póvʲ.lʲas/"
+  ],
+  "variants2": [
+   "はずかしい",
+   "恥ずい",
+   "はずい",
+   "照れた",
+   "てれた"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "「 1362 」+「 143 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "kanji": {
+   "title": "恥",
+   "chel": [
+    "póiv"
+   ]
+  }
+ },
+ "póivfa": {
+  "id": 1364,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "póivfa",
+  "stem": "póivf",
+  "stem2": "poivf",
+  "fix": "paivfa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "v 明音型",
+  "meaning": [
+   "恥、照れ。"
+  ],
+  "pronunciation": [
+   "/pófʲ.fʲa/"
+  ],
+  "variants2": [
+   "はじ",
+   "てれ"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1362 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "céqka": {
+  "id": 1365,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "céqka",
+  "stem": "céqk",
+  "stem2": "ceqk",
+  "fix": "ceqka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "ガラス。"
+  ],
+  "pronunciation": [
+   "/t͡sʲéŋ.ka/"
+  ],
+  "variants2": [
+   "硝子"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 璃 」（中縫語 t͡sʰiːŋ）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "qákka": {
+  "id": 1366,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "qákka",
+  "stem": "qákk",
+  "stem2": "qakk",
+  "fix": "qakka-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "皿。"
+  ],
+  "pronunciation": [
+   "/ŋák.ka/"
+  ],
+  "variants2": [
+   "さら"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 皿 」（中縫語 ŋ̊aːl(p)）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "tómka": {
+  "id": 1367,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "tómka",
+  "stem": "tómk",
+  "stem2": "tomk",
+  "fix": "tomka-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "杯。"
+  ],
+  "pronunciation": [
+   "/tóŋ.ka/"
+  ],
+  "variants2": [
+   "さかずき",
+   "コップ",
+   "カップ",
+   "はい"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 杯 」（中縫語 tâːm）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "zéjka": {
+  "id": 1368,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "zéjka",
+  "stem": "zéjk",
+  "stem2": "zejk",
+  "fix": "zejka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "角、つの。"
+  ],
+  "pronunciation": [
+   "/zʲé∅ʲ.ka/"
+  ],
+  "variants2": [
+   "つの"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 角 」（中縫語 zej）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "núka": {
+  "id": 1369,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "núka",
+  "stem": "núk",
+  "stem2": "nuk",
+  "fix": "nuka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "布。"
+  ],
+  "pronunciation": [
+   "/nú.ka/"
+  ],
+  "variants2": [
+   "ぬの"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 布 」（中縫語 n̥uw）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "nújka": {
+  "id": 1370,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "nújka",
+  "stem": "nújk",
+  "stem2": "nujk",
+  "fix": "nujka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "人。"
+  ],
+  "pronunciation": [
+   "/nú∅ʲ.ka/"
+  ],
+  "variants2": [
+   "ひと"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 人 」（中縫語 nuj）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ráka": {
+  "id": 1371,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "ráka",
+  "stem": "rák",
+  "stem2": "rak",
+  "fix": "raka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "命、生命。"
+  ],
+  "pronunciation": [
+   "/rá.ka/"
+  ],
+  "variants2": [
+   "いのち",
+   "生命",
+   "せいめい"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 生 」（中縫語 ŋraː）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "dóphfa": {
+  "id": 1373,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "dóphfa",
+  "stem": "dóphf",
+  "stem2": "dophf",
+  "fix": "dophfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "死、死亡。"
+  ],
+  "pronunciation": [
+   "/dóf.fa/"
+  ],
+  "variants2": [
+   "し",
+   "しぼう",
+   "死亡"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 死 」（中縫語 dop）＋「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "dókka": {
+  "id": 1374,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "dókka",
+  "stem": "dókk",
+  "stem2": "dokk",
+  "fix": "dokka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "心。"
+  ],
+  "pronunciation": [
+   "/dók.ka/"
+  ],
+  "variants2": [
+   "こころ",
+   "感情",
+   "かんじょう"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 心 」（中縫語 dok）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "púlo": {
+  "id": 1375,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "púlo",
+  "stem": "púl",
+  "stem2": "pul",
+  "fix": "pula-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "l 基本型",
+  "meaning": [
+   "気。"
+  ],
+  "pronunciation": [
+   "/pú.lo/"
+  ],
+  "variants2": [
+   "き"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 気 」（中縫語 pʰuː）＋「 100 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "qophnúj": {
+  "id": 1376,
+  "safe": true,
+  "seii": [
+   "LH"
+  ],
+  "word": "qophnúj",
+  "stem": "qophnúj",
+  "stem2": "qophnuj",
+  "fix": "qophnuj-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "j 基本型",
+  "meaning": [
+   "主人。"
+  ],
+  "pronunciation": [
+   "/ŋof.nú∅ʲ/"
+  ],
+  "variants2": [
+   "しゅじん"
+  ],
+  "ruletype": "j",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 主 」（中縫語 ŋoːp）＋縫語「 人 」（中縫語 nuj）が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "dóvphka": {
+  "id": 1379,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "dóvphka",
+  "stem": "dóvphk",
+  "stem2": "dovphk",
+  "fix": "dovphka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "地、大地。"
+  ],
+  "pronunciation": [
+   "/dóf.fka/"
+  ],
+  "variants2": [
+   "ち",
+   "大地",
+   "だいち"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 地 」（中縫語 dowt）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "láma": {
+  "id": 1380,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "láma",
+  "stem": "lám",
+  "stem2": "lam",
+  "fix": "lama-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "meaning": [
+   "子、子ども。"
+  ],
+  "pronunciation": [
+   "/lá.ma/"
+  ],
+  "variants2": [
+   "こども",
+   "子供"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 子 」（中縫語 la(s)）＋「 558 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "trómka": {
+  "id": 1381,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "trómka",
+  "stem": "trómk",
+  "stem2": "tromk",
+  "fix": "tromka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "土。"
+  ],
+  "pronunciation": [
+   "/tróŋ.ka/"
+  ],
+  "variants2": [
+   "つち",
+   "じめん",
+   "地面"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 土 」（中縫語 trâːm）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "jákka": {
+  "id": 1382,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "jákka",
+  "stem": "jákk",
+  "stem2": "jakk",
+  "fix": "jakka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "児童、子ども。"
+  ],
+  "pronunciation": [
+   "/ják.ka/"
+  ],
+  "variants2": [
+   "じどう",
+   "こども",
+   "子供,"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 児 」（中縫語 jal）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gjámka": {
+  "id": 1383,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "gjámka",
+  "stem": "gjámk",
+  "stem2": "gjamk",
+  "fix": "gjamka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "魚。"
+  ],
+  "pronunciation": [
+   "/gʲáŋ.ka/"
+  ],
+  "variants2": [
+   "さかな"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 魚 」（中縫語 gʲam）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "náka": {
+  "id": 1384,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "náka",
+  "stem": "nák",
+  "stem2": "nak",
+  "fix": "naka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "丸、円。"
+  ],
+  "pronunciation": [
+   "/ná.ka/"
+  ],
+  "variants2": [
+   "まる",
+   "円",
+   "えん"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 丸 」（中縫語 nwa）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ceqsépa": {
+  "id": 1385,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "ceqsépa",
+  "stem": "ceqsép",
+  "stem2": "ceqsep",
+  "fix": "ceqsepa-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "p 基本型",
+  "meaning": [
+   "ガラス皿。"
+  ],
+  "pronunciation": [
+   "/t͡sʲen.sʲé.pa/"
+  ],
+  "variants2": [
+   "がらすざら",
+   "ガラスざら",
+   "硝子皿"
+  ],
+  "ruletype": "p",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 璃 」（中縫語 t͡sʰiːŋ）＋「 654 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ceqkaphája": {
+  "id": 1386,
+  "safe": true,
+  "seii": [
+   "LLHL"
+  ],
+  "word": "ceqkaphája",
+  "stem": "ceqkapháj",
+  "stem2": "ceqkaphaj",
+  "fix": "ceqkaphaja-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "j 基本型",
+  "meaning": [
+   "ガラスコップ。"
+  ],
+  "pronunciation": [
+   "/t͡sʲeŋ.ka.fá.∅ʲa/"
+  ],
+  "variants2": [
+   "がらすこっぷ",
+   "グラス"
+  ],
+  "ruletype": "j",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 璃 」（中縫語 t͡sʰiːŋ）＋「 1310 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ceqqál": {
+  "id": 1387,
+  "safe": true,
+  "seii": [
+   "LH"
+  ],
+  "word": "ceqqál",
+  "stem": "ceqqál",
+  "stem2": "ceqqal",
+  "fix": "ceqqal-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "l 基本型",
+  "meaning": [
+   "ガラス皿。"
+  ],
+  "pronunciation": [
+   "/t͡sʲeŋ.ŋál/"
+  ],
+  "variants2": [
+   "がらすざら",
+   "ガラスざら",
+   "硝子皿"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 璃 」（中縫語 t͡sʰiːŋ）＋縫語「 皿 」（中縫語 ŋ̊aːl(p)）が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ceqtóm": {
+  "id": 1388,
+  "safe": true,
+  "seii": [
+   "LH"
+  ],
+  "word": "ceqtóm",
+  "stem": "ceqtóm",
+  "stem2": "ceqtom",
+  "fix": "ceqtom-",
+  "tag": [
+   "食器"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "meaning": [
+   "ガラスコップ。"
+  ],
+  "pronunciation": [
+   "/t͡sʲeŋ.tóm/"
+  ],
+  "variants2": [
+   "がらすこっぷ",
+   "グラス"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 璃 」（中縫語 t͡sʰiːŋ）＋縫語「 杯 」（中縫語 tâːm）が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "xaqféto": {
+  "id": 1389,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "xaqféto",
+  "stem": "xaqfét",
+  "stem2": "xaqfet",
+  "fix": "xaqfeto-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "o 基本型",
+  "meaning": [
+   "雑巾。"
+  ],
+  "pronunciation": [
+   "/d͡zam.fʲé.to/"
+  ],
+  "variants2": [
+   "ぞうきん",
+   "ボロ布",
+   "ぼろぬの"
+  ],
+  "ruletype": "o",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 襍 」（中縫語 d͡zaŋ(h)）＋「 716 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "xaqnú": {
+  "id": 1390,
+  "safe": true,
+  "seii": [
+   "LH"
+  ],
+  "word": "xaqnú",
+  "stem": "xaqn",
+  "stem2": "xaqn",
+  "fix": "xaqnu-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "u 尾高形",
+  "meaning": [
+   "雑巾、ぼろ布。"
+  ],
+  "pronunciation": [
+   "/d͡zan.nú/"
+  ],
+  "variants2": [
+   "ぞうきん",
+   "ボロ布",
+   "ぼろぬの"
+  ],
+  "ruletype": "u",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 襍 」（中縫語 d͡zaŋ(h)）＋縫語「 布 」（中縫語 n̥uw）が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "jalmálva": {
+  "id": 1391,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "jalmálva",
+  "stem": "jálm",
+  "stem2": "jalm",
+  "fix": "jalma-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "m 基本型",
+  "meaning": [
+   "［ 基が ］行く。"
+  ],
+  "pronunciation": [
+   "/∅ʲal.mál.va/"
+  ],
+  "variants2": [
+   "いく"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 行 」（中縫語 jal）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "dophnálva": {
+  "id": 1392,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "dophnálva",
+  "stem": "dóphn",
+  "stem2": "dophn",
+  "fix": "dophna-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］死ぬ。"
+  ],
+  "pronunciation": [
+   "/dof.nál.va/"
+  ],
+  "variants2": [
+   "しぬ"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 死 」（中縫語 dop）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "tsálas": {
+  "id": 1394,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "tsálas",
+  "stem": "tsál",
+  "stem2": "tsal",
+  "fix": "tsal-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "l 基本型",
+  "meaning": [
+   "小さい。"
+  ],
+  "pronunciation": [
+   "/t͡sá.las/"
+  ],
+  "variants2": [
+   "ちいさい"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 小 」（中縫語 t͡sʰa）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "móllas": {
+  "id": 1395,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "móllas",
+  "stem": "mól",
+  "stem2": "mol",
+  "fix": "mol-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "l 基本型",
+  "meaning": [
+   "大きい。"
+  ],
+  "pronunciation": [
+   "/mól.las/"
+  ],
+  "variants2": [
+   "おおきい"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 大 」（中縫語 mâːr）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "rjájjas": {
+  "id": 1396,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "rjájjas",
+  "stem": "rjáj",
+  "stem2": "rjaj",
+  "fix": "rjaj-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "j 基本型",
+  "meaning": [
+   "明るい。"
+  ],
+  "pronunciation": [
+   "/rʲá∅ʲ.∅ʲas/"
+  ],
+  "variants2": [
+   "あかるい"
+  ],
+  "ruletype": "j",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 明 」（中縫語 rʲaj）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "bállas": {
+  "id": 1397,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "bállas",
+  "stem": "bál",
+  "stem2": "bal",
+  "fix": "bal-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "l 基本型",
+  "meaning": [
+   "暗い。"
+  ],
+  "pronunciation": [
+   "/bál.las/"
+  ],
+  "variants2": [
+   "くらい"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 暗 」（中縫語 mbaːl）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "céiqhlas": {
+  "id": 1398,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "céiqhlas",
+  "stem": "céiq",
+  "stem2": "ceiq",
+  "fix": "ceiq-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "q 明音型",
+  "meaning": [
+   "ガラスの。"
+  ],
+  "pronunciation": [
+   "/t͡sʲé∅ʲ.lʲas/"
+  ],
+  "variants2": [
+   "硝子の"
+  ],
+  "ruletype": "q",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 璃 」（中縫語 t͡sʰiːŋ）＋「 143 」＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pókka⁽¹⁾": {
+  "id": 956,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pókka",
+  "stem": "pókk",
+  "stem2": "pokk",
+  "fix": "pakka-",
+  "tag": [
+   "数詞",
+   "個数詞"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "ruletype": "k",
+  "meaning": [
+   "5個",
+   "5つ"
+  ],
+  "pronunciation": [
+   "/pók.ka/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 864 」+「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "ごこ",
+   "五個",
+   "五つ",
+   "いつつ"
+  ]
+ },
+ "pókka⁽²⁾": {
+  "id": 1399,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pókka",
+  "stem": "pókk",
+  "stem2": "pokk",
+  "fix": "pokka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "獣、動物。"
+  ],
+  "pronunciation": [
+   "/pók.ka/"
+  ],
+  "variants2": [
+   "けもの",
+   "どうぶつ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 獣 」（中縫語 pʰoːr）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "láfa": {
+  "id": 1400,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "láfa",
+  "stem": "láf",
+  "stem2": "laf",
+  "fix": "lafa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "空、天空。"
+  ],
+  "pronunciation": [
+   "/lá.fa/"
+  ],
+  "variants2": [
+   "そら",
+   "てんくう"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 空 」（中縫語 l̥waː）＋「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pýllo": {
+  "id": 1401,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pýllo",
+  "stem": "pýll",
+  "stem2": "pyll",
+  "fix": "pyllo-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "lo 基本型",
+  "meaning": [
+   "スープ。"
+  ],
+  "pronunciation": [
+   "/pʲíl.lo/"
+  ],
+  "variants2": [
+   "スープ"
+  ],
+  "ruletype": "lo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 湯 」（中縫語 pʷil）＋「 100 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "vámka": {
+  "id": 1402,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "vámka",
+  "stem": "vámk",
+  "stem2": "vamk",
+  "fix": "vamka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "窓。"
+  ],
+  "pronunciation": [
+   "/váŋ.ka/"
+  ],
+  "variants2": [
+   "まど",
+   "ウィンドウ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 窓 」（中縫語 wamp）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pájka": {
+  "id": 1403,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pájka",
+  "stem": "pájk",
+  "stem2": "pajk",
+  "fix": "pajka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "鏡。"
+  ],
+  "pronunciation": [
+   "/pá∅ʲ.ka/"
+  ],
+  "variants2": [
+   "かがみ",
+   "ミラー"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 鏡 」（中縫語 pʰaj）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "távka": {
+  "id": 1404,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "távka",
+  "stem": "távk",
+  "stem2": "tavk",
+  "fix": "tavka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "紙。"
+  ],
+  "pronunciation": [
+   "/táf.ka/"
+  ],
+  "variants2": [
+   "かみ",
+   "ペーパー"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 紙 」（中縫語 tʰaw）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "nráka": {
+  "id": 1405,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "nráka",
+  "stem": "nrák",
+  "stem2": "nrak",
+  "fix": "nraka-",
+  "tag": [
+   "家具"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "ベッド、寝床。"
+  ],
+  "pronunciation": [
+   "/nrá.ka/"
+  ],
+  "variants2": [
+   "ねどこ",
+   "寝床"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 床 」（中縫語 nraː(h)）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lulféto": {
+  "id": 1406,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "lulféto",
+  "stem": "lulfét",
+  "stem2": "lulfet",
+  "fix": "lulfeto-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "o 基本型",
+  "meaning": [
+   "掛け布団。"
+  ],
+  "pronunciation": [
+   "/lul.fʲé.to/"
+  ],
+  "variants2": [
+   "かけふとん",
+   "かけぶとん"
+  ],
+  "ruletype": "o",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 被 」（中縫語 lur）＋「 716 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "srákka": {
+  "id": 1407,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "srákka",
+  "stem": "srákk",
+  "stem2": "srakk",
+  "fix": "srakka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "帽子。"
+  ],
+  "pronunciation": [
+   "/srák.ka/"
+  ],
+  "variants2": [
+   "ぼうし",
+   "ハット"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 帽 」（中縫語 sral）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "káqka": {
+  "id": 1408,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "káqka",
+  "stem": "káqk",
+  "stem2": "kaqk",
+  "fix": "kaqka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "船。"
+  ],
+  "pronunciation": [
+   "/káŋ.ka/"
+  ],
+  "variants2": [
+   "ふね"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 船 」（中縫語 kʰaŋ）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pjávlo": {
+  "id": 1409,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pjávlo",
+  "stem": "pjávl",
+  "stem2": "pjavl",
+  "fix": "pjavlo-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "lo 基本型",
+  "meaning": [
+   "酒。"
+  ],
+  "pronunciation": [
+   "/pʲáv.lo/"
+  ],
+  "variants2": [
+   "さけ"
+  ],
+  "ruletype": "lo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 酒 」（中縫語 pʰäw）＋「 100 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "prúkka": {
+  "id": 1410,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "prúkka",
+  "stem": "prúkk",
+  "stem2": "prukk",
+  "fix": "prukka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "米。"
+  ],
+  "pronunciation": [
+   "/prúk.ka/"
+  ],
+  "variants2": [
+   "こめ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 米 」（中縫語 pruːk）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "súlma": {
+  "id": 1411,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "súlma",
+  "stem": "súlm",
+  "stem2": "sulm",
+  "fix": "sulma-",
+  "tag": [
+   "学校"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "meaning": [
+   "医者。"
+  ],
+  "pronunciation": [
+   "/súl.ma/"
+  ],
+  "variants2": [
+   "いしゃ",
+   "ドクター"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 医 」（中縫語 sul）＋「 558 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kúqka": {
+  "id": 1412,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "kúqka",
+  "stem": "kúqk",
+  "stem2": "kuqk",
+  "fix": "kuqka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "壁。"
+  ],
+  "pronunciation": [
+   "/kúŋ.ka/"
+  ],
+  "variants2": [
+   "かべ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 壁 」（中縫語 kʰuŋ）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kákka": {
+  "id": 1413,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "kákka",
+  "stem": "kákk",
+  "stem2": "kakk",
+  "fix": "kakka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "階段。"
+  ],
+  "pronunciation": [
+   "/kák.ka/"
+  ],
+  "variants2": [
+   "かいだん"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 階 」（中縫語 kʰak）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "zéphka": {
+  "id": 1414,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "zéphka",
+  "stem": "zéphk",
+  "stem2": "zephk",
+  "fix": "zephka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "戸、扉。"
+  ],
+  "pronunciation": [
+   "/zʲéf.ka/"
+  ],
+  "variants2": [
+   "とびら",
+   "扉",
+   "ドア"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 戸 」（中縫語 d͡ziːp）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kjúqka": {
+  "id": 1415,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "kjúqka",
+  "stem": "kjúqk",
+  "stem2": "kjuqk",
+  "fix": "kjuqka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "剣、つるぎ。"
+  ],
+  "pronunciation": [
+   "/kʲúŋ.ka/"
+  ],
+  "variants2": [
+   "けん",
+   "つるぎ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 剣 」（中縫語 kʲʰuŋ）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "tókka": {
+  "id": 1416,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "tókka",
+  "stem": "tókk",
+  "stem2": "tokk",
+  "fix": "tokka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "盾。"
+  ],
+  "pronunciation": [
+   "/tók.ka/"
+  ],
+  "variants2": [
+   "たて"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 盾 」（中縫語 tʰor）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "dúmka": {
+  "id": 1417,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "dúmka",
+  "stem": "dúmk",
+  "stem2": "dumk",
+  "fix": "dumka-",
+  "tag": [
+   "音楽"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "太鼓。"
+  ],
+  "pronunciation": [
+   "/dúŋ.ka/"
+  ],
+  "variants2": [
+   "たいこ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 鼓 」（中縫語 dum）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lánka": {
+  "id": 1418,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "lánka",
+  "stem": "lánk",
+  "stem2": "lank",
+  "fix": "lanka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "市場、市。"
+  ],
+  "pronunciation": [
+   "/láŋ.ka/"
+  ],
+  "variants2": [
+   "いちば",
+   "しじょう"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 市 」（中縫語 tlaːn）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gjúqfa": {
+  "id": 1419,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "gjúqfa",
+  "stem": "gjúqf",
+  "stem2": "gjuqf",
+  "fix": "gjuqfa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "怒り。"
+  ],
+  "pronunciation": [
+   "/gʲúm.fa/"
+  ],
+  "variants2": [
+   "いかり"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 怒 」（中縫語 gʲuŋ）＋「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "mélfa": {
+  "id": 1420,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "mélfa",
+  "stem": "mélf",
+  "stem2": "melf",
+  "fix": "melfa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "悲しみ。"
+  ],
+  "pronunciation": [
+   "/mʲél.fa/"
+  ],
+  "variants2": [
+   "かなしみ"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 悲 」（中縫語 m̥iːr）＋「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "jýqfa": {
+  "id": 1421,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "jýqfa",
+  "stem": "jýqf",
+  "stem2": "jyqf",
+  "fix": "jyqfa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "恐れ。"
+  ],
+  "pronunciation": [
+   "/∅ʲím.fa/"
+  ],
+  "variants2": [
+   "おそれ"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 怕 」（中縫語 jiŋ）＋「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "zovnálva": {
+  "id": 1422,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "zovnálva",
+  "stem": "zóvn",
+  "stem2": "zovn",
+  "fix": "zovna-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］読む。",
+   "［ 能が ］［ 基を ］読む。"
+  ],
+  "pronunciation": [
+   "/zov.nál.va/"
+  ],
+  "variants2": [
+   "よむ"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 読 」（中縫語 d͡zow）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lujanálva": {
+  "id": 1423,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "lujanálva",
+  "stem": "luján",
+  "stem2": "lujan",
+  "fix": "lujana-",
+  "tag": [
+   "音楽"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］歌う。"
+  ],
+  "pronunciation": [
+   "/lu.∅ʲa.nál.va/"
+  ],
+  "variants2": [
+   "うたう"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 歌 」（中縫語 l̥wä）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "toqnálva": {
+  "id": 1424,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "toqnálva",
+  "stem": "tóqn",
+  "stem2": "toqn",
+  "fix": "toqna-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］踊る。"
+  ],
+  "pronunciation": [
+   "/ton.nál.va/"
+  ],
+  "variants2": [
+   "おどる"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 舞 」（中縫語 tʰoŋ）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kovnálva": {
+  "id": 1425,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "kovnálva",
+  "stem": "kóvn",
+  "stem2": "kovn",
+  "fix": "kovna-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 能が ］［ 基を ］売る。"
+  ],
+  "pronunciation": [
+   "/kov.nál.va/"
+  ],
+  "variants2": [
+   "うる"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 売 」（中縫語 kʰow）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gémhlas": {
+  "id": 1426,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "gémhlas",
+  "stem": "gém",
+  "stem2": "gem",
+  "fix": "gem-",
+  "tag": [
+   "色名"
+  ],
+  "parts": "名飾",
+  "type": "m 基本型",
+  "meaning": [
+   "黄色い。"
+  ],
+  "pronunciation": [
+   "/gʲév.las/"
+  ],
+  "variants2": [
+   "きいろい",
+   "イエローの"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 黄 」（中縫語 djem）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "bóllas": {
+  "id": 1427,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "bóllas",
+  "stem": "ból",
+  "stem2": "bol",
+  "fix": "bol-",
+  "tag": [
+   "色名"
+  ],
+  "parts": "名飾",
+  "type": "l 基本型",
+  "meaning": [
+   "紫の。"
+  ],
+  "pronunciation": [
+   "/ból.las/"
+  ],
+  "variants2": [
+   "むらさきの",
+   "パープルの"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 紫 」（中縫語 bʷol）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "zjálas": {
+  "id": 1428,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "zjálas",
+  "stem": "zjál",
+  "stem2": "zjal",
+  "fix": "zjal-",
+  "tag": [
+   "色名"
+  ],
+  "parts": "名飾",
+  "type": "l 基本型",
+  "meaning": [
+   "灰色の。"
+  ],
+  "pronunciation": [
+   "/zʲál.las/"
+  ],
+  "variants2": [
+   "はいいろの",
+   "グレーな"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 灰 」（中縫語 zäː(h)）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "méllas⁽¹⁾": {
+  "id": 1118,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "méllas",
+  "stem": "mél",
+  "stem2": "mel",
+  "fix": "mel-",
+  "type": "l 基本型",
+  "ruletype": "l",
+  "tag": [
+   "性格"
+  ],
+  "parts": "名飾",
+  "meaning": [
+   "優しい",
+   "親切な",
+   "丁寧な",
+   "温厚な",
+   "手厚い",
+   "まろやかな",
+   "マイルドな",
+   "丁重な",
+   "好意的な"
+  ],
+  "pronunciation": [
+   "/mél.las/"
+  ],
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "音象徴「 甘い 」から。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "やさしい",
+   "しんせつな",
+   "ていねいな",
+   "おんこうな",
+   "てあつい",
+   "ていちょうな",
+   "こういてきな"
+  ]
+ },
+ "méllas⁽²⁾": {
+  "id": 1429,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "méllas",
+  "stem": "mél",
+  "stem2": "mel",
+  "fix": "mel-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名飾",
+  "type": "l 基本型",
+  "meaning": [
+   "悲しい。"
+  ],
+  "pronunciation": [
+   "/mʲél.las/"
+  ],
+  "variants2": [
+   "かなしい"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 悲 」（中縫語 m̥iːr）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "rómhlas": {
+  "id": 1430,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "rómhlas",
+  "stem": "róm",
+  "stem2": "rom",
+  "fix": "rom-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "m 基本型",
+  "meaning": [
+   "狭い。"
+  ],
+  "pronunciation": [
+   "/róv.las/"
+  ],
+  "variants2": [
+   "せまい"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 狭 」（中縫語 râm）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lónka": {
+  "id": 1431,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "lónka",
+  "stem": "lónk",
+  "stem2": "lonk",
+  "fix": "lonka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "弓。"
+  ],
+  "pronunciation": [
+   "/lóŋ.ka/"
+  ],
+  "variants2": [
+   "ゆみ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 弓 」（中縫語 lon）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lákka": {
+  "id": 1432,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "lákka",
+  "stem": "lákk",
+  "stem2": "lakk",
+  "fix": "lakka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "矢。"
+  ],
+  "pronunciation": [
+   "/lák.ka/"
+  ],
+  "variants2": [
+   "や"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 矢 」（中縫語 lak）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "múlfa": {
+  "id": 1433,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "múlfa",
+  "stem": "múlf",
+  "stem2": "mulf",
+  "fix": "mulfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "晩、夕方。"
+  ],
+  "pronunciation": [
+   "/múl.fa/"
+  ],
+  "variants2": [
+   "ばん",
+   "ゆうがた"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 晩 」（中縫語 mur）＋「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pýka": {
+  "id": 1434,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pýka",
+  "stem": "pýk",
+  "stem2": "pyk",
+  "fix": "pyka-",
+  "tag": [
+   "音楽"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "笛。"
+  ],
+  "pronunciation": [
+   "/pʲí.ka/"
+  ],
+  "variants2": [
+   "ふえ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 笛 」（中縫語 pʰiː）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "tóphka": {
+  "id": 1435,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "tóphka",
+  "stem": "tóphk",
+  "stem2": "tophk",
+  "fix": "tophka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "鍋、釜。"
+  ],
+  "pronunciation": [
+   "/tóf.ka/"
+  ],
+  "variants2": [
+   "なべ",
+   "釜",
+   "かま"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 釜 」（中縫語 tʰâp）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "drúvka": {
+  "id": 1436,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "drúvka",
+  "stem": "drúvk",
+  "stem2": "druvk",
+  "fix": "druvka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "森。"
+  ],
+  "pronunciation": [
+   "/drúf.ka/"
+  ],
+  "variants2": [
+   "もり"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 森 」（中縫語 druw）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "túkka": {
+  "id": 1437,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "túkka",
+  "stem": "túkk",
+  "stem2": "tukk",
+  "fix": "tukka-",
+  "tag": [
+   "身体部位"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "脚、あし。"
+  ],
+  "pronunciation": [
+   "/túk.ka/"
+  ],
+  "variants2": [
+   "あし",
+   "足"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 脚 」（中縫語 tuːl）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ljáqka": {
+  "id": 1438,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "ljáqka",
+  "stem": "ljáqk",
+  "stem2": "ljaqk",
+  "fix": "ljaqka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "帯、ベルト。"
+  ],
+  "pronunciation": [
+   "/lʲáŋ.ka/"
+  ],
+  "variants2": [
+   "おび",
+   "ベルト"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 帯 」（中縫語 läːŋ）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "cýkka": {
+  "id": 1439,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "cýkka",
+  "stem": "cýkk",
+  "stem2": "cykk",
+  "fix": "cykka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "針。"
+  ],
+  "pronunciation": [
+   "/t͡sʲík.ka/"
+  ],
+  "variants2": [
+   "はり"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 針 」（中縫語 t͡sʰik）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "cérma": {
+  "id": 1440,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "cérma",
+  "stem": "cérm",
+  "stem2": "cerm",
+  "fix": "cerma-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "meaning": [
+   "兵士。"
+  ],
+  "pronunciation": [
+   "/t͡sʲér.ma/"
+  ],
+  "variants2": [
+   "へいし"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 兵 」（中縫語 t͡sʷiːd）＋「 558 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kájma": {
+  "id": 1441,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "kájma",
+  "stem": "kájm",
+  "stem2": "kajm",
+  "fix": "kajma-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "meaning": [
+   "職人。"
+  ],
+  "pronunciation": [
+   "/ká∅ʲ.ma/"
+  ],
+  "variants2": [
+   "しょくにん"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 職 」（中縫語 kʰaj）＋「 558 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "cálfa": {
+  "id": 1442,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "cálfa",
+  "stem": "cálf",
+  "stem2": "calf",
+  "fix": "calfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "年。"
+  ],
+  "pronunciation": [
+   "/t͡sál.fa/"
+  ],
+  "variants2": [
+   "ねん",
+   "とし"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 年 」（中縫語 t͡sʰal）＋「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "cánfa": {
+  "id": 1443,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "cánfa",
+  "stem": "cánf",
+  "stem2": "canf",
+  "fix": "canfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "昨日。"
+  ],
+  "pronunciation": [
+   "/t͡sám.fa/"
+  ],
+  "variants2": [
+   "きのう"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 昨 」（中縫語 t͡san）＋「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kéqka": {
+  "id": 1444,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "kéqka",
+  "stem": "kéqk",
+  "stem2": "keqk",
+  "fix": "keqka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "ご飯、食事。"
+  ],
+  "pronunciation": [
+   "/kʲéŋ.ka/"
+  ],
+  "variants2": [
+   "ごはん",
+   "食事",
+   "しょくじ"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 飯 」（中縫語 kjieŋ）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "góvlo": {
+  "id": 1445,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "góvlo",
+  "stem": "góvl",
+  "stem2": "govl",
+  "fix": "govlo-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "lo 基本型",
+  "meaning": [
+   "乳、ミルク。"
+  ],
+  "pronunciation": [
+   "/góv.lo/"
+  ],
+  "variants2": [
+   "ちち",
+   "ミルク"
+  ],
+  "ruletype": "lo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 乳 」（中縫語 gow）＋「 100 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "rjállo": {
+  "id": 1446,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "rjállo",
+  "stem": "rjáll",
+  "stem2": "rjall",
+  "fix": "rjallo-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "lo 基本型",
+  "meaning": [
+   "油。"
+  ],
+  "pronunciation": [
+   "/rʲál.lo/"
+  ],
+  "variants2": [
+   "あぶら"
+  ],
+  "ruletype": "lo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 油 」（中縫語 räːl）＋「 100 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "káqma": {
+  "id": 1447,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "káqma",
+  "stem": "káqm",
+  "stem2": "kaqm",
+  "fix": "kaqma-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "meaning": [
+   "商人。"
+  ],
+  "pronunciation": [
+   "/kám.ma/"
+  ],
+  "variants2": [
+   "しょうにん"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 商 」（中縫語 kʰaŋ）＋「 558 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "bókka": {
+  "id": 1448,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "bókka",
+  "stem": "bókk",
+  "stem2": "bokk",
+  "fix": "bokka-",
+  "tag": [
+   "色名"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "黒、ブラック。"
+  ],
+  "pronunciation": [
+   "/bók.ka/"
+  ],
+  "variants2": [
+   "くろ",
+   "ブラック"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 黒 」（中縫語 mboːl）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "cúka": {
+  "id": 1449,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "cúka",
+  "stem": "cúk",
+  "stem2": "cuk",
+  "fix": "cuka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "線。"
+  ],
+  "pronunciation": [
+   "/t͡sú.ka/"
+  ],
+  "variants2": [
+   "せん",
+   "ライン"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 線 」（中縫語 t͡sʰu）＋「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lophnálva": {
+  "id": 1450,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "lophnálva",
+  "stem": "lóphn",
+  "stem2": "lophn",
+  "fix": "lophn-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］眠る。"
+  ],
+  "pronunciation": [
+   "/lof.nál.va/"
+  ],
+  "variants2": [
+   "ねむる"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 眠 」（中縫語 dloːpʰ）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "qajnálva": {
+  "id": 1451,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "qajnálva",
+  "stem": "qájn",
+  "stem2": "qajn",
+  "fix": "qajn-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 能が ］［ 基を ］買う。"
+  ],
+  "pronunciation": [
+   "/qa∅ʲ.nál.va/"
+  ],
+  "variants2": [
+   "かう"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 買 」（中縫語 ŋ̊aj）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ghaqnálva": {
+  "id": 1452,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "ghaqnálva",
+  "stem": "gháqn",
+  "stem2": "ghaqn",
+  "fix": "ghaqn-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 基が ］働く。"
+  ],
+  "pronunciation": [
+   "/gan.nál.va/"
+  ],
+  "variants2": [
+   "はたらく"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 働 」（中縫語 ɣʷaŋ）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "loqnálva": {
+  "id": 1453,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "loqnálva",
+  "stem": "lóqn",
+  "stem2": "loqn",
+  "fix": "loqn-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "n 基本型",
+  "meaning": [
+   "［ 能が ］［ 基を ］洗う。"
+  ],
+  "pronunciation": [
+   "/lon.nál.va/"
+  ],
+  "variants2": [
+   "あらう"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 洗 」（中縫語 l̥woŋ）＋「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "séqhlas": {
+  "id": 1454,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "séqhlas",
+  "stem": "séq",
+  "stem2": "seq",
+  "fix": "seq-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "q 基本型",
+  "meaning": [
+   "静かな。"
+  ],
+  "pronunciation": [
+   "/sʲé.las/"
+  ],
+  "variants2": [
+   "しずかな"
+  ],
+  "ruletype": "q",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 静 」（中縫語 sjeŋ）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ánnas": {
+  "id": 1455,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "ánnas",
+  "stem": "án",
+  "stem2": "an",
+  "fix": "an-",
+  "tag": [
+   "温度"
+  ],
+  "parts": "名飾",
+  "type": "n 基本型",
+  "meaning": [
+   "暖かい。"
+  ],
+  "pronunciation": [
+   "/án.nas/"
+  ],
+  "variants2": [
+   "温かい",
+   "あたたかい"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 暖 」（中縫語 an）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "zéplas": {
+  "id": 1456,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "zéplas",
+  "stem": "zép",
+  "stem2": "zep",
+  "fix": "zep-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "p 基本型",
+  "meaning": [
+   "忙しい。"
+  ],
+  "pronunciation": [
+   "/zʲép.las/"
+  ],
+  "variants2": [
+   "いそがしい"
+  ],
+  "ruletype": "p",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 忙 」（中縫語 zep）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "rémhlas": {
+  "id": 1457,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "rémhlas",
+  "stem": "rém",
+  "stem2": "rem",
+  "fix": "rem-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "m 基本型",
+  "meaning": [
+   "新しい。"
+  ],
+  "pronunciation": [
+   "/rʲév.las/"
+  ],
+  "variants2": [
+   "あたらしい",
+   "ニュー"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 新 」（中縫語 riːm）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kéthlas": {
+  "id": 1458,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "kéthlas",
+  "stem": "két",
+  "stem2": "ket",
+  "fix": "ket-",
+  "tag": [
+   "位置"
+  ],
+  "parts": "名飾",
+  "type": "t 基本型",
+  "meaning": [
+   "近い。"
+  ],
+  "pronunciation": [
+   "/kʲét.hlas/"
+  ],
+  "variants2": [
+   "ちかい"
+  ],
+  "ruletype": "t",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 近 」（中縫語 ket）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "sóllas": {
+  "id": 1459,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "sóllas",
+  "stem": "sól",
+  "stem2": "sol",
+  "fix": "sol-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "l 基本型",
+  "meaning": [
+   "少ない。"
+  ],
+  "pronunciation": [
+   "/sól.las/"
+  ],
+  "variants2": [
+   "すくない"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 少 」（中縫語 sord）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "vháklas": {
+  "id": 1460,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "vháklas",
+  "stem": "vhák",
+  "stem2": "vhak",
+  "fix": "vhak-",
+  "tag": [
+   "味"
+  ],
+  "parts": "名飾",
+  "type": "k 基本型",
+  "meaning": [
+   "苦い。"
+  ],
+  "pronunciation": [
+   "/vák.las/"
+  ],
+  "variants2": [
+   "にがい"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 苦 」（中縫語 ɣwak）＋「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
  }
 }
