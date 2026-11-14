@@ -21194,40 +21194,6 @@
    "りょうをする"
   ]
  },
- "ghíkfa": {
-  "id": 666,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "ghíkfa",
-  "stem": "ghíkf",
-  "stem2": "ghikf",
-  "fix": "ghykf-",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名象",
-  "type": "f 基本型",
-  "ruletype": "f",
-  "meaning": [
-   "漁、釣り。"
-  ],
-  "pronunciation": [
-   "/∅ʲík.fa/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 665 」+「 101 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "つり",
-   "りょう"
-  ]
- },
  "qéllas": {
   "id": 667,
   "safe": true,
@@ -34571,7 +34537,7 @@
   ],
   "parts": "名象",
   "meaning": [
-   "炎。"
+   "夏、夏季。"
   ],
   "pronunciation": [
    "/gvas.ká.la/"
@@ -34615,7 +34581,7 @@
   ],
   "parts": "名象",
   "meaning": [
-   "炎。"
+   "秋、秋季。"
   ],
   "pronunciation": [
    "/mʲef.ká.la/"
@@ -42679,6 +42645,40 @@
    "きる",
    "さく",
    "きりさく"
+  ]
+ },
+ "ghýkfa": {
+  "id": 666,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "ghýkfa",
+  "stem": "ghýkf",
+  "stem2": "ghykf",
+  "fix": "ghykfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "ruletype": "f",
+  "meaning": [
+   "漁、釣り。"
+  ],
+  "pronunciation": [
+   "/∅ʲík.fa/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 665 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "つり",
+   "りょう"
   ]
  }
 }
