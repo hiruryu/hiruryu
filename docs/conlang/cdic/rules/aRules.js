@@ -3198,5 +3198,17 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   for (const [k, v] of Object.entries(r)) {
     out[k] = typeof v === "string" ? v.replace(/tl/g, "ll").replace(/dl/g, "ll") : v;
   }
+  // 副飾形（2026-11-14、みゅら指定）。stem2＋接辞。
+  // p/b/t/d/k/g/m/q 型（明音型含む）は -ú と -hú の2形。母音終了型（a/e/i/o/u/ui）は -vú。それ以外は -ú。
+  if (Object.keys(out).length > 0 && stem2 != null && stem2 !== "") {
+    const s2 = stem2;
+    if (["p", "b", "t", "d", "k", "g", "m", "q", "pj", "bj", "tj", "dj", "kj", "gj", "mj", "qj"].includes(ruletype)) {
+      out.adv = s2 + "ú<br>" + s2 + "hú";
+    } else if (["a", "e", "i", "o", "u", "ui"].includes(ruletype)) {
+      out.adv = s2 + "vú";
+    } else {
+      out.adv = s2 + "ú";
+    }
+  }
   return out;
 }

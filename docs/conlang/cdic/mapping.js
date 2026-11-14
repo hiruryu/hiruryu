@@ -1082,6 +1082,10 @@ function showDetails(word) {
 
         return `<tr class="con${i + 1}"><td class="conname">${row.label}</td>${cells}</tr>`;
       }).join("\n");
+      // 副飾形（単一形。6列にまたがって表示）
+      if (conjugations.adv) {
+        tableHTML += `\n<tr class="con${rows.length + 1}"><td class="conname">副飾形</td><td class="con" colspan="6">${renderCell(conjugations.adv)}</td></tr>`;
+      }
     }
 
     // 活用が無い場合

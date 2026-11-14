@@ -76,7 +76,7 @@
    "（ 未来時制･未行時制を表す ）〜する。〜だろう。〜するだろう。"
   ],
   "pronunciation": [
-   "/∅ʲíp/"
+   "/∅ʲípʲ/"
   ],
   "etymology": {
    "intro": [
@@ -209,7 +209,7 @@
    "ノーシア"
   ],
   "pronunciation": [
-   "/nó.ʂʲih/"
+   "/nó.ʂʲihʲ/"
   ],
   "etymology": {
    "intro": [
@@ -244,7 +244,7 @@
    "ミーシア"
   ],
   "pronunciation": [
-   "/mʲí.sʲih/"
+   "/mʲí.sʲihʲ/"
   ],
   "etymology": {
    "intro": [
@@ -19739,8 +19739,8 @@
    "ー"
   ],
   "parts": "名飾",
-  "type": "l 変則型",
-  "ruletype": "lq",
+  "type": "母音終了型",
+  "ruletype": "o",
   "meaning": [
    "平らな、平坦な。"
   ],
@@ -23188,66 +23188,6 @@
    "しんりょうじょ"
   ]
  },
- "víthlas": {
-  "id": 709,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "víthlas",
-  "stem": "vít",
-  "stem2": "vit",
-  "fix": "vit-",
-  "type": "t 基本型",
-  "ruletype": "t",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "meaning": [
-   "速い、素早い、高速な。"
-  ],
-  "pronunciation": [
-   "/vʲíh.las/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "音象徴「 速い 」から。"
-   ],
-   "changes": [
-    {
-     "form": "⫽swit-⫽古形 → swít-"
-    },
-    {
-     "form": "⫽svit-⫽w の v 化"
-    },
-    {
-     "form": "⫽svit-⫽明音化"
-    },
-    {
-     "form": "⫽vit-⫽子音脱落"
-    },
-    {
-     "form": "⫽vit-⫽現代 → vít-"
-    }
-   ]
-  },
-  "kanji": {
-   "title": "速",
-   "nui": [
-    "？"
-   ],
-   "chel": [
-    "vít"
-   ]
-  },
-  "variants2": [
-   "はやい",
-   "すばやい",
-   "こうそくの"
-  ]
- },
  "gúdhlas": {
   "id": 710,
   "safe": true,
@@ -26170,7 +26110,7 @@
    "?"
   ],
   "pronunciation": [
-   "/flim/"
+   "/flʲimʲ/"
   ],
   "etymology": {
    "intro": [
@@ -30117,7 +30057,7 @@
    "（ チェルスノー文字 ）A"
   ],
   "pronunciation": [
-   "/∅ʲíʀ/"
+   "/∅ʲíʀʲ/"
   ],
   "etymology": {
    "intro": [
@@ -36033,7 +35973,7 @@
    "肉"
   ],
   "pronunciation": [
-   "/lʲi.mʲík/"
+   "/lʲi.mʲíkʲ/"
   ],
   "etymology": {
    "intro": [
@@ -36927,7 +36867,7 @@
    "2人"
   ],
   "pronunciation": [
-   "/sʲí.ma/"
+   "/sʲi.mʲa/"
   ],
   "etymology": {
    "intro": [
@@ -37045,41 +36985,6 @@
   "variants2": [
    "五人",
    "ごにん"
-  ]
- },
- "míjma": {
-  "id": 920,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "míjma",
-  "stem": "míjm",
-  "stem2": "mijm",
-  "fix": "mijma-",
-  "tag": [
-   "数詞",
-   "人数詞"
-  ],
-  "parts": "名象",
-  "type": "m 基本型",
-  "ruletype": "m",
-  "meaning": [
-   "6人"
-  ],
-  "pronunciation": [
-   "/mʲíj.ma/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 865 」+「 371 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "六人",
-   "ろくにん"
   ]
  },
  "chómma": {
@@ -37389,7 +37294,7 @@
    "2つ"
   ],
   "pronunciation": [
-   "/sʲí.ka/"
+   "/sʲi.kʲa/"
   ],
   "etymology": {
    "intro": [
@@ -37517,45 +37422,6 @@
    "五個",
    "五つ",
    "いつつ"
-  ]
- },
- "míjka": {
-  "id": 957,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "míjka",
-  "stem": "míjk",
-  "stem2": "mijk",
-  "fix": "mijka-",
-  "tag": [
-   "数詞",
-   "個数詞"
-  ],
-  "parts": "名象",
-  "type": "k 基本型",
-  "ruletype": "k",
-  "meaning": [
-   "6個",
-   "6つ"
-  ],
-  "pronunciation": [
-   "/mʲíj.ka/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 865 」+「 99 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "ろっこ",
-   "ろくこ",
-   "六個",
-   "六つ",
-   "むっつ"
   ]
  },
  "chómka": {
@@ -39706,7 +39572,7 @@
    "2度"
   ],
   "pronunciation": [
-   "/sʲi.kló.ha/"
+   "/sʲikʲ.lʲó.ha/"
   ],
   "etymology": {
    "intro": [
@@ -42679,6 +42545,140 @@
    "ひかれる",
    "すく",
    "好く"
+  ]
+ },
+ "výthlas": {
+  "id": 709,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "výthlas",
+  "stem": "výt",
+  "stem2": "vyt",
+  "fix": "vyt-",
+  "type": "t 基本型",
+  "ruletype": "t",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "meaning": [
+   "速い、素早い、高速な。"
+  ],
+  "pronunciation": [
+   "/vʲíh.las/"
+  ],
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "音象徴「 速い 」から。"
+   ],
+   "changes": [
+    {
+     "form": "⫽swit-⫽古形 → swít-"
+    },
+    {
+     "form": "⫽svit-⫽w の v 化"
+    },
+    {
+     "form": "⫽svit-⫽明音化"
+    },
+    {
+     "form": "⫽vit-⫽子音脱落"
+    },
+    {
+     "form": "⫽vit-⫽現代 → vít-"
+    }
+   ]
+  },
+  "kanji": {
+   "title": "速",
+   "nui": [
+    "？"
+   ],
+   "chel": [
+    "vít"
+   ]
+  },
+  "variants2": [
+   "はやい",
+   "すばやい",
+   "こうそくの"
+  ]
+ },
+ "míka": {
+  "id": 957,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "míka",
+  "stem": "mík",
+  "stem2": "mik",
+  "fix": "mika-",
+  "tag": [
+   "数詞",
+   "個数詞"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "ruletype": "k",
+  "meaning": [
+   "6個",
+   "6つ"
+  ],
+  "pronunciation": [
+   "/mʲi.kʲa/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 865 」+「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "ろっこ",
+   "ろくこ",
+   "六個",
+   "六つ",
+   "むっつ"
+  ]
+ },
+ "míma": {
+  "id": 920,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "míma",
+  "stem": "mím",
+  "stem2": "mim",
+  "fix": "mima-",
+  "tag": [
+   "数詞",
+   "人数詞"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "ruletype": "m",
+  "meaning": [
+   "6人"
+  ],
+  "pronunciation": [
+   "/mʲi.mʲa/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 865 」+「 371 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "六人",
+   "ろくにん"
   ]
  }
 }
