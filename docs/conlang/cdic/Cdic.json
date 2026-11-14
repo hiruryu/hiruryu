@@ -16870,42 +16870,6 @@
    "つまる"
   ]
  },
- "sipálva": {
-  "id": 548,
-  "safe": true,
-  "seii": [
-   "LHL"
-  ],
-  "word": "sipálva",
-  "stem": "síp",
-  "stem2": "sip",
-  "fix": "sip-",
-  "tag": [
-   "ー"
-  ],
-  "parts": "動詞",
-  "type": "p 明音型",
-  "ruletype": "pj",
-  "meaning": [
-   "［ 能が ］［ 基を ］切る、切断する。",
-   "［ 能が ］［ 基を ］裂く、切り裂く。"
-  ],
-  "pronunciation": [
-   "/sʲi.pál.va/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "擬音語「 切る 」から。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "きる",
-   "さく",
-   "きりさく"
-  ]
- },
  "sypája": {
   "id": 549,
   "safe": true,
@@ -16913,9 +16877,9 @@
    "LHL"
   ],
   "word": "sypája",
-  "stem": "sipáj",
-  "stem2": "sipaj",
-  "fix": "sipaja-",
+  "stem": "sypáj",
+  "stem2": "sypaj",
+  "fix": "sypaja-",
   "tag": [
    "ー"
   ],
@@ -16926,7 +16890,7 @@
    "刃物、刀、ナイフ、包丁。"
   ],
   "pronunciation": [
-   "/sʲi.pá.∅ʲa/"
+   "/sʲip.pá.∅ʲa/"
   ],
   "etymology": {
    "intro": [
@@ -42679,6 +42643,42 @@
   "variants2": [
    "おとなむけの",
    "アダルトな"
+  ]
+ },
+ "sypálva": {
+  "id": 548,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "sypálva",
+  "stem": "sýp",
+  "stem2": "syp",
+  "fix": "syp-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "p 明音型",
+  "ruletype": "pj",
+  "meaning": [
+   "［ 能が ］［ 基を ］切る、切断する。",
+   "［ 能が ］［ 基を ］裂く、切り裂く。"
+  ],
+  "pronunciation": [
+   "/sʲip.pál.va/"
+  ],
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "擬音語「 切る 」から。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "きる",
+   "さく",
+   "きりさく"
   ]
  }
 }
