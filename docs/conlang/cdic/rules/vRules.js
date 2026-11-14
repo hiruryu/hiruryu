@@ -70,6 +70,9 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   stemoö = (stem ?? "").replace('ó', 'ö́');
   stemeë = (stem ?? "").replace('é', 'ë́');
 
+  // stem1 (acute removed, diaeresis/ring kept)
+  stemD = (stem ?? "").replace(/á/g, "a").replace(/é/g, "e").replace(/í/g, "i").replace(/ó/g, "o").replace(/ú/g, "u").replace(/ý/g, "y").replace(/ǻ/g, "å").replace(/\u0301/g, "");
+
   // stem2
   stem2ua = (stem2 ?? "").replace('u', 'a');
   stem2ui = (stem2 ?? "").replace(/[ou]/g, 'i');
@@ -2431,6 +2434,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       mf_gerund: stem2ui + mffx + alva,
     }
 
+    // n 複子音形
   } else if (["na"].includes(ruletype)) {
     return {
       // 完結相
@@ -2575,150 +2579,106 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       mf_gerund: stem2ui + mffx + alva,
     }
 
-    // sna 明音形
-  } else if (["nja"].includes(ruletype)) {
+    // o 型
+  } else if (["o"].includes(ruletype)) {
     return {
       // 完結相
-      p: uniqueForms(
-        stem2 + pfxj,
-        stem2ua + pfxj,
-        stem2juiu + pfxj,
-      ).join("<br>"),
-
+      p: stem2 + "ól",
       n: "ー",
-      f: uniqueForms(
-        stem2ua + ffx,
-        stem2ui + ffx,
-        stem2oö + ffx,
-        stem2jui + ffx,
-      ).join("<br>"),
-
+      f: stem2 + "óip",
       // 進行相
-      sp: uniqueForms(
-
-        stemVi + spfx,
-        stemui + spfx,
-        stemoö + spfx,
-      ).join("<br>"),
-
-      sn: uniqueForms(
-        stemVi + snfx,
-        stemui + snfx,
-        stemoö + snfx,
-      ).join("<br>"),
-
-      sf: uniqueForms(
-
-        stemVi + sffx,
-        stemui + sffx,
-        stemoö + sffx,
-      ).join("<br>"),
-
+      sp: stem + "öishal",
+      sn: stem + "öish",
+      sf: stem + "öiship",
       // 完了相
-      dp: uniqueForms(
-        stem2ua.slice(0, -1) + dpxj,
-        stem2.slice(0, -1) + dpxj,
-        stem2juiu.slice(0, -1) + dpxj,
-      ).join("<br>"),
-
-      dn: stem.slice(0, -1) + dnfxh,
-
-      df: uniqueForms(
-        stem2ua.slice(0, -1) + dffx,
-        stem2.slice(0, -1) + dffx,
-        stem2juiu.slice(0, -1) + dffx,
-      ).join("<br>"),
-
+      dp: stem2 + "anö́l",
+      dn: stem + "ona",
+      df: stem2 + "onáip",
       // 反復相,
-      mp: stem + mpfx.slice(1, 4),
-
-      mn: uniqueForms(
-        stemVi + mnfx,
-        stemui + mnfx,
-
-      ).join("<br>"),
-
-      mf: uniqueForms(
-        stemVi + mffx,
-        stemui + mffx,
-      ).join("<br>"),
-
+      mp: stem + "amal",
+      mn: stem + "om",
+      mf: stem2 + "ómip",
       // 飾形
       // 完結相
-      ne: uniqueForms(
-        stemVi + nefx,
-        stemui + nefx,
-
-      ).join("<br>"),
-
-      fe: uniqueForms(
-        stem2ui + fefx,
-        stem2oö + fefx,
-        stem2jui + fefx,
-      ).join("<br>"),
-
+      ne: stem + "ön",
+      fe: stem2 + "óihen",
       // 進行相
-      sne: uniqueForms(
-        stemVi + snefx,
-        stemui + snefx,
-
-      ).join("<br>"),
-
-      sfe: uniqueForms(
-        stemui + sfefx,
-        stemoö + sfefx,
-
-      ).join("<br>"),
-
+      sne: stem + "öishen",
+      sfe: stem2 + "óishphen",
       // 完了相
-      dne: uniqueForms(
-        stem2ua + dnefx,
-        stem2 + dnefx,
-        stem2juiu + dnefx,
-      ).join("<br>"),
-
-      dfe: uniqueForms(
-        stem2ua + dfefx,
-        stem2 + dfefx,
-        stem2juiu + dfefx,
-      ).join("<br>"),
-
+      dne: stem2 + "óin",
+      dfe: stem2 + "óinip",
       // 反復相,
-      mne: uniqueForms(
-        stem.slice(0, -1) + mnefx,
-        stemui.slice(0, -1) + mnefx,
-
-      ).join("<br>"),
-
-      mfe: uniqueForms(
-        stem.slice(0, -1) + mfefx,
-        stemui.slice(0, -1) + mfefx,
-      ).join("<br>"),
-
+      mne: stem + "ömen",
+      mfe: stem2 + "ómihen",
       // 具象形
       // 完結相
-      p_gerund: uniqueForms(
-        stem2ua + pfx2 + alva,
-        stem2q + pfx2 + alva,
-      ).join("<br>"),
-
-      n_gerund: stem2ua + alva,
+      p_gerund: stem2ua + pfx2 + alva,
+      n_gerund: _word,
       f_gerund: stem2ua + ffxp2 + alva,
-
       // 進行相
       sp_gerund: stem2ui + spfx + alva,
       sn_gerund: stem2ui + snfx + alva,
       sf_gerund: stem2ui + sffx + alva,
-
       // 完了相
-      dp_gerund: stem2ua.slice(0, -1) + dpfx2 + alva,
-      dn_gerund: stem2ua.slice(0, -1) + dnfx + alva,
-      df_gerund: stem2ua.slice(0, -1) + dffx2 + alva,
-
+      dp_gerund: stem2ua + dpfxh2 + alva,
+      dn_gerund: stem2ua + dnfxh.slice(0, -1) + alva,
+      df_gerund: stem2ua + dffxh2 + alva,
       // 反復相,
-      mp_gerund: stem2ua + mpfx.slice(1, 4) + alva,
-      mn_gerund: stem2ui + mnfx + alva,
-      mf_gerund: stem2ui + mffx + alva,
+      mp_gerund: stem2ua + mpfxh + alva,
+      mn_gerund: stem2ui + mnfxh + alva,
+      mf_gerund: stem2ui + mffxh + alva,
+    }
+
+    // po 型 (bo, fo, vo も同じ)
+  } else if (["po", "bo", "fo", "vo"].includes(ruletype)) {
+    return {
+      // 完結相
+      p: stemD + "ól",
+      n: "ー",
+      f: stemD + "óih",
+      // 進行相
+      sp: stem + "öishal",
+      sn: stem + "öish",
+      sf: stem + "öiship",
+      // 完了相
+      dp: stem2 + "anö́l",
+      dn: stem2 + "óna",
+      df: stem2 + "anáip",
+      // 反復相,
+      mp: stem + "amal",
+      mn: stem + "om",
+      mf: stem2 + "ómip",
+      // 飾形
+      // 完結相
+      ne: stem + "ön",
+      fe: stem2 + "óihen",
+      // 進行相
+      sne: stem + "öishen",
+      sfe: stem2 + "óishphen",
+      // 完了相
+      dne: stemD + "óin",
+      dfe: stem2 + "óinip",
+      // 反復相,
+      mne: stem + "ömen",
+      mfe: stem2 + "ómihen",
+      // 具象形
+      // 完結相
+      p_gerund: stem2ua + pfx2 + alva,
+      n_gerund: _word,
+      f_gerund: stem2ua + ffxp2 + alva,
+      // 進行相
+      sp_gerund: stem2ui + spfx + alva,
+      sn_gerund: stem2ui + snfx + alva,
+      sf_gerund: stem2ui + sffx + alva,
+      // 完了相
+      dp_gerund: stem2ua + dpfxh2 + alva,
+      dn_gerund: stem2ua + dnfxh.slice(0, -1) + alva,
+      df_gerund: stem2ua + dffxh2 + alva,
+      // 反復相,
+      mp_gerund: stem2ua + mpfxh + alva,
+      mn_gerund: stem2ui + mnfxh + alva,
+      mf_gerund: stem2ui + mffxh + alva,
     }
   }
 }
