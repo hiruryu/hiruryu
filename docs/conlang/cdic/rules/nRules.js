@@ -129,7 +129,8 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
 
   function uniqueForms(...forms) {
-    return [...new Set(forms.filter(form => !/jí|ji|ii|íi|iúi|iui/.test(form)))];
+    const filtered = [...new Set(forms.filter(form => !/jí|ji|ii|íi|iúi|iui/.test(form)))];
+    return filtered.length ? filtered : [forms[0]];
   }
 
   if (ruletype === "not") {
