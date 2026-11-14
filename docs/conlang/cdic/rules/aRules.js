@@ -74,7 +74,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       ).join("<br>"),
 
       h_s: uniqueForms(
-        s + "hlas",
+        s + "las",
       ).join("<br>"),
 
       // 単数一致-比較級

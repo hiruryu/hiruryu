@@ -15294,39 +15294,6 @@
    "おれる"
   ]
  },
- "týklas⁽²⁾": {
-  "id": 489,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "týklas",
-  "stem": "týk",
-  "stem2": "tyk",
-  "fix": "tyk-",
-  "type": "k 明音型",
-  "ruletype": "kj",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "meaning": [
-   "枝状の。"
-  ],
-  "pronunciation": [
-   "/tʲík.las/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 487 」+「 143 」+「 81 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "えだじょうの"
-  ]
- },
  "tygnálva": {
   "id": 490,
   "safe": true,
@@ -20991,39 +20958,6 @@
    "ただす"
   ]
  },
- "ljáiklas": {
-  "id": 661,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "ljáiklas",
-  "stem": "ljáik",
-  "stem2": "ljaik",
-  "fix": "ljaik-",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "type": "k 明音型",
-  "ruletype": "kj",
-  "meaning": [
-   "正しい。"
-  ],
-  "pronunciation": [
-   "/lʲákʲ.lʲas/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 660 」+「 143 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "ただしい"
-  ]
- },
  "fmóshka": {
   "id": 662,
   "safe": true,
@@ -22662,49 +22596,6 @@
   },
   "variants2": [
    "かい"
-  ]
- },
- "xúiklas": {
-  "id": 701,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "xúiklas",
-  "stem": "xúik",
-  "stem2": "xuik",
-  "fix": "xk-",
-  "type": "k 明音型",
-  "ruletype": "kj",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "meaning": [
-   "痛い。ズキズキする。"
-  ],
-  "pronunciation": [
-   "/zúkʲ.lʲas/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    "音象徴「 痛む 」から。"
-   ],
-   "changes": []
-  },
-  "kanji": {
-   "title": "痛",
-   "nui": [
-    "？"
-   ],
-   "chel": [
-    "xúik"
-   ]
-  },
-  "variants2": [
-   "いたい",
-   "いたんだ"
   ]
  },
  "xynálva": {
@@ -40878,38 +40769,6 @@
   "variants2": [],
   "word": "záivlas"
  },
- "gáiplas": {
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 869 」+「 143 」+「 81 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "fix": "gaip-",
-  "id": 1324,
-  "meaning": [
-   "10の"
-  ],
-  "parts": "名飾",
-  "pronunciation": [
-   "/gáipʲ.lʲas/"
-  ],
-  "ruletype": "pj",
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "stem": "gáip",
-  "stem2": "gaip",
-  "tag": [
-   "数詞",
-   "号数詞"
-  ],
-  "type": "p 明音型",
-  "variants2": [],
-  "word": "gáiplas"
- },
  "léivlas": {
   "etymology": {
    "intro": [
@@ -42680,5 +42539,146 @@
   "variants2": [
    "おだやかな"
   ]
+ },
+ "týkhlas⁽²⁾": {
+  "id": 489,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "týkhlas",
+  "stem": "týk",
+  "stem2": "tyk",
+  "fix": "tyk-",
+  "type": "k 明音型",
+  "ruletype": "kj",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "meaning": [
+   "枝状の。"
+  ],
+  "pronunciation": [
+   "/tʲíh.las/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 487 」+「 143 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "えだじょうの"
+  ]
+ },
+ "ljáikhlas": {
+  "id": 661,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "ljáikhlas",
+  "stem": "ljáik",
+  "stem2": "ljaik",
+  "fix": "ljaik-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "k 明音型",
+  "ruletype": "kj",
+  "meaning": [
+   "正しい。"
+  ],
+  "pronunciation": [
+   "/lʲáhʲ.lʲas/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 660 」+「 143 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "ただしい"
+  ]
+ },
+ "xúikhlas": {
+  "id": 701,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "xúikhlas",
+  "stem": "xúik",
+  "stem2": "xuik",
+  "fix": "xk-",
+  "type": "k 明音型",
+  "ruletype": "kj",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "meaning": [
+   "痛い。ズキズキする。"
+  ],
+  "pronunciation": [
+   "/zúhʲ.lʲas/"
+  ],
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "音象徴「 痛む 」から。"
+   ],
+   "changes": []
+  },
+  "kanji": {
+   "title": "痛",
+   "nui": [
+    "？"
+   ],
+   "chel": [
+    "xúik"
+   ]
+  },
+  "variants2": [
+   "いたい",
+   "いたんだ"
+  ]
+ },
+ "gáiphlas": {
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 869 」+「 143 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "fix": "gaip-",
+  "id": 1324,
+  "meaning": [
+   "10の"
+  ],
+  "parts": "名飾",
+  "pronunciation": [
+   "/gáifʲ.lʲas/"
+  ],
+  "ruletype": "pj",
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "stem": "gáip",
+  "stem2": "gaip",
+  "tag": [
+   "数詞",
+   "号数詞"
+  ],
+  "type": "p 明音型",
+  "variants2": [],
+  "word": "gáiphlas"
  }
 }
