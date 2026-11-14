@@ -1878,7 +1878,7 @@
    "HL"
   ],
   "word": "sválo",
-  "stem": "sválo",
+  "stem": "svál",
   "stem2": "sval",
   "lexemic": [
    "swála͜u"
@@ -1891,7 +1891,7 @@
   ],
   "parts": "名象",
   "type": "lo 変則型",
-  "ruletype": "lq",
+  "ruletype": "lo",
   "meaning": [
    "水。"
   ],
@@ -21209,7 +21209,7 @@
   ],
   "parts": "名飾",
   "type": "l 変則型",
-  "ruletype": "lq",
+  "ruletype": "l",
   "meaning": [
    "外の、外側の、外部の。"
   ],
@@ -35266,42 +35266,6 @@
    "良性の羨望"
   ]
  },
- "pyfnólas": {
-  "id": 1221,
-  "safe": true,
-  "seii": [
-   "LHL"
-  ],
-  "word": "pyfnólas",
-  "stem": "pyfnó",
-  "stem2": "pyfno",
-  "fix": "pyfna-",
-  "type": "l 変則型",
-  "ruletype": "lq",
-  "tag": [
-   "感情"
-  ],
-  "parts": "名飾",
-  "meaning": [
-   "（ 感情が ）穏やかな。"
-  ],
-  "explanation": [
-   ""
-  ],
-  "pronunciation": [
-   "/pʲif.nó.las/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 422 」+「 624 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "おだやかな"
-  ]
- },
  "pypáklas": {
   "id": 1222,
   "safe": true,
@@ -42679,6 +42643,42 @@
   "variants2": [
    "つり",
    "りょう"
+  ]
+ },
+ "pyfnjólas": {
+  "id": 1221,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "pyfnjólas",
+  "stem": "pyfnjó",
+  "stem2": "pyfnjo",
+  "fix": "pyfnja-",
+  "type": "母音終了型",
+  "ruletype": "o",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名飾",
+  "meaning": [
+   "（ 感情が ）穏やかな。"
+  ],
+  "explanation": [
+   ""
+  ],
+  "pronunciation": [
+   "/pʲif.nʲó.las/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 422 」+「 624 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "おだやかな"
   ]
  }
 }
