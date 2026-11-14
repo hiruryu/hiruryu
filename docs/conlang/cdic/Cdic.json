@@ -21892,44 +21892,6 @@
    "光り輝く"
   ]
  },
- "chíklas": {
-  "id": 688,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "chíklas",
-  "stem": "chík",
-  "stem2": "chik",
-  "fix": "chik-",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名飾",
-  "type": "k 基本型",
-  "ruletype": "k",
-  "meaning": [
-   "輝かしい、輝いた、キラキラした、眩しい。"
-  ],
-  "pronunciation": [
-   "/ʈ͡ʂʲíkʲ.lʲas/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 687 」+「 81 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "かがやかしい",
-   "かがやいた",
-   "まぶしい",
-   "輝いた",
-   "キラキラした",
-   "眩しい"
-  ]
- },
  "sjaphálva": {
   "id": 689,
   "safe": true,
@@ -42679,6 +42641,44 @@
   },
   "variants2": [
    "えだじょうの"
+  ]
+ },
+ "chíkhlas": {
+  "id": 688,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "chíkhlas",
+  "stem": "chík",
+  "stem2": "chik",
+  "fix": "chik-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "k 明音型",
+  "ruletype": "kj",
+  "meaning": [
+   "輝かしい、輝いた、キラキラした、眩しい。"
+  ],
+  "pronunciation": [
+   "/ʈ͡ʂʲíhʲ.lʲas/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 687 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "かがやかしい",
+   "かがやいた",
+   "まぶしい",
+   "輝いた",
+   "キラキラした",
+   "眩しい"
   ]
  }
 }
