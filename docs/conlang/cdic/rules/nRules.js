@@ -630,6 +630,62 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       in_anpC: anpCo.slice(0, -1) + in_fx,
     }
 
+    // 数詞 6 の変則型（ija）：mía。単数形は stem から j を落とした mí＋a 型接辞。複数形は stem2 から j を落とした mi＋ára。
+  } else if (["ija"].includes(ruletype)) {
+    const sg = (stem ?? "").slice(0, -1);
+    const pl = (stem2 ?? "").slice(0, -1) + "ára";
+    const gPl = pl.slice(0, -1) + "y";
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: sg + "af",
+      e_ansC: sg + "ak",
+      d_ansC: sg + "es",
+      l_ansC: sg + "am",
+      i_ansC: sg + "ash",
+      g_ansC: sg + "a",
+      v_ansC: sg + "arh",
+      in_ansC: sg + "ata",
+      // 複数形
+      anpC: pl,
+      f_anpC: pl + "f",
+      e_anpC: pl + "k",
+      d_anpC: pl.slice(0, -1) + "íes",
+      l_anpC: pl + "m",
+      i_anpC: pl + "sh",
+      g_anpC: gPl,
+      v_anpC: pl + "rh",
+      in_anpC: gPl + "ta",
+    }
+
+    // 数詞 2 の変則型（ijo）：sío。単数形は stem から j を落とした sí＋o 型接辞。複数形は stem2 から j を落とした si＋óra。
+  } else if (["ijo"].includes(ruletype)) {
+    const sg = (stem ?? "").slice(0, -1);
+    const pl = (stem2 ?? "").slice(0, -1) + "óra";
+    const gPl = pl.slice(0, -1) + "y";
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: sg + "of",
+      e_ansC: sg + "ok",
+      d_ansC: sg + "ös",
+      l_ansC: sg + "om",
+      i_ansC: sg + "osh",
+      g_ansC: sg + "u",
+      v_ansC: sg + "orh",
+      in_ansC: sg + "uta",
+      // 複数形
+      anpC: pl,
+      f_anpC: pl + "f",
+      e_anpC: pl + "k",
+      d_anpC: pl.slice(0, -1) + "íes",
+      l_anpC: pl + "m",
+      i_anpC: pl + "sh",
+      g_anpC: gPl,
+      v_anpC: pl + "rh",
+      in_anpC: gPl + "ta",
+    }
+
   }
 }
 

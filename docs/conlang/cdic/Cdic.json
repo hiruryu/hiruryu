@@ -36357,12 +36357,9 @@
    "HL"
   ],
   "word": "sío",
-  "stem": "sij",
+  "stem": "síj",
   "stem2": "sij",
-  "fix": [
-   "sí-",
-   "si-"
-  ],
+  "fix": "si-",
   "tag": [
    "数詞",
    "号数詞"
@@ -36450,7 +36447,7 @@
   "word": "qóma",
   "stem": "qóm",
   "stem2": "qom",
-  "fix": "qoma-",
+  "fix": "qama-",
   "tag": [
    "数詞",
    "号数詞"
@@ -36494,7 +36491,7 @@
   "word": "póla",
   "stem": "pól",
   "stem2": "pol",
-  "fix": "pola-",
+  "fix": "pala-",
   "tag": [
    "数詞",
    "号数詞"
@@ -36538,10 +36535,7 @@
   "word": "mía",
   "stem": "míj",
   "stem2": "mij",
-  "fix": [
-   "mí-",
-   "mi-"
-  ],
+  "fix": "mi-",
   "tag": [
    "数詞",
    "号数詞"
@@ -36585,7 +36579,7 @@
   "word": "chóma",
   "stem": "chóm",
   "stem2": "chom",
-  "fix": "choma-",
+  "fix": "chama-",
   "tag": [
    "数詞",
    "号数詞"
@@ -36806,7 +36800,7 @@
   "word": "tóna",
   "stem": "tón",
   "stem2": "ton",
-  "fix": "tona-",
+  "fix": "tana-",
   "tag": [
    "数詞",
    "号数詞"
@@ -36991,7 +36985,7 @@
   "word": "qómma",
   "stem": "qómm",
   "stem2": "qomm",
-  "fix": "qomma-",
+  "fix": "qamma-",
   "tag": [
    "数詞",
    "人数詞"
@@ -37027,7 +37021,7 @@
   "word": "pólma",
   "stem": "pólm",
   "stem2": "polm",
-  "fix": "polma-",
+  "fix": "palma-",
   "tag": [
    "数詞",
    "人数詞"
@@ -37097,7 +37091,7 @@
   "word": "chómma",
   "stem": "chómm",
   "stem2": "chomm",
-  "fix": "chomma-",
+  "fix": "chamma-",
   "tag": [
    "数詞",
    "人数詞"
@@ -37273,7 +37267,7 @@
   "word": "tónma",
   "stem": "tónm",
   "stem2": "tonm",
-  "fix": "tonma-",
+  "fix": "tanma-",
   "tag": [
    "数詞",
    "人数詞"
@@ -37458,7 +37452,7 @@
   "word": "qómka",
   "stem": "qómk",
   "stem2": "qomk",
-  "fix": "qomka-",
+  "fix": "qamka-",
   "tag": [
    "数詞",
    "個数詞"
@@ -37496,7 +37490,7 @@
   "word": "pókka",
   "stem": "pókk",
   "stem2": "pokk",
-  "fix": "pokka-",
+  "fix": "pakka-",
   "tag": [
    "数詞",
    "個数詞"
@@ -37573,7 +37567,7 @@
   "word": "chómka",
   "stem": "chómk",
   "stem2": "chomk",
-  "fix": "chomka-",
+  "fix": "chamka-",
   "tag": [
    "数詞",
    "個数詞"
@@ -37763,7 +37757,7 @@
   "word": "tónka",
   "stem": "tónk",
   "stem2": "tonk",
-  "fix": "tonka-",
+  "fix": "tanka-",
   "tag": [
    "数詞",
    "個数詞"
