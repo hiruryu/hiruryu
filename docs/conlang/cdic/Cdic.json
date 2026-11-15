@@ -6582,7 +6582,7 @@
   ],
   "parts": "動詞",
   "type": "m 複子音型",
-  "ruletype": "na",
+  "ruletype": "ma",
   "meaning": [
    "［ 基が ］［ 補だと ］考える、思う。",
    "［ 基が ］思考する。"
@@ -15833,7 +15833,7 @@
   "stem2": "qimm",
   "fix": "qimma-",
   "type": "m 複子音型",
-  "ruletype": "na",
+  "ruletype": "ma",
   "tag": [
    "ー"
   ],
@@ -18550,7 +18550,7 @@
   ],
   "parts": "動詞",
   "type": "m 複子音型",
-  "ruletype": "na",
+  "ruletype": "ma",
   "meaning": [
    "［ 基が ］空く、空になる。",
    "［ 能が ］［ 基を ］空ける、空にする。",
@@ -20060,8 +20060,8 @@
   "stem": "múrm",
   "stem2": "marm",
   "fix": "marma-",
-  "type": "m 基本型",
-  "ruletype": "m",
+  "type": "m 複子音型",
+  "ruletype": "ma",
   "tag": [
    "ー"
   ],
@@ -32015,7 +32015,7 @@
   "stem2": "gaxm",
   "fix": "gaxma-",
   "type": "m 複子音型",
-  "ruletype": "na",
+  "ruletype": "ma",
   "tag": [
    "ー"
   ],
@@ -43294,7 +43294,7 @@
    "ー"
   ],
   "parts": "動詞",
-  "type": "m 基本型",
+  "type": "m 複子音型",
   "meaning": [
    "［ 基が ］行く。"
   ],
@@ -43304,7 +43304,7 @@
   "variants2": [
    "いく"
   ],
-  "ruletype": "m",
+  "ruletype": "ma",
   "etymology": {
    "intro": [
     "合成語。",
@@ -46173,7 +46173,7 @@
    "稲妻",
    "いなずま"
   ],
-  "ruletype": "na",
+  "ruletype": "ma",
   "etymology": {
    "intro": [
     "合成語。",
