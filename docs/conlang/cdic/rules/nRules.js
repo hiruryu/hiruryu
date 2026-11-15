@@ -482,6 +482,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
 
     // u 尾高形
   } else if (["ú"].includes(ruletype)) {
+    const anpCú = stem2 + "úra";
     return {
       // 単数形
       ansC: ansCBase,
@@ -494,15 +495,15 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       v_ansC: stem + "ú" + v_fx.slice(1, 3),
       in_ansC: stem + "ú" + in_fx.slice(1, 6),
       // 複数形
-      anpC: anpC2,
-      f_anpC: anpC2.slice(0, -1) + f_fx,
-      e_anpC: anpC2.slice(0, -1) + e_fx,
-      d_anpC: anpC2.slice(0, -1) + d_fx,
-      l_anpC: anpC2.slice(0, -1) + l_fx,
-      i_anpC: anpC2.slice(0, -1) + i_fx,
-      g_anpC: anpC2.slice(0, -1) + g_fx,
+      anpC: anpCú,
+      f_anpC: anpCú.slice(0, -1) + f_fx,
+      e_anpC: anpCú.slice(0, -1) + e_fx,
+      d_anpC: anpCú.slice(0, -1) + d_fx,
+      l_anpC: anpCú.slice(0, -1) + l_fx,
+      i_anpC: anpCú.slice(0, -1) + i_fx,
+      g_anpC: anpCú.slice(0, -1) + g_fx,
       v_anpC: vAnpCFromBase ?? stem2.slice(0, -1) + "ar" + v_fx,
-      in_anpC: anpC2.slice(0, -1) + in_fx,
+      in_anpC: anpCú.slice(0, -1) + in_fx,
     }
 
     // o 基本形
@@ -591,7 +592,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       d_ansC: word,
       l_ansC: stem + "um",
       i_ansC: stem + "ush",
-      g_ansC: stem + "ují",
+      g_ansC: stem + "uvy",
       v_ansC: stem + "urh",
       in_ansC: stem + "uta",
       // 複数形
