@@ -7445,8 +7445,8 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "gda 変則型",
-  "ruletype": "gda",
+  "type": "d 基本型",
+  "ruletype": "d",
   "meaning": [
    "店、商店。"
   ],
@@ -7523,8 +7523,8 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "gda 変則型",
-  "ruletype": "gda",
+  "type": "d 基本型",
+  "ruletype": "d",
   "meaning": [
    "飲食店、レストラン。"
   ],
@@ -7556,8 +7556,8 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "gda 変則型",
-  "ruletype": "gda",
+  "type": "d 基本型",
+  "ruletype": "d",
   "meaning": [
    "青果店、果物屋。"
   ],
@@ -7590,8 +7590,8 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "gda 変則型",
-  "ruletype": "gda",
+  "type": "d 基本型",
+  "ruletype": "d",
   "meaning": [
    "ドラッグストア、薬屋。"
   ],
@@ -12926,8 +12926,8 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "gda 変則型",
-  "ruletype": "gda",
+  "type": "d 基本型",
+  "ruletype": "d",
   "meaning": [
    "服屋。"
   ],
