@@ -32701,40 +32701,6 @@
    "ゆかり"
   ]
  },
- "cásfa": {
-  "id": 1122,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "cásfa",
-  "stem": "cásf",
-  "stem2": "casf",
-  "fix": "casfa-",
-  "type": "f 基本型",
-  "ruletype": "f",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名象",
-  "meaning": [
-   "感謝。"
-  ],
-  "pronunciation": [
-   "/t͡sás.fa/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 820 」+「 101 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "かんしゃ",
-   "ありがとう"
-  ]
- },
  "vam": {
   "id": 1123,
   "safe": true,
@@ -32763,40 +32729,6 @@
    "ついて",
    "関して",
    "かんして"
-  ]
- },
- "háifa": {
-  "id": 1124,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "háifa",
-  "stem": "háif",
-  "stem2": "haif",
-  "fix": "haifa-",
-  "type": "f 基本型",
-  "ruletype": "f",
-  "tag": [
-   "ー"
-  ],
-  "parts": "名象",
-  "meaning": [
-   "笑い。",
-   "笑い声。"
-  ],
-  "pronunciation": [
-   "/há.fʲa/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 526 」+「 101 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "わらいごえ"
   ]
  },
  "dyvnáfa": {
@@ -46092,6 +46024,74 @@
   },
   "variants2": [
    "ほしぞら"
+  ]
+ },
+ "casnáfa": {
+  "id": 1122,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "casnáfa",
+  "stem": "casnáf",
+  "stem2": "casnaf",
+  "fix": "casnafa-",
+  "type": "f 基本型",
+  "ruletype": "f",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "meaning": [
+   "感謝。"
+  ],
+  "pronunciation": [
+   "/t͡sas.ná.fa/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 820 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "かんしゃ",
+   "ありがとう"
+  ]
+ },
+ "haináfa": {
+  "id": 1124,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "haináfa",
+  "stem": "haináf",
+  "stem2": "hainaf",
+  "fix": "hainafa-",
+  "type": "f 基本型",
+  "ruletype": "f",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "meaning": [
+   "笑い。",
+   "笑い声。"
+  ],
+  "pronunciation": [
+   "/ha.nʲá.fa/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 526 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "わらいごえ"
   ]
  }
 }
