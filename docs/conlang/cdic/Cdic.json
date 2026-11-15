@@ -1890,7 +1890,7 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "lo 変則型",
+  "type": "lo 基本型",
   "ruletype": "lo",
   "meaning": [
    "水。"
@@ -11232,7 +11232,8 @@
   "parts": "動詞",
   "meaning": [
    "［ 基が ］落ちる、落下する。",
-   "［ 能が ］［ 基を ］落とす。"
+   "［ 能が ］［ 基を ］落とす。",
+   "［ 基が ］降る。"
   ],
   "pronunciation": [
    "/pa.sál.va/"
@@ -11256,7 +11257,8 @@
   "variants2": [
    "おちる",
    "らっかする",
-   "おとす"
+   "おとす",
+   "ふる"
   ]
  },
  "ihálva": {
@@ -16175,145 +16177,6 @@
    "ひる"
   ]
  },
- "mjúla": {
-  "id": 530,
-  "safe": true,
-  "unique": true,
-  "seii": [
-   "LLL"
-  ],
-  "word": "mjúla",
-  "stem": "mjúl",
-  "stem2": "mjul",
-  "fix": "mjala-",
-  "tag": [
-   "人名"
-  ],
-  "parts": "名象",
-  "type": "v 基本型",
-  "ruletype": "v",
-  "meaning": [
-   "ひるりゅー、みゅるくるー。"
-  ],
-  "pronunciation": [
-   "/mʲú.la/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    " ｢ 118 」+「 529 」が組み合わさった語。"
-   ],
-   "changes": [
-    {
-     "form": "⫽mjulkluf-⫽古形"
-    },
-    {
-     "form": "⫽mjulukluf-⫽緩衝母音"
-    },
-    {
-     "form": "⫽mjulukluv-⫽有声化"
-    },
-    {
-     "form": "⫽mjulukluv-⫽現代 → mjuluklúv"
-    }
-   ]
-  }
- },
- "Quátri Chálëv": {
-  "id": 531,
-  "safe": true,
-  "unique": true,
-  "seii": [
-   "LLLL"
-  ],
-  "word": "— Chálëv",
-  "stem": "— Chálëv",
-  "stem2": "— Chalëv",
-  "tag": [
-   "自創作"
-  ],
-  "parts": "名象",
-  "type": "v 基本型",
-  "ruletype": "v",
-  "meaning": [
-   "（ 夢見る竜と大三角の登場キャラ ）クァトゥルー・チャル。夢チャル。"
-  ],
-  "pronunciation": [
-   "/kat.rə ʈ͡ʂa.ləv/"
-  ],
-  "etymology": {
-   "intro": [
-    "特有語。",
-    "キャラ名「 チャル 」から。"
-   ],
-   "changes": []
-  },
-  "note3": [
-   "初出は「 夢見る竜と大三角 」という小説に登場するキャラクター。<br>区別のために作品内のチャルを「 夢チャル 」、<br>代理としてのチャルを「 代理チャル 」と呼ぶこともある｡",
-   "猫と竜の混血種で、第五世代。「 ワールド・グリッチ 」という能力を持つ。冷静で警戒心が強く、論理的かつ現実的にものを考える。また標準語に加え「 538 」という独自言語を用いる。",
-   "後に「 ひるりゅー 」として活動を始める上で、代理キャラとしてチャルを採用したが、「 作品内のチャル 」と「 代理としてのチャル 」の設定が分離し、定まらなくなる問題が起こる。（ → チャルの設定分離問題 ）",
-   "作品の消滅とともに作品内のチャルは消滅し、代理キャラとしてのチャルのみが残った。",
-   "代理としてのチャルは設定が異なるため、必ず「 532 」の項を参照すること。",
-   "「 夢見る竜と大三角 」も参照。"
-  ],
-  "variants1": [
-   "532"
-  ],
-  "variants2": [
-   "ゆめちゃる",
-   "チャル",
-   "クァトゥルーチャル",
-   "Chall"
-  ]
- },
- "Chálëv": {
-  "id": 532,
-  "safe": true,
-  "unique": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "Chálëv",
-  "stem": "Chálëv",
-  "stem2": "Chalëv",
-  "tag": [
-   "自創作"
-  ],
-  "parts": "名象",
-  "type": "v 基本型",
-  "ruletype": "v",
-  "meaning": [
-   "（ ひるりゅー代理としての ）チャル。代理チャル。"
-  ],
-  "pronunciation": [
-   "/ʈ͡ʂá.ləv/"
-  ],
-  "etymology": {
-   "intro": [
-    "変成語。",
-    "「 531 」が訛った語。"
-   ],
-   "changes": []
-  },
-  "note3": [
-   "初出は「 夢見る竜と大三角 」という小説に登場するキャラクター。（ 詳しくは → 531 を参照。）<br>区別のために作品内のチャルを「 夢チャル 」、<br>代理としてのチャルを「 代理チャル 」と呼ぶこともある。",
-   "「 ひるりゅー 」として活動を始める上で、代理キャラとして上記作品内に登場するキャラクターの「 チャル 」を採用したが、「 作品内のチャル 」と「 代理としてのチャル 」の設定が分離し、定まらなくなる問題が起こる。（ → チャルの設定分離問題 ）",
-   "作品の消滅とともに作品内のチャルは消滅し、代理キャラとしてのチャルのみが残った。",
-   "元あった能力の設定は、代理として「 全ての創作世界に行ける 」設定に変化し、これにより自分の作品内のみならず、他人の創作キャラクターと絡める理由を作った。",
-   "性格は元の設定とは対極に、人懐っこく好奇心旺盛な性格になっている。",
-   " 「 夢見る竜と大三角 」も参照。"
-  ],
-  "variants1": [
-   "531"
-  ],
-  "variants2": [
-   "だいりちゃる",
-   "ひるりゅー代理",
-   "クァトゥルー・チャル",
-   "クァトゥルーチャル",
-   "Chall"
-  ]
- },
  "Majalúpha": {
   "id": 533,
   "safe": true,
@@ -16346,78 +16209,6 @@
   "variants2": [
    "まよるご",
    "いご"
-  ]
- },
- "pastmjúpha": {
-  "id": 537,
-  "safe": true,
-  "seii": [
-   "LHL"
-  ],
-  "word": "pastmjúpha",
-  "stem": "pastmjúph",
-  "stem2": "pastmiph",
-  "fix": "pastmiph-",
-  "tag": [
-   "言語学"
-  ],
-  "parts": "名象",
-  "type": "ph 基本型",
-  "ruletype": "f",
-  "meaning": [
-   "個人語、個人言語。"
-  ],
-  "pronunciation": [
-   "/pas.mʲú.fa/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 534 」+「 96 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "こじんげんご",
-   "こじんご"
-  ]
- },
- "Quátri Cháliv Pastmjúpha": {
-  "id": 538,
-  "safe": true,
-  "seii": [
-   "LLLLLLHL"
-  ],
-  "word": "— Pastmjúpha",
-  "stem": "— Pastmjúph",
-  "stem2": "— Pastmiph",
-  "tag": [
-   "人工言語"
-  ],
-  "parts": "名象",
-  "type": "ph 基本型",
-  "ruletype": "f",
-  "meaning": [
-   "チャルの個人語。"
-  ],
-  "pronunciation": [
-   "/kat.rə ʈ͡ʂa.lə.ve pas.mʲú.fa/"
-  ],
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 531 」+「 537 」が組み合わさった語。"
-   ],
-   "changes": []
-  },
-  "note3": [
-   "「 夢見る竜と大三角 」という小説に登場する、第五世代竜クァトゥルー・チャルが話していた言語。<br>作品の消滅とともに言語も消滅したが、後に「 533 」に一部語彙が借用された。",
-   "「 531 」「 夢見る竜と大三角 」「 533 」も参照。"
-  ],
-  "variants2": [
-   "ちゃるのこじんご",
-   "チャルの個人言語",
-   "ちゃるのこじんげんご"
   ]
  },
  "*kissálva": {
@@ -17123,7 +16914,7 @@
    "［ 能が ］［ 基を ］殺す、殺害する。"
   ],
   "pronunciation": [
-   "/va.gâl.va/"
+   "/va.gál.va/"
   ],
   "etymology": {
    "intro": [
@@ -20842,7 +20633,7 @@
    "［ 基が ］［ 与に ］沿う。",
    "［ 基が ］［ 与に ］倣う、準拠する。",
    "［ 基が ］［ 与に ］基づく。",
-   "［ 基が ］［ 与に ］（ 約束・指示などを ）守る、遵守する。",
+   "［ 基が ］［ 与に ］（ 約束・指示などを ）守る、遵守する、従う。",
    "［ 基が ］［ 与に ］服従する。"
   ],
   "pronunciation": [
@@ -42576,7 +42367,7 @@
    "天気"
   ],
   "parts": "名象",
-  "type": "lo 変則型",
+  "type": "lo 基本型",
   "meaning": [
    "露。"
   ],
@@ -46090,6 +45881,1928 @@
    "intro": [
     "合成語。",
     "「 1362 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "Mjúla": {
+  "id": 530,
+  "safe": true,
+  "unique": true,
+  "seii": [
+   "LLL"
+  ],
+  "word": "Mjúla",
+  "stem": "mjúl",
+  "stem2": "mjul",
+  "fix": "mjala-",
+  "tag": [
+   "人名"
+  ],
+  "parts": "名象",
+  "type": "v 基本型",
+  "ruletype": "v",
+  "meaning": [
+   "ひるりゅー、みゅるくるー。"
+  ],
+  "pronunciation": [
+   "/mʲú.la/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    " ｢ 118 」+「 529 」が組み合わさった語。"
+   ],
+   "changes": [
+    {
+     "form": "⫽mjulkluf-⫽古形"
+    },
+    {
+     "form": "⫽mjulukluf-⫽緩衝母音"
+    },
+    {
+     "form": "⫽mjulukluv-⫽有声化"
+    },
+    {
+     "form": "⫽mjulukluv-⫽現代 → mjuluklúv"
+    }
+   ]
+  }
+ },
+ "Kátru Chálu": {
+  "id": 531,
+  "safe": true,
+  "unique": true,
+  "seii": [
+   "HL",
+   "HL"
+  ],
+  "word": "Kátru Chálu",
+  "stem": "— Chál",
+  "stem2": "— Chal",
+  "tag": [
+   "自創作"
+  ],
+  "parts": "名象",
+  "type": "u 基本型",
+  "ruletype": "w",
+  "meaning": [
+   "（ 夢見る竜と大三角の登場キャラ ）クァトゥルー・チャル。夢チャル。"
+  ],
+  "pronunciation": [
+   "/kát.ru ʈ͡ʂa.lu/"
+  ],
+  "etymology": {
+   "intro": [
+    "特有語。",
+    "キャラ名「 チャル 」から。"
+   ],
+   "changes": []
+  },
+  "note3": [
+   "初出は「 夢見る竜と大三角 」という小説に登場するキャラクター。<br>区別のために作品内のチャルを「 夢チャル 」、<br>代理としてのチャルを「 代理チャル 」と呼ぶこともある｡",
+   "猫と竜の混血種で、第五世代。「 ワールド・グリッチ 」という能力を持つ。冷静で警戒心が強く、論理的かつ現実的にものを考える。また標準語に加え「 538 」という独自言語を用いる。",
+   "後に「 ひるりゅー 」として活動を始める上で、代理キャラとしてチャルを採用したが、「 作品内のチャル 」と「 代理としてのチャル 」の設定が分離し、定まらなくなる問題が起こる。（ → チャルの設定分離問題 ）",
+   "作品の消滅とともに作品内のチャルは消滅し、代理キャラとしてのチャルのみが残った。",
+   "代理としてのチャルは設定が異なるため、必ず「 532 」の項を参照すること。",
+   "「 夢見る竜と大三角 」も参照。"
+  ],
+  "variants1": [
+   "532"
+  ],
+  "variants2": [
+   "ゆめちゃる",
+   "チャル",
+   "クァトゥルーチャル",
+   "Chall",
+   "Chalu"
+  ]
+ },
+ "Chálu": {
+  "id": 532,
+  "safe": true,
+  "unique": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "Chálu",
+  "stem": "Chál",
+  "stem2": "Chal",
+  "tag": [
+   "自創作"
+  ],
+  "parts": "名象",
+  "type": "u 基本型",
+  "ruletype": "w",
+  "meaning": [
+   "（ ひるりゅー代理としての ）チャル。代理チャル。"
+  ],
+  "pronunciation": [
+   "/ʈ͡ʂá.lu/"
+  ],
+  "etymology": {
+   "intro": [
+    "変成語。",
+    "「 531 」が訛った語。"
+   ],
+   "changes": []
+  },
+  "note3": [
+   "初出は「 夢見る竜と大三角 」という小説に登場するキャラクター。（ 詳しくは → 531 を参照。）<br>区別のために作品内のチャルを「 夢チャル 」、<br>代理としてのチャルを「 代理チャル 」と呼ぶこともある。",
+   "「 ひるりゅー 」として活動を始める上で、代理キャラとして上記作品内に登場するキャラクターの「 チャル 」を採用したが、「 作品内のチャル 」と「 代理としてのチャル 」の設定が分離し、定まらなくなる問題が起こる。（ → チャルの設定分離問題 ）",
+   "作品の消滅とともに作品内のチャルは消滅し、代理キャラとしてのチャルのみが残った。",
+   "元あった能力の設定は、代理として「 全ての創作世界に行ける 」設定に変化し、これにより自分の作品内のみならず、他人の創作キャラクターと絡める理由を作った。",
+   "性格は元の設定とは対極に、人懐っこく好奇心旺盛な性格になっている。",
+   " 「 夢見る竜と大三角 」も参照。"
+  ],
+  "variants1": [
+   "531"
+  ],
+  "variants2": [
+   "だいりちゃる",
+   "ひるりゅー代理",
+   "クァトゥルー・チャル",
+   "クァトゥルーチャル",
+   "Chall",
+   "Chalu"
+  ]
+ },
+ "rjanmápha": {
+  "id": 537,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "rjanmápha",
+  "stem": "rjanmáph",
+  "stem2": "rjanmaph",
+  "fix": "rjanmaph-",
+  "tag": [
+   "言語学"
+  ],
+  "parts": "名象",
+  "type": "ph 基本型",
+  "ruletype": "f",
+  "meaning": [
+   "個人語、個人言語。"
+  ],
+  "pronunciation": [
+   "/rʲam.má.fa/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 534 」+「 96 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "variants2": [
+   "こじんげんご",
+   "こじんご"
+  ]
+ },
+ "Kátru Cháluvy Rjanmápha": {
+  "id": 538,
+  "safe": true,
+  "seii": [
+   "HL",
+   "HLL",
+   "LHL"
+  ],
+  "word": "Kátru Cháluvy Rjanmápha",
+  "stem": "— Rjanmáph",
+  "stem2": "— Rjanmaph",
+  "tag": [
+   "人工言語"
+  ],
+  "parts": "名象",
+  "type": "ph 基本型",
+  "ruletype": "f",
+  "meaning": [
+   "チャルの個人語。"
+  ],
+  "pronunciation": [
+   "/kát.ru ʈ͡ʂa.lu.vʲi rʲam.má.fa/"
+  ],
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 531 」+「 537 」が組み合わさった語。"
+   ],
+   "changes": []
+  },
+  "note3": [
+   "「 夢見る竜と大三角 」という小説に登場する、第五世代竜クァトゥルー・チャルが話していた言語。<br>作品の消滅とともに言語も消滅したが、後に「 533 」に一部語彙が借用された。",
+   "「 531 」「 夢見る竜と大三角 」「 533 」も参照。"
+  ],
+  "variants2": [
+   "ちゃるのこじんご",
+   "チャルの個人言語",
+   "ちゃるのこじんげんご"
+  ]
+ },
+ "rhólo": {
+  "id": 1461,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "rhólo",
+  "stem": "rhól",
+  "stem2": "rhol",
+  "fix": "rhala-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "l 基本型",
+  "meaning": [
+   "雷。"
+  ],
+  "pronunciation": [
+   "/ʀó.lo/"
+  ],
+  "variants2": [
+   "かみなり",
+   "いかづち",
+   "稲妻",
+   "いなずま",
+   "サンダー"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "擬声語「 雷の音 」から。"
+   ],
+   "changes": []
+  },
+  "kanji": {
+   "title": "雷",
+   "chel": [
+    "rhólo"
+   ]
+  }
+ },
+ "rhalmálva": {
+  "id": 1462,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "rhalmálva",
+  "stem": "rhólm",
+  "stem2": "rholm",
+  "fix": "rhalma-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "動詞",
+  "type": "m 複子音型",
+  "meaning": [
+   "［ 獣が ］［ 処に ］雷を落とす。"
+  ],
+  "pronunciation": [
+   "/ʀal.mál.va/"
+  ],
+  "variants2": [
+   "雷が落ちる",
+   "雷が鳴る",
+   "かみなり",
+   "いかづち",
+   "稲妻",
+   "いなずま"
+  ],
+  "ruletype": "na",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1461 」+「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "rhóillas": {
+  "id": 1463,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "rhóillas",
+  "stem": "rhóil",
+  "stem2": "rhoil",
+  "fix": "rhail-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名飾",
+  "type": "l 明音型",
+  "meaning": [
+   "雷の。"
+  ],
+  "pronunciation": [
+   "/ʀólʲ.lʲas/"
+  ],
+  "variants2": [
+   "かみなりの",
+   "いかづち",
+   "稲妻の",
+   "いなずまの"
+  ],
+  "ruletype": "l",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1461 」+「 143 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lasfakálva": {
+  "id": 1464,
+  "safe": true,
+  "seii": [
+   "LLHL"
+  ],
+  "word": "lasfakálva",
+  "stem": "lásfak",
+  "stem2": "lasfak",
+  "fix": "lasfak-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "k 基本型",
+  "meaning": [
+   "［ 基が ］［ 具で ］酔う。"
+  ],
+  "pronunciation": [
+   "/las.fa.kál.va/"
+  ],
+  "variants2": [
+   "よう"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "形成の根拠は不明。"
+   ],
+   "changes": []
+  },
+  "kanji": {
+   "title": "酔",
+   "chel": [
+    "lásfak"
+   ]
+  }
+ },
+ "púpu": {
+  "id": 1465,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "púpu",
+  "stem": "púp",
+  "stem2": "pup",
+  "fix": "papu-",
+  "tag": [
+   "幼児語"
+  ],
+  "parts": "名象",
+  "type": "u 基本型",
+  "meaning": [
+   "（ 幼児語 ）うさちゃん、バニー。"
+  ],
+  "pronunciation": [
+   "/pú.pu/"
+  ],
+  "variants2": [
+   "うさぎ",
+   "兎",
+   "バニー"
+  ],
+  "ruletype": "w",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "擬声語「 うさぎの声 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "nána": {
+  "id": 1466,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "nána",
+  "stem": "nán",
+  "stem2": "nan",
+  "fix": "nana-",
+  "tag": [
+   "幼児語"
+  ],
+  "parts": "名象",
+  "type": "n 基本型",
+  "meaning": [
+   "（ 幼児語 ）ねこちゃん、ニャンニャン。"
+  ],
+  "pronunciation": [
+   "/ná.na/"
+  ],
+  "variants2": [
+   "ねこ",
+   "猫ちゃん",
+   "猫",
+   "ネコ"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "擬声語「 猫の声 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "mamálva": {
+  "id": 1467,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "mamálva",
+  "stem": "múm",
+  "stem2": "mum",
+  "fix": "mama-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "m 基本型",
+  "meaning": [
+   "［ 基が ］悩む、苦しむ、思いわずらう。"
+  ],
+  "pronunciation": [
+   "/ma.mál.va/"
+  ],
+  "variants2": [
+   "なやむ",
+   "苦しむ",
+   "くるしむ",
+   "思い煩う",
+   "おもいわずらう"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "擬声語「 唸り声 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "babálva": {
+  "id": 1468,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "babálva",
+  "stem": "búb",
+  "stem2": "bub",
+  "fix": "baba-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "b 基本型",
+  "meaning": [
+   "［ 能が ］不平不満を言う。悪口を言う。"
+  ],
+  "pronunciation": [
+   "/ba.bál.va/"
+  ],
+  "variants2": [
+   "不満",
+   "ふまん",
+   "わるぐちをいう",
+   "言う",
+   "いう",
+   "毒を吐く",
+   "毒吐く",
+   "どくつく",
+   "ふへいふまんをいう"
+  ],
+  "ruletype": "b",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "擬声語「 文句を言う 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "tha-": {
+  "id": 1469,
+  "safe": true,
+  "seii": [
+   "L"
+  ],
+  "word": "tha-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "派生接辞",
+  "type": "",
+  "meaning": [
+   "欠〜、〜なしの。"
+  ],
+  "pronunciation": [
+   "/ha/"
+  ],
+  "variants2": [
+   "無しの",
+   "なしの"
+  ],
+  "etymology": {
+   "intro": [
+    "変成体。",
+    "「 340 」が訛った語。"
+   ],
+   "changes": []
+  }
+ },
+ "dazdhrávlas": {
+  "id": 1470,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "dazdhrávlas",
+  "stem": "dazdhráv",
+  "stem2": "dazdhrav",
+  "fix": "dazdhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "活力に満ちた、活発な。"
+  ],
+  "pronunciation": [
+   "/daz.ráv.las/"
+  ],
+  "variants2": [
+   "かつりょくにみちた",
+   "活発な",
+   "かっぱつな"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 306 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "saldhrávlas": {
+  "id": 1471,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "saldhrávlas",
+  "stem": "saldhráv",
+  "stem2": "saldhrav",
+  "fix": "saldhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "うるさい、騒がしい。"
+  ],
+  "pronunciation": [
+   "/sal.láv.las/"
+  ],
+  "variants2": [
+   "煩い",
+   "騒がしい",
+   "さわがしい"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 442 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "dvåldhrávlas": {
+  "id": 1472,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "dvåldhrávlas",
+  "stem": "dvåldhráv",
+  "stem2": "dvåldhrav",
+  "fix": "dvåldhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "学識のある。"
+  ],
+  "pronunciation": [
+   "/dval.láv.las/"
+  ],
+  "variants2": [
+   "がくしきのある"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 374 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "zafdhrávlas": {
+  "id": 1473,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "zafdhrávlas",
+  "stem": "zafdhráv",
+  "stem2": "zafdhrav",
+  "fix": "zafdhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "雨の多い、湿潤な、多雨の、じめじめした。",
+   "雨季の。"
+  ],
+  "pronunciation": [
+   "/zaf.ráv.las/"
+  ],
+  "variants2": [
+   "あめのおおい",
+   "しつじゅんな",
+   "たうの",
+   "じめじめした",
+   "うきの",
+   "湿潤な",
+   "多雨の"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 344 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "loimhdhrávlas": {
+  "id": 1474,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "loimhdhrávlas",
+  "stem": "loimhdhráv",
+  "stem2": "loimhdhrav",
+  "fix": "loimhdhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "愛情深い、愛に満ちた、思いやりのある、慈愛に満ちた、恋愛的な。"
+  ],
+  "pronunciation": [
+   "/lavʲ.rʲáv.las/"
+  ],
+  "variants2": [
+   "あいじょうぶかい",
+   "愛に満ちた",
+   "思いやりのある",
+   "慈愛に満ちた",
+   "恋愛的な",
+   "あいにみちた",
+   "おもいやりのある",
+   "じあいにみちた",
+   "れんあいてきな",
+   "思い遣りのある"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 116 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "thalóimhlas": {
+  "id": 1475,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "thalóimhlas",
+  "stem": "thalóim",
+  "stem2": "thaloim",
+  "fix": "thalaim-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "m 明音型",
+  "meaning": [
+   "愛がない。"
+  ],
+  "pronunciation": [
+   "/ha.lóvʲ.lʲas/"
+  ],
+  "variants2": [
+   "あいがない",
+   "冷たい",
+   "つめたい"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1469 」+ 「 116 」+「 81 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "meldhrávlas": {
+  "id": 1476,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "meldhrávlas",
+  "stem": "meldhráv",
+  "stem2": "meldhrav",
+  "fix": "meldhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "心優しい、思いやりのある、温厚な、慈悲深い。"
+  ],
+  "pronunciation": [
+   "/mʲel.láv.las/"
+  ],
+  "variants2": [
+   "こころやさしい",
+   "思いやりのある",
+   "温厚な",
+   "慈悲深い",
+   "おもいやりのある",
+   "おんこうな",
+   "じひぶかい"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1118 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ftåzdhrávlas": {
+  "id": 1477,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "ftåzdhrávlas",
+  "stem": "ftåzdhráv",
+  "stem2": "ftåzdhrav",
+  "fix": "ftåzdhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "薬漬けの。"
+  ],
+  "pronunciation": [
+   "/ftaz.ráv.las/"
+  ],
+  "variants2": [
+   "くすりづけの"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 333 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "fasdhrávlas": {
+  "id": 1478,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "fasdhrávlas",
+  "stem": "fasdhráv",
+  "stem2": "fasdhrav",
+  "fix": "fasdhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "毛だらけの。"
+  ],
+  "pronunciation": [
+   "/fas.ráv.las/"
+  ],
+  "variants2": [
+   "けだらけの"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 397 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "latdhrávlas": {
+  "id": 1479,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "latdhrávlas",
+  "stem": "latdhráv",
+  "stem2": "latdhrav",
+  "fix": "latdhrav-",
+  "tag": [
+   "味",
+   "恋愛"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "甘々な、甘ったるい。",
+   "ラブラブな。"
+  ],
+  "pronunciation": [
+   "/lat.ráv.las/"
+  ],
+  "variants2": [
+   "あまあまな",
+   "甘ったるい",
+   "あまったるい",
+   "甘い",
+   "あまい"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 182 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "cikdhrávlas": {
+  "id": 1480,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "cikdhrávlas",
+  "stem": "cikdhráv",
+  "stem2": "cikdhrav",
+  "fix": "cikdhrav-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名飾",
+  "type": "v 基本型",
+  "meaning": [
+   "トゲだらけの。"
+  ],
+  "pronunciation": [
+   "/t͡sʲikʲ.rʲáv.las/"
+  ],
+  "variants2": [
+   "棘だらけの"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1236 」+「 1237 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "púlfa": {
+  "id": 1481,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "púlfa",
+  "stem": "púlf",
+  "stem2": "pulf",
+  "fix": "palfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "基準、標準。"
+  ],
+  "pronunciation": [
+   "/púl.fa/"
+  ],
+  "variants2": [
+   "きじゅん",
+   "標準",
+   "ひょうじゅん"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 659 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gýshka": {
+  "id": 1482,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "gýshka",
+  "stem": "gýshk",
+  "stem2": "gyshk",
+  "fix": "gyshka-",
+  "tag": [
+   "虫"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "虫。"
+  ],
+  "pronunciation": [
+   "/gʲiʂ.ka/"
+  ],
+  "variants2": [
+   "むし"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "音象徴「 不快な 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "prjagnáfa": {
+  "id": 1483,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "prjagnáfa",
+  "stem": "prjagnáf",
+  "stem2": "prjagnaf",
+  "fix": "prjagnafa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "喜び、歓喜、喜悦。"
+  ],
+  "pronunciation": [
+   "/prʲag.ná.fa/"
+  ],
+  "variants2": [
+   "歓び",
+   "歓喜",
+   "喜悦",
+   "よろこび",
+   "かんき",
+   "きえつ"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1107 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gjuqnálva": {
+  "id": 1484,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "gjuqnálva",
+  "stem": "gjúqn",
+  "stem2": "gjuqn",
+  "fix": "gjuqna-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "動詞",
+  "type": "n 複子音型",
+  "meaning": [
+   "［ 基が ］［ 具に ］怒る。"
+  ],
+  "pronunciation": [
+   "/gʲun.nál.va/"
+  ],
+  "variants2": [
+   "おこる",
+   "いかる"
+  ],
+  "ruletype": "na",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 怒 」（中縫語 gʲuŋ）+「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "mennálva": {
+  "id": 1485,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "mennálva",
+  "stem": "ménn",
+  "stem2": "menn",
+  "fix": "menna-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "動詞",
+  "type": "n 複子音型",
+  "meaning": [
+   "［ 与が ］［ 基を ］悲しむ。"
+  ],
+  "pronunciation": [
+   "/mʲen.nál.va/"
+  ],
+  "variants2": [
+   "かなしむ"
+  ],
+  "ruletype": "na",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1429 」+「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "jyqnálva": {
+  "id": 1486,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "jyqnálva",
+  "stem": "jýqn",
+  "stem2": "jyqn",
+  "fix": "jyqna-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "動詞",
+  "type": "n 複子音型",
+  "meaning": [
+   "［ 与が ］［ 基を ］［ 具に ］恐れる、怖がる。"
+  ],
+  "pronunciation": [
+   "/∅ʲin.nál.va/"
+  ],
+  "variants2": [
+   "おそれる",
+   "怖がる",
+   "こわがる"
+  ],
+  "ruletype": "na",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 怕 」（中縫語 jiŋ） +「 102 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "býkfa": {
+  "id": 1487,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "býkfa",
+  "stem": "býkf",
+  "stem2": "bykf",
+  "fix": "bykfa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "驚き。"
+  ],
+  "pronunciation": [
+   "/bʲík.fa/"
+  ],
+  "variants2": [
+   "おどろき"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 996 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "týkfa": {
+  "id": 1488,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "týkfa",
+  "stem": "týkf",
+  "stem2": "tykf",
+  "fix": "tykfa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "欲、欲望。",
+   "願望、希望。"
+  ],
+  "pronunciation": [
+   "/tʲík.fa/"
+  ],
+  "variants2": [
+   "欲望",
+   "よくぼう",
+   "願望",
+   "がんぼう",
+   "希望",
+   "きぼう"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 340 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "någkasnáfa": {
+  "id": 1489,
+  "safe": true,
+  "seii": [
+   "LLHL"
+  ],
+  "word": "någkasnáfa",
+  "stem": "någkasnáf",
+  "stem2": "nagkasnaf",
+  "fix": "nagkasnafa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "緊張、緊張感。",
+   "警戒。"
+  ],
+  "pronunciation": [
+   "/nak.kas.ná.fa/"
+  ],
+  "variants2": [
+   "きんちょうかん",
+   "緊張感",
+   "けいかい"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 304 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "séqfa": {
+  "id": 1490,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "séqfa",
+  "stem": "séqf",
+  "stem2": "seqf",
+  "fix": "seqfa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "静けさ、落ち着き、安心。"
+  ],
+  "pronunciation": [
+   "/sʲém.fa/"
+  ],
+  "variants2": [
+   "しずけさ",
+   "おちつき",
+   "あんしん",
+   "落ち着き",
+   "安心"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1454 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lophnáfa": {
+  "id": 1491,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "lophnáfa",
+  "stem": "lophnáf",
+  "stem2": "lophnaf",
+  "fix": "lophnafa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "眠気、眠さ。"
+  ],
+  "pronunciation": [
+   "/lof.ná.fa/"
+  ],
+  "variants2": [
+   "ねむけ",
+   "眠さ",
+   "ねむさ"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1450 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "vuéfa": {
+  "id": 1492,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "vuéfa",
+  "stem": "vuéf",
+  "stem2": "vuef",
+  "fix": "vuefa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "泣き、泣くこと。"
+  ],
+  "pronunciation": [
+   "/vé.fa/"
+  ],
+  "variants2": [
+   "なき"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 741 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "haffása": {
+  "id": 1493,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "haffása",
+  "stem": "haffás",
+  "stem2": "haffas",
+  "fix": "haffasa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "s 基本型",
+  "meaning": [
+   "雲。"
+  ],
+  "pronunciation": [
+   "/haf.fá.sa/"
+  ],
+  "variants2": [
+   "くも",
+   "クラウド"
+  ],
+  "ruletype": "s",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 324 」+「 397 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "rhaválva": {
+  "id": 1494,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "rhaválva",
+  "stem": "rháv",
+  "stem2": "rhav",
+  "fix": "rhava-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "動詞",
+  "type": "v 基本型",
+  "meaning": [
+   "［ 基が ］叫ぶ。"
+  ],
+  "pronunciation": [
+   "/ʀa.vál.va/"
+  ],
+  "variants2": [
+   "さけぶ"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "擬声語「 叫ぶ 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "rhávfa": {
+  "id": 1495,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "rhávfa",
+  "stem": "rhávf",
+  "stem2": "rhavf",
+  "fix": "rhavfa-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "叫び。"
+  ],
+  "pronunciation": [
+   "/ʀáf.fa/"
+  ],
+  "variants2": [
+   "さけぶ"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1494 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "hafrháva": {
+  "id": 1496,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "hafrháva",
+  "stem": "hafrháv-",
+  "stem2": "hafrhav-",
+  "fix": "hafrhava-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "v 基本型",
+  "meaning": [
+   "雷。"
+  ],
+  "pronunciation": [
+   "/haf.ʀá.va/"
+  ],
+  "variants2": [
+   "かみなり",
+   "いかづち",
+   "稲妻",
+   "いなずま",
+   "サンダー",
+   "空叫"
+  ],
+  "ruletype": "v",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 324 」+「 1494 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "hafgjálo": {
+  "id": 1497,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "hafgjálo",
+  "stem": "hafgjál",
+  "stem2": "hafgjal",
+  "fix": "hafgjalo-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "lo 基本型",
+  "meaning": [
+   "あられ、ひょう。"
+  ],
+  "pronunciation": [
+   "/hav.gʲá.lo/"
+  ],
+  "variants2": [
+   "霰",
+   "雹",
+   "空氷"
+  ],
+  "ruletype": "lo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 324 」+「 207 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "lasája": {
+  "id": 1498,
+  "safe": true,
+  "seii": [
+   "LH"
+  ],
+  "word": "lasája",
+  "stem": "lasáj",
+  "stem2": "lasaj",
+  "fix": "lasaj-",
+  "tag": [
+   "天気"
+  ],
+  "parts": "名象",
+  "type": "j 基本型",
+  "meaning": [
+   "あられ、ひょう。"
+  ],
+  "pronunciation": [
+   "/la.sá.∅ʲa/"
+  ],
+  "variants2": [
+   "霰",
+   "雹",
+   "空氷"
+  ],
+  "ruletype": "j",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 空 」（中縫語 l̥waː）+ 「 氷 」（中縫語 saj）を組み合わせた熟語。"
+   ],
+   "changes": []
+  }
+ },
+ "latfóma": {
+  "id": 1499,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "latfóma",
+  "stem": "latfóm",
+  "stem2": "latfom",
+  "fix": "latfamũ-",
+  "tag": [
+   "スイーツ"
+  ],
+  "parts": "名象",
+  "type": "m 基本型",
+  "meaning": [
+   "わたあめ。"
+  ],
+  "pronunciation": [
+   "/lat.fó.ma/"
+  ],
+  "variants2": [
+   "綿飴"
+  ],
+  "ruletype": "m",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 182 」+「 407 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "mýka": {
+  "id": 1500,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "mýka",
+  "stem": "mýk",
+  "stem2": "myk",
+  "fix": "myka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "肉。"
+  ],
+  "pronunciation": [
+   "/mʲi.ka/"
+  ],
+  "variants2": [
+   "にく"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 肉 」（中縫語 miw）+「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gjammýka": {
+  "id": 1501,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "gjammýka",
+  "stem": "gjammýk",
+  "stem2": "gjammyk",
+  "fix": "gjammyka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "魚肉。魚の肉。"
+  ],
+  "pronunciation": [
+   "/gʲam.mʲi.ka/"
+  ],
+  "variants2": [
+   "ぎょにく"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 魚 」（中縫語 gʲam）+「 1500 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "kamýka": {
+  "id": 1502,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "kamýka",
+  "stem": "kamýk",
+  "stem2": "kamyk",
+  "fix": "kamyka-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "鶏肉。鳥の肉。"
+  ],
+  "pronunciation": [
+   "/ka.mʲi.ka/"
+  ],
+  "variants2": [
+   "とりにく"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 鳥 」（中縫語 kʰɒː）+「 1500 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "gjampýllo": {
+  "id": 1503,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "gjampýllo",
+  "stem": "gjampýll",
+  "stem2": "gjampyll",
+  "fix": "gjampyllo-",
+  "tag": [
+   "料理名"
+  ],
+  "parts": "名象",
+  "type": "lo 基本型",
+  "meaning": [
+   "ギャンピロ。"
+  ],
+  "pronunciation": [
+   "/gʲam.pʲil.lo/"
+  ],
+  "variants2": [
+   "魚湯",
+   "魚のスープ",
+   "スープ"
+  ],
+  "ruletype": "lo",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 魚 」（中縫語 gʲam）+「 1401 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "ránka": {
+  "id": 1504,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "ránka",
+  "stem": "ránk",
+  "stem2": "rank",
+  "fix": "ranka-",
+  "tag": [
+   "スイーツ"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "ケーキ。"
+  ],
+  "pronunciation": [
+   "/ráŋ.ka/"
+  ],
+  "variants2": [
+   "餔"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 餔 」（中縫語 rɒn(h)）+「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "mjánka": {
+  "id": 1505,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "mjánka",
+  "stem": "mjánk",
+  "stem2": "mjank",
+  "fix": "mjanka-",
+  "tag": [
+   "料理名"
+  ],
+  "parts": "名象",
+  "type": "k 基本型",
+  "meaning": [
+   "（ 米などを甘く煮たもの ）ミャンカ。"
+  ],
+  "pronunciation": [
+   "/mʲáŋ.ka/"
+  ],
+  "variants2": [
+   "粓"
+  ],
+  "ruletype": "k",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 粓 」（中縫語 mjan）+「 99 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
+ },
+ "pújmjan": {
+  "id": 1506,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pújmjan",
+  "stem": "pújmjan",
+  "stem2": "pujmjan",
+  "fix": "pujmjan-",
+  "tag": [
+   "料理名"
+  ],
+  "parts": "名象",
+  "type": "n 基本型",
+  "meaning": [
+   "（ 果物などと共に炊くことで、甘く味付けされた米 ）プイミャン。"
+  ],
+  "pronunciation": [
+   "/pú∅ʲ.mʲan/"
+  ],
+  "variants2": [
+   "菓粓"
+  ],
+  "ruletype": "n",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "縫語「 菓 」（中縫語 pʰuj）+ 縫語「 粓 」（中縫語 mjan）が組み合わさった熟語。"
+   ],
+   "changes": []
+  }
+ },
+ "pému": {
+  "id": 1507,
+  "safe": true,
+  "seii": [
+   "HL"
+  ],
+  "word": "pému",
+  "stem": "pém",
+  "stem2": "pem",
+  "fix": "pemu-",
+  "tag": [
+   "身体部位"
+  ],
+  "parts": "名象",
+  "type": "u 基本型",
+  "meaning": [
+   "お尻、臀部。",
+   "終わり、最後、末端。"
+  ],
+  "pronunciation": [
+   "/pʲe.mu/"
+  ],
+  "variants2": [
+   "しり",
+   "尻",
+   "けつ",
+   "ケツ",
+   "おわり",
+   "最後",
+   "末端",
+   "さいご",
+   "まったん"
+  ],
+  "ruletype": "w",
+  "etymology": {
+   "intro": [
+    "単純語。",
+    "音象徴「 弾力のある 」から。"
+   ],
+   "changes": []
+  }
+ },
+ "zåhóra": {
+  "id": 1508,
+  "safe": false,
+  "seii": [
+   "LHL"
+  ],
+  "word": "zåhóra",
+  "stem": "zåhór",
+  "stem2": "zåhor",
+  "fix": "zåhara-",
+  "tag": [
+   "身体部位"
+  ],
+  "parts": "名象",
+  "type": "r 基本型",
+  "meaning": [
+   "女性器。"
+  ],
+  "pronunciation": [
+   "/za.hó.ra/"
+  ],
+  "variants2": [
+   "まんこ",
+   "おまんこ",
+   "じょせいき",
+   "あな",
+   "穴"
+  ],
+  "ruletype": "r",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 720 」+「 528 」が組み合わさった語。"
    ],
    "changes": []
   }
