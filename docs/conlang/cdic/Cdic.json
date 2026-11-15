@@ -1735,8 +1735,8 @@
       "恋愛"
     ],
     "parts": "動詞",
-    "type": "n 明音型",
-    "ruletype": "n",
+    "type": "n 複子音型",
+    "ruletype": "na",
     "meaning": [
       "［ 能が ］［ 基を ］愛する。"
     ],
@@ -6581,8 +6581,8 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "m 基本型",
-    "ruletype": "m",
+    "type": "m 複子音型",
+    "ruletype": "na",
     "meaning": [
       "［ 基が ］［ 補だと ］考える、思う。",
       "［ 基が ］思考する。"
@@ -7834,47 +7834,6 @@
     },
     "variants2": [
       "さとう"
-    ]
-  },
-  "någlëkö́it": {
-    "id": 299,
-    "safe": true,
-    "seii": [
-      "LLHL"
-    ],
-    "word": "någlëkö́it",
-    "stem": "någlúk",
-    "stem2": "någluk",
-    "fix": "någlako-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "o 基本型",
-    "ruletype": "o",
-    "meaning": [
-      "［ 基が ］糖を摂取する。",
-      "［ 基が ］エネルギーを取る、動力を受ける。",
-      "［ 能が ］思考の準備をする",
-      "［ 能が ］［ 与に ］エネルギーを与える、動力を与える。"
-    ],
-    "pronunciation": [
-      "/nag.la.kǿl.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 303 」+「 298 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "とうをせっしゅする",
-      "エネルギーをとる",
-      "どうりょくをうける",
-      "しこうのじゅんびをする",
-      "エネルギーをあたえる",
-      "どうりょくをあたえる"
     ]
   },
   "nos": {
@@ -15308,8 +15267,8 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "n 基本型",
-    "ruletype": "n",
+    "type": "n 複子音型",
+    "ruletype": "na",
     "meaning": [
       "［ 基が ］枝分かれする、分岐する、分かれる。",
       "［ 能が ］［ 基を ］分ける。",
@@ -15871,8 +15830,8 @@
     "stem": "qímm",
     "stem2": "qimm",
     "fix": "qimma-",
-    "type": "m 基本型",
-    "ruletype": "m",
+    "type": "m 複子音型",
+    "ruletype": "na",
     "tag": [
       "ー"
     ],
@@ -16928,8 +16887,8 @@
     "stem": "dónn",
     "stem2": "donn",
     "fix": "danna-",
-    "type": "n 基本型",
-    "ruletype": "l",
+    "type": "n 複子音型",
+    "ruletype": "na",
     "tag": [
       "ー"
     ],
@@ -18799,8 +18758,8 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "m 基本型",
-    "ruletype": "m",
+    "type": "m 複子音型",
+    "ruletype": "na",
     "meaning": [
       "［ 基が ］空く、空になる。",
       "［ 能が ］［ 基を ］空ける、空にする。",
@@ -23405,44 +23364,6 @@
       "かつぐ"
     ]
   },
-  "hainnálva": {
-    "id": 722,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "hainnálva",
-    "stem": "hainn",
-    "stem2": "hainn",
-    "fix": "hainna-",
-    "type": "n 基本型",
-    "ruletype": "n",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "meaning": [
-      "［ 基が ］呼吸する、息をする。"
-    ],
-    "pronunciation": [
-      "/hanʲ.nʲál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 575 」+「 102 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "こきゅうをする",
-      "こきゅうする",
-      "いきする",
-      "いきをする",
-      "息する",
-      "呼吸をする"
-    ]
-  },
   "fhálo": {
     "id": 723,
     "safe": true,
@@ -25339,8 +25260,8 @@
     "stem": "kvýf",
     "stem2": "kvyf",
     "fix": "kvyf-",
-    "type": "f 明音型",
-    "ruletype": "fj",
+    "type": "f 基本型",
+    "ruletype": "f",
     "tag": [
       "ー"
     ],
@@ -41298,7 +41219,7 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "n 基本型",
+    "type": "n 複子音型",
     "meaning": [
       "［ 基が ］叫ぶ、大声を出す。"
     ],
@@ -41306,7 +41227,7 @@
       "/han.nál.va/"
     ],
     "variants2": [],
-    "ruletype": "n",
+    "ruletype": "na",
     "etymology": {
       "intro": [
         "合成語。",
@@ -43028,7 +42949,7 @@
       "感情"
     ],
     "parts": "動詞",
-    "type": "n 基本型",
+    "type": "n 複子音型",
     "meaning": [
       "［ 基が ］照れる。",
       "［ 与が ］［ 基を ］恥ずかしがる。"
@@ -43040,7 +42961,7 @@
       "はずかしがる",
       "てれる"
     ],
-    "ruletype": "n",
+    "ruletype": "na",
     "etymology": {
       "intro": [
         "単純語。",
@@ -43960,7 +43881,7 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "n 基本型",
+    "type": "n 複子音型",
     "meaning": [
       "［ 基が ］死ぬ。"
     ],
@@ -43970,7 +43891,7 @@
     "variants2": [
       "しぬ"
     ],
-    "ruletype": "n",
+    "ruletype": "na",
     "etymology": {
       "intro": [
         "合成語。",
@@ -44968,7 +44889,7 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "n 基本型",
+    "type": "n 複子音型",
     "meaning": [
       "［ 基が ］読む。",
       "［ 能が ］［ 基を ］読む。"
@@ -44979,7 +44900,7 @@
     "variants2": [
       "よむ"
     ],
-    "ruletype": "n",
+    "ruletype": "na",
     "etymology": {
       "intro": [
         "合成語。",
@@ -45035,7 +44956,7 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "n 基本型",
+    "type": "n 複子音型",
     "meaning": [
       "［ 基が ］踊る。"
     ],
@@ -45045,7 +44966,7 @@
     "variants2": [
       "おどる"
     ],
-    "ruletype": "n",
+    "ruletype": "na",
     "etymology": {
       "intro": [
         "合成語。",
@@ -45068,7 +44989,7 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "n 基本型",
+    "type": "n 複子音型",
     "meaning": [
       "［ 能が ］［ 基を ］売る。"
     ],
@@ -45078,7 +44999,7 @@
     "variants2": [
       "うる"
     ],
-    "ruletype": "n",
+    "ruletype": "na",
     "etymology": {
       "intro": [
         "合成語。",
@@ -45954,7 +45875,7 @@
       "ー"
     ],
     "parts": "動詞",
-    "type": "n 基本型",
+    "type": "n 複子音型",
     "meaning": [
       "［ 基が ］眠る。"
     ],
@@ -45964,7 +45885,7 @@
     "variants2": [
       "ねむる"
     ],
-    "ruletype": "n",
+    "ruletype": "na",
     "etymology": {
       "intro": [
         "合成語。",
@@ -46304,5 +46225,84 @@
       ],
       "changes": []
     }
+  },
+  "hannálva": {
+    "id": 722,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "hannálva",
+    "stem": "hánn",
+    "stem2": "hann",
+    "fix": "hanna-",
+    "type": "n 複子音型",
+    "ruletype": "na",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "meaning": [
+      "［ 基が ］呼吸する、息をする。"
+    ],
+    "pronunciation": [
+      "/han.nál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 575 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "こきゅうをする",
+      "こきゅうする",
+      "いきする",
+      "いきをする",
+      "息する",
+      "呼吸をする"
+    ]
+  },
+  "någlakö́lva": {
+    "id": 299,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "någlakö́lva",
+    "stem": "någlúk",
+    "stem2": "någluk",
+    "fix": "någlako-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "o 基本型",
+    "ruletype": "o",
+    "meaning": [
+      "［ 基が ］糖を摂取する。",
+      "［ 基が ］エネルギーを取る、動力を受ける。",
+      "［ 能が ］思考の準備をする",
+      "［ 能が ］［ 与に ］エネルギーを与える、動力を与える。"
+    ],
+    "pronunciation": [
+      "/nag.la.kǿl.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 303 」+「 298 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "とうをせっしゅする",
+      "エネルギーをとる",
+      "どうりょくをうける",
+      "しこうのじゅんびをする",
+      "エネルギーをあたえる",
+      "どうりょくをあたえる"
+    ]
   }
 }
