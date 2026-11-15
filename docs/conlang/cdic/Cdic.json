@@ -42702,40 +42702,6 @@
    ]
   }
  },
- "póivfa": {
-  "id": 1364,
-  "safe": true,
-  "seii": [
-   "HL"
-  ],
-  "word": "póivfa",
-  "stem": "póivf",
-  "stem2": "poivf",
-  "fix": "paivfa-",
-  "tag": [
-   "感情"
-  ],
-  "parts": "名象",
-  "type": "v 明音型",
-  "meaning": [
-   "恥、照れ。"
-  ],
-  "pronunciation": [
-   "/pófʲ.fʲa/"
-  ],
-  "variants2": [
-   "はじ",
-   "てれ"
-  ],
-  "ruletype": "v",
-  "etymology": {
-   "intro": [
-    "合成語。",
-    "「 1362 」+「 101 」が組み合わさった語。"
-   ],
-   "changes": []
-  }
- },
  "céqka": {
   "id": 1365,
   "safe": true,
@@ -46093,5 +46059,39 @@
   "variants2": [
    "わらいごえ"
   ]
+ },
+ "pavnáfa": {
+  "id": 1364,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "pavnáfa",
+  "stem": "pavnáf",
+  "stem2": "pavnaf",
+  "fix": "pavnafa-",
+  "tag": [
+   "感情"
+  ],
+  "parts": "名象",
+  "type": "f 基本型",
+  "meaning": [
+   "恥、照れ。"
+  ],
+  "pronunciation": [
+   "/pav.ná.fa/"
+  ],
+  "variants2": [
+   "はじ",
+   "てれ"
+  ],
+  "ruletype": "f",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 1362 」+「 101 」が組み合わさった語。"
+   ],
+   "changes": []
+  }
  }
 }
