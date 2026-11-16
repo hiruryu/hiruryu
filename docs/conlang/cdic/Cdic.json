@@ -47739,17 +47739,17 @@
       "だれ"
     ]
   },
-  "nǻmyka": {
+  "jéryka": {
     "id": 730,
     "safe": true,
     "unique": true,
     "seii": [
       "HL"
     ],
-    "word": "nǻmyka",
-    "stem": "nǻmyk",
-    "stem2": "nåmyk",
-    "fix": "nåmyka-",
+    "word": "jéryka",
+    "stem": "jéryk",
+    "stem2": "jeryk",
+    "fix": "jeryka-",
     "type": "k 基本型",
     "ruletype": "k",
     "tag": [
@@ -47760,12 +47760,12 @@
       "誰か。"
     ],
     "pronunciation": [
-      "/nó.mʲi.ka/"
+      "/ʲé.rʲi.ka/"
     ],
     "etymology": {
       "intro": [
         "合成語。",
-        "「 729 」+「 77 」が組み合わさった語。"
+        "「 371 」+「 77 」が組み合わさった語。"
       ],
       "changes": []
     },
@@ -47773,17 +47773,17 @@
       "だれか"
     ]
   },
-  "nǻtyka": {
+  "hlátyka": {
     "id": 732,
     "safe": true,
     "unique": true,
     "seii": [
       "HL"
     ],
-    "word": "nǻtyka",
-    "stem": "nǻtyk",
-    "stem2": "nåtyk",
-    "fix": "nåtyka-",
+    "word": "hlátyka",
+    "stem": "hlátyk",
+    "stem2": "hlatyk",
+    "fix": "hlatyka-",
     "type": "k 基本型",
     "ruletype": "k",
     "tag": [
@@ -47794,12 +47794,12 @@
       "どこか。"
     ],
     "pronunciation": [
-      "/nó.tʲi.ka/"
+      "/hlá.tʲi.ka/"
     ],
     "etymology": {
       "intro": [
         "合成語。",
-        "「 731 」+「 77 」が組み合わさった語。"
+        "「 322 」+「 77 」が組み合わさった語。"
       ],
       "changes": []
     },
@@ -47807,16 +47807,16 @@
       "何処か"
     ]
   },
-  "nǻkyka": {
+  "kýka": {
     "id": 1557,
     "safe": true,
     "seii": [
       "HL"
     ],
-    "word": "nǻkyka",
-    "stem": "nǻkyk",
-    "stem2": "nåkyk",
-    "fix": "nåkyka-",
+    "word": "kýka",
+    "stem": "kýk",
+    "stem2": "kyk",
+    "fix": "kyka-",
     "tag": [
       "不定代名詞"
     ],
@@ -47827,12 +47827,12 @@
       "何か。"
     ],
     "pronunciation": [
-      "/nó.kʲi.ka/"
+      "/kʲí.ka/"
     ],
     "etymology": {
       "intro": [
         "合成語。",
-        "「 727 」+「 77 」が組み合わさった語。"
+        "「 99 」+「 77 」が組み合わさった語。"
       ],
       "changes": []
     },
