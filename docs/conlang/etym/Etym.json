@@ -40,7 +40,7 @@
   "mis": {"id":38,"safe":true,"word":"mis","stem":"mis","tag":["古智語"],"parts":"相詞","meaning":["〜する","（ 反復相を表す ）"],"pronunciation":["/mis/<br>[mis]"],"etymology":{"intro":["単純語。","「 ? 」から。"],"changes":[]}},
   "mi": {"id":39,"safe":true,"word":"mi","stem":"mi","tag":["古智語"],"parts":"相詞","meaning":["〜の"],"pronunciation":["/mi/<br>[mi]"],"etymology":{"intro":["単純語。","「 ? 」から。"],"changes":[]}},
   "cás-": {"id":40,"safe":true,"word":"cás","stem":"cas","tag":["古智語"],"parts":"動詞","meaning":["感謝する"],"pronunciation":["/t͡sas/<br>[t͡säs]"],"etymology":{"intro":["単純語。","擬声語「 舌打ちの音 」から。"],"changes":[]}},
-  
+  "-raj": {"id":41,"safe":true,"word":"raj","tag":["古智語"],"parts":"屈折接辞","meaning":["〜してから", "（ 完了飾形を作る ）"],"pronunciation":["/raj/"],"etymology":{"intro":["語素。","「 ? 」から。"],"changes":[]}},
   "shtóf": {"id":42,"safe":true,"word":"shtóf","stem":"shtóf","stem2":"shtof","tag":["ポヤーナ語"],"parts":"名象","type":"f 基本型","ruletype":"f","meaning":["町","街"],"pronunciation":["/ʂtof/<br>[ʂtof]"],"etymology":{"intro":["単純語。","音象徴「 ? 」から。"],"changes":[]},"variants2":["まち","シティ","city"]},
   "gnóva": {"id":43,"safe":true,"word":"gnóva","stem":"gnóv","stem2":"gnov","tag":["ポヤーナ語"],"parts":"名象","type":"v 基本型","ruletype":"v","meaning":["動物","獣","生き物","生物"],"pronunciation":["/gnova/<br>[gnovə]⫽"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["どうぶつ","けもの","いきもの","せいぶつ","アニマル"]},
   "cnáza": {"id":44,"safe":true,"word":"cnáza","stem":"cnáz","stem2":"cnaz","tag":["ポヤーナ語"],"parts":"名象","type":"s 基本型","ruletype":"s","meaning":["物","事","事物"],"pronunciation":["/knaza/<br>[knäzə]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["もの","こと","じぶつ"]},
@@ -64,6 +64,9 @@
   "më-": {"id":80,"safe":true,"seii":["L"],"word":"më-","tag":["接頭辞"],"parts":"離辞","meaning":["〜じゃない","〜でない","〜しない"],"pronunciation":["/mɯ/<br>[mɤ̟]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["否定","無い","not"]},
   "puj": {"id":81,"safe":true,"seii":["L"],"word":"puj","tag":["離尾辞"],"parts":"離辞","meaning":["〜か？","〜ですか？"],"pronunciation":["/puj/<br>[pʊj]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants1":["79"],"variants2":["疑問","?","？"]},
   "muj": {"id":82,"safe":true,"seii":["L"],"word":"muj","tag":["離尾辞"],"parts":"離辞","meaning":["〜じゃない","〜でない","〜しない"],"pronunciation":["/muj/<br>[mʊj]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants1":["80"],"variants2":["否定","無い","not"]},
+  "u-": {"id":83,"safe":true,"seii":["L"],"word":"u","tag":["接頭辞"],"parts":"接辞","meaning":["これ","この〜"],"pronunciation":["/u/<br>[ʊ]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["此れ","此の"]},
+  "a-": {"id":84,"safe":true,"seii":["L"],"word":"a","tag":["接頭辞"],"parts":"接辞","meaning":["それ","その〜"],"pronunciation":["/a/<br>[ə]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["其れ","其の"]},
+  "i-": {"id":85,"safe":true,"seii":["L"],"word":"i","tag":["接頭辞"],"parts":"接辞","meaning":["あれ","あの〜"],"pronunciation":["/∅ʲi/<br>[∅ʲɪ]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["彼れ","彼の"]},
   
   
   "-vy": {"id":249,"safe":true,"word":"vy","tag":["派生接尾辞","名飾化"],"parts":"派生接辞","meaning":["〜に関する","〜的な","〜属性の"],"pronunciation":["/vʲ/<br>[vʲ]"],"etymology":{"intro":["変成体。","「 c:86 」が訛った語。"],"changes":[]},"variants2":["てきな","vy"]}
