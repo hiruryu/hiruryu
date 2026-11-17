@@ -19,7 +19,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
   stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
   stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
-  stem2jui = (stem2 ?? "").replace(/^[j][uo]/, 'i');
+  stem2jui = (stem2 ?? "").replace(/j[ou]/, 'y');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
   s2 = stem2ua + "ála";
   s3 = stem2ua + "óna";
@@ -149,10 +149,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -162,6 +163,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -177,6 +179,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -375,10 +378,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -388,6 +392,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -403,6 +408,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -600,10 +606,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -613,6 +620,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -628,6 +636,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -827,10 +836,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -840,6 +850,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -855,6 +866,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -1053,10 +1065,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -1066,6 +1079,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -1081,6 +1095,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -1280,10 +1295,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -1293,6 +1309,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -1308,6 +1325,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -1506,10 +1524,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -1519,6 +1538,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -1534,6 +1554,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -1733,10 +1754,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -1746,6 +1768,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -1761,6 +1784,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -1959,10 +1983,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -1972,6 +1997,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -1987,6 +2013,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -2186,10 +2213,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -2199,6 +2227,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -2214,6 +2243,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -2412,10 +2442,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -2425,6 +2456,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -2440,6 +2472,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -2637,10 +2670,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -2650,6 +2684,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -2665,6 +2700,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -2861,10 +2897,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -2874,6 +2911,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -2889,6 +2927,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -3077,10 +3116,11 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
 
       // 複数一致-原級
-      p: p_2 + "á",
+      p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
         p_2 + "íhë",
+        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
@@ -3090,6 +3130,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       d_p: uniqueForms(
         p_2 + "éze",
+        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
@@ -3105,6 +3146,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       ad_p: uniqueForms(
         p_2 + "éni",
+        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
@@ -3189,7 +3231,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
   }
 }
 
-// tl·dl → ll の同化（2026-11-13、みゅら確認済）。nRules.js と同じ規則。
+// tl·dl·lr → ll の同化（2026-11-13、みゅら確認済；lr は 2026-11-17 追加）。nRules.js と同じ規則。
 // 例：pitálas の h_s形 pit＋las → pillas、mantálas の h_s mónt＋las → mónllas。
 // 名飾詞の一致形（h_s など）で、語幹＋接辞 "las" の境界で tl·dl が生じることがある。
 function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
@@ -3197,7 +3239,7 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   if (r == null) return r;
   const out = {};
   for (const [k, v] of Object.entries(r)) {
-    out[k] = typeof v === "string" ? v.replace(/tl/g, "ll").replace(/dl/g, "ll") : v;
+    out[k] = typeof v === "string" ? v.replace(/tl/g, "ll").replace(/dl/g, "ll").replace(/lr/g, "ll") : v;
   }
   // 副飾形（2026-11-14、みゅら指定）。stem2＋接辞。
   // p/b/t/d/k/g/m/q 型（明音型含む）は -ú と -hú の2形。母音終了型（a/e/i/o/u/ui）は -vú。それ以外は -ú。

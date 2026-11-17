@@ -125,7 +125,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
   stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
-  stem2jui = (stem2 ?? "").replace(/^[j][uo]/, 'i');
+  stem2jui = (stem2 ?? "").replace(/j[ou]/, 'y');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
   // 呼格複数形用の弱化した複数基底（ó/ú → a）。接辞 ra/la/ga には o/u がないので全体の置換でよい。
   anpC2ua = anpC2.replace(/[ou]/g, 'a');
@@ -721,7 +721,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   }
 }
 
-// tl·dl → ll の同化（2026-11-13、みゅら確認済）。
+// tl·dl·lr → ll の同化（2026-11-13、みゅら確認済；lr は 2026-11-17 追加）。
 // 例：sýto の能格 sýt＋lak → syllak、káto の能格 kát＋lak → kállak。
 // 生成形の語幹＋接辞の境界で tl·dl が生じたものを ll にする。
 // 辞書の語・stem に tl·dl を含むものはないため、生成形への置換で十分。
@@ -731,7 +731,7 @@ function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverr
   if (r == null) return r;
   const out = {};
   for (const [k, v] of Object.entries(r)) {
-    out[k] = (k !== "ansC" && typeof v === "string") ? v.replace(/tl/g, "ll").replace(/dl/g, "ll") : v;
+    out[k] = (k !== "ansC" && typeof v === "string") ? v.replace(/tl/g, "ll").replace(/dl/g, "ll").replace(/lr/g, "ll") : v;
   }
   return out;
 }

@@ -30,7 +30,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   dffxq2 = "anaip";
 
   // 反復相
-  mnfx = "ium"; mnfxj = "eum"; mnefx = "men";
+  mnfx = "ym"; mnfxj = "eum"; mnefx = "men";
   mpfx = "mal";
   mffx = "imip"; mffxj = "emip"; mfefx = "mihen";
 
@@ -56,7 +56,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   dffxh2 = "hnaip";
 
   // 反復相
-  mnfxh = "hium";
+  mnfxh = "hym";
   mpfxh = "hmal";
   mffxh = "hmip";
 
@@ -86,8 +86,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
   stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
-  stem2jui = (stem2 ?? "").replace('ju', 'i');
-  stem2juiu = (stem2 ?? "").replace('ju', 'iu');
+  stem2jui = (stem2 ?? "").replace(/j[ou]/, 'y');
+  stem2juiu = (stem2 ?? "").replace('ju', 'y');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
 
   function uniqueForms(...forms) {
@@ -3069,34 +3069,34 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   } else if (["o"].includes(ruletype)) {
     return {
       // 完結相
-      p: stem2 + "ól",
+      p: stem2ua + "ól",
       n: "ー",
-      f: stem2 + "óip",
+      f: stem2ua + "óip",
       // 進行相
       sp: stem + "öishal",
       sn: stem + "öish",
       sf: stem + "öiship",
       // 完了相
-      dp: stem2 + "anö́l",
+      dp: stem2ua + "anö́l",
       dn: stem + "ona",
-      df: stem2 + "onáip",
+      df: stem2ua + "onáip",
       // 反復相,
       mp: stem + "amal",
       mn: stem + "om",
-      mf: stem2 + "ómip",
+      mf: stem2ua + "ómip",
       // 飾形
       // 完結相
       ne: stem + "ön",
-      fe: stem2 + "óihen",
+      fe: stem2ua + "óihen",
       // 進行相
       sne: stem + "öishen",
-      sfe: stem2 + "óishphen",
+      sfe: stem2ua + "óishphen",
       // 完了相
-      dne: stem2 + "óin",
-      dfe: stem2 + "óinip",
+      dne: stem2ua + "óin",
+      dfe: stem2ua + "óinip",
       // 反復相,
       mne: stem + "ömen",
-      mfe: stem2 + "ómihen",
+      mfe: stem2ua + "ómihen",
       // 具象形
       // 完結相
       p_gerund: stem2ua + pfx2 + alva,
@@ -3128,26 +3128,26 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       sn: stem + "öish",
       sf: stem + "öiship",
       // 完了相
-      dp: stem2 + "anö́l",
-      dn: stem2 + "óna",
-      df: stem2 + "anáip",
+      dp: stem2ua + "anö́l",
+      dn: stem2ua + "óna",
+      df: stem2ua + "anáip",
       // 反復相,
       mp: stem + "amal",
       mn: stem + "om",
-      mf: stem2 + "ómip",
+      mf: stem2ua + "ómip",
       // 飾形
       // 完結相
       ne: stem + "ön",
-      fe: stem2 + "óihen",
+      fe: stem2ua + "óihen",
       // 進行相
       sne: stem + "öishen",
-      sfe: stem2 + "óishphen",
+      sfe: stem2ua + "óishphen",
       // 完了相
       dne: stemD + "óin",
-      dfe: stem2 + "óinip",
+      dfe: stem2ua + "óinip",
       // 反復相,
       mne: stem + "ömen",
-      mfe: stem2 + "ómihen",
+      mfe: stem2ua + "ómihen",
       // 具象形
       // 完結相
       p_gerund: stem2ua + pfx2 + alva,
