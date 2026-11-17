@@ -127,6 +127,11 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   stem2eë = (stem2 ?? "").replace('e', 'ë');
   stem2jui = (stem2 ?? "").replace(/^[j][uo]/, 'i');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
+  // 呼格複数形用の弱化した複数基底（ó/ú → a）。接辞 ra/la/ga には o/u がないので全体の置換でよい。
+  anpC2ua = anpC2.replace(/[ou]/g, 'a');
+  anpCl2ua = anpCl2.replace(/[ou]/g, 'a');
+  anpCq2ua = anpCq2.replace(/[ou]/g, 'a');
+  anpCo2ua = anpCo2.replace(/[ou]/g, 'a');
 
   function uniqueForms(...forms) {
     const filtered = [...new Set(forms.filter(form => !/jí|ji|ii|íi|iúi|iui/.test(form)))];
@@ -147,7 +152,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+      v_ansC: stem2ua + v_fx,
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpC,
@@ -157,7 +162,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpC.slice(0, -1) + l_fx,
       i_anpC: anpC.slice(0, -1) + i_fx,
       g_anpC: anpC.slice(0, -1) + g_fx,
-      v_anpC: anpC2.slice(0, -1) + v_fx,
+      v_anpC: anpC2ua.slice(0, -1) + v_fx,
       in_anpC: anpC.slice(0, -1) + in_fx,
     }
     // k / g / f / v/ s / z / c / sh / zh / cn / xh 明音形
@@ -171,7 +176,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+      v_ansC: stem2ua + v_fx,
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpC,
@@ -181,7 +186,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpC.slice(0, -1) + l_fx,
       i_anpC: anpC.slice(0, -1) + i_fx,
       g_anpC: anpC.slice(0, -1) + g_fx,
-      v_anpC: anpC2.slice(0, -1) + v_fx,
+      v_anpC: anpC2ua.slice(0, -1) + v_fx,
       in_anpC: anpC.slice(0, -1) + in_fx,
     }
 
@@ -196,7 +201,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+      v_ansC: stem2ua + v_fx,
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpCl,
@@ -206,7 +211,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpCl.slice(0, -1) + l_fx,
       i_anpC: anpCl.slice(0, -1) + i_fx,
       g_anpC: anpCl.slice(0, -1) + g_fx,
-      v_anpC: anpCl2.slice(0, -1) + v_fx,
+      v_anpC: anpCl2ua.slice(0, -1) + v_fx,
       in_anpC: anpCl.slice(0, -1) + in_fx,
     }
 
@@ -221,7 +226,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_ansC: stem + l_fx,
       i_ansC: stem + i_fx,
       g_ansC: stem + g_fx,
-      v_ansC: stem2 + v_fx,
+      v_ansC: stem2ua + v_fx,
       in_ansC: stem + in_fx,
       // 複数形
       anpC: anpCl,
@@ -231,7 +236,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpCl.slice(0, -1) + l_fx,
       i_anpC: anpCl.slice(0, -1) + i_fx,
       g_anpC: anpCl.slice(0, -1) + g_fx,
-      v_anpC: anpCl2.slice(0, -1) + v_fx,
+      v_anpC: anpCl2ua.slice(0, -1) + v_fx,
       in_anpC: anpCl.slice(0, -1) + in_fx,
     }
 
@@ -392,7 +397,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpCq.slice(0, -1) + l_fx,
       i_anpC: anpCq.slice(0, -1) + i_fx,
       g_anpC: anpCq.slice(0, -1) + g_fx,
-      v_anpC: anpCq2.slice(0, -1) + v_fx,
+      v_anpC: anpCq2ua.slice(0, -1) + v_fx,
       in_anpC: anpCq.slice(0, -1) + in_fx,
     }
     // q 明音形
@@ -451,7 +456,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpC2.slice(0, -1) + l_fx,
       i_anpC: anpC2.slice(0, -1) + i_fx,
       g_anpC: anpC2.slice(0, -1) + g_fx,
-      v_anpC: vAnpCFromBase ?? stem2.slice(0, -1) + "ar" + v_fx,
+      v_anpC: vAnpCFromBase ?? stem2ua.slice(0, -1) + "ar" + v_fx,
       in_anpC: anpC2.slice(0, -1) + in_fx,
     }
 
@@ -476,7 +481,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpC2.slice(0, -1) + l_fx,
       i_anpC: anpC2.slice(0, -1) + i_fx,
       g_anpC: anpC2.slice(0, -1) + g_fx,
-      v_anpC: vAnpCFromBase ?? stem2.slice(0, -1) + "ar" + v_fx,
+      v_anpC: vAnpCFromBase ?? stem2ua.slice(0, -1) + "ar" + v_fx,
       in_anpC: anpC2.slice(0, -1) + in_fx,
     }
 
@@ -502,7 +507,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpCú.slice(0, -1) + l_fx,
       i_anpC: anpCú.slice(0, -1) + i_fx,
       g_anpC: anpCú.slice(0, -1) + g_fx,
-      v_anpC: vAnpCFromBase ?? stem2.slice(0, -1) + "ar" + v_fx,
+      v_anpC: vAnpCFromBase ?? stem2ua.slice(0, -1) + "ar" + v_fx,
       in_anpC: anpCú.slice(0, -1) + in_fx,
     }
 
@@ -527,7 +532,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpCo.slice(0, -1) + l_fx,
       i_anpC: anpCo.slice(0, -1) + i_fx,
       g_anpC: anpCo.slice(0, -1) + g_fx,
-      v_anpC: anpCo2.slice(0, -1) + v_fx,
+      v_anpC: anpCo2ua.slice(0, -1) + v_fx,
       in_anpC: anpCo.slice(0, -1) + in_fx,
     }
 
@@ -579,7 +584,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       l_anpC: anpCl.slice(0, -1) + l_fx,
       i_anpC: anpCl.slice(0, -1) + i_fx,
       g_anpC: anpCl.slice(0, -1) + g_fx,
-      v_anpC: anpCl2.slice(0, -1) + v_fx,
+      v_anpC: anpCl2ua.slice(0, -1) + v_fx,
       in_anpC: anpCl.slice(0, -1) + in_fx,
     }
 
