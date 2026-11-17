@@ -41,35 +41,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -81,27 +81,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -116,27 +116,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -152,38 +152,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -195,27 +192,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -230,27 +227,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -270,35 +267,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -310,27 +307,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -345,27 +342,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -381,38 +378,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -424,27 +418,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -459,27 +453,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -498,35 +492,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -538,27 +532,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -573,27 +567,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -609,38 +603,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -652,27 +643,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -687,27 +678,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -727,35 +718,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -768,27 +759,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -803,27 +794,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -839,38 +830,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -882,27 +870,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -917,27 +905,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -956,35 +944,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -997,27 +985,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -1032,27 +1020,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -1068,38 +1056,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -1111,27 +1096,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -1146,27 +1131,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -1186,35 +1171,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -1227,27 +1212,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -1262,27 +1247,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -1298,38 +1283,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -1341,27 +1323,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -1376,27 +1358,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -1415,35 +1397,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -1456,27 +1438,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -1491,27 +1473,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -1527,38 +1509,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -1570,27 +1549,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -1605,27 +1584,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -1645,35 +1624,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -1686,27 +1665,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -1721,27 +1700,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -1757,38 +1736,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -1800,27 +1776,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -1835,27 +1811,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -1874,35 +1850,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -1915,27 +1891,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -1950,27 +1926,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -1986,38 +1962,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -2029,27 +2002,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -2064,27 +2037,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -2104,35 +2077,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -2145,27 +2118,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -2180,27 +2153,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -2216,38 +2189,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -2259,27 +2229,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -2294,27 +2264,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -2333,35 +2303,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -2374,27 +2344,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -2409,27 +2379,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -2445,38 +2415,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -2488,27 +2455,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -2523,27 +2490,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -2562,35 +2529,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -2602,27 +2569,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -2637,27 +2604,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -2673,38 +2640,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -2716,27 +2680,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -2751,27 +2715,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -2791,35 +2755,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "í",
 
       f_s: uniqueForms(
-        s_2 + "íhë",
         stem2Vi + "íhë",
         stem2ui + "íhë",
         stem2oö + "íhë",
         stem2jui + "íhë",
+        s_2 + "íhë",
 
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "éze",
         stem2Vi + "éze",
         stem2ui + "éze",
         stem2oö + "éze",
         stem2jui + "éze",
+        s_2 + "éze",
 
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "áisi",
         stem2ua + "áisi",
         stem2eë + "áisi",
+        s_2 + "áisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "éni",
         stem2Vi + "éni",
         stem2ui + "éni",
         stem2oö + "éni",
         stem2jui + "éni",
+        s_2 + "éni",
 
       ).join("<br>"),
 
@@ -2831,27 +2795,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "áli",
         stem2ua + "áli",
         stem2eë + "áli",
+        s_2 + "áli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "ález",
         stem2ua + "ález",
         stem2eë + "ález",
+        s_2 + "ález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "ális",
         stem2ua + "ális",
         stem2eë + "ális",
+        s_2 + "ális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "álen",
         stem2ua + "álen",
         stem2eë + "álen",
+        s_2 + "álen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -2865,27 +2829,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "óni",
         stem2ua + "óni",
         stem2eë + "óni",
+        s_2 + "óni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "ónza",
         stem2ua + "ónza",
         stem2eë + "ónza",
+        s_2 + "ónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "ónas",
         stem2ua + "ónas",
         stem2eë + "ónas",
+        s_2 + "ónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "ónön",
         stem2ua + "ónön",
         stem2eë + "ónön",
+        s_2 + "ónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -2900,38 +2864,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -2943,27 +2904,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -2977,27 +2938,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
@@ -3015,31 +2976,31 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s: s_2 + "jí",
 
       f_s: uniqueForms(
-        s_2 + "jíhë",
         stem2ui + "jíhë",
         stem2oö + "jíhë",
         stem2jui + "jíhë",
+        s_2 + "jíhë",
       ).join("<br>"),
 
       d_s: uniqueForms(
-        s_2 + "jéze",
         stem2ui + "jéze",
         stem2oö + "jéze",
         stem2jui + "jéze",
+        s_2 + "jéze",
       ).join("<br>"),
 
       e_s: uniqueForms(
-        s_2 + "jáisi",
         stem2ua + "jáisi",
         stem2eë + "jáisi",
+        s_2 + "jáisi",
       ).join("<br>"),
 
       ad_s: uniqueForms(
-        s_2 + "jéni",
         stem2Vi + "jéni",
         stem2ui + "jéni",
         stem2oö + "jéni",
         stem2jui + "jéni",
+        s_2 + "jéni",
       ).join("<br>"),
 
       h_s: uniqueForms(
@@ -3050,27 +3011,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s2: s2,
 
       f_s2: uniqueForms(
-        s_2 + "jáli",
         stem2ua + "jáli",
         stem2eë + "jáli",
+        s_2 + "jáli",
       ).join("<br>"),
 
       d_s2: uniqueForms(
-        s_2 + "jález",
         stem2ua + "jález",
         stem2eë + "jález",
+        s_2 + "jález",
       ).join("<br>"),
 
       e_s2: uniqueForms(
-        s_2 + "jális",
         stem2ua + "jális",
         stem2eë + "jális",
+        s_2 + "jális",
       ).join("<br>"),
 
       ad_s2: uniqueForms(
-        s_2 + "jálen",
         stem2ua + "jálen",
         stem2eë + "jálen",
+        s_2 + "jálen",
       ).join("<br>"),
 
       h_s2: uniqueForms(
@@ -3084,27 +3045,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       s3: s3,
 
       f_s3: uniqueForms(
-        s_2 + "jóni",
         stem2ua + "jóni",
         stem2eë + "jóni",
+        s_2 + "jóni",
       ).join("<br>"),
 
       d_s3: uniqueForms(
-        s_2 + "jónza",
         stem2ua + "jónza",
         stem2eë + "jónza",
+        s_2 + "jónza",
       ).join("<br>"),
 
       e_s3: uniqueForms(
-        s_2 + "jónas",
         stem2ua + "jónas",
         stem2eë + "jónas",
+        s_2 + "jónas",
       ).join("<br>"),
 
       ad_s3: uniqueForms(
-        s_2 + "jónön",
         stem2ua + "jónön",
         stem2eë + "jónön",
+        s_2 + "jónön",
       ).join("<br>"),
 
       h_s3: uniqueForms(
@@ -3119,38 +3080,35 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p: uniqueForms(p_2 + "á", stem2ua + "rá").join("<br>"),
 
       f_p: uniqueForms(
-        p_2 + "íhë",
-        stem2ua + "ríhë",
         stem2Vi + "ríhë",
         stem2ui + "ríhë",
         stem2oö + "ríhë",
         stem2jui + "ríhë",
+        p_2 + "íhë",
 
       ).join("<br>"),
 
       d_p: uniqueForms(
-        p_2 + "éze",
-        stem2ua + "réze",
         stem2Vi + "réze",
         stem2ui + "réze",
         stem2oö + "réze",
         stem2jui + "réze",
+        p_2 + "éze",
 
       ).join("<br>"),
 
       e_p: uniqueForms(
-        p_2 + "áisi",
         stem2ua + "ráisi",
         stem2eë + "ráisi",
+        p_2 + "áisi",
       ).join("<br>"),
 
       ad_p: uniqueForms(
-        p_2 + "éni",
-        stem2ua + "réni",
         stem2Vi + "réni",
         stem2ui + "réni",
         stem2oö + "réni",
         stem2jui + "réni",
+        p_2 + "éni",
 
       ).join("<br>"),
 
@@ -3162,27 +3120,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p2: p2,
 
       f_p2: uniqueForms(
-        p_2 + "áli",
         stem2ua + "ráli",
         stem2eë + "ráli",
+        p_2 + "áli",
       ).join("<br>"),
 
       d_p2: uniqueForms(
-        p_2 + "ález",
         stem2ua + "rález",
         stem2eë + "rález",
+        p_2 + "ález",
       ).join("<br>"),
 
       e_p2: uniqueForms(
-        p_2 + "ális",
         stem2ua + "rális",
         stem2eë + "rális",
+        p_2 + "ális",
       ).join("<br>"),
 
       ad_p2: uniqueForms(
-        p_2 + "álen",
         stem2ua + "rálen",
         stem2eë + "rálen",
+        p_2 + "álen",
       ).join("<br>"),
 
       h_p2: uniqueForms(
@@ -3197,27 +3155,27 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       p3: p3,
 
       f_p3: uniqueForms(
-        p_2 + "óni",
         stem2ua + "róni",
         stem2eë + "róni",
+        p_2 + "óni",
       ).join("<br>"),
 
       d_p3: uniqueForms(
-        p_2 + "ónza",
         stem2ua + "rónza",
         stem2eë + "rónza",
+        p_2 + "ónza",
       ).join("<br>"),
 
       e_p3: uniqueForms(
-        p_2 + "ónas",
         stem2ua + "rónas",
         stem2eë + "rónas",
+        p_2 + "ónas",
       ).join("<br>"),
 
       ad_p3: uniqueForms(
-        p_2 + "ónön",
         stem2ua + "rónön",
         stem2eë + "rónön",
+        p_2 + "ónön",
       ).join("<br>"),
 
       h_p3: uniqueForms(
