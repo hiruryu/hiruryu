@@ -81,10 +81,10 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   stemD = (stem ?? "").replace(/á/g, "a").replace(/é/g, "e").replace(/í/g, "i").replace(/ó/g, "o").replace(/ú/g, "u").replace(/ý/g, "y").replace(/ǻ/g, "å").replace(/\u0301/g, "");
 
   // stem2
-  stem2ua = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeiouöëáéíóúö́ë́])/g, 'a');
-  stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeiouöëáéíóúö́ë́])/g, 'i');
-  stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
-  stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
+  stem2ua = (stem2 ?? "").replace(/[ou]/g, 'a');
+  stem2ui = (stem2 ?? "").replace(/[ou]/g, 'i');
+  stem2oö = (stem2 ?? "").replace('o', 'ö');
+  stem2eë = (stem2 ?? "").replace('e', 'ë');
   stem2jui = (stem2 ?? "").replace(/^[j][ou]/, 'i');
   stem2juiu = (stem2 ?? "").replace('jui', 'i');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
