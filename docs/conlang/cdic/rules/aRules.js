@@ -1,11 +1,7 @@
 function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
 
   s = stem + ""; s_2 = stem2 + "";
-  s2 = stem2 + "ála";
-  s3 = stem2 + "óna";
   p = stem + "r"; p_2 = stem2 + "r";
-  p2 = stem2 + "árva";
-  p3 = stem2 + "árma";
 
 
 
@@ -25,6 +21,10 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
   stem2jui = (stem2 ?? "").replace(/^[j][uo]/, 'i');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
+  s2 = stem2ua + "ála";
+  s3 = stem2ua + "óna";
+  p2 = stem2ua + "árva";
+  p3 = stem2ua + "árma";
 
   function uniqueForms(...forms) {
     const filtered = [...new Set(forms.filter(form => !/jí|ji|ii|íi|iúi|iui/.test(form)))];

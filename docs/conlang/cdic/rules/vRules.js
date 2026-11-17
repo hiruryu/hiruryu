@@ -74,6 +74,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
 
   // stem1
   stemui = (stem ?? "").replace(/[óú]/g, 'í');
+  stemjui = (stem ?? "").replace('jú', 'í');
   stemoö = (stem ?? "").replace('ó', 'ö́');
   stemeë = (stem ?? "").replace('é', 'ë́');
 
@@ -85,8 +86,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
   stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
   stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
-  stem2jui = (stem2 ?? "").replace(/^[j][ou]/, 'i');
-  stem2juiu = (stem2 ?? "").replace('jui', 'i');
+  stem2jui = (stem2 ?? "").replace('ju', 'i');
+  stem2juiu = (stem2 ?? "").replace('ju', 'iu');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
 
   function uniqueForms(...forms) {
@@ -116,6 +117,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -128,6 +131,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -156,6 +161,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfxh,
         stemui + mnfxh,
 
+        stemjui + mnfxh,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -169,6 +175,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -182,12 +189,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -208,12 +217,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + "h" + mnefx,
         stemui + "h" + mnefx,
 
+        stemjui + "h" + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + "h" + mfefx,
         stemui + "h" + mfefx,
 
+        stemjui + "h" + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -263,6 +274,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -275,6 +288,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -303,6 +318,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfxh,
         stemui + mnfxh,
 
+        stemjui + mnfxh,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -316,6 +332,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -329,12 +346,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -355,12 +374,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + "h" + mnefx,
         stemui + "h" + mnefx,
 
+        stemjui + "h" + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + "h" + mfefx,
         stemui + "h" + mfefx,
 
+        stemjui + "h" + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -411,6 +432,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -423,6 +446,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -451,6 +476,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfxh,
         stemui + mnfxh,
 
+        stemjui + mnfxh,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -464,6 +490,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -477,12 +504,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -503,12 +532,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + "h" + mnefx,
         stemui + "h" + mnefx,
 
+        stemjui + "h" + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + "h" + mfefx,
         stemui + "h" + mfefx,
 
+        stemjui + "h" + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -558,6 +589,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -570,6 +603,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -598,6 +633,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfxh,
         stemui + mnfxh,
 
+        stemjui + mnfxh,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -611,6 +647,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -624,12 +661,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -650,12 +689,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + "h" + mnefx,
         stemui + "h" + mnefx,
 
+        stemjui + "h" + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + "h" + mfefx,
         stemui + "h" + mfefx,
 
+        stemjui + "h" + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -706,6 +747,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -718,6 +761,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -746,6 +791,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -759,6 +805,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -772,12 +819,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -798,12 +847,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -853,6 +904,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -865,6 +918,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -893,6 +948,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -906,6 +962,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -919,12 +976,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -945,12 +1004,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -1001,6 +1062,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -1013,6 +1076,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -1041,6 +1106,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -1054,6 +1120,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -1067,12 +1134,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -1093,12 +1162,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -1148,6 +1219,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -1160,6 +1233,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -1188,6 +1263,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -1201,6 +1277,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -1214,12 +1291,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -1240,12 +1319,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -1296,6 +1377,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -1308,6 +1391,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -1336,6 +1421,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -1349,6 +1435,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -1362,12 +1449,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -1388,12 +1477,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -1443,6 +1534,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -1455,6 +1548,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -1483,6 +1578,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -1496,6 +1592,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -1509,12 +1606,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -1535,12 +1634,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -1591,6 +1692,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -1603,6 +1706,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -1631,6 +1736,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -1644,6 +1750,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -1657,12 +1764,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -1683,12 +1792,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -1738,6 +1849,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -1750,6 +1863,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -1778,6 +1893,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -1791,6 +1907,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -1804,12 +1921,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -1830,12 +1949,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -1885,6 +2006,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -1897,6 +2020,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -1925,6 +2050,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -1938,6 +2064,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -1951,12 +2078,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -1977,12 +2106,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -2032,6 +2163,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -2044,6 +2177,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -2072,6 +2207,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -2085,6 +2221,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -2098,12 +2235,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -2124,12 +2263,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -2179,6 +2320,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfxj,
+
         stemui + spfxj,
         stemoö + spfxj,
       ).join("<br>"),
@@ -2189,6 +2332,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+        stemjui + sffxj,
         stemui + sffxj,
         stemoö + sffxj,
       ).join("<br>"),
@@ -2214,6 +2358,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       mn: uniqueForms(
         stemui + mnfxj,
 
+        stemjui + mnfxj,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -2225,6 +2370,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ne: uniqueForms(
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -2236,11 +2382,13 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sne: uniqueForms(
         stemui + snefxj,
+        stemjui + snefxj,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefxj,
         stemoö + sfefxj,
+        stemjui + sfefxj,
       ).join("<br>"),
 
       // 完了相
@@ -2261,12 +2409,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stem + mnefx,
         stemui + mnefx,
 
+        stemjui + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem + mfefx,
         stemui + mfefx,
 
+        stemjui + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -2317,6 +2467,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -2329,6 +2481,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -2357,6 +2511,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -2370,6 +2525,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -2383,12 +2539,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -2408,11 +2566,13 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       mne: uniqueForms(
         stem.slice(0, -1) + mnefx,
         stemui.slice(0, -1) + mnefx,
+        stemjui.slice(0, -1) + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem.slice(0, -1) + mfefx,
         stemui.slice(0, -1) + mfefx,
+        stemjui.slice(0, -1) + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -2462,6 +2622,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -2474,6 +2636,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -2502,6 +2666,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -2515,6 +2680,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -2528,12 +2694,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -2553,11 +2721,13 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       mne: uniqueForms(
         stem.slice(0, -1) + mnefx,
         stemui.slice(0, -1) + mnefx,
+        stemjui.slice(0, -1) + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem.slice(0, -1) + mfefx,
         stemui.slice(0, -1) + mfefx,
+        stemjui.slice(0, -1) + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -2606,6 +2776,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -2618,6 +2790,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -2646,6 +2820,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -2659,6 +2834,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -2672,12 +2848,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -2697,11 +2875,13 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       mne: uniqueForms(
         stem.slice(0, -1) + mnefx,
         stemui.slice(0, -1) + mnefx,
+        stemjui.slice(0, -1) + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem.slice(0, -1) + mfefx,
         stemui.slice(0, -1) + mfefx,
+        stemjui.slice(0, -1) + mfefx,
       ).join("<br>"),
 
       // 具象形
@@ -2751,6 +2931,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       // 進行相
       sp: uniqueForms(
 
+        stemjui + spfx,
+
         stemVi + spfx,
         stemui + spfx,
         stemoö + spfx,
@@ -2763,6 +2945,8 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       ).join("<br>"),
 
       sf: uniqueForms(
+
+        stemjui + sffx,
 
         stemVi + sffx,
         stemui + sffx,
@@ -2791,6 +2975,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + mnfx,
         stemui + mnfx,
 
+        stemjui + mnfx,
       ).join("<br>"),
 
       mf: uniqueForms(
@@ -2804,6 +2989,7 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + nefx,
         stemui + nefx,
 
+        stemjui + nefx,
       ).join("<br>"),
 
       fe: uniqueForms(
@@ -2817,12 +3003,14 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
         stemVi + snefx,
         stemui + snefx,
 
+        stemjui + snefx,
       ).join("<br>"),
 
       sfe: uniqueForms(
         stemui + sfefx,
         stemoö + sfefx,
 
+        stemjui + sfefx,
       ).join("<br>"),
 
       // 完了相
@@ -2842,11 +3030,13 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       mne: uniqueForms(
         stem.slice(0, -1) + mnefx,
         stemui.slice(0, -1) + mnefx,
+        stemjui.slice(0, -1) + mnefx,
       ).join("<br>"),
 
       mfe: uniqueForms(
         stem.slice(0, -1) + mfefx,
         stemui.slice(0, -1) + mfefx,
+        stemjui.slice(0, -1) + mfefx,
       ).join("<br>"),
 
       // 具象形
