@@ -121,10 +121,10 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   stemeë = (stem ?? "").replace('é', 'ë́');
 
   // stem2
-  stem2ua = (stem2 ?? "").replace(/[ou]/g, 'a');
-  stem2ui = (stem2 ?? "").replace(/[ou]/g, 'i');
-  stem2oö = (stem2 ?? "").replace('o', 'ö');
-  stem2eë = (stem2 ?? "").replace('e', 'ë');
+  stem2ua = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'a');
+  stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
+  stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
+  stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
   stem2jui = (stem2 ?? "").replace(/^[j][uo]/, 'i');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
   // 呼格複数形用の弱化した複数基底（ó/ú → a）。接辞 ra/la/ga には o/u がないので全体の置換でよい。

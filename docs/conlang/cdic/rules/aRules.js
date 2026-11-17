@@ -19,8 +19,8 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
   stemeë = (stem ?? "").replace('é', 'ë́');
 
   // stem2
-  stem2ua = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeiouöëáéíóúö́ë́])/g, 'a');
-  stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeiouöëáéíóúö́ë́])/g, 'i');
+  stem2ua = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'a');
+  stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
   stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
   stem2jui = (stem2 ?? "").replace(/^[j][uo]/, 'i');
