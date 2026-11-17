@@ -2042,7 +2042,7 @@ function performSearch() {
       else matchKey = data._normKey.includes(normalizedSearch);
 
       // 意味一致
-      // 意味は「、」区切りの複数意味を1項目にまとめてあるので、
+      // 意味は「、」や「。」や「/」区切りの複数意味を1項目にまとめてあるので、
       // 区切った1つずつを variants2 と同じように検索対象にする
       let matchMeaning = false;
       if (data.meaning) {
@@ -2058,7 +2058,7 @@ function performSearch() {
           const cleaned = removeAnnotations(m);
           // 項目全体（従来通り）か、区切った各意味のどちらかで一致すればよい
           if (matchText(cleaned)) return true;
-          return cleaned.split(/[、,，]/).some(seg => matchText(seg.trim().replace(/。+$/, "")));
+          return cleaned.split(/[、,，。.\/]/).some(seg => matchText(seg.trim().replace(/。+$/, "")));
         });
       }
 
