@@ -2190,16 +2190,53 @@ function performSearch() {
       tagOnlyResults.sort((a, b) => a.localeCompare(b));
     }
 
-    // 完全一致は必ず一番上に表示する（前方・部分一致検索時も）
-    const isExactMatch = (w) => {
+    // 検索結果の優先順位（小さいほど上）
+    // 0: 単語の完全一致、1: 意味の完全一致、
+    // 2: 単語の部分一致、3: 意味の部分一致、4: 屈折形の一致
+    const getMatchRank = (w) => {
       const d = getEntry(w);
-      return d && keyOf(d) === q;
+      if (!d) return 99;
+      const key = keyOf(d);
+      const exact = (s) => s === q;
+      const partial = (s) => {
+        if (!s) return false;
+        if (searchMode === "exact") return false;
+        if (searchMode === "prefix") return s.startsWith(q);
+        return s.includes(q);
+      };
+      // 意味の各区切りを列挙する
+      const meaningSegs = [];
+      if (d.meaning) {
+        const meanings = Array.isArray(d.meaning) ? d.meaning : [d.meaning];
+        for (const m of meanings) {
+          const cleaned = removeAnnotations(m);
+          meaningSegs.push(normText(cleaned));
+          for (const seg of cleaned.split(/[、,，。.\\/]/)) {
+            meaningSegs.push(normText(seg.trim().replace(/。+$/, "")));
+          }
+        }
+      }
+      if (d.vulgarMeaning) {
+        const vuls = Array.isArray(d.vulgarMeaning) ? d.vulgarMeaning : [d.vulgarMeaning];
+        for (const v of vuls) meaningSegs.push(normText(removeAnnotations(v)));
+      }
+      if (exact(key)) return 0;
+      if (meaningSegs.some(exact)) return 1;
+      if (partial(key)) return 2;
+      if (d.variants2) {
+        for (const v of d.variants2) {
+          if (partial(normText(removeAnnotations(v)))) return 2;
+        }
+      }
+      if (meaningSegs.some(partial)) return 3;
+      return 4;
     };
-    primaryResults.sort((a, b) => {
-      const aExact = isExactMatch(a) ? 0 : 1;
-      const bExact = isExactMatch(b) ? 0 : 1;
-      return aExact - bExact || a.localeCompare(b);
-    });
+    const rankCache = new Map();
+    const rankOf = (w) => {
+      if (!rankCache.has(w)) rankCache.set(w, getMatchRank(w));
+      return rankCache.get(w);
+    };
+    primaryResults.sort((a, b) => rankOf(a) - rankOf(b) || a.localeCompare(b));
     variantOnlyResults.sort((a, b) => a.localeCompare(b));
     tagOnlyResults.sort((a, b) => a.localeCompare(b));
 
@@ -2245,9 +2282,9 @@ function performSearch() {
     // 検索結果を構築！
     searchResults = [];
 
-    // 完全一致は縫言録より上、必ず一番上に表示する
-    const exactWords = usePrimary.filter(w => isExactMatch(w));
-    const restPrimary = usePrimary.filter(w => !isExactMatch(w));
+    // 完全一致（単語→意味）は縫言録より上、必ず一番上に表示する
+    const exactWords = usePrimary.filter(w => rankOf(w) <= 1);
+    const restPrimary = usePrimary.filter(w => rankOf(w) > 1);
     if (exactWords.length > 0) {
       searchResults.push({ type: "heading", text: "完全一致" });
       exactWords.forEach(word => searchResults.push({ type: "word", value: word }));
