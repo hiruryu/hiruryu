@@ -2113,9 +2113,9 @@ function performSearch() {
         }
       }
 
-      // variants2
+      // variants2（あいまい検索のときだけ対象にする）
       let matchVariants2 = false;
-      if (data.variants2) {
+      if (isFuzzy && data.variants2) {
         matchVariants2 = data.variants2.some(v => {
           const cleaned = normText(removeAnnotations(v));
           if (searchMode === "exact") return cleaned === q;
@@ -2192,7 +2192,7 @@ function performSearch() {
 
     // 検索結果の優先順位（小さいほど上）
     // 0: 単語の完全一致、1: 意味の完全一致、
-    // 2: 単語の部分一致、3: 意味の部分一致、4: 屈折形の一致
+    // 2: 単語の部分一致、3: 意味の部分一致、4: variants2・屈折形の一致
     const getMatchRank = (w) => {
       const d = getEntry(w);
       if (!d) return 99;
@@ -2223,12 +2223,8 @@ function performSearch() {
       if (exact(key)) return 0;
       if (meaningSegs.some(exact)) return 1;
       if (partial(key)) return 2;
-      if (d.variants2) {
-        for (const v of d.variants2) {
-          if (partial(normText(removeAnnotations(v)))) return 2;
-        }
-      }
       if (meaningSegs.some(partial)) return 3;
+      // variants2・屈折形の一致は一番後ろ（rank 4）
       return 4;
     };
     const rankCache = new Map();
