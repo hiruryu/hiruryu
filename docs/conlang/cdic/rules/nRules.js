@@ -410,16 +410,16 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
     // a 尾高形
   } else if (["á"].includes(ruletype)) {
     return {
-      // 単数形
+      // 単数形（語幹が á 終わりだと stem + "á" で重なるため、語そのものを基底にする）
       ansC: ansCBase,
-      f_ansC: stem + "á" + f_fx.slice(1, 2),
-      e_ansC: stem + "á" + e_fx.slice(1, 2),
-      d_ansC: stem + "á" + d_fx.slice(1, 2),
-      l_ansC: stem + "á" + l_fx.slice(1, 2),
-      i_ansC: stem + "á" + i_fx.slice(1, 2),
-      g_ansC: stem + "áj" + g_fx,
-      v_ansC: stem + "á" + v_fx.slice(1, 3),
-      in_ansC: stem + "á" + in_fx.slice(1, 6),
+      f_ansC: ansCBase + f_fx.slice(1, 2),
+      e_ansC: ansCBase + e_fx.slice(1, 2),
+      d_ansC: ansCBase + d_fx.slice(1, 2),
+      l_ansC: ansCBase + l_fx.slice(1, 2),
+      i_ansC: ansCBase + i_fx.slice(1, 2),
+      g_ansC: ansCBase + "j" + g_fx,
+      v_ansC: ansCBase + v_fx.slice(1, 3),
+      in_ansC: ansCBase + in_fx.slice(1, 6),
       // 複数形
       anpC: anpC2,
       f_anpC: anpC2.slice(0, -1) + f_fx,
@@ -434,43 +434,46 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
 
     // o 尾高形
   } else if (["ó"].includes(ruletype)) {
+    // lakó のように stem（lúk）と語（lakó）の母音が違うため、
+    // 単数形・複数形とも語そのものを基底にする（lakóra）。
+    const anpCó = ansCBase + "ra";
     return {
       // 単数形
       ansC: ansCBase,
-      f_ansC: stem + "ó" + f_fx.slice(1, 2),
-      e_ansC: stem + "ó" + e_fx.slice(1, 2),
-      d_ansC: stem + "ó" + d_fx.slice(1, 2),
-      l_ansC: stem + "ó" + l_fx.slice(1, 2),
-      i_ansC: stem + "ó" + i_fx.slice(1, 2),
-      g_ansC: stem + "ój" + g_fx,
-      v_ansC: stem + "ó" + v_fx.slice(1, 3),
-      in_ansC: stem + "ó" + in_fx.slice(1, 6),
+      f_ansC: ansCBase + f_fx.slice(1, 2),
+      e_ansC: ansCBase + e_fx.slice(1, 2),
+      d_ansC: ansCBase + d_fx.slice(1, 2),
+      l_ansC: ansCBase + l_fx.slice(1, 2),
+      i_ansC: ansCBase + i_fx.slice(1, 2),
+      g_ansC: ansCBase + "j" + g_fx,
+      v_ansC: ansCBase + v_fx.slice(1, 3),
+      in_ansC: ansCBase + in_fx.slice(1, 6),
       // 複数形
-      anpC: anpC2,
-      f_anpC: anpC2.slice(0, -1) + f_fx,
-      e_anpC: anpC2.slice(0, -1) + e_fx,
-      d_anpC: anpC2.slice(0, -1) + d_fx,
-      l_anpC: anpC2.slice(0, -1) + l_fx,
-      i_anpC: anpC2.slice(0, -1) + i_fx,
-      g_anpC: anpC2.slice(0, -1) + g_fx,
-      v_anpC: vAnpCFromBase ?? stem2w.slice(0, -1) + "ar" + v_fx,
-      in_anpC: anpC2.slice(0, -1) + in_fx,
+      anpC: anpCó,
+      f_anpC: anpCó.slice(0, -1) + f_fx,
+      e_anpC: anpCó.slice(0, -1) + e_fx,
+      d_anpC: anpCó.slice(0, -1) + d_fx,
+      l_anpC: anpCó.slice(0, -1) + l_fx,
+      i_anpC: anpCó.slice(0, -1) + i_fx,
+      g_anpC: anpCó.slice(0, -1) + g_fx,
+      v_anpC: vAnpCFromBase ?? stem2w + "ar" + v_fx,
+      in_anpC: anpCó.slice(0, -1) + in_fx,
     }
 
     // u 尾高形
   } else if (["ú"].includes(ruletype)) {
     const anpCú = stem2 + "úra";
     return {
-      // 単数形
+      // 単数形（á/ó と同じく語そのものを基底にする）
       ansC: ansCBase,
-      f_ansC: stem + "ú" + f_fx.slice(1, 2),
-      e_ansC: stem + "ú" + e_fx.slice(1, 2),
-      d_ansC: stem + "ú" + d_fx.slice(1, 2),
-      l_ansC: stem + "ú" + l_fx.slice(1, 2),
-      i_ansC: stem + "ú" + i_fx.slice(1, 2),
-      g_ansC: stem + "új" + g_fx,
-      v_ansC: stem + "ú" + v_fx.slice(1, 3),
-      in_ansC: stem + "ú" + in_fx.slice(1, 6),
+      f_ansC: ansCBase + f_fx.slice(1, 2),
+      e_ansC: ansCBase + e_fx.slice(1, 2),
+      d_ansC: ansCBase + d_fx.slice(1, 2),
+      l_ansC: ansCBase + l_fx.slice(1, 2),
+      i_ansC: ansCBase + i_fx.slice(1, 2),
+      g_ansC: ansCBase + "j" + g_fx,
+      v_ansC: ansCBase + v_fx.slice(1, 3),
+      in_ansC: ansCBase + in_fx.slice(1, 6),
       // 複数形
       anpC: anpCú,
       f_anpC: anpCú.slice(0, -1) + f_fx,

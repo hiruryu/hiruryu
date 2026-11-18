@@ -1192,6 +1192,12 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
     // 母音終了
   } else if (["a", "e", "i", "o", "u", "ui"].includes(ruletype)) {
+    // 母音終了型の s2/s3/p2/p3：語幹末母音と接辞の母音連続を避ける。
+    // s2/s3 は j を挿入（qja + ála → qjajála）、p2/p3 は語幹末母音を落とす（qja + árva → qjárva）。
+    const s2v = /[aeiouöëáéóú]$/.test(stem2ua) ? stem2ua + "j" + "ála" : s2;
+    const s3v = /[aeiouöëáéóú]$/.test(stem2ua) ? stem2ua + "j" + "óna" : s3;
+    const p2v = /[aeiouöëáéóú]$/.test(stem2ua) ? stem2ua.slice(0, -1) + "árva" : p2;
+    const p3v = /[aeiouöëáéóú]$/.test(stem2ua) ? stem2ua.slice(0, -1) + "árma" : p3;
     return {
       // 単数一致-原級
       s: s_2 + "jí",
@@ -1209,7 +1215,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       ).join("<br>"),
 
       // 単数一致-比較級
-      s2: s2,
+      s2: s2v,
 
       f_s2: uniqueForms(stem2ua + "jáli", nz(stem2eë, "jáli"), nz(stem2öue, "jáli")).join("<br>"),
 
@@ -1222,7 +1228,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       h_s2: uniqueForms(stem2Vi + "jë́sen", nz(stem2ui, "jë́sen"), nz(stem2oö, "jë́sen"), nz(stem2jui, "jë́sen")).join("<br>"),
 
       // 単数一致-最上級
-      s3: s3,
+      s3: s3v,
 
       f_s3: uniqueForms(stem2ua + "jóni", nz(stem2eë, "jóni"), nz(stem2öue, "jóni")).join("<br>"),
 
@@ -1251,7 +1257,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       ).join("<br>"),
 
       // 複数一致-比較級
-      p2: p2,
+      p2: p2v,
 
       f_p2: uniqueForms(stem2ua + "ráli", nz(stem2eë, "ráli"), nz(stem2öue, "ráli")).join("<br>"),
 
@@ -1264,7 +1270,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       h_p2: uniqueForms(stem2Vi + "rë́sen", nz(stem2ui, "rë́sen"), nz(stem2oö, "rë́sen"), nz(stem2jui, "rë́sen")).join("<br>"),
 
       // 複数一致-最上級
-      p3: p3,
+      p3: p3v,
 
       f_p3: uniqueForms(stem2ua + "róni", nz(stem2eë, "róni"), nz(stem2öue, "róni")).join("<br>"),
 
