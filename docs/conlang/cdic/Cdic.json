@@ -1253,7 +1253,7 @@
     "type": "f 基本型",
     "ruletype": "f",
     "meaning": [
-      "ネコ。"
+      "猫、ネコ。"
     ],
     "pronunciation": [
       "/nʲá.fa/"
@@ -2771,7 +2771,7 @@
     ],
     "word": "ybá",
     "stem": "ybá",
-    "stem2": "ybá",
+    "stem2": "yba",
     "lexemic": [
       "i͜ubá"
     ],
@@ -4177,7 +4177,7 @@
     "word": "lö́llas",
     "stem": "lö́l",
     "stem2": "löl",
-    "fix": "lael-",
+    "fix": "luel-",
     "tag": [
       "ー"
     ],
@@ -5953,43 +5953,6 @@
       "つつみこむ"
     ]
   },
-  "pastnálva": {
-    "id": 246,
-    "safe": false,
-    "seii": [
-      "LHL"
-    ],
-    "word": "pastnálva",
-    "stem": "pástn",
-    "stem2": "pastn",
-    "fix": "pastna-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "n 基本型",
-    "ruletype": "n",
-    "meaning": [
-      "［ 基が ］自慰する、オナニーする。"
-    ],
-    "pronunciation": [
-      "/pas.nál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 346 」+「 102 」から"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "じいする",
-      "しこる",
-      "一人えっちする",
-      "ひとりえっちする",
-      "オナニー"
-    ]
-  },
   "pódhlas": {
     "id": 247,
     "safe": true,
@@ -7371,51 +7334,6 @@
       "しょくじをする"
     ]
   },
-  "lö́gda": {
-    "id": 287,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "lö́gda",
-    "stem": "lö́gd",
-    "stem2": "lögd",
-    "fix": "lagda-, -agda",
-    "tag": [
-      "施設"
-    ],
-    "parts": "名象",
-    "type": "d 基本型",
-    "ruletype": "d",
-    "meaning": [
-      "店、商店。"
-    ],
-    "pronunciation": [
-      "/lǿg.da/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        " ｢ 286 」+「 369 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "店",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "lögda"
-      ]
-    },
-    "variants2": [
-      "みせ",
-      "お店",
-      "おみせ",
-      "しょうてん"
-    ]
-  },
   "mázhta": {
     "id": 288,
     "safe": true,
@@ -7491,7 +7409,7 @@
     "word": "patö́gda",
     "stem": "patö́gd",
     "stem2": "patögd",
-    "fix": "patagda-",
+    "fix": "patuegda-",
     "tag": [
       "施設"
     ],
@@ -7525,7 +7443,7 @@
     "word": "ftåzágda",
     "stem": "ftåzágd",
     "stem2": "ftåzagd",
-    "fix": "ftåzeagda-",
+    "fix": "ftåzagda-",
     "tag": [
       "施設"
     ],
@@ -9124,7 +9042,7 @@
       "HL"
     ],
     "word": "ftǻza",
-    "stem": "ftǻza",
+    "stem": "ftǻz",
     "stem2": "ftåz",
     "fix": "ftåza-",
     "tag": [
@@ -9508,7 +9426,7 @@
       "LHL"
     ],
     "word": "någdázma",
-    "stem": "någdázma",
+    "stem": "någdázm",
     "stem2": "någdazm",
     "fix": "någdazma-, nå-ázma",
     "tag": [
@@ -9546,7 +9464,7 @@
       "LHL"
     ],
     "word": "nåfrásha",
-    "stem": "nåfrásha",
+    "stem": "nåfrásh",
     "stem2": "nåfrash",
     "fix": "nåfrasha-, nå-ásha",
     "tag": [
@@ -9896,53 +9814,6 @@
     },
     "variants2": [
       "ふく"
-    ]
-  },
-  "cixhálva": {
-    "id": 354,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "cixhálva",
-    "stem": "cóxh",
-    "stem2": "coxh",
-    "fix": "cixh-, -nch",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "xh 基本型",
-    "ruletype": "zh",
-    "meaning": [
-      "［ 基が ］［ 与に ］変わる、なる、変化する。",
-      "［ 能が ］［ 基を ］［ 与に ］変える"
-    ],
-    "pronunciation": [
-      "/t͡sʲi.ʐʲál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "形成の根拠は不明。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "化",
-      "nui": [
-        "svá(h)",
-        "gá(h)"
-      ],
-      "chel": [
-        "cóxh"
-      ]
-    },
-    "variants2": [
-      "かわる",
-      "かえる",
-      "へんかする",
-      "へんかさせる"
     ]
   },
   "-áxh": {
@@ -11710,7 +11581,7 @@
     "word": "hö́glas",
     "stem": "hö́g",
     "stem2": "hög",
-    "fix": "hag-",
+    "fix": "hueg-",
     "type": "g 基本型",
     "ruletype": "g",
     "tag": [
@@ -12862,7 +12733,7 @@
     "word": "fekö́gda",
     "stem": "fekö́gd",
     "stem2": "fkögd",
-    "fix": "fekogd-",
+    "fix": "fekuegd-",
     "tag": [
       "施設"
     ],
@@ -13040,7 +12911,7 @@
       "［ 能が ］［ 基を ］浮かす。"
     ],
     "pronunciation": [
-      "/e.pǿl.va"
+      "/e.pǿl.va/"
     ],
     "etymology": {
       "intro": [
@@ -13066,38 +12937,6 @@
       "ふゆうする",
       "浮かす",
       "浮かぶ"
-    ]
-  },
-  "klápast": {
-    "id": 436,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "klápast",
-    "tag": [
-      "ー"
-    ],
-    "parts": "副飾",
-    "meaning": [
-      "また、再度、もう一回、もう一度。"
-    ],
-    "pronunciation": [
-      "/klá.past/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 202 」+「 346 」から。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "又",
-      "もういっかい",
-      "もういちど",
-      "さいど",
-      "再一"
     ]
   },
   "jéshka": {
@@ -15017,7 +14856,7 @@
     "etymology": {
       "intro": [
         "合成語。",
-        " ｢ 484 」+「 467 」が組み合わさった語。"
+        " ｢ 484 」+「 354 」が組み合わさった語。"
       ],
       "changes": []
     },
@@ -15268,40 +15107,6 @@
       "こがたかする",
       "ちいさくする",
       "ちいさくなる"
-    ]
-  },
-  "laxhálva": {
-    "id": 493,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "laxhálva",
-    "stem": "lö́xh",
-    "stem2": "löxh",
-    "fix": "laxh-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "xh 基本型",
-    "ruletype": "zh",
-    "meaning": [
-      "［ 基が ］液化する、液状化する。"
-    ],
-    "pronunciation": [
-      "/la.ʐál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        " ｢ 100 」+「 355 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "えきかする",
-      "えきじょうかする"
     ]
   },
   "fáka": {
@@ -18784,7 +18589,7 @@
     ],
     "word": "kipýcfa",
     "stem": "kipýcf",
-    "stem2": "kipycfa",
+    "stem2": "kipycf",
     "fix": "kipycfa-",
     "tag": "恋愛",
     "parts": "名象",
@@ -26188,7 +25993,7 @@
     "word": "mö́dhlas",
     "stem": "mö́d",
     "stem2": "möd",
-    "fix": "maed-",
+    "fix": "mued-",
     "type": "d 基本型",
     "ruletype": "d",
     "tag": [
@@ -34380,8 +34185,8 @@
     "stem": "lóik",
     "stem2": "loik",
     "fix": "laiko-",
-    "type": "k 明音型",
-    "ruletype": "k",
+    "type": "o 基本型",
+    "ruletype": "o",
     "tag": [
       "ー"
     ],
@@ -34465,8 +34270,8 @@
     "stem": "túm",
     "stem2": "tum",
     "fix": "tamo-",
-    "type": "m 基本型",
-    "ruletype": "m",
+    "type": "o 基本型",
+    "ruletype": "o",
     "tag": [
       "ー"
     ],
@@ -50216,39 +50021,6 @@
       "changes": []
     }
   },
-  "dålö́gda": {
-    "id": 1514,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "dålö́gda",
-    "stem": "dålö́gd",
-    "stem2": "dålögd",
-    "fix": "dålogda-",
-    "tag": [
-      "施設"
-    ],
-    "parts": "名象",
-    "type": "d 基本型",
-    "meaning": [
-      "スーパーマーケット。"
-    ],
-    "pronunciation": [
-      "/da.lǿg.da/"
-    ],
-    "variants2": [
-      "スーパーマーケット。"
-    ],
-    "ruletype": "d",
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 496 」+「 287 」が組み合わさった語。"
-      ],
-      "changes": []
-    }
-  },
   "lagája": {
     "id": 1519,
     "safe": true,
@@ -51893,6 +51665,234 @@
       "intro": [
         "合成語。",
         "縫語「 水 」（中縫語 tʰel(s)）+縫語「 井 」（中縫語 leːw）が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "rjannálva": {
+    "id": 246,
+    "safe": false,
+    "seii": [
+      "LHL"
+    ],
+    "word": "rjannálva",
+    "stem": "rjánn",
+    "stem2": "rjann",
+    "fix": "rjanna-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 基本型",
+    "ruletype": "n",
+    "meaning": [
+      "［ 基が ］自慰する、オナニーする。"
+    ],
+    "pronunciation": [
+      "/rʲan.nál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 346 」+「 102 」から"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "じいする",
+      "しこる",
+      "一人えっちする",
+      "ひとりえっちする",
+      "オナニー"
+    ]
+  },
+  "lógda": {
+    "id": 287,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "lógda",
+    "stem": "lógd",
+    "stem2": "logd",
+    "fix": "lagda-, -agda",
+    "tag": [
+      "施設"
+    ],
+    "parts": "名象",
+    "type": "d 基本型",
+    "ruletype": "d",
+    "meaning": [
+      "店、商店。"
+    ],
+    "pronunciation": [
+      "/lóg.da/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        " ｢ 286 」+「 369 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "店",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "lögda"
+      ]
+    },
+    "variants2": [
+      "みせ",
+      "お店",
+      "おみせ",
+      "しょうてん"
+    ]
+  },
+  "caxhálva": {
+    "id": 354,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "caxhálva",
+    "stem": "cóxh",
+    "stem2": "coxh",
+    "fix": "caxh-, -nch",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "xh 基本型",
+    "ruletype": "zh",
+    "meaning": [
+      "［ 基が ］［ 与に ］変わる、なる、変化する。",
+      "［ 能が ］［ 基を ］［ 与に ］変える"
+    ],
+    "pronunciation": [
+      "/t͡sa.ʐál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "形成の根拠は不明。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "化",
+      "nui": [
+        "svá(h)",
+        "gá(h)"
+      ],
+      "chel": [
+        "cóxh"
+      ]
+    },
+    "variants2": [
+      "かわる",
+      "かえる",
+      "へんかする",
+      "へんかさせる"
+    ]
+  },
+  "klámo": {
+    "id": 436,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "klámo",
+    "tag": [
+      "ー"
+    ],
+    "parts": "副飾",
+    "meaning": [
+      "また、再度、もう一回、もう一度。"
+    ],
+    "pronunciation": [
+      "/klá.past/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 202 」+「 346 」から。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "又",
+      "もういっかい",
+      "もういちど",
+      "さいど",
+      "再一"
+    ]
+  },
+  "luexhálva": {
+    "id": 493,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "luexhálva",
+    "stem": "lö́xh",
+    "stem2": "löxh",
+    "fix": "luexh-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "xh 基本型",
+    "ruletype": "zh",
+    "meaning": [
+      "［ 基が ］液化する、液状化する。"
+    ],
+    "pronunciation": [
+      "/la.ʐál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        " ｢ 100 」+「 355 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "えきかする",
+      "えきじょうかする"
+    ]
+  },
+  "dålógda": {
+    "id": 1514,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "dålógda",
+    "stem": "dålógd",
+    "stem2": "dålogd",
+    "fix": "dålagda-",
+    "tag": [
+      "施設"
+    ],
+    "parts": "名象",
+    "type": "d 基本型",
+    "meaning": [
+      "スーパーマーケット。"
+    ],
+    "pronunciation": [
+      "/da.lóg.da/"
+    ],
+    "variants2": [
+      "スーパーマーケット。"
+    ],
+    "ruletype": "d",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 496 」+「 287 」が組み合わさった語。"
       ],
       "changes": []
     }
