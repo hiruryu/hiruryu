@@ -918,6 +918,22 @@ a {
   transition: none;
 }
 
+/* あいまい検索チェックボックス（全体の input{width:100%} を上書き） */
+.fuzzy-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+.fuzzy-search input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  flex: none;
+}
+
 #searchMode:hover,
 #searchMode:focus {
   border-color: #cfc4ae;
