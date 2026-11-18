@@ -477,7 +477,9 @@ function toggleVulgarMeaning(linkElem) {
     linkElem.textContent = "性的な意味を表示";
   }
 }
-// 検索用正規化（ひらがな/カタカナ同一視、ラテンは小文字化＋アクセント除去）
+// 検索用正規化（厳密：ひらがな/カタカナ同一視、ラテンは小文字化。
+// アクセント（結合鋭アクセント U+0301）のみ除去する。ö́→ö、á→a のように
+// 強勢の位置は無視するが、ö/ë/å/ũ と o/e/a/u の区別は残す）
 function normalizeForSearch(input) {
   if (input === null || input === undefined) return "";
   let s = String(input);
@@ -494,11 +496,17 @@ function normalizeForSearch(input) {
     return ch;
   }).join('');
 
-  // アクセントなどの結合文字を削除
-  s = s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+  // 小文字化し、アクセント（U+0301）のみ除去して NFC に戻す
+  // （ö/ë の ¨、å の ˚、ũ の ˜ は除去しない）
+  return s.toLowerCase().normalize('NFD').replace(/\u0301/g, '').normalize('NFC');
+}
 
-  // NFC に戻して返す
-  return s.normalize('NFC');
+// あいまい検索用：記号をすべて除去（ö→o、ë→e、å→a、ũ→u 等。アクセントも含む）
+function stripDiacritics(s) {
+  return String(s).normalize('NFD').replace(/\p{M}/gu, '').normalize('NFC');
+}
+function normalizeForFuzzySearch(input) {
+  return stripDiacritics(normalizeForSearch(input));
 }
 
 function syncUIWithURL() {
@@ -590,22 +598,26 @@ Promise.all([
     // 単語キーを正規化
     const keyClean = removeAnnotations(word);
     data._normKey = normalizeForSearch(keyClean);
+    data._normKeyF = stripDiacritics(data._normKey);
 
     // 意味を正規化
     const meaningText = data.meaning
       ? (Array.isArray(data.meaning) ? data.meaning.join(' ') : String(data.meaning))
       : "";
     data._normMeaning = normalizeForSearch(removeAnnotations(meaningText));
+    data._normMeaningF = stripDiacritics(data._normMeaning);
 
     // variants1 / variants2 を統合
     const variants = [];
     if (data.variants1) variants.push(...(Array.isArray(data.variants1) ? data.variants1 : [data.variants1]));
     if (data.variants2) variants.push(...(Array.isArray(data.variants2) ? data.variants2 : [data.variants2]));
     data._normVariants = normalizeForSearch(variants.join(' '));
+    data._normVariantsF = stripDiacritics(data._normVariants);
 
     // vulgarMeaning も検索対象にする
     const vul = data.vulgarMeaning ? (Array.isArray(data.vulgarMeaning) ? data.vulgarMeaning.join(' ') : String(data.vulgarMeaning)) : "";
     data._normVulgar = normalizeForSearch(removeAnnotations(vul));
+    data._normVulgarF = stripDiacritics(data._normVulgar);
 
     // 縫言録も検索対象にする
     let kanjiReadings = "";
@@ -637,6 +649,7 @@ Promise.all([
 
     // 正規化して保存
     data._normKanjiReadings = normalizeForSearch(cleanedKanjiReadings);
+    data._normKanjiReadingsF = stripDiacritics(data._normKanjiReadings);
 
 
     try {
@@ -653,12 +666,16 @@ Promise.all([
 
       // 検索用正規化
       data._normInflArray = inflCleanArray.map(i => normalizeForSearch(i));
+      data._normInflArrayF = data._normInflArray.map(stripDiacritics);
       data._normInflText = data._normInflArray.join(' ');
+      data._normInflTextF = stripDiacritics(data._normInflText);
     } catch (e) {
       // エラー時は空配列にしてね！
       data._inflArray = [];
       data._normInflArray = [];
+      data._normInflArrayF = [];
       data._normInflText = "";
+      data._normInflTextF = "";
     }
   }
 
@@ -710,6 +727,7 @@ document.getElementById("safeSearchToggle").addEventListener("change", () => {
 // DOM要素を取得するよ
 const searchBox = document.getElementById("searchBox");
 const searchModeSelect = document.getElementById("searchMode");
+const fuzzySearchCheckbox = document.getElementById("fuzzySearch");
 const wordList = document.getElementById("wordList");
 const details = document.getElementById("details");
 const placeholder = document.getElementById("placeholder");
@@ -1964,14 +1982,18 @@ function buildInflectionCache() {
       d._inflArray = inflCleanArray;
       // 正規化済み屈折形
       d._normInflArray = inflCleanArray.map(i => normalizeForSearch(i));
+      d._normInflArrayF = d._normInflArray.map(stripDiacritics);
       // 文字列化（全文検索用）
       d._normInflText = d._normInflArray.join(' ');
+      d._normInflTextF = stripDiacritics(d._normInflText);
 
     } catch (err) {
       // エラー時は空配列
       d._inflArray = [];
       d._normInflArray = [];
+      d._normInflArrayF = [];
       d._normInflText = "";
+      d._normInflTextF = "";
       // console.error("buildInflectionCache error for", w, err);
     }
   }
@@ -1980,7 +2002,17 @@ function performSearch() {
   // 検索語取得
   const rawSearch = searchBox.value || "";
   const normalizedSearch = normalizeForSearch(rawSearch);
+  const normalizedSearchF = stripDiacritics(normalizedSearch);
   const searchTerm = searchBox.value.toLowerCase();
+  // あいまい検索（記号を無視する）かどうか
+  const isFuzzy = !!(fuzzySearchCheckbox && fuzzySearchCheckbox.checked);
+  // 比較に使う検索語（あいまい時は記号除去済み）
+  const q = isFuzzy ? normalizedSearchF : normalizedSearch;
+  // 比較に使う正規化関数・フィールド
+  const normText = (t) => isFuzzy ? normalizeForFuzzySearch(t) : normalizeForSearch(t);
+  const keyOf = (d) => isFuzzy ? (d._normKeyF || "") : (d._normKey || "");
+  const inflOf = (d) => isFuzzy ? (d._normInflArrayF || []) : (d._normInflArray || []);
+  const krOf = (d) => isFuzzy ? (d._normKanjiReadingsF || "") : (d._normKanjiReadings || "");
   wordList.innerHTML = "";
 
   // 検索語なし
@@ -2037,9 +2069,10 @@ function performSearch() {
       const data = getEntry(word);
       // 単語キー一致
       let matchKey = false;
-      if (searchMode === "exact") matchKey = (data._normKey === normalizedSearch);
-      else if (searchMode === "prefix") matchKey = data._normKey.startsWith(normalizedSearch);
-      else matchKey = data._normKey.includes(normalizedSearch);
+      const normKey = keyOf(data);
+      if (searchMode === "exact") matchKey = (normKey === q);
+      else if (searchMode === "prefix") matchKey = normKey.startsWith(q);
+      else matchKey = normKey.includes(q);
 
       // 意味一致
       // 意味は「、」や「。」や「/」区切りの複数意味を1項目にまとめてあるので、
@@ -2048,11 +2081,11 @@ function performSearch() {
       if (data.meaning) {
         const meanings = Array.isArray(data.meaning) ? data.meaning : [data.meaning];
         const matchText = (text) => {
-          const norm = normalizeForSearch(text);
+          const norm = normText(text);
           if (!norm) return false;
-          if (searchMode === "exact") return norm === normalizedSearch;
-          if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
-          return norm.includes(normalizedSearch);
+          if (searchMode === "exact") return norm === q;
+          if (searchMode === "prefix") return norm.startsWith(q);
+          return norm.includes(q);
         };
         matchMeaning = meanings.some(m => {
           const cleaned = removeAnnotations(m);
@@ -2067,16 +2100,16 @@ function performSearch() {
       if (data.vulgarMeaning) {
         if (Array.isArray(data.vulgarMeaning)) {
           matchVulgar = data.vulgarMeaning.some(v => {
-            const cleaned = removeAnnotations(v).toLowerCase();
-            if (searchMode === "exact") return cleaned === searchTerm;
-            if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-            return cleaned.includes(searchTerm);
+            const cleaned = normText(removeAnnotations(v));
+            if (searchMode === "exact") return cleaned === q;
+            if (searchMode === "prefix") return cleaned.startsWith(q);
+            return cleaned.includes(q);
           });
         } else {
-          const cleaned = removeAnnotations(data.vulgarMeaning).toLowerCase();
-          if (searchMode === "exact") matchVulgar = (cleaned === searchTerm);
-          else if (searchMode === "prefix") matchVulgar = cleaned.startsWith(searchTerm);
-          else matchVulgar = cleaned.includes(searchTerm);
+          const cleaned = normText(removeAnnotations(data.vulgarMeaning));
+          if (searchMode === "exact") matchVulgar = (cleaned === q);
+          else if (searchMode === "prefix") matchVulgar = cleaned.startsWith(q);
+          else matchVulgar = cleaned.includes(q);
         }
       }
 
@@ -2084,29 +2117,30 @@ function performSearch() {
       let matchVariants2 = false;
       if (data.variants2) {
         matchVariants2 = data.variants2.some(v => {
-          const cleaned = removeAnnotations(v).toLowerCase();
-          if (searchMode === "exact") return cleaned === searchTerm;
-          if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-          return cleaned.includes(searchTerm);
+          const cleaned = normText(removeAnnotations(v));
+          if (searchMode === "exact") return cleaned === q;
+          if (searchMode === "prefix") return cleaned.startsWith(q);
+          return cleaned.includes(q);
         });
       }
 
       // 活用形
       let matchInflection = false;
-      if (data._normInflArray && data._normInflArray.length) {
-        matchInflection = data._normInflArray.some(norm => {
-          if (searchMode === "exact") return norm === normalizedSearch;
-          if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
-          return norm.includes(normalizedSearch);
+      const normInflArray = inflOf(data);
+      if (normInflArray && normInflArray.length) {
+        matchInflection = normInflArray.some(norm => {
+          if (searchMode === "exact") return norm === q;
+          if (searchMode === "prefix") return norm.startsWith(q);
+          return norm.includes(q);
         });
       } else {
         try {
           const inflections = generateInflections(word) || [];
           matchInflection = inflections.some(inf => {
-            const norm = normalizeForSearch(removeAnnotations(String(inf)));
-            if (searchMode === "exact") return norm === normalizedSearch;
-            if (searchMode === "prefix") return norm.startsWith(normalizedSearch);
-            return norm.includes(normalizedSearch);
+            const norm = normText(removeAnnotations(String(inf)));
+            if (searchMode === "exact") return norm === q;
+            if (searchMode === "prefix") return norm.startsWith(q);
+            return norm.includes(q);
           });
         } catch (e) {
           matchInflection = false;
@@ -2122,10 +2156,10 @@ function performSearch() {
       let matchVariants1 = false;
       if (data.variants1) {
         matchVariants1 = data.variants1.some(v => {
-          const cleaned = removeAnnotations(v).toLowerCase();
-          if (searchMode === "exact") return cleaned === searchTerm;
-          if (searchMode === "prefix") return cleaned.startsWith(searchTerm);
-          return cleaned.includes(searchTerm);
+          const cleaned = normText(removeAnnotations(v));
+          if (searchMode === "exact") return cleaned === q;
+          if (searchMode === "prefix") return cleaned.startsWith(q);
+          return cleaned.includes(q);
         });
       }
       return matchVariants1;
@@ -2159,7 +2193,7 @@ function performSearch() {
     // 完全一致は必ず一番上に表示する（前方・部分一致検索時も）
     const isExactMatch = (w) => {
       const d = getEntry(w);
-      return d && d._normKey === normalizedSearch;
+      return d && keyOf(d) === q;
     };
     primaryResults.sort((a, b) => {
       const aExact = isExactMatch(a) ? 0 : 1;
@@ -2183,14 +2217,14 @@ function performSearch() {
       if (!d) return false;
 
       // 正規化済みの縫読み・智読みテキスト（空文字でも扱う）
-      const krText = (d._normKanjiReadings || "").trim();
+      const krText = krOf(d).trim();
       if (!krText) return false;
 
       // トークン化（空白で分割）
       const tokens = krText.split(/\s+/);
 
       // 常に完全一致（トークンのどれかが検索語と完全一致するか）
-      return tokens.some(t => t === normalizedSearch);
+      return tokens.some(t => t === q);
     });
 
     const useVariantOnly = safeSearch
