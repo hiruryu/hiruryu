@@ -67,7 +67,7 @@
   "u-": {"id":83,"safe":true,"seii":["L"],"word":"u","tag":["古智語","接頭辞"],"parts":"接辞","meaning":["これ","この〜"],"pronunciation":["/u/<br>[ʊ]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["此れ","此の"]},
   "a-": {"id":84,"safe":true,"seii":["L"],"word":"a","tag":["古智語","接頭辞"],"parts":"接辞","meaning":["それ","その〜"],"pronunciation":["/a/<br>[ə]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["其れ","其の"]},
   "i-": {"id":85,"safe":true,"seii":["L"],"word":"i","tag":["古智語","接頭辞"],"parts":"接辞","meaning":["あれ","あの〜"],"pronunciation":["/∅ʲi/<br>[∅ʲɪ]"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["彼れ","彼の"]},
-  "pásta": {"id":100,"safe":true,"seii":["HL"],"word":"pasta","tag":["古智語"],"parts":"派生接辞","meaning":["1"],"pronunciation":["/pásta/<br>[pɑstə]"],"etymology":{"intro":["変成体。","形成の根拠は不明。"],"changes":[]},"variants2":["1"]}
+  "pásta": {"id":100,"safe":true,"seii":["HL"],"word":"pasta","tag":["古智語"],"parts":"派生接辞","meaning":["1"],"pronunciation":["/pásta/<br>[pɑstə]"],"etymology":{"intro":["変成体。","形成の根拠は不明。"],"changes":[]},"variants2":["1"]},
   
   "-vy": {"id":249,"safe":true,"word":"vy","tag":["派生接尾辞","名飾化"],"parts":"派生接辞","meaning":["〜に関する","〜的な","〜属性の"],"pronunciation":["/vʲ/<br>[vʲ]"],"etymology":{"intro":["変成体。","「 c:86 」が訛った語。"],"changes":[]},"variants2":["てきな","vy"]}
 
