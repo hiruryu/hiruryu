@@ -20168,8 +20168,8 @@
       "食器"
     ],
     "parts": "名象",
-    "type": "n 基本型",
-    "ruletype": "n",
+    "type": "n 終了型",
+    "ruletype": "ni",
     "meaning": [
       "（ ガラスの ）ボトル、瓶、ビン。"
     ],

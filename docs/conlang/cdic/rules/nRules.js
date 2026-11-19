@@ -129,6 +129,14 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   // o/u→a と ö→ue の両方を適用した完全弱化形（呼格用）。
   stem2w = stem2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
   stem2jui = (stem2 ?? "").replace(/j[ou]/, 'y');
+  // 子音終了形の複数基底：語末子音の直前の母音に i を挿入する（口蓋化）。
+  // aC/eC/yC/oC/uC/öC/ëC → aiC/eiC/yiC/oiC/uiC/öiC/ëiC（アクセント付き母音も同様）。
+  // i は含めない（iC は既に明音化しているため）。子音群の前でも母音の直後に挿入する。
+  const palatalizeCoda = (s) => (s ?? "").replace(/([aeouyöëáéóúö́ë́])([^aeiouyöëáéóúö́ë́í]+)$/, "$1i$2");
+  // p/b/d/g の有気音化（子音で始まる接辞の前：ph/bh/dh/gh）。
+  const aspiratePlosive = (s) => (s ?? "").replace(/([pbdg])$/, (m) => ({ p: "ph", b: "bh", d: "dh", g: "gh" })[m]);
+  // k → g（m の前）。
+  const kToG = (s) => (s ?? "").replace(/k$/, "g");
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
   // 呼格複数形用の弱化した複数基底（ó/ú → a）。接辞 ra/la/ga には o/u がないので全体の置換でよい。
   anpC2ua = anpC2.replace(/[ou]/g, 'a');
@@ -407,6 +415,186 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       in_anpC: anpCq.slice(0, -1) + in_fx,
     }
 
+    // 子音終了形（2026-11-19、みゅら提案）：語末子音の直前の母音を口蓋化して複数を作る。
+    // f/v/s/z/c/x/sh/zh/ch/xh/h 終了型（子音＋i のどれでも同じ分岐）
+  } else if (["fi", "vi", "si", "zi", "ci", "xi", "shi", "zhi", "chi", "xhi", "hi"].includes(ruletype)) {
+    const P = palatalizeCoda(stem);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "fa",
+      e_ansC: stem + "ka",
+      d_ansC: stem + "la",
+      g_ansC: P,
+      l_ansC: stem + "ma",
+      i_ansC: stem + "as",
+      v_ansC: "a " + ansCBase,
+      in_ansC: P + "te",
+      // 複数形
+      anpC: P,
+      f_anpC: P + "fe",
+      e_anpC: P + "che",
+      d_anpC: P + "le",
+      g_anpC: P + "e",
+      l_anpC: P + "me",
+      i_anpC: P + "ias",
+      v_anpC: "a " + P,
+      in_anpC: P + "ete",
+    };
+    // m/q 終了型（子音終了形、mi・qi のどちらでも同じ分岐）
+  } else if (["mi", "qi"].includes(ruletype)) {
+    const P = palatalizeCoda(stem);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "fa",
+      e_ansC: stem + "ka",
+      d_ansC: stem + "hla",
+      g_ansC: P,
+      l_ansC: stem + "ma",
+      i_ansC: stem + "as",
+      v_ansC: "a " + ansCBase,
+      in_ansC: P + "te",
+      // 複数形
+      anpC: P,
+      f_anpC: P + "fe",
+      e_anpC: P + "che",
+      d_anpC: P + "hle",
+      g_anpC: P + "e",
+      l_anpC: P + "me",
+      i_anpC: P + "ias",
+      v_anpC: "a " + P,
+      in_anpC: P + "ete",
+    };
+    // n 終了型（子音終了形）
+  } else if (["ni"].includes(ruletype)) {
+    const P = palatalizeCoda(stem);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "fa",
+      e_ansC: stem + "ka",
+      d_ansC: stem + "la",
+      g_ansC: P,
+      l_ansC: stem + "ma",
+      i_ansC: stem + "as",
+      v_ansC: "a " + ansCBase,
+      in_ansC: P + "te",
+      // 複数形
+      anpC: P,
+      f_anpC: P + "fe",
+      e_anpC: P + "che",
+      d_anpC: P + "le",
+      g_anpC: P + "e",
+      l_anpC: P + "me",
+      i_anpC: P + "ias",
+      v_anpC: "a " + P,
+      in_anpC: P + "ete",
+    };
+    // l 終了型（子音終了形）
+  } else if (["li"].includes(ruletype)) {
+    const P = palatalizeCoda(stem);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "fa",
+      e_ansC: stem.slice(0, -1) + "kka",
+      d_ansC: stem + "la",
+      g_ansC: P,
+      l_ansC: stem + "ma",
+      i_ansC: stem + "as",
+      v_ansC: "a " + ansCBase,
+      in_ansC: P.slice(0, -1) + "tte",
+      // 複数形
+      anpC: P,
+      f_anpC: P + "fe",
+      e_anpC: P.slice(0, -1) + "cche",
+      d_anpC: P + "le",
+      g_anpC: P + "e",
+      l_anpC: P + "me",
+      i_anpC: P + "ias",
+      v_anpC: "a " + P,
+      in_anpC: P + "ete",
+    };
+    // p/b/d/g 終了型（子音終了形）
+  } else if (["pi"].includes(ruletype)) {
+    const P = palatalizeCoda(stem);
+    const SA = aspiratePlosive(stem);
+    const PA = aspiratePlosive(P);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: SA + "fa",
+      e_ansC: SA + "ka",
+      d_ansC: SA + "la",
+      g_ansC: P,
+      l_ansC: SA + "ma",
+      i_ansC: stem + "as",
+      v_ansC: "a " + ansCBase,
+      in_ansC: PA + "te",
+      // 複数形
+      anpC: P,
+      f_anpC: PA + "fe",
+      e_anpC: PA + "che",
+      d_anpC: PA + "le",
+      g_anpC: P + "e",
+      l_anpC: PA + "me",
+      i_anpC: P + "ias",
+      v_anpC: "a " + P,
+      in_anpC: P + "ete",
+    };
+    // t 終了型（子音終了形）
+  } else if (["ti"].includes(ruletype)) {
+    const P = palatalizeCoda(stem);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "fa",
+      e_ansC: stem + "ka",
+      d_ansC: stem + "hla",
+      g_ansC: P,
+      l_ansC: stem + "ma",
+      i_ansC: stem + "as",
+      v_ansC: "a " + ansCBase,
+      in_ansC: P + "te",
+      // 複数形
+      anpC: P,
+      f_anpC: P + "fe",
+      e_anpC: P + "che",
+      d_anpC: P + "hle",
+      g_anpC: P + "e",
+      l_anpC: P + "me",
+      i_anpC: P + "ias",
+      v_anpC: "a " + P,
+      in_anpC: P + "ete",
+    };
+    // k 終了型（子音終了形）
+  } else if (["ki"].includes(ruletype)) {
+    const P = palatalizeCoda(stem);
+    const SG = kToG(stem);
+    const PG = kToG(P);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "fa",
+      e_ansC: stem + "ka",
+      d_ansC: stem + "la",
+      g_ansC: P,
+      l_ansC: SG + "ma",
+      i_ansC: stem + "as",
+      v_ansC: "a " + ansCBase,
+      in_ansC: P + "hte",
+      // 複数形
+      anpC: P,
+      f_anpC: P + "fe",
+      e_anpC: P + "che",
+      d_anpC: P + "le",
+      g_anpC: P + "e",
+      l_anpC: PG + "me",
+      i_anpC: P + "ias",
+      v_anpC: "a " + P,
+      in_anpC: P + "ete",
+    };
     // a 尾高形
   } else if (["á"].includes(ruletype)) {
     return {
