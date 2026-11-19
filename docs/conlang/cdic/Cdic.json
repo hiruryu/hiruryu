@@ -202,8 +202,8 @@
       "星名"
     ],
     "parts": "名象",
-    "type": "h 基本型",
-    "ruletype": "h",
+    "type": "hj 終了型",
+    "ruletype": "hji",
     "meaning": [
       "ノーシア。"
     ],
@@ -237,8 +237,8 @@
       "星名"
     ],
     "parts": "名象",
-    "type": "h 基本型",
-    "ruletype": "h",
+    "type": "hj 終了型",
+    "ruletype": "hji",
     "meaning": [
       "ミーシア。"
     ],
@@ -5327,8 +5327,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "l 基本型",
-    "ruletype": "l",
+    "type": "l 終了型",
+    "ruletype": "li",
     "meaning": [
       "羊の群れ。"
     ],
@@ -5801,8 +5801,8 @@
       "菓子"
     ],
     "parts": "名象",
-    "type": "t 基本型",
-    "ruletype": "t",
+    "type": "tj 終了型",
+    "ruletype": "tji",
     "meaning": [
       "アイス、氷菓子。"
     ],
@@ -7557,8 +7557,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "l 基本型",
-    "ruletype": "l",
+    "type": "l 終了型",
+    "ruletype": "li",
     "meaning": [
       "闇。"
     ],
@@ -7912,8 +7912,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "t 基本型",
-    "ruletype": "t",
+    "type": "t 終了型",
+    "ruletype": "ti",
     "meaning": [
       "ブドウ糖。"
     ],
@@ -9740,8 +9740,8 @@
     "fix": "ũgal-",
     "tag": "部首",
     "parts": "名象",
-    "type": "l 基本型",
-    "ruletype": "l",
+    "type": "l 終了型",
+    "ruletype": "li",
     "meaning": [
       "王、王様、キング。",
       "王将",
@@ -12094,8 +12094,8 @@
       "数"
     ],
     "parts": "名象",
-    "type": "ch 基本形",
-    "ruletype": "i",
+    "type": "ch 終了型",
+    "ruletype": "chi",
     "meaning": [
       "双数。"
     ],
@@ -12387,8 +12387,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "f 基本型",
-    "ruletype": "f",
+    "type": "f 終了型",
+    "ruletype": "fi",
     "meaning": [
       "におい、匂い、香り。"
     ],
@@ -13249,8 +13249,8 @@
       "音楽"
     ],
     "parts": "名象",
-    "type": "l 基本型",
-    "ruletype": "l",
+    "type": "l 終了型",
+    "ruletype": "li",
     "meaning": [
       "音階。"
     ],
@@ -14736,8 +14736,8 @@
     "fix": "savlaz-",
     "tag": "言語学",
     "parts": "名象",
-    "type": "z 基本型",
-    "ruletype": "z",
+    "type": "z 終了型",
+    "ruletype": "zi",
     "meaning": [
       "連音、リエゾン。"
     ],
@@ -18734,8 +18734,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "l 基本型",
-    "ruletype": "l",
+    "type": "l 終了型",
+    "ruletype": "li",
     "meaning": [
       "単位。"
     ],
@@ -18767,8 +18767,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "l 基本型",
-    "ruletype": "l",
+    "type": "l 終了型",
+    "ruletype": "li",
     "meaning": [
       "単音。"
     ],
@@ -18800,8 +18800,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "k 基本型",
-    "ruletype": "k",
+    "type": "k 終了型",
+    "ruletype": "ki",
     "meaning": [
       "単数。"
     ],
@@ -18833,8 +18833,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "k 基本型",
-    "ruletype": "k",
+    "type": "k 終了型",
+    "ruletype": "ki",
     "meaning": [
       "原作。"
     ],
@@ -21898,8 +21898,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "t 基本型",
-    "ruletype": "t",
+    "type": "t 終了型",
+    "ruletype": "ti",
     "meaning": [
       "貝。"
     ],
@@ -31188,8 +31188,8 @@
     "stem": "bádũm",
     "stem2": "badũm",
     "fix": "badũm-",
-    "type": "m 基本型",
-    "ruletype": "m",
+    "type": "m 終了型",
+    "ruletype": "mi",
     "tag": [
       "身体器官",
       "部首"
@@ -31504,8 +31504,8 @@
     "stem": "tylút",
     "stem2": "tylut",
     "fix": "tylat-",
-    "type": "t 基本型",
-    "ruletype": "t",
+    "type": "t 終了型",
+    "ruletype": "ti",
     "tag": [
       "ー"
     ],
@@ -34314,8 +34314,8 @@
     "stem": "limík",
     "stem2": "limik",
     "fix": "limik-",
-    "type": "k 明音型",
-    "ruletype": "kj",
+    "type": "kj 終了型",
+    "ruletype": "kji",
     "tag": [
       "ー"
     ],
@@ -42168,7 +42168,7 @@
       "食器"
     ],
     "parts": "名象",
-    "type": "l 基本型",
+    "type": "l 終了型",
     "meaning": [
       "ガラス皿。"
     ],
@@ -42180,7 +42180,7 @@
       "ガラスざら",
       "硝子皿"
     ],
-    "ruletype": "l",
+    "ruletype": "li",
     "etymology": {
       "intro": [
         "合成語。",
@@ -42203,7 +42203,7 @@
       "食器"
     ],
     "parts": "名象",
-    "type": "m 基本型",
+    "type": "m 終了型",
     "meaning": [
       "ガラスコップ。"
     ],
@@ -42214,7 +42214,7 @@
       "がらすこっぷ",
       "グラス"
     ],
-    "ruletype": "m",
+    "ruletype": "mi",
     "etymology": {
       "intro": [
         "合成語。",
@@ -46345,7 +46345,7 @@
       "料理名"
     ],
     "parts": "名象",
-    "type": "n 基本型",
+    "type": "n 終了型",
     "meaning": [
       "（ 果物などと共に炊くことで、甘く味付けされた米 ）プイミャン。"
     ],
@@ -46355,7 +46355,7 @@
     "variants2": [
       "菓粓"
     ],
-    "ruletype": "n",
+    "ruletype": "ni",
     "etymology": {
       "intro": [
         "合成語。",

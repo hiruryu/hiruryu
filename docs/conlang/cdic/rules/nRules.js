@@ -132,11 +132,13 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   // 子音終了形の複数基底：語末子音の直前の母音に i を挿入する（口蓋化）。
   // aC/eC/yC/oC/uC/öC/ëC → aiC/eiC/yiC/oiC/uiC/öiC/ëiC（アクセント付き母音も同様）。
   // i は含めない（iC は既に明音化しているため）。子音群の前でも母音の直後に挿入する。
-  const palatalizeCoda = (s) => (s ?? "").replace(/([aeouyöëáéóúö́ë́])([^aeiouyöëáéóúö́ë́í]+)$/, "$1i$2");
+  const palatalizeCoda = (s) => (s ?? "").replace(/([aeouyöëũáéóúö́ë́])([^aeiouyöëũáéóúö́ë́í]+)$/, "$1i$2");
   // p/b/d/g の有気音化（子音で始まる接辞の前：ph/bh/dh/gh）。
   const aspiratePlosive = (s) => (s ?? "").replace(/([pbdg])$/, (m) => ({ p: "ph", b: "bh", d: "dh", g: "gh" })[m]);
   // k → g（m の前）。
   const kToG = (s) => (s ?? "").replace(/k$/, "g");
+  // k → ch（口蓋化子音終了形の複数基底）。
+  const kToCh = (s) => (s ?? "").replace(/k$/, "ch");
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
   // 呼格複数形用の弱化した複数基底（ó/ú → a）。接辞 ra/la/ga には o/u がないので全体の置換でよい。
   anpC2ua = anpC2.replace(/[ou]/g, 'a');
@@ -594,6 +596,179 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       i_anpC: P + "ias",
       v_anpC: "a " + P,
       in_anpC: P + "ete",
+    };
+    // 口蓋化子音終了形（2026-11-19、みゅら提案）：iC・aiC/eiC/oiC/uiC/öiC/ëiC・Cj で終わる名象。
+    // 末尾子音は既に口蓋化しているため、複数は stem＋e を基底にする。stem の母音変換なし。
+    // f/v/s/z/c/x/sh/zh/ch/xh/h 終了型（子音＋ji のどれでも同じ分岐）
+  } else if (["fji", "vji", "sji", "zji", "cji", "xji", "shji", "zhji", "chji", "xhji", "hji"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "syk",
+      e_ansC: stem + "yk",
+      d_ansC: stem + "le",
+      g_ansC: stem,
+      l_ansC: stem + "me",
+      i_ansC: stem + "ies",
+      v_ansC: "a " + ansCBase,
+      in_ansC: stem + "te",
+      // 複数形
+      anpC: stem + "e",
+      f_anpC: stem + "sigh",
+      e_anpC: stem + "eigh",
+      d_anpC: stem + "yl",
+      g_anpC: stem + "ey",
+      l_anpC: stem + "em",
+      i_anpC: stem + "as",
+      v_anpC: "a " + stem + "e",
+      in_anpC: stem + "eyta",
+    };
+    // m/q 終了型（口蓋化子音終了形、mji・qji のどちらでも同じ分岐）
+  } else if (["mji", "qji"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "syk",
+      e_ansC: stem + "yk",
+      d_ansC: stem + "hle",
+      g_ansC: stem,
+      l_ansC: stem + "me",
+      i_ansC: stem + "ies",
+      v_ansC: "a " + ansCBase,
+      in_ansC: stem + "te",
+      // 複数形
+      anpC: stem + "e",
+      f_anpC: stem + "sigh",
+      e_anpC: stem + "eigh",
+      d_anpC: stem + "yl",
+      g_anpC: stem + "ey",
+      l_anpC: stem + "em",
+      i_anpC: stem + "as",
+      v_anpC: "a " + stem + "e",
+      in_anpC: stem + "eyta",
+    };
+    // n 終了型（口蓋化子音終了形）
+  } else if (["nji"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "syk",
+      e_ansC: stem + "yk",
+      d_ansC: stem + "le",
+      g_ansC: stem,
+      l_ansC: stem + "me",
+      i_ansC: stem + "ies",
+      v_ansC: "a " + ansCBase,
+      in_ansC: stem + "te",
+      // 複数形
+      anpC: stem + "e",
+      f_anpC: stem + "sigh",
+      e_anpC: stem + "eigh",
+      d_anpC: stem + "yl",
+      g_anpC: stem + "ey",
+      l_anpC: stem + "em",
+      i_anpC: stem + "as",
+      v_anpC: "a " + stem + "e",
+      in_anpC: stem + "eyta",
+    };
+    // l 終了型（口蓋化子音終了形）
+  } else if (["lji"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem.slice(0, -1) + "ssyk",
+      e_ansC: stem + "yk",
+      d_ansC: stem + "le",
+      g_ansC: stem,
+      l_ansC: stem + "me",
+      i_ansC: stem + "ies",
+      v_ansC: "a " + ansCBase,
+      in_ansC: stem.slice(0, -1) + "tte",
+      // 複数形
+      anpC: stem + "e",
+      f_anpC: stem.slice(0, -1) + "ssigh",
+      e_anpC: stem + "eigh",
+      d_anpC: stem + "yl",
+      g_anpC: stem + "ey",
+      l_anpC: stem + "em",
+      i_anpC: stem + "as",
+      v_anpC: "a " + stem + "e",
+      in_anpC: stem + "eyta",
+    };
+    // p/b/d/g 終了型（口蓋化子音終了形、有気音化あり）
+  } else if (["pji", "bji", "dji", "gji"].includes(ruletype)) {
+    const SA = aspiratePlosive(stem);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: SA + "syk",
+      e_ansC: stem + "yk",
+      d_ansC: SA + "le",
+      g_ansC: stem,
+      l_ansC: SA + "me",
+      i_ansC: stem + "ies",
+      v_ansC: "a " + ansCBase,
+      in_ansC: SA + "te",
+      // 複数形
+      anpC: SA + "e",
+      f_anpC: SA + "sigh",
+      e_anpC: SA + "eigh",
+      d_anpC: stem + "yl",
+      g_anpC: stem + "ey",
+      l_anpC: SA + "em",
+      i_anpC: stem + "as",
+      v_anpC: "a " + SA + "e",
+      in_anpC: stem + "eyta",
+    };
+    // t 終了型（口蓋化子音終了形）
+  } else if (["tji"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "syk",
+      e_ansC: stem + "yk",
+      d_ansC: stem + "hle",
+      g_ansC: stem,
+      l_ansC: stem + "hme",
+      i_ansC: stem + "ies",
+      v_ansC: "a " + ansCBase,
+      in_ansC: stem + "te",
+      // 複数形
+      anpC: stem + "e",
+      f_anpC: stem + "sigh",
+      e_anpC: stem + "eigh",
+      d_anpC: stem + "yl",
+      g_anpC: stem + "ey",
+      l_anpC: stem + "em",
+      i_anpC: stem + "as",
+      v_anpC: "a " + stem + "e",
+      in_anpC: stem + "eyta",
+    };
+    // k 終了型（口蓋化子音終了形）
+  } else if (["kji"].includes(ruletype)) {
+    const SG = kToG(stem);
+    const SC = kToCh(stem);
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + "syk",
+      e_ansC: stem + "yk",
+      d_ansC: stem + "le",
+      g_ansC: stem,
+      l_ansC: SG + "me",
+      i_ansC: stem + "ies",
+      v_ansC: "a " + ansCBase,
+      in_ansC: stem + "hte",
+      // 複数形
+      anpC: SC + "e",
+      f_anpC: stem + "sigh",
+      e_anpC: SC + "eigh",
+      d_anpC: stem + "yl",
+      g_anpC: SC + "ey",
+      l_anpC: SC + "em",
+      i_anpC: stem + "as",
+      v_anpC: "a " + SC + "e",
+      in_anpC: SC + "eyta",
     };
     // a 尾高形
   } else if (["á"].includes(ruletype)) {
