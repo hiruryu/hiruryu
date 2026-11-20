@@ -863,15 +863,15 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       v_ansC: stem2w + v_fxo,
       in_ansC: stem + in_fxo,
       // 複数形
-      anpC: anpCo,
-      f_anpC: anpCo.slice(0, -1) + f_fx,
-      e_anpC: anpCo.slice(0, -1) + e_fx,
-      d_anpC: anpCo.slice(0, -1) + d_fx,
-      l_anpC: anpCo.slice(0, -1) + l_fx,
-      i_anpC: anpCo.slice(0, -1) + i_fx,
-      g_anpC: anpCo.slice(0, -1) + g_fx,
-      v_anpC: anpCo2w.slice(0, -1) + v_fx,
-      in_anpC: anpCo.slice(0, -1) + in_fx,
+      anpC: stem + "ro",
+      f_anpC: anpCo.slice(0, -1) + f_fxo,
+      e_anpC: anpCo.slice(0, -1) + e_fxo,
+      d_anpC: anpCo.slice(0, -1) + d_fxo,
+      l_anpC: anpCo.slice(0, -1) + l_fxo,
+      i_anpC: anpCo.slice(0, -1) + i_fxo,
+      g_anpC: anpCo.slice(0, -1) + g_fxo,
+      v_anpC: anpCo2w.slice(0, -1) + v_fxo,
+      in_anpC: anpCo.slice(0, -1) + in_fxo,
     }
 
     // lo 基本形
@@ -888,15 +888,116 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       v_ansC: stem2w + v_fxo,
       in_ansC: stem + in_fxo,
       // 複数形
-      anpC: anpCl,
-      f_anpC: anpCl.slice(0, -1) + f_fx,
-      e_anpC: anpCl.slice(0, -1) + e_fx,
-      d_anpC: anpCl.slice(0, -1) + d_fx,
-      l_anpC: anpCl.slice(0, -1) + l_fx,
-      i_anpC: anpCl.slice(0, -1) + i_fx,
-      g_anpC: anpCl.slice(0, -1) + g_fx,
-      v_anpC: vAnpCFromBase ?? stem2w + "l" + v_fx,
-      in_anpC: anpCl.slice(0, -1) + in_fx,
+      anpC: stem + "lo",
+      f_anpC: anpCl.slice(0, -1) + f_fxo,
+      e_anpC: anpCl.slice(0, -1) + e_fxo,
+      d_anpC: anpCl.slice(0, -1) + d_fxo,
+      l_anpC: anpCl.slice(0, -1) + l_fxo,
+      i_anpC: anpCl.slice(0, -1) + i_fxo,
+      g_anpC: anpCl.slice(0, -1) + g_fxo,
+      v_anpC: vAnpCFromBase ?? stem2w + "l" + v_fxo,
+      in_anpC: anpCl.slice(0, -1) + in_fxo,
+    }
+
+
+    // no 基本形（n 語幹の o 終わり名詞：複数形 -do）
+  } else if (["no"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + f_fxo,
+      e_ansC: stem + e_fxo,
+      d_ansC: stem + d_fxo,
+      l_ansC: stem + l_fxo,
+      i_ansC: stem + i_fxo,
+      g_ansC: stem + g_fxo,
+      v_ansC: stem2w + v_fxo,
+      in_ansC: stem + in_fxo,
+      // 複数形
+      anpC: stem + "do",
+      f_anpC: (stem + "d") + f_fxo,
+      e_anpC: (stem + "d") + e_fxo,
+      d_anpC: (stem + "d") + d_fxo,
+      l_anpC: (stem + "d") + l_fxo,
+      i_anpC: (stem + "d") + i_fxo,
+      g_anpC: (stem + "d") + g_fxo,
+      v_anpC: vAnpCFromBase ?? stem2w + "d" + v_fxo,
+      in_anpC: (stem + "d") + in_fxo,
+    }
+
+    // mo 基本形（m/q 語幹の o 終わり名詞：複数形 -hro）
+  } else if (["mo", "qo"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + f_fxo,
+      e_ansC: stem + e_fxo,
+      d_ansC: stem + d_fxo,
+      l_ansC: stem + l_fxo,
+      i_ansC: stem + i_fxo,
+      g_ansC: stem + g_fxo,
+      v_ansC: stem2w + v_fxo,
+      in_ansC: stem + in_fxo,
+      // 複数形
+      anpC: stem + "hro",
+      f_anpC: (stem + "hr") + f_fxo,
+      e_anpC: (stem + "hr") + e_fxo,
+      d_anpC: (stem + "hr") + d_fxo,
+      l_anpC: (stem + "hr") + l_fxo,
+      i_anpC: (stem + "hr") + i_fxo,
+      g_anpC: (stem + "hr") + g_fxo,
+      v_anpC: vAnpCFromBase ?? stem2w + "hr" + v_fxo,
+      in_anpC: (stem + "hr") + in_fxo,
+    }
+
+    // n/m 複子音型（語幹末が子音連続の名詞：複数形は弱化語幹＋ -ára）
+  } else if (["na", "ma"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + f_fx,
+      e_ansC: stem + e_fx,
+      d_ansC: stem + d_fx,
+      l_ansC: stem + l_fx,
+      i_ansC: stem + i_fx,
+      g_ansC: stem + g_fx,
+      v_ansC: stem2w + v_fx,
+      in_ansC: stem + in_fx,
+      // 複数形（弱化語幹 stem2w＋"ára"。アクセントが á に移るため語幹母音は弱化：júgn→jagn）
+      anpC: stem2w + "ára",
+      f_anpC: (stem2w + "ár") + f_fx,
+      e_anpC: (stem2w + "ár") + e_fx,
+      d_anpC: (stem2w + "ár") + d_fx,
+      l_anpC: (stem2w + "ár") + l_fx,
+      i_anpC: (stem2w + "ár") + i_fx,
+      g_anpC: (stem2w + "ár") + g_fx,
+      v_anpC: vAnpCFromBase ?? stem2w + "ár" + v_fx,
+      in_anpC: (stem2w + "ár") + in_fx,
+    }
+
+    // no 複子音型（語幹末が子音連続の no 語幹名詞：複数形 -óra）
+  } else if (["noa"].includes(ruletype)) {
+    return {
+      // 単数形
+      ansC: ansCBase,
+      f_ansC: stem + f_fxo,
+      e_ansC: stem + e_fxo,
+      d_ansC: stem + d_fxo,
+      l_ansC: stem + l_fxo,
+      i_ansC: stem + i_fxo,
+      g_ansC: stem + g_fxo,
+      v_ansC: stem2w + v_fxo,
+      in_ansC: stem + in_fxo,
+      // 複数形（弱化語幹 stem2w＋"óra"。アクセントが ó に移るため語幹母音は弱化：Chéssn→Chessn）
+      anpC: stem2w + "óra",
+      f_anpC: (stem2w + "ór") + f_fxo,
+      e_anpC: (stem2w + "ór") + e_fxo,
+      d_anpC: (stem2w + "ór") + d_fxo,
+      l_anpC: (stem2w + "ór") + l_fxo,
+      i_anpC: (stem2w + "ór") + i_fxo,
+      g_anpC: (stem2w + "ór") + g_fxo,
+      v_anpC: vAnpCFromBase ?? stem2w + "ór" + v_fxo,
+      in_anpC: (stem2w + "ór") + in_fxo,
     }
 
     // ũ 基本形

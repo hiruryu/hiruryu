@@ -1191,7 +1191,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
     }
 
     // 母音終了
-  } else if (["a", "e", "i", "o", "u", "ui"].includes(ruletype)) {
+  } else if (["a", "e", "i", "o", "u", "ö", "ë"].includes(ruletype)) {
     // 母音終了型の s2/s3/p2/p3：語幹末母音と接辞の母音連続を避ける。
     // s2/s3 は j を挿入（qja + ála → qjajála）、p2/p3 は語幹末母音を落とす（qja + árva → qjárva）。
     const s2v = /[aeiouöëáéóú]$/.test(stem2ua) ? stem2ua + "j" + "ála" : s2;
@@ -1296,12 +1296,12 @@ function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
     out[k] = typeof v === "string" ? v.replace(/tl/g, "ll").replace(/dl/g, "ll").replace(/lr/g, "ll") : v;
   }
   // 副飾形（2026-11-14、みゅら指定）。stem2＋接辞。
-  // p/b/t/d/k/g/m/q 型（明音型含む）は -ú と -hú の2形。母音終了型（a/e/i/o/u/ui）は -vú。それ以外は -ú。
+  // p/b/t/d/k/g/m/q 型（明音型含む）は -ú と -hú の2形。母音終了型（a/e/i/o/u/ö/ë）は -vú。それ以外は -ú。
   if (Object.keys(out).length > 0 && stem2 != null && stem2 !== "") {
     const s2 = stem2;
     if (["p", "b", "t", "d", "k", "g", "m", "q", "pj", "bj", "tj", "dj", "kj", "gj", "mj", "qj"].includes(ruletype)) {
       out.adv = s2 + "ú<br>" + s2 + "hú";
-    } else if (["a", "e", "i", "o", "u", "ui"].includes(ruletype)) {
+    } else if (["a", "e", "i", "o", "u", "ö", "ë"].includes(ruletype)) {
       out.adv = s2 + "vú";
     } else {
       out.adv = s2 + "ú";

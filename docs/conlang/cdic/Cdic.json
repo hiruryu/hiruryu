@@ -851,8 +851,8 @@
    "プルフカの地名"
   ],
   "parts": "名象",
-  "type": "no 基本型",
-  "ruletype": "no",
+  "type": "no 複子音型",
+  "ruletype": "noa",
   "meaning": [
    "チェルスノー。"
   ],
@@ -1937,8 +1937,8 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "o 基本型",
-  "ruletype": "o",
+  "type": "no 基本型",
+  "ruletype": "no",
   "meaning": [
    "木、樹木。"
   ],
@@ -5545,7 +5545,7 @@
   ],
   "parts": "名象",
   "type": "s 基本型",
-  "ruletype": "ss",
+  "ruletype": "s",
   "meaning": [
    "（ 地球の ）草。"
   ],
@@ -7992,7 +7992,7 @@
   ],
   "parts": "名象",
   "type": "m 複子音型",
-  "ruletype": "n",
+  "ruletype": "ma",
   "meaning": [
    "男性、男"
   ],
@@ -9787,8 +9787,8 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "k 基本型",
-  "ruletype": "k",
+  "type": "ko 基本型",
+  "ruletype": "ko",
   "meaning": [
    "服、衣服。"
   ],
@@ -11418,8 +11418,8 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "l 基本型",
-  "ruletype": "l",
+  "type": "lo 基本型",
+  "ruletype": "lo",
   "meaning": [
    "毛皮。"
   ],
@@ -15158,7 +15158,7 @@
   ],
   "parts": "名象",
   "type": "n 複子音型",
-  "ruletype": "n",
+  "ruletype": "na",
   "meaning": [
    "文字、字。"
   ],
@@ -16735,7 +16735,7 @@
   ],
   "parts": "名象",
   "type": "n 複子音型",
-  "ruletype": "n",
+  "ruletype": "na",
   "meaning": [
    "蓋、ふた。"
   ],
@@ -20926,108 +20926,6 @@
    "wait"
   ]
  },
- "ut": {
-  "id": 676,
-  "safe": true,
-  "seii": [
-   "L"
-  ],
-  "word": "ut",
-  "stem": "ut",
-  "stem2": "ut",
-  "fix": "ut-",
-  "tag": [
-   "指示"
-  ],
-  "parts": "名飾",
-  "type": "不変化型",
-  "ruletype": "not",
-  "meaning": [
-   "この。"
-  ],
-  "pronunciation": [
-   "/ut/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    ""
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "此の",
-   "指示代名飾"
-  ]
- },
- "ati": {
-  "id": 677,
-  "safe": true,
-  "seii": [
-   "L"
-  ],
-  "word": "a",
-  "stem": "a",
-  "stem2": "a",
-  "fix": "a-",
-  "tag": [
-   "指示"
-  ],
-  "parts": "名飾",
-  "type": "不変化型",
-  "ruletype": "not",
-  "meaning": [
-   "その。"
-  ],
-  "pronunciation": [
-   "/a/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    ""
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "其の",
-   "指示代名飾"
-  ]
- },
- "iti": {
-  "id": 678,
-  "safe": true,
-  "seii": [
-   "L"
-  ],
-  "word": "i",
-  "stem": "i",
-  "stem2": "i",
-  "fix": "i-, y-",
-  "tag": [
-   "指示"
-  ],
-  "parts": "名飾",
-  "type": "不変化型",
-  "ruletype": "not",
-  "meaning": [
-   "あの。"
-  ],
-  "pronunciation": [
-   "/∅ʲi/"
-  ],
-  "etymology": {
-   "intro": [
-    "単純語。",
-    ""
-   ],
-   "changes": []
-  },
-  "variants2": [
-   "彼の",
-   "指示代名飾"
-  ]
- },
  "khólo": {
   "id": 685,
   "safe": true,
@@ -22454,8 +22352,8 @@
   "stem": "fét",
   "stem2": "fet",
   "fix": "feto-",
-  "type": "o 基本型",
-  "ruletype": "o",
+  "type": "to 基本型",
+  "ruletype": "to",
   "tag": [
    "ー"
   ],
@@ -24356,7 +24254,7 @@
   "stem2": "mjuaf",
   "fix": "mjafa-",
   "type": "f 基本型",
-  "ruletype": "fia",
+  "ruletype": "f",
   "tag": [
    "ー"
   ],
@@ -24753,8 +24651,7 @@
    "もの",
    "したもの",
    "されたもの",
-   "oika",
-   "eika",
+   "ojka",
    "したこと",
    "されたこと",
    "結果名詞",
@@ -26493,8 +26390,8 @@
   "stem": "láfn",
   "stem2": "lafn",
   "fix": "lafna-",
-  "type": "n 基本型",
-  "ruletype": "n",
+  "type": "n 複子音型",
+  "ruletype": "na",
   "tag": [
    "ー"
   ],
@@ -26695,7 +26592,7 @@
   "stem2": "dexn",
   "fix": "dexna-",
   "type": "n 複子音型",
-  "ruletype": "n",
+  "ruletype": "na",
   "tag": [
    "ー"
   ],
@@ -26728,7 +26625,7 @@
   "stem2": "pisn",
   "fix": "pisna-",
   "type": "n 複子音型",
-  "ruletype": "n",
+  "ruletype": "na",
   "tag": [
    "ー"
   ],
@@ -31382,8 +31279,8 @@
   "stem": "nótt",
   "stem2": "nott",
   "fix": "natto-",
-  "type": "o 基本型",
-  "ruletype": "o",
+  "type": "to 基本型",
+  "ruletype": "to",
   "tag": [
    "ー"
   ],
@@ -32076,7 +31973,7 @@
   "stem2": "navn",
   "fix": "navna-",
   "type": "n 複子音型",
-  "ruletype": "n",
+  "ruletype": "na",
   "tag": [
    "ー"
   ],
@@ -32115,7 +32012,7 @@
   "stem2": "gvefn",
   "fix": "gvefna-",
   "type": "n 複子音型",
-  "ruletype": "n",
+  "ruletype": "na",
   "tag": [
    "ー"
   ],
@@ -32437,8 +32334,8 @@
   "stem": "júgn",
   "stem2": "jugn",
   "fix": "jagna-",
-  "type": "n 基本型",
-  "ruletype": "n",
+  "type": "n 複子音型",
+  "ruletype": "na",
   "tag": [
    "ー"
   ],
@@ -33342,7 +33239,7 @@
   "stem2": "cicn",
   "fix": "cicna-",
   "type": "n 複子音型",
-  "ruletype": "n",
+  "ruletype": "na",
   "tag": [
    "ー"
   ],
@@ -34110,8 +34007,8 @@
   "stem": "lóik",
   "stem2": "loik",
   "fix": "laiko-",
-  "type": "o 基本型",
-  "ruletype": "o",
+  "type": "ko 基本型",
+  "ruletype": "ko",
   "tag": [
    "ー"
   ],
@@ -34195,8 +34092,8 @@
   "stem": "túm",
   "stem2": "tum",
   "fix": "tamo-",
-  "type": "o 基本型",
-  "ruletype": "o",
+  "type": "mo 基本型",
+  "ruletype": "mo",
   "tag": [
    "ー"
   ],
@@ -40982,7 +40879,7 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "o 基本型",
+  "type": "po 基本型",
   "meaning": [
    "たまご。"
   ],
@@ -40993,7 +40890,7 @@
    "卵",
    "玉子"
   ],
-  "ruletype": "o",
+  "ruletype": "po",
   "etymology": {
    "intro": [
     "単純語。",
@@ -41059,7 +40956,7 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "o 基本型",
+  "type": "po 基本型",
   "meaning": [
    "バスボム。"
   ],
@@ -41067,7 +40964,7 @@
    "/sva.dal.ló.po/"
   ],
   "variants2": [],
-  "ruletype": "o",
+  "ruletype": "po",
   "etymology": {
    "intro": [
     "合成語。",
@@ -41784,7 +41681,7 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "l 基本型",
+  "type": "lo 基本型",
   "meaning": [
    "気。"
   ],
@@ -41794,7 +41691,7 @@
   "variants2": [
    "き"
   ],
-  "ruletype": "l",
+  "ruletype": "lo",
   "etymology": {
    "intro": [
     "合成語。",
@@ -42162,7 +42059,7 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "o 基本型",
+  "type": "to 基本型",
   "meaning": [
    "雑巾。"
   ],
@@ -42174,7 +42071,7 @@
    "ボロ布",
    "ぼろぬの"
   ],
-  "ruletype": "o",
+  "ruletype": "to",
   "etymology": {
    "intro": [
     "合成語。",
@@ -44787,7 +44684,7 @@
    "天気"
   ],
   "parts": "名象",
-  "type": "l 基本型",
+  "type": "lo 基本型",
   "meaning": [
    "雷。"
   ],
@@ -44801,7 +44698,7 @@
    "いなずま",
    "サンダー"
   ],
-  "ruletype": "l",
+  "ruletype": "lo",
   "etymology": {
    "intro": [
     "単純語。",
@@ -48402,7 +48299,7 @@
    "指示代名詞"
   ],
   "parts": "名象",
-  "type": "m 基本型",
+  "type": "mo 基本型",
   "meaning": [
    "この時。"
   ],
@@ -48412,7 +48309,7 @@
   "variants2": [
    "このとき"
   ],
-  "ruletype": "m",
+  "ruletype": "mo",
   "etymology": {
    "intro": [
     "合成語。",
@@ -48435,7 +48332,7 @@
    "指示代名詞"
   ],
   "parts": "名象",
-  "type": "m 基本型",
+  "type": "mo 基本型",
   "meaning": [
    "その時。"
   ],
@@ -48445,7 +48342,7 @@
   "variants2": [
    "そのとき"
   ],
-  "ruletype": "m",
+  "ruletype": "mo",
   "etymology": {
    "intro": [
     "合成語。",
@@ -48468,7 +48365,7 @@
    "指示代名詞"
   ],
   "parts": "名象",
-  "type": "m 基本型",
+  "type": "mo 基本型",
   "meaning": [
    "あの時。"
   ],
@@ -48478,7 +48375,7 @@
   "variants2": [
    "あのとき"
   ],
-  "ruletype": "m",
+  "ruletype": "mo",
   "etymology": {
    "intro": [
     "合成語。",
@@ -48501,7 +48398,7 @@
    "疑問"
   ],
   "parts": "名象",
-  "type": "m 基本型",
+  "type": "mo 基本型",
   "meaning": [
    "いつ。"
   ],
@@ -48512,7 +48409,7 @@
    "何時",
    "なんじ"
   ],
-  "ruletype": "m",
+  "ruletype": "mo",
   "etymology": {
    "intro": [
     "合成語。",
@@ -49583,7 +49480,7 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "o 基本型",
+  "type": "to 基本型",
   "meaning": [
    "掛け布団。"
   ],
@@ -49594,7 +49491,7 @@
    "かけふとん",
    "かけぶとん"
   ],
-  "ruletype": "o",
+  "ruletype": "to",
   "etymology": {
    "intro": [
     "合成語。",
@@ -51176,7 +51073,7 @@
    "ー"
   ],
   "parts": "名象",
-  "type": "o 基本型",
+  "type": "ko 基本型",
   "meaning": [
    "墓、墓地。"
   ],
@@ -51187,7 +51084,7 @@
    "はか",
    "ぼち"
   ],
-  "ruletype": "o",
+  "ruletype": "ko",
   "etymology": {
    "intro": [
     "変成語。",
@@ -53196,8 +53093,8 @@
    "/bá.∅ʲa/"
   ],
   "variants2": [
-   "窪む",
-   "凹む"
+   "たに",
+   "バレー"
   ],
   "ruletype": "j",
   "etymology": {
@@ -53205,6 +53102,39 @@
     "単純語。",
     "音象徴「 くぼんだ 」から。",
     "「 1648 」などと同象徴。"
+   ],
+   "changes": []
+  }
+ },
+ "passáta": {
+  "id": 1680,
+  "safe": true,
+  "seii": [
+   "LHL"
+  ],
+  "word": "passáta",
+  "stem": "passát",
+  "stem2": "passat",
+  "fix": "passata-",
+  "tag": [
+   "ー"
+  ],
+  "parts": "名象",
+  "type": "t 基本型",
+  "meaning": [
+   "砂浜。"
+  ],
+  "pronunciation": [
+   "/pas.sá.ta/"
+  ],
+  "variants2": [
+   "すなはま"
+  ],
+  "ruletype": "t",
+  "etymology": {
+   "intro": [
+    "合成語。",
+    "「 659 」+「 385 」が組み合わさった語。"
    ],
    "changes": []
   }
