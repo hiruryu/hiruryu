@@ -476,7 +476,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       ansC: ansCBase,
       f_ansC: stem + "fa",
       e_ansC: stem + "ka",
-      d_ansC: stem + "la",
+      d_ansC: stem + "na",
       g_ansC: P,
       l_ansC: stem + "ma",
       i_ansC: stem + "as",
@@ -486,7 +486,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       anpC: P,
       f_anpC: P + "fe",
       e_anpC: P + "che",
-      d_anpC: P + "le",
+      d_anpC: P + "ne",
       g_anpC: P + "e",
       l_anpC: P + "me",
       i_anpC: P + "ias",
@@ -1025,6 +1025,75 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
       in_anpC: anpCl.slice(0, -1) + in_fx,
     }
 
+  } else if (["mũ"].includes(ruletype)) {
+    return {
+      // 単数形（語＋ m ＋格語尾）
+      ansC: ansCBase,
+      f_ansC: ansCBase + "m" + f_fx,
+      e_ansC: ansCBase + "m" + e_fx,
+      d_ansC: ansCBase + "m" + d_fx,
+      g_ansC: ansCBase + "m" + g_fx,
+      l_ansC: ansCBase + "m" + l_fx,
+      i_ansC: ansCBase + "m" + i_fx,
+      v_ansC: ansCBase + "marh",
+      in_ansC: ansCBase + "m" + in_fx,
+      // 複数形（語＋ b ＋格語尾）
+      anpC: ansCBase + "ba",
+      f_anpC: ansCBase + "b" + f_fx,
+      e_anpC: ansCBase + "b" + e_fx,
+      d_anpC: ansCBase + "b" + d_fx,
+      g_anpC: ansCBase + "b" + g_fx,
+      l_anpC: ansCBase + "b" + l_fx,
+      i_anpC: ansCBase + "b" + i_fx,
+      v_anpC: ansCBase + "barh",
+      in_anpC: ansCBase + "b" + in_fx,
+    }
+  } else if (["nũ"].includes(ruletype)) {
+    return {
+      // 単数形（語＋ n ＋格語尾）
+      ansC: ansCBase,
+      f_ansC: ansCBase + "n" + f_fx,
+      e_ansC: ansCBase + "n" + e_fx,
+      d_ansC: ansCBase + "n" + d_fx,
+      g_ansC: ansCBase + "n" + g_fx,
+      l_ansC: ansCBase + "n" + l_fx,
+      i_ansC: ansCBase + "n" + i_fx,
+      v_ansC: ansCBase + "narh",
+      in_ansC: ansCBase + "n" + in_fx,
+      // 複数形（語＋ d ＋格語尾）
+      anpC: ansCBase + "da",
+      f_anpC: ansCBase + "d" + f_fx,
+      e_anpC: ansCBase + "d" + e_fx,
+      d_anpC: ansCBase + "d" + d_fx,
+      g_anpC: ansCBase + "d" + g_fx,
+      l_anpC: ansCBase + "d" + l_fx,
+      i_anpC: ansCBase + "d" + i_fx,
+      v_anpC: ansCBase + "darh",
+      in_anpC: ansCBase + "d" + in_fx,
+    }
+  } else if (["qũ"].includes(ruletype)) {
+    return {
+      // 単数形（語＋ q ＋格語尾）
+      ansC: ansCBase,
+      f_ansC: ansCBase + "q" + f_fx,
+      e_ansC: ansCBase + "q" + e_fx,
+      d_ansC: ansCBase + "q" + d_fx,
+      g_ansC: ansCBase + "q" + g_fx,
+      l_ansC: ansCBase + "q" + l_fx,
+      i_ansC: ansCBase + "q" + i_fx,
+      v_ansC: ansCBase + "qarh",
+      in_ansC: ansCBase + "q" + in_fx,
+      // 複数形（語＋ igh ＋格語尾）
+      anpC: ansCBase + "igha",
+      f_anpC: ansCBase + "igh" + f_fx,
+      e_anpC: ansCBase + "igh" + e_fx,
+      d_anpC: ansCBase + "igh" + d_fx,
+      g_anpC: ansCBase + "igh" + g_fx,
+      l_anpC: ansCBase + "igh" + l_fx,
+      i_anpC: ansCBase + "igh" + i_fx,
+      v_anpC: ansCBase + "igharh",
+      in_anpC: ansCBase + "igh" + in_fx,
+    }
   } else if (["w"].includes(ruletype)) {
     return {
       // 単数形

@@ -14294,8 +14294,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
-    "ruletype": "ũ",
+    "type": "nũ 基本型",
+    "ruletype": "nũ",
     "meaning": [
       "丸、円、円形、球体。"
     ],
@@ -15421,8 +15421,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
-    "ruletype": "ũ",
+    "type": "mũ 基本型",
+    "ruletype": "mũ",
     "meaning": [
       "呪い。"
     ],
@@ -16032,8 +16032,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
-    "ruletype": "ũ",
+    "type": "qũ 基本型",
+    "ruletype": "qũ",
     "meaning": [
       "窪み、凹み。"
     ],
@@ -16075,8 +16075,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
-    "ruletype": "ũ",
+    "type": "qũ 基本型",
+    "ruletype": "qũ",
     "meaning": [
       "袋、バッグ。"
     ],
@@ -17079,8 +17079,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
-    "ruletype": "ũ",
+    "type": "mũ 基本型",
+    "ruletype": "mũ",
     "meaning": [
       "肉。"
     ],
@@ -17154,8 +17154,8 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
-    "ruletype": "ũ",
+    "type": "qũ 基本型",
+    "ruletype": "qũ",
     "meaning": [
       "骨。"
     ],
@@ -27430,8 +27430,8 @@
     "stem": "qúm",
     "stem2": "qum",
     "fix": "qamũ-",
-    "type": "ũ 基本型",
-    "ruletype": "ũ",
+    "type": "mũ 基本型",
+    "ruletype": "mũ",
     "tag": [
       "陸生"
     ],
@@ -31000,44 +31000,6 @@
       "ちがう"
     ]
   },
-  "bádũm": {
-    "id": 1105,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "bádũm",
-    "stem": "bádũm",
-    "stem2": "badũm",
-    "fix": "badũm-",
-    "type": "m 終了型",
-    "ruletype": "mi",
-    "tag": [
-      "身体器官",
-      "部首"
-    ],
-    "parts": "名象",
-    "meaning": [
-      "心臓、心、ハート。",
-      "（ 肉の部位 ）ハツ。",
-      "（ 部首 ）心。"
-    ],
-    "pronunciation": [
-      "/bá.dNm/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "擬音語「 鼓動の音 」から。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "しんぞう",
-      "こころ",
-      "♡"
-    ]
-  },
   "prjáklas": {
     "id": 1106,
     "safe": true,
@@ -33135,8 +33097,8 @@
     "stem": "rhól",
     "stem2": "rhol",
     "fix": "rhalũ-",
-    "type": "ũ 基本型",
-    "ruletype": "ũ",
+    "type": "nũ 基本型",
+    "ruletype": "nũ",
     "tag": [
       "身体器官"
     ],
@@ -39626,7 +39588,7 @@
       "身体部位"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
+    "type": "qũ 基本型",
     "meaning": [
       "肺。"
     ],
@@ -39634,7 +39596,7 @@
       "/hal.mú.kN/"
     ],
     "variants2": [],
-    "ruletype": "ũ",
+    "ruletype": "qũ",
     "etymology": {
       "intro": [
         "合成語。",
@@ -39657,7 +39619,7 @@
       "身体部位"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
+    "type": "qũ 基本型",
     "meaning": [
       "胃。"
     ],
@@ -39665,7 +39627,7 @@
       "/bam.mú.kN/"
     ],
     "variants2": [],
-    "ruletype": "ũ",
+    "ruletype": "qũ",
     "etymology": {
       "intro": [
         "合成語。",
@@ -47752,7 +47714,7 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
+    "type": "mũ 基本型",
     "meaning": [
       "（ 天の時間に食べる食事 ）天食。"
     ],
@@ -47762,7 +47724,7 @@
     "variants2": [
       "天食。"
     ],
-    "ruletype": "ũ",
+    "ruletype": "mũ",
     "etymology": {
       "intro": [
         "合成語。",
@@ -50025,7 +49987,7 @@
       "ー"
     ],
     "parts": "名象",
-    "type": "ũ 基本型",
+    "type": "mũ 基本型",
     "meaning": [
       "（ 底の時間に食べる食事 ）底食。"
     ],
@@ -50035,7 +49997,7 @@
     "variants2": [
       "底食。"
     ],
-    "ruletype": "ũ",
+    "ruletype": "mũ",
     "etymology": {
       "intro": [
         "合成語。",
@@ -50710,7 +50672,7 @@
     "fix": "cemũ-",
     "tag": [],
     "parts": "名象",
-    "type": "ũ 基本型",
+    "type": "mũ 基本型",
     "meaning": [
       "金、ゴールド。"
     ],
@@ -50720,7 +50682,7 @@
     "variants2": [
       "きん"
     ],
-    "ruletype": "ũ",
+    "ruletype": "mũ",
     "etymology": {
       "intro": [
         "単純語。",
@@ -50807,7 +50769,7 @@
     "fix": "geqũ-",
     "tag": [],
     "parts": "名象",
-    "type": "ũ 基本型",
+    "type": "qũ 基本型",
     "meaning": [
       "銀、シルバー。"
     ],
@@ -50817,7 +50779,7 @@
     "variants2": [
       "ぎん"
     ],
-    "ruletype": "ũ",
+    "ruletype": "qũ",
     "etymology": {
       "intro": [
         "単純語。",
@@ -53138,5 +53100,43 @@
       ],
       "changes": []
     }
+  },
+  "bádmũ": {
+    "id": 1105,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "bádmũ",
+    "stem": "bádm",
+    "stem2": "badm",
+    "fix": "badmũ-",
+    "type": "mũ 基本型",
+    "ruletype": "mũ",
+    "tag": [
+      "身体器官",
+      "部首"
+    ],
+    "parts": "名象",
+    "meaning": [
+      "心臓、心、ハート。",
+      "（ 肉の部位 ）ハツ。",
+      "（ 部首 ）心。"
+    ],
+    "pronunciation": [
+      "/bád.mN/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "擬音語「 鼓動の音 」から。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "しんぞう",
+      "こころ",
+      "♡"
+    ]
   }
 }
