@@ -1227,17 +1227,18 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   }
 }
 
-// tl·dl·lr → ll の同化（2026-11-13、みゅら確認済；lr は 2026-11-17 追加）。
+// tl·dl·lr·rl → ll の同化（2026-11-13、みゅら確認済；lr は 2026-11-17 追加；rl は 2026-11-22 追加）。
 // 例：sýto の能格 sýt＋lak → syllak、káto の能格 kát＋lak → kállak。
 // 生成形の語幹＋接辞の境界で tl·dl が生じたものを ll にする。
 // 辞書の語・stem に tl·dl を含むものはないため、生成形への置換で十分。
+// rl は禁止子音連続のため ll になる（辞書に rl は 0件、ll は 31件）。
 // ansC は辞書形そのものなので対象外。
 function getConjN(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverrides) {
   const r = getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOverrides);
   if (r == null) return r;
   const out = {};
   for (const [k, v] of Object.entries(r)) {
-    out[k] = (k !== "ansC" && typeof v === "string") ? v.replace(/tl/g, "ll").replace(/dl/g, "ll").replace(/lr/g, "ll") : v;
+    out[k] = (k !== "ansC" && typeof v === "string") ? v.replace(/tl/g, "ll").replace(/dl/g, "ll").replace(/lr/g, "ll").replace(/rl/g, "ll") : v;
   }
   return out;
 }

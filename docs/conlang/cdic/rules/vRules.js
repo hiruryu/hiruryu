@@ -1,4 +1,4 @@
-function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
+function getConjVRaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
   // 屈折接辞
   // 基本形
   // 完結相
@@ -1684,4 +1684,16 @@ function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOve
       mf_gerund: stem2ui + mffxh + alva,
     }
   }
+}
+
+// tl·dl·lr·rl → ll の同化（2026-11-13、みゅら確認済；lr は 2026-11-17 追加；rl は 2026-11-22 追加）。nRules.js・aRules.js と同じ規則。
+// rl は禁止子音連続のため ll になる（辞書に rl は 0件、ll は 31件）。
+function getConjV(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
+  const r = getConjVRaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides);
+  if (r == null) return r;
+  const out = {};
+  for (const [k, v] of Object.entries(r)) {
+    out[k] = typeof v === "string" ? v.replace(/tl/g, "ll").replace(/dl/g, "ll").replace(/lr/g, "ll").replace(/rl/g, "ll") : v;
+  }
+  return out;
 }
