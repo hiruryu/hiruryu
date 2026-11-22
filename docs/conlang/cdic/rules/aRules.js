@@ -323,7 +323,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       ad_s: uniqueForms(stem2Vi + "éni", nz(stem2ui, "éni"), nz(stem2oö, "éni"), nz(stem2jui, "éni"), nz(stem2öue, "éni")).join("<br>"),
 
       h_s: uniqueForms(
-        s + "hlas", // fádhlas
+        s + "las", // fádlas（f 型の叙述形に h は入らない。2026-11-22みゅら指摘。例：záiflas／záifjas）
         s + "jas", // fádjas
       ).join("<br>"),
 
@@ -1030,7 +1030,8 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
       ad_s: uniqueForms(stem2Vi + "éni", nz(stem2ui, "éni"), nz(stem2oö, "éni"), nz(stem2jui, "éni"), nz(stem2öue, "éni")).join("<br>"),
 
       h_s: uniqueForms(
-        s + "las", // fádhlas
+        s + "las", // fádhlas（r 基本型は rl→ll で -llas になる）
+        ...(ruletype === "rj" ? [s + "jas"] : []), // r 明音型は -jas も併記（záiflas の záiflas／záifjas にならう。例：gjalfáillas／gjalfáirjas）
       ).join("<br>"),
 
       // 単数一致-比較級
@@ -1285,15 +1286,16 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
   }
 }
 
-// tl·dl·lr → ll の同化（2026-11-13、みゅら確認済；lr は 2026-11-17 追加）。nRules.js と同じ規則。
+// tl·dl·lr·rl → ll の同化（2026-11-13、みゅら確認済；lr は 2026-11-17 追加；rl は 2026-11-22 追加）。nRules.js と同じ規則。
 // 例：pitálas の h_s形 pit＋las → pillas、mantálas の h_s mónt＋las → mónllas。
 // 名飾詞の一致形（h_s など）で、語幹＋接辞 "las" の境界で tl·dl が生じることがある。
+// rl は禁止子音連続のため ll になる（辞書に rl は 0件、ll は 31件）。例：gjalfáirlas の h_s gjalfáir＋las → gjalfáillas。
 function getConjA(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides) {
   const r = getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, baseOverrides);
   if (r == null) return r;
   const out = {};
   for (const [k, v] of Object.entries(r)) {
-    out[k] = typeof v === "string" ? v.replace(/tl/g, "ll").replace(/dl/g, "ll").replace(/lr/g, "ll") : v;
+    out[k] = typeof v === "string" ? v.replace(/tl/g, "ll").replace(/dl/g, "ll").replace(/lr/g, "ll").replace(/rl/g, "ll") : v;
   }
   // 副飾形（2026-11-14、みゅら指定）。stem2＋接辞。
   // p/b/t/d/k/g/m/q 型（明音型含む）は -ú と -hú の2形。母音終了型（a/e/i/o/u/ö/ë）は -vú。それ以外は -ú。
