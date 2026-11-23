@@ -1,0 +1,284 @@
+:root{
+        --bg:#04060d;
+        --panel:rgba(9,14,25,.86);
+        --panel-solid:#0a101d;
+        --line:rgba(150,182,255,.18);
+        --line-strong:rgba(150,182,255,.34);
+        --text:#e9eef8;
+        --muted:#9dabc6;
+        --amber:#ffb36b;
+        --amber-deep:#ff8f3d;
+        --teal:#7fe3d0;
+        --blue:#8fb7ff;
+        --radius:10px;
+        --sab: env(safe-area-inset-bottom, 0px);
+        --sat: env(safe-area-inset-top, 0px);
+      }
+      *{ box-sizing:border-box; }
+      html,body{ height:100%; }
+      body{
+        margin:0; background:var(--bg); color:var(--text);
+        font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",sans-serif;
+        overflow:hidden;
+        -webkit-font-smoothing:antialiased;
+      }
+      button{ font:inherit; color:inherit; }
+      button, [role="button"], select, summary, input{ min-height:2.25rem; }
+
+      #scene-wrap{ position:fixed; inset:0; z-index:0; }
+      #scene-wrap canvas{ display:block; }
+      /* CSS2DRenderer は各ラベル要素に大きな z-index を自動で振るため、
+         コンテナ側でスタッキングコンテキストを作り、UIパネルより必ず下に収める。
+         ラベル層はクリックもタッチも一切受け取らない。 */
+      #labels{ position:fixed; inset:0; z-index:2; pointer-events:none; overflow:hidden; }
+      #labels *{ pointer-events:none !important; }
+      .lbl{
+        font-size:11px; font-weight:500; letter-spacing:.04em; color:#dbe6fa;
+        text-shadow:0 1px 4px rgba(0,0,0,.9), 0 0 8px rgba(0,0,0,.7);
+        white-space:nowrap; transform:translateY(-6px); pointer-events:none;
+      }
+      .lbl small{ display:block; text-align:center; font-size:9.5px; color:var(--muted); font-weight:400; }
+      .lbl.star{ color:var(--amber); font-size:12.5px; font-weight:700; }
+      .lbl.plufka{ color:var(--teal); font-size:12.5px; font-weight:700; }
+      .lbl.nearest{ color:#ffd9a0; font-weight:700; }
+      .lbl.ref{ color:rgba(160,180,220,.75); font-size:10px; }
+      .lbl.bright{ color:#ffe9c4; font-weight:700; font-size:12.5px; }
+
+      /* ---------- top control bar ---------- */
+      #topbar{
+        position:fixed; top:0; left:0; right:0; z-index:20;
+        display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px;
+        padding:calc(10px + var(--sat)) 12px 10px;
+        background:linear-gradient(180deg, rgba(4,6,13,.92), rgba(4,6,13,.55) 78%, transparent);
+      }
+      .seg{ display:flex; background:var(--panel); border:1px solid var(--line-strong); border-radius:999px; padding:3px; gap:2px; }
+      .seg button{
+        border:0; background:transparent; color:var(--muted); cursor:pointer;
+        padding:6px 16px; border-radius:999px; font-weight:700; font-size:13.5px; min-height:2.25rem;
+      }
+      .seg button[aria-pressed="true"]{ background:#22355c; color:#fff; box-shadow:inset 0 0 0 1px var(--line-strong); }
+      .seg button:focus-visible, .ctl-btn:focus-visible, .chip:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+      .controls{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; margin-left:auto; }
+      .ctl-group{ display:flex; align-items:center; gap:6px; background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:3px 10px 3px 4px; }
+      .ctl-btn{
+        border:1px solid var(--line); background:var(--panel); border-radius:999px; cursor:pointer;
+        padding:5px 13px; font-size:12.5px; font-weight:500; color:var(--text);
+        display:inline-flex; align-items:center; gap:6px;
+      }
+      .ctl-btn[aria-pressed="true"]{ background:#22355c; border-color:var(--line-strong); color:#fff; }
+      .ctl-btn svg{ width:13px; height:13px; flex:none; }
+      .speed{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+      .speed output{ color:var(--text); font-variant-numeric:tabular-nums; min-width:5.2em; }
+      input[type="range"]{ width:110px; accent-color:var(--amber); min-height:2.25rem; }
+
+      /* ---------- caption ---------- */
+      #caption{
+        position:fixed; left:12px; top:64px; z-index:15; max-width:min(360px, calc(100vw - 24px));
+        background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+        padding:9px 13px; font-size:12.5px; line-height:1.65; color:#c9d4ea;
+        backdrop-filter:blur(6px);
+      }
+      #caption b{ color:var(--text); }
+      .legend{ display:flex; flex-wrap:wrap; gap:4px 14px; margin-top:5px; font-size:11.5px; color:var(--muted); }
+      .legend span{ display:inline-flex; align-items:center; gap:6px; }
+      .swatch{ width:16px; height:0; border-top:2px solid var(--blue); display:inline-block; }
+      .swatch.dash{ border-top-style:dashed; border-color:#9fd8ff; }
+      .swatch.band{ height:8px; border:0; background:rgba(87,217,163,.28); border-radius:2px; }
+
+      /* ---------- body list ---------- */
+      #body-panel{
+        position:fixed; left:12px; bottom:calc(12px + var(--sab)); z-index:15; width:218px;
+        max-height:calc(100dvh - 96px); display:flex; flex-direction:column;
+        background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+        padding:10px; backdrop-filter:blur(6px);
+      }
+      #body-panel h2{ margin:0 0 8px; font-size:11px; letter-spacing:.14em; color:var(--muted); font-weight:700; }
+      #body-list{ display:flex; flex-direction:column; gap:4px; overflow:auto; min-height:0; }
+      .chip{
+        display:flex; align-items:baseline; justify-content:space-between; gap:8px;
+        text-align:left; border:1px solid transparent; background:rgba(255,255,255,.03); border-radius:7px;
+        padding:5px 9px; cursor:pointer; font-size:12.5px; line-height:1.3; color:var(--text); min-height:2rem;
+        white-space:nowrap;
+      }
+      .chip small{ color:var(--muted); font-size:11px; }
+      .chip:hover{ border-color:var(--line); }
+      .chip[aria-pressed="true"]{ background:#22355c; border-color:var(--line-strong); }
+      .chip.hot{ box-shadow:inset 3px 0 0 var(--teal); }
+
+      /* ---------- info panel ---------- */
+      #info{
+        position:fixed; right:12px; top:64px; z-index:16; width:min(320px, calc(100vw - 24px));
+        background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+        padding:14px 40px 12px 16px; backdrop-filter:blur(8px);
+        max-height:calc(100dvh - 150px); overflow:auto;
+        transition:opacity .18s ease, transform .18s ease, visibility .18s;
+      }
+      #info.is-hidden{
+        opacity:0; visibility:hidden; pointer-events:none;
+        transform:translateX(10px);
+      }
+      #info-close{
+        position:absolute; top:8px; right:8px; width:2rem; height:2rem; min-height:2rem;
+        display:inline-flex; align-items:center; justify-content:center;
+        border:1px solid var(--line); background:rgba(255,255,255,.04); border-radius:999px;
+        cursor:pointer; color:var(--muted); padding:0;
+      }
+      #info-close:hover{ color:var(--text); border-color:var(--line-strong); background:rgba(255,255,255,.08); }
+      #info-close:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+      #info-close svg{ width:12px; height:12px; display:block; }
+      @media (max-width: 760px){
+        #info.is-hidden{ transform:translateY(8px); }
+      }
+      #info .kind{ font-size:11px; letter-spacing:.12em; color:var(--amber); font-weight:700; margin:0 0 3px; }
+      #info.plufka-info .kind{ color:var(--teal); }
+      #info h2{
+        margin:0; font-family:"Shippori Mincho","Hiragino Mincho ProN",serif; font-weight:700;
+        font-size:23px; line-height:1.3; letter-spacing:.02em;
+      }
+      #info .sub{ margin:2px 0 0; color:var(--muted); font-size:12.5px; }
+      #info dl{ margin:11px 0 0; display:grid; grid-template-columns:auto 1fr; gap:5px 14px; font-size:12.8px; }
+      #info dt{ color:var(--muted); white-space:nowrap; }
+      #info dd{ margin:0; font-variant-numeric:tabular-nums; min-width:0; overflow-wrap:anywhere; }
+      #info .note{ margin:11px 0 0; font-size:12.3px; line-height:1.7; color:#c9d4ea; border-top:1px solid var(--line); padding-top:9px; }
+      #info .actions{ margin-top:11px; display:flex; gap:6px; flex-wrap:wrap; }
+
+      #scale-note{
+        position:fixed; right:12px; bottom:calc(12px + var(--sab)); z-index:14; max-width:min(340px, calc(100vw - 24px));
+        font-size:11px; line-height:1.6; color:var(--muted); text-align:right;
+        text-shadow:0 1px 3px #000;
+      }
+      #err{
+        position:fixed; inset:auto 12px 12px 12px; z-index:50; display:none;
+        background:#3d1420; color:#ffd7de; border:1px solid #a33; border-radius:8px;
+        padding:10px 14px; font-size:13px; white-space:pre-wrap;
+      }
+      /* 起動に失敗したときの案内（画面中央に大きく出し、再読み込みできるようにする） */
+      #fatal{
+        position:fixed; inset:0; z-index:60; display:none;
+        align-items:center; justify-content:center; padding:20px;
+        background:rgba(4,6,13,.94);
+      }
+      #fatal.is-shown{ display:flex; }
+      .fatal-box{ max-width:420px; text-align:center; }
+      .fatal-box p{ margin:0 0 16px; font-size:14.5px; line-height:1.8; color:#ffd7de; white-space:pre-wrap; }
+      #fatal-reload{
+        border:1px solid var(--line-strong); background:#22355c; color:#fff; border-radius:999px;
+        cursor:pointer; padding:9px 26px; font-size:14px; font-weight:700; min-height:2.75rem;
+      }
+      #fatal-reload:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+      #fatal-2d{
+        border:1px solid var(--line-strong); background:transparent; color:#ffe9c4; border-radius:999px;
+        cursor:pointer; padding:9px 22px; font-size:14px; font-weight:700; min-height:2.75rem; margin-left:8px;
+      }
+      #fatal-2d:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+      /* WebGLの一時的な取得失敗を回復待ちしている間の案内 */
+      #gl-wait{
+        position:fixed; inset:0; z-index:59; display:none;
+        align-items:center; justify-content:center; padding:20px;
+        background:rgba(4,6,13,.94);
+      }
+      #gl-wait.is-shown{ display:flex; }
+      .gl-wait-box{ max-width:420px; text-align:center; }
+      .gl-wait-box p{ margin:0; font-size:14.5px; line-height:1.8; color:#c9d4ea; white-space:pre-wrap; }
+      #hint{
+        position:fixed; left:50%; bottom:calc(12px + var(--sab)); transform:translateX(-50%); z-index:13;
+        font-size:11.5px; color:rgba(200,214,240,.75); text-shadow:0 1px 3px #000; white-space:nowrap;
+        pointer-events:none;
+      }
+
+      .lbl.cardinal{ font-size:15px; font-weight:700; color:#cfe0ff; letter-spacing:.3em; }
+      .lbl.cardinal.north{ color:#ffab7a; font-size:17px; }
+
+      /* ---------- 夜空ビューの方位・回転HUD ---------- */
+      #sky-hud{
+        position:fixed; left:50%; transform:translateX(-50%); top:64px; z-index:18;
+        width:min(440px, calc(100vw - 24px));
+        background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+        padding:8px 12px 9px; backdrop-filter:blur(6px);
+      }
+      #sky-hud[hidden]{ display:none; }
+      body:has(#fallback-notice:not([hidden])) #sky-hud, body:has(#fallback-pill:not([hidden])) #sky-hud{ top:116px; }
+      .sky-hud-top{ display:flex; align-items:center; gap:10px; }
+      #sky-dir{ font-weight:700; font-size:14.5px; white-space:nowrap; }
+      #sky-alt{ color:var(--muted); font-size:12px; white-space:nowrap; }
+      #sky-north-btn{ margin-left:auto; min-height:2rem; padding:3px 12px; }
+      #compass{ position:relative; overflow:hidden; height:24px; margin-top:6px; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:6px; }
+      #compass-tape{ position:absolute; top:0; left:0; height:100%; will-change:transform; }
+      .ctick{ position:absolute; top:0; transform:translateX(-50%); font-size:10px; color:var(--muted); line-height:24px; }
+      .ctick.major{ font-size:11.5px; font-weight:700; color:#dbe6fa; }
+      .compass-center{ position:absolute; left:50%; top:0; bottom:0; width:2px; margin-left:-1px; background:var(--amber); }
+      .sky-prog-row{ display:flex; align-items:center; gap:8px; margin-top:7px; font-size:11.5px; color:var(--muted); }
+      #sky-turn-label{ white-space:nowrap; }
+      .sky-prog{ flex:1; height:6px; background:rgba(255,255,255,.10); border-radius:999px; overflow:hidden; }
+      #sky-prog-fill{ height:100%; width:0%; background:var(--amber); border-radius:999px; }
+      #sky-prog-pct{ font-variant-numeric:tabular-nums; min-width:2.6em; text-align:right; }
+      .sky-hud-note{ margin:6px 0 0; font-size:11px; line-height:1.5; color:var(--muted); }
+
+      /* ---------- WebGLが使えない端末向けの2Dフォールバック ---------- */
+      #fallback-notice{
+        position:fixed; top:64px; left:50%; transform:translateX(-50%); z-index:30;
+        display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;
+        max-width:min(680px, calc(100vw - 24px));
+        background:rgba(32,26,10,.92); border:1px solid rgba(255,179,107,.45); border-radius:var(--radius);
+        padding:8px 12px; font-size:12.5px; line-height:1.6; color:#ffe9c4;
+        backdrop-filter:blur(6px);
+      }
+      #fallback-notice[hidden]{ display:none; }
+      #fallback-retry{
+        border:1px solid rgba(255,179,107,.6); background:rgba(255,179,107,.14); color:#ffe9c4;
+        border-radius:999px; cursor:pointer; padding:4px 14px; font-size:12.5px; font-weight:700;
+        min-height:2rem; flex:none;
+      }
+      #fallback-retry:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+      #fallback-close{
+        border:1px solid rgba(255,179,107,.35); background:transparent; color:#ffe9c4;
+        border-radius:999px; cursor:pointer; width:2rem; height:2rem; min-height:2rem; flex:none;
+        display:inline-flex; align-items:center; justify-content:center; padding:0;
+      }
+      #fallback-close svg{ width:11px; height:11px; display:block; }
+      #fallback-close:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+      /* 案内を閉じたあとに残る小さなピル。タップで3D再試行に戻れる */
+      #fallback-pill{
+        position:fixed; top:64px; left:50%; transform:translateX(-50%); z-index:30;
+        border:1px solid rgba(255,179,107,.45); background:rgba(32,26,10,.92); color:#ffe9c4;
+        border-radius:999px; cursor:pointer; padding:5px 16px; font-size:12px; font-weight:700;
+        min-height:2rem; backdrop-filter:blur(6px); white-space:nowrap;
+      }
+      #fallback-pill[hidden]{ display:none; }
+      #fallback-pill:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+      #fallback-canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; touch-action:none; cursor:grab; }
+      #fallback-canvas:active{ cursor:grabbing; }
+      @media (max-width: 760px){
+        #fallback-notice{ top:calc(158px + var(--sat)); font-size:11.8px; padding:7px 10px; }
+        #fallback-pill{ top:calc(158px + var(--sat)); }
+      }
+
+      @media (max-width: 760px){
+        .lbl{ font-size:10.5px; }
+        .lbl small{ display:none; }
+        #caption{ display:none; }
+        /* 天体リストは画面下端の1行スクロール式ドックにする。チップは横に並び、
+           パネル自体をセーフエリア分持ち上げるので、Muse の下部UIに隠れず
+           最後の第7惑星まで確実に押せる。 */
+        #body-panel{ left:0; right:0; bottom:0; width:auto; max-height:none; padding:8px 10px calc(10px + var(--sab)); border-radius:12px 12px 0 0; border-left:0; border-right:0; border-bottom:0; }
+        #body-panel h2{ display:none; }
+        #body-list{ flex-direction:row; flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden; padding-bottom:2px; scrollbar-width:thin; }
+        .chip{ flex:0 0 auto; font-size:12px; padding:6px 10px; min-height:2.25rem; align-items:center; }
+        .chip small{ display:none; }
+        #info{ top:auto; bottom:calc(64px + var(--sab)); right:8px; left:8px; width:auto; padding:11px 40px 9px 13px; max-height:34vh; overflow:auto; }
+        #info h2{ font-size:19px; }
+        #scale-note, #hint{ display:none; }
+        #topbar{ padding:calc(8px + var(--sat)) 8px 8px; gap:6px; }
+        .seg{ width:100%; }
+        .seg button{ flex:1; padding:6px 4px; font-size:12.5px; }
+        .controls{ margin-left:0; width:100%; gap:6px; }
+        .ctl-group{ flex:1 1 auto; }
+        .speed{ flex:1; }
+        .speed output{ min-width:4.4em; }
+        input[type="range"]{ flex:1; width:auto; min-width:56px; }
+        #info-btn{ display:none; }
+        .ctl-btn{ white-space:nowrap; }
+        #sky-hud{ top:calc(158px + var(--sat)); padding:7px 10px 8px; }
+        body:has(#fallback-notice:not([hidden])) #sky-hud, body:has(#fallback-pill:not([hidden])) #sky-hud{ top:calc(222px + var(--sat)); }
+        .sky-hud-note{ display:none; }
+      }
