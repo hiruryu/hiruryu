@@ -40884,37 +40884,6 @@
       "changes": []
     }
   },
-  "gvaklúfa": {
-    "id": 1352,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "gvaklúfa",
-    "stem": "gvaklúf",
-    "stem2": "gvakluf",
-    "fix": "gvaklafa-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "名象",
-    "type": "f 基本型",
-    "meaning": [
-      "太陽。"
-    ],
-    "pronunciation": [
-      "/gvak.lú.fa/"
-    ],
-    "variants2": [],
-    "ruletype": "f",
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 750 」+「 529 」が組み合わさった語。"
-      ],
-      "changes": []
-    }
-  },
   "tychýta": {
     "id": 1353,
     "safe": true,
@@ -54276,5 +54245,36 @@
       "途中",
       "最中"
     ]
+  },
+  "gvachýta": {
+    "id": 1352,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "gvachýta",
+    "stem": "gvachýt",
+    "stem2": "gvachyt",
+    "fix": "gvachyta-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "t 基本型",
+    "meaning": [
+      "太陽。"
+    ],
+    "pronunciation": [
+      "/gva.ʈ͡ʂʲí.ta/"
+    ],
+    "variants2": [],
+    "ruletype": "t",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 750 」+「 556 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
   }
 }
