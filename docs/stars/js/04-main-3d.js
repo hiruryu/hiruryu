@@ -605,6 +605,28 @@
     }
     skyStars.sort(function(a, b){ return a.mag - b.mag; });
 
+    // 星の少ない方向を埋める淡い星。既存の980個の番号（0=α〜23=ω）を変えないため、
+    // ソート後に追加する。最近傍の星まで5°以上離れた場所にだけ置く。
+    (function fillSparseSky(){
+      var MIN_DOT = Math.cos(5 * Math.PI / 180);
+      var added = 0, tries = 0;
+      while (added < 120 && tries < 6000){
+        tries++;
+        var v = new THREE.Vector3(rng()*2-1, rng()*2-1, rng()*2-1);
+        if (v.lengthSq() > 1 || v.lengthSq() < 0.01) continue;
+        v.normalize();
+        if (rng() < 0.45){
+          v.addScaledVector(galN, -v.dot(galN) * (0.55 + rng() * 0.35)).normalize();
+        }
+        var ok = true;
+        for (var i = 0; i < skyStars.length; i++){ if (skyStars[i].dir.dot(v) > MIN_DOT){ ok = false; break; } }
+        if (!ok) continue;
+        var mag = 4.5 + 1.5 * rng();
+        skyStars.push({ dir: v, mag: mag, col: pickStarCol(rng()) });
+        added++;
+      }
+    })();
+
     // 小さい星：等級帯ごとの Points としてまとめて描く
     var bandPts = [[], [], []];
     skyStars.forEach(function(s, idx){
@@ -673,6 +695,27 @@
       pickables.push({ mesh:hit, view:'sky', id:id });
       SKY_LIST_IDS.push(id);
     });
+
+    // 星座の線（js/constellations.js の window.CONSTELLATIONS を読む）。
+    // 星の番号は skyStars の添字（0=α、3=δ、10=λ、15=π、23=ω、24以降は淡い星）。
+    var constellationGroup = new THREE.Group();
+    celestial.add(constellationGroup);
+    (function buildConstellations(){
+      (window.CONSTELLATIONS || []).forEach(function(c){
+        (c.lines || []).forEach(function(pair){
+          var a = skyStars[pair[0]], b = skyStars[pair[1]];
+          if (!a || !b) return;
+          var pts = [];
+          for (var i = 0; i <= 16; i++){
+            var d = a.dir.clone().lerp(b.dir, i / 16).normalize();
+            pts.push(d.multiplyScalar(SKY_R));
+          }
+          var geo = new THREE.BufferGeometry().setFromPoints(pts);
+          constellationGroup.add(new THREE.Line(geo,
+            new THREE.LineBasicMaterial({ color:0xffd98a, transparent:true, opacity:0.75 })));
+        });
+      });
+    })();
 
     // 近傍の星系：実際の方向に、距離から割り出した明るさで置く
     NEARBY.forEach(function(s, i){
@@ -810,7 +853,7 @@
     var follow = false;
     var playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var daysPerSec = 12;
-    var showLabels = true, showOrbits = true;
+    var showLabels = true, showOrbits = true, showConstellations = true;
 
     var infoEl = document.getElementById('info');
     var infoKind = document.getElementById('info-kind');
@@ -1022,6 +1065,12 @@
       frostLabel.visible = showOrbits;
     }
     orbitsBtn.addEventListener('click', function(){ showOrbits = !showOrbits; syncOrbits(); });
+    var constBtn = document.getElementById('constellations-btn');
+    if (constBtn) constBtn.addEventListener('click', function(){
+      showConstellations = !showConstellations;
+      constBtn.setAttribute('aria-pressed', showConstellations ? 'true' : 'false');
+      constellationGroup.visible = showConstellations;
+    });
     document.getElementById('reset-btn').addEventListener('click', function(){
       follow = false;
       if (view === 'sky'){

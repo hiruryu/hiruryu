@@ -174,6 +174,35 @@
         skyStars.push({ dir:[vx, vy, vz], mag:mag, col:pickStarCol(rng()) });
       }
       skyStars.sort(function(a, b){ return a.mag - b.mag; });
+      // 星の少ない方向を埋める淡い星。既存の980個の番号（0=α〜23=ω）を変えないため、
+      // ソート後に追加する。最近傍の星まで5°以上離れた場所にだけ置く。
+      // （3D版と乱数の消費順をそろえてあるので、追加される星も3D版と同じになる）
+      (function fillSparseSky(){
+        var MIN_DOT = Math.cos(5 * Math.PI / 180);
+        var added = 0, tries = 0;
+        while (added < 120 && tries < 6000){
+          tries++;
+          var vx = rng()*2-1, vy = rng()*2-1, vz = rng()*2-1;
+          var ls = vx*vx + vy*vy + vz*vz;
+          if (ls > 1 || ls < 0.01) continue;
+          var il = 1 / Math.sqrt(ls); vx *= il; vy *= il; vz *= il;
+          if (rng() < 0.45){
+            var dot = vx*galN[0] + vy*galN[1] + vz*galN[2];
+            var f = -dot * (0.55 + rng() * 0.35);
+            vx += galN[0]*f; vy += galN[1]*f; vz += galN[2]*f;
+            var l2 = Math.sqrt(vx*vx + vy*vy + vz*vz); vx /= l2; vy /= l2; vz /= l2;
+          }
+          var ok = true;
+          for (var i = 0; i < skyStars.length; i++){
+            var d = skyStars[i].dir;
+            if (d[0]*vx + d[1]*vy + d[2]*vz > MIN_DOT){ ok = false; break; }
+          }
+          if (!ok) continue;
+          var mag = 4.5 + 1.5 * rng();
+          skyStars.push({ dir:[vx, vy, vz], mag:mag, col:pickStarCol(rng()) });
+          added++;
+        }
+      })();
       function lonLatOf(dir){
         var lon = Math.atan2(dir[2], dir[0]) * 180 / Math.PI;
         if (lon < 0) lon += 360;
@@ -253,7 +282,7 @@
       var followId = null;
       var playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var daysPerSec = 12;
-      var showLabels = true, showOrbits = true, infoVisible = true;
+      var showLabels = true, showOrbits = true, showConstellations = true, infoVisible = true;
       var simDays = 0, rot = 0, skyRot = 0, skySpin = 0, zoom = 1;
       var hits = [];
       var W = 0, H = 0;
@@ -386,6 +415,11 @@
       fbOn(orbitsBtn, 'click', function(){
         showOrbits = !showOrbits;
         orbitsBtn.setAttribute('aria-pressed', showOrbits ? 'true' : 'false');
+      });
+      var constBtn = document.getElementById('constellations-btn');
+      fbOn(constBtn, 'click', function(){
+        showConstellations = !showConstellations;
+        constBtn.setAttribute('aria-pressed', showConstellations ? 'true' : 'false');
       });
       fbOn(document.getElementById('reset-btn'), 'click', function(){
         followId = null; zoom = 1; rot = 0; skyRot = 0;
@@ -664,6 +698,32 @@
           ctx.font = '400 10px "Zen Kaku Gothic New", sans-serif';
           ctx.fillStyle = 'rgba(140,165,205,.7)';
           ctx.fillText('外周＝地平線', cx, cy + R + 22);
+        }
+        // 星座の線（js/constellations.js）。星の下に引くので、星を描くより先に描く。
+        if (showConstellations){
+          (window.CONSTELLATIONS || []).forEach(function(c){
+            (c.lines || []).forEach(function(pair){
+              var a = skyStars[pair[0]], b = skyStars[pair[1]];
+              if (!a || !b) return;
+              ctx.beginPath();
+              var started = false;
+              for (var i = 0; i <= 16; i++){
+                var t = i / 16;
+                var dx = a.dir[0] + (b.dir[0] - a.dir[0]) * t;
+                var dy = a.dir[1] + (b.dir[1] - a.dir[1]) * t;
+                var dz = a.dir[2] + (b.dir[2] - a.dir[2]) * t;
+                var dl = Math.sqrt(dx*dx + dy*dy + dz*dz);
+                if (dl < 1e-6) continue;
+                var q = skyProject([dx/dl, dy/dl, dz/dl], cx, cy, R);
+                if (!q){ started = false; continue; }
+                if (!started){ ctx.moveTo(q.x, q.y); started = true; }
+                else ctx.lineTo(q.x, q.y);
+              }
+              ctx.strokeStyle = 'rgba(255,217,138,.75)';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            });
+          });
         }
         skyStars.forEach(function(s, idx){
           var q = skyProject(s.dir, cx, cy, R);
