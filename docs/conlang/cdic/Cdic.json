@@ -3455,53 +3455,6 @@
       "できる"
     ]
   },
-  "grafálva": {
-    "id": 157,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "grafálva",
-    "stem": "gráf",
-    "stem2": "graf",
-    "fix": "graf-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "f 基本型",
-    "ruletype": "f",
-    "meaning": [
-      "［ 基が ］死ぬ。"
-    ],
-    "pronunciation": [
-      "/gra.fál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "変成語。",
-        "「 155 」が訛った語。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "死",
-      "nui": [
-        "dóp"
-      ],
-      "chel": [
-        "gráf"
-      ]
-    },
-    "variants2": [
-      "ねる",
-      "寝る",
-      "ねむる",
-      "眠る",
-      "死ぬ",
-      "しぬ"
-    ]
-  },
   "fuekálva": {
     "id": 158,
     "safe": true,
@@ -50306,39 +50259,6 @@
       "changes": []
     }
   },
-  "pútta": {
-    "id": 1625,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "pútta",
-    "stem": "pútt",
-    "stem2": "putt",
-    "fix": "patta-",
-    "tag": [
-      "施設"
-    ],
-    "parts": "名象",
-    "type": "t 基本型",
-    "meaning": [
-      "倉庫。"
-    ],
-    "pronunciation": [
-      "/pút.ta/"
-    ],
-    "variants2": [
-      "そうこ"
-    ],
-    "ruletype": "t",
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 191 」+「 369 」が組み合わさった語。"
-      ],
-      "changes": []
-    }
-  },
   "mónta": {
     "id": 1626,
     "safe": true,
@@ -54273,6 +54193,86 @@
       "intro": [
         "合成語。",
         "「 750 」+「 556 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "*grafálva": {
+    "id": 157,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "grafálva",
+    "stem": "gráf",
+    "stem2": "graf",
+    "fix": "graf-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "f 基本型",
+    "ruletype": "f",
+    "meaning": [
+      "［ 基が ］死ぬ。"
+    ],
+    "pronunciation": [
+      "/gra.fál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "変成語。",
+        "「 155 」が訛った語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "死",
+      "nui": [
+        "dóp"
+      ],
+      "chel": [
+        "gráf"
+      ]
+    },
+    "variants2": [
+      "ねる",
+      "寝る",
+      "ねむる",
+      "眠る",
+      "死ぬ",
+      "しぬ"
+    ]
+  },
+  "stófta": {
+    "id": 1625,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "stófta",
+    "stem": "stóft",
+    "stem2": "stoft",
+    "fix": "stofta-",
+    "tag": [
+      "施設"
+    ],
+    "parts": "名象",
+    "type": "t 基本型",
+    "meaning": [
+      "倉庫。"
+    ],
+    "pronunciation": [
+      "/stóf.ta/"
+    ],
+    "variants2": [
+      "そうこ"
+    ],
+    "ruletype": "t",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 484 」+「 369 」が組み合わさった語。"
       ],
       "changes": []
     }
