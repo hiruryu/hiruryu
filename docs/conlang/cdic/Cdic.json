@@ -27285,41 +27285,6 @@
       "きがつく"
     ]
   },
-  "*bykálva": {
-    "id": 996,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "bykálva",
-    "stem": "býk",
-    "stem2": "byk",
-    "fix": "byk-",
-    "type": "k 基本型",
-    "ruletype": "k",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "meaning": [
-      "［ 基が ］［ 与に ］驚く、びっくりする。"
-    ],
-    "pronunciation": [
-      "/bʲi.kál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "音象徴「 驚く 」から。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "おどろく",
-      "吃驚する",
-      "ビックリする"
-    ]
-  },
   "práha": {
     "id": 997,
     "safe": true,
@@ -54244,6 +54209,41 @@
       "道路",
       "途中",
       "最中"
+    ]
+  },
+  "bykálva": {
+    "id": 996,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "bykálva",
+    "stem": "býk",
+    "stem2": "byk",
+    "fix": "byk-",
+    "type": "k 基本型",
+    "ruletype": "k",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "meaning": [
+      "［ 基が ］［ 与に ］驚く、びっくりする。"
+    ],
+    "pronunciation": [
+      "/bʲi.kál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 驚く 」から。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "おどろく",
+      "吃驚する",
+      "ビックリする"
     ]
   },
   "gvachýta": {
