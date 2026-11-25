@@ -217,12 +217,13 @@
           id:id, name:letter + ' 星（仮符号）', kind:'恒星', listSub: fmtMag(s.mag) + ' 等 ・ ' + s.col.name,
           sub:'プルフカの夜空で ' + (idx + 1) + ' 番目に明るい星',
           rows:[
+            ['星番号', idx + ' 番'],
             ['仮符号', letter + '（明るさ順）'],
             ['見かけの等級', fmtMag(s.mag) + ' 等'],
             ['色', s.col.name],
             ['天球座標', '経度 ' + ll.lon.toFixed(1) + '° ／ 緯度 ' + latText(ll.lat)]
           ],
-          note:'星座創作用に、明るさ順で仮に付けた符号。星座ができたら、α・β…はその星座の中でいちばん明るい星から付け直す想定。星の配置と等級は、星座を作るための仮の星空として生成したもの（開くたびに同じ空になるよう固定してある）。'
+          note:'星座創作用に、明るさ順で仮に付けた符号。星座ができたら、α・β…はその星座の中でいちばん明るい星から付け直す想定。星の配置と等級は、星座を作るための仮の星空として生成したもの（開くたびに同じ空になるよう固定してある）。星座データでは星番号（' + idx + ' 番）で指定する。'
         }};
       });
       var starTints = [0xfff3e0, 0xdfe9ff, 0xffe3c2, 0xffffff, 0xffd9b0, 0xe8f1ff, 0xfff6ea, 0xd9e6ff, 0xffe9d2, 0xffffff];
@@ -275,7 +276,7 @@
           '<span><i class="swatch dash"></i>フロストライン 3.504 AU</span>' +
           '<span><i class="swatch"></i>軌道</span></div>',
         nearby: '<b>近傍恒星（2D）</b> ― 10光年以内にある10の星系。最寄りは星系4の 3.91 ly。',
-        sky: '<b>プルフカの夜空（2D星図）</b> ― 天頂中心の固定星空。明るい星24個に α〜ω の仮符号を付けた。惑星と月は星座には含めない。上のコンパスが星図の上の方位、バーが空の回転（1周分）を示す。'
+        sky: '<b>プルフカの夜空（2D星図）</b> ― 天頂中心の固定星空。明るい星24個に α〜ω の仮符号を付けた。淡い星もタップすると星番号が分かる。惑星と月は星座には含めない。上のコンパスが星図の上の方位、バーが空の回転（1周分）を示す。'
       };
       var view = 'system';
       var selectedId = 'plufka';
@@ -297,7 +298,33 @@
       var listEl = document.getElementById('body-list');
       var listTitle = document.getElementById('body-panel-title');
 
+      // 淡い星（24番以降）はタップされたときに初めて情報パネル用の記録を作る
+      function ensureSkyStarBody(idx){
+        var id = 'sky-star-' + idx;
+        if (bodies[id]) return bodies[id];
+        var s = skyStars[idx];
+        if (!s) return null;
+        var ll = lonLatOf(s.dir);
+        bodies[id] = { view:'sky', skyStar:s, data:{
+          id:id, name:'星 #' + idx, kind:'恒星（淡い星）',
+          listSub: fmtMag(s.mag) + ' 等 ・ ' + s.col.name,
+          sub:'プルフカの夜空の星（明るさ順 ' + (idx + 1) + ' 番目）',
+          rows:[
+            ['星番号', idx + ' 番'],
+            ['見かけの等級', fmtMag(s.mag) + ' 等'],
+            ['色', s.col.name],
+            ['天球座標', '経度 ' + ll.lon.toFixed(1) + '° ／ 緯度 ' + latText(ll.lat)]
+          ],
+          note:'星座データ（js/constellations.js）では、この星番号で指定する。'
+        }};
+        return bodies[id];
+      }
+
       function select(id, focus){
+        if (id.indexOf('sky-star-') === 0){
+          var sidx = parseInt(id.slice(9), 10);
+          if (!ensureSkyStarBody(sidx)) return;
+        }
         var rec = bodies[id];
         if (!rec) return;
         selectedId = id;
@@ -738,6 +765,11 @@
             hits.push({ id:id, x:q.x, y:q.y, r:13 });
             if (selectedId === id) drawSelRing(q.x, q.y, 10, '#ffe9c4');
             drawLabel(q.x, q.y - rad - 6, GREEK[idx], fmtMag(s.mag) + ' 等', '#ffe9c4');
+          } else {
+            // 淡い星もタップできるようにして、番号を調べられるようにする
+            var fid = 'sky-star-' + idx;
+            hits.push({ id:fid, x:q.x, y:q.y, r:9 });
+            if (selectedId === fid) drawSelRing(q.x, q.y, 8, '#ffe9c4');
           }
         });
         NEARBY.forEach(function(s, i){

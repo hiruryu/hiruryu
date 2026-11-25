@@ -628,10 +628,14 @@
     })();
 
     // 小さい星：等級帯ごとの Points としてまとめて描く
+    // （タップで番号を調べられるよう、各点が skyStars の何番目かも控えておく）
     var bandPts = [[], [], []];
+    var bandIdx = [[], [], []];
     skyStars.forEach(function(s, idx){
       if (idx < 24) return;
-      bandPts[s.mag < 3.0 ? 0 : (s.mag < 4.8 ? 1 : 2)].push(s);
+      var bi = s.mag < 3.0 ? 0 : (s.mag < 4.8 ? 1 : 2);
+      bandPts[bi].push(s);
+      bandIdx[bi].push(idx);
     });
     [
       { size:3.1, opacity:0.95 },
@@ -651,7 +655,10 @@
       geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
       var mat = new THREE.PointsMaterial({ size:band.size, sizeAttenuation:false, map:dotTex, vertexColors:true,
         transparent:true, opacity:band.opacity, depthWrite:false });
-      celestial.add(new THREE.Points(geo, mat));
+      var pts = new THREE.Points(geo, mat);
+      pts.userData.bandIdx = bandIdx[bi];
+      celestial.add(pts);
+      pickables.push({ mesh:pts, view:'sky', starPoints:true });
     });
 
     var SKY_LIST_IDS = ['sky-misih', 'sky-p2', 'sky-p6', 'sky-p4', 'sky-p1', 'sky-p7', 'sky-p8',
@@ -680,12 +687,13 @@
         id: id, name: letter + ' 星（仮符号）', kind: '恒星', listSub: fmtMag(s.mag) + ' 等 ・ ' + s.col.name,
         sub: 'プルフカの夜空で ' + (idx + 1) + ' 番目に明るい星',
         rows: [
+          ['星番号', idx + ' 番'],
           ['仮符号', letter + '（明るさ順）'],
           ['見かけの等級', fmtMag(s.mag) + ' 等'],
           ['色', s.col.name],
           ['天球座標', '経度 ' + ll.lon.toFixed(1) + '° ／ 緯度 ' + latText(ll.lat)]
         ],
-        note: '星座創作用に、明るさ順で仮に付けた符号。星座ができたら、α・β…はその星座の中でいちばん明るい星から付け直す想定。星の配置と等級は、星座を作るための仮の星空として生成したもの（開くたびに同じ空になるよう固定してある）。'
+        note: '星座創作用に、明るさ順で仮に付けた符号。星座ができたら、α・β…はその星座の中でいちばん明るい星から付け直す想定。星の配置と等級は、星座を作るための仮の星空として生成したもの（開くたびに同じ空になるよう固定してある）。星座データでは星番号（' + idx + ' 番）で指定する。'
       };
       bodies[id] = { view:'sky', data:data, obj:mesh, radius:scale * 0.42 };
       // 星そのものは小さいので、タップ判定用に大きめの見えない球を重ねる
@@ -871,7 +879,7 @@
         '<span><i class="swatch dash"></i>フロストライン 3.504 AU</span>' +
         '<span><i class="swatch"></i>軌道</span></div>',
       nearby: '<b>近傍恒星</b> ― 10光年以内にある10の星系。最寄りは星系4の 3.91 ly。',
-      sky: '<b>プルフカの夜空</b> ― 星座創作用の固定星空。明るい星24個に α〜ω の仮符号を付けた。惑星と月は動くので星座には含めない。上のコンパスが今の方位、バーが空の回転（1周分）を示す。'
+      sky: '<b>プルフカの夜空</b> ― 星座創作用の固定星空。明るい星24個に α〜ω の仮符号を付けた。淡い星もタップすると星番号が分かる。惑星と月は動くので星座には含めない。上のコンパスが今の方位、バーが空の回転（1周分）を示す.'
     };
 
     // 選択リング（ビルボード）
@@ -885,7 +893,38 @@
       return v;
     }
 
+    // 淡い星（24番以降）はタップされたときに初めて情報パネル用の記録を作る。
+    // 位置を示す見えない目印を置いておく（夜空ビューで「この天体に寄る」用）。
+    function ensureSkyStarBody(idx){
+      var id = 'sky-star-' + idx;
+      if (bodies[id]) return bodies[id];
+      var s = skyStars[idx];
+      if (!s) return null;
+      var ll = lonLatOf(s.dir);
+      var marker = new THREE.Object3D();
+      marker.position.copy(s.dir).multiplyScalar(SKY_R);
+      celestial.add(marker);
+      var rec = { view:'sky', data:{
+        id:id, name:'星 #' + idx, kind:'恒星（淡い星）',
+        listSub: fmtMag(s.mag) + ' 等 ・ ' + s.col.name,
+        sub:'プルフカの夜空の星（明るさ順 ' + (idx + 1) + ' 番目）',
+        rows:[
+          ['星番号', idx + ' 番'],
+          ['見かけの等級', fmtMag(s.mag) + ' 等'],
+          ['色', s.col.name],
+          ['天球座標', '経度 ' + ll.lon.toFixed(1) + '° ／ 緯度 ' + latText(ll.lat)]
+        ],
+        note:'星座データ（js/constellations.js）では、この星番号で指定する。'
+      }, obj:marker, radius:2 };
+      bodies[id] = rec;
+      return rec;
+    }
+
     function select(id, focus){
+      if (id.indexOf('sky-star-') === 0){
+        var sidx = parseInt(id.slice(9), 10);
+        if (!ensureSkyStarBody(sidx)) return;
+      }
       var rec = bodies[id];
       if (!rec) return;
       selectedId = id;
@@ -1100,11 +1139,19 @@
       pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
       pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
       raycaster.setFromCamera(pointer, camera);
+      raycaster.params.Points.threshold = 14;
       var meshes = pickables.filter(function(p){ return p.view === view; }).map(function(p){ return p.mesh; });
       var hits = raycaster.intersectObjects(meshes, false);
       if (hits.length){
-        var hit = pickables.filter(function(p){ return p.mesh === hits[0].object; })[0];
-        if (hit) select(hit.id, false);
+        var h0 = hits[0];
+        var hit = pickables.filter(function(p){ return p.mesh === h0.object; })[0];
+        if (hit){
+          if (hit.starPoints && typeof h0.index === 'number'){
+            // 淡い星の点：何番目の星かを調べて情報パネルに出す
+            var sidx = h0.object.userData.bandIdx[h0.index];
+            if (typeof sidx === 'number') select('sky-star-' + sidx, false);
+          } else select(hit.id, false);
+        }
       }
     });
 
