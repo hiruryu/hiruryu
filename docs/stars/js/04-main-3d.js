@@ -568,6 +568,51 @@
       return { lon: lon, lat: lat };
     }
     function latText(lat){ return (lat >= 0 ? '+' : '−') + Math.abs(lat).toFixed(1) + '°'; }
+
+    /* ---- 季節（見ごろ）：星の黄道経度から、真夜中にいちばん高く見える日を求める ----
+       1年の始まり（第1月1日）を simDays=0 とする。星の黄道経度 λ に対し、
+       プルフカの公転角 θ が -λ になった日が、太陽と星が反対側に来る日
+       （＝その星が真夜中にいちばん高く見える日）。node で検証済み（その日の
+       太陽と星の方向の内積は -1）。 */
+    var ECL_EPS = 0.41; // 黄道の傾き ≒ 地軸の傾き 23.5°
+    var YEAR_DAYS = 360.167;
+    function eclLonLat(dir){
+      var lam = Math.atan2(dir.z, dir.x * Math.cos(ECL_EPS));
+      var beta = Math.asin(Math.max(-1, Math.min(1, -dir.y * Math.cos(ECL_EPS) + dir.z * Math.sin(ECL_EPS))));
+      return { lam: lam, beta: beta };
+    }
+    function monthOf(d){
+      var dd = ((d % YEAR_DAYS) + YEAR_DAYS) % YEAR_DAYS;
+      return Math.floor(dd / 30) + 1;
+    }
+    function monthDayText(d){
+      var dd = ((d % YEAR_DAYS) + YEAR_DAYS) % YEAR_DAYS;
+      return '第' + (Math.floor(dd / 30) + 1) + '月' + (Math.floor(dd % 30) + 1) + '日';
+    }
+    function seasonOfDir(dir){
+      var e = eclLonLat(dir);
+      if (Math.abs(e.beta) > 75 * Math.PI / 180){
+        return { peak:'一年を通して見える', range:'一年中', polar:true };
+      }
+      var plufka = null;
+      PLANETS.forEach(function(q){ if (q.plufka) plufka = q; });
+      var pDays = periodDays(plufka.au);
+      var d = (((-e.lam - plufka.angle) % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2) / (Math.PI * 2) * pDays;
+      var mA = monthOf(d - 60), mB = monthOf(d + 60);
+      var range = '第' + mA + '月ごろ〜第' + mB + '月ごろ' + (mB < mA ? '（年をまたぐ）' : '');
+      return { peak: monthDayText(d) + 'ごろ', range: range, polar:false };
+    }
+    function seasonRows(dir){
+      var s = seasonOfDir(dir);
+      if (s.polar) return [
+        ['見ごろ', s.peak + '（黄道の極に近いため）'],
+        ['見える時期', s.range]
+      ];
+      return [
+        ['見ごろ', s.peak + '（真夜中にいちばん高く見える）'],
+        ['見える時期', s.range + '（夕方〜夜に見える時期の目安）']
+      ];
+    }
     function glowSprite(tex, color, scale, opacity){
       var sp = new THREE.Sprite(new THREE.SpriteMaterial({ map:tex, color:color, transparent:true, opacity:opacity, depthWrite:false, blending:THREE.AdditiveBlending }));
       sp.scale.setScalar(scale);
@@ -664,6 +709,10 @@
     var SKY_LIST_IDS = ['sky-misih', 'sky-p2', 'sky-p6', 'sky-p4', 'sky-p1', 'sky-p7', 'sky-p8',
       'sky-sys4', 'sky-sys9', 'sky-sys3', 'sky-sys6', 'sky-sys7', 'sky-sys2', 'sky-sys5', 'sky-sys8', 'sky-sys10', 'sky-sys1'];
 
+    // 地平線の下に沈んだ天体のラベルを隠すための控え（{ grp, label }）
+    var skyLabels = [];
+    var skyTmpV = new THREE.Vector3();
+
     // 明るい星24個：α〜ω の仮符号を付け、クリックできるようにする
     skyStars.slice(0, 24).forEach(function(s, idx){
       var letter = GREEK[idx];
@@ -681,6 +730,7 @@
       var lb = makeLabel(letter + '<small>' + fmtMag(s.mag) + ' 等</small>', 'bright');
       lb.position.set(0, scale * 0.72, 0);
       grp.add(lb);
+      skyLabels.push({ grp: grp, label: lb });
       var ll = lonLatOf(s.dir);
       var id = 'sky-g' + idx;
       var data = {
@@ -692,7 +742,7 @@
           ['見かけの等級', fmtMag(s.mag) + ' 等'],
           ['色', s.col.name],
           ['天球座標', '経度 ' + ll.lon.toFixed(1) + '° ／ 緯度 ' + latText(ll.lat)]
-        ],
+        ].concat(seasonRows(s.dir)),
         note: '星座創作用に、明るさ順で仮に付けた符号。星座ができたら、α・β…はその星座の中でいちばん明るい星から付け直す想定。星の配置と等級は、星座を作るための仮の星空として生成したもの（開くたびに同じ空になるよう固定してある）。星座データでは星番号（' + idx + ' 番）で指定する。'
       };
       bodies[id] = { view:'sky', data:data, obj:mesh, radius:scale * 0.42 };
@@ -708,8 +758,42 @@
     // 星の番号は skyStars の添字（0=α、3=δ、10=λ、15=π、23=ω、24以降は淡い星）。
     var constellationGroup = new THREE.Group();
     celestial.add(constellationGroup);
+    var constellationGroups = []; // [{ id, mat }]
+    // 星座の見ごろ：使う星の黄道経度の平均から、seasonOfDir と同じ方法で出す。
+    // 星が広がりすぎている（平均の向きが定まらない）場合は、星ごとの見ごろを見る。
+    function constellationSeason(c){
+      var sx = 0, sy = 0, n = 0;
+      (c.stars || []).forEach(function(idx){
+        var s = skyStars[idx];
+        if (!s) return;
+        var lam = eclLonLat(s.dir).lam;
+        sx += Math.cos(lam); sy += Math.sin(lam); n++;
+      });
+      if (!n) return null;
+      if (Math.sqrt(sx * sx + sy * sy) / n < 0.7){
+        return { peak:'星が広がっているため、見ごろは星ごとに違う', range:'星ごとに違う', spread:true };
+      }
+      var lamMean = Math.atan2(sy, sx);
+      var fakeDir = new THREE.Vector3(
+        Math.cos(lamMean),
+        Math.sin(lamMean) * Math.sin(ECL_EPS),
+        Math.sin(lamMean) * Math.cos(ECL_EPS)
+      );
+      var s = seasonOfDir(fakeDir);
+      return { peak: s.peak, range: s.range, spread:false };
+    }
+    function syncConstellationOpacity(){
+      var selConst = selectedId.indexOf('const-') === 0 ? selectedId : null;
+      constellationGroups.forEach(function(g){
+        g.mat.opacity = selConst ? (g.id === selConst ? 1 : 0.18) : 0.75;
+      });
+    }
     (function buildConstellations(){
-      (window.CONSTELLATIONS || []).forEach(function(c){
+      (window.CONSTELLATIONS || []).forEach(function(c, ci){
+        var id = 'const-' + ci;
+        var mat = new THREE.LineBasicMaterial({ color:0xffd98a, transparent:true, opacity:0.75 });
+        var grp = new THREE.Group();
+        constellationGroup.add(grp);
         (c.lines || []).forEach(function(pair){
           var a = skyStars[pair[0]], b = skyStars[pair[1]];
           if (!a || !b) return;
@@ -719,9 +803,35 @@
             pts.push(d.multiplyScalar(SKY_R));
           }
           var geo = new THREE.BufferGeometry().setFromPoints(pts);
-          constellationGroup.add(new THREE.Line(geo,
-            new THREE.LineBasicMaterial({ color:0xffd98a, transparent:true, opacity:0.75 })));
+          grp.add(new THREE.Line(geo, mat));
         });
+        constellationGroups.push({ id:id, mat:mat });
+        // 情報パネルと天体リスト用の記録（「この星座に寄る」用の目印は使う星の方向の平均に置く）
+        var mx = 0, my = 0, mz = 0, mn = 0;
+        (c.stars || []).forEach(function(idx){
+          var s = skyStars[idx];
+          if (!s) return;
+          mx += s.dir.x; my += s.dir.y; mz += s.dir.z; mn++;
+        });
+        var meanDir = mn && Math.sqrt(mx * mx + my * my + mz * mz) > 0.1
+          ? new THREE.Vector3(mx, my, mz).normalize()
+          : (skyStars[(c.stars || [])[0]] || { dir:new THREE.Vector3(0, 1, 0) }).dir;
+        var marker = new THREE.Object3D();
+        marker.position.copy(meanDir).multiplyScalar(SKY_R);
+        celestial.add(marker);
+        var season = constellationSeason(c);
+        bodies[id] = { view:'sky', data:{
+          id:id, name: c.name || ('星座 ' + (ci + 1)), kind:'星座',
+          listSub: c.season ? c.season : (season && !season.spread ? season.peak : ''),
+          sub:'プルフカの夜空の星座',
+          rows:[
+            ['使う星', (c.stars || []).map(function(i){ return '#' + i; }).join(' ・ ') || '—'],
+            ['見ごろ', c.season ? c.season + '（指定）' : (season ? season.peak : '—')],
+            ['見える時期', season ? season.range : '—']
+          ],
+          note:'星座データ（js/constellations.js）で線と星を指定する。見ごろは使う星の平均の黄道経度から計算したもの。season を書けば見ごろを直接指定できる。'
+        }, obj:marker, radius:8 };
+        SKY_LIST_IDS.push(id);
       });
     })();
 
@@ -743,6 +853,7 @@
       var lb = makeLabel('星系' + s.n + '<small>' + s.d.toFixed(2) + ' ly</small>', s.nearest ? 'nearest' : '');
       lb.position.set(0, scale * 0.72, 0);
       grp.add(lb);
+      skyLabels.push({ grp: grp, label: lb });
       var ll = lonLatOf(dir);
       var id = 'sky-sys' + s.n;
       var data = {
@@ -778,6 +889,7 @@
       var lb = makeLabel(p.name + '<small>惑星</small>', '');
       lb.position.set(0, 9, 0);
       grp.add(lb);
+      skyLabels.push({ grp: grp, label: lb });
       var id = 'sky-' + p.id;
       var data = {
         id: id, name: p.name, kind: '惑星（夜空での姿）', listSub: fmtMag(SKY_PLANET_MAG[p.id]) + ' 等（目安） ・ 惑星',
@@ -808,6 +920,7 @@
     var moonLb = makeLabel('Mísih<small>月</small>', '');
     moonLb.position.set(0, 6.5, 0);
     skyMoonGrp.add(moonLb);
+    skyLabels.push({ grp: skyMoonGrp, label: moonLb });
     bodies['sky-misih'] = { view:'sky', obj:skyMoon, radius:3.6, data: {
       id:'sky-misih', name:'Mísih（ミーシヒ）', kind:'衛星（夜空での姿）', listSub:'プルフカの月',
       sub:'プルフカの月 ― 夜空での姿',
@@ -879,7 +992,7 @@
         '<span><i class="swatch dash"></i>フロストライン 3.504 AU</span>' +
         '<span><i class="swatch"></i>軌道</span></div>',
       nearby: '<b>近傍恒星</b> ― 10光年以内にある10の星系。最寄りは星系4の 3.91 ly。',
-      sky: '<b>プルフカの夜空</b> ― 星座創作用の固定星空。明るい星24個に α〜ω の仮符号を付けた。淡い星もタップすると星番号が分かる。惑星と月は動くので星座には含めない。上のコンパスが今の方位、バーが空の回転（1周分）を示す.'
+      sky: '<b>プルフカの夜空</b> ― 星座創作用の固定星空。明るい星24個に α〜ω の仮符号を付けた。淡い星もタップすると星番号が分かる。星の情報パネルには、1年のうちどの時期に見ごろかも出る。視線は地平線より下を向かないようになっている。惑星と月は動くので星座には含めない。上のコンパスが今の方位、バーが空の回転（1周分）を示す.'
     };
 
     // 選択リング（ビルボード）
@@ -913,7 +1026,7 @@
           ['見かけの等級', fmtMag(s.mag) + ' 等'],
           ['色', s.col.name],
           ['天球座標', '経度 ' + ll.lon.toFixed(1) + '° ／ 緯度 ' + latText(ll.lat)]
-        ],
+        ].concat(seasonRows(s.dir)),
         note:'星座データ（js/constellations.js）では、この星番号で指定する。'
       }, obj:marker, radius:2 };
       bodies[id] = rec;
@@ -928,6 +1041,7 @@
       var rec = bodies[id];
       if (!rec) return;
       selectedId = id;
+      syncConstellationOpacity();
       var d = rec.data;
       infoKind.textContent = d.kind;
       infoName.textContent = d.name;
@@ -1037,12 +1151,16 @@
         controls.enablePan = false;
         controls.minDistance = 0.2;
         controls.maxDistance = 2.5;
+        // 地平線より下は見えない：視線の高度が 0° を下回らないよう、カメラの
+        // 極角を 90°（＝視線が水平）までに制限する
+        controls.minPolarAngle = Math.PI / 2;
         aimSkyCamera();
         select('sky-g0', false);
       } else {
         controls.enablePan = true;
         controls.minDistance = 4;
         controls.maxDistance = v === 'system' ? 700 : 400;
+        controls.minPolarAngle = 0;
         camera.position.copy(camPos(v));
         controls.target.copy(CAM[v].target);
         select(v === 'system' ? 'plufka' : 'sys4', false);
@@ -1109,6 +1227,7 @@
       showConstellations = !showConstellations;
       constBtn.setAttribute('aria-pressed', showConstellations ? 'true' : 'false');
       constellationGroup.visible = showConstellations;
+      syncConstellationOpacity();
     });
     document.getElementById('reset-btn').addEventListener('click', function(){
       follow = false;
@@ -1226,6 +1345,14 @@
         }
 
         controls.update();
+        if (view === 'sky'){
+          // 地平線より下にある天体のラベルは隠す（地面の円盤に隠れる星本体と合わせる。
+          // 天球は地軸の傾きに合わせて傾いて回るため、星は沈んだり昇ったりする）
+          skyLabels.forEach(function(e){
+            e.grp.getWorldPosition(skyTmpV);
+            e.label.visible = skyTmpV.y > 0;
+          });
+        }
         if (view === 'sky' && window.__skyHud){
           var lookDir = controls.target.clone().sub(camera.position);
           var lookLen = lookDir.length() || 1;

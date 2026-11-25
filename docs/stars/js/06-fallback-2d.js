@@ -209,6 +209,49 @@
         var lat = Math.asin(Math.max(-1, Math.min(1, dir[1]))) * 180 / Math.PI;
         return { lon:lon, lat:lat };
       }
+      /* ---- 季節（見ごろ）：星の黄道経度から、真夜中にいちばん高く見える日を求める ----
+         1年の始まり（第1月1日）を simDays=0 とする。星の黄道経度 λ に対し、
+         プルフカの公転角 θ が -λ になった日が、太陽と星が反対側に来る日
+         （＝その星が真夜中にいちばん高く見える日）。3D版と同じ計算。 */
+      var ECL_EPS = 0.41; // 黄道の傾き ≒ 地軸の傾き 23.5°
+      var YEAR_DAYS = 360.167;
+      function eclLonLat(dir){
+        var lam = Math.atan2(dir[2], dir[0] * Math.cos(ECL_EPS));
+        var beta = Math.asin(Math.max(-1, Math.min(1, -dir[1] * Math.cos(ECL_EPS) + dir[2] * Math.sin(ECL_EPS))));
+        return { lam: lam, beta: beta };
+      }
+      function monthOf(d){
+        var dd = ((d % YEAR_DAYS) + YEAR_DAYS) % YEAR_DAYS;
+        return Math.floor(dd / 30) + 1;
+      }
+      function monthDayText(d){
+        var dd = ((d % YEAR_DAYS) + YEAR_DAYS) % YEAR_DAYS;
+        return '第' + (Math.floor(dd / 30) + 1) + '月' + (Math.floor(dd % 30) + 1) + '日';
+      }
+      function seasonOfDir(dir){
+        var e = eclLonLat(dir);
+        if (Math.abs(e.beta) > 75 * Math.PI / 180){
+          return { peak:'一年を通して見える', range:'一年中', polar:true };
+        }
+        var plufka = null;
+        PLANETS.forEach(function(q){ if (q.plufka) plufka = q; });
+        var pDays = periodDays(plufka.au);
+        var d = (((-e.lam - plufka.angle) % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2) / (Math.PI * 2) * pDays;
+        var mA = monthOf(d - 60), mB = monthOf(d + 60);
+        var range = '第' + mA + '月ごろ〜第' + mB + '月ごろ' + (mB < mA ? '（年をまたぐ）' : '');
+        return { peak: monthDayText(d) + 'ごろ', range: range, polar:false };
+      }
+      function seasonRows(dir){
+        var s = seasonOfDir(dir);
+        if (s.polar) return [
+          ['見ごろ', s.peak + '（黄道の極に近いため）'],
+          ['見える時期', s.range]
+        ];
+        return [
+          ['見ごろ', s.peak + '（真夜中にいちばん高く見える）'],
+          ['見える時期', s.range + '（夕方〜夜に見える時期の目安）']
+        ];
+      }
       skyStars.slice(0, 24).forEach(function(s, idx){
         var letter = GREEK[idx];
         var ll = lonLatOf(s.dir);
@@ -222,7 +265,7 @@
             ['見かけの等級', fmtMag(s.mag) + ' 等'],
             ['色', s.col.name],
             ['天球座標', '経度 ' + ll.lon.toFixed(1) + '° ／ 緯度 ' + latText(ll.lat)]
-          ],
+          ].concat(seasonRows(s.dir)),
           note:'星座創作用に、明るさ順で仮に付けた符号。星座ができたら、α・β…はその星座の中でいちばん明るい星から付け直す想定。星の配置と等級は、星座を作るための仮の星空として生成したもの（開くたびに同じ空になるよう固定してある）。星座データでは星番号（' + idx + ' 番）で指定する。'
         }};
       });
@@ -269,6 +312,51 @@
         'sky-sys4', 'sky-sys9', 'sky-sys3', 'sky-sys6', 'sky-sys7', 'sky-sys2', 'sky-sys5', 'sky-sys8', 'sky-sys10', 'sky-sys1'];
       for (var gi = 0; gi < 24; gi++) SKY_LIST_IDS.push('sky-g' + gi);
 
+      // 星座：天体リストと情報パネル用の記録（3D版と同じ計算）。
+      // 見ごろは使う星の黄道経度の平均から出す。星が広がりすぎている場合は星ごと。
+      function constellationSeason(c){
+        var sx = 0, sy = 0, n = 0;
+        (c.stars || []).forEach(function(idx){
+          var s = skyStars[idx];
+          if (!s) return;
+          var lam = eclLonLat(s.dir).lam;
+          sx += Math.cos(lam); sy += Math.sin(lam); n++;
+        });
+        if (!n) return null;
+        if (Math.sqrt(sx * sx + sy * sy) / n < 0.7){
+          return { peak:'星が広がっているため、見ごろは星ごとに違う', range:'星ごとに違う', spread:true };
+        }
+        var lamMean = Math.atan2(sy, sx);
+        var fakeDir = [Math.cos(lamMean), Math.sin(lamMean) * Math.sin(ECL_EPS), Math.sin(lamMean) * Math.cos(ECL_EPS)];
+        var s = seasonOfDir(fakeDir);
+        return { peak: s.peak, range: s.range, spread:false };
+      }
+      (window.CONSTELLATIONS || []).forEach(function(c, ci){
+        var id = 'const-' + ci;
+        var mx = 0, my = 0, mz = 0, mn = 0;
+        (c.stars || []).forEach(function(idx){
+          var s = skyStars[idx];
+          if (!s) return;
+          mx += s.dir[0]; my += s.dir[1]; mz += s.dir[2]; mn++;
+        });
+        var ml = Math.sqrt(mx * mx + my * my + mz * mz);
+        var meanDir = (mn && ml > 0.1) ? [mx / ml, my / ml, mz / ml]
+          : (skyStars[(c.stars || [])[0]] || { dir:[0, 1, 0] }).dir;
+        var season = constellationSeason(c);
+        bodies[id] = { view:'sky', skyDir:meanDir, data:{
+          id:id, name: c.name || ('星座 ' + (ci + 1)), kind:'星座',
+          listSub: c.season ? c.season : (season && !season.spread ? season.peak : ''),
+          sub:'プルフカの夜空の星座',
+          rows:[
+            ['使う星', (c.stars || []).map(function(i){ return '#' + i; }).join(' ・ ') || '—'],
+            ['見ごろ', c.season ? c.season + '（指定）' : (season ? season.peak : '—')],
+            ['見える時期', season ? season.range : '—']
+          ],
+          note:'星座データ（js/constellations.js）で線と星を指定する。見ごろは使う星の平均の黄道経度から計算したもの。season を書けば見ごろを直接指定できる。'
+        }};
+        SKY_LIST_IDS.push(id);
+      });
+
       /* ---------- 状態とUI ---------- */
       var CAPTIONS = {
         system: '<b>惑星系（2D）</b> ― Nóshih の周りを第1〜第7惑星が回る。プルフカは第3惑星。第5〜第7惑星では大型衛星も公転している。' +
@@ -276,7 +364,7 @@
           '<span><i class="swatch dash"></i>フロストライン 3.504 AU</span>' +
           '<span><i class="swatch"></i>軌道</span></div>',
         nearby: '<b>近傍恒星（2D）</b> ― 10光年以内にある10の星系。最寄りは星系4の 3.91 ly。',
-        sky: '<b>プルフカの夜空（2D星図）</b> ― 天頂中心の固定星空。明るい星24個に α〜ω の仮符号を付けた。淡い星もタップすると星番号が分かる。惑星と月は星座には含めない。上のコンパスが星図の上の方位、バーが空の回転（1周分）を示す。'
+        sky: '<b>プルフカの夜空（2D星図）</b> ― 天頂中心の固定星空。明るい星24個に α〜ω の仮符号を付けた。淡い星もタップすると星番号が分かる。星の情報パネルには、1年のうちどの時期に見ごろかも出る。惑星と月は星座には含めない。上のコンパスが星図の上の方位、バーが空の回転（1周分）を示す。'
       };
       var view = 'system';
       var selectedId = 'plufka';
@@ -314,7 +402,7 @@
             ['見かけの等級', fmtMag(s.mag) + ' 等'],
             ['色', s.col.name],
             ['天球座標', '経度 ' + ll.lon.toFixed(1) + '° ／ 緯度 ' + latText(ll.lat)]
-          ],
+          ].concat(seasonRows(s.dir)),
           note:'星座データ（js/constellations.js）では、この星番号で指定する。'
         }};
         return bodies[id];
@@ -727,8 +815,11 @@
           ctx.fillText('外周＝地平線', cx, cy + R + 22);
         }
         // 星座の線（js/constellations.js）。星の下に引くので、星を描くより先に描く。
+        // 選んだ星座だけ明るく、他は薄くする。
         if (showConstellations){
-          (window.CONSTELLATIONS || []).forEach(function(c){
+          var selConst = selectedId.indexOf('const-') === 0 ? selectedId : null;
+          (window.CONSTELLATIONS || []).forEach(function(c, ci){
+            var alpha = selConst ? (selConst === 'const-' + ci ? 1 : 0.2) : 0.75;
             (c.lines || []).forEach(function(pair){
               var a = skyStars[pair[0]], b = skyStars[pair[1]];
               if (!a || !b) return;
@@ -746,7 +837,7 @@
                 if (!started){ ctx.moveTo(q.x, q.y); started = true; }
                 else ctx.lineTo(q.x, q.y);
               }
-              ctx.strokeStyle = 'rgba(255,217,138,.75)';
+              ctx.strokeStyle = 'rgba(255,217,138,' + alpha + ')';
               ctx.lineWidth = 1;
               ctx.stroke();
             });
