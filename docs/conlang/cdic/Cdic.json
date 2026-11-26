@@ -19578,7 +19578,7 @@
     "stem2": "phar",
     "fix": "phara-",
     "tag": [
-      "ー"
+      "宗教"
     ],
     "parts": "名象",
     "type": "r 基本型",
@@ -20269,7 +20269,7 @@
     ],
     "parts": "動詞",
     "meaning": [
-      "［ 能が ］漁をする。"
+      "［ 能が ］［ 基を ］釣る。"
     ],
     "pronunciation": [
       "/∅ʲi.kál.va/"
@@ -20307,7 +20307,7 @@
       ]
     },
     "variants2": [
-      "りょうをする"
+      "つる"
     ]
   },
   "qéllas": {
@@ -40154,7 +40154,8 @@
     },
     "variants2": [
       "つり",
-      "りょう"
+      "魚釣り",
+      "さかなつり"
     ]
   },
   "pyfnjólas": {
@@ -44239,42 +44240,6 @@
       "changes": []
     }
   },
-  "nána": {
-    "id": 1466,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "nána",
-    "stem": "nán",
-    "stem2": "nan",
-    "fix": "nana-",
-    "tag": [
-      "幼児語"
-    ],
-    "parts": "名象",
-    "type": "n 基本型",
-    "meaning": [
-      "（ 幼児語 ）ねこちゃん、ニャンニャン。"
-    ],
-    "pronunciation": [
-      "/ná.na/"
-    ],
-    "variants2": [
-      "ねこ",
-      "猫ちゃん",
-      "猫",
-      "ネコ"
-    ],
-    "ruletype": "n",
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "擬声語「 猫の声 」から。"
-      ],
-      "changes": []
-    }
-  },
   "mamálva": {
     "id": 1467,
     "safe": true,
@@ -46474,40 +46439,6 @@
       "intro": [
         "合成語。",
         "「 496 」+「 1510 」が組み合わさった語。"
-      ],
-      "changes": []
-    }
-  },
-  "táta": {
-    "id": 1526,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "táta",
-    "stem": "tát",
-    "stem2": "tat",
-    "fix": "tata-",
-    "tag": [
-      "親族",
-      "幼児語"
-    ],
-    "parts": "名象",
-    "type": "t 基本型",
-    "meaning": [
-      "（幼児語）姉。"
-    ],
-    "pronunciation": [
-      "/tá.ta/"
-    ],
-    "variants2": [
-      "あね"
-    ],
-    "ruletype": "t",
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "繰り返しによる造語。"
       ],
       "changes": []
     }
@@ -49885,7 +49816,8 @@
     "stem2": "mont",
     "fix": "manta-",
     "tag": [
-      "施設"
+      "施設",
+      "宗教"
     ],
     "parts": "名象",
     "type": "t 基本型",
@@ -54117,16 +54049,16 @@
     "pronunciation": [
       "/ló.pa/"
     ],
-    "variants2": [],
+    "variants2": [
+      "なみ"
+    ],
     "ruletype": "w",
     "etymology": {
       "intro": [
         "単純語。",
         "音象徴「 波 」から。"
       ],
-      "changes": [
-        "なみ"
-      ]
+      "changes": []
     }
   },
   "dúzsa": {
@@ -57875,13 +57807,14 @@
     "parts": "名飾",
     "type": "k 基本型",
     "meaning": [
-      "若い。"
+      "若い、若々しい。"
     ],
     "pronunciation": [
       "/ák.las/"
     ],
     "variants2": [
-      "わかい"
+      "わかい",
+      "わかわかしい"
     ],
     "ruletype": "k",
     "etymology": {
@@ -58718,75 +58651,6 @@
       "changes": []
     }
   },
-  "carmáita⁽¹⁾": {
-    "id": 2024,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "carmáita",
-    "stem": "carmáit",
-    "stem2": "carmait",
-    "fix": "carmaita-",
-    "tag": [
-      "親族"
-    ],
-    "parts": "名象",
-    "type": "t 明音型",
-    "meaning": [
-      "赤ちゃん、赤ん坊、赤子。"
-    ],
-    "pronunciation": [
-      "/t͡sar.má.tʲa/"
-    ],
-    "variants2": [],
-    "ruletype": "d",
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 279 」+ 「 2320 」が組み合わさった語。",
-        "("
-      ],
-      "changes": [
-        "あかちゃん, あかんぼう, あかご, ベビー"
-      ]
-    }
-  },
-  "carmáita⁽²⁾": {
-    "id": 2348,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "carmáita",
-    "stem": "carmáit",
-    "stem2": "carmait",
-    "fix": "carmaita-",
-    "tag": [
-      "年齢区分"
-    ],
-    "parts": "名象",
-    "type": "t 明音型",
-    "meaning": [
-      "（3歳〜6歳までの子供）幼児、子供。"
-    ],
-    "pronunciation": [
-      "/t͡sar.má.tʲa/"
-    ],
-    "variants2": [
-      "ようじ",
-      "子ども",
-      "こども"
-    ],
-    "ruletype": "tj",
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 279 」+「 2320 」が組み合わさった語。"
-      ],
-      "changes": []
-    }
-  },
   "dycarmáita": {
     "id": 2349,
     "safe": true,
@@ -59253,7 +59117,395 @@
       "changes": []
     }
   },
-  "bába⁽¹⁾": {
+  "bangálva": {
+    "id": 1790,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "bangálva",
+    "stem": "báng",
+    "stem2": "bang",
+    "fix": "bang-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "g 基本型",
+    "meaning": [
+      "［ 基が ］爆発する、はち切れる。",
+      "［ 能が ］［ 基を ］爆発させる。"
+    ],
+    "pronunciation": [
+      "/baŋ.gál.va/"
+    ],
+    "variants2": [
+      "ばくはつする",
+      "タガが外れる",
+      "たががはずれる",
+      "ばくはつさせる"
+    ],
+    "ruletype": "g",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 爆発する 」から。"
+      ],
+      "changes": []
+    }
+  },
+  "kjatálva": {
+    "id": 1800,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "kjatálva",
+    "stem": "kjút",
+    "stem2": "kjut",
+    "fix": "kjat-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "t 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］拭く、拭う。"
+    ],
+    "pronunciation": [
+      "/kʲa.tál.va/"
+    ],
+    "variants2": [
+      "ふく",
+      "ぬぐう"
+    ],
+    "ruletype": "t",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 拭く 」から。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "拭",
+      "chel": [
+        "kjút"
+      ]
+    }
+  },
+  "kacálva": {
+    "id": 1809,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "kacálva",
+    "stem": "kác",
+    "stem2": "kac",
+    "fix": "kac-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "c 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］クリックする。",
+      "［ 基が ］カチッと鳴る。"
+    ],
+    "pronunciation": [
+      "/ka.t͡sál.va/"
+    ],
+    "variants2": [
+      "くりっくする"
+    ],
+    "ruletype": "c",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "擬声語「 クリック音 」から。"
+      ],
+      "changes": []
+    }
+  },
+  "xaighnálva": {
+    "id": 1862,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "xaighnálva",
+    "stem": "xúighn",
+    "stem2": "xuighn",
+    "fix": "xaighna-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 明音型",
+    "meaning": [
+      "［ 基が ］傷つく、痛む。",
+      "［ 能が ］［ 基を ］傷つける、痛める、痛めつける。"
+    ],
+    "pronunciation": [
+      "/za∅ʲ.nʲál.va/"
+    ],
+    "variants2": [
+      "きずつく",
+      "いたむ",
+      "きずつける",
+      "いためつける",
+      "いためる"
+    ],
+    "ruletype": "nj",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 701 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "sóba": {
+    "id": 1966,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "sóba",
+    "stem": "sób",
+    "stem2": "sob",
+    "fix": "saba-",
+    "tag": [
+      "料理"
+    ],
+    "parts": "名象",
+    "type": "b 基本型",
+    "meaning": [
+      "蕎麦。"
+    ],
+    "pronunciation": [
+      "/só.ba/"
+    ],
+    "variants2": [
+      "そば"
+    ],
+    "ruletype": "b",
+    "etymology": {
+      "intro": [
+        "借用語。",
+        "日本語「 そば 」から。"
+      ],
+      "changes": []
+    }
+  },
+  "carágma": {
+    "id": 2024,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "carágma",
+    "stem": "carágm",
+    "stem2": "caragm",
+    "fix": "caragma-",
+    "tag": [
+      "親族"
+    ],
+    "parts": "名象",
+    "type": "m 基本型",
+    "meaning": [
+      "赤ちゃん、赤ん坊、赤子。"
+    ],
+    "pronunciation": [
+      "/t͡sa.rág.ma/"
+    ],
+    "variants2": [
+      "あかちゃん",
+      "あかんぼう",
+      "あかご",
+      "ベビー"
+    ],
+    "ruletype": "m",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 279 」+ 「 2025 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "zykgaválva": {
+    "id": 2363,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "zykgaválva",
+    "stem": "zykgáv",
+    "stem2": "zykgav",
+    "fix": "zykgav-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "v 基本型",
+    "meaning": [
+      "［ 能が ］漁をする。"
+    ],
+    "pronunciation": [
+      "/zʲig.ga.vál.va/"
+    ],
+    "variants2": [
+      "りょうをする"
+    ],
+    "ruletype": "v",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 129 」+「 1529 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "zykgávfa": {
+    "id": 2364,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "zykgávfa",
+    "stem": "zykgávf",
+    "stem2": "zykgavf",
+    "fix": "zykgavfa-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "f 基本型",
+    "meaning": [
+      "漁をする。"
+    ],
+    "pronunciation": [
+      "/zʲig.gáf.fa/"
+    ],
+    "variants2": [
+      "りょう"
+    ],
+    "ruletype": "f",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 2363 」+「 101 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "nána⁽¹⁾": {
+    "id": 1466,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "nána",
+    "stem": "nán",
+    "stem2": "nan",
+    "fix": "nana-",
+    "tag": [
+      "幼児語"
+    ],
+    "parts": "名象",
+    "type": "n 基本型",
+    "meaning": [
+      "（ 幼児語 ）ねこちゃん、ニャンニャン。"
+    ],
+    "pronunciation": [
+      "/ná.na/"
+    ],
+    "variants2": [
+      "ねこ",
+      "猫ちゃん",
+      "猫",
+      "ネコ"
+    ],
+    "ruletype": "n",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "擬声語「 猫の声 」から。"
+      ],
+      "changes": []
+    }
+  },
+  "táta": {
+    "id": 1525,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "táta",
+    "stem": "tát",
+    "stem2": "tat",
+    "fix": "tata-",
+    "tag": [
+      "親族",
+      "幼児語"
+    ],
+    "parts": "名象",
+    "type": "t 基本型",
+    "meaning": [
+      "（幼児語）兄。"
+    ],
+    "pronunciation": [
+      "/tá.ta/"
+    ],
+    "variants2": [
+      "あに"
+    ],
+    "ruletype": "t",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "繰り返しによる造語。"
+      ],
+      "changes": []
+    }
+  },
+  "nána⁽²⁾": {
+    "id": 1526,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "nána",
+    "stem": "nán",
+    "stem2": "nan",
+    "fix": "nana-",
+    "tag": [
+      "親族",
+      "幼児語"
+    ],
+    "parts": "名象",
+    "type": "n 基本型",
+    "meaning": [
+      "（幼児語）姉。"
+    ],
+    "pronunciation": [
+      "/ná.na/"
+    ],
+    "variants2": [
+      "あね"
+    ],
+    "ruletype": "n",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "繰り返しによる造語。"
+      ],
+      "changes": []
+    }
+  },
+  "bába": {
     "id": 725,
     "safe": true,
     "seii": [
@@ -59284,11 +59536,8 @@
     },
     "kanji": {
       "title": "父",
-      "nui": [
-        "ól"
-      ],
       "chel": [
-        "dáda"
+        "bába"
       ]
     },
     "variants2": [
@@ -59299,36 +59548,37 @@
       "パパ"
     ]
   },
-  "bába⁽²⁾": {
-    "id": 1525,
+  "carmáita": {
+    "id": 2348,
     "safe": true,
     "seii": [
-      "HL"
+      "LHL"
     ],
-    "word": "bába",
-    "stem": "báb",
-    "stem2": "bab",
-    "fix": "baba-",
+    "word": "carmáita",
+    "stem": "carmáit",
+    "stem2": "carmait",
+    "fix": "carmaita-",
     "tag": [
-      "親族",
-      "幼児語"
+      "年齢区分"
     ],
     "parts": "名象",
-    "type": "b 基本型",
+    "type": "t 明音型",
     "meaning": [
-      "（幼児語）兄。"
+      "（3歳〜6歳までの子供）幼児、子供。"
     ],
     "pronunciation": [
-      "/bá.ba/"
+      "/t͡sar.má.tʲa/"
     ],
     "variants2": [
-      "あに"
+      "ようじ",
+      "子ども",
+      "こども"
     ],
-    "ruletype": "b",
+    "ruletype": "tj",
     "etymology": {
       "intro": [
-        "単純語。",
-        "繰り返しによる造語。"
+        "合成語。",
+        "「 279 」+「 2320 」が組み合わさった語。"
       ],
       "changes": []
     }
