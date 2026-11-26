@@ -59401,42 +59401,6 @@
       "changes": []
     }
   },
-  "nána⁽¹⁾": {
-    "id": 1466,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "nána",
-    "stem": "nán",
-    "stem2": "nan",
-    "fix": "nana-",
-    "tag": [
-      "幼児語"
-    ],
-    "parts": "名象",
-    "type": "n 基本型",
-    "meaning": [
-      "（ 幼児語 ）ねこちゃん、ニャンニャン。"
-    ],
-    "pronunciation": [
-      "/ná.na/"
-    ],
-    "variants2": [
-      "ねこ",
-      "猫ちゃん",
-      "猫",
-      "ネコ"
-    ],
-    "ruletype": "n",
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "擬声語「 猫の声 」から。"
-      ],
-      "changes": []
-    }
-  },
   "táta": {
     "id": 1525,
     "safe": true,
@@ -59463,40 +59427,6 @@
       "あに"
     ],
     "ruletype": "t",
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "繰り返しによる造語。"
-      ],
-      "changes": []
-    }
-  },
-  "nána⁽²⁾": {
-    "id": 1526,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "nána",
-    "stem": "nán",
-    "stem2": "nan",
-    "fix": "nana-",
-    "tag": [
-      "親族",
-      "幼児語"
-    ],
-    "parts": "名象",
-    "type": "n 基本型",
-    "meaning": [
-      "（幼児語）姉。"
-    ],
-    "pronunciation": [
-      "/ná.na/"
-    ],
-    "variants2": [
-      "あね"
-    ],
-    "ruletype": "n",
     "etymology": {
       "intro": [
         "単純語。",
@@ -59579,6 +59509,76 @@
       "intro": [
         "合成語。",
         "「 279 」+「 2320 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "sása": {
+    "id": 1526,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "sása",
+    "stem": "sás",
+    "stem2": "sas",
+    "fix": "sasa-",
+    "tag": [
+      "親族",
+      "幼児語"
+    ],
+    "parts": "名象",
+    "type": "s 基本型",
+    "meaning": [
+      "（幼児語）姉。"
+    ],
+    "pronunciation": [
+      "/sá.sa/"
+    ],
+    "variants2": [
+      "あね"
+    ],
+    "ruletype": "s",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "繰り返しによる造語。"
+      ],
+      "changes": []
+    }
+  },
+  "nána": {
+    "id": 1466,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "nána",
+    "stem": "nán",
+    "stem2": "nan",
+    "fix": "nana-",
+    "tag": [
+      "幼児語"
+    ],
+    "parts": "名象",
+    "type": "n 基本型",
+    "meaning": [
+      "（ 幼児語 ）ねこちゃん、ニャンニャン。"
+    ],
+    "pronunciation": [
+      "/ná.na/"
+    ],
+    "variants2": [
+      "ねこ",
+      "猫ちゃん",
+      "猫",
+      "ネコ"
+    ],
+    "ruletype": "n",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "擬声語「 猫の声 」から。"
       ],
       "changes": []
     }
