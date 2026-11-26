@@ -91,5 +91,6 @@
   "σεπάς":{"id":256,"safe":true,"word":"σεπάς","stem":"σεπασ","stem2":"σεπασ","tag":["ー"],"parts":"名象","type":"II-B型","ruletype":"IIB","meaning":["羽","翼"],"pronunciation":["/sepas/<br>[səpæs]<br>《sepas-》"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["sepas"]},
   "πρα-": {"id":257,"safe":true,"word":"πρα","tag":["派生接頭辞"],"parts":"派生接辞","meaning":["心〜"],"pronunciation":["/pra/<br>[pɾə]<br>《pra-》"],"etymology":{"intro":["変成体。","「 225 」が訛ったもの。"],"changes":[]},"variants2":["pra"]},
   "-άρε": {"id":258,"safe":true,"word":"άρε","tag":["派生接尾辞"],"parts":"派生接辞","meaning":["〜されたもの"],"pronunciation":["/are/<br>[aɾə]<br>《are-》"],"etymology":{"intro":["語素。","形成の根拠は不明。"],"changes":[]},"variants2":["are"]},
-  "-ας": {"id":259,"safe":true,"word":"ας","tag":["派生接尾辞"],"parts":"派生接辞","meaning":["〜神"],"pronunciation":["/as/<br>[as]<br>《as-》"],"etymology":{"intro":["変成体。","「 185 」が訛ったもの。"],"changes":[]},"variants2":["as"]}
+  "-ας": {"id":259,"safe":true,"word":"ας","tag":["派生接尾辞"],"parts":"派生接辞","meaning":["〜神"],"pronunciation":["/as/<br>[as]<br>《as-》"],"etymology":{"intro":["変成体。","「 185 」が訛ったもの。"],"changes":[]},"variants2":["as"]},
+  "ιυνέλ": {"id":260,"safe":true,"word":"ιυνέλ","stem":"ιυνελ","stem2":"ιυνελ","tag":["ー"],"parts":"名象","type":"II-D型","ruletype":"IID","meaning":["天使","エンジェル"],"pronunciation":["/∅ʲynél/<br>[∅ʲynel]<br>《yünel-》"],"etymology":{"intro":["単純語。","形成の根拠は不明。"],"changes":[]},"variants2":["yünel"]}
 }
