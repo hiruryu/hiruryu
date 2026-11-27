@@ -7,7 +7,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
   // 母音の置き換え
   stemVi = (stem ?? "").replace(/[áéóúö́ë́]/g, '$&i');
-  stem2Vi = (stem2 ?? "").replace(/[aeouöë]/g, '$&i');
+  stem2Vi = (stem2 ?? "").replace(/(uö|[aeouöë])/g, '$&i');
 
   // stem1
   stemui = (stem ?? "").replace(/[óú]/g, 'í');
@@ -19,7 +19,8 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
   stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
   stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
-  stem2öue = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
+  // ö→e (2026-11-27変更: 旧 ö→ue)。uö は u が残り ö→e で ue になる。変数名 stem2öue は旧称のまま。
+  stem2öue = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
   stem2jui = (stem2 ?? "").replace(/j[ou]/, 'y');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
   s2 = stem2ua + "ála";
@@ -89,7 +90,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -131,7 +132,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -175,7 +176,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -217,7 +218,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -260,7 +261,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -302,7 +303,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -349,7 +350,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -391,7 +392,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -437,7 +438,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -479,7 +480,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -526,7 +527,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -568,7 +569,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -614,7 +615,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -656,7 +657,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -703,7 +704,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -745,7 +746,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -791,7 +792,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -833,7 +834,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -880,7 +881,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -922,7 +923,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -968,7 +969,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -1010,7 +1011,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -1056,7 +1057,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "ë́na", nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -1098,7 +1099,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
 
@@ -1144,7 +1145,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "ónas", nz(stem2eë, "ónas"), nz(stem2öue, "ónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "ónön", nz(stem2eë, "ónön"), nz(stem2öue, "ónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "ónuön", nz(stem2eë, "ónuön"), nz(stem2öue, "ónuön")).join("<br>"),
 
       h_s3: uniqueForms(nz(stem2ui, "ë́na"), nz(stem2oö, "ë́na"), nz(stem2jui, "ë́na")).join("<br>"),
 
@@ -1186,7 +1187,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }
@@ -1237,7 +1238,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_s3: uniqueForms(stem2ua + "jónas", nz(stem2eë, "jónas"), nz(stem2öue, "jónas")).join("<br>"),
 
-      ad_s3: uniqueForms(stem2ua + "jónön", nz(stem2eë, "jónön"), nz(stem2öue, "jónön")).join("<br>"),
+      ad_s3: uniqueForms(stem2ua + "jónuön", nz(stem2eë, "jónuön"), nz(stem2öue, "jónuön")).join("<br>"),
 
       h_s3: uniqueForms(stem2Vi + "jë́na", nz(stem2ui, "jë́na"), nz(stem2oö, "jë́na"), nz(stem2jui, "jë́na")).join("<br>"),
 
@@ -1279,7 +1280,7 @@ function getConjARaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
       e_p3: uniqueForms(stem2ua + "rónas", nz(stem2eë, "rónas"), nz(stem2öue, "rónas")).join("<br>"),
 
-      ad_p3: uniqueForms(stem2ua + "rónön", nz(stem2eë, "rónön"), nz(stem2öue, "rónön")).join("<br>"),
+      ad_p3: uniqueForms(stem2ua + "rónuön", nz(stem2eë, "rónuön"), nz(stem2öue, "rónuön")).join("<br>"),
 
       h_p3: uniqueForms(stem2Vi + "rë́na", nz(stem2ui, "rë́na"), nz(stem2oö, "rë́na"), nz(stem2jui, "rë́na")).join("<br>"),
     }

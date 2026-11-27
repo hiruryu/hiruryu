@@ -884,43 +884,6 @@
       "ちこく"
     ]
   },
-  "Chessnö́pha": {
-    "id": 95,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "Chessnö́pha",
-    "stem": "Chessnö́ph",
-    "stem2": "Chessnöph",
-    "lexemic": [
-      "čälsnā͜uáfa"
-    ],
-    "tag": [
-      "人工言語",
-      "プルフカの言語"
-    ],
-    "parts": "名象",
-    "type": "ph 基本型",
-    "ruletype": "f",
-    "meaning": [
-      "チェルスノー語。"
-    ],
-    "pronunciation": [
-      "/ʈ͡ʂʲes.snǿ.fa/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 94 」+「 96 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "智語",
-      "ちご"
-    ]
-  },
   "-ápha": {
     "id": 96,
     "safe": true,
@@ -4115,67 +4078,6 @@
       "てんかいする"
     ]
   },
-  "lö́llas": {
-    "id": 188,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "lö́llas",
-    "stem": "lö́l",
-    "stem2": "löl",
-    "fix": "luel-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "名飾",
-    "type": "l 基本型",
-    "ruletype": "l",
-    "meaning": [
-      "暗い。",
-      "（ 色が ）濃い。",
-      "悲しい。",
-      "鬱な。",
-      "（ 音楽 ）短音程の、マイナーの。"
-    ],
-    "pronunciation": [
-      "/lǿl.las/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "音象徴「 暗い 」から。"
-      ],
-      "changes": [
-        {
-          "form": "⫽loal-⫽古形 → lóal-"
-        },
-        {
-          "form": "⫽loal-⫽母音合成 → löl-"
-        },
-        {
-          "form": "⫽löl-⫽現代"
-        }
-      ]
-    },
-    "kanji": {
-      "title": "暗",
-      "nui": [
-        "móg",
-        "bóg"
-      ],
-      "chel": [
-        "löl"
-      ]
-    },
-    "variants2": [
-      "くらい",
-      "かなしい",
-      "こい",
-      "うつな",
-      "たんおんていの"
-    ]
-  },
   "kattálva": {
     "id": 189,
     "safe": true,
@@ -6195,39 +6097,6 @@
       "ふくらませる"
     ]
   },
-  "*bö́ma": {
-    "id": 255,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "bö́ma",
-    "stem": "bö́m",
-    "stem2": "böm",
-    "fix": "bema-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "名象",
-    "type": "m 基本型",
-    "ruletype": "m",
-    "meaning": [
-      "パン。"
-    ],
-    "pronunciation": [
-      "/bǿ.ma/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "音象徴「 膨らむ 」から。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "麺麭"
-    ]
-  },
   "klákla": {
     "id": 256,
     "safe": true,
@@ -6590,55 +6459,6 @@
       "げんきぐすり",
       "薬",
       "くすり"
-    ]
-  },
-  "fapö́lva": {
-    "id": 266,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "fapö́lva",
-    "stem": "fáp",
-    "stem2": "fp",
-    "fix": "fapo-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "o 終了型（ 部分不規則 ）",
-    "ruletype": "po",
-    "meaning": [
-      "［ 能が ］［ 基を ］示す、見せる、表す。",
-      "［ 能が ］［ 基を ］明らかにする。"
-    ],
-    "pronunciation": [
-      "/fa.pǿl.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "形成の根拠は不明。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "示",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "fópo"
-      ]
-    },
-    "variants2": [
-      "しめす",
-      "見せる",
-      "表す",
-      "あらわす",
-      "表わす",
-      "しこうする",
-      "おもう"
     ]
   },
   "patójlas": {
@@ -7298,40 +7118,6 @@
     },
     "variants2": [
       "いんしょくてん"
-    ]
-  },
-  "patö́gda": {
-    "id": 290,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "patö́gda",
-    "stem": "patö́gd",
-    "stem2": "patögd",
-    "fix": "patuegda-",
-    "tag": [
-      "施設"
-    ],
-    "parts": "名象",
-    "type": "d 基本型",
-    "ruletype": "d",
-    "meaning": [
-      "青果店、果物屋。"
-    ],
-    "pronunciation": [
-      "/pa.tǿg.da/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        " ｢ 192 」+「 287 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "せいかてん",
-      "くだものや"
     ]
   },
   "ftåzágda": {
@@ -9207,61 +8993,6 @@
       "でかける"
     ]
   },
-  "tykö́lva": {
-    "id": 340,
-    "safe": true,
-    "seii": [
-      "LH"
-    ],
-    "word": "tykö́lva",
-    "stem": "týk",
-    "stem2": "tyk",
-    "fix": "tyko-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "o 終了型",
-    "ruletype": "o",
-    "meaning": [
-      "［ 与が ］［ 基を ］欲しい、欲する。",
-      "［ 与が ］［ 基を ］欲しがる、求める、望む。",
-      "［ 能が ］［ 基を ］〜したい。",
-      "［ 能が ］［ 基を ］［ 与に ］〜してほしい"
-    ],
-    "pronunciation": [
-      "/tʲi.kǿl.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "音象徴「 欠ける 」から。"
-      ],
-      "changes": []
-    },
-    "note3": [
-      "「 A には B が欠けている 」<br>⇒「 だから B を求める 」"
-    ],
-    "kanji": {
-      "title": "欲",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "tík"
-      ]
-    },
-    "variants2": [
-      "ほしい",
-      "ほっする",
-      "ほしがる",
-      "したい",
-      "してほしい",
-      "もとめる",
-      "もとむ",
-      "のぞむ"
-    ]
-  },
   "frásha": {
     "id": 341,
     "safe": true,
@@ -9966,48 +9697,6 @@
       "ほうちょう",
       "かたな"
     ]
-  },
-  "*kakö́lva": {
-    "id": 362,
-    "safe": true,
-    "seii": [
-      "LH"
-    ],
-    "word": "kakö́lva",
-    "stem": "kúk",
-    "stem2": "kuk",
-    "fix": "kako-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "o 基本型",
-    "ruletype": "o",
-    "meaning": [
-      "［ 能が ］［ 基を ］掘る、掘削する。"
-    ],
-    "pronunciation": [
-      "/ka.kǿl.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "形成の根拠は不明。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "ほる",
-      "くっさく"
-    ],
-    "alert": {
-      "a1": [
-        "※ この単語は現在使われていません。以下を使用してください。"
-      ],
-      "a2": [
-        "「 468 」"
-      ]
-    }
   },
   "kakója": {
     "id": 363,
@@ -11409,57 +11098,6 @@
       "すいこむ"
     ]
   },
-  "hö́glas": {
-    "id": 402,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "hö́glas",
-    "stem": "hö́g",
-    "stem2": "hög",
-    "fix": "hueg-",
-    "type": "g 基本型",
-    "ruletype": "g",
-    "tag": [
-      "ー"
-    ],
-    "parts": "名飾",
-    "meaning": [
-      "激しい、勢いのある。",
-      "荒い、荒々しい。",
-      "威勢の良い。",
-      "強烈な、凄まじい、物凄い。"
-    ],
-    "pronunciation": [
-      "/hǿg.las/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "音象徴「 激しい 」から。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "激",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "hög"
-      ]
-    },
-    "variants2": [
-      "はげしい",
-      "いきおいのある",
-      "あらあらしい",
-      "いせいのいい",
-      "きょうれつな",
-      "すさまじい",
-      "ものすごい"
-    ]
-  },
   "xódhlas": {
     "id": 403,
     "safe": true,
@@ -12561,39 +12199,6 @@
       "しめらせる"
     ]
   },
-  "fekö́gda": {
-    "id": 430,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "fekö́gda",
-    "stem": "fekö́gd",
-    "stem2": "fkögd",
-    "fix": "fekuegd-",
-    "tag": [
-      "施設"
-    ],
-    "parts": "名象",
-    "type": "d 基本型",
-    "ruletype": "d",
-    "meaning": [
-      "服屋。"
-    ],
-    "pronunciation": [
-      "/fe.kǿg.da/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        " ｢ 353 」+「 287 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "ふくや"
-    ]
-  },
   "cna-": {
     "id": 431,
     "safe": true,
@@ -12725,55 +12330,6 @@
     "variants2": [
       "子魚",
       "ちぎょ"
-    ]
-  },
-  "epö́lva": {
-    "id": 435,
-    "safe": true,
-    "seii": [
-      "LH"
-    ],
-    "word": "epö́lva",
-    "stem": "ep",
-    "stem2": "ep",
-    "fix": "epo-",
-    "type": "o 終了型（ 部分不規則 ）",
-    "ruletype": "po",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "meaning": [
-      "［ 基が ］ 浮く、浮かぶ。浮遊する。",
-      "［ 能が ］［ 基を ］浮かす。"
-    ],
-    "pronunciation": [
-      "/e.pǿl.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "音象徴「 高い 」から。",
-        "「 324 」「 405 」などと同象徴。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "浮",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "epo"
-      ]
-    },
-    "variants2": [
-      "うかぶ",
-      "うかす",
-      "うく",
-      "ふゆうする",
-      "浮かす",
-      "浮かぶ"
     ]
   },
   "jéshka": {
@@ -21173,61 +20729,6 @@
       "対面する"
     ]
   },
-  "kekö́lva": {
-    "id": 694,
-    "safe": true,
-    "seii": [
-      "LH"
-    ],
-    "word": "kekö́lva",
-    "stem": "kók",
-    "stem2": "kok",
-    "fix": "kako-",
-    "type": "o 終了型",
-    "ruletype": "o",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "meaning": [
-      "［ 能が ］［ 基を ］［ 処に ］植える、植え付ける。",
-      "［ 能が ］［ 基を ］［ 処に ］移植する"
-    ],
-    "pronunciation": [
-      "/kʲe.kǿl.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "変成語。",
-        "「 274 」が訛った語。"
-      ],
-      "changes": [
-        {
-          "form": "⫽toko-⫽原形 → tóko-"
-        },
-        {
-          "form": "⫽koko-⫽後化"
-        },
-        {
-          "form": "⫽koko-⫽現代 → kóko-"
-        }
-      ]
-    },
-    "kanji": {
-      "title": "植",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "kóko"
-      ]
-    },
-    "variants2": [
-      "うえる",
-      "うえつける",
-      "いしょくする"
-    ]
-  },
   "fakhálva": {
     "id": 695,
     "safe": true,
@@ -25563,71 +25064,6 @@
       "音楽"
     ]
   },
-  "mö́dhlas": {
-    "id": 832,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "mö́dhlas",
-    "stem": "mö́d",
-    "stem2": "möd",
-    "fix": "mued-",
-    "type": "d 基本型",
-    "ruletype": "d",
-    "tag": [
-      "温度"
-    ],
-    "parts": "名飾",
-    "meaning": [
-      "（ 温度が ）高い。熱い。",
-      "（ 気温が ）暑い。",
-      "ヒリヒリする、痛い。",
-      "辛い、からい、スパイシーな。",
-      "情熱的な、活発な。",
-      "恥ずかしい。",
-      "興奮した。"
-    ],
-    "explanation": [
-      "熱いと感じる。実際の温度に関わらず、話者や経験者が熱いと知覚していることを表す。",
-      "皮膚・喉などに痛みや辛味などの刺激を感じる。",
-      "経験者自身が内面的に強い情動を感じている。<br>　 感情そのものの強さよりも、当人がそれを強く感じていることに焦点を当てる。"
-    ],
-    "pronunciation": [
-      "/mǿ∅ʲ.las/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "音象徴「 熱い 」から。"
-      ],
-      "changes": []
-    },
-    "variants1": [
-      "699",
-      "752"
-    ],
-    "kanji": {
-      "title": "熱",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "gvéf",
-        "mö́d"
-      ]
-    },
-    "variants2": [
-      "あつい",
-      "あつあつの",
-      "熱い",
-      "からい",
-      "スパイシーな",
-      "たかい",
-      "痛い",
-      "いたい"
-    ]
-  },
   "-mja": {
     "id": 833,
     "safe": true,
@@ -29153,7 +28589,7 @@
     },
     "note3": [
       "「 /o/+/a/ 」「 /o/+/a/ 」は合成して ö となる。",
-      "発音は常に [ø~ɶ] となり、常にアクセントが置かれる。弱化すると o になる。",
+      "発音は常に [ʲø~ʲɶ] となり、常にアクセントが置かれる。弱化すると o になる。",
       "ö が表示できない場合は oa もしくは oe と表記する。<br>どっちを用いるかは語によって変わる。"
     ],
     "variants2": [
@@ -43657,47 +43093,6 @@
       "呼吸をする"
     ]
   },
-  "någlakö́lva": {
-    "id": 299,
-    "safe": true,
-    "seii": [
-      "LLHL"
-    ],
-    "word": "någlakö́lva",
-    "stem": "någlúk",
-    "stem2": "någluk",
-    "fix": "någlako-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "o 基本型",
-    "ruletype": "o",
-    "meaning": [
-      "［ 基が ］糖を摂取する。",
-      "［ 基が ］エネルギーを取る、動力を受ける。",
-      "［ 能が ］思考の準備をする",
-      "［ 能が ］［ 与に ］エネルギーを与える、動力を与える。"
-    ],
-    "pronunciation": [
-      "/nag.la.kǿl.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 303 」+「 298 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "とうをせっしゅする",
-      "エネルギーをとる",
-      "どうりょくをうける",
-      "しこうのじゅんびをする",
-      "エネルギーをあたえる",
-      "どうりょくをあたえる"
-    ]
-  },
   "cytháfa": {
     "id": 1227,
     "safe": true,
@@ -50449,8 +49844,8 @@
       "LHL"
     ],
     "word": "luexhálva",
-    "stem": "lö́xh",
-    "stem2": "löxh",
+    "stem": "luö́xh",
+    "stem2": "luöxh",
     "fix": "luexh-",
     "tag": [
       "ー"
@@ -50869,9 +50264,9 @@
       "LHL"
     ],
     "word": "buekálva",
-    "stem": "bö́k",
-    "stem2": "bök",
-    "fix": "bök-",
+    "stem": "buö́k",
+    "stem2": "buök",
+    "fix": "buök-",
     "tag": [
       "ー"
     ],
@@ -57422,39 +56817,6 @@
       "changes": []
     }
   },
-  "pjavlö́gda": {
-    "id": 2310,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "pjavlö́gda",
-    "stem": "pjavlö́gd",
-    "stem2": "pjavlögd",
-    "fix": "pjavluegda-",
-    "tag": [
-      "施設"
-    ],
-    "parts": "名象",
-    "type": "d 基本型",
-    "meaning": [
-      "酒屋。"
-    ],
-    "pronunciation": [
-      "/pʲav.lǿg.da/"
-    ],
-    "variants2": [
-      "さけや"
-    ],
-    "ruletype": "d",
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 1409 」+「 287 」が組み合わさった語。"
-      ],
-      "changes": []
-    }
-  },
   "pjavlóta": {
     "id": 2311,
     "safe": true,
@@ -59579,6 +58941,642 @@
       "intro": [
         "単純語。",
         "擬声語「 猫の声 」から。"
+      ],
+      "changes": []
+    }
+  },
+  "Chessnuö́pha": {
+    "id": 95,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "Chessnuö́pha",
+    "stem": "Chessnuö́ph",
+    "stem2": "Chessnuöph",
+    "lexemic": [
+      "čälsnā͜uáfa"
+    ],
+    "tag": [
+      "人工言語",
+      "プルフカの言語"
+    ],
+    "parts": "名象",
+    "type": "ph 基本型",
+    "ruletype": "f",
+    "meaning": [
+      "チェルスノー語。"
+    ],
+    "pronunciation": [
+      "/ʈ͡ʂʲes.snǿ.fa/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 94 」+「 96 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "智語",
+      "ちご"
+    ],
+    "fix": ""
+  },
+  "luö́llas": {
+    "id": 188,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "luö́llas",
+    "stem": "luö́l",
+    "stem2": "luöl",
+    "fix": "luel-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "type": "l 基本型",
+    "ruletype": "l",
+    "meaning": [
+      "暗い。",
+      "（ 色が ）濃い。",
+      "悲しい。",
+      "鬱な。",
+      "（ 音楽 ）短音程の、マイナーの。"
+    ],
+    "pronunciation": [
+      "/lǿl.las/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 暗い 」から。"
+      ],
+      "changes": [
+        {
+          "form": "⫽loal-⫽母音合成 → luöl-"
+        },
+        {
+          "form": "⫽luöl-⫽現代"
+        }
+      ]
+    },
+    "kanji": {
+      "title": "暗",
+      "nui": [
+        "móg",
+        "bóg"
+      ],
+      "chel": [
+        "luöl"
+      ]
+    },
+    "variants2": [
+      "くらい",
+      "かなしい",
+      "こい",
+      "うつな",
+      "たんおんていの"
+    ]
+  },
+  "*buö́ma": {
+    "id": 255,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "buö́ma",
+    "stem": "buö́m",
+    "stem2": "buöm",
+    "fix": "buema-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "m 基本型",
+    "ruletype": "m",
+    "meaning": [
+      "パン。"
+    ],
+    "pronunciation": [
+      "/bǿ.ma/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 膨らむ 」から。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "麺麭"
+    ]
+  },
+  "fapuö́lva": {
+    "id": 266,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fapuö́lva",
+    "stem": "fáp",
+    "stem2": "fp",
+    "fix": "fapo-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "o 終了型（ 部分不規則 ）",
+    "ruletype": "po",
+    "meaning": [
+      "［ 能が ］［ 基を ］示す、見せる、表す。",
+      "［ 能が ］［ 基を ］明らかにする。"
+    ],
+    "pronunciation": [
+      "/fa.pǿl.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "形成の根拠は不明。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "示",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "fópo"
+      ]
+    },
+    "variants2": [
+      "しめす",
+      "見せる",
+      "表す",
+      "あらわす",
+      "表わす",
+      "しこうする",
+      "おもう"
+    ]
+  },
+  "patuö́gda": {
+    "id": 290,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "patuö́gda",
+    "stem": "patuö́gd",
+    "stem2": "patuögd",
+    "fix": "patuegda-",
+    "tag": [
+      "施設"
+    ],
+    "parts": "名象",
+    "type": "d 基本型",
+    "ruletype": "d",
+    "meaning": [
+      "青果店、果物屋。"
+    ],
+    "pronunciation": [
+      "/pa.tǿg.da/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        " ｢ 192 」+「 287 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "せいかてん",
+      "くだものや"
+    ]
+  },
+  "någlakuö́lva": {
+    "id": 299,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "någlakuö́lva",
+    "stem": "någlúk",
+    "stem2": "någluk",
+    "fix": "någlako-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "o 基本型",
+    "ruletype": "o",
+    "meaning": [
+      "［ 基が ］糖を摂取する。",
+      "［ 基が ］エネルギーを取る、動力を受ける。",
+      "［ 能が ］思考の準備をする",
+      "［ 能が ］［ 与に ］エネルギーを与える、動力を与える。"
+    ],
+    "pronunciation": [
+      "/nag.la.kǿl.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 303 」+「 298 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "とうをせっしゅする",
+      "エネルギーをとる",
+      "どうりょくをうける",
+      "しこうのじゅんびをする",
+      "エネルギーをあたえる",
+      "どうりょくをあたえる"
+    ]
+  },
+  "tykuö́lva": {
+    "id": 340,
+    "safe": true,
+    "seii": [
+      "LH"
+    ],
+    "word": "tykuö́lva",
+    "stem": "týk",
+    "stem2": "tyk",
+    "fix": "tyko-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "o 終了型",
+    "ruletype": "o",
+    "meaning": [
+      "［ 与が ］［ 基を ］欲しい、欲する。",
+      "［ 与が ］［ 基を ］欲しがる、求める、望む。",
+      "［ 能が ］［ 基を ］〜したい。",
+      "［ 能が ］［ 基を ］［ 与に ］〜してほしい"
+    ],
+    "pronunciation": [
+      "/tʲi.kǿl.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 欠ける 」から。"
+      ],
+      "changes": []
+    },
+    "note3": [
+      "「 A には B が欠けている 」<br>⇒「 だから B を求める 」"
+    ],
+    "kanji": {
+      "title": "欲",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "tík"
+      ]
+    },
+    "variants2": [
+      "ほしい",
+      "ほっする",
+      "ほしがる",
+      "したい",
+      "してほしい",
+      "もとめる",
+      "もとむ",
+      "のぞむ"
+    ]
+  },
+  "*kakuö́lva": {
+    "id": 362,
+    "safe": true,
+    "seii": [
+      "LH"
+    ],
+    "word": "kakuö́lva",
+    "stem": "kúk",
+    "stem2": "kuk",
+    "fix": "kako-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "o 基本型",
+    "ruletype": "o",
+    "meaning": [
+      "［ 能が ］［ 基を ］掘る、掘削する。"
+    ],
+    "pronunciation": [
+      "/ka.kǿl.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "形成の根拠は不明。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "ほる",
+      "くっさく"
+    ],
+    "alert": {
+      "a1": [
+        "※ この単語は現在使われていません。以下を使用してください。"
+      ],
+      "a2": [
+        "「 468 」"
+      ]
+    }
+  },
+  "huö́glas": {
+    "id": 402,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "huö́glas",
+    "stem": "huö́g",
+    "stem2": "huög",
+    "fix": "hueg-",
+    "type": "g 基本型",
+    "ruletype": "g",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "meaning": [
+      "激しい、勢いのある。",
+      "荒い、荒々しい。",
+      "威勢の良い。",
+      "強烈な、凄まじい、物凄い。"
+    ],
+    "pronunciation": [
+      "/hǿg.las/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 激しい 」から。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "激",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "huög"
+      ]
+    },
+    "variants2": [
+      "はげしい",
+      "いきおいのある",
+      "あらあらしい",
+      "いせいのいい",
+      "きょうれつな",
+      "すさまじい",
+      "ものすごい"
+    ]
+  },
+  "fekuö́gda": {
+    "id": 430,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fekuö́gda",
+    "stem": "fekuö́gd",
+    "stem2": "fkuögd",
+    "fix": "fekuegd-",
+    "tag": [
+      "施設"
+    ],
+    "parts": "名象",
+    "type": "d 基本型",
+    "ruletype": "d",
+    "meaning": [
+      "服屋。"
+    ],
+    "pronunciation": [
+      "/fe.kǿg.da/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        " ｢ 353 」+「 287 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "ふくや"
+    ]
+  },
+  "epuö́lva": {
+    "id": 435,
+    "safe": true,
+    "seii": [
+      "LH"
+    ],
+    "word": "epuö́lva",
+    "stem": "ep",
+    "stem2": "ep",
+    "fix": "epo-",
+    "type": "o 終了型（ 部分不規則 ）",
+    "ruletype": "po",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "meaning": [
+      "［ 基が ］ 浮く、浮かぶ。浮遊する。",
+      "［ 能が ］［ 基を ］浮かす。"
+    ],
+    "pronunciation": [
+      "/e.pǿl.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 高い 」から。",
+        "「 324 」「 405 」などと同象徴。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "浮",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "epo"
+      ]
+    },
+    "variants2": [
+      "うかぶ",
+      "うかす",
+      "うく",
+      "ふゆうする",
+      "浮かす",
+      "浮かぶ"
+    ]
+  },
+  "kekuö́lva": {
+    "id": 694,
+    "safe": true,
+    "seii": [
+      "LH"
+    ],
+    "word": "kekuö́lva",
+    "stem": "kók",
+    "stem2": "kok",
+    "fix": "kako-",
+    "type": "o 終了型",
+    "ruletype": "o",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "meaning": [
+      "［ 能が ］［ 基を ］［ 処に ］植える、植え付ける。",
+      "［ 能が ］［ 基を ］［ 処に ］移植する"
+    ],
+    "pronunciation": [
+      "/kʲe.kǿl.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "変成語。",
+        "「 274 」が訛った語。"
+      ],
+      "changes": [
+        {
+          "form": "⫽toko-⫽原形 → tóko-"
+        },
+        {
+          "form": "⫽koko-⫽後化"
+        },
+        {
+          "form": "⫽koko-⫽現代 → kóko-"
+        }
+      ]
+    },
+    "kanji": {
+      "title": "植",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "kóko"
+      ]
+    },
+    "variants2": [
+      "うえる",
+      "うえつける",
+      "いしょくする"
+    ]
+  },
+  "muö́dhlas": {
+    "id": 832,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "muö́dhlas",
+    "stem": "muö́d",
+    "stem2": "muöd",
+    "fix": "mued-",
+    "type": "d 基本型",
+    "ruletype": "d",
+    "tag": [
+      "温度"
+    ],
+    "parts": "名飾",
+    "meaning": [
+      "（ 温度が ）高い。熱い。",
+      "（ 気温が ）暑い。",
+      "ヒリヒリする、痛い。",
+      "辛い、からい、スパイシーな。",
+      "情熱的な、活発な。",
+      "恥ずかしい。",
+      "興奮した。"
+    ],
+    "explanation": [
+      "熱いと感じる。実際の温度に関わらず、話者や経験者が熱いと知覚していることを表す。",
+      "皮膚・喉などに痛みや辛味などの刺激を感じる。",
+      "経験者自身が内面的に強い情動を感じている。<br>　 感情そのものの強さよりも、当人がそれを強く感じていることに焦点を当てる。"
+    ],
+    "pronunciation": [
+      "/mǿ∅ʲ.las/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 熱い 」から。"
+      ],
+      "changes": []
+    },
+    "variants1": [
+      "699",
+      "752"
+    ],
+    "kanji": {
+      "title": "熱",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "gvéf",
+        "muö́d"
+      ]
+    },
+    "variants2": [
+      "あつい",
+      "あつあつの",
+      "熱い",
+      "からい",
+      "スパイシーな",
+      "たかい",
+      "痛い",
+      "いたい"
+    ]
+  },
+  "pjavluö́gda": {
+    "id": 2310,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "pjavluö́gda",
+    "stem": "pjavluö́gd",
+    "stem2": "pjavluögd",
+    "fix": "pjavluegda-",
+    "tag": [
+      "施設"
+    ],
+    "parts": "名象",
+    "type": "d 基本型",
+    "meaning": [
+      "酒屋。"
+    ],
+    "pronunciation": [
+      "/pʲav.lǿg.da/"
+    ],
+    "variants2": [
+      "さけや"
+    ],
+    "ruletype": "d",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1409 」+「 287 」が組み合わさった語。"
       ],
       "changes": []
     }

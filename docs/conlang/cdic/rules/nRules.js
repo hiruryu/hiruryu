@@ -28,7 +28,8 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   // o 型
   f_fxo = "of";
   e_fxo = "ok";
-  d_fxo = "ös";
+  // 与格 -ös: stem末尾子音が口蓋化(明音型, péilo・lóiko)なら ös のまま、非口蓋化(基本型)なら uös
+  d_fxo = /[ií][^aeiouyöëũáéíóúýö́ë́åǻ]*$/.test(stem ?? "") ? "ös" : "uös";
   l_fxo = "om";
   i_fxo = "osh";
   g_fxo = "u";
@@ -113,7 +114,7 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
 
   // 母音の置き換え
   stemVi = (stem ?? "").replace(/[áéóúö́ë́]/g, '$&i');
-  stem2Vi = (stem2 ?? "").replace(/[aeouöë]/g, '$&i');
+  stem2Vi = (stem2 ?? "").replace(/(uö|[aeouöë])/g, '$&i');
 
   // stem1
   stemui = (stem ?? "").replace(/[óú]/g, 'í');
@@ -125,9 +126,10 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
   stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
-  stem2öue = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
-  // o/u→a と ö→ue の両方を適用した完全弱化形（呼格用）。
-  stem2w = stem2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
+  // ö→e (2026-11-27変更: 旧 ö→ue)。uö は u が残り ö→e で ue になる。変数名 stem2öue は旧称のまま。
+  stem2öue = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
+  // o/u→a と ö→e の両方を適用した完全弱化形（呼格用）。uö は u が残り ö→e で ue になる。
+  stem2w = stem2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
   stem2jui = (stem2 ?? "").replace(/j[ou]/, 'y');
   // 子音終了形の複数基底：語末子音の直前の母音に i を挿入する（口蓋化）。
   // aC/eC/yC/oC/uC/öC/ëC → aiC/eiC/yiC/oiC/uiC/öiC/ëiC（アクセント付き母音も同様）。
@@ -141,19 +143,19 @@ function getConjNRaw(word, stem, long_stem, stem2, stem3, type, ruletype, baseOv
   const kToCh = (s) => (s ?? "").replace(/k$/, "ch");
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
   // 呼格複数形用の弱化した複数基底（ó/ú → a）。接辞 ra/la/ga には o/u がないので全体の置換でよい。
-  anpC2ua = anpC2.replace(/[ou]/g, 'a');
-  anpCl2ua = anpCl2.replace(/[ou]/g, 'a');
-  anpCq2ua = anpCq2.replace(/[ou]/g, 'a');
-  anpCo2ua = anpCo2.replace(/[ou]/g, 'a');
-  anpC2öue = anpC2.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
-  anpCl2öue = anpCl2.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
-  anpCq2öue = anpCq2.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
-  anpCo2öue = anpCo2.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
-  // o/u→a と ö→ue の両方を適用した完全弱化形（複数呼格用）。
-  anpC2w = anpC2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
-  anpCl2w = anpCl2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
-  anpCq2w = anpCq2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
-  anpCo2w = anpCo2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
+  anpC2ua = anpC2.replace(/[ou](?!ö)/g, 'a');
+  anpCl2ua = anpCl2.replace(/[ou](?!ö)/g, 'a');
+  anpCq2ua = anpCq2.replace(/[ou](?!ö)/g, 'a');
+  anpCo2ua = anpCo2.replace(/[ou](?!ö)/g, 'a');
+  anpC2öue = anpC2.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
+  anpCl2öue = anpCl2.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
+  anpCq2öue = anpCq2.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
+  anpCo2öue = anpCo2.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
+  // o/u→a と ö→e の両方を適用した完全弱化形（複数呼格用）。uö は u が残り ö→e で ue になる。
+  anpC2w = anpC2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
+  anpCl2w = anpCl2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
+  anpCq2w = anpCq2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
+  anpCo2w = anpCo2ua.replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
 
   function uniqueForms(...forms) {
     const filtered = [...new Set(forms.filter(form => !/jí|ji|ii|íi|iúi|iui/.test(form)))];

@@ -70,7 +70,7 @@ function getConjVRaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
 
   // 母音の置き換え
   stemVi = (stem ?? "").replace(/[áéóúö́ë́]/g, '$&i');
-  stem2Vi = (stem2 ?? "").replace(/[aeouöë]/g, '$&i');
+  stem2Vi = (stem2 ?? "").replace(/(uö|[aeouöë])/g, '$&i');
 
   // stem1
   stemui = (stem ?? "").replace(/[óú]/g, 'í');
@@ -86,7 +86,8 @@ function getConjVRaw(_word, stem, long_stem, stem2, stem3, _type, ruletype, base
   stem2ui = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ou](?![aeouöëáéóúö́ë́])/g, 'i');
   stem2oö = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])o/g, 'ö');
   stem2eë = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])e/g, 'ë');
-  stem2öue = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlj])[ö](?![aeouöëáéóúö́ë́])/g, 'ue');
+  // ö→e (2026-11-27変更: 旧 ö→ue)。uö は u が残り ö→e で ue になる。変数名 stem2öue は旧称のまま。
+  stem2öue = (stem2 ?? "").replace(/(?<=[pbtdkgmnqfvszcxhrlju])[ö](?![aeouöëáéóúö́ë́])/g, 'e');
   stem2jui = (stem2 ?? "").replace(/j[ou]/, 'y');
   stem2juiu = (stem2 ?? "").replace('ju', 'y');
   stem2q = (stem2 ?? "").replace(/^[mnq][iu]/, 'ũ');
