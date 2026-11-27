@@ -278,8 +278,7 @@
     "meaning": [
       "（ 補形を表す代辞 ）〜だ、〜です。",
       "（ 呼称形を表わす ）〜よ、〜さん。",
-      "（ 命令形を表わす ）〜しろ、〜せよ。",
-      "（ 補形を表す代辞 ）"
+      "（ 命令形を表わす ）〜しろ、〜せよ。"
     ],
     "pronunciation": [
       "/a/"
@@ -392,7 +391,7 @@
       "（ 一部分を表わす ）〜の一部分。",
       "（ 話題を表わす ）〜について。",
       "（ 特性を表わす ）〜の、～に関する。",
-      "（ 部分否定文の目的語を表わす ）～を"
+      "（ 部分否定文の目的語を表わす ）～を。"
     ],
     "pronunciation": [
       "/∅ʲi/"
@@ -513,7 +512,7 @@
     ],
     "parts": "屈折接辞",
     "meaning": [
-      "（ 獣格を表わす ）〜が、〜は。",
+      "（ Faska主語を表わす ）〜が、〜は。",
       "（ 非意志を表わす ）〜が、〜は。",
       "（ 時に軽蔑の意を表わす ）〜。"
     ],
@@ -586,7 +585,7 @@
     "parts": "屈折接辞",
     "meaning": [
       "（ 動作の方向を表わす ）〜に、〜へ。",
-      "（ 贈与者を表わす ）〜に",
+      "（ 贈与者を表わす ）〜に。",
       "（ 目的を表わす ）〜のために。",
       "（ 主観を表わす ）〜にとって。",
       "（ 終点を表わす ）〜まで。"
@@ -636,6 +635,7 @@
       "（ 人や物がいる場所･行為がなされる場所を表わす ）〜で。",
       "（ 行為の起きる時刻を表わす ）〜に。",
       "（ 最上級の基準となる集団･範囲を表わす ）〜の中で。",
+      "（ 立場を表す ）〜として。",
       "〈 辞書の中でのみ 〉〜の意味で。",
       "（ ある対象の所在･所属範囲を表わす ）〜の、～にある。"
     ],
@@ -652,6 +652,7 @@
     "variants2": [
       "で",
       "の中で",
+      "として",
       "にある",
       "ある",
       "の意味で",
@@ -2555,7 +2556,8 @@
       "changes": []
     },
     "variants2": [
-      "させる"
+      "させる",
+      "yf"
     ],
     "seii": [
       "L"
@@ -2646,7 +2648,7 @@
     "type": "no 基本型",
     "ruletype": "no",
     "meaning": [
-      "耳。"
+      "耳、片耳。"
     ],
     "pronunciation": [
       "/fʲí.no/"
@@ -5039,7 +5041,9 @@
     ],
     "parts": "派生接辞",
     "meaning": [
-      "（ 群数名詞を作る ）～群れ、～群、〜たち。"
+      "（ 名詞につけ、群数名詞を作る ）～群れ、～群、〜たち。",
+      "（ 動詞につけ、共同動作を表す動詞を作る ）共同で～する、～し合う、～を一斉にする。",
+      "（ 飾詞につけ、集合的性質・様態を表す飾詞を作る ）集合として～な、全体として～な。一斉に、集団で、まとまって。"
     ],
     "pronunciation": [
       "/fed/"
@@ -5047,49 +5051,24 @@
     "etymology": {
       "intro": [
         "変成体。",
-        "「 e: 」が訛った語。"
+        "「 e:18 」が訛った語。"
       ],
       "changes": []
     },
     "variants2": [
       "むれ",
-      "ぐん"
-    ]
-  },
-  "fuexýka": {
-    "id": 211,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "fuexýka",
-    "stem": "fuexýk",
-    "stem2": "fuexyk",
-    "fix": [
-      "fuexyk-"
-    ],
-    "tag": [
-      "ー"
-    ],
-    "parts": "名象",
-    "type": "k 基本型",
-    "ruletype": "k",
-    "meaning": [
-      "魚群。"
-    ],
-    "pronunciation": [
-      "/fe.zʲí.ka/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 210 」+「 129 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "ぎょぐん",
-      "さかなのむれ"
+      "ぐん",
+      "きょうどうで",
+      "しあう",
+      "し合う",
+      "一緒に",
+      "いっしょに",
+      "いっせいに",
+      "しゅうだんで",
+      "纏まって",
+      "しゅうごうとして",
+      "共に",
+      "ともに"
     ]
   },
   "fuerpjótca": {
@@ -7891,7 +7870,8 @@
       "様",
       "さま",
       "さん",
-      "御"
+      "御",
+      "alla"
     ]
   },
   "kfýka": {
@@ -9237,7 +9217,7 @@
       "ずみの",
       "てきな",
       "かんする",
-      "ic"
+      "yc"
     ]
   },
   "króshyc": {
@@ -10512,7 +10492,7 @@
     },
     "variants2": [
       "様に",
-      "ma"
+      "mal"
     ]
   },
   "pinýka": {
@@ -12239,7 +12219,7 @@
     "word": "cnanjáfa",
     "stem": "cnanjáf",
     "stem2": "cnanjaf",
-    "fix": "cnafjafa-",
+    "fix": "cnanjafa-",
     "tag": [
       "ー"
     ],
@@ -12962,126 +12942,6 @@
       "のる"
     ]
   },
-  "péglas": {
-    "id": 453,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "péglas",
-    "stem": "pég",
-    "stem2": "peg",
-    "fix": "peg-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "名飾",
-    "type": "g 基本型",
-    "ruletype": "g",
-    "meaning": [
-      "次の、その後の、一つ後の。"
-    ],
-    "pronunciation": [
-      "/pʲég.las/"
-    ],
-    "etymology": {
-      "intro": [
-        "変成語。",
-        "「 270 」が訛った語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "つぎの",
-      "ひとつあとの",
-      "そのあとの",
-      "その後の"
-    ]
-  },
-  "pegakálva": {
-    "id": 454,
-    "safe": true,
-    "seii": [
-      "LLHL"
-    ],
-    "word": "pegakálva",
-    "stem": "pégak",
-    "stem2": "pegak",
-    "fix": "pegak-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "k 基本型",
-    "ruletype": "k",
-    "meaning": [
-      "［ 能が ］［ 基を ］［ 与に ］継承する、受け継ぐ、伝承する、引き継ぐ。"
-    ],
-    "pronunciation": [
-      "/pʲe.ga.kál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 453 」+「 382 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "つぐ",
-      "継ぐ",
-      "けいしょうする",
-      "でんしょうする",
-      "ひきつぐ",
-      "受け継ぐ",
-      "伝承する",
-      "引き継ぐ"
-    ]
-  },
-  "pegnálva": {
-    "id": 455,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "pegnálva",
-    "stem": "pjégn",
-    "stem2": "pegn",
-    "fix": "pegna-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "n 基本型",
-    "ruletype": "n",
-    "meaning": [
-      "［ 基が ］続く。",
-      "［ 能が ］［ 基を ］続ける。"
-    ],
-    "pronunciation": [
-      "/pʲeg.nál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 453 」+「 102 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "続",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "loz"
-      ]
-    },
-    "variants2": [
-      "つづく",
-      "つづける"
-    ]
-  },
   "pýcka": {
     "id": 456,
     "safe": true,
@@ -13340,7 +13200,7 @@
     "etymology": {
       "intro": [
         "変成語。",
-        "「 346 」が訛った語。"
+        "「 e:100 」が訛った語。"
       ],
       "changes": []
     },
@@ -13536,7 +13396,7 @@
     "variants2": [
       "飾形",
       "しょっけい",
-      "ey",
+      "eina",
       "して",
       "で",
       "り",
@@ -15268,53 +15128,6 @@
       "つなげる",
       "つながる",
       "せつぞくする"
-    ]
-  },
-  "manálva": {
-    "id": 540,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "manálva",
-    "stem": "món",
-    "stem2": "mon",
-    "fix": "mana-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "type": "n 基本型",
-    "ruletype": "n",
-    "meaning": [
-      "［ 与が ］［ 基を ］［ 奪に ］祈る、願う。"
-    ],
-    "pronunciation": [
-      "/ma.nál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "単純語。",
-        "音象徴「 手を合わせる 」から。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "祈",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "mon"
-      ]
-    },
-    "variants2": [
-      "いのる",
-      "のぞむ",
-      "せつぼうする",
-      "ねがう",
-      "ねんがんする",
-      "きたいする"
     ]
   },
   "mantálva": {
@@ -19781,7 +19594,7 @@
     "type": "ko 基本型",
     "ruletype": "ko",
     "meaning": [
-      "欠片断片。"
+      "欠片、断片。"
     ],
     "pronunciation": [
       "/kʲí.ko/"
@@ -20391,52 +20204,6 @@
       "うるおす",
       "しめる",
       "ほしつする"
-    ]
-  },
-  "chikálva": {
-    "id": 687,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "chikálva",
-    "stem": "chík",
-    "stem2": "chik",
-    "fix": "chik-",
-    "type": "k 明音型",
-    "ruletype": "kj",
-    "tag": [
-      "ー"
-    ],
-    "parts": "動詞",
-    "meaning": [
-      "［ 基が ］輝く、光る、光り輝く。"
-    ],
-    "pronunciation": [
-      "/ʈ͡ʂʲi.kʲál.va/"
-    ],
-    "etymology": {
-      "intro": [
-        "変成語。",
-        "「 556 」が訛った語"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "輝",
-      "nui": [
-        "？"
-      ],
-      "chel": [
-        "chík"
-      ]
-    },
-    "variants2": [
-      "かがやく",
-      "ひかる",
-      "ひかりかがやく",
-      "光る",
-      "光り輝く"
     ]
   },
   "sjaphálva": {
@@ -22388,7 +22155,7 @@
     ],
     "parts": "名象",
     "meaning": [
-      "足、フット。"
+      "足、片足、フット。"
     ],
     "pronunciation": [
       "/póf.to/"
@@ -23456,49 +23223,6 @@
       "おきゃくさん",
       "来客",
       "客人"
-    ]
-  },
-  "chífa": {
-    "id": 771,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "chífa",
-    "stem": "chíf",
-    "stem2": "chif",
-    "fix": "chifa-",
-    "type": "f 基本型",
-    "ruletype": "f",
-    "tag": [
-      "ー"
-    ],
-    "parts": "名象",
-    "meaning": [
-      "朝。"
-    ],
-    "pronunciation": [
-      "/ʈ͡ʂʲí.fʲa/"
-    ],
-    "etymology": {
-      "intro": [
-        "変成語。",
-        "「 687 」が訛った語。"
-      ],
-      "changes": []
-    },
-    "kanji": {
-      "title": "朝",
-      "nui": [
-        "hén"
-      ],
-      "chel": [
-        "chífa"
-      ]
-    },
-    "variants2": [
-      "あさ",
-      "モーニング"
     ]
   },
   "mjúfa": {
@@ -25091,8 +24815,7 @@
     },
     "variants2": [
       "てきな",
-      "mja",
-      "mia"
+      "mja"
     ]
   },
   "-ish": {
@@ -25124,7 +24847,7 @@
       "様に",
       "く",
       "に",
-      "isj"
+      "ish"
     ]
   },
   "-laish": {
@@ -25155,7 +24878,7 @@
     "variants2": [
       "様に",
       "てきに",
-      "rasj"
+      "laish"
     ]
   },
   "pra-": {
@@ -26256,7 +25979,8 @@
     ],
     "parts": "名飾",
     "meaning": [
-      "後ろの、後の、後方の。"
+      "後ろの、後の、後方の。",
+      "次の、一つ後の、その後の。"
     ],
     "pronunciation": [
       "/fkó.las/"
@@ -26271,7 +25995,10 @@
     "variants2": [
       "うしろの",
       "あとの",
-      "こうほうの"
+      "こうほうの",
+      "つぎの",
+      "ひとつあとの",
+      "そのあとの"
     ]
   },
   "fkóra": {
@@ -30000,7 +29727,8 @@
     ],
     "parts": "名飾",
     "meaning": [
-      "前の、前方の。"
+      "前の、前方の。",
+      "前の、一つ前の。"
     ],
     "pronunciation": [
       "/vná.las/"
@@ -30736,36 +30464,6 @@
       "かんけいせいえん",
       "いんねん",
       "ゆかり"
-    ]
-  },
-  "vam": {
-    "id": 1123,
-    "safe": true,
-    "seii": [
-      "L"
-    ],
-    "word": "vam",
-    "tag": [
-      "離頭辞"
-    ],
-    "parts": "離辞",
-    "meaning": [
-      "［ 処 ］～について、〜に関して。"
-    ],
-    "pronunciation": [
-      "/vam/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 676 」+「 87 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "ついて",
-      "関して",
-      "かんして"
     ]
   },
   "dyvnáfa": {
@@ -33210,7 +32908,8 @@
       "たくさんの",
       "多い",
       "おおい",
-      "名飾化"
+      "名飾化",
+      "dhrav"
     ]
   },
   "haindhrávlas": {
@@ -33308,7 +33007,20 @@
         "｢ おい 」という音声。"
       ],
       "changes": []
-    }
+    },
+    "variants2": [
+      "ってば",
+      "でしょうが",
+      "だって",
+      "か",
+      "かぁ",
+      "でしょ",
+      "だろう",
+      "だって",
+      "ですか",
+      "よ",
+      "さん"
+    ]
   },
   "nála": {
     "id": 911,
@@ -38265,7 +37977,11 @@
     "pronunciation": [
       "/ʈ͡ʂʲifʲ.mʲáʂ.ka/"
     ],
-    "variants2": [],
+    "variants2": [
+      "ちょうしょく",
+      "朝御飯",
+      "あさごはん"
+    ],
     "ruletype": "k",
     "etymology": {
       "intro": [
@@ -38296,7 +38012,11 @@
     "pronunciation": [
       "/klaf.máʂ.ka/"
     ],
-    "variants2": [],
+    "variants2": [
+      "ちゅうしょく",
+      "昼御飯",
+      "ひるごはん"
+    ],
     "ruletype": "k",
     "etymology": {
       "intro": [
@@ -38327,7 +38047,11 @@
     "pronunciation": [
       "/mʲaf.máʂ.ka/"
     ],
-    "variants2": [],
+    "variants2": [
+      "ゆうしょく",
+      "晩御飯",
+      "ばんごはん"
+    ],
     "ruletype": "k",
     "etymology": {
       "intro": [
@@ -38358,7 +38082,9 @@
     "pronunciation": [
       "/narf.máʂ.ka/"
     ],
-    "variants2": [],
+    "variants2": [
+      "やしょく"
+    ],
     "ruletype": "k",
     "etymology": {
       "intro": [
@@ -38384,12 +38110,14 @@
     "parts": "名象",
     "type": "j 基本型",
     "meaning": [
-      "食べる道具、箸、スプーン、フォークなど。"
+      "箸、スプーン、フォーク。"
     ],
     "pronunciation": [
       "/ma.ʐá.∅ʲa/"
     ],
-    "variants2": [],
+    "variants2": [
+      "食べる道具、はし"
+    ],
     "ruletype": "j",
     "etymology": {
       "intro": [
@@ -38415,7 +38143,7 @@
     "parts": "名象",
     "type": "j 基本型",
     "meaning": [
-      "焼く道具、フライパン。"
+      "フライパン。"
     ],
     "pronunciation": [
       "/gve.fá.∅ʲa/"
@@ -38451,7 +38179,10 @@
     "pronunciation": [
       "/kʲaf.nál.va/"
     ],
-    "variants2": [],
+    "variants2": [
+      "かむ",
+      "そしゃくする"
+    ],
     "ruletype": "na",
     "etymology": {
       "intro": [
@@ -38483,7 +38214,12 @@
     "pronunciation": [
       "/da.ló∅ʲ.las/"
     ],
-    "variants2": [],
+    "variants2": [
+      "うみの",
+      "かいようの",
+      "しおからい",
+      "しおあじの"
+    ],
     "ruletype": "j",
     "etymology": {
       "intro": [
@@ -38514,7 +38250,10 @@
     "pronunciation": [
       "/ve.bʲíf.ka/"
     ],
-    "variants2": [],
+    "variants2": [
+      "ちょうみりょう",
+      "あじつけのもの"
+    ],
     "ruletype": "k",
     "etymology": {
       "intro": [
@@ -38576,7 +38315,9 @@
     "pronunciation": [
       "/hal.mú.kN/"
     ],
-    "variants2": [],
+    "variants2": [
+      "はい"
+    ],
     "ruletype": "qũ",
     "etymology": {
       "intro": [
@@ -38607,7 +38348,9 @@
     "pronunciation": [
       "/bam.mú.kN/"
     ],
-    "variants2": [],
+    "variants2": [
+      "い"
+    ],
     "ruletype": "qũ",
     "etymology": {
       "intro": [
@@ -38636,9 +38379,11 @@
       "肩。"
     ],
     "pronunciation": [
-      "/sʲat͡s.kú.la/"
+      "/sʲat.kú.la/"
     ],
-    "variants2": [],
+    "variants2": [
+      "かた"
+    ],
     "ruletype": "l",
     "etymology": {
       "intro": [
@@ -38669,7 +38414,10 @@
     "pronunciation": [
       "/svan.nál.va/"
     ],
-    "variants2": [],
+    "variants2": [
+      "およぐ",
+      "すいえいする"
+    ],
     "ruletype": "na",
     "etymology": {
       "intro": [
@@ -38700,7 +38448,11 @@
     "pronunciation": [
       "/ʂnʲef.nál.va/"
     ],
-    "variants2": [],
+    "variants2": [
+      "にぎる",
+      "つかむ",
+      "はじする"
+    ],
     "ruletype": "na",
     "etymology": {
       "intro": [
@@ -38731,7 +38483,10 @@
     "pronunciation": [
       "/han.nál.va/"
     ],
-    "variants2": [],
+    "variants2": [
+      "さけぶ",
+      "おおごえをだす"
+    ],
     "ruletype": "na",
     "etymology": {
       "intro": [
@@ -38762,7 +38517,10 @@
     "pronunciation": [
       "/daf.na.vál.va/"
     ],
-    "variants2": [],
+    "variants2": [
+      "はこぶ",
+      "うんぱんする"
+    ],
     "ruletype": "v",
     "etymology": {
       "intro": [
@@ -38793,7 +38551,10 @@
     "pronunciation": [
       "/ʀráf.fa/"
     ],
-    "variants2": [],
+    "variants2": [
+      "ねむり",
+      "すいみん"
+    ],
     "ruletype": "f",
     "etymology": {
       "intro": [
@@ -38824,7 +38585,9 @@
     "pronunciation": [
       "/pʲák.fa/"
     ],
-    "variants2": [],
+    "variants2": [
+      "とび"
+    ],
     "ruletype": "f",
     "etymology": {
       "intro": [
@@ -39771,44 +39534,6 @@
       "えだじょうの"
     ]
   },
-  "chíkhlas": {
-    "id": 688,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "chíkhlas",
-    "stem": "chík",
-    "stem2": "chik",
-    "fix": "chik-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "名飾",
-    "type": "k 明音型",
-    "ruletype": "kj",
-    "meaning": [
-      "輝かしい、輝いた、キラキラした、眩しい。"
-    ],
-    "pronunciation": [
-      "/ʈ͡ʂʲíhʲ.lʲas/"
-    ],
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 687 」+「 81 」が組み合わさった語。"
-      ],
-      "changes": []
-    },
-    "variants2": [
-      "かがやかしい",
-      "かがやいた",
-      "まぶしい",
-      "輝いた",
-      "キラキラした",
-      "眩しい"
-    ]
-  },
   "lópo": {
     "id": 1349,
     "safe": true,
@@ -39939,7 +39664,9 @@
     "pronunciation": [
       "/tʲi.ʈ͡ʂʲí.ta/"
     ],
-    "variants2": [],
+    "variants2": [
+      "つき"
+    ],
     "ruletype": "t",
     "etymology": {
       "intro": [
@@ -39970,7 +39697,9 @@
     "pronunciation": [
       "/gʲal.fá.ra/"
     ],
-    "variants2": [],
+    "variants2": [
+      "ゆき"
+    ],
     "ruletype": "r",
     "etymology": {
       "intro": [
@@ -40001,7 +39730,10 @@
     "pronunciation": [
       "/zaf.fá.ra/"
     ],
-    "variants2": [],
+    "variants2": [
+      "にじ",
+      "レインボー"
+    ],
     "ruletype": "r",
     "etymology": {
       "intro": [
@@ -40032,7 +39764,10 @@
     "pronunciation": [
       "/fam.hó.lo/"
     ],
-    "variants2": [],
+    "variants2": [
+      "かみなり",
+      "らいめい"
+    ],
     "ruletype": "lo",
     "etymology": {
       "intro": [
@@ -40063,43 +39798,14 @@
     "pronunciation": [
       "/sva.fó.ma/"
     ],
-    "variants2": [],
+    "variants2": [
+      "きり"
+    ],
     "ruletype": "m",
     "etymology": {
       "intro": [
         "合成語。",
         "「 120 」+「 407 」が組み合わさった語。"
-      ],
-      "changes": []
-    }
-  },
-  "chikfa": {
-    "id": 1358,
-    "safe": true,
-    "seii": [
-      "HL"
-    ],
-    "word": "chikfa",
-    "stem": "chíkf",
-    "stem2": "chikf",
-    "fix": "chikfa-",
-    "tag": [
-      "ー"
-    ],
-    "parts": "名象",
-    "type": "f 基本型",
-    "meaning": [
-      "輝き、光。"
-    ],
-    "pronunciation": [
-      "/ʈ͡ʂʲikʲ.fʲa/"
-    ],
-    "variants2": [],
-    "ruletype": "f",
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 687 」+「 101 」が組み合わさった語。"
       ],
       "changes": []
     }
@@ -40125,7 +39831,9 @@
     "pronunciation": [
       "/narf.ná.bo/"
     ],
-    "variants2": [],
+    "variants2": [
+      "かげ"
+    ],
     "ruletype": "bo",
     "etymology": {
       "intro": [
@@ -40156,7 +39864,9 @@
     "pronunciation": [
       "/tʲis.vá.lo/"
     ],
-    "variants2": [],
+    "variants2": [
+      "つゆ"
+    ],
     "ruletype": "lo",
     "etymology": {
       "intro": [
@@ -40187,7 +39897,10 @@
     "pronunciation": [
       "/haf.ná.bo/"
     ],
-    "variants2": [],
+    "variants2": [
+      "てんき",
+      "てんこう"
+    ],
     "ruletype": "bo",
     "etymology": {
       "intro": [
@@ -41038,7 +40751,7 @@
     "word": "tsálas",
     "stem": "tsál",
     "stem2": "tsal",
-    "fix": "tsal-",
+    "fix": "tsa-",
     "tag": [
       "ー"
     ],
@@ -47990,12 +47703,16 @@
     "parts": "名象",
     "type": "j 基本型",
     "meaning": [
-      "飲む道具、杯、コップ、グラス。"
+      "杯、コップ、グラス。"
     ],
     "pronunciation": [
       "/ka.pá.∅ʲa/"
     ],
-    "variants2": [],
+    "variants2": [
+      "飲む道具",
+      "さかずき",
+      "はい"
+    ],
     "ruletype": "j",
     "etymology": {
       "intro": [
@@ -49857,7 +49574,7 @@
       "［ 基が ］液化する、液状化する。"
     ],
     "pronunciation": [
-      "/la.ʐál.va/"
+      "/le.ʐál.va/"
     ],
     "etymology": {
       "intro": [
@@ -53129,7 +52846,9 @@
     "pronunciation": [
       "/gva.ʈ͡ʂʲí.ta/"
     ],
-    "variants2": [],
+    "variants2": [
+      "たいよう"
+    ],
     "ruletype": "t",
     "etymology": {
       "intro": [
@@ -53732,7 +53451,8 @@
       "どうぶつ",
       "せいぶつ",
       "生き物",
-      "いきもの"
+      "いきもの",
+      "sa"
     ],
     "etymology": {
       "intro": [
@@ -56683,39 +56403,6 @@
       "chel": []
     }
   },
-  "chiktócka": {
-    "id": 2303,
-    "safe": true,
-    "seii": [
-      "LHL"
-    ],
-    "word": "chiktócka",
-    "stem": "chiktóck",
-    "stem2": "chiktock",
-    "fix": "chiktacka-",
-    "tag": [
-      "施設"
-    ],
-    "parts": "名象",
-    "type": "k 基本型",
-    "meaning": [
-      "灯台。"
-    ],
-    "pronunciation": [
-      "/ʈ͡ʂʲik.tós.ka/"
-    ],
-    "variants2": [
-      "とうだい"
-    ],
-    "ruletype": "k",
-    "etymology": {
-      "intro": [
-        "合成語。",
-        "「 687 」+「 2279 」が組み合わさった語。"
-      ],
-      "changes": []
-    }
-  },
   "dåklaplóta": {
     "id": 2306,
     "safe": true,
@@ -57012,7 +56699,8 @@
       "ししょうけい",
       "弱い",
       "よわい",
-      "じゃく"
+      "じゃく",
+      "áita"
     ],
     "etymology": {
       "intro": [
@@ -57814,7 +57502,7 @@
     "word": "cnáita",
     "stem": "cnájt",
     "stem2": "cnajt",
-    "fix": "cnajta-",
+    "fix": "cnaita-",
     "tag": [
       "年齢区分"
     ],
@@ -59580,5 +59268,2362 @@
       ],
       "changes": []
     }
+  },
+  "fuedzýka": {
+    "id": 211,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fuedzýka",
+    "stem": "fuedzýk",
+    "stem2": "fuedzyk",
+    "fix": [
+      "fuedzyka-"
+    ],
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "k 基本型",
+    "ruletype": "k",
+    "meaning": [
+      "魚群。"
+    ],
+    "pronunciation": [
+      "/fe.zʲí.ka/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 210 」+「 129 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "ぎょぐん",
+      "さかなのむれ"
+    ]
+  },
+  "chykálva": {
+    "id": 687,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "chykálva",
+    "stem": "chýk",
+    "stem2": "chyk",
+    "fix": "chyk-",
+    "type": "k 基本型",
+    "ruletype": "k",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "meaning": [
+      "［ 基が ］輝く、光る、光り輝く。"
+    ],
+    "pronunciation": [
+      "/ʈ͡ʂʲi.kál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "変成語。",
+        "「 556 」が訛った語"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "輝",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "chík"
+      ]
+    },
+    "variants2": [
+      "かがやく",
+      "ひかる",
+      "ひかりかがやく",
+      "光る",
+      "光り輝く"
+    ]
+  },
+  "chýkhlas": {
+    "id": 688,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "chýkhlas",
+    "stem": "chýk",
+    "stem2": "chyk",
+    "fix": "chyk-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "type": "k 基本型",
+    "ruletype": "k",
+    "meaning": [
+      "輝かしい、輝いた、キラキラした、眩しい。"
+    ],
+    "pronunciation": [
+      "/ʈ͡ʂʲíh.las/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 687 」+「 81 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "かがやかしい",
+      "かがやいた",
+      "まぶしい",
+      "輝いた",
+      "キラキラした",
+      "眩しい"
+    ]
+  },
+  "chýfa": {
+    "id": 771,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "chýfa",
+    "stem": "chýf",
+    "stem2": "chyf",
+    "fix": "chyfa-",
+    "type": "f 基本型",
+    "ruletype": "f",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "meaning": [
+      "朝。"
+    ],
+    "pronunciation": [
+      "/ʈ͡ʂʲí.fa/"
+    ],
+    "etymology": {
+      "intro": [
+        "変成語。",
+        "「 687 」が訛った語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "朝",
+      "nui": [
+        "hén"
+      ],
+      "chel": [
+        "chífa"
+      ]
+    },
+    "variants2": [
+      "あさ",
+      "モーニング"
+    ]
+  },
+  "mha": {
+    "id": 1123,
+    "safe": true,
+    "seii": [
+      "L"
+    ],
+    "word": "mha",
+    "tag": [
+      "離頭辞"
+    ],
+    "parts": "離辞",
+    "meaning": [
+      "［ 与 ］～にとって。",
+      "［ 処 ］〜として。",
+      "［ 奪 ］～について、〜に関して。"
+    ],
+    "pronunciation": [
+      "/va/"
+    ],
+    "etymology": {
+      "intro": [
+        "変成体。",
+        "「 87 」が訛った語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "として",
+      "ついて",
+      "関して",
+      "かんして",
+      "にとって",
+      "とって"
+    ]
+  },
+  "chýkfa": {
+    "id": 1358,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "chýkfa",
+    "stem": "chýkf",
+    "stem2": "chykf",
+    "fix": "chykfa-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "f 基本型",
+    "meaning": [
+      "輝き、光。"
+    ],
+    "pronunciation": [
+      "/ʈ͡ʂʲík.fa/"
+    ],
+    "variants2": [
+      "かがやき",
+      "ひかり"
+    ],
+    "ruletype": "f",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 687 」+「 101 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "sémhlas": {
+    "id": 1900,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "sémhlas",
+    "stem": "sém",
+    "stem2": "sem",
+    "fix": "sem-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "type": "m 基本型",
+    "meaning": [
+      "（ 幅が ）狭い。"
+    ],
+    "pronunciation": [
+      "/sʲév.las/"
+    ],
+    "variants2": [
+      "せまい。"
+    ],
+    "ruletype": "m",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 狭い 」から。"
+      ],
+      "changes": []
+    }
+  },
+  "thafássas": {
+    "id": 1934,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "thafássas",
+    "stem": "thafás",
+    "stem2": "thafas",
+    "fix": "thafas",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "type": "s 基本型",
+    "meaning": [
+      "毛のない、無毛の、禿げた。"
+    ],
+    "pronunciation": [
+      "/ha.fás.sas/"
+    ],
+    "variants2": [
+      "つるつるした",
+      "けのない",
+      "むもうの",
+      "ムダ毛のない",
+      "はげた",
+      "むもうな"
+    ],
+    "ruletype": "s",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1469 」+「 397 」+「 81 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "cháplas": {
+    "id": 1946,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "cháplas",
+    "stem": "cháp",
+    "stem2": "chap",
+    "fix": "chap-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "type": "p 基本型",
+    "meaning": [
+      "（ 面積が ）小さい、小さな、狭い。"
+    ],
+    "pronunciation": [
+      "/ʈ͡ʂáp.las/"
+    ],
+    "variants2": [
+      "ちいさい",
+      "ちいさな",
+      "せまい"
+    ],
+    "ruletype": "p",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "形成の根拠は不明。"
+      ],
+      "changes": []
+    }
+  },
+  "týplas": {
+    "id": 1947,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "týplas",
+    "stem": "týp",
+    "stem2": "typ",
+    "fix": "typ-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "type": "p 基本型",
+    "meaning": [
+      "痩せた、か細い、細い。"
+    ],
+    "pronunciation": [
+      "/tʲíp.las/"
+    ],
+    "variants2": [
+      "ほそい",
+      "やせた",
+      "かぼそい"
+    ],
+    "ruletype": "p",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴 「 細い 」から。"
+      ],
+      "changes": []
+    }
+  },
+  "fuéro": {
+    "id": 1986,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "fuéro",
+    "stem": "fuér",
+    "stem2": "fuer",
+    "fix": "fuero-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "o 基本型",
+    "meaning": [
+      "村、農村。",
+      "（部首）邑。"
+    ],
+    "pronunciation": [
+      "/fé.ro/"
+    ],
+    "variants2": [
+      "むら"
+    ],
+    "ruletype": "o",
+    "etymology": {
+      "intro": [
+        "変成体。",
+        "「 e:18 」が訛った語。"
+      ],
+      "changes": []
+    }
+  },
+  "chyktócka": {
+    "id": 2303,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "chyktócka",
+    "stem": "chyktóck",
+    "stem2": "chyktock",
+    "fix": "chyktacka-",
+    "tag": [
+      "施設"
+    ],
+    "parts": "名象",
+    "type": "k 基本型",
+    "meaning": [
+      "灯台。"
+    ],
+    "pronunciation": [
+      "/ʈ͡ʂʲik.tós.ka/"
+    ],
+    "variants2": [
+      "とうだい"
+    ],
+    "ruletype": "k",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 687 」+「 2279 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "dóphma": {
+    "id": 2365,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "dóphma",
+    "stem": "dóphm",
+    "stem2": "dophm",
+    "fix": "daphma-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "m 複子音型",
+    "meaning": [
+      "死人。"
+    ],
+    "pronunciation": [
+      "/dóf.ma/"
+    ],
+    "variants2": [
+      "しにん"
+    ],
+    "ruletype": "ma",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "縫語「 死 」（中縫語 dop）+「 558 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "semhnálva": {
+    "id": 2366,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "semhnálva",
+    "stem": "sémhn",
+    "stem2": "semhn",
+    "fix": "semhna-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 複子音型",
+    "meaning": [
+      "［ 基が ］狭まる。",
+      "［ 能が ］［ 基を ］狭める。"
+    ],
+    "pronunciation": [
+      "/sʲev.nál.va/"
+    ],
+    "variants2": [
+      "せばまる",
+      "せばめる"
+    ],
+    "ruletype": "na",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1900 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fkuekálva": {
+    "id": 2367,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "fkuekálva",
+    "stem": "fkuö́k",
+    "stem2": "fkuök",
+    "fix": "fkuek-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "k 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］［ 与に ］継承する、受け継ぐ、伝承する、引き継ぐ。"
+    ],
+    "pronunciation": [
+      "/fke.kál.va/"
+    ],
+    "variants2": [
+      "つぐ",
+      "継ぐ",
+      "けいしょうする",
+      "でんしょうする",
+      "ひきつぐ",
+      "受け継ぐ",
+      "伝承する",
+      "引き継ぐ"
+    ],
+    "ruletype": "k",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 990 」+「 382 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fkanálva": {
+    "id": 2368,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fkanálva",
+    "stem": "fkón",
+    "stem2": "fkon",
+    "fix": "fkana-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 基本型",
+    "meaning": [
+      "［ 基が ］続く。",
+      "［ 能が ］［ 基を ］続ける。"
+    ],
+    "pronunciation": [
+      "/fka.nál.va/"
+    ],
+    "variants2": [
+      "つづく",
+      "つづける"
+    ],
+    "ruletype": "n",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 990 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "-io": {
+    "id": 2369,
+    "safe": true,
+    "seii": [
+      "LL"
+    ],
+    "word": "-io",
+    "tag": [
+      "派生接尾辞"
+    ],
+    "parts": "派生接辞",
+    "type": "",
+    "meaning": [
+      "（ 双数を表わし ）双〜、両〜、二つの、一対の。"
+    ],
+    "pronunciation": [
+      "/∅ʲi.∅ʲo/"
+    ],
+    "variants2": [
+      "两",
+      "そう",
+      "2つの",
+      "1対の",
+      "ふたつの",
+      "いっついの"
+    ],
+    "etymology": {
+      "intro": [
+        "変成体。",
+        "「 270 」が訛った語。"
+      ],
+      "changes": []
+    }
+  },
+  "fhanálva": {
+    "id": 2370,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fhanálva",
+    "stem": "fhán",
+    "stem2": "fhan",
+    "fix": "fhana-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 基本型",
+    "meaning": [
+      "［ 基が ］登る、上がる。"
+    ],
+    "pronunciation": [
+      "/fa.nál.va/"
+    ],
+    "variants2": [
+      "あがる、のぼる"
+    ],
+    "ruletype": "n",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 647 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "登",
+      "chel": [
+        "fhán"
+      ]
+    }
+  },
+  "manálva⁽¹⁾": {
+    "id": 540,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "manálva",
+    "stem": "món",
+    "stem2": "mon",
+    "fix": "mana-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 基本型",
+    "ruletype": "n",
+    "meaning": [
+      "［ 与が ］［ 基を ］［ 奪に ］祈る、願う。"
+    ],
+    "pronunciation": [
+      "/ma.nál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 手を合わせる 」から。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "祈",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "mon"
+      ]
+    },
+    "variants2": [
+      "いのる",
+      "のぞむ",
+      "せつぼうする",
+      "ねがう",
+      "ねんがんする",
+      "きたいする"
+    ]
+  },
+  "manálva⁽²⁾": {
+    "id": 2371,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "manálva",
+    "stem": "mún",
+    "stem2": "mun",
+    "fix": "mana-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 基本型",
+    "meaning": [
+      "［ 基が ］下がる、降りる。",
+      "［ 能が ］［ 基を ］下げる、下ろす。"
+    ],
+    "pronunciation": [
+      "/ma.nál.va/"
+    ],
+    "variants2": [
+      "さがる、おりる",
+      "さげる",
+      "おろす",
+      "降ろす"
+    ],
+    "ruletype": "n",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 319 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "降",
+      "chel": [
+        "múna"
+      ]
+    }
+  },
+  "svanaphálva": {
+    "id": 2372,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "svanaphálva",
+    "stem": "svanúp",
+    "stem2": "svanup",
+    "fix": "svanap-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "f 基本型",
+    "meaning": [
+      "［ 基が ］［ 処に ］潜る、潜水する。"
+    ],
+    "pronunciation": [
+      "/sva.na.fál.va/"
+    ],
+    "variants2": [
+      "もぐる、せんすいする"
+    ],
+    "ruletype": "f",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 120 」+「 103 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "潜",
+      "chel": [
+        "svanúp"
+      ]
+    }
+  },
+  "cenálva": {
+    "id": 2373,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "cenálva",
+    "stem": "cén",
+    "stem2": "cen",
+    "fix": "cena-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 基本型",
+    "meaning": [
+      "［ 基が ］滑る、滑走する。"
+    ],
+    "pronunciation": [
+      "/t͡sʲe.nál.va/"
+    ],
+    "variants2": [
+      "すべる、かっそうする"
+    ],
+    "ruletype": "n",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 784 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "滑",
+      "chel": [
+        "céna"
+      ]
+    }
+  },
+  "fettjakálva": {
+    "id": 2374,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "fettjakálva",
+    "stem": "fettják",
+    "stem2": "fettjak",
+    "fix": "fettjak-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "k 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］畳む、折り畳む。"
+    ],
+    "pronunciation": [
+      "/fʲet.tʲa.kál.va/"
+    ],
+    "variants2": [
+      "たたむ、おりたたむ"
+    ],
+    "ruletype": "k",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 716 」+「 488 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "畳",
+      "chel": [
+        "fettják"
+      ]
+    }
+  },
+  "fetfjanálva": {
+    "id": 2375,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "fetfjanálva",
+    "stem": "fetfjún",
+    "stem2": "fetfjun",
+    "fix": "fetfjana-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］［ 処に ］敷く、敷き詰める。"
+    ],
+    "pronunciation": [
+      "/fʲet.fʲa.nál.va/"
+    ],
+    "variants2": [
+      "しく、しきつめる"
+    ],
+    "ruletype": "n",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 716 」+「 187 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "敷",
+      "chel": [
+        "fetfjúna"
+      ]
+    }
+  },
+  "fsassykálva": {
+    "id": 2376,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "fsassykálva",
+    "stem": "fsassýk",
+    "stem2": "fsassyk",
+    "fix": "fsassyk-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "k 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］刈る、刈り取る。"
+    ],
+    "pronunciation": [
+      "/fsasʲ.sʲi.kál.va/"
+    ],
+    "variants2": [
+      "かる、かりとる"
+    ],
+    "ruletype": "k",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 329 」+「 360 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "刈",
+      "chel": [
+        "fsóssýk"
+      ]
+    }
+  },
+  "gvamazhálva": {
+    "id": 2377,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "gvamazhálva",
+    "stem": "gvamázh",
+    "stem2": "gvamazh",
+    "fix": "gvamazh-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "zh 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］料理する、調理する。"
+    ],
+    "pronunciation": [
+      "/gva.ma.ʐál.va/"
+    ],
+    "variants2": [
+      "りょうりする、ちょうりする"
+    ],
+    "ruletype": "zh",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 750 」+「 285 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "料",
+      "chel": [
+        "gvamázh"
+      ]
+    }
+  },
+  "gavnálva": {
+    "id": 2378,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "gavnálva",
+    "stem": "góvn",
+    "stem2": "govn",
+    "fix": "gavna-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 複子音型",
+    "meaning": [
+      "［ 基が ］沸く、沸騰する。",
+      "［ 能が ］［ 基を ］沸かす。"
+    ],
+    "pronunciation": [
+      "/gav.nál.va/"
+    ],
+    "variants2": [
+      "わく、ふっとうする、わかす"
+    ],
+    "ruletype": "na",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 752 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "沸",
+      "chel": [
+        "góvna"
+      ]
+    }
+  },
+  "citaxhálva": {
+    "id": 2379,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "citaxhálva",
+    "stem": "citáxh",
+    "stem2": "citaxh",
+    "fix": "citaxh-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "xh 基本型",
+    "meaning": [
+      "［ 基が ］冷える、冷たくなる。",
+      "［ 能が ］［ 基を ］冷やす、冷ます。"
+    ],
+    "pronunciation": [
+      "/t͡sʲi.ta.ʐál.va/"
+    ],
+    "variants2": [
+      "ひえる、つめたくなる、ひやす、さます"
+    ],
+    "ruletype": "xh",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 718 」+「 355 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "冷",
+      "chel": [
+        "citáxh"
+      ]
+    }
+  },
+  "svafafnálva": {
+    "id": 2380,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "svafafnálva",
+    "stem": "svafáfn",
+    "stem2": "svafafn",
+    "fix": "svafafna-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 複子音型",
+    "meaning": [
+      "［ 能が ］［ 基を ］蒸す。"
+    ],
+    "pronunciation": [
+      "/sva.faf.nál.va/"
+    ],
+    "variants2": [
+      "むす"
+    ],
+    "ruletype": "na",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1673 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "蒸",
+      "chel": [
+        "svafáfna"
+      ]
+    }
+  },
+  "svalazhálva": {
+    "id": 2381,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "svalazhálva",
+    "stem": "svalázh",
+    "stem2": "svalazh",
+    "fix": "svalazh-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "zh 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］［ 与に ］注ぐ、注ぎ込む。"
+    ],
+    "pronunciation": [
+      "/sva.la.ʐál.va/"
+    ],
+    "variants2": [
+      "そそぐ、そそぎこむ"
+    ],
+    "ruletype": "zh",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 120 」+「 106 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "注",
+      "chel": [
+        "svalázh"
+      ]
+    }
+  },
+  "xagnálva": {
+    "id": 2382,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "xagnálva",
+    "stem": "xógn",
+    "stem2": "xogn",
+    "fix": "xagna-",
+    "tag": [
+      "感情"
+    ],
+    "parts": "動詞",
+    "type": "n 複子音型",
+    "meaning": [
+      "［ 与が ］［ 基を ］嫌う、嫌がる。"
+    ],
+    "pronunciation": [
+      "/zag.nál.va/"
+    ],
+    "variants2": [
+      "きらう、いやがる"
+    ],
+    "ruletype": "na",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 692 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "嫌",
+      "chel": [
+        "xógna"
+      ]
+    }
+  },
+  "fhalplatálva": {
+    "id": 2383,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "fhalplatálva",
+    "stem": "fhalplát",
+    "stem2": "fhalplat",
+    "fix": "fhalplat-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "t 基本型",
+    "meaning": [
+      "［ 能が ］［ 与に ］［ 基を ］頼む、依頼する。"
+    ],
+    "pronunciation": [
+      "/fal.pla.tál.va/"
+    ],
+    "variants2": [
+      "たのむ、いらいする"
+    ],
+    "ruletype": "t",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1633 」+「 126 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "頼",
+      "chel": [
+        "fhalplát"
+      ]
+    }
+  },
+  "kjapshakálva": {
+    "id": 2384,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "kjapshakálva",
+    "stem": "kjapshák",
+    "stem2": "kjapshak",
+    "fix": "kjapshak-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "k 基本型",
+    "meaning": [
+      "［ 基が ］黙る、沈黙する。"
+    ],
+    "pronunciation": [
+      "/kʲap.ʂa.kál.va/"
+    ],
+    "variants2": [
+      "だまる、ちんもくする"
+    ],
+    "ruletype": "k",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 140 」+「 144 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "黙",
+      "chel": [
+        "kjapshák"
+      ]
+    }
+  },
+  "khalpiználva": {
+    "id": 2385,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "khalpiználva",
+    "stem": "khalpízn",
+    "stem2": "khalpizn",
+    "fix": "khalpizna-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 複子音型",
+    "meaning": [
+      "［ 能が ］［ 与に ］答える、返答する。"
+    ],
+    "pronunciation": [
+      "/hal.pʲizʲ.nʲál.va/"
+    ],
+    "variants2": [
+      "こたえる、へんとうする"
+    ],
+    "ruletype": "na",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 685 」+「 380 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "答",
+      "chel": [
+        "khalpízna"
+      ]
+    }
+  },
+  "neffynálva": {
+    "id": 2386,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "neffynálva",
+    "stem": "neffýn",
+    "stem2": "neffyn",
+    "fix": "neffyna-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 明音型",
+    "meaning": [
+      "［ 能が ］［ 与に ］［ 基を ］尋ねる、問う。"
+    ],
+    "pronunciation": [
+      "/nef.fʲi.nál.va/"
+    ],
+    "variants2": [
+      "たずねる、とう"
+    ],
+    "ruletype": "nj",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1114 」+「 712 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "尋",
+      "chel": [
+        "neffýn"
+      ]
+    }
+  },
+  "teidfhazálva": {
+    "id": 2387,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "teidfhazálva",
+    "stem": "teidfház",
+    "stem2": "teidfhaz",
+    "fix": "teidfhaz-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "z 基本型",
+    "meaning": [
+      "［ 能が ］［ 与に ］迎える、出迎える。"
+    ],
+    "pronunciation": [
+      "/tʲedʲ.fʲa.zál.va/"
+    ],
+    "variants2": [
+      "むかえる、でむかえる"
+    ],
+    "ruletype": "z",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 221 」+「 339 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "迎",
+      "chel": [
+        "teidfház"
+      ]
+    }
+  },
+  "tsanálva": {
+    "id": 2388,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "tsanálva",
+    "stem": "tsán",
+    "stem2": "tsan",
+    "fix": "tsana-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 複子音型",
+    "meaning": [
+      "［ 基が ］縮む、縮小する。",
+      "［ 能が ］［ 基を ］縮める。"
+    ],
+    "pronunciation": [
+      "/t͡sa.nál.va/"
+    ],
+    "variants2": [
+      "ちぢむ、しゅくしょうする、ちぢめる"
+    ],
+    "ruletype": "na",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1394 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "縮",
+      "chel": [
+        "tsána"
+      ]
+    }
+  },
+  "lagajmaksálva": {
+    "id": 2389,
+    "safe": true,
+    "seii": [
+      "LLLHL"
+    ],
+    "word": "lagajmaksálva",
+    "stem": "lagajmóks",
+    "stem2": "lagajmoks",
+    "fix": "lagajmaks-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "s 基本型",
+    "meaning": [
+      "［ 能が ］［ 基を ］儲ける。"
+    ],
+    "pronunciation": [
+      "/la.ga∅ʲ.mak.sál.va/"
+    ],
+    "variants2": [
+      "もうける"
+    ],
+    "ruletype": "s",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1519 」+「 328 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "儲",
+      "chel": [
+        "lagajmóks"
+      ]
+    }
+  },
+  "mýnfa": {
+    "id": 2390,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "mýnfa",
+    "stem": "mýnf",
+    "stem2": "mynf",
+    "fix": "mynfa-",
+    "tag": [
+      "スポーツ"
+    ],
+    "parts": "名象",
+    "type": "f 基本型",
+    "meaning": [
+      "運動。",
+      "活動。"
+    ],
+    "pronunciation": [
+      "/mʲin.fa/"
+    ],
+    "variants2": [
+      "うんどう",
+      "かつどう"
+    ],
+    "ruletype": "f",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 390 」+「 101 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fynójo": {
+    "id": 2391,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fynójo",
+    "stem": "fynój",
+    "stem2": "fynoj",
+    "fix": "fynajo-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "o 基本型",
+    "meaning": [
+      "両耳。"
+    ],
+    "pronunciation": [
+      "/fʲi.nó.∅ʲo/"
+    ],
+    "variants2": [
+      "りょうみみ",
+      "耳",
+      "みみ"
+    ],
+    "ruletype": "o",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 139 」+「 2369 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "paftójo": {
+    "id": 2392,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "paftójo",
+    "stem": "paftój",
+    "stem2": "paftoj",
+    "fix": "paftajo-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "o 基本型",
+    "meaning": [
+      "両足。"
+    ],
+    "pronunciation": [
+      "/paf.tó.∅ʲo/"
+    ],
+    "variants2": [
+      "りょうあし",
+      "足",
+      "あし"
+    ],
+    "ruletype": "o",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 739 」+「 2369 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "sjátio": {
+    "id": 2393,
+    "safe": true,
+    "seii": [
+      "HLL"
+    ],
+    "word": "sjátio",
+    "stem": "sjátij",
+    "stem2": "sjatij",
+    "fix": "sjatio-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "ijo 基本型",
+    "meaning": [
+      "両腕。"
+    ],
+    "pronunciation": [
+      "/sʲá.tʲi∅ʲo/"
+    ],
+    "variants2": [
+      "りょううで",
+      "腕",
+      "うで"
+    ],
+    "ruletype": "ijo",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 545 」+「 2369 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "sjatkúlio": {
+    "id": 2394,
+    "safe": true,
+    "seii": [
+      "LHLL"
+    ],
+    "word": "sjatkúlio",
+    "stem": "sjatkúlij",
+    "stem2": "sjatkulij",
+    "fix": "sjatkalio-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "ijo 基本型",
+    "meaning": [
+      "両肩。"
+    ],
+    "pronunciation": [
+      "/sʲat.kú.lʲi∅ʲo/"
+    ],
+    "variants2": [
+      "りょうかた",
+      "肩",
+      "かた"
+    ],
+    "ruletype": "ijo",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 1330 」+「 2369 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "pkáchio": {
+    "id": 2395,
+    "safe": true,
+    "seii": [
+      "HLL"
+    ],
+    "word": "pkáchio",
+    "stem": "pkáchij",
+    "stem2": "pkachij",
+    "fix": "pkachio-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "ijo 基本型",
+    "meaning": [
+      "両目。"
+    ],
+    "pronunciation": [
+      "/pká.ʈ͡ʂʲi.∅ʲo/"
+    ],
+    "variants2": [
+      "りょうめ",
+      "目",
+      "眼",
+      "め"
+    ],
+    "ruletype": "ijo",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 656 」+「 2369 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "shnépio": {
+    "id": 2396,
+    "safe": true,
+    "seii": [
+      "HLL"
+    ],
+    "word": "shnépio",
+    "stem": "shnépij",
+    "stem2": "shnepij",
+    "fix": "shnepio-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "ijo 基本型",
+    "meaning": [
+      "両手。"
+    ],
+    "pronunciation": [
+      "/ʂʲnʲé.pʲi.∅ʲo/"
+    ],
+    "variants2": [
+      "りょうて",
+      "手",
+      "て"
+    ],
+    "ruletype": "ijo",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 445 」+「 2369 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuedjérma": {
+    "id": 2397,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fuedjérma",
+    "stem": "fuedjérm",
+    "stem2": "fuedjerm",
+    "fix": "fuedjerma-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "m 基本型",
+    "meaning": [
+      "人々、グループ、チーム。"
+    ],
+    "pronunciation": [
+      "/fe.dʲér.ma/"
+    ],
+    "variants2": [
+      "ひとびと",
+      "人達",
+      "人たち",
+      "ひとたち"
+    ],
+    "ruletype": "m",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 210 」+「 371 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuerfára": {
+    "id": 2398,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fuerfára",
+    "stem": "fuerfár",
+    "stem2": "fuerfar",
+    "fix": "fuerfara-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "r 基本型",
+    "meaning": [
+      "花畑。"
+    ],
+    "pronunciation": [
+      "/fer.fá.ra/"
+    ],
+    "variants2": [
+      "はなばたけ"
+    ],
+    "ruletype": "r",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 210 」+「 183 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuerpáno": {
+    "id": 2399,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fuerpáno",
+    "stem": "fuerpán",
+    "stem2": "fuerpan",
+    "fix": "fuerpano-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "no 基本型",
+    "meaning": [
+      "森。"
+    ],
+    "pronunciation": [
+      "/fer.pá.no/"
+    ],
+    "variants2": [
+      "もり"
+    ],
+    "ruletype": "no",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 210 」+「 121 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "drapaftólas": {
+    "id": 2400,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "drapaftólas",
+    "stem": "drapaftó",
+    "stem2": "drapafto",
+    "fix": "drapafto-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "type": "o 終了型",
+    "meaning": [
+      "多足の。"
+    ],
+    "pronunciation": [
+      "/dra.paf.tó.las/"
+    ],
+    "variants2": [],
+    "ruletype": "o",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 568 」+「 739 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "cyfálva": {
+    "id": 2401,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "cyfálva",
+    "stem": "cýf",
+    "stem2": "cyf",
+    "fix": "cyf-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "f 基本型",
+    "meaning": [
+      "［ 基が ］（ 小刻みに ）動く。（ ちょこちょこと素早く ）動き回る。"
+    ],
+    "pronunciation": [
+      "/t͡sʲi.fál.va/"
+    ],
+    "variants2": [
+      "うごく",
+      "うごきまわる"
+    ],
+    "ruletype": "f",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 小さいものが動く 」から。"
+      ],
+      "changes": []
+    }
+  },
+  "cýfsa": {
+    "id": 2402,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "cýfsa",
+    "stem": "cýfs",
+    "stem2": "cyfs",
+    "fix": "cyfsa-",
+    "tag": [
+      "陸生"
+    ],
+    "parts": "名象",
+    "type": "s 基本型",
+    "meaning": [
+      "鼠、ネズミ。",
+      "リス、栗鼠。"
+    ],
+    "pronunciation": [
+      "/t͡sʲi.sa/"
+    ],
+    "variants2": [
+      "ねずみ",
+      "りす",
+      "栗鼠"
+    ],
+    "ruletype": "s",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 306 」+「 2228 」が組み合わさった。"
+      ],
+      "changes": []
+    }
+  },
+  "fuedtála": {
+    "id": 2403,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fuedtála",
+    "stem": "fuedtál",
+    "stem2": "fuedtal",
+    "fix": "fuedtala-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "l 基本型",
+    "meaning": [
+      "集落、村落。"
+    ],
+    "pronunciation": [
+      "/fet.tá.la/"
+    ],
+    "variants2": [
+      "しゅうらく",
+      "そんらく"
+    ],
+    "ruletype": "l",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 210 」+「 569 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "flishálva": {
+    "id": 2404,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "flishálva",
+    "stem": "flísh",
+    "stem2": "flish",
+    "fix": "flish-",
+    "tag": [
+      "音楽"
+    ],
+    "parts": "動詞",
+    "type": "sh 明音型",
+    "meaning": [
+      "［ 基が ］歌う。"
+    ],
+    "pronunciation": [
+      "/flʲi.ʂʲál.va/"
+    ],
+    "variants2": [
+      "うたう"
+    ],
+    "ruletype": "shj",
+    "etymology": {
+      "intro": [
+        "単純語。",
+        "音象徴「 美しい声 」から。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "歌",
+      "chel": [
+        "flísh"
+      ]
+    }
+  },
+  "fuerflishálva": {
+    "id": 2405,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "fuerflishálva",
+    "stem": "fuerflísh",
+    "stem2": "fuerflish",
+    "fix": "fuerflish-",
+    "tag": [
+      "音楽"
+    ],
+    "parts": "動詞",
+    "type": "sh 明音型",
+    "meaning": [
+      "［ 基が ］合唱する。"
+    ],
+    "pronunciation": [
+      "/fer.flʲi.ʂʲál.va/"
+    ],
+    "variants2": [
+      "がっしょうする",
+      "歌う",
+      "うたう"
+    ],
+    "ruletype": "shj",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 210 」+「 2404 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "flíshfa": {
+    "id": 2406,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "flíshfa",
+    "stem": "flíshf",
+    "stem2": "flishf",
+    "fix": "flishfa-",
+    "tag": [
+      "音楽"
+    ],
+    "parts": "名象",
+    "type": "f 明音型",
+    "meaning": [
+      "歌、ソング。"
+    ],
+    "pronunciation": [
+      "/flʲíʂʲ.fʲa/"
+    ],
+    "variants2": [
+      "うた"
+    ],
+    "ruletype": "fj",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 2404 」+「 101 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuerplatálva": {
+    "id": 2407,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "fuerplatálva",
+    "stem": "fuerplát",
+    "stem2": "fuerplat",
+    "fix": "fuerplat-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "t 基本型",
+    "meaning": [
+      "［ 基が ］議論する。"
+    ],
+    "pronunciation": [
+      "/fer.pla.tál.va/"
+    ],
+    "variants2": [
+      "ぎろんする"
+    ],
+    "ruletype": "t",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 210 」+「 126 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuerplatycálva": {
+    "id": 2408,
+    "safe": true,
+    "seii": [
+      "LLLHL"
+    ],
+    "word": "fuerplatycálva",
+    "stem": "fuerplátyc",
+    "stem2": "fuerplatyc",
+    "fix": "fuerplatyc-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "c 基本型",
+    "meaning": [
+      "［ 基が ］会議する。"
+    ],
+    "pronunciation": [
+      "/fer.pla.tʲi.t͡sál.va/"
+    ],
+    "variants2": [
+      "かいぎする"
+    ],
+    "ruletype": "c",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 2407 」+「 348 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuerplátfa": {
+    "id": 2409,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fuerplátfa",
+    "stem": "fuerplátf",
+    "stem2": "fuerplatf",
+    "fix": "fuerplatfa-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "f 基本型",
+    "meaning": [
+      "議論、ディスカッション。"
+    ],
+    "pronunciation": [
+      "/fer.plát.fa/"
+    ],
+    "variants2": [
+      "ぎろん"
+    ],
+    "ruletype": "f",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 2407 」+「 101 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuerplátycfa": {
+    "id": 2410,
+    "safe": true,
+    "seii": [
+      "LHLL"
+    ],
+    "word": "fuerplátycfa",
+    "stem": "fuerplátycf",
+    "stem2": "fuerplatycf",
+    "fix": "fuerplatycfa-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "f 基本型",
+    "meaning": [
+      "会議、ミーティング。"
+    ],
+    "pronunciation": [
+      "/fer.plá.tʲis.fa/"
+    ],
+    "variants2": [
+      "かいぎ"
+    ],
+    "ruletype": "f",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 2408 」+「 101 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuerplátycta": {
+    "id": 2411,
+    "safe": true,
+    "seii": [
+      "LHLL"
+    ],
+    "word": "fuerplátycta",
+    "stem": "fuerplátyct",
+    "stem2": "fuerplatyct",
+    "fix": "fuerplatycta-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名象",
+    "type": "t 基本型",
+    "meaning": [
+      "議場、会議場。"
+    ],
+    "pronunciation": [
+      "/fer.plá.tʲis.ta/"
+    ],
+    "variants2": [
+      "ぎじょう",
+      "かいぎじょう"
+    ],
+    "ruletype": "t",
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 2408 」+「 369 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "fuexkróshyc": {
+    "id": 2412,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "fuexkróshyc",
+    "tag": [
+      "ー"
+    ],
+    "parts": "副飾",
+    "type": "",
+    "meaning": [
+      "一斉に、同時に。"
+    ],
+    "pronunciation": [
+      "/fes.kró.ʂʲis/"
+    ],
+    "variants2": [
+      "どうじに",
+      "いっせいに"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 2408 」+「 349 」が組み合わさった語。"
+      ],
+      "changes": []
+    }
+  },
+  "*péglas": {
+    "id": 453,
+    "safe": true,
+    "seii": [
+      "HL"
+    ],
+    "word": "péglas",
+    "stem": "pég",
+    "stem2": "peg",
+    "fix": "peg-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "名飾",
+    "type": "g 基本型",
+    "ruletype": "g",
+    "meaning": [
+      "次の、その後の、一つ後の。"
+    ],
+    "pronunciation": [
+      "/pʲég.las/"
+    ],
+    "etymology": {
+      "intro": [
+        "変成語。",
+        "「 270 」が訛った語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "つぎの",
+      "ひとつあとの",
+      "そのあとの",
+      "その後の"
+    ]
+  },
+  "*pegakálva": {
+    "id": 454,
+    "safe": true,
+    "seii": [
+      "LLHL"
+    ],
+    "word": "pegakálva",
+    "stem": "pégak",
+    "stem2": "pegak",
+    "fix": "pegak-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "k 基本型",
+    "ruletype": "k",
+    "meaning": [
+      "［ 能が ］［ 基を ］［ 与に ］継承する、受け継ぐ、伝承する、引き継ぐ。"
+    ],
+    "pronunciation": [
+      "/pʲe.ga.kál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 453 」+「 382 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "variants2": [
+      "つぐ",
+      "継ぐ",
+      "けいしょうする",
+      "でんしょうする",
+      "ひきつぐ",
+      "受け継ぐ",
+      "伝承する",
+      "引き継ぐ"
+    ]
+  },
+  "*pegnálva": {
+    "id": 455,
+    "safe": true,
+    "seii": [
+      "LHL"
+    ],
+    "word": "pegnálva",
+    "stem": "pjégn",
+    "stem2": "pegn",
+    "fix": "pegna-",
+    "tag": [
+      "ー"
+    ],
+    "parts": "動詞",
+    "type": "n 基本型",
+    "ruletype": "n",
+    "meaning": [
+      "［ 基が ］続く。",
+      "［ 能が ］［ 基を ］続ける。"
+    ],
+    "pronunciation": [
+      "/pʲeg.nál.va/"
+    ],
+    "etymology": {
+      "intro": [
+        "合成語。",
+        "「 453 」+「 102 」が組み合わさった語。"
+      ],
+      "changes": []
+    },
+    "kanji": {
+      "title": "続",
+      "nui": [
+        "？"
+      ],
+      "chel": [
+        "loz"
+      ]
+    },
+    "variants2": [
+      "つづく",
+      "つづける"
+    ]
   }
 }
