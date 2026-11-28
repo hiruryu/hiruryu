@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プルフカ動物図鑑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F9F8F4;--ink:#665550;--head:#806060;--line:#E5DED5;--card:#FFFFFF;--accent:#806060;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito Sans","Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.6}
+header{max-width:1080px;margin:0 auto;padding:28px 20px 8px}
+h1{color:var(--head);font-size:28px;margin:0 0 4px}
+.sub{margin:0 0 12px;font-size:14px}
+nav{font-size:14px;margin-bottom:8px}
+nav a{color:var(--accent)}
+main{max-width:1080px;margin:0 auto;padding:0 20px 48px}
+.controls{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0 8px}
+.controls input[type=search]{width:100%;padding:10px 12px;font-size:16px;border:1px solid var(--line);border-radius:8px;color:var(--ink);background:#fff}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.filters label{font-size:13px;display:flex;flex-direction:column;gap:2px}
+.filters select{padding:6px 8px;border:1px solid var(--line);border-radius:6px;color:var(--ink);background:#fff;font-size:14px}
+button.reset{padding:6px 14px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);cursor:pointer;font-size:14px;align-self:flex-end}
+#count{font-size:14px;margin:10px 2px}
+#source{font-size:12px;color:#9a8a80;margin:0 2px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit}
+.card:hover{box-shadow:0 4px 16px rgba(102,85,80,.15)}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#eee}
+.img-ph{width:100%;aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#EFEAE3;color:#9a8a80;font-size:14px}
+.card-body{padding:12px 14px 14px}
+.card-body h2{font-size:18px;color:var(--head);margin:0 0 2px}
+.chelsno{font-style:italic;font-size:13px;margin:0 0 8px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.badge{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 9px;background:var(--bg)}
+.habitat{font-size:13px;margin:0}
+.empty{padding:32px;text-align:center;color:#9a8a80}
+.modal{position:fixed;inset:0;background:rgba(60,45,40,.55);display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow:auto;z-index:10}
+.modal.open{display:flex}
+.modal-card{background:#fff;border-radius:14px;max-width:680px;width:100%;overflow:hidden}
+.modal-card img{width:100%;max-height:420px;object-fit:cover;display:block}
+.modal-body{padding:20px 24px 28px}
+.modal-body h2{color:var(--head);margin:0}
+.modal-body table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+.modal-body th,.modal-body td{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
+.modal-body th{width:110px;color:var(--head);font-weight:700}
+.close{float:right;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:14px;color:var(--ink)}
+footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#9a8a80}
+</style>
+</head>
+<body>
+<header>
+  <h1>プルフカ動物図鑑</h1>
+  <p class="sub">架空の星プルフカの動物たち。Wikipedia風の図鑑。チェルスノー語名はすべて仮名です。</p>
+  <nav><a href="../plants/">植物図鑑へ →</a> ｜ <a href="../">プルフカ図鑑トップへ</a></nav>
+</header>
+<main>
+  <div class="controls">
+    <input type="search" id="q" placeholder="検索：名前・チェルスノー語名・説明・生息地・特徴など（部分一致）" aria-label="検索">
+    <div class="filters">
+      <label>分類
+        <select id="f-category"><option value="">すべて</option><option>哺乳類</option><option>鳥類</option><option>爬虫類</option><option>両生類</option><option>虫類</option><option>魚類</option></select>
+      </label>
+      <label>可食
+        <select id="f-edible"><option value="">すべて</option><option>可食</option><option>不可食</option></select>
+      </label>
+      <label>毒性
+        <select id="f-toxicity"><option value="">すべて</option><option>無毒</option><option>有毒</option></select>
+      </label>
+      <label>性質
+        <select id="f-temperament"><option value="">すべて</option><option>友好種</option><option>敵対種</option></select>
+      </label>
+      <label>害獣
+        <select id="f-pest"><option value="">すべて</option><option value="true">はい</option><option value="false">いいえ</option></select>
+      </label>
+      <label>由来
+        <select id="f-origin"><option value="">すべて</option><option>在来種</option><option>外来種</option><option>外国種</option></select>
+      </label>
+      <button class="reset" id="reset" type="button">リセット</button>
+    </div>
+  </div>
+  <p id="count"></p>
+  <p id="source"></p>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>条件に合う種がありません。検索や絞り込みを変えてみてください。</p>
+</main>
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+<footer>プルフカ動物図鑑（プロトタイプ）。在来種＝チェルスノー国内にいるもの、外来種＝チェルスノー国外から国内に入ってきたもの、外国種＝チェルスノー国外にいるもの。</footer>
+<script type="application/json" id="embedded-data">{
+ "entries": [
+  {
+   "category": "哺乳類",
+   "continent": "A大陸",
+   "description": "全身が白く長い毛で覆われた小型の哺乳類。耳は毛の中に埋もれて目立たず、目は黒く大きい。足裏には幅広い毛が生え、深い雪の上でも沈みにくい。体温を保つため、毛は二層構造になっており、外側の長い毛が雪を弾き、内側の密な毛が空気をためる。",
+   "diet": "草食。雪解け期の若芽や地中の根茎、冬は雪の下に貯えた種子を食べる。",
+   "ecology": "群れで暮らし、1つの群れは5〜12頭。雪の下に巣穴を掘り、冬のあいだは巣の中で集まって体温を分け合う。繁殖期は雪解けの直後で、1度に2〜3頭の子を産む。人を恐れず、集落の近くにも現れる。冬のあいだの食料貯蔵の習慣があり、巣の横に種子や根茎をため込む。",
+   "edible": "可食",
+   "habitat": "A大陸・チェルスノー首都圏北部の雪原と低木地帯。雪の下にトンネル状の巣を作る。",
+   "id": "A001",
+   "image": "images/A001.jpg",
+   "name_chelsno": "mófúlũ",
+   "name_ja": "シロフワモフ",
+   "origin": "在来種",
+   "pest": false,
+   "size": "体長40〜60cm、体重2〜4kg",
+   "taste": "肉は淡白で癖がなく、脂は少ない。煮込みにすると身がほぐれやすく、だしがよく出る。皮は厚く、毛皮として利用される。",
+   "temperament": "友好種",
+   "toxicity": "無毒",
+   "image_status": "generated"
+  },
+  {
+   "category": "鳥類",
+   "continent": "A大陸",
+   "description": "嘴が氷柱のように細長く透明に近い青白色をした大型の鳥。翼は灰青色で、先端が白い。羽毛の表面には細かい粉が付いており、これに触れると皮膚がかぶれる。鳴き声は甲高く、夜明け前に群れで鳴く。飛ぶときは翼をあまり羽ばたかせず、風に乗って滑空する。",
+   "diet": "雑食。魚や小動物のほか、集落の貯蔵食料を荒らす。嘴は氷柱のように細長く、凍った餌を砕くのに使う。",
+   "ecology": "群れで行動し、崖に集団で巣を作る。繁殖期は年に1度で、1度に1〜2個の卵を産む。貯蔵庫の戸を開けるほどの知能があり、集落では害鳥として扱われる。もとの生息地であるB大陸では天敵が多く数が抑えられていたが、A大陸では天敵が少なく増えている。",
+   "edible": "不可食",
+   "habitat": "A大陸東部・沿岸の崖地と集落周辺。もとはB大陸（太縫国）の寒冷な海岸に生息し、近年、船に付いて渡ってきた。",
+   "id": "A002",
+   "image": "images/A002.jpg",
+   "name_chelsno": "tsuráqũ",
+   "name_ja": "ツララドリ",
+   "origin": "外来種",
+   "pest": true,
+   "size": "翼開長110〜130cm、体重1.5〜2.5kg",
+   "temperament": "敵対種",
+   "toxicity": "有毒",
+   "image_status": "placeholder"
+  },
+  {
+   "category": "魚類",
+   "continent": "C大陸",
+   "description": "腹側に青白く光る発光器官を一列に持つ魚。体は細長く、背は濃い青緑色、腹は銀白色。光は仲間同士の合図に使われ、群れで泳ぐときは一斉に明滅する。目は大きく、暗い海中でも餌を見つけられる。鱗は小さく、触るとぬるぬるとする。",
+   "diet": "プランクトン食。口を開けて泳ぎ、水中の小さな浮遊生物をこし取る。",
+   "ecology": "数百匹の大きな群れで浅瀬を回遊する。繁殖期は夏で、浅瀬の岩場に卵を産み付ける。発光は求愛と群れの維持に使われ、光のパターンで群れの位置を知らせる。C大陸の沿岸では重要な漁獲対象で、干物として交易品にもなる。",
+   "edible": "可食",
+   "habitat": "C大陸沿岸の冷たい浅瀬。チェルスノー国外にのみ生息する。海水温は年間を通じて0〜5℃。",
+   "id": "A003",
+   "image": "images/A003.jpg",
+   "name_chelsno": "hikarílũ",
+   "name_ja": "ヒカリウオ",
+   "origin": "外国種",
+   "pest": false,
+   "size": "体長30〜50cm、体重0.5〜1.2kg",
+   "taste": "白身で脂がのっており、身はやわらかい。焼くと皮がぱりっとして香ばしく、身はほろほろとほどける。干物にすると旨みが増す。",
+   "temperament": "友好種",
+   "toxicity": "無毒",
+   "image_status": "placeholder"
+  }
+ ],
+ "note": "チェルスノー語名はすべて仮名。既存辞書（Cdic.json 1,582語）と照合し、2026-11-28時点で衝突がないことを確認済み。ただしスプレッドシート側の最新辞書との再照合はまだなので、みゅらが正式名を決めたら書き換えること。",
+ "title": "プルフカ動物図鑑",
+ "updated": "2026-11-28"
+}</script>
+<script>
+const JSON_FILE = "animals.json";
+let DATA = null, DATA_SOURCE = "";
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function imgTag(e, cls){
+  return '<img src="'+esc(e.image)+'" alt="'+esc(e.name_ja)+'" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;img-ph&quot;>画像準備中<br><small>placeholder</small></div>\'">';
+}
+function searchText(e){
+  return [e.name_ja,e.name_chelsno,e.category,e.description,e.ecology,e.habitat,e.continent,e.size,e.diet,e.taste,e.edible,e.toxicity,e.origin,e.temperament].filter(Boolean).join(" ").toLowerCase();
+}
+function applyFilters(){
+  const q = $("q").value.trim().toLowerCase();
+  const f = {
+    category:$("f-category").value, edible:$("f-edible").value, toxicity:$("f-toxicity").value,
+    temperament:$("f-temperament").value, pest:$("f-pest").value, origin:$("f-origin").value
+  };
+  const shown = DATA.entries.filter(e => {
+    if(q && !searchText(e).includes(q)) return false;
+    if(f.category && e.category!==f.category) return false;
+    if(f.edible && e.edible!==f.edible) return false;
+    if(f.toxicity && e.toxicity!==f.toxicity) return false;
+    if(f.temperament && e.temperament!==f.temperament) return false;
+    if(f.pest!=="" && String(e.pest)!==f.pest) return false;
+    if(f.origin && e.origin!==f.origin) return false;
+    return true;
+  });
+  render(shown);
+}
+function render(list){
+  const grid = $("grid");
+  $("count").textContent = "全" + DATA.entries.length + "件中 " + list.length + "件を表示";
+  $("empty").hidden = list.length>0;
+  grid.innerHTML = list.map(e =>
+    '<article class="card" data-id="'+esc(e.id)+'" tabindex="0">' + imgTag(e) +
+    '<div class="card-body"><h2>'+esc(e.name_ja)+'</h2><p class="chelsno">'+esc(e.name_chelsno)+'（仮名）</p>' +
+    '<div class="badges"><span class="badge">'+esc(e.category)+'</span><span class="badge">'+esc(e.edible)+'</span><span class="badge">'+esc(e.toxicity)+'</span><span class="badge">'+esc(e.origin)+'</span></div>' +
+    '<p class="habitat">'+esc(e.habitat)+'</p></div></article>'
+  ).join("");
+  grid.querySelectorAll(".card").forEach(card=>{
+    card.addEventListener("click",()=>openModal(card.dataset.id));
+    card.addEventListener("keydown",ev=>{if(ev.key==="Enter") openModal(card.dataset.id);});
+  });
+}
+function openModal(id){
+  const e = DATA.entries.find(x=>x.id===id); if(!e) return;
+  const rows = [
+    ["分類",e.category],["チェルスノー語名",e.name_chelsno+"（仮名）"],["生息地",e.habitat],
+    ["生息大陸",e.continent],["大きさ",e.size],["食性",e.diet],["可食",e.edible],
+    ["毒性",e.toxicity],["性質",e.temperament],["害獣",e.pest?"はい":"いいえ"],["由来",e.origin]
+  ];
+  if(e.taste) rows.push(["味",e.taste]);
+  $("modal-body").innerHTML =
+    '<button class="close" id="close" type="button">閉じる ×</button>' + imgTag(e) +
+    '<h2>'+esc(e.name_ja)+'</h2><p class="chelsno">'+esc(e.name_chelsno)+'（仮名）・ '+esc(e.id)+'</p>' +
+    '<table>'+rows.map(r=>'<tr><th>'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>').join("")+'</table>' +
+    '<p>'+esc(e.description)+'</p><p>'+esc(e.ecology)+'</p>';
+  $("modal").classList.add("open");
+  $("close").addEventListener("click",closeModal);
+}
+function closeModal(){ $("modal").classList.remove("open"); }
+$("modal").addEventListener("click",ev=>{if(ev.target.id==="modal") closeModal();});
+document.addEventListener("keydown",ev=>{if(ev.key==="Escape") closeModal();});
+["q","f-category","f-edible","f-toxicity","f-temperament","f-pest","f-origin"].forEach(id=>{
+  $(id).addEventListener("input",applyFilters);
+  $(id).addEventListener("change",applyFilters);
+});
+$("reset").addEventListener("click",()=>{
+  $("q").value="";
+  ["f-category","f-edible","f-toxicity","f-temperament","f-pest","f-origin"].forEach(id=>$(id).value="");
+  applyFilters();
+});
+async function load(){
+  try{
+    const res = await fetch(JSON_FILE);
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    DATA = await res.json(); DATA_SOURCE = JSON_FILE + " から読み込み";
+  }catch(err){
+    DATA = JSON.parse(document.getElementById("embedded-data").textContent);
+    DATA_SOURCE = "内蔵データから表示（"+JSON_FILE+" の fetch に失敗したため）";
+  }
+  $("source").textContent = "データ: " + DATA_SOURCE + " ｜ 更新: " + (DATA.updated||"");
+  applyFilters();
+}
+load();
+</script>
+</body>
+</html>
