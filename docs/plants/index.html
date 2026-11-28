@@ -47,6 +47,13 @@ button.reset{padding:6px 14px;border:1px solid var(--line);border-radius:6px;bac
 .modal-body th{width:110px;color:var(--head);font-weight:700}
 .close{float:right;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:14px;color:var(--ink)}
 footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#9a8a80}
+
+.gallery .modal-caption{font-size:13px;color:#9a8a80;margin:6px 0 0}
+.thumbs{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.thumb{border:2px solid var(--line);border-radius:8px;padding:0;background:#fff;cursor:pointer;width:96px;text-align:left;font:inherit;color:inherit;overflow:hidden}
+.thumb.active{border-color:var(--accent)}
+.thumb img{width:100%;height:72px;object-fit:cover;display:block}
+.thumb span{display:block;font-size:11px;padding:4px 6px;line-height:1.4}
 </style>
 </head>
 <body>
@@ -95,6 +102,14 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "habitat": "A大陸・チェルスノー首都圏北部の雪原の縁と川沿いの湿地。雪解け水のたまる場所に群生する。",
    "id": "P001",
    "image": "images/P001.jpg",
+   "image_status": "generated",
+   "images": [
+    {
+     "caption": "群生（雪解け期）",
+     "src": "images/P001.jpg",
+     "status": "generated"
+    }
+   ],
    "name_chelsno": "shíkrũ",
    "name_ja": "ユキシダ",
    "origin": "在来種",
@@ -102,8 +117,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "size": "高さ20〜40cm。群生すると一面を覆う。",
    "taste": "若芽はシャキシャキとした歯ごたえで、ほのかな甘みがある。苦みは少なく、生でも食べられる。茹でるとぬめりが出る。",
    "toxicity": "無毒",
-   "use": "若芽は食用。葉は乾燥させて保存食にする。根は粉にして焼き菓子の材料にされる。",
-   "image_status": "generated"
+   "use": "若芽は食用。葉は乾燥させて保存食にする。根は粉にして焼き菓子の材料にされる。"
   },
   {
    "category": "樹木",
@@ -113,14 +127,21 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "habitat": "C大陸内陸の寒冷乾燥地。川沿いの緑地帯に点在する。チェルスノー国外にのみ自生する。",
    "id": "P002",
    "image": "images/P002.jpg",
+   "image_status": "placeholder",
+   "images": [
+    {
+     "caption": "",
+     "src": "images/P002.jpg",
+     "status": "placeholder"
+    }
+   ],
    "name_chelsno": "kórilmũ",
    "name_ja": "コオリマツ",
    "origin": "外国種",
    "season": "通年常緑。樹液は夏に最も多く出る。",
    "size": "高さ10〜15m、幹の直径40〜70cm",
    "toxicity": "有毒",
-   "use": "木材は軽くて丈夫で、建材や家具に使われる。樹液は有毒のため、伐採時は手袋が必要。樹液を除いた材は無害。",
-   "image_status": "placeholder"
+   "use": "木材は軽くて丈夫で、建材や家具に使われる。樹液は有毒のため、伐採時は手袋が必要。樹液を除いた材は無害。"
   },
   {
    "category": "果物",
@@ -129,7 +150,20 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "edible": "可食",
    "habitat": "A大陸南部の丘陵地で栽培される。もとはB大陸（太縫国）の山地に自生し、交易で種が持ち込まれた。",
    "id": "P003",
-   "image": "images/P003.jpg",
+   "image": "images/P003-flower.jpg",
+   "image_status": "generated",
+   "images": [
+    {
+     "caption": "花（夏の初め）",
+     "src": "images/P003-flower.jpg",
+     "status": "generated"
+    },
+    {
+     "caption": "果実（夏の終わり）",
+     "src": "images/P003-fruit.jpg",
+     "status": "generated"
+    }
+   ],
    "name_chelsno": "áomílũ",
    "name_ja": "アオミ",
    "origin": "外来種",
@@ -137,8 +171,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "size": "低木で高さ1〜2m。果実は直径3〜4cm。",
    "taste": "甘酸っぱく、皮は薄くてそのまま食べられる。果汁が多く、口に入れるとさわやかな酸味が広がる。完熟すると甘みが強くなる。",
    "toxicity": "無毒",
-   "use": "生食のほか、果実酒やジャムにされる。乾燥させると甘みが凝縮し、保存食になる。",
-   "image_status": "placeholder"
+   "use": "生食のほか、果実酒やジャムにされる。乾燥させると甘みが凝縮し、保存食になる。"
   }
  ],
  "note": "チェルスノー語名はすべて仮名。既存辞書（Cdic.json 1,582語）と照合し、2026-11-28時点で衝突がないことを確認済み。ただしスプレッドシート側の最新辞書との再照合はまだなので、みゅらが正式名を決めたら書き換えること。",
@@ -150,11 +183,21 @@ const JSON_FILE = "plants.json";
 let DATA = null, DATA_SOURCE = "";
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function getImages(e){
+  if(Array.isArray(e.images) && e.images.length) return e.images.map(im=>({src:im.src,caption:im.caption||"",status:im.status||"placeholder"}));
+  if(e.image) return [{src:e.image,caption:"",status:e.image_status||"placeholder"}];
+  return [];
+}
+function imgHtml(src, alt){
+  return '<img src="'+esc(src)+'" alt="'+esc(alt)+'" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;img-ph&quot;>画像準備中<br><small>placeholder</small></div>\'">';
+}
 function imgTag(e, cls){
-  return '<img src="'+esc(e.image)+'" alt="'+esc(e.name_ja)+'" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;img-ph&quot;>画像準備中<br><small>placeholder</small></div>\'">';
+  const imgs = getImages(e);
+  if(!imgs.length) return '<div class="img-ph">画像準備中<br><small>placeholder</small></div>';
+  return imgHtml(imgs[0].src, e.name_ja);
 }
 function searchText(e){
-  return [e.name_ja,e.name_chelsno,e.category,e.description,e.use,e.habitat,e.continent,e.size,e.season,e.taste,e.edible,e.toxicity,e.origin].filter(Boolean).join(" ").toLowerCase();
+  return [e.name_ja,e.name_chelsno,e.category,e.description,e.use,e.habitat,e.continent,e.size,e.season,e.taste,e.edible,e.toxicity,e.origin].concat(getImages(e).map(im=>im.caption)).filter(Boolean).join(" ").toLowerCase();
 }
 function applyFilters(){
   const q = $("q").value.trim().toLowerCase();
@@ -197,12 +240,39 @@ function openModal(id){
   if(e.taste) rows.push(["味",e.taste]);
   if(e.use) rows.push(["用途",e.use]);
   $("modal-body").innerHTML =
-    '<button class="close" id="close" type="button">閉じる ×</button>' + imgTag(e) +
+    '<button class="close" id="close" type="button">閉じる ×</button>' + galleryHtml(e) +
     '<h2>'+esc(e.name_ja)+'</h2><p class="chelsno">'+esc(e.name_chelsno)+'（仮名）・ '+esc(e.id)+'</p>' +
     '<table>'+rows.map(r=>'<tr><th>'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>').join("")+'</table>' +
     '<p>'+esc(e.description)+'</p>';
   $("modal").classList.add("open");
   $("close").addEventListener("click",closeModal);
+  wireThumbs(e);
+}
+function galleryHtml(e){
+  const imgs = getImages(e);
+  if(!imgs.length) return '<div class="img-ph">画像準備中<br><small>placeholder</small></div>';
+  let html = '<div class="gallery"><div id="main-img-wrap">' + imgHtml(imgs[0].src, e.name_ja) + '</div>' +
+    '<p class="modal-caption" id="main-caption">' + esc(imgs[0].caption) + '</p>';
+  if(imgs.length > 1){
+    html += '<div class="thumbs">' + imgs.map((im,i)=>
+      '<button type="button" class="thumb' + (i===0?' active':'') + '" data-idx="'+i+'">' +
+      '<img src="'+esc(im.src)+'" alt="'+esc(im.caption||e.name_ja)+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'">' +
+      (im.caption ? '<span>'+esc(im.caption)+'</span>' : '') + '</button>'
+    ).join("") + '</div>';
+  }
+  return html + '</div>';
+}
+function wireThumbs(e){
+  const imgs = getImages(e);
+  document.querySelectorAll(".thumb").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const im = imgs[Number(btn.dataset.idx)]; if(!im) return;
+      document.getElementById("main-img-wrap").innerHTML = imgHtml(im.src, e.name_ja);
+      document.getElementById("main-caption").textContent = im.caption || "";
+      document.querySelectorAll(".thumb").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
 }
 function closeModal(){ $("modal").classList.remove("open"); }
 $("modal").addEventListener("click",ev=>{if(ev.target.id==="modal") closeModal();});

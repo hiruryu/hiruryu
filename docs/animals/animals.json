@@ -10,6 +10,14 @@
    "habitat": "A大陸・チェルスノー首都圏北部の雪原と低木地帯。雪の下にトンネル状の巣を作る。",
    "id": "A001",
    "image": "images/A001.jpg",
+   "image_status": "generated",
+   "images": [
+    {
+     "caption": "雪原に立つ成体",
+     "src": "images/A001.jpg",
+     "status": "generated"
+    }
+   ],
    "name_chelsno": "mófúlũ",
    "name_ja": "シロフワモフ",
    "origin": "在来種",
@@ -17,8 +25,7 @@
    "size": "体長40〜60cm、体重2〜4kg",
    "taste": "肉は淡白で癖がなく、脂は少ない。煮込みにすると身がほぐれやすく、だしがよく出る。皮は厚く、毛皮として利用される。",
    "temperament": "友好種",
-   "toxicity": "無毒",
-   "image_status": "generated"
+   "toxicity": "無毒"
   },
   {
    "category": "鳥類",
@@ -30,14 +37,21 @@
    "habitat": "A大陸東部・沿岸の崖地と集落周辺。もとはB大陸（太縫国）の寒冷な海岸に生息し、近年、船に付いて渡ってきた。",
    "id": "A002",
    "image": "images/A002.jpg",
+   "image_status": "placeholder",
+   "images": [
+    {
+     "caption": "",
+     "src": "images/A002.jpg",
+     "status": "placeholder"
+    }
+   ],
    "name_chelsno": "tsuráqũ",
    "name_ja": "ツララドリ",
    "origin": "外来種",
    "pest": true,
    "size": "翼開長110〜130cm、体重1.5〜2.5kg",
    "temperament": "敵対種",
-   "toxicity": "有毒",
-   "image_status": "placeholder"
+   "toxicity": "有毒"
   },
   {
    "category": "魚類",
@@ -49,6 +63,14 @@
    "habitat": "C大陸沿岸の冷たい浅瀬。チェルスノー国外にのみ生息する。海水温は年間を通じて0〜5℃。",
    "id": "A003",
    "image": "images/A003.jpg",
+   "image_status": "placeholder",
+   "images": [
+    {
+     "caption": "",
+     "src": "images/A003.jpg",
+     "status": "placeholder"
+    }
+   ],
    "name_chelsno": "hikarílũ",
    "name_ja": "ヒカリウオ",
    "origin": "外国種",
@@ -56,8 +78,7 @@
    "size": "体長30〜50cm、体重0.5〜1.2kg",
    "taste": "白身で脂がのっており、身はやわらかい。焼くと皮がぱりっとして香ばしく、身はほろほろとほどける。干物にすると旨みが増す。",
    "temperament": "友好種",
-   "toxicity": "無毒",
-   "image_status": "placeholder"
+   "toxicity": "無毒"
   }
  ],
  "note": "チェルスノー語名はすべて仮名。既存辞書（Cdic.json 1,582語）と照合し、2026-11-28時点で衝突がないことを確認済み。ただしスプレッドシート側の最新辞書との再照合はまだなので、みゅらが正式名を決めたら書き換えること。",

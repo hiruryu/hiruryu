@@ -8,6 +8,14 @@
    "habitat": "A大陸・チェルスノー首都圏北部の雪原の縁と川沿いの湿地。雪解け水のたまる場所に群生する。",
    "id": "P001",
    "image": "images/P001.jpg",
+   "image_status": "generated",
+   "images": [
+    {
+     "caption": "群生（雪解け期）",
+     "src": "images/P001.jpg",
+     "status": "generated"
+    }
+   ],
    "name_chelsno": "shíkrũ",
    "name_ja": "ユキシダ",
    "origin": "在来種",
@@ -15,8 +23,7 @@
    "size": "高さ20〜40cm。群生すると一面を覆う。",
    "taste": "若芽はシャキシャキとした歯ごたえで、ほのかな甘みがある。苦みは少なく、生でも食べられる。茹でるとぬめりが出る。",
    "toxicity": "無毒",
-   "use": "若芽は食用。葉は乾燥させて保存食にする。根は粉にして焼き菓子の材料にされる。",
-   "image_status": "generated"
+   "use": "若芽は食用。葉は乾燥させて保存食にする。根は粉にして焼き菓子の材料にされる。"
   },
   {
    "category": "樹木",
@@ -26,14 +33,21 @@
    "habitat": "C大陸内陸の寒冷乾燥地。川沿いの緑地帯に点在する。チェルスノー国外にのみ自生する。",
    "id": "P002",
    "image": "images/P002.jpg",
+   "image_status": "placeholder",
+   "images": [
+    {
+     "caption": "",
+     "src": "images/P002.jpg",
+     "status": "placeholder"
+    }
+   ],
    "name_chelsno": "kórilmũ",
    "name_ja": "コオリマツ",
    "origin": "外国種",
    "season": "通年常緑。樹液は夏に最も多く出る。",
    "size": "高さ10〜15m、幹の直径40〜70cm",
    "toxicity": "有毒",
-   "use": "木材は軽くて丈夫で、建材や家具に使われる。樹液は有毒のため、伐採時は手袋が必要。樹液を除いた材は無害。",
-   "image_status": "placeholder"
+   "use": "木材は軽くて丈夫で、建材や家具に使われる。樹液は有毒のため、伐採時は手袋が必要。樹液を除いた材は無害。"
   },
   {
    "category": "果物",
@@ -42,7 +56,20 @@
    "edible": "可食",
    "habitat": "A大陸南部の丘陵地で栽培される。もとはB大陸（太縫国）の山地に自生し、交易で種が持ち込まれた。",
    "id": "P003",
-   "image": "images/P003.jpg",
+   "image": "images/P003-flower.jpg",
+   "image_status": "generated",
+   "images": [
+    {
+     "caption": "花（夏の初め）",
+     "src": "images/P003-flower.jpg",
+     "status": "generated"
+    },
+    {
+     "caption": "果実（夏の終わり）",
+     "src": "images/P003-fruit.jpg",
+     "status": "generated"
+    }
+   ],
    "name_chelsno": "áomílũ",
    "name_ja": "アオミ",
    "origin": "外来種",
@@ -50,8 +77,7 @@
    "size": "低木で高さ1〜2m。果実は直径3〜4cm。",
    "taste": "甘酸っぱく、皮は薄くてそのまま食べられる。果汁が多く、口に入れるとさわやかな酸味が広がる。完熟すると甘みが強くなる。",
    "toxicity": "無毒",
-   "use": "生食のほか、果実酒やジャムにされる。乾燥させると甘みが凝縮し、保存食になる。",
-   "image_status": "placeholder"
+   "use": "生食のほか、果実酒やジャムにされる。乾燥させると甘みが凝縮し、保存食になる。"
   }
  ],
  "note": "チェルスノー語名はすべて仮名。既存辞書（Cdic.json 1,582語）と照合し、2026-11-28時点で衝突がないことを確認済み。ただしスプレッドシート側の最新辞書との再照合はまだなので、みゅらが正式名を決めたら書き換えること。",

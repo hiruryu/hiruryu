@@ -47,6 +47,13 @@ button.reset{padding:6px 14px;border:1px solid var(--line);border-radius:6px;bac
 .modal-body th{width:110px;color:var(--head);font-weight:700}
 .close{float:right;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:14px;color:var(--ink)}
 footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#9a8a80}
+
+.gallery .modal-caption{font-size:13px;color:#9a8a80;margin:6px 0 0}
+.thumbs{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.thumb{border:2px solid var(--line);border-radius:8px;padding:0;background:#fff;cursor:pointer;width:96px;text-align:left;font:inherit;color:inherit;overflow:hidden}
+.thumb.active{border-color:var(--accent)}
+.thumb img{width:100%;height:72px;object-fit:cover;display:block}
+.thumb span{display:block;font-size:11px;padding:4px 6px;line-height:1.4}
 </style>
 </head>
 <body>
@@ -103,6 +110,14 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "habitat": "A大陸・チェルスノー首都圏北部の雪原と低木地帯。雪の下にトンネル状の巣を作る。",
    "id": "A001",
    "image": "images/A001.jpg",
+   "image_status": "generated",
+   "images": [
+    {
+     "caption": "雪原に立つ成体",
+     "src": "images/A001.jpg",
+     "status": "generated"
+    }
+   ],
    "name_chelsno": "mófúlũ",
    "name_ja": "シロフワモフ",
    "origin": "在来種",
@@ -110,8 +125,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "size": "体長40〜60cm、体重2〜4kg",
    "taste": "肉は淡白で癖がなく、脂は少ない。煮込みにすると身がほぐれやすく、だしがよく出る。皮は厚く、毛皮として利用される。",
    "temperament": "友好種",
-   "toxicity": "無毒",
-   "image_status": "generated"
+   "toxicity": "無毒"
   },
   {
    "category": "鳥類",
@@ -123,14 +137,21 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "habitat": "A大陸東部・沿岸の崖地と集落周辺。もとはB大陸（太縫国）の寒冷な海岸に生息し、近年、船に付いて渡ってきた。",
    "id": "A002",
    "image": "images/A002.jpg",
+   "image_status": "placeholder",
+   "images": [
+    {
+     "caption": "",
+     "src": "images/A002.jpg",
+     "status": "placeholder"
+    }
+   ],
    "name_chelsno": "tsuráqũ",
    "name_ja": "ツララドリ",
    "origin": "外来種",
    "pest": true,
    "size": "翼開長110〜130cm、体重1.5〜2.5kg",
    "temperament": "敵対種",
-   "toxicity": "有毒",
-   "image_status": "placeholder"
+   "toxicity": "有毒"
   },
   {
    "category": "魚類",
@@ -142,6 +163,14 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "habitat": "C大陸沿岸の冷たい浅瀬。チェルスノー国外にのみ生息する。海水温は年間を通じて0〜5℃。",
    "id": "A003",
    "image": "images/A003.jpg",
+   "image_status": "placeholder",
+   "images": [
+    {
+     "caption": "",
+     "src": "images/A003.jpg",
+     "status": "placeholder"
+    }
+   ],
    "name_chelsno": "hikarílũ",
    "name_ja": "ヒカリウオ",
    "origin": "外国種",
@@ -149,8 +178,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "size": "体長30〜50cm、体重0.5〜1.2kg",
    "taste": "白身で脂がのっており、身はやわらかい。焼くと皮がぱりっとして香ばしく、身はほろほろとほどける。干物にすると旨みが増す。",
    "temperament": "友好種",
-   "toxicity": "無毒",
-   "image_status": "placeholder"
+   "toxicity": "無毒"
   }
  ],
  "note": "チェルスノー語名はすべて仮名。既存辞書（Cdic.json 1,582語）と照合し、2026-11-28時点で衝突がないことを確認済み。ただしスプレッドシート側の最新辞書との再照合はまだなので、みゅらが正式名を決めたら書き換えること。",
@@ -162,11 +190,21 @@ const JSON_FILE = "animals.json";
 let DATA = null, DATA_SOURCE = "";
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function getImages(e){
+  if(Array.isArray(e.images) && e.images.length) return e.images.map(im=>({src:im.src,caption:im.caption||"",status:im.status||"placeholder"}));
+  if(e.image) return [{src:e.image,caption:"",status:e.image_status||"placeholder"}];
+  return [];
+}
+function imgHtml(src, alt){
+  return '<img src="'+esc(src)+'" alt="'+esc(alt)+'" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;img-ph&quot;>画像準備中<br><small>placeholder</small></div>\'">';
+}
 function imgTag(e, cls){
-  return '<img src="'+esc(e.image)+'" alt="'+esc(e.name_ja)+'" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;img-ph&quot;>画像準備中<br><small>placeholder</small></div>\'">';
+  const imgs = getImages(e);
+  if(!imgs.length) return '<div class="img-ph">画像準備中<br><small>placeholder</small></div>';
+  return imgHtml(imgs[0].src, e.name_ja);
 }
 function searchText(e){
-  return [e.name_ja,e.name_chelsno,e.category,e.description,e.ecology,e.habitat,e.continent,e.size,e.diet,e.taste,e.edible,e.toxicity,e.origin,e.temperament].filter(Boolean).join(" ").toLowerCase();
+  return [e.name_ja,e.name_chelsno,e.category,e.description,e.ecology,e.habitat,e.continent,e.size,e.diet,e.taste,e.edible,e.toxicity,e.origin,e.temperament].concat(getImages(e).map(im=>im.caption)).filter(Boolean).join(" ").toLowerCase();
 }
 function applyFilters(){
   const q = $("q").value.trim().toLowerCase();
@@ -210,12 +248,39 @@ function openModal(id){
   ];
   if(e.taste) rows.push(["味",e.taste]);
   $("modal-body").innerHTML =
-    '<button class="close" id="close" type="button">閉じる ×</button>' + imgTag(e) +
+    '<button class="close" id="close" type="button">閉じる ×</button>' + galleryHtml(e) +
     '<h2>'+esc(e.name_ja)+'</h2><p class="chelsno">'+esc(e.name_chelsno)+'（仮名）・ '+esc(e.id)+'</p>' +
     '<table>'+rows.map(r=>'<tr><th>'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>').join("")+'</table>' +
     '<p>'+esc(e.description)+'</p><p>'+esc(e.ecology)+'</p>';
   $("modal").classList.add("open");
   $("close").addEventListener("click",closeModal);
+  wireThumbs(e);
+}
+function galleryHtml(e){
+  const imgs = getImages(e);
+  if(!imgs.length) return '<div class="img-ph">画像準備中<br><small>placeholder</small></div>';
+  let html = '<div class="gallery"><div id="main-img-wrap">' + imgHtml(imgs[0].src, e.name_ja) + '</div>' +
+    '<p class="modal-caption" id="main-caption">' + esc(imgs[0].caption) + '</p>';
+  if(imgs.length > 1){
+    html += '<div class="thumbs">' + imgs.map((im,i)=>
+      '<button type="button" class="thumb' + (i===0?' active':'') + '" data-idx="'+i+'">' +
+      '<img src="'+esc(im.src)+'" alt="'+esc(im.caption||e.name_ja)+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'">' +
+      (im.caption ? '<span>'+esc(im.caption)+'</span>' : '') + '</button>'
+    ).join("") + '</div>';
+  }
+  return html + '</div>';
+}
+function wireThumbs(e){
+  const imgs = getImages(e);
+  document.querySelectorAll(".thumb").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const im = imgs[Number(btn.dataset.idx)]; if(!im) return;
+      document.getElementById("main-img-wrap").innerHTML = imgHtml(im.src, e.name_ja);
+      document.getElementById("main-caption").textContent = im.caption || "";
+      document.querySelectorAll(".thumb").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
 }
 function closeModal(){ $("modal").classList.remove("open"); }
 $("modal").addEventListener("click",ev=>{if(ev.target.id==="modal") closeModal();});
