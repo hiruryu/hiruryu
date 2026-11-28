@@ -32,6 +32,7 @@ button.reset{padding:6px 14px;border:1px solid var(--line);border-radius:6px;bac
 .card-body{padding:12px 14px 14px}
 .card-body h2{font-size:18px;color:var(--head);margin:0 0 2px}
 .chelsno{font-style:italic;font-size:13px;margin:0 0 8px}
+.genus{font-size:12px;color:#9a8a80;margin:0 0 8px}
 .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .badge{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 9px;background:var(--bg)}
 .habitat{font-size:13px;margin:0}
@@ -46,6 +47,7 @@ button.reset{padding:6px 14px;border:1px solid var(--line);border-radius:6px;bac
 .modal-body th,.modal-body td{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
 .modal-body th{width:110px;color:var(--head);font-weight:700}
 .close{float:right;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:14px;color:var(--ink)}
+.genus-link{color:var(--accent);text-decoration:underline;cursor:pointer;background:none;border:none;padding:0;font:inherit}
 footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#9a8a80}
 
 .gallery .modal-caption{font-size:13px;color:#9a8a80;margin:6px 0 0}
@@ -78,6 +80,9 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
       <label>由来
         <select id="f-origin"><option value="">すべて</option><option>在来種</option><option>外来種</option><option>外国種</option></select>
       </label>
+      <label>属
+        <select id="f-genus"><option value="">すべて</option></select>
+      </label>
       <button class="reset" id="reset" type="button">リセット</button>
     </div>
   </div>
@@ -99,6 +104,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "continent": "A大陸",
    "description": "雪解け直後に芽吹く多年草。葉は細長く、表面に白い産毛が生えており、霜から芽を守る。茎は地表を這い、節から根を出して広がる。花は小さく白い星形で、雪解けから約2週間で咲く。根は地中深くまで伸び、冬のあいだは栄養をためる。",
    "edible": "可食",
+   "genus": "ユキシダ属",
    "habitat": "A大陸・チェルスノー首都圏北部の雪原の縁と川沿いの湿地。雪解け水のたまる場所に群生する。",
    "id": "P001",
    "image": "images/P001.jpg",
@@ -124,6 +130,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "continent": "C大陸",
    "description": "常緑の針葉樹。幹は灰白色で、樹皮は薄く剥がれやすい。葉は青緑色の針状で、表面に蝋の層があり、寒さと乾燥から身を守る。枝から出る樹液は乳白色で、皮膚に触れるとかぶれる。樹高は寒冷乾燥地の樹木としては高く、遠くからでも目立つ。",
    "edible": "不可食",
+   "genus": "コオリマツ属",
    "habitat": "C大陸内陸の寒冷乾燥地。川沿いの緑地帯に点在する。チェルスノー国外にのみ自生する。",
    "id": "P002",
    "image": "images/P002.jpg",
@@ -158,6 +165,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "continent": "A大陸",
    "description": "低木になる青い果実。果実は直径3〜4cmの丸い形で、熟すと濃い青色になる。皮は薄く、果肉は半透明の青白色で果汁が多い。種は小さく、果肉の中に3〜5個入る。花は淡い紫色で、夏の初めに咲く。",
    "edible": "可食",
+   "genus": "アオミ属",
    "habitat": "A大陸南部の丘陵地で栽培される。もとはB大陸（太縫国）の山地に自生し、交易で種が持ち込まれた。",
    "id": "P003",
    "image": "images/P003-flower.jpg",
@@ -207,13 +215,13 @@ function imgTag(e, cls){
   return imgHtml(imgs[0].src, e.name_ja);
 }
 function searchText(e){
-  return [e.name_ja,e.name_chelsno,e.category,e.description,e.use,e.habitat,e.continent,e.size,e.season,e.taste,e.edible,e.toxicity,e.origin].concat(getImages(e).map(im=>im.caption)).filter(Boolean).join(" ").toLowerCase();
+  return [e.name_ja,e.name_chelsno,e.genus,e.category,e.description,e.use,e.habitat,e.continent,e.size,e.season,e.taste,e.edible,e.toxicity,e.origin].concat(getImages(e).map(im=>im.caption)).filter(Boolean).join(" ").toLowerCase();
 }
 function applyFilters(){
   const q = $("q").value.trim().toLowerCase();
   const f = {
     category:$("f-category").value, edible:$("f-edible").value, toxicity:$("f-toxicity").value,
-    origin:$("f-origin").value
+    origin:$("f-origin").value, genus:$("f-genus").value
   };
   const shown = DATA.entries.filter(e => {
     if(q && !searchText(e).includes(q)) return false;
@@ -221,6 +229,7 @@ function applyFilters(){
     if(f.edible && e.edible!==f.edible) return false;
     if(f.toxicity && e.toxicity!==f.toxicity) return false;
     if(f.origin && e.origin!==f.origin) return false;
+    if(f.genus && e.genus!==f.genus) return false;
     return true;
   });
   render(shown);
@@ -232,6 +241,7 @@ function render(list){
   grid.innerHTML = list.map(e =>
     '<article class="card" data-id="'+esc(e.id)+'" tabindex="0">' + imgTag(e) +
     '<div class="card-body"><h2>'+esc(e.name_ja)+'</h2><p class="chelsno">'+esc(e.name_chelsno)+'（仮名）</p>' +
+    (e.genus?'<p class="genus">'+esc(e.genus)+'</p>':'') +
     '<div class="badges"><span class="badge">'+esc(e.category)+'</span><span class="badge">'+esc(e.edible)+'</span><span class="badge">'+esc(e.toxicity)+'</span><span class="badge">'+esc(e.origin)+'</span></div>' +
     '<p class="habitat">'+esc(e.habitat)+'</p></div></article>'
   ).join("");
@@ -243,7 +253,7 @@ function render(list){
 function openModal(id){
   const e = DATA.entries.find(x=>x.id===id); if(!e) return;
   const rows = [
-    ["分類",e.category],["チェルスノー語名",e.name_chelsno+"（仮名）"],["生息地",e.habitat],
+    ["分類",e.category],["属",e.genus],["チェルスノー語名",e.name_chelsno+"（仮名）"],["生息地",e.habitat],
     ["生息大陸",e.continent],["大きさ",e.size],["時期",e.season],["可食",e.edible],
     ["毒性",e.toxicity],["由来",e.origin]
   ];
@@ -252,10 +262,12 @@ function openModal(id){
   $("modal-body").innerHTML =
     '<button class="close" id="close" type="button">閉じる ×</button>' + galleryHtml(e) +
     '<h2>'+esc(e.name_ja)+'</h2><p class="chelsno">'+esc(e.name_chelsno)+'（仮名）・ '+esc(e.id)+'</p>' +
-    '<table>'+rows.map(r=>'<tr><th>'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>').join("")+'</table>' +
+    '<table>'+rows.map(r=> r[0]==="属" ? '<tr><th>属</th><td><button type="button" class="genus-link" id="genus-link">'+esc(r[1])+'</button></td></tr>' : '<tr><th>'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>').join("")+'</table>' +
     '<p>'+esc(e.description)+'</p>';
   $("modal").classList.add("open");
   $("close").addEventListener("click",closeModal);
+  const gl = $("genus-link");
+  if(gl) gl.addEventListener("click",()=>{ closeModal(); $("f-genus").value = e.genus || ""; applyFilters(); window.scrollTo({top:0}); });
   wireThumbs(e);
 }
 function galleryHtml(e){
@@ -284,16 +296,22 @@ function wireThumbs(e){
     });
   });
 }
+function buildGenusOptions(){
+  const sel = $("f-genus"); const cur = sel.value;
+  const genera = [...new Set(DATA.entries.map(e=>e.genus).filter(Boolean))];
+  sel.innerHTML = '<option value="">すべて</option>' + genera.map(g=>'<option>'+esc(g)+'</option>').join("");
+  if(genera.includes(cur)) sel.value = cur;
+}
 function closeModal(){ $("modal").classList.remove("open"); }
 $("modal").addEventListener("click",ev=>{if(ev.target.id==="modal") closeModal();});
 document.addEventListener("keydown",ev=>{if(ev.key==="Escape") closeModal();});
-["q","f-category","f-edible","f-toxicity","f-origin"].forEach(id=>{
+["q","f-category","f-edible","f-toxicity","f-origin","f-genus"].forEach(id=>{
   $(id).addEventListener("input",applyFilters);
   $(id).addEventListener("change",applyFilters);
 });
 $("reset").addEventListener("click",()=>{
   $("q").value="";
-  ["f-category","f-edible","f-toxicity","f-origin"].forEach(id=>$(id).value="");
+  ["f-category","f-edible","f-toxicity","f-origin","f-genus"].forEach(id=>$(id).value="");
   applyFilters();
 });
 async function load(){
@@ -306,6 +324,7 @@ async function load(){
     DATA_SOURCE = "内蔵データから表示（"+JSON_FILE+" の fetch に失敗したため）";
   }
   $("source").textContent = "データ: " + DATA_SOURCE + " ｜ 更新: " + (DATA.updated||"");
+  buildGenusOptions();
   applyFilters();
 }
 load();

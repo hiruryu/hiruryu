@@ -32,6 +32,7 @@ button.reset{padding:6px 14px;border:1px solid var(--line);border-radius:6px;bac
 .card-body{padding:12px 14px 14px}
 .card-body h2{font-size:18px;color:var(--head);margin:0 0 2px}
 .chelsno{font-style:italic;font-size:13px;margin:0 0 8px}
+.genus{font-size:12px;color:#9a8a80;margin:0 0 8px}
 .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .badge{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 9px;background:var(--bg)}
 .habitat{font-size:13px;margin:0}
@@ -46,6 +47,7 @@ button.reset{padding:6px 14px;border:1px solid var(--line);border-radius:6px;bac
 .modal-body th,.modal-body td{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
 .modal-body th{width:110px;color:var(--head);font-weight:700}
 .close{float:right;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:14px;color:var(--ink)}
+.genus-link{color:var(--accent);text-decoration:underline;cursor:pointer;background:none;border:none;padding:0;font:inherit}
 footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#9a8a80}
 
 .gallery .modal-caption{font-size:13px;color:#9a8a80;margin:6px 0 0}
@@ -84,6 +86,9 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
       <label>由来
         <select id="f-origin"><option value="">すべて</option><option>在来種</option><option>外来種</option><option>外国種</option></select>
       </label>
+      <label>属
+        <select id="f-genus"><option value="">すべて</option></select>
+      </label>
       <button class="reset" id="reset" type="button">リセット</button>
     </div>
   </div>
@@ -107,6 +112,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "diet": "草食。雪解け期の若芽や地中の根茎、冬は雪の下に貯えた種子を食べる。",
    "ecology": "群れで暮らし、1つの群れは5〜12頭。雪の下に巣穴を掘り、冬のあいだは巣の中で集まって体温を分け合う。繁殖期は雪解けの直後で、1度に2〜3頭の子を産む。人を恐れず、集落の近くにも現れる。冬のあいだの食料貯蔵の習慣があり、巣の横に種子や根茎をため込む。",
    "edible": "可食",
+   "genus": "フワモフ属",
    "habitat": "A大陸・チェルスノー首都圏北部の雪原と低木地帯。雪の下にトンネル状の巣を作る。",
    "id": "A001",
    "image": "images/A001.jpg",
@@ -134,6 +140,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "diet": "雑食。魚や小動物のほか、集落の貯蔵食料を荒らす。嘴は氷柱のように細長く、凍った餌を砕くのに使う。",
    "ecology": "群れで行動し、崖に集団で巣を作る。繁殖期は年に1度で、1度に1〜2個の卵を産む。貯蔵庫の戸を開けるほどの知能があり、集落では害鳥として扱われる。もとの生息地であるB大陸では天敵が多く数が抑えられていたが、A大陸では天敵が少なく増えている。",
    "edible": "不可食",
+   "genus": "ツララドリ属",
    "habitat": "A大陸東部・沿岸の崖地と集落周辺。もとはB大陸（太縫国）の寒冷な海岸に生息し、近年、船に付いて渡ってきた。",
    "id": "A002",
    "image": "images/A002.jpg",
@@ -160,6 +167,7 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "diet": "プランクトン食。口を開けて泳ぎ、水中の小さな浮遊生物をこし取る。",
    "ecology": "数百匹の大きな群れで浅瀬を回遊する。繁殖期は夏で、浅瀬の岩場に卵を産み付ける。発光は求愛と群れの維持に使われ、光のパターンで群れの位置を知らせる。C大陸の沿岸では重要な漁獲対象で、干物として交易品にもなる。",
    "edible": "可食",
+   "genus": "ヒカリウオ属",
    "habitat": "C大陸沿岸の冷たい浅瀬。チェルスノー国外にのみ生息する。海水温は年間を通じて0〜5℃。",
    "id": "A003",
    "image": "images/A003-side.jpg",
@@ -177,6 +185,34 @@ footer{max-width:1080px;margin:0 auto;padding:0 20px 32px;font-size:12px;color:#
    "pest": false,
    "size": "体長30〜50cm、体重0.5〜1.2kg",
    "taste": "白身で脂がのっており、身はやわらかい。焼くと皮がぱりっとして香ばしく、身はほろほろとほどける。干物にすると旨みが増す。",
+   "temperament": "友好種",
+   "toxicity": "無毒"
+  },
+  {
+   "category": "哺乳類",
+   "continent": "A大陸",
+   "description": "全身が茶色から灰色の長い毛で覆われた中型の哺乳類。シロフワモフの近縁種で、雪原ではなく森や草原に住む。耳は小さく毛の中に半分埋もれ、目は黒く大きい。足裏には幅広い毛が生え、苔むした地面でも滑りにくい。毛は二層構造で、外側の長い毛が雨を弾き、内側の密な毛が空気をためて体温を保つ。毛色は季節で変わり、夏は茶色が濃く、冬は灰色がかる。",
+   "diet": "雑食。森の木の実やキノコ、草原の若芽や根茎を食べる。秋には木の実を集めて巣の横に貯える。",
+   "ecology": "単独か2〜3頭の小さい群れで暮らす。夜行性に近く、明け方と夕方に活動する。繁殖期は春で、1度に2〜4頭の子を産む。人を恐れず、集落の近くにも現れる。冬は巣の中で集まって体温を分け合う。",
+   "edible": "可食",
+   "genus": "フワモフ属",
+   "habitat": "A大陸・チェルスノー首都圏南部の森と草原。苔むした倒木や岩陰に巣を作る。",
+   "id": "A004",
+   "image": "images/A004.jpg",
+   "image_status": "generated",
+   "images": [
+    {
+     "caption": "森の苔の上で立つ成体",
+     "src": "images/A004.jpg",
+     "status": "generated"
+    }
+   ],
+   "name_chelsno": "mófũ",
+   "name_ja": "フワモフ",
+   "origin": "在来種",
+   "pest": false,
+   "size": "体長50〜70cm、体重3〜5kg",
+   "taste": "肉はシロフワモフより脂がのっており、やわらかい。煮込みにすると身がほぐれやすく、だしがよく出る。秋の個体は木の実を多く食べるため、ほのかに甘い香りがする。皮は厚く、毛皮として利用される。",
    "temperament": "友好種",
    "toxicity": "無毒"
   }
@@ -204,13 +240,13 @@ function imgTag(e, cls){
   return imgHtml(imgs[0].src, e.name_ja);
 }
 function searchText(e){
-  return [e.name_ja,e.name_chelsno,e.category,e.description,e.ecology,e.habitat,e.continent,e.size,e.diet,e.taste,e.edible,e.toxicity,e.origin,e.temperament].concat(getImages(e).map(im=>im.caption)).filter(Boolean).join(" ").toLowerCase();
+  return [e.name_ja,e.name_chelsno,e.genus,e.category,e.description,e.ecology,e.habitat,e.continent,e.size,e.diet,e.taste,e.edible,e.toxicity,e.origin,e.temperament].concat(getImages(e).map(im=>im.caption)).filter(Boolean).join(" ").toLowerCase();
 }
 function applyFilters(){
   const q = $("q").value.trim().toLowerCase();
   const f = {
     category:$("f-category").value, edible:$("f-edible").value, toxicity:$("f-toxicity").value,
-    temperament:$("f-temperament").value, pest:$("f-pest").value, origin:$("f-origin").value
+    temperament:$("f-temperament").value, pest:$("f-pest").value, origin:$("f-origin").value, genus:$("f-genus").value
   };
   const shown = DATA.entries.filter(e => {
     if(q && !searchText(e).includes(q)) return false;
@@ -220,6 +256,7 @@ function applyFilters(){
     if(f.temperament && e.temperament!==f.temperament) return false;
     if(f.pest!=="" && String(e.pest)!==f.pest) return false;
     if(f.origin && e.origin!==f.origin) return false;
+    if(f.genus && e.genus!==f.genus) return false;
     return true;
   });
   render(shown);
@@ -231,6 +268,7 @@ function render(list){
   grid.innerHTML = list.map(e =>
     '<article class="card" data-id="'+esc(e.id)+'" tabindex="0">' + imgTag(e) +
     '<div class="card-body"><h2>'+esc(e.name_ja)+'</h2><p class="chelsno">'+esc(e.name_chelsno)+'（仮名）</p>' +
+    (e.genus?'<p class="genus">'+esc(e.genus)+'</p>':'') +
     '<div class="badges"><span class="badge">'+esc(e.category)+'</span><span class="badge">'+esc(e.edible)+'</span><span class="badge">'+esc(e.toxicity)+'</span><span class="badge">'+esc(e.origin)+'</span></div>' +
     '<p class="habitat">'+esc(e.habitat)+'</p></div></article>'
   ).join("");
@@ -242,7 +280,7 @@ function render(list){
 function openModal(id){
   const e = DATA.entries.find(x=>x.id===id); if(!e) return;
   const rows = [
-    ["分類",e.category],["チェルスノー語名",e.name_chelsno+"（仮名）"],["生息地",e.habitat],
+    ["分類",e.category],["属",e.genus],["チェルスノー語名",e.name_chelsno+"（仮名）"],["生息地",e.habitat],
     ["生息大陸",e.continent],["大きさ",e.size],["食性",e.diet],["可食",e.edible],
     ["毒性",e.toxicity],["性質",e.temperament],["害獣",e.pest?"はい":"いいえ"],["由来",e.origin]
   ];
@@ -250,10 +288,12 @@ function openModal(id){
   $("modal-body").innerHTML =
     '<button class="close" id="close" type="button">閉じる ×</button>' + galleryHtml(e) +
     '<h2>'+esc(e.name_ja)+'</h2><p class="chelsno">'+esc(e.name_chelsno)+'（仮名）・ '+esc(e.id)+'</p>' +
-    '<table>'+rows.map(r=>'<tr><th>'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>').join("")+'</table>' +
+    '<table>'+rows.map(r=> r[0]==="属" ? '<tr><th>属</th><td><button type="button" class="genus-link" id="genus-link">'+esc(r[1])+'</button></td></tr>' : '<tr><th>'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>').join("")+'</table>' +
     '<p>'+esc(e.description)+'</p><p>'+esc(e.ecology)+'</p>';
   $("modal").classList.add("open");
   $("close").addEventListener("click",closeModal);
+  const gl = $("genus-link");
+  if(gl) gl.addEventListener("click",()=>{ closeModal(); $("f-genus").value = e.genus || ""; applyFilters(); window.scrollTo({top:0}); });
   wireThumbs(e);
 }
 function galleryHtml(e){
@@ -282,16 +322,22 @@ function wireThumbs(e){
     });
   });
 }
+function buildGenusOptions(){
+  const sel = $("f-genus"); const cur = sel.value;
+  const genera = [...new Set(DATA.entries.map(e=>e.genus).filter(Boolean))];
+  sel.innerHTML = '<option value="">すべて</option>' + genera.map(g=>'<option>'+esc(g)+'</option>').join("");
+  if(genera.includes(cur)) sel.value = cur;
+}
 function closeModal(){ $("modal").classList.remove("open"); }
 $("modal").addEventListener("click",ev=>{if(ev.target.id==="modal") closeModal();});
 document.addEventListener("keydown",ev=>{if(ev.key==="Escape") closeModal();});
-["q","f-category","f-edible","f-toxicity","f-temperament","f-pest","f-origin"].forEach(id=>{
+["q","f-category","f-edible","f-toxicity","f-temperament","f-pest","f-origin","f-genus"].forEach(id=>{
   $(id).addEventListener("input",applyFilters);
   $(id).addEventListener("change",applyFilters);
 });
 $("reset").addEventListener("click",()=>{
   $("q").value="";
-  ["f-category","f-edible","f-toxicity","f-temperament","f-pest","f-origin"].forEach(id=>$(id).value="");
+  ["f-category","f-edible","f-toxicity","f-temperament","f-pest","f-origin","f-genus"].forEach(id=>$(id).value="");
   applyFilters();
 });
 async function load(){
@@ -304,6 +350,7 @@ async function load(){
     DATA_SOURCE = "内蔵データから表示（"+JSON_FILE+" の fetch に失敗したため）";
   }
   $("source").textContent = "データ: " + DATA_SOURCE + " ｜ 更新: " + (DATA.updated||"");
+  buildGenusOptions();
   applyFilters();
 }
 load();
